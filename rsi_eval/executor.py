@@ -95,7 +95,13 @@ def evaluate_candidate(family, task_id, source, *, root=ROOT, n_params=3,
         return finish(error)
     params = payload.get('params')
     if (not isinstance(params, list) or len(params) != n_params
-            or any(type(v) not in (float, int) or not math.isfinite(v) for v in params)):
+            or any(type(v) not in (float, int) for v in params)):
+        return finish({'status': 'candidate_error', 'error_kind': 'invalid_fitted_parameters'})
+    try:
+        params = [float(v) for v in params]
+    except (OverflowError, ValueError, TypeError):
+        return finish({'status': 'candidate_error', 'error_kind': 'invalid_fitted_parameters'})
+    if not all(math.isfinite(v) for v in params):
         return finish({'status': 'candidate_error', 'error_kind': 'invalid_fitted_parameters'})
     if (payload.get('converged') is not True or type(payload.get('nfev')) is not int
             or not 1 <= payload['nfev'] <= 100

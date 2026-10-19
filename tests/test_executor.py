@@ -1,3 +1,4 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -42,6 +43,19 @@ class ExecutorContractTests(unittest.TestCase):
                 result = evaluate_candidate('symbolic', 'oscillator1', 'source', root=Path(td), n_params=1)
                 self.assertEqual(result['error_kind'], 'invalid_fit_metadata')
                 self.assertEqual(run.call_count, 1)
+
+    def test_extreme_fitted_parameter_is_rejected_and_journaled(self):
+        task = {'family': 'symbolic', 'task_id': 'oscillator1', 'X': [[1]], 'y': [2], 'input_names': ['x']}
+        payload = {'status': 'success', 'params': [10 ** 400], 'nfev': 3,
+                   'converged': True, 'candidate_calls': 3}
+        with tempfile.TemporaryDirectory() as td, patch('rsi_eval.executor.symbolic.prepare_task', return_value=task), patch('rsi_eval.executor.run_candidate', return_value={'status': 'completed', 'result': payload}) as run:
+            result = evaluate_candidate('symbolic', 'oscillator1', 'source', root=Path(td), n_params=1)
+            self.assertEqual(result['status'], 'candidate_error')
+            self.assertEqual(result['error_kind'], 'invalid_fitted_parameters')
+            self.assertEqual(run.call_count, 1)
+            journals = list((Path(td) / 'runs/executor_feedback').glob('*.json'))
+            self.assertEqual(len(journals), 1)
+            self.assertEqual(json.loads(journals[0].read_text(encoding='utf-8')), result)
 
 
 if __name__ == '__main__':
