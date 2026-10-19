@@ -1,3 +1,6 @@
 # Matched official SDK/tools release, verified on 2026-10-20.
 openhands-sdk==1.55.1
 openhands-tools==1.55.1
+# 1.106 eagerly imports MCP 2 symbols; this SDK environment uses MCP 1.x.
+# Matches the compatibility bound added by upstream SDK 1.56.0.
+litellm==1.105.1

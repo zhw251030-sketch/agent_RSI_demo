@@ -4,7 +4,7 @@
 
 **OpenHands SDK 已通过无模型工具检查，Agent Canvas 网页已部署并选中本项目；当前仍为研究准备阶段。实验 Agent 调用为 0，尚无 RSI 方法实现、正式实验或性能结果。** 仓库名中的 RSI 是项目简称，不代表已实现递归自我改写。
 
-网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。模型尚未配置。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
+网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
 ## 当前选择
 
@@ -15,8 +15,10 @@
 | 符号任务 | 已核查 LLM-SRBench 的 phys_osc 接口并固定源码版本；受限数据未取得，具体方程和划分未冻结 |
 | 更新对象 | 建议区分产物 P（程序/公式）与修订策略 S，重点检验策略对新搜索状态的作用 |
 | 方法参照 | GEPA 式策略优化为共同候选，llm-genplan、LLM-SR、LaSR 等为任务参照；最终规则未选定 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1 已安装，无模型工具检查通过；模型、任务执行器和生成代码隔离尚未接入 |
-| 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，模型尚未配置 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1 已安装，无模型工具检查通过；MiniMax-M3 连接已验证；任务执行器和生成代码隔离尚未接入 |
+| 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
+
+模型配置与验收：[MiniMax-M3 使用说明](docs/operations/minimax.md)。本次包含连接检查调用，正式研究 Agent rollout 仍为 0。
 
 ## 阅读入口
 

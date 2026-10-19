@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-20",
+  "profile": "minimax-m3",
+  "profile_active": true,
+  "key_configured": true,
+  "model": "anthropic/MiniMax-M3",
+  "base_url": "https://api.minimax.cn/anthropic",
+  "thinking": "disabled",
+  "max_output_tokens": 4096,
+  "num_retries": 0,
+  "sdk155": {
+    "passed": true,
+    "sdk_version": "1.55.1",
+    "model": "anthropic/MiniMax-M3",
+    "base_url": "https://api.minimax.cn/anthropic",
+    "thinking": "disabled",
+    "tool_arguments_valid": true,
+    "tool_result": 42,
+    "final_reply": "42",
+    "llm_requests": 2,
+    "agent_rollouts": 0,
+    "output_cap_per_request": 256,
+    "usage": [
+      {
+        "prompt_tokens": 474,
+        "completion_tokens": 34,
+        "total_tokens": 508
+      },
+      {
+        "prompt_tokens": 239,
+        "completion_tokens": 2,
+        "total_tokens": 241
+      }
+    ]
+  },
+  "canvas156": {
+    "passed": true,
+    "sdk_version": "1.56.0",
+    "model": "anthropic/MiniMax-M3",
+    "base_url": "https://api.minimax.cn/anthropic",
+    "thinking": "disabled",
+    "tool_arguments_valid": true,
+    "tool_result": 42,
+    "final_reply": "42",
+    "llm_requests": 2,
+    "agent_rollouts": 0,
+    "output_cap_per_request": 256,
+    "usage": [
+      {
+        "prompt_tokens": 474,
+        "completion_tokens": 34,
+        "total_tokens": 508
+      },
+      {
+        "prompt_tokens": 239,
+        "completion_tokens": 2,
+        "total_tokens": 241
+      }
+    ]
+  },
+  "prior_diagnostics": {
+    "pre_transport_import_failures": 2,
+    "provider_responses_before_final_checks": 3,
+    "notes": "Two tool responses exposed a probe response-accessor bug; one subsequent response failed a probe assertion. These diagnostics are not research results."
+  },
+  "total_model_requests_that_returned": 7,
+  "completed_agent_rollouts": 0,
+  "research_experiments": 0,
+  "recorded_usage_scope": "Final four requests only; earlier three responses did not have usage persisted. Cost is not asserted to be zero.",
+  "credential_plaintext_found_in_canvas_state": false,
+  "secret_source_preserved": true,
+  "local_reference_config_mode": "0o600",
+  "dependency_change": {
+    "old_litellm": "1.106.0",
+    "new_litellm": "1.105.1",
+    "sdk": "1.55.1",
+    "mcp": "1.28.1",
+    "pip_check": "passed",
+    "artifacts": [
+      {
+        "name": "litellm",
+        "version": "1.105.1",
+        "url": "https://files.pythonhosted.org/packages/07/1d/44e5c54df750ccb610285c778f92651794534a480dcce730eaf9d0aa8b31/litellm-1.105.1-cp310-abi3-manylinux_2_28_x86_64.whl",
+        "sha256": "f3d743c2d274c6537f7341213607c927c486676012a9d94412a8a8ccbe2f51f1"
+      }
+    ]
+  }
+}
