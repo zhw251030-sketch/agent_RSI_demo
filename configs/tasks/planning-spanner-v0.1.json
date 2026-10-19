@@ -1,0 +1,3773 @@
+{
+  "schema_version": "0.1",
+  "status": "pilot-preparation/draft",
+  "created_date": "2026-10-20",
+  "execution_authorized_by_this_file": false,
+  "purpose": "Explicit, reproducible static task inventory for planning-interface preparation; not a frozen formal evaluation protocol.",
+  "upstream": {
+    "repository": "https://github.com/tomsilver/llm-genplan",
+    "branch": "master",
+    "commit": "a2b8baa7153d5a8f2df51fbc72c51def80ddc169",
+    "tree_api_truncated": false,
+    "publication": "https://doi.org/10.1609/aaai.v38i18.30006",
+    "env_id": "pg3-spannerlearning"
+  },
+  "domain": {
+    "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning.pddl",
+    "sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+    "git_blob_sha1": "77213543fed170e1d0cefdb963adecea7c2b9ccc"
+  },
+  "selection": {
+    "seed": 0,
+    "prompt_ids": [
+      "spannerlearning/seed0/problem0",
+      "spannerlearning/seed0/problem1"
+    ],
+    "development_feedback_ids": [
+      "spannerlearning/seed0/problem2",
+      "spannerlearning/seed0/problem3",
+      "spannerlearning/seed0/problem4",
+      "spannerlearning/seed0/problem5",
+      "spannerlearning/seed0/problem6",
+      "spannerlearning/seed0/problem7",
+      "spannerlearning/seed0/problem8",
+      "spannerlearning/seed0/problem9"
+    ],
+    "sealed_evaluation_ids": [
+      "spannerlearning_test/seed0/problem0",
+      "spannerlearning_test/seed0/problem1",
+      "spannerlearning_test/seed0/problem2",
+      "spannerlearning_test/seed0/problem3",
+      "spannerlearning_test/seed0/problem4",
+      "spannerlearning_test/seed0/problem5",
+      "spannerlearning_test/seed0/problem6",
+      "spannerlearning_test/seed0/problem7",
+      "spannerlearning_test/seed0/problem8",
+      "spannerlearning_test/seed0/problem9",
+      "spannerlearning_test/seed0/problem10",
+      "spannerlearning_test/seed0/problem11",
+      "spannerlearning_test/seed0/problem12",
+      "spannerlearning_test/seed0/problem13",
+      "spannerlearning_test/seed0/problem14",
+      "spannerlearning_test/seed0/problem15",
+      "spannerlearning_test/seed0/problem16",
+      "spannerlearning_test/seed0/problem17",
+      "spannerlearning_test/seed0/problem18",
+      "spannerlearning_test/seed0/problem19",
+      "spannerlearning_test/seed0/problem20",
+      "spannerlearning_test/seed0/problem21",
+      "spannerlearning_test/seed0/problem22",
+      "spannerlearning_test/seed0/problem23",
+      "spannerlearning_test/seed0/problem24",
+      "spannerlearning_test/seed0/problem25",
+      "spannerlearning_test/seed0/problem26",
+      "spannerlearning_test/seed0/problem27",
+      "spannerlearning_test/seed0/problem28",
+      "spannerlearning_test/seed0/problem29"
+    ],
+    "ordering": "Explicit numeric problem suffix, not filesystem glob order. This is a project adaptation; the original 2/8 membership is not claimed to be identical.",
+    "strategy_selection_set": null,
+    "strategy_selection_note": "No independent strategy-selection set is configured. Do not perform adaptive strategy/candidate selection against sealed tasks. A later protocol must define a disjoint selection design before such selection."
+  },
+  "access_rules": {
+    "prompt": "Domain and these two problem files may be used to initialize the solver after runtime authorization.",
+    "development_feedback": "Only these eight tasks may provide task execution feedback in the planned single-step pilot.",
+    "sealed_evaluation": "Paths and hashes may be audited; task contents, validation traces and scores must remain outside proposer/updater context and candidate selection. Not evaluated in this preparation.",
+    "inventory_not_selected": "Recorded for provenance and duplicate audit only; not enabled for this pilot."
+  },
+  "inventory_counts": {
+    "official_train": 100,
+    "official_test": 300,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "per_seed_train": 10,
+    "per_seed_test": 30,
+    "selected_prompt": 2,
+    "selected_development_feedback": 8,
+    "selected_sealed_evaluation": 30
+  },
+  "static_audit": {
+    "all_401_files_git_blob_verified": true,
+    "problem_name_normalization": "Replace (problem <name>) header with (problem NAME); preserve remaining text; SHA-256 of UTF-8 text. This does not test object renaming, graph isomorphism, or semantic equivalence.",
+    "selected_seed0_duplicate_groups": [],
+    "selected_seed0_prompt_development_overlap": false,
+    "selected_seed0_train_test_overlap": false,
+    "all_seed_train_test_name_normalized_overlap_count": 0,
+    "official_train_name_normalized_unique": 92,
+    "official_test_name_normalized_unique": 300,
+    "all_seed_train_duplicate_groups": [
+      {
+        "problem_name_normalized_sha256": "8e4236d5efc08696dbf060a59d3ba783ca258da4b3f8953d6ce633dc6cc8a157",
+        "task_ids": [
+          "spannerlearning/seed0/problem0",
+          "spannerlearning/seed1/problem4"
+        ]
+      },
+      {
+        "problem_name_normalized_sha256": "65d87718186b8fdcb43a3b4f0aea956f096c0101d33594a55ab20e760802027b",
+        "task_ids": [
+          "spannerlearning/seed0/problem8",
+          "spannerlearning/seed7/problem0"
+        ]
+      },
+      {
+        "problem_name_normalized_sha256": "490c700c912f19c11b3f6f1c30a23e9aa95c4b3809dc3d403bf7ded1276635c7",
+        "task_ids": [
+          "spannerlearning/seed1/problem8",
+          "spannerlearning/seed3/problem1"
+        ]
+      },
+      {
+        "problem_name_normalized_sha256": "c3d43136243ffca0a8e31974364f5ad76d85788e067a86699bab61a83340d8ca",
+        "task_ids": [
+          "spannerlearning/seed3/problem6",
+          "spannerlearning/seed5/problem4",
+          "spannerlearning/seed7/problem9"
+        ]
+      },
+      {
+        "problem_name_normalized_sha256": "3fb4cfded07ef60787844678647cddb69c14993bb5e783238f22ec6545eb5e1e",
+        "task_ids": [
+          "spannerlearning/seed6/problem2",
+          "spannerlearning/seed6/problem5"
+        ]
+      },
+      {
+        "problem_name_normalized_sha256": "a90d4bb149f0114839b03b3883abdc14df752381441202cc09ef0b86fb35e04c",
+        "task_ids": [
+          "spannerlearning/seed6/problem8",
+          "spannerlearning/seed8/problem2"
+        ]
+      },
+      {
+        "problem_name_normalized_sha256": "0197ef8a622056f4b876dd1ec07264b68e48c0fba5c61ee6bd0a88746c67c927",
+        "task_ids": [
+          "spannerlearning/seed7/problem8",
+          "spannerlearning/seed8/problem0"
+        ]
+      }
+    ],
+    "blocking_conflicts_for_selected_seed0": [],
+    "runtime_checks_completed": false,
+    "semantic_deduplication_completed": false
+  },
+  "tasks": [
+    {
+      "id": "spannerlearning/seed0/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem0.pddl",
+      "sha256": "9dd3f63454e646145a4a555cdd974d0c4fce27603274b06e82f137ffe489c944",
+      "git_blob_sha1": "126fb4479f932c2dbfd06b03fb11140b4bf8efd1",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "prompt"
+    },
+    {
+      "id": "spannerlearning/seed0/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem1.pddl",
+      "sha256": "6bfc9e1215a82f90ee7c47b125e6095ef8d4b69f2af3bed9a911102c914b1e6f",
+      "git_blob_sha1": "bac503d2735b6553c2cf2255b7912fd6e05e259b",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "prompt"
+    },
+    {
+      "id": "spannerlearning/seed0/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem2.pddl",
+      "sha256": "7f1f6e2d8783f1ed6e92ddc76e49690383fdfaadf3c4237a577da4d6fdcdc4a6",
+      "git_blob_sha1": "038320e7ad9993e09b3abc6b38c93034614aa774",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning/seed0/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem3.pddl",
+      "sha256": "41366122fe3938040f1326561ed4f3e0f451d8569da5ddeaa53713ffe603df53",
+      "git_blob_sha1": "a295a9f4018aed215e6df79d43f74a3a1f61c6f8",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning/seed0/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem4.pddl",
+      "sha256": "3bcf7a1edd24b1fd9315e9b6b6861039fcbe2980775775531cda9c2f7231d081",
+      "git_blob_sha1": "3a41ccbea688c1b50c4461ef58ad930c5719c0c4",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning/seed0/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem5.pddl",
+      "sha256": "781456e7c41374e789de62f92cf7680b9ae014578d7ad6e3973fa860a8a55a9b",
+      "git_blob_sha1": "75637891ac140d468f1c178a1bffa095c3c8ce8c",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning/seed0/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem6.pddl",
+      "sha256": "9e424ac5cb94863769da1bde2f0f411c2b3d97449986f12116f93b063b9bfc16",
+      "git_blob_sha1": "7ddb03c8d50199faf795a8c85c6dfda82c22ab6f",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning/seed0/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem7.pddl",
+      "sha256": "615718c14109001805e98f6abaedca0b8448c403ad7805f3670c836df2efae8a",
+      "git_blob_sha1": "6c14b1558ce15386db50886a25fa9ddb60faef2b",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning/seed0/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem8.pddl",
+      "sha256": "0d3424e2b0144861a8850e27d517c6399428e49b63943c5e667c87590c371268",
+      "git_blob_sha1": "729d41bd9adf4ac8392479379219789922603c5a",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning/seed0/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed0/problem9.pddl",
+      "sha256": "fc7f31827a70686ce71b476b4750639b86a8540e7f705f479799df0026d4873d",
+      "git_blob_sha1": "f5681a6e4c5803f8a8803454d8dec0264f8d4724",
+      "seed": 0,
+      "official_subset": "official_train",
+      "pilot_role": "development_feedback"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem0.pddl",
+      "sha256": "21a3bb2390d895972e9dda429407652374835b3c7819a0fa09cc9ab70ec0aeb2",
+      "git_blob_sha1": "f11e6e60ef9efc2575e759be107fc15febbd92f8",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem1.pddl",
+      "sha256": "f29911c7d1c77f4cc4fc88a40734e28377ca3236960ef4897a939a193a69cf5a",
+      "git_blob_sha1": "36bbac535da1d6355701e6941491f8858cf0416a",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem2.pddl",
+      "sha256": "69dfe9d23c35c3d1203712b22de172c6853a01f8939ba9930b20a07f866c4998",
+      "git_blob_sha1": "69a4ec1e99d0a9a49348c64cfe91be4d35378f0a",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem3.pddl",
+      "sha256": "80df13e9cc0a0dc22aac9df60e51a6d91f2b16f0358dacf9f3bcc12dcdd0c34f",
+      "git_blob_sha1": "07cea9e0d28da5e3e0bb683b084a0448bb0e78a8",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem4.pddl",
+      "sha256": "b05bec83308dadd0fb0cc1973d384b9d06c09f497f579ba27fcdb28d060aa1d4",
+      "git_blob_sha1": "8213dbde4f0ddc41445e3613c547326160b6017e",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem5.pddl",
+      "sha256": "5fce212412ee7b46825a70d223542da3b66a405715c6c8b6d6068f3c2ffdb45d",
+      "git_blob_sha1": "b9689feb08ea7fab1d2a7d35f276978172e4fcf9",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem6.pddl",
+      "sha256": "8eeb96443734b2ff7e9e6fa8b157e79c44cf3bc7e13e93d269a864a470f6db26",
+      "git_blob_sha1": "1fdb93897c436b8568755c6e38de8a03a9881714",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem7.pddl",
+      "sha256": "519d732140024d16adf05e14d0d8c95ab49ac92479d9f24ac4bf446898760105",
+      "git_blob_sha1": "f320dd5012df71a6d7912e8c981fba17cf66236d",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem8.pddl",
+      "sha256": "1b89a5585351a2e49d8349dc480b1223d11ebe208f345c5397a67fd7fa7985b8",
+      "git_blob_sha1": "d9d7af26e1108a7b73cf9259c325fde85bd4f8a6",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem9.pddl",
+      "sha256": "988ab389bc695f32cad9d2a307fd12beaff0c757d51a7f263e30d3d5964e0b54",
+      "git_blob_sha1": "69dc5fa335e8ba9c42ed476581b1d59126f1beca",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem10.pddl",
+      "sha256": "4e9b46ad091604e4943ae205c80b2edbd7bcc9c142224c3df7470a7576095817",
+      "git_blob_sha1": "2781039fb386a507ee907f54d2c6ab049b7b78d6",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem11.pddl",
+      "sha256": "a3902bce0d6ba887d3e4fda2054927c4be7176feb25c65a2ada29f88ff419cea",
+      "git_blob_sha1": "cc670db4d466b02ba2f88e19770f298001ad3974",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem12.pddl",
+      "sha256": "b5f609e3374700d591ac5ef92adfbb87c6fdb55cf54ec4f56ac62763eb2a3943",
+      "git_blob_sha1": "ceff014a4374425f65b4239605863a6d5ae29365",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem13.pddl",
+      "sha256": "ec34873289ec86aa372b9c13ffa4eb57adccc130ffff2aeede8831116aad31f7",
+      "git_blob_sha1": "af669d7592b02a821f139d202f7187388fb5fe4f",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem14.pddl",
+      "sha256": "3856dfa81fe0d4d552e4949b95760f3bce4207e19e2c8d3c949cdf6b2075f479",
+      "git_blob_sha1": "c316b82b27616e6564717345cf2411a1cf9547d0",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem15.pddl",
+      "sha256": "f92ecac2b285c1318020b29398cf7c0032695e02b47886ffa0474956e8b87008",
+      "git_blob_sha1": "8e686082df5279b016de5c8c99158bf5bf58f734",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem16.pddl",
+      "sha256": "fa24ea264d81be6d9d4fc39a4570d5f65a39f3e2cc7936433e8ce758256a6b4e",
+      "git_blob_sha1": "8296df5d14d74de51df0275b7cf9485e707118ad",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem17.pddl",
+      "sha256": "6563a79d71c4bc215a783343e6f7c1db6dc7293f23b10cacf66108b11ea38d4d",
+      "git_blob_sha1": "1582f94b97fd6371ec2a3e032d814fc58469798a",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem18.pddl",
+      "sha256": "7e16f28c6b2056a9d2a601312730e534437655874dbddd596e4f028cb2be8aeb",
+      "git_blob_sha1": "caa8bb06804b503c9dc165f374338212a1fdbd79",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem19.pddl",
+      "sha256": "e96654f5947ae2b2c4b0edbf6a6ee75f48bdf14813ff0b4be8cd201168209abc",
+      "git_blob_sha1": "06ffd12f11a5d771852f9250ddf3db05193c135d",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem20.pddl",
+      "sha256": "925c84b0c9727f41509a69b787e16d73b361dc040b061fc6f853cf7d7819121d",
+      "git_blob_sha1": "15ec3394d5d2bb37def54b31ceae9d5df131f62f",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem21.pddl",
+      "sha256": "871ea65e3c7b7c532a04849c4b18b174733a5ea1e17bb58731c8e7c5270d2fe5",
+      "git_blob_sha1": "762638decb9fb9ec11a0a3640946e62557302ef5",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem22.pddl",
+      "sha256": "429b5014b611babb1bc927031e59214c14dc5a7d5b97e993047ed91cef75454a",
+      "git_blob_sha1": "bc1dd2eae2126291640d4937f380ba31e518be4d",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem23.pddl",
+      "sha256": "27fbef493bf4aed225e6d62632e6ae1e8fbc00f68bb3453d9735620e88f05f55",
+      "git_blob_sha1": "c229f1e9d82fcec2c0f004cd633e49b275f63d75",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem24.pddl",
+      "sha256": "ef1e1441685a648944555b31c485d47aaaaed9740144f42beb8530019e60c2fe",
+      "git_blob_sha1": "5704e4a523134b72cdd0ca04c97ba2b047a1aefb",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem25.pddl",
+      "sha256": "fa940944e3bfbd9d569a48d819cb72ebfe3759fe5abe172e59aa36b659ff7a6a",
+      "git_blob_sha1": "ca5b008a326e1e5b6a164ce6ed5bc76590885e26",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem26.pddl",
+      "sha256": "14788195112489ca6050e90eeafd790129cefd23bfcbca1a2703bd50ca2e3c9b",
+      "git_blob_sha1": "fd4aecf586a87ff37419d6d9e644eee8bfe3681a",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem27.pddl",
+      "sha256": "da0b8ecb842702c71487bed2e105054d97036e186128fffe36f4b8115f23f125",
+      "git_blob_sha1": "0ea47099273124302083ffc1249c046102e59ebd",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem28.pddl",
+      "sha256": "c69fd3dac69c93f259b6451b1398e608c9c957b092f555090592ce5538fe9f06",
+      "git_blob_sha1": "23887f354a59c8ad6b3136e6c20b434b4d189c6f",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning_test/seed0/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed0/problem29.pddl",
+      "sha256": "36dc7588fa95fd41f709f8909eea4ca20f893063cc56508f91334c9c8bbcc869",
+      "git_blob_sha1": "ecf4fccc6a8129fd8b5b5073de403686e01c834c",
+      "seed": 0,
+      "official_subset": "official_test",
+      "pilot_role": "sealed_evaluation"
+    },
+    {
+      "id": "spannerlearning/seed1/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem0.pddl",
+      "sha256": "ca791664f27740bd8965994ae2c9f2eb6e8d3ee919677f8f2dfd3acfde337d22",
+      "git_blob_sha1": "dd5f60ea499a311a11124ce5121eda9c183d2341",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem1.pddl",
+      "sha256": "4c3c0c1c17dfafd6f2f00edc6b9895d478c27ac5f861e085e0381cda56a968c8",
+      "git_blob_sha1": "5e48efa7b3390a2bd88324f4eba99bcb9df6c8a2",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem2.pddl",
+      "sha256": "15d6929c321ac73ea95fe8d28afb5733d5ab62526808fc8b167ec3f2d8d0c055",
+      "git_blob_sha1": "ee118d3fce7f1d1f1619bba9727710916307c471",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem3.pddl",
+      "sha256": "e133a7e64f49d2d309ceec54124d0d9efb4c167dcdc2a7af4b2c7c8fa13d0b07",
+      "git_blob_sha1": "24e7b6a5b595eb618ecb503585adae9fa0e798b9",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem4.pddl",
+      "sha256": "1438327bb6d0edf258421d68fa26720d7ad80866b03f0d3e6de65c8ba5fd313c",
+      "git_blob_sha1": "9d161f4f0ec5a4b54ea6c1da863d9eb1289fa0e4",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem5.pddl",
+      "sha256": "383fd6dc7f9df9d7b466e7a172364914737fed24fae02217d3fd949738e9b79c",
+      "git_blob_sha1": "730c6179a2c3b45441db0f7932904f089a116e9f",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem6.pddl",
+      "sha256": "7f0eaec31524d2725b4d83bd697e3c1f9aa4617c21f75e91b70d85372778f481",
+      "git_blob_sha1": "c021a9b5356521e8d73db3287e9fca55f6ad2f51",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem7.pddl",
+      "sha256": "43fff4e97a7624c7e4319e2206519dbb6f23412aa63bf3e20adce3b2ce4078a3",
+      "git_blob_sha1": "e6321dd72ca80198c82ef6d74075842e73796ec3",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem8.pddl",
+      "sha256": "029803cb30fc23e530ff63974b5779460f27463e07f6f4d68e66a8664b23947a",
+      "git_blob_sha1": "37899a42729c456b3edccf0fc224d47858a666f3",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed1/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed1/problem9.pddl",
+      "sha256": "ca0654e93b9a5b8717566679d9a93e515b90f96e0cb2fc941a3750b2de2724cf",
+      "git_blob_sha1": "717bee62bb969eee9c798c8b53faaa6ccd4d5133",
+      "seed": 1,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem0.pddl",
+      "sha256": "2bbd4f41ecc7a5264b911fd3414935f9fc89516723cfa5891a252316f39702ac",
+      "git_blob_sha1": "6668d3a40fc0ec2ee87eadd1d80774e1be5bb534",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem1.pddl",
+      "sha256": "3365e30439dba587c3cf97da85c7d6b13ff71d1e74b4d6b4dcbc49dad6c884f9",
+      "git_blob_sha1": "d98e835292201ba1e5c8b26ff91a19ef5db6535f",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem2.pddl",
+      "sha256": "0d92698fa912a2170d8d05db4e69953fbe7c6378d91e3a3bf6a45a18b6127d1c",
+      "git_blob_sha1": "348f96014a93352d4c388bd1a2f85cb398dee068",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem3.pddl",
+      "sha256": "daacb102c97fc8c87e8c7ac423dcc56e7d0e80babd3bc3daefd6df45794d8056",
+      "git_blob_sha1": "b912f810204509cdb996df9025b2e06ebbac7954",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem4.pddl",
+      "sha256": "37e51081b379fe5be080cbd131ef832122a9a4448e831abd3a12ed983a83ef8d",
+      "git_blob_sha1": "a0b03821c78202583f743549dcbffc9820a785f1",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem5.pddl",
+      "sha256": "d16008a6120fbccadf9920722c8476c7e74ac44256c37dd81b43c301893e5d39",
+      "git_blob_sha1": "a6edd9853cd3ef7a4cd779770dee5833153c9b9d",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem6.pddl",
+      "sha256": "39234bce907857d00020d338278084343b31106e076f32f318f8fd6d62be7def",
+      "git_blob_sha1": "14c710327b130f196310978b77a46e4ed3bf73cb",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem7.pddl",
+      "sha256": "ae01a30089d13b43cc613ab8223c97a00cde98a5db9d6df623610f196ae11566",
+      "git_blob_sha1": "b85e8f41ece8839a4eabdad3856deb66e8f5c75a",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem8.pddl",
+      "sha256": "41e9666fdbaf21a3df92ab68a675ebbb18a0aede970b24969588e850832dadaf",
+      "git_blob_sha1": "0298351a9f868d720d0730128780d491c7a21eb1",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem9.pddl",
+      "sha256": "f449823e65a3b72772a86cda730169d1d3bdc27edcac26af30b6a960ee513a19",
+      "git_blob_sha1": "4026b86aa40ed5a937efd5686394fd14b7636792",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem10.pddl",
+      "sha256": "6ac28d1866d681844156d801af121e81aa001c0da331e8ebfc8efeb5fcc8ddd9",
+      "git_blob_sha1": "ab86c9a4013e6828acf53b267b92dd496fe3e3a6",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem11.pddl",
+      "sha256": "a3b98ec0d3e56306ba3848550908527b9222d5d3eb442a43a854d7690482443d",
+      "git_blob_sha1": "32c1be4ddf0b805bc83747175a193766f2265638",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem12.pddl",
+      "sha256": "68edbb9568a1a94fed192772fc58bdc27b5b82ac9dc0d00a48803b29e07c96ec",
+      "git_blob_sha1": "3812a2864cb77f1da7f8d535448b68e9b20a9866",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem13.pddl",
+      "sha256": "61cb860dd8fae967624006cfb80fb695b50a68817af18828a0be0566b3d22720",
+      "git_blob_sha1": "a414a0c0349d3b96922350796c32e839c8717ed9",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem14.pddl",
+      "sha256": "e2b8b2d6ab9588d992bc3d5ab359c302914d3c3d4bb9de80290fcf6e4912897e",
+      "git_blob_sha1": "565b81d657d6a15206fc5a1b13b401a93b1ab2ce",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem15.pddl",
+      "sha256": "dbc1876ad5c0cd6ed25cbe78e90b4410516d6690c1e58086499ec152a1a3b458",
+      "git_blob_sha1": "731f2ea6bb3899a7d874c643f5231f32f3fd51b0",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem16.pddl",
+      "sha256": "23c8912ca34d6ed8a2a72df2d9d7c026a12c4627a17835bc2ffa96b17acf4c84",
+      "git_blob_sha1": "d1eb3d51e131c352d9b61e5d38a6ee2c1a1e2504",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem17.pddl",
+      "sha256": "23cf7fc56b003d5f813806f906809dbd26bd153b581d9d3f6861d6c258d6c915",
+      "git_blob_sha1": "1ff03e90a11313f48241cf0f98bab31ea15d16c4",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem18.pddl",
+      "sha256": "b9fc590cc423b33c7657d19390dcfa64952c95747dff742b5604d3fe2d72f749",
+      "git_blob_sha1": "f9023d1a61837aa51721b3033695269eebd0a404",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem19.pddl",
+      "sha256": "8d0d90607250a2098d2fb66271238d476ce8b35e0e00274d1197f392181336d4",
+      "git_blob_sha1": "8aacb6db9395bab86b247f92c45db0a28409161a",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem20.pddl",
+      "sha256": "2e9d267944f88bccbc2f42615830e34ba1de705166a1678db3f83355cde242b1",
+      "git_blob_sha1": "cb21611848f85878772898293a96b2feb28d3b47",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem21.pddl",
+      "sha256": "ae1f8a603d28ebf7059c63a592eeda3d8bc9ab36722136bfe00b544095e67af7",
+      "git_blob_sha1": "35983613c1aaf3805e3d07a70aa8193a4c05917b",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem22.pddl",
+      "sha256": "50caf4bd8ddbe099f64b2bcfef67e73f7a55afe1026cfac03267d85d2065554d",
+      "git_blob_sha1": "6d0f43a51a9d2310b51ebf5c3bf85a88fd75d233",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem23.pddl",
+      "sha256": "a176007548e0818a9f330e51001bbbb850f396edfe0cf4971b38c28ebdcf3115",
+      "git_blob_sha1": "f3335c5c59555a4eb0a83947e3da314069fd138c",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem24.pddl",
+      "sha256": "de295540dddee63f60090e10ac8021fa4ca7ce8aaa14e779ce9e020c59f74f0b",
+      "git_blob_sha1": "8151ba313106c4778e0581a3c27aaea5352352f8",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem25.pddl",
+      "sha256": "86bc565ce6708e1035b1e524e7d34909c61163deae2638a9e094f25c95d4fe4b",
+      "git_blob_sha1": "b41173e90b9c56ad93e0eeb08dea533a117ab72d",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem26.pddl",
+      "sha256": "769f0316c1925e31f2af74827cae9ee9b34a9f53fd8c26870894573e1311547e",
+      "git_blob_sha1": "d1798c0b44012361865f2314e3c22c9af4eebb9d",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem27.pddl",
+      "sha256": "8d3d90f5aec0b99a20bc671fdf1dbead8b0bc69304530397ce22bfddd73528c3",
+      "git_blob_sha1": "71490ed3a9f44dd872e78106152dd1cd5bba66c0",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem28.pddl",
+      "sha256": "ef27306946416cb5fd7f42ecacec1027e8c95275e9af50cc593d6bf876b654d4",
+      "git_blob_sha1": "876b1c400186040cbb2beb5c427fad824b4d8a34",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed1/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed1/problem29.pddl",
+      "sha256": "57dd75284c8eadc485797b3b50f06cc62f82c6f3a4ba42eb95b6ecaddd06a9d4",
+      "git_blob_sha1": "779dcad21f016b0ffbe7479f66a566ee6f3b6e8f",
+      "seed": 1,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem0.pddl",
+      "sha256": "1938854e2cf45adf84dd9fe96404b11756f734b8134292ce59939b0f0df1ff37",
+      "git_blob_sha1": "68380494e33b65e49ecc800eff1aaa85d168769d",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem1.pddl",
+      "sha256": "33326115838161ad10f110602134ddcf5159f01ff90de67c23e5d4d3b646c587",
+      "git_blob_sha1": "6e1153e08c7c7ca8d6c5a8032fd6c7e1e704da0e",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem2.pddl",
+      "sha256": "b28f13e73cf98771b2689b326844d8a405f2e1962c506f04cc89e8f40ce5ab90",
+      "git_blob_sha1": "cf8a9537808bd81f4a28e7ec0f67c195a7be2cd6",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem3.pddl",
+      "sha256": "3b09a672921543c50c5b17e0c5c129ff5df18a6e2d4f1d7bbe3600a1b068852c",
+      "git_blob_sha1": "7a124d61fc0133355fe8a956d4d49558ccda547c",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem4.pddl",
+      "sha256": "7937e125103e84a7e95f8099aabb68ca4e314d4240fbac9a55ef634e89dfb174",
+      "git_blob_sha1": "44c3464e560c4dccad44ef81ad4049413e6a1a1e",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem5.pddl",
+      "sha256": "a8db7a72b58cf5f48b856b3ac3331e67975eb6731970a4a0114d4aa0b8ac36f5",
+      "git_blob_sha1": "ec2518e2766238f23a201ddfc3c50e8dac954209",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem6.pddl",
+      "sha256": "3b35b95e25ab4e2b8af4936a0b84f85a48483db88e9c93048d0ee63a139c50d4",
+      "git_blob_sha1": "1b3b76cd4b080fa40b07d869245cb2b7e7dac67d",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem7.pddl",
+      "sha256": "6c72ba5317f04b21ae0b37ff614b1e3729b7e8d2078797c7ae4c5e8eba2ceddc",
+      "git_blob_sha1": "91991fae1a3df564d7a54341aed6754377911bbc",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem8.pddl",
+      "sha256": "1480a9f80e008637b3ea8770a7dfe75063236a232e8466b004f9f7d3bb3e919d",
+      "git_blob_sha1": "5b48a9c3e8f1c646fdeeb838e08334980e74d4f3",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed2/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed2/problem9.pddl",
+      "sha256": "9c6bfefa35c559258a9b01c41059c8fb79ed7ce5800c62b4e2a73feb5fc198cd",
+      "git_blob_sha1": "a39d1499957187b84b720cf5aaca321e6de7987c",
+      "seed": 2,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem0.pddl",
+      "sha256": "b0e0aff371a6f69f013a270abd65aee73a17fdffa0c42b288c6485bed4d2f598",
+      "git_blob_sha1": "cb4af0392e92b72a5b37daa77fe2b735680c97b0",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem1.pddl",
+      "sha256": "fb4ef8101b460ef61729e7e5850fe7c6b8514c8b4044219222d8a7975df4fbd2",
+      "git_blob_sha1": "c98caffad62b7f4661f6948ba4818aa39bf88001",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem2.pddl",
+      "sha256": "4e71f5c98766affa8c721dd0fa4d8a171c39429a99236f9133ca147c7e7c3bfd",
+      "git_blob_sha1": "0cf9166dc83cd7de1f736782d3ec06bc9088621b",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem3.pddl",
+      "sha256": "fb24c3bbde440a4b82435cd54a8e5f28a8496b88bb1ddc01860400f8e66bfd6d",
+      "git_blob_sha1": "9ef6ebe7b7383445c72f1bb1d1179f5bb1f86e4e",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem4.pddl",
+      "sha256": "d859644460a25a14066a78d2e85abc7fcd97feaa649c44326d74688ec0cb2136",
+      "git_blob_sha1": "4e333aa39ccd9fda91576e6cffb90143556ca572",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem5.pddl",
+      "sha256": "26af211ee79cdc2f2065303e32b5fc90f4b7473832459d5cfcce7429c3f7288c",
+      "git_blob_sha1": "e409cd0849fa51555f8f25be86e3a2ef569ce642",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem6.pddl",
+      "sha256": "c59367165d08b7609896e2bf70213864127e356bdbdf3f6c86d0be84c31fba8c",
+      "git_blob_sha1": "d3abc7bd0faa4ccd62e3c6edbb383411c7629654",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem7.pddl",
+      "sha256": "4c34622ff1b04828d0233cee779bff130c95dd13d445eda620de9ca881395808",
+      "git_blob_sha1": "1a01114bed94cea36b8f138b8dddf0b3c176456a",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem8.pddl",
+      "sha256": "bd57b9473b4c1a6d1441819e5d20e5342cd1f63fc532e6c9170e9c07aedddb08",
+      "git_blob_sha1": "3d2afc3f7848c968679df551a6b8397777b73d83",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem9.pddl",
+      "sha256": "30fc24f78ab3639d301851e1e4fa26c371afe1056a552c242985f7c2caafeb4e",
+      "git_blob_sha1": "f0178ead5d5b66d0f8bd3a20a8f9c514e5436a41",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem10.pddl",
+      "sha256": "2863b7114fa5d8c49b28f32b9c0cc4849c0759f967713e174681adb663dd22d8",
+      "git_blob_sha1": "9ec761ad7c5b3c9845bcfb9724fcdb6625067e23",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem11.pddl",
+      "sha256": "f306f07a0e61fbb5311e9ce07c23c9df8857bb894c2263673ec531b9c500573b",
+      "git_blob_sha1": "ab0199b3a368d564a2d8f98c22e60d55813845fe",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem12.pddl",
+      "sha256": "d0f6b8368651502801bb85080a9071715c148889d85bcc0352596fe377fd91bf",
+      "git_blob_sha1": "b4ed4a8ef930ec5aa3843a98ed3e435983e63130",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem13.pddl",
+      "sha256": "de8659f92a4320dd221ffa95571afec4ee04790dcc7ce655ed406186b052a3a0",
+      "git_blob_sha1": "6c1591e0155f8d31ede84a00423bee42ab957055",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem14.pddl",
+      "sha256": "ba45edb1282625f3d80cb6a9944bd5ea43612515fb9cc4e5abf520bb39a887cd",
+      "git_blob_sha1": "83fb9bfb9c56c7b285b7148d0d801b949547c400",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem15.pddl",
+      "sha256": "9487673cf5e6fd210c8200dceb09a9c3f06f6af1930e916de573b54de951777a",
+      "git_blob_sha1": "bce2dbb55f2d8bab5c53076b7364d6f55b64df77",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem16.pddl",
+      "sha256": "3cab5fbef84a0078c6ffd0a1853795d996e40b2c990633cc914ef114c379f339",
+      "git_blob_sha1": "e537306caa98ea40e5fa4fe67f8a808b26feac66",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem17.pddl",
+      "sha256": "f42e3648aed5c54774d88fe30c13d86b9e928a7295269e6cc9589e6812f258df",
+      "git_blob_sha1": "5988bbc2ede5eeaab847a81d324fce5dab07728d",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem18.pddl",
+      "sha256": "e9d7b0eadcf303982501547fc636a4c51417f860fe17b65c99f05a0eca8038e1",
+      "git_blob_sha1": "e58f5d49c03e99b823fcfe015f6bedb21bfb8289",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem19.pddl",
+      "sha256": "94baa887f59b7188bdf261ce4457ee5c758c0cc8ec07b31f5c610851c81825b8",
+      "git_blob_sha1": "075c3bfe06e934ff648386a1730a27154f8b0846",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem20.pddl",
+      "sha256": "986b7d9a3e2a63ea24d9f55d3c49945eb10fd5dbdcdda02082b759c0cb562a34",
+      "git_blob_sha1": "d8e97fcb6f846b06c653ec1df16719e167a35b4f",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem21.pddl",
+      "sha256": "edc3cc3e693f86fd78413e80a88d557b0d5905083798cf076e2721e07435abfc",
+      "git_blob_sha1": "631c761dccb9c3275f6a38b59f23ae128ba95cae",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem22.pddl",
+      "sha256": "ae5c21b8c784899cb30b8f419de31e4f68747de010001eccfcd1d691dfc8c9c8",
+      "git_blob_sha1": "17fe4b5328e912ca7c031f263b972e25e9fc401e",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem23.pddl",
+      "sha256": "c9c80878db5f2e0817adb3beef90215f6455c19ace4244e8eb7441b5b102debb",
+      "git_blob_sha1": "51939d756ac884ef10e6f2af889faa6687f22db1",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem24.pddl",
+      "sha256": "8ad425db91ddf048d0a2aecac13c3ff1684f69fb3ba7a242b47894133f44dd2f",
+      "git_blob_sha1": "17c50d595c2e6c7bf403542012d3393a39aa0fb3",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem25.pddl",
+      "sha256": "103e19dcf3cd38b568b5a96353d463f4ac24214036ad50a7533775c36a9efb02",
+      "git_blob_sha1": "74448b862d4736eb90c0c53ed095f2cd9584345b",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem26.pddl",
+      "sha256": "e0c9b1d21c1d005fe07952998e9ed8ee03268709338adb64009c2514a4a311a3",
+      "git_blob_sha1": "95e180c7f5d7830731ce1aec251ad91c2ca76808",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem27.pddl",
+      "sha256": "1111b31dbe4ac0c969d0334194080cb5eb2b23cd2a52bf15311f0c8ee482dd67",
+      "git_blob_sha1": "0dd77ebce69bb3ddc18217685b10e9cb860829dc",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem28.pddl",
+      "sha256": "78b2f0a1d9cf85b8b1d42ffee96d6eb913360ca9c249c87c8f08ef5cce724395",
+      "git_blob_sha1": "35cb0e5fdf267fac257d06c7cfe4ea3a3d9ca000",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed2/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed2/problem29.pddl",
+      "sha256": "bd91d1d501c32bd412562dd9983efd78553ebcc3c0bd0a1abd74a7e448628a18",
+      "git_blob_sha1": "c341f33f51b32406db5e8c54db941a8fe3993639",
+      "seed": 2,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem0.pddl",
+      "sha256": "bd880f6d91e32fdff4cb1a9b50d447d6ead2e448c8357bc83a39cd93366294f7",
+      "git_blob_sha1": "e645c922144609fcf37b3860b140f0aeb6fd108d",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem1.pddl",
+      "sha256": "5ac6a596a7f35c5d4eb3e9e727fc23a6a8c8f90bae548301ac575ad565c6f83d",
+      "git_blob_sha1": "035a4260ed2701744fbe8a3273cf9f1a34a1bb37",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem2.pddl",
+      "sha256": "571930ace485b94bcec3bb3815f490418e4de017f7b39729ba5362f357a56027",
+      "git_blob_sha1": "038f3e483439395b30c59015fa5c3e9f7a196d31",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem3.pddl",
+      "sha256": "187dbf87beb7170aecccb93cce5a3e967df7135462a56899d816fffa779513f7",
+      "git_blob_sha1": "ba2d82762a91f11e9ec25ba6662e2a603156c685",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem4.pddl",
+      "sha256": "db03bb0e9360a0c1e6b057c7aea50438bbab181695be12d5b8ecd23f3aed2f4b",
+      "git_blob_sha1": "5e069026923501762855a0065266a3bd7b6d8918",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem5.pddl",
+      "sha256": "cbe8a07652ecaf80d977f50e3e4388ae4b5f9be8d5683eb8f79899b2a4b25f71",
+      "git_blob_sha1": "c930f7cf6aa2220a9cb8cc17ab96fd4629182a81",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem6.pddl",
+      "sha256": "31221eed0065629fc150b3d870a168b3120f62a978ab7b4f451bd5b8830b8c70",
+      "git_blob_sha1": "c8c20e79ea1ebc590519e4585eed98ceca29a78d",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem7.pddl",
+      "sha256": "85dc9d1ae4cbe6872dc0022cf72f007899d78a2c3deafe8b78e17604b340c3c7",
+      "git_blob_sha1": "401d529e88f88d2286e8e2d584ec5b845d3ca6fd",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem8.pddl",
+      "sha256": "549542935493c6f8d5c64288d9334663f2fb9478b697bf2ed9549c801e8848dd",
+      "git_blob_sha1": "4c52f1bc7ed83cb2e88d064376bba776d4c95006",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed3/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed3/problem9.pddl",
+      "sha256": "b5ae2b1f8c2b6a3e9344e6de0449555890bc75d85702b1d837a7921e84337521",
+      "git_blob_sha1": "71171dfb1ffabf19c753bf278f8a9ec32498641c",
+      "seed": 3,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem0.pddl",
+      "sha256": "00bd0b3546cf7684f3df4658a0b909c83586ac12286120cec89552a26bc0bbf4",
+      "git_blob_sha1": "43e3bea9ba42077f3383a64f6bc68a559c86c887",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem1.pddl",
+      "sha256": "77318a783709d4205301e72b892b9c6b2a1fa2dd68d839eca9d31750ef133fde",
+      "git_blob_sha1": "a297cfcc3f3e50590994c0cbdd7c972a3f7ade84",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem2.pddl",
+      "sha256": "6a958d00c32f0e61f5924d3943340b8c3cc895f3a6f224f0b0bd7029a876370a",
+      "git_blob_sha1": "beaa44f37ad83fa043d1670441d531080210080d",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem3.pddl",
+      "sha256": "15f78897b6f7bd196ad0ad0c6990c3c8c3f0f7987684e809b4071bfecf985a0f",
+      "git_blob_sha1": "6e3c0830b21f5c984b8698d5d8c3e2f3ba9843ca",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem4.pddl",
+      "sha256": "24c32a743ecc92fb10ff21aa28362ca128663a3f96a47586f7e94820f29eda5b",
+      "git_blob_sha1": "d5114cac6c4de3fe6be8db71950e480ce4c805a8",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem5.pddl",
+      "sha256": "918e1d6c4aba902d21ff0948b582d6e8d59f4c730fd0c66affc6d25c38f60b5b",
+      "git_blob_sha1": "94cfb264539f54544e025c8f4c259abad60d51ac",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem6.pddl",
+      "sha256": "7eeff0aa143dda994da87cec2224d6f9a994efeb44fa2adca2a5a32c6c91ddbb",
+      "git_blob_sha1": "482b5236a5840a57a649732355d36cfa37ecaced",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem7.pddl",
+      "sha256": "3e96c48de6d41cce391013fff50a1ef4d4617576ab7c8994e7e64fa8467fef90",
+      "git_blob_sha1": "b772e3ea9f507992a63204da6948989aca9baa0b",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem8.pddl",
+      "sha256": "949f4c41cadbc08332cccc7c3733a44129b1cf9279f5ebd428fc37b4980df431",
+      "git_blob_sha1": "2ee102a8493bcf353ea6ef00889bed53e51fcb67",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem9.pddl",
+      "sha256": "5d424d3101ab49382cc1e0b270b0883783e1378facee164a6562604484b2f55c",
+      "git_blob_sha1": "2b6f03c3fef14f42a32b0565725cf905d3cacab2",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem10.pddl",
+      "sha256": "89bfd1e567e906ff9f373c6d2631b91880488d4c8a8571fcc5fe82c56ba63070",
+      "git_blob_sha1": "46eed7e0302d77ac4a4ab7cedc9ce0ca5ef1ca71",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem11.pddl",
+      "sha256": "c24ee39f91952e88d17e5667b4f98091fdb99fe6c7c280d2f3ad7814701a99fa",
+      "git_blob_sha1": "5ad63a0e65ff96aaa4be6b904fb38c121f8609fd",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem12.pddl",
+      "sha256": "f2d4047957d5fb24533d0be39555aea484a756469ee8c3b858100abf6460e3f6",
+      "git_blob_sha1": "1b13a6dac00cadbd0d4300a6c546bd572d6ed3e1",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem13.pddl",
+      "sha256": "a8f048265351c661810adccfd45d759cf6960d98758cea0120a9fc9310285e2e",
+      "git_blob_sha1": "c44667717e9c052ba665e1473fa61d8152ff53e5",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem14.pddl",
+      "sha256": "75d3a2ca821f475ab62c1858a5abce76b7258ed963dd4fe8573033d6bb42f9c0",
+      "git_blob_sha1": "79b1622fa3fde34069afccff11910942652cadc1",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem15.pddl",
+      "sha256": "3f2ad3940af3d1e5a9e1d2aeed13f5221e6ace4b86525236862092d534f38bc3",
+      "git_blob_sha1": "dc76eaaaaebaee026dedbe628efba3bd39bb53b5",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem16.pddl",
+      "sha256": "97289b67484a6902b6452e881e16c366283ab5e13e4c0e6640cd6fac2d1bffca",
+      "git_blob_sha1": "7e9a8b7189001f54cc9bef268bbf31e448059a27",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem17.pddl",
+      "sha256": "76bd9035d5d2fec5c38d0db3c68c5680a062988707304f8ba561db0ba31b1df4",
+      "git_blob_sha1": "e43b87f95d9cbc62661b860b1303be1e649222b2",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem18.pddl",
+      "sha256": "24fb4783c8128c7276200c4a751177e7c870c4728921def779662118d9ff36e0",
+      "git_blob_sha1": "0f8c3eb737f016095f7d1d1a6a808757eb1b43d1",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem19.pddl",
+      "sha256": "864f33e53653d60aef49fb45de10e5d3eb73ea20750927d7dddc44dee90995ba",
+      "git_blob_sha1": "14ae14b74a6fdabb81c0639b98c149f56ef5d968",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem20.pddl",
+      "sha256": "07c583e5aa4890307da312e6167dd972fd3cc7376a61b43a31cf08738a7e39f4",
+      "git_blob_sha1": "f07e52ca497011658fde747977e503762942b007",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem21.pddl",
+      "sha256": "e27b0f4b2169f5a2e85a944e8a8dcb393c97e7589258b39ce90c8b536289e575",
+      "git_blob_sha1": "03b25c5303c0cd655bb1039c52197bcf55db12e3",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem22.pddl",
+      "sha256": "f6494d11a4be21f832568fa316fe096f9c0f0e519f374e5a1e8ec90240d37015",
+      "git_blob_sha1": "1c7e826b713faa510b195a10de2ed4543317deb6",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem23.pddl",
+      "sha256": "2c4202a1e68fc43ff5232438167992c09a83dca4d8877765340d9683d07942d0",
+      "git_blob_sha1": "35868db2f9346ea562c1bc22f7369d06ec384007",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem24.pddl",
+      "sha256": "79f1e824a6ae65cd4fc6327a90eb74783469ca741fdeb4f9198d970d76b513f9",
+      "git_blob_sha1": "95eb55824687a5c989b90f60db29ef79364cfd65",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem25.pddl",
+      "sha256": "754f80316058df8c2704bb4e1b30de6e22cbb724fa94d432c2b3b99438ffcc6a",
+      "git_blob_sha1": "0bce1abe092d90317d894372df74f35c35bb362b",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem26.pddl",
+      "sha256": "f4a602756eeb6df13b193654bfef121ac7b1be2962824c4a2ce9426896bf7d87",
+      "git_blob_sha1": "5d3ebed03c6d516ca90841d27fa158f4017727b7",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem27.pddl",
+      "sha256": "7bda8a2a324bc25ee0c5f787baac3c6cec071238924df92a23182bd14ee90ca4",
+      "git_blob_sha1": "6e32343d041fcbae03230fa190c99b4a0018f7c3",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem28.pddl",
+      "sha256": "eae53d944b9c585fbaffde7d837f469fb29630851f1f3592bfb4d73f8de52c87",
+      "git_blob_sha1": "6005e966809f1339096cc039ae8127e66db2db13",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed3/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed3/problem29.pddl",
+      "sha256": "4fea856c9fb3039380e2a4045ec1000581e33bce53cc549a405d557186a63c3b",
+      "git_blob_sha1": "099a56d8b9d69fe9584038bd022cc2f9fd5f692a",
+      "seed": 3,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem0.pddl",
+      "sha256": "98990696af0d8abcf6f03b7a7702e84a0c0a9cb55d79791a4ae5c9362257c145",
+      "git_blob_sha1": "5ec8af2c5373388562cda8af0f17f25beb7a43b6",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem1.pddl",
+      "sha256": "b0ba9c0a50323488d0f5c675b7e0a6099d30a19443a66356f60204e9d4357868",
+      "git_blob_sha1": "b00eeffcb5962943da9c8be257d5f559e6735f16",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem2.pddl",
+      "sha256": "6cfa96b181dcbd35578e90cee845d24152219cca61650e35ce75ea2a46436dca",
+      "git_blob_sha1": "ccf77b472257ff35ddb3dfb79387e290850d6a7a",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem3.pddl",
+      "sha256": "e41b5ce1f831886ea27f0e3e2db74583a1a5ab5fc75e8d880c9caaed97a0c276",
+      "git_blob_sha1": "be72468dc70a31a9756b5dcfe8c0bd6c47314fde",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem4.pddl",
+      "sha256": "09a1a636b878a2ba081ac5bf8b86cf9aa8b627f2bf5d296a77e78571c7fd09a8",
+      "git_blob_sha1": "ae7401d0d39263d8a3ff7392c1e2389973e67ba5",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem5.pddl",
+      "sha256": "cbf04d7c2038b3b71ebf8dfb5080a58f067be3aa73ff7965310855eeee03cec6",
+      "git_blob_sha1": "c3a2b3b64f2583e73de5ac6513b8e0b20307d54c",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem6.pddl",
+      "sha256": "011062d8a5d698be42c1864a977f780086f8fa460ab2d97c842d56daa0a0d7b1",
+      "git_blob_sha1": "24c471f4d5c82d7feb9c2f237af5bf7232081f05",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem7.pddl",
+      "sha256": "8f9097ee6cfc2339dc6f1b9fa890925c37bfdd65ff259b11205f8ed4fa4b0014",
+      "git_blob_sha1": "80b26296ddbf57b498408982b0f03215c8bf5f5e",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem8.pddl",
+      "sha256": "f9a977ace4b0251ba2d380b8f08c6b74f3e6d93d6a81530ef075d01cb83539a0",
+      "git_blob_sha1": "e9bcc47b2aacd6058013fe0d524b10bdaee63805",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed4/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed4/problem9.pddl",
+      "sha256": "e126252571540f37ee11e686fed56b980c43a792a8a5d55f1824cd904c98f653",
+      "git_blob_sha1": "725fc2d7003f7a4c74d9d82c704bfa37534f88c6",
+      "seed": 4,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem0.pddl",
+      "sha256": "51fabe6f99028d2225a79c9cfae35ca7745d515c47da4fa0d3fc492229e3deda",
+      "git_blob_sha1": "c3ea1733d8e597b072b0d4af93b938b7348b459e",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem1.pddl",
+      "sha256": "02935eeddf983dd2dd886e502042115cd00410bb37a81aabea99f24159b9d7b9",
+      "git_blob_sha1": "28f168717f8acbca64c379d2510ea042e7bf5548",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem2.pddl",
+      "sha256": "667c71f15619a8f32d418da0ff625121eab938a757b70dae6b721054b1c7d795",
+      "git_blob_sha1": "e4a561e621a2654d9b9ffefeb984149f4a1a94d4",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem3.pddl",
+      "sha256": "60f56bd5a9671f1283cd1b334951a72097a4b178e8a6308c8e5fd6d8d0ea5fd9",
+      "git_blob_sha1": "968a46b131969d1c45b3e6e29a2a13167bfc45c9",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem4.pddl",
+      "sha256": "8b97783e154c791c533a34fbf28e18dec3c7b3c556fc0cc70047b24a5b76dd0b",
+      "git_blob_sha1": "fed1f74f0706fb1b2f54f0b7e51600fba3e7c1e0",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem5.pddl",
+      "sha256": "cf4ad40c036bd77ecf80b76619112479656d5bfc8afe47eb32ebe9792b7126d0",
+      "git_blob_sha1": "cf6bb2fbb8fe29b724c9ecdb28a04c4a31bfecb9",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem6.pddl",
+      "sha256": "453972ae53507364030daea5664deabfc3bb7b8899bd3d6840cfacb522f5f9a7",
+      "git_blob_sha1": "6b9a632dbb7601c3542ba802f18a89107b3bae98",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem7.pddl",
+      "sha256": "b4e27fc8274f3134f7c8a18419d977a29ab2c90bf3f837d88ea2e819637cbd07",
+      "git_blob_sha1": "f0605eac86a5d5b9f9a56b213d2bb9be704a6d54",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem8.pddl",
+      "sha256": "1b42383251dc67dbc6aff47024917b03189aa7f6c09cf007aad4e2a3290bb3fe",
+      "git_blob_sha1": "0f34cb1ba87d7cdf9a1922d5ef7fd5c19abf5644",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem9.pddl",
+      "sha256": "55a30fa501c828379efcb8ea8b8818c3b7305d09d35d5f715e1312a37882cb57",
+      "git_blob_sha1": "15f7a1e2a0b226e99af2e87cf7970676810fba14",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem10.pddl",
+      "sha256": "35b9b9e34c8729978109b3c3bd0de78cbc6ba4dbbd885e2fdac7eb91823dd935",
+      "git_blob_sha1": "67686e81f89db59d890cf3b84cd40d8cae07f1de",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem11.pddl",
+      "sha256": "98ed1d3d001d96a32ec536a7a5ee6e3c203b569bcb2ac88358ca1521cba4a33e",
+      "git_blob_sha1": "a698558535640cb2395739f4c08fa4732b32db58",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem12.pddl",
+      "sha256": "46dd3be8f946145071ab5a93f6c19b709abd5932c2af6b9dea547357a81439a3",
+      "git_blob_sha1": "9a03ffcd704f7e4cd6a0285d282521d406489e70",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem13.pddl",
+      "sha256": "5647cca59af4b8c06b64b649dc8f524fca404d35e6012bfc49c72ad254070136",
+      "git_blob_sha1": "5b26ea9e51bec756e8a874a8986f0413f37fdf51",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem14.pddl",
+      "sha256": "5ce1cd3e8722741ccc7fc2deacc4ff414751e276bb4fca03021d3be3ee2d6e42",
+      "git_blob_sha1": "513a29807c3b2506994c6afce01196a01f765d82",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem15.pddl",
+      "sha256": "434a7de827e8b2af35ab5e0ed8abc46a588ef03ddfbde0e8791447a3ce90b336",
+      "git_blob_sha1": "3e912c1c7e3eb9a0eae35782c3a2c96b1d0c6035",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem16.pddl",
+      "sha256": "6438405498a4e33e84579cc1452a405aed35c679315922db1b7e044c8b347c5f",
+      "git_blob_sha1": "a4bc88dc7e4c7d2d43a2e95593fcb45988537a1a",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem17.pddl",
+      "sha256": "fa0b7943b27fcbcef80e3f43ada49317e33d7311f9bd6fbe01e9c5c499e0cc2d",
+      "git_blob_sha1": "32c8c1d2c2b526a844954a2a1c9fcb5ca9fee5f4",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem18.pddl",
+      "sha256": "e3da1a405a032395cff40fbbf85607082bf8f667f87d52ba0b61e3dc555a5fad",
+      "git_blob_sha1": "54d32f4463f63ec6617d24873b7b44e52f8ce46a",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem19.pddl",
+      "sha256": "2e3cca398ad669996d0d5c6a5a124e35e9d9b87634abddb6fa93d57042200fd2",
+      "git_blob_sha1": "3635cef521c0b7103bdc5c233a4f3bcef432e799",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem20.pddl",
+      "sha256": "6ac810d43c6df46908e78eb141238f772c525e345887e494f6a4fc240178649e",
+      "git_blob_sha1": "62a40eb0a4628e5d4c9c83bde6c74e4a88e639ec",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem21.pddl",
+      "sha256": "89b29d7fa1ebdf51aa6f5c4f20da90364dc4c0dc90ab0f8bb18a37798e5cc44c",
+      "git_blob_sha1": "40d97735130ca82983d8948eba20f2d04ab5bec6",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem22.pddl",
+      "sha256": "d931fb2013da83dc6f34a8e5522303064659cb105eae2186e79bc71f79fa4e05",
+      "git_blob_sha1": "7805063102a03af09434b4eecbc863db2787dfe2",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem23.pddl",
+      "sha256": "239b352dbe136ec69c9f0385f40a30bb1bad65dc3c6707a660a7fe3cebdc0799",
+      "git_blob_sha1": "604f9a4bab81020d5be5c065de2cd09a86427adc",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem24.pddl",
+      "sha256": "ea491be027446448c1105e3cd4e31741b6fca516cada08d7e2eed2915fd9553b",
+      "git_blob_sha1": "05799393415c80651aabc3cc892b8b5d1cc40944",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem25.pddl",
+      "sha256": "f2f8f4b7640870c9f649ec63e0925a1803f95cca2b53f2fb57c6b7388c8fa1ff",
+      "git_blob_sha1": "75b6519c831b566d27dac9e900e77ff384b6cd95",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem26.pddl",
+      "sha256": "76adf7cc4c9ab1a1d9e013092895fc79ff860d68ca58749fbf99c0c18ef5108d",
+      "git_blob_sha1": "9ad77eb949736ccd17871055ae1a6b125ef71ba4",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem27.pddl",
+      "sha256": "e3412d54ec291287916cd05fd49d94a3fd23b9083da2a94621abb54bd14a10b5",
+      "git_blob_sha1": "cafc67d1d7c2b122ae4d3e39a4a791a0c7e536bc",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem28.pddl",
+      "sha256": "f5039cfa0a3f352590763a10947e027e9c78c33da80aae17915fd4ef6666304d",
+      "git_blob_sha1": "aaf1a816b5b69c90f199be91fb4ae452fae0849d",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed4/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed4/problem29.pddl",
+      "sha256": "5bc37761676e0a8abf986d44b420175229eb4f1004765f3c2669bb2347a22889",
+      "git_blob_sha1": "ad9aa87ef36a2ec1bb5d611dc9b957fcb824a016",
+      "seed": 4,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem0.pddl",
+      "sha256": "b340d748676842e19f712f7842cc497591fa66f642f1edf134da568e6ca1764c",
+      "git_blob_sha1": "20b574686fb4fc47a5972233387856e340bccd76",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem1.pddl",
+      "sha256": "1f6913a2940aac481c83612b0f2120a4e3e8765cecd1c467d0288a58503b3141",
+      "git_blob_sha1": "1cb633dfe59de572251fde17cfc127c3137aac12",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem2.pddl",
+      "sha256": "53b74ef82244d2cfe1836aacf41f4ff513b6db91e557e721ac8d730522be1aa1",
+      "git_blob_sha1": "f8441946423296cfda4a869a0c0a52b8e1281337",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem3.pddl",
+      "sha256": "59e95a6899fd5b2a003d1799a5468cd5920a50cf29fd7657cb05c5563da82f4a",
+      "git_blob_sha1": "d54d908088cbb01cdba930383dc67d835ae4318d",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem4.pddl",
+      "sha256": "891c6d153c945c18e8d856c8b46f0a6810d3b260ad8db40f205328f8fd324e17",
+      "git_blob_sha1": "b6291ee300c4bf9267412a4510e7b7663d9a717f",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem5.pddl",
+      "sha256": "5a0ec04e9a6a406a83e697c4dc0436b6f320d7189ddac2b1881772c3fc5de0d1",
+      "git_blob_sha1": "71bc0fc3e342be8ce104597f3c9fa571cadb0862",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem6.pddl",
+      "sha256": "c2d699690493c6ed722c8903ce5cf24395d20e4bb5bdca66ad62120bdf53db9c",
+      "git_blob_sha1": "f360d30e8eddae03100defc8638cb8b46dbb8153",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem7.pddl",
+      "sha256": "6cdaefc69fb4500d176d6456ff2a4914b689f0d08a292b0ef3865c7bcf578ca4",
+      "git_blob_sha1": "492e77cf67ff5b28fdc6ca108cd7dcf456403266",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem8.pddl",
+      "sha256": "2c1f9ba6022f058075117c608d84c4df6155466d4ff537526e1691dd1d75e4f4",
+      "git_blob_sha1": "9f8c6ddb093131b266e7ec247ea3d7bfe995018e",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed5/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed5/problem9.pddl",
+      "sha256": "21a8ec937da7ad5f71e8a4e293bfcf221e8c2b9c4d60c36bb2c1f37ef9b37e67",
+      "git_blob_sha1": "593619f308a925efcaf70281fc8c973772bff6a7",
+      "seed": 5,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem0.pddl",
+      "sha256": "1b10ee548373bb8ee407e911372b236a88ed75b3c00cb11a2f9c9d548a3eb399",
+      "git_blob_sha1": "12e35307fd3a3d42d47612199594fd72fe00523f",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem1.pddl",
+      "sha256": "9468c5ff6c150bb70a6671b315581becbd273d1ff55fe4b18097bc2817100172",
+      "git_blob_sha1": "27af55776750c5fa8867c86c305a84c9db5f5acf",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem2.pddl",
+      "sha256": "7ff4a79b60df734b9d30e1671d9ebac4524212a95c947104e64aa81259f285f9",
+      "git_blob_sha1": "98949735eb17e7ae1c72e0724cddc3a1b5f74ab5",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem3.pddl",
+      "sha256": "372b1565fde2e0eeb4a608fc9037ad2e5a084f764ea5627edde5e9a4db497f0d",
+      "git_blob_sha1": "f2e0dff1f74e973372713b3b79f5de274c86e4f5",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem4.pddl",
+      "sha256": "4a28e9fef04c0efd43b38a67a3a85d9aae9f0ede85b6441823a367c17e2dbecf",
+      "git_blob_sha1": "f6bf46464973148680d87295a25e8b28ca2c3d91",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem5.pddl",
+      "sha256": "a543b4eae54d504e4ba543de3cc66a350e024eaf9dc95a34a2a6794497ea7db2",
+      "git_blob_sha1": "e612623b4963df6fb363b2d1d1dad28c40dd0051",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem6.pddl",
+      "sha256": "fdd12561fe1365c8d93a35de64ae534b92392930d730a894693d83f8a7889135",
+      "git_blob_sha1": "11198d46f9d392bc6f740c9fe23039f70b485ae1",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem7.pddl",
+      "sha256": "0e02cbdd7c14e8b97055bae7b50a90acd68c4e2e8899fed94090baa4ad006243",
+      "git_blob_sha1": "ab638baa796dee918eebbedfb6a1a64c4fd51bb2",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem8.pddl",
+      "sha256": "ce9681e29a761bf22fa75e2178ff81644222fe32e2c8f18a59b6a37c570e1bd0",
+      "git_blob_sha1": "558f391f5da905e7c1097dde0c870d92a3809509",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem9.pddl",
+      "sha256": "3caaee8b8ff0bcc8688f73a70d81f36467b1be50067a6197c80e88ba560ecfe8",
+      "git_blob_sha1": "d8879685764f456288b451902b063dddbf1af428",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem10.pddl",
+      "sha256": "df9c6f5b667e15aa49add1f00cdcd35e6d6aece22ed4bba31f185f58d6e5ba6f",
+      "git_blob_sha1": "b4df8b2b28020eaad2d67ba6dafbd664f339434f",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem11.pddl",
+      "sha256": "9a5af9ce176d404dd96ed875cd3931fce2bdea5c1cdd757bad81d7e692527bf3",
+      "git_blob_sha1": "73192fc79a2808331d42ad6f507a8d8b02c7da2a",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem12.pddl",
+      "sha256": "ffd15ac816b382df4a03630e2acc2964a0493fab762dbeef8bfee7b9ad9135ac",
+      "git_blob_sha1": "26ff35d7f74064f04379e4ce9115e7151d4baab7",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem13.pddl",
+      "sha256": "d30d356ab35cbbf7ac4f00d476ee5ad13979c85be5eb16a59144c7c46a865382",
+      "git_blob_sha1": "37253887db064a84837d4c49114555657fbbd638",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem14.pddl",
+      "sha256": "313c843ea9a40289f182c8180122be7a4f791c76703387b14aa056bd6672a61e",
+      "git_blob_sha1": "f6bd26731d20dbacc355f345e9318f6b8a26bcc2",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem15.pddl",
+      "sha256": "5e013aa8770c3c4f2dd346250b0d6001d669b09c898de62bdcf877153c812309",
+      "git_blob_sha1": "7edcc063f49687740a9db49c61a20e195895fd9a",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem16.pddl",
+      "sha256": "b5acca29e693cda2701185e53e9d10bcb43b0f0626e642c5d56638c7a264b172",
+      "git_blob_sha1": "885f9caa38be019357fe0a756c348935e37a24a3",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem17.pddl",
+      "sha256": "43b400ab30e673cfa117f1ca81fdb9061937a9f4b9beec9fa76c83245b0fe0a3",
+      "git_blob_sha1": "2a27766a830bff1a495c5441b69d43f4d3e679f9",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem18.pddl",
+      "sha256": "1475be23dc68a1384f27b285eba71f627355e855120922b2bd9326d506a54ebd",
+      "git_blob_sha1": "463749387ee0961092a687fe70e5ac1759b9a321",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem19.pddl",
+      "sha256": "65b4961aa3997b377e75c622c8e02e4a4cac8c12ddd17c2d15c7a5e025dcf9c6",
+      "git_blob_sha1": "e327f7f27ac6d64847d0fc607322cb47d9c44ead",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem20.pddl",
+      "sha256": "a9c42234197235f4c89a2606f80416e0a2fade9c130f9c1ffe05756186a27889",
+      "git_blob_sha1": "0d3e44286ecefd09ffceada8592c5090f62f3d9d",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem21.pddl",
+      "sha256": "32e538484c3674a5672e157408660da463cbf640a5a8abe22141d367500ccae8",
+      "git_blob_sha1": "8a16aff412d4111c4017990463ad9cd956f2bca1",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem22.pddl",
+      "sha256": "c245585652afe0a731f071436bc5c2a9a3446cba316291cc1c072549d187d943",
+      "git_blob_sha1": "b4cd8bdee5b586ea7b09a126b32aa123e62d410d",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem23.pddl",
+      "sha256": "b69422bafc22c30a38c9885ec6ab862d9d6e8e07e2af83738536b7542cfa9ca1",
+      "git_blob_sha1": "0a81a646b86d77df29cf447080988064116a9bd9",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem24.pddl",
+      "sha256": "56d4de3092cac931ab05917b3170c61332a870f9737dddd7181d4fa409c7f738",
+      "git_blob_sha1": "b19e4a5b16651fcb70000513286929ffb9290c7a",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem25.pddl",
+      "sha256": "92d432b849e57f117245f2cd78c5bdb92ce9759fa3aafb5012cda8f0045bbf2b",
+      "git_blob_sha1": "456e58a0272640b25d89f04f30c87c73879b45cb",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem26.pddl",
+      "sha256": "3b899028505db5ba6dcec2628477343e5ad1d8416b832d0823603f6f62864d8f",
+      "git_blob_sha1": "83126d1ac7d0ae313b3ac15d9f5f8130c3ef8ed2",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem27.pddl",
+      "sha256": "3f5cf13ae8bd354144fddbffbf219eb53b5cd17d98e9bed3f10bb494172fccf1",
+      "git_blob_sha1": "c5adf93839135bebb9f1bc4230f478206b743fc8",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem28.pddl",
+      "sha256": "098d400d6d1e579a0fb35d898e853e59bdf007454e794bde75e2dd930d944d7c",
+      "git_blob_sha1": "b0a402976d19f8ca0456983d5ae4224cac9b9ca6",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed5/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed5/problem29.pddl",
+      "sha256": "d5dbe258e25fdf70797638cec6612617cd99bd088ef642713dc48fb815b23e77",
+      "git_blob_sha1": "b9c1960a2ce8d51baaea5d3fcc09b8c7dcb255bc",
+      "seed": 5,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem0.pddl",
+      "sha256": "691a507397b15ef4675389737edf9cd6e4a7abf340a86bae0a704e538f9a539e",
+      "git_blob_sha1": "1664e44077ba062e5544e447275af7f08f1b70d7",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem1.pddl",
+      "sha256": "1cddd50de66401a5e7a8b6b603583ffe2327c85f714f58c8e000a52b964ee7da",
+      "git_blob_sha1": "e58eabbf0072e322e77311a8665529b5edf8eba4",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem2.pddl",
+      "sha256": "d0f4e00a4fbd234a491cda0488bd12500b76a59cce897fbac362ed240ec7b534",
+      "git_blob_sha1": "8850e9af53af68716b2112780f84763f97df2d42",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem3.pddl",
+      "sha256": "3fde155f7654007c7620f22e2dd1842a21a8cc01aad45dcd96f9a109324ba2ad",
+      "git_blob_sha1": "e78734d02bb1ea589131153e275d89bae3993add",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem4.pddl",
+      "sha256": "e30863c2e71a45a02a12af60a51abf49c872d72febae8ae82930e6800d384e62",
+      "git_blob_sha1": "e5c113c786a16c1bb263b73380ae8b8ad08fc9e7",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem5.pddl",
+      "sha256": "892d6a7906d1795f22ac882c84d2fbbc96917dadddd16cc25693adc3a2ba3d91",
+      "git_blob_sha1": "20420f66316fe75eb625f8fc7f5817679f63d3d7",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem6.pddl",
+      "sha256": "3ba209fde104b78a027786fbc86a06db9ff1104533cbd0593e9c51e195c58f8c",
+      "git_blob_sha1": "7f1c42c392bf3361339e95be4e8d18798df17772",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem7.pddl",
+      "sha256": "02371415ed155afc36c02634ef45c0085a189e6a8b223e04b813a3731c9b0af0",
+      "git_blob_sha1": "e6efd50edf4f1f60493c4c61ef742aba8c07e1f8",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem8.pddl",
+      "sha256": "676dbb1c6c4783498b22d49825d3055f03f38728ba28bebeb9f7770251d33767",
+      "git_blob_sha1": "20297f318825c5c03f8dc867230c2a55b2854530",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed6/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed6/problem9.pddl",
+      "sha256": "3c219c7a413f7c2f32860b6c210cf1caa27185b8eb90ad64fe0daa3ec28b897e",
+      "git_blob_sha1": "1166422762e7eb2125a86c8d263fb97398976b76",
+      "seed": 6,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem0.pddl",
+      "sha256": "f60b7f7793f09be691a51fe25674fb9c1d7eff2732e467c20a58125a32772195",
+      "git_blob_sha1": "8c19b88cc4077fdada21a3c1f63af9706ce8deb1",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem1.pddl",
+      "sha256": "fe47f69ba7dbd19e1643876f7a1c5eaa1b51ace1c02aeb1ffa925ed7493f91a6",
+      "git_blob_sha1": "d907c3eb3bf5b1ec9ac1d4dcc0f3b9e31ffec306",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem2.pddl",
+      "sha256": "5152e8465540b1be2bca62b2ad1e3576ec06d2e7939e4148fe7afa83abacf036",
+      "git_blob_sha1": "4f6fd66fbec15647bf874743ba38e315f856e7ff",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem3.pddl",
+      "sha256": "051a49c1fbc194061d85fe76d5394352cdc2bb45ce09e47a83c0f936e20c9a72",
+      "git_blob_sha1": "4d8d1672bc7ada4fdf264ebbeeeb5312b70907f4",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem4.pddl",
+      "sha256": "776d5f3d11756b0607d40cd6fb02fabcb081ffae7217545cbbb59daae2bb6d50",
+      "git_blob_sha1": "1bfeb73e7990ac531b3e10a58f9ce5260adde0e5",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem5.pddl",
+      "sha256": "40300c2401b979219d07ec28877f8b6ae743ee004e3f02d677686358682b6e59",
+      "git_blob_sha1": "fa3fdec8418bf11ddb94323a6e571a67b11adfc0",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem6.pddl",
+      "sha256": "dbcdd891f332dabae2dc1cd0f4f12c9f2748fdacc5fd0784fc58780f8646a77f",
+      "git_blob_sha1": "ce813d4bff66a7ba78756c8528e222166cda4739",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem7.pddl",
+      "sha256": "cc7444e025857998f4ca0a279749281d32df7ac3f63f509c44a53f6f767908ed",
+      "git_blob_sha1": "be61683a391fc616d704e54360f3e01b30489907",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem8.pddl",
+      "sha256": "84a4fb64f974ca8daddd575901cc29a8bec43ca25c000da4a71c7a17a1571832",
+      "git_blob_sha1": "380bf9ccbb6694b9fd3f59a812deca7f7e903475",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem9.pddl",
+      "sha256": "3269aed5caa74d77dfa228853ef789246b7db43555f6be85055a7dc42528be56",
+      "git_blob_sha1": "b81304124762f59749be43709713a1c4193365c3",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem10.pddl",
+      "sha256": "6792ccc6158fbeb38c66a0351107b9041d5c7c2af88be6c2ad2608edfb9ef6ab",
+      "git_blob_sha1": "fe96f92c8d1f197341026e03f217257018453686",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem11.pddl",
+      "sha256": "2985026f47ad0d2b9bd1699464cc990ed104a7ef9096d73a8480195a8b24fb58",
+      "git_blob_sha1": "73a19b644899fc9a8843957a88467ea2d2bda871",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem12.pddl",
+      "sha256": "b6eb9de57083255caf7f9d568d0f4872df878bd029083fa94ee65aabe4faf169",
+      "git_blob_sha1": "09a98853db6c180bc2617c99ad0f4bb8ba8dd62c",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem13.pddl",
+      "sha256": "de374e32d83ef664923e3d4a7385ca9d2f32ceba432538600195360271b4e707",
+      "git_blob_sha1": "936c5629994080e8f5b8338f6bb4c4913a161ec0",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem14.pddl",
+      "sha256": "631fe57f68232a00fe2c5a203123367884dd562042f00acfc8496fda0d176546",
+      "git_blob_sha1": "3a5ec7640ca27014b2cc0fc767a64d4c0555212f",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem15.pddl",
+      "sha256": "a21a4dbbb80f88557423e9342877ccb9da97919565c34b7fcfe8f4745da58722",
+      "git_blob_sha1": "8da10764ff93ebfd404e462f9691897650b231d5",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem16.pddl",
+      "sha256": "6b81d37c4324ad676f8922d8cf8984b92fa87a91626bdc9b29d0f2adad6cb3fc",
+      "git_blob_sha1": "c60f5108f4a0d8fcf0ae0ab19d3bb806f88b4c8c",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem17.pddl",
+      "sha256": "ff00cd84a4f72cc7b7df8ce471fb5b62ec4c27437775bdad3d41ddc3731ac912",
+      "git_blob_sha1": "321475f7818ee09b5f784cef20c1f772c1c543ee",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem18.pddl",
+      "sha256": "60229b1f88595283450fc8adcdff382263c135ce5b0c56dde91b84bf4a8ca38c",
+      "git_blob_sha1": "9f565f4d27bcd14bf6d9c99e6d65b6be62296ccb",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem19.pddl",
+      "sha256": "cfcadaecf8d1c47ff77a632d889f998a38838b4d1415936bdbbe9676b9dd7b88",
+      "git_blob_sha1": "4ec2fc57e9b8dc53cb2d44789f4cf1b8dd2756ce",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem20.pddl",
+      "sha256": "144f7e329c4dec25fded1e6f8904f6eba27875bf90527950577b6811f812f826",
+      "git_blob_sha1": "249604a8c14ebd9fbb0ebd45e032dc4e94c3bbf0",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem21.pddl",
+      "sha256": "65feeed5b2984475eda6bd157ef5e51bb0b1952aefb180a724c43132c2d891b5",
+      "git_blob_sha1": "b8bbf3fd11649ef1c8a7120d1dd7d5f1361cfcef",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem22.pddl",
+      "sha256": "8c99b99c005fe922146e37a1cdfc737a52d7ac5e10ea22e5d8548287a0bbf718",
+      "git_blob_sha1": "ba192cf208c586624f551dd85779e91d169ade4c",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem23.pddl",
+      "sha256": "73d38ce5d340529b8b052b4beb746f0c8387c18577a90778a4dc55c72c52f840",
+      "git_blob_sha1": "d608f20e36321e1c9eb6dc93f8985f48dabd83be",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem24.pddl",
+      "sha256": "4b4e2beed23c388643b84d5918f92b966ac9cd0ddb0034a985a5673b8ab5cca6",
+      "git_blob_sha1": "9bebe7f452f6e7ae955a03405c847104815637e0",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem25.pddl",
+      "sha256": "113104a81a947a3d83c70d2268b5156a19a04e1fb07772f406bd38ab3db4588e",
+      "git_blob_sha1": "1b190b6ac8a01fad4f9e577c7db1e3f1438905b7",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem26.pddl",
+      "sha256": "d265a48f408a3f102e199de846e8d7de53e5d59e18871799fe1a9b1097150514",
+      "git_blob_sha1": "1b9e43f8852bbb21961621de7cd6e9ad512d0132",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem27.pddl",
+      "sha256": "3f1dfeeb4c4f115efb6fef27f873711489868bc8a096dcb3ca8da75738fbe4c3",
+      "git_blob_sha1": "73090c93c2272e52e0b3db3fed0bf676fa348ed2",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem28.pddl",
+      "sha256": "82209be0628a8ff0463b265485b82a29b8e05f044492d8b7c79396db5c7b2607",
+      "git_blob_sha1": "60717bc0ac5476ac0e7ebf931b130ba08e655105",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed6/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed6/problem29.pddl",
+      "sha256": "b692035bf7cff87e8b86d4b01d6fbd7cba66e65d1eedc326fe34a410fb0d09ab",
+      "git_blob_sha1": "728dd87d078e1744058b7750c1ddf3d5c3a545e4",
+      "seed": 6,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem0.pddl",
+      "sha256": "e0a9f18bb5c4c0c2bebb229c871778f49ba686671aae6568a30cee49538c50fb",
+      "git_blob_sha1": "8067c7158cc19253d06df2ef48870bca0f96e133",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem1.pddl",
+      "sha256": "ad4430ae26457f162bd223b678883b1a6ca5ed8f93eb0047cc2beee81a920177",
+      "git_blob_sha1": "bf0680affe277fa68aebb092107ea2e08cc24e6d",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem2.pddl",
+      "sha256": "d415583f7615143843514b42ef6de5e70a78103518f5b418cd285f72202af421",
+      "git_blob_sha1": "a6260f81b8ecc3f540c80ed06fce561e2f769fc7",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem3.pddl",
+      "sha256": "d399df5dd025beb8a399b0ee0610ca19a19319456b54fd77e1c3e673e8c69a85",
+      "git_blob_sha1": "b4038a0a6f75bf729f7d4a6fe5e1c864984ab282",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem4.pddl",
+      "sha256": "4fe737e7ff1bcaa39a48e37870c60ecf90494e4296d7b309c8aea7dae5474ad4",
+      "git_blob_sha1": "df9b651b35b267efb766949c5cee83ebafbe87ea",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem5.pddl",
+      "sha256": "eccee7eaed4b7016b51f1b04ad6d936429674e5d33af51233602042c547d375c",
+      "git_blob_sha1": "cf203275810f8557b0b2fd09c0402ac563d9dc1b",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem6.pddl",
+      "sha256": "215eb3a9b12041c3d41eef42d48a2441adc1bc2a930781d217923306130a5904",
+      "git_blob_sha1": "54c293a1d21a826141b1eef6d96b1436d5c926de",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem7.pddl",
+      "sha256": "b1c907379b1e7ebfdde129bddf49ef33a55c9553be8bc029522e035460b4f085",
+      "git_blob_sha1": "59e2b67c41710e36cf7ef1af0995620da1940666",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem8.pddl",
+      "sha256": "4685b0f44cb78806049196b82eed4f54b54bc472df233818f96378c00294a4bd",
+      "git_blob_sha1": "31eb641415aeefe637b05f1b7b9e3cc2e59e6e09",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed7/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed7/problem9.pddl",
+      "sha256": "359b0ad847c9fdfbb811351db38a73a021dee3530d5677d8a0d38860926116db",
+      "git_blob_sha1": "2189c10f555c5c8232ee4af730660d3ee972adf5",
+      "seed": 7,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem0.pddl",
+      "sha256": "ea51cd8f6fc4c5d15e08925a9d94c92ccdd6996383d46cca2d199b2c20bd22ea",
+      "git_blob_sha1": "04a179393475a306cd7f7f5a6f823b14d8caa7d4",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem1.pddl",
+      "sha256": "39a0c8f0d3fd18d5601a3ce0a6c3a8143ecc90da737b52b65bdb5d8922544252",
+      "git_blob_sha1": "811b5faf5f49273e08ff48f2f632d1e1598c60e4",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem2.pddl",
+      "sha256": "466caff3d5c436d8cdbb31b4cea79e1b6b6fd8bf6788a26fc0ec22398d72f953",
+      "git_blob_sha1": "a01afaf95a8346516480937337738e22a8963dc0",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem3.pddl",
+      "sha256": "4d2ef137f9051792453265c380057e7293e81a82728a3867e6ccdd8eeff1666b",
+      "git_blob_sha1": "6ab55aed8884d68896932d257b51821641562a23",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem4.pddl",
+      "sha256": "3b137a4a1a1386b134ab8a009a6df27a2dd095f9e071e414322dd9bdf279ccdd",
+      "git_blob_sha1": "51914a0b13e98e2537f0c1c4d19e9e7aa381bfb8",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem5.pddl",
+      "sha256": "a32f12349e584a4a05cb5838459b171ac6a02d818124e6777f3aa8842236c484",
+      "git_blob_sha1": "530a5bee19340b6110084e2b5059d342a04c5a33",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem6.pddl",
+      "sha256": "198a1514a407a9b886bed054b32e60298f3b94d2506bf09a55b51793bc0492a9",
+      "git_blob_sha1": "8a494dcc915030f3ad4ca61ba0e30c58d57792fa",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem7.pddl",
+      "sha256": "24f782bf7a53c143dceb4cc7252056128c76e56fb03c815be2e4966da019df6f",
+      "git_blob_sha1": "4441309ed064bf4ee471a215a5f259c01faf03de",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem8.pddl",
+      "sha256": "4ceeae2ceccecbabce48a529110f6b6c628bf9f9459f5668b0953c3daca940db",
+      "git_blob_sha1": "55cc0c4fcdb22b5120a4c4ab15e7454f81e4f9a3",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem9.pddl",
+      "sha256": "e25b09bd0d0b3960a43b7573b3e5eaa8792e897f678d3da46c1bd35d030febc7",
+      "git_blob_sha1": "b24b75f810db5b2dc7a20634f8b765d9a206bb5e",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem10.pddl",
+      "sha256": "033dda8cffab1c96f723514d017fc8d37b656da53859ea39f85dd6b6860a7ff8",
+      "git_blob_sha1": "68658e73b1efd6a2658b6d4f91f85c6cd0a2983e",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem11.pddl",
+      "sha256": "c1d84554e092c557d4883074df1afeac2924a7f26f4a8ab3558274dd35bb94ee",
+      "git_blob_sha1": "85b33c6d1bd0c722ee343c5c2ede81e70dab73a3",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem12.pddl",
+      "sha256": "0926610ec554f24c0191d3123cf873a0c0fff26da6698a7305691952f711c68a",
+      "git_blob_sha1": "845c2400b86a623d22ba6abf379e6a759fee02f9",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem13.pddl",
+      "sha256": "b8eb5aa9a8801bf652c8741c02379e8954dbf79e4662bed26e74a398dc26788c",
+      "git_blob_sha1": "29ef4d7a91743650a1135f7df0eb768f4e1fb9f0",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem14.pddl",
+      "sha256": "0578194031fe08aa5dfd3dc8c2ef827fcdf4a9c4c86c2ae6b6cf00f55ff316a6",
+      "git_blob_sha1": "f03665bc56316d20a6246b752e900a57f9422d52",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem15.pddl",
+      "sha256": "a83e2d582dc4598565f45042faba9f89560ae8f577d211769aa78277ba105c26",
+      "git_blob_sha1": "29eae5e3f4429d9fd2e360e1c2b70e300a9b10f1",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem16.pddl",
+      "sha256": "8a965ab8a710d763c662d8a332f321bd5c9dd49bd0e70f6cfe03d627b1c699b8",
+      "git_blob_sha1": "0de0785efd06be28535146d00bf23b913e91fa8a",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem17.pddl",
+      "sha256": "c8ee278b72e267d56a7e4241b7cf752e32de08d18af69856566fd705ff265b4c",
+      "git_blob_sha1": "b46dc2d0960db9684ee5b098fc7c5679819fdfb2",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem18.pddl",
+      "sha256": "bc0a76be509c92ad0373af4b3bc35e2fd7101634434b06fa9ed7fe29dcab1ce6",
+      "git_blob_sha1": "0578d447f57fb1b92c1b9e5100bf928b7c461167",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem19.pddl",
+      "sha256": "e32510a4d0a917ea67d67589bedd54b8f7bf4b84b33808e81421f8b9bdeb48e9",
+      "git_blob_sha1": "a759fd22eca8effecad4f9287d69bc4b2a0f0c5d",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem20.pddl",
+      "sha256": "3755d5837d8f0d0da9a465fae51632c1c271175e0c20bf1bead96bbbff95921f",
+      "git_blob_sha1": "050e68800d108452c713f8efdbddf1b9b2a4d472",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem21.pddl",
+      "sha256": "4ea270b405b239fd8385836fe73e7ca3cf99977fee3849327bfa2623c96ddda7",
+      "git_blob_sha1": "b64e7e633f75b2e580eb8c310ebd79053a596e71",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem22.pddl",
+      "sha256": "84e0e0763ece80c7752068c8db5827aba9e9a6140608f65a4e8d48c496ac731f",
+      "git_blob_sha1": "65e193aa972a37f378800e2491412e443693eea9",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem23.pddl",
+      "sha256": "f59c3aed106e6f9e0ad89eff424052a78dcf1996b60490a38ac855143ece8771",
+      "git_blob_sha1": "e3d0f56630f2013d837196c977749ae1a79df1ff",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem24.pddl",
+      "sha256": "ff4947514b4494847a8076196fee2cb5d07179f5d488d6e5c980cdb569720127",
+      "git_blob_sha1": "54614845e7f05deae0dafc70a19bd24ce726f04c",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem25.pddl",
+      "sha256": "8a2d952e359bda5c125501c562d2e787787c533cf3c2884b050f00245dd94fea",
+      "git_blob_sha1": "dc17624ba64f9639e44b7d5030c1031c6716d6cb",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem26.pddl",
+      "sha256": "7736f36a07cb9873cd8b5477379761d29006dbe97a36bd82de350938d0fd9a3c",
+      "git_blob_sha1": "e35c551093e5c6f2b6994fb1b9c8fe1543aa7432",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem27.pddl",
+      "sha256": "eea1e90b10f0912958c1e2c99b083ce68e39854f8a592c0a59b7fca260938505",
+      "git_blob_sha1": "6df8c9545e4d5a38e38cf20a19e08c84ba3a4e4d",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem28.pddl",
+      "sha256": "3d822927ed971842a1a1476521428a89f3bcc2c828c8697e5cf5d6db1cb8cb81",
+      "git_blob_sha1": "7e1ec7f1b2580c48da57ec3093a45bf6d8434a28",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed7/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed7/problem29.pddl",
+      "sha256": "89a327b3961bd12794fed69eb66d1bfcdab2ab4d88da64a738b333841cc87384",
+      "git_blob_sha1": "e855d1b3ffdd6f75b0db9c2990a68addc65e6bbd",
+      "seed": 7,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem0.pddl",
+      "sha256": "a7247006da4c7e55d391190a7c531f4fc24ed68a7c648774083a8d8c73c0f339",
+      "git_blob_sha1": "78e6f79fabb53c4e3b3a67ace4946ccb9df83902",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem1.pddl",
+      "sha256": "60be5a16a03c828d196cb5bd775ca5455b134d950ceec24243c93f3039c4f2bb",
+      "git_blob_sha1": "6617c2ccf981a14411a8d37143f8560119dcfd27",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem2.pddl",
+      "sha256": "b4373aadcfe86d9b56c5d0a044ccceee77481ed20b683ef221f2074e4a54ed16",
+      "git_blob_sha1": "74d70495ff1aca277d4a682c3b68d47a2fbf272d",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem3.pddl",
+      "sha256": "2fcbdbce3b8383bf58211a1dcc5459ab3d2603f2f78b1d42c1d579952dec4ba0",
+      "git_blob_sha1": "ae69e2459945a053da8ef262dfc11cb6af24a7bc",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem4.pddl",
+      "sha256": "6db079e9a9f1842170690b01b777e40fa5b4fc9828a53a01f725ae9f62aaf80f",
+      "git_blob_sha1": "a297cfb39caa3d8c103e6beec196579c256c153f",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem5.pddl",
+      "sha256": "83dceb37012204a5cfa40e12e9ccb8410fb3d14a7839e94d8f7039ae5966199d",
+      "git_blob_sha1": "ca176fcdcfc29a6ab68ea8e71ae4ed8f2f3422dd",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem6.pddl",
+      "sha256": "ec08e6b7b88261deb59a912c675d1da68ebef968a6603da8fa68124ca619377a",
+      "git_blob_sha1": "1e81d124446526344fd64d388f61d5ee73d5f491",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem7.pddl",
+      "sha256": "17e66c8e0a2fcf46c59927cb07ef8c0f0af1ee755d232e5951801fed78b1456d",
+      "git_blob_sha1": "3c21ed3c7596e97d75b04a43c660ae780dde06a0",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem8.pddl",
+      "sha256": "3549821cb33f5c81e3daa12c5412b2b3cab12211f6fa7639e007b8c72d29a784",
+      "git_blob_sha1": "ffb04be603f724022db0bb9037f33e5025a6b2e6",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed8/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed8/problem9.pddl",
+      "sha256": "e0ba26f386186e130b7fd5b2068da5b9acd82c3daa4d51402a36be07304b5d4c",
+      "git_blob_sha1": "3239885311a5fcac436c4c5149531f7c6d116115",
+      "seed": 8,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem0.pddl",
+      "sha256": "036072af26ee458db0bab3802ffe36f978d8b560ef767936f27f2669350f1b59",
+      "git_blob_sha1": "dcb84c4bb6e61c03e5de72938c3b093431d8cd04",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem1.pddl",
+      "sha256": "16b57656667bb136b2fefe6875c7779024f892e4011c0ab0d084fd25fbf626b4",
+      "git_blob_sha1": "2ee7f1f0e6f01b497767c519f29de1397d4b836f",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem2.pddl",
+      "sha256": "19f11ce66fad50b4a8bccd82b7aeb7f6f784d897b61c765fe3dfd749902ba54a",
+      "git_blob_sha1": "21327f7908cdee1a5457e91b2e03aefb7bf77739",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem3.pddl",
+      "sha256": "3842cd9e25b9b41018ea1329e600aac1792ddca2a24bd4a9ba03bf065696412d",
+      "git_blob_sha1": "9634d288ac85c39b3e9ed26f0a651bf75132452f",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem4.pddl",
+      "sha256": "d814df2ff55264ada401f5e350cfe44acecde4446a8b5770becfe60a5619817a",
+      "git_blob_sha1": "3beefcffe43346d2e2ed9cb8541c76560820f23d",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem5.pddl",
+      "sha256": "eec800e5444b8a871e308ca37a742e386af8c1daa9eb3facda9f52f7ee100fe7",
+      "git_blob_sha1": "c1d1018ffc2cc5c2f4a3f5bf4c2ff805bebd74ec",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem6.pddl",
+      "sha256": "947c026c7e1126d95b0180e9ab52f8cccfba7eaf587fffd3b1d0ed27033e4015",
+      "git_blob_sha1": "f90e4a713a7aa4bdfb1f8b9d84c9a2decace05e7",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem7.pddl",
+      "sha256": "0f214f083bc8665f7cddba4e21fbf88200117a555bb699a64752ba2d123af554",
+      "git_blob_sha1": "4f7e35f5cd0663c14d51f4f7507dae5891baea2c",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem8.pddl",
+      "sha256": "dfe9aea9dbf1223c69610c1133b90a3d1e08c8f8a080e296fdf41dff0d550a05",
+      "git_blob_sha1": "24edbb1d3e362d8fb901b74de76ba583cec6b3c8",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem9.pddl",
+      "sha256": "b282c810a68e59d518a269d946aac6679699876958da48d80ddaf1dd3bd52140",
+      "git_blob_sha1": "e838425e114b7f6a711797bd66a2e95bdc935756",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem10.pddl",
+      "sha256": "9b033fc0ea432e5c29e16c2cd5c17e3275c135dfb6ef633f443ffc11e8008326",
+      "git_blob_sha1": "c550b27d115aec8b268badca1c3f1b3a1442176c",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem11.pddl",
+      "sha256": "8f81ed37a5487d5927661c6d5f48f6029123c1334880b2ef3b43549d668170af",
+      "git_blob_sha1": "e04a86ebf7c9a4b28f5d27c3152a9d4726ddb030",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem12.pddl",
+      "sha256": "d1a2e5043d87a8ae5736c8602cb3951bbe3805600fa1a7e412099f5c48961428",
+      "git_blob_sha1": "290d917bab5b0710d54c6f8faac101faf6bd18c8",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem13.pddl",
+      "sha256": "f00bb1c9bd472415ad7de2b53daab6c12957d6305fc945903b920ae93375edea",
+      "git_blob_sha1": "1b578606993ba9720936405d2279c838a9eb19fa",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem14.pddl",
+      "sha256": "da527fadfc7b4ca9cb58d905231d9408542051f427512c75855db058ee842151",
+      "git_blob_sha1": "20a3a52a1d4aca1aad819710d56b1fb15b3914f8",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem15.pddl",
+      "sha256": "79c745d504c1b7d1cf5d072288e6a6d6ab22f829ae737f6833935fff98be3bcc",
+      "git_blob_sha1": "9c1a9bb2b58e22f464bc5c250ce386e92f16cf60",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem16.pddl",
+      "sha256": "13671247317dd01f6e6cae847871d519b7cf204dc94daa3e57c9119108077e86",
+      "git_blob_sha1": "98482b3f36722c951b7e7848b53261efc0cff127",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem17.pddl",
+      "sha256": "5e6ef23b252470f004bb76aa69570992f6ece2113ba81aa467a4cba8610fa968",
+      "git_blob_sha1": "9985fe1b0aaf344c6944be8c96df869b13e24be4",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem18.pddl",
+      "sha256": "36afcfd606c60d91ce8778e398217e8ce7e3500806ca088c2cb255c76197106a",
+      "git_blob_sha1": "5a2e20fc1261efd3870e72def072bef6763dd439",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem19.pddl",
+      "sha256": "8cd6c6d6c86022ef2a07e1151d0c2a15822674f91e52180a3e83d68734ea6466",
+      "git_blob_sha1": "bd0676cb546a75c7025affdc23c1b807c279444a",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem20.pddl",
+      "sha256": "d174dd76d9db9aca4008346bee7add85beac6b6e08c8c2d3008c92abb1b21b98",
+      "git_blob_sha1": "980402d43ba1f7ce070e4b96776b2ff7e8049877",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem21.pddl",
+      "sha256": "15c24d5c9ffa8ac75e0d58e1fd1b5c27e93268d0e0916507f408f14efb15f456",
+      "git_blob_sha1": "55168dc3dfcefa6a50db5ad398ee751ecb5ad933",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem22.pddl",
+      "sha256": "977b17cc8e10cc49b8ea2d0bbd9e5402d1c24db713cbf43d86dd0c76aeff4537",
+      "git_blob_sha1": "31f106f6337f8f290990c77c6c6d0346d3dee690",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem23.pddl",
+      "sha256": "b2de5d809972b7450ca82ad0beaf2cc7fc3ec5352bba1b8289eb0d53430c8c3f",
+      "git_blob_sha1": "8ffee95d8d855dd3d70021ffae4fe45357786810",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem24.pddl",
+      "sha256": "042fbde44965a63424fe41a358c4b5c85a2365544b911218a089a725ff274197",
+      "git_blob_sha1": "4ef3ea09756ce3c964f11e5f6dd5b5c7327b055c",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem25.pddl",
+      "sha256": "5b6ba70bf7059d627fee742f1e04fbc25d98600d741389d2f3b02922fdf9ea0c",
+      "git_blob_sha1": "828685962ee63c29031dee7e7bb879c1fd7f5dcd",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem26.pddl",
+      "sha256": "64035646701560f79f0a097146b3f1f9c58afdda539f66163918524fa67be0a7",
+      "git_blob_sha1": "d6e75c7bc7c890d80ce7737f57eb772226aedfa0",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem27.pddl",
+      "sha256": "3e12322ab6b01b80dd505c95229f861cb8d7e1bd0167a83c6c56c85f6944fdb8",
+      "git_blob_sha1": "99f556815c065d4970a9916076c6d3bf81f448d6",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem28.pddl",
+      "sha256": "59ca856d7cb6d750729fbc00fa81b5f81cdf7f4328198679f9ba4a9806bfdd1c",
+      "git_blob_sha1": "96e8ed52baaa5c71b14e66f575dc9a899f4ee751",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed8/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed8/problem29.pddl",
+      "sha256": "88df4f4b3b3c9f9845a5e0e3747713514bd8930a7d6a187ba2ec32b6ff26b080",
+      "git_blob_sha1": "0c18be4232880db7d7b37de4cdfd58049c0daae8",
+      "seed": 8,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem0.pddl",
+      "sha256": "edeeaa5bc68eaa2aade9722710a82da49f1f10cc46a0ae58d78e58813cf60351",
+      "git_blob_sha1": "d63f6eeb5405d6ba23bd6ceeeb7ccacf04c292a6",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem1.pddl",
+      "sha256": "c5f8ecc5bbda95d95e44fab5e9592e7b4e703b9756036502b21b7d29b8e3e12b",
+      "git_blob_sha1": "c779010201e660bcc749f602ba22954595ada6ce",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem2.pddl",
+      "sha256": "7426ac3fe299e3665d941b00ca7bb79713ba7dfe7e369dd4f6dae2bd0e9903c1",
+      "git_blob_sha1": "1594eb2c0ad6233836fc3c3e45ded89f4dff9808",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem3.pddl",
+      "sha256": "3d6f7f70d119a4c74f80faf258951a4bb8e97ab3e6dbdc68614b451f597bb5ec",
+      "git_blob_sha1": "9fbdb55c2af08b60c5ea94cdb499ad759122fcf1",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem4.pddl",
+      "sha256": "00dfd9138b97c868a6e5d1b8de98fb97a155ae129a9af6b5c275566c3b76ce8c",
+      "git_blob_sha1": "61cda077ee68ffb2601194b0359a4bc8d74a7b3b",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem5.pddl",
+      "sha256": "2ff503446ffa31e485341d1544ae2bcc9893666f6c84f62cf2d41a1129a38541",
+      "git_blob_sha1": "551e59d5973c9be23dcdd8197d6578a54520e3cd",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem6.pddl",
+      "sha256": "5b5ad926977969779b427012363139c099bde2144052030e154f8a6b4aa70249",
+      "git_blob_sha1": "309f51f9ab06d3129e67c6a6b09e971411316f3b",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem7.pddl",
+      "sha256": "3d926f137d1c394b87ec88c09a9747e20ea968d14870553064d27a848e4c5332",
+      "git_blob_sha1": "7eec423a158e088ac8b51db6e6c32714eec94023",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem8.pddl",
+      "sha256": "5e073617803fb07f0afa8818245561111abfcaaff3a6e51f94818cf64edb1bb9",
+      "git_blob_sha1": "2d81084a03fecb9efc86a6ca0879f4ee809450c8",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning/seed9/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning/seed9/problem9.pddl",
+      "sha256": "aa3272b686fbe2a8a3e6b00be661f9f2b1f1af3e88378d174310368d95358d20",
+      "git_blob_sha1": "8379ab0feaff19209f5e08cd011bd7815645ba69",
+      "seed": 9,
+      "official_subset": "official_train",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem0",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem0.pddl",
+      "sha256": "d59b8a06f4f02a085d3815a60a3360f6052d688d1cc6dd48effb37bc04043a0b",
+      "git_blob_sha1": "52db1e431ec00597122db7abf7a820b2a2dc971f",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem1",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem1.pddl",
+      "sha256": "5fba879638dd9692814fc36bf12b209e7a3b02843bd50584ad3a581a0b29a379",
+      "git_blob_sha1": "7ed51d8c420aa2d036588671dce8b16e109f6999",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem2",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem2.pddl",
+      "sha256": "f500a09b8ee36fcc2ce5f0352e271f8b591515e902b9ece0f769678525df7d1b",
+      "git_blob_sha1": "4f3393a2b105d671df35b3db41097ea8f396add3",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem3",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem3.pddl",
+      "sha256": "47b759c1bbaa5649ff443a252b41f3abbc0da2cde1d20f121caf4aba9353667f",
+      "git_blob_sha1": "2573a0280f2165cac48ccc79b725a40a4eeaaa0c",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem4",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem4.pddl",
+      "sha256": "a348eedd31f6d9610ab726e55d836a50317c85857374394a56fdef53ac488ca7",
+      "git_blob_sha1": "1ddd4328a00cac8c6c89094c4ea9f51e48f8ffd1",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem5",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem5.pddl",
+      "sha256": "5af063a8dc99166e6920b18ec8d9caf5af1c3be413e0478015920af2533bb824",
+      "git_blob_sha1": "61eee59cd522f6c783e7119635ef11c53c380659",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem6",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem6.pddl",
+      "sha256": "633ef32c6c495ac8f42f51ca6b2f6509aa196af103bd808deaaafd6bc5862d77",
+      "git_blob_sha1": "b33e13acaac27b54abbff5943e8ed4f10a87a225",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem7",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem7.pddl",
+      "sha256": "b4556d27a38f6c4b2b109d34cbedead2a356d29d28723199cb08296ce8406f9f",
+      "git_blob_sha1": "7aa9dec103b4bf5b2ac044670b33c5471f4efdd3",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem8",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem8.pddl",
+      "sha256": "99bd6414e9d2d7eab2b06c31a62ce70c761e180a08e24a6795151ba49dda8f90",
+      "git_blob_sha1": "e7eeccfdca403d42b2b68a7bea3b45e33fd78beb",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem9",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem9.pddl",
+      "sha256": "cfd6e4841e4f9fa2de295710675f34cfecd567b5e688f03f690e8fe0d617af2f",
+      "git_blob_sha1": "55f80d7fbccf29c0b0223090c7cbf80334f37193",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem10",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem10.pddl",
+      "sha256": "838eb954dc61788b9dfe072e6706b23588c55c204ca7c5878b210dbc42296002",
+      "git_blob_sha1": "31ef654fd7ab1ffdb639daf580540eed8c908f59",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem11",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem11.pddl",
+      "sha256": "39d8150c013018287ecf952af8881641c3a5a45d8d9f697489056c6f3843e451",
+      "git_blob_sha1": "42400bc8dbda4de61654dd083e02a5ff76410027",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem12",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem12.pddl",
+      "sha256": "be41ac17d612fef32ff18b3168af6f4dd39cde1c82f223024a50d50eb342b40c",
+      "git_blob_sha1": "5ed274a7fe075dc387b6381f3bf2928d45034e73",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem13",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem13.pddl",
+      "sha256": "c9804651d9796676506d91382f376d8c7f899c6112c6af610599cc2125bd75ed",
+      "git_blob_sha1": "2856393b961d8b86d9b6a531414f34a2c3db2bd0",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem14",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem14.pddl",
+      "sha256": "543985a55b5dcc13010511a6174e3b688e7ea1684e15fe59c866cb1afefce65c",
+      "git_blob_sha1": "0567161b99ac3dec05f40db10c618c2b9ec5cb5a",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem15",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem15.pddl",
+      "sha256": "acd9e73f8285b0c4d00b4fb10945830e712eec6d17bf5040c1e2e85f10d40b37",
+      "git_blob_sha1": "c6a07e12ccb2bbecb175301059b1dfa8dc79766e",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem16",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem16.pddl",
+      "sha256": "0a93a49cfac2407f5057fa4ab83c35bd1cf248337d34493e05d47a93b1138494",
+      "git_blob_sha1": "c82de563bc79fab769f507d039af725a736e4a98",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem17",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem17.pddl",
+      "sha256": "d4b4e39074c31d39d9afdd528909ad910d0a4ed6eb75a7d7693dee70d14d10a7",
+      "git_blob_sha1": "e87ddeb458a7a7f9daa50460c92c0a1ce9a57722",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem18",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem18.pddl",
+      "sha256": "43112b0b7b2192581e9598506691e8f665bf12e7455a715d83f53723e499f9db",
+      "git_blob_sha1": "fe1b3f968acc73de9f95929579627995118dd41a",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem19",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem19.pddl",
+      "sha256": "ae839187a7e20d9a60855dcffa6fe863733fb9f206f421c721f1cf872e9087bd",
+      "git_blob_sha1": "3dbc4d9eac65ce421cf5a2d0896ddd312834bea0",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem20",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem20.pddl",
+      "sha256": "7d6db017caa8068451ba677809cf6f8b398c7c5597fb49612e46636bc3fcfb5a",
+      "git_blob_sha1": "b06ca395a7a285eb690dba5628ac414f1f0fbf63",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem21",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem21.pddl",
+      "sha256": "186269bbf1673439ee85861efdfb9256c45212a7445d422a6f87a00f60cf9210",
+      "git_blob_sha1": "73cf6f599f583d1967aa4b1895cc8368b5223646",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem22",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem22.pddl",
+      "sha256": "55a7faf5fdfbac3690683606d4f0ca2d1e18fe8717861c5f4a38ed4b266144b2",
+      "git_blob_sha1": "b42e574256a71fe2415dc112c42514a131102e79",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem23",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem23.pddl",
+      "sha256": "522a201d2726e06055889b8ac6c1320d3b21143a31fcf730f80fa8f35299d9e8",
+      "git_blob_sha1": "8a069fb37d347b58b668b5a1805658ef03b7717b",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem24",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem24.pddl",
+      "sha256": "4c8e7a78ad672920de0ea777c316b22b936f98b0ca9bd7705cb045570aab55ec",
+      "git_blob_sha1": "1b1cac72adf9d5f224fd6aa95b286f33abb1839f",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem25",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem25.pddl",
+      "sha256": "03e630618eab985921d6c9913c1a1fc3a5e3925b32ae7b18b4492f8b9c42a7f7",
+      "git_blob_sha1": "9fa09db714162742fb7176e04fcd6027a7844ef9",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem26",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem26.pddl",
+      "sha256": "6d473bde5636456011861b3fde929fc15629e1283dd8172aa7bdd0350dd666df",
+      "git_blob_sha1": "366d39f10ec2052174af53d441c93813d44bc382",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem27",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem27.pddl",
+      "sha256": "81744025fffd2d1bd83c6aafdbfa78aea2c8505264e23f6d97697ba521ef174a",
+      "git_blob_sha1": "3d46173c9027cd9ebf8c02192efd1d972ca4ba90",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem28",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem28.pddl",
+      "sha256": "3a58c59c304522db78cd0c0a147c269832e1b25793761d85afe96b403548b4dd",
+      "git_blob_sha1": "0322620e769f703770eaffeb5e69523eab5d7edd",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    },
+    {
+      "id": "spannerlearning_test/seed9/problem29",
+      "upstream_path": "llm_genplan/envs/assets/pddl/pg3/spannerlearning_test/seed9/problem29.pddl",
+      "sha256": "b106981300ab9e9d5af4e9a6bf717631b323b4dee66fe499882839f565d86f14",
+      "git_blob_sha1": "5a8819614f456994cf847c13a7bb077354265530",
+      "seed": 9,
+      "official_subset": "official_test",
+      "pilot_role": "inventory_not_selected"
+    }
+  ],
+  "remaining_readiness_requirements": [
+    "Confirm execution authorization and evaluator isolation.",
+    "Verify PDDL parser and VAL binary on the actual Linux runtime, including infrastructure failure classification.",
+    "Specify independent strategy-selection data if selection is enabled.",
+    "Freeze model, resource limits, repetition design, and final evaluation protocol before experiments."
+  ],
+  "evidence_boundary": "Official text was downloaded and hashed in a temporary audit directory. No original PDDL is vendored here. No generated program, planner, validator, model, or task dependency was executed or installed."
+}

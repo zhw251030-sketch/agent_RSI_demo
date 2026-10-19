@@ -1,0 +1,27 @@
+{
+  "checked_at_utc": "2026-10-19T19:16:54.720105+00:00",
+  "status": "passed",
+  "python": "3.12.14",
+  "platform": "linux",
+  "packages": {
+    "openhands-sdk": "1.55.1",
+    "openhands-tools": "1.55.1",
+    "litellm": "1.106.0"
+  },
+  "script_sha256": "f9576a4977e728834916f1680952a14ca503cd7dafb617ed1742f540ea09cdb5",
+  "checks": {
+    "sdk_and_tools_import": true,
+    "terminal_success_exit_code": 0,
+    "terminal_nonzero_exit_code": 7,
+    "fixed_file_roundtrip": {
+      "sum": 10,
+      "cwd_ok": true
+    },
+    "python_network_attempts": [],
+    "terminal_closed": true
+  },
+  "llm_objects_constructed": 0,
+  "model_calls": 0,
+  "agent_rollouts": 0,
+  "scope": "Manual fixed commands through the official TerminalExecutor; not an OS sandbox or benchmark."
+}

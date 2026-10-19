@@ -1,0 +1,132 @@
+{
+  "manifest_version": "0.1",
+  "prepared_on": "2026-10-20",
+  "status": "proposed-awaiting-data",
+  "task_family": "symbolic_regression",
+  "benchmark": "LLM-SRBench",
+  "dataset": {
+    "repository": "nnheui/llm-srbench",
+    "data_card_url": "https://huggingface.co/datasets/nnheui/llm-srbench",
+    "category": "LSR-Synth",
+    "proposed_domain": "phys_osc",
+    "metadata_split": "lsr_synth_phys_osc",
+    "split_semantics": "problem category; not a mechanism train/test partition",
+    "access_status": "gated-login-and-contact-sharing-required",
+    "access_requested": false,
+    "data_downloaded": false,
+    "revision": null,
+    "official_declared_problem_count": 43,
+    "verified_problem_count": null,
+    "problem_ids": [],
+    "empty_problem_ids_reason": "Restricted data have not been obtained. Exact identifiers, equation families and numerical records have not been inspected; no task subset can yet be frozen.",
+    "expected_numeric_file_from_source": "lsr_bench_data.hdf5",
+    "expected_hdf5_group_from_source": "/lsr_synth/phys_osc/<problem_name>",
+    "numeric_file_sha256": null,
+    "observed_hdf5_keys": null,
+    "data_shape_manifest": null
+  },
+  "upstream_sources": [
+    {
+      "role": "benchmark-interface-reference",
+      "repository": "https://github.com/deep-symbolic-mathematics/llm-srbench",
+      "branch": "main",
+      "commit": "6fdbe409b75ea749c0a93c69b6861637d804dec4"
+    },
+    {
+      "role": "formula-program-reference",
+      "repository": "https://github.com/deep-symbolic-mathematics/LLM-SR",
+      "branch": "main",
+      "commit": "41c212312df6c16d936c9cb395356a62774c47e3"
+    },
+    {
+      "role": "candidate-concept-update-baseline-paper-branch",
+      "repository": "https://github.com/trishullab/LibraryAugmentedSymbolicRegression.jl",
+      "branch": "lasr-experiments",
+      "commit": "de6b22d5282e7de3432b0d52758a6ec3f583527d"
+    },
+    {
+      "role": "interface-difference-audit-only",
+      "repository": "https://github.com/trishullab/LibraryAugmentedSymbolicRegression.jl",
+      "branch": "master",
+      "commit": "776196e339191736e20d4eb6eed7c468aa6e4472"
+    }
+  ],
+  "interface_proposal": {
+    "implementation_status": "not-implemented",
+    "official_searcher_signature": "discover(task: SEDTask) -> list[SearchResult]",
+    "candidate_signature_template": "equation(<input arrays from task metadata>, params: np.ndarray) -> np.ndarray",
+    "signature_template_is_executable": false,
+    "public_metadata_fields": ["name", "symbols", "symbol_descs", "symbol_properties", "desc_if_available_and_checked"],
+    "numeric_column_convention_from_source": "column 0 is output; remaining columns are inputs; verify against actual metadata before use",
+    "candidate_artifacts": ["program_source", "fitted_constants", "predictor", "parent_candidate_id", "strategy_version", "source_hash"],
+    "allowed_mutable_state": ["candidate_formula_program", "formula_constants", "explicit_revision_strategy"],
+    "base_language_model_weights": "fixed",
+    "revision_mechanism": "not-frozen"
+  },
+  "information_boundaries": {
+    "fit_observations": "subset of official per-equation train; visible for fitting and diagnostic feedback",
+    "internal_selection_observations": "disjoint subset of official per-equation train; split rule and feedback detail pending",
+    "visible_feedback_fields": ["parse_status", "runtime_status", "timeout_status", "nonfinite_status", "fit_error", "internal_selection_error", "visible_residual_summary", "elapsed_seconds", "candidate_count", "model_call_count"],
+    "hidden_fields": ["official_id_test_observations", "official_ood_test_observations", "ground_truth_expression", "hidden_evaluation_logs"],
+    "hidden_feedback_must_not_select_candidates_or_strategies": true,
+    "filesystem_and_tool_access_isolation": "required-before-model-experiments; not-implemented-by-this-manifest",
+    "equation_family_partition": null,
+    "mechanism_development_problem_ids": [],
+    "final_evaluation_problem_ids": [],
+    "partition_status": "pending-data-access-and-family-audit"
+  },
+  "evaluation_proposal": {
+    "official_numeric_metrics_in_audited_pipeline": ["mse", "nmse", "r2", "kdt", "mape", "num_valid_points"],
+    "official_nmse_definition": "MSE / variance of evaluated target values",
+    "official_pipeline_computes_structure_recovery": false,
+    "full_point_finite_predictions_required_for_valid_numeric_result": true,
+    "invalid_prediction_coverage_reported_separately": true,
+    "zero_target_variance_nmse_policy": "mark undefined explicitly; no silent epsilon adjustment",
+    "structure_recovery_rule": "not-frozen",
+    "complexity_rule": "not-frozen",
+    "sample_budget": null,
+    "seeds": [],
+    "formal_results_available": false
+  },
+  "static_findings": [
+    {
+      "id": "loader-key-class-mismatch",
+      "status": "requires-actual-data-validation",
+      "detail": "SynProblem uses train_data/id_test_data/ood_test_data, but BaseSynthDataModule.setup constructs Problem, whose properties use train/test/ood_test. Actual HDF5 keys have not been inspected; runtime failure is not established.",
+      "source_url": "https://github.com/deep-symbolic-mathematics/llm-srbench/blob/6fdbe409b75ea749c0a93c69b6861637d804dec4/bench/datamodules.py#L49"
+    },
+    {
+      "id": "ground-truth-in-evaluation-logs",
+      "status": "confirmed-by-static-source-inspection",
+      "detail": "EvaluationPipeline prints ground-truth expressions to stdout and writes them to result JSONL; these outputs must not enter the agent workspace or feedback.",
+      "source_url": "https://github.com/deep-symbolic-mathematics/llm-srbench/blob/6fdbe409b75ea749c0a93c69b6861637d804dec4/bench/pipelines.py#L85"
+    },
+    {
+      "id": "nan-filtered-official-metrics",
+      "status": "confirmed-by-static-source-inspection",
+      "detail": "Official metrics discard NaN prediction points, and this path does not uniformly handle Inf or zero target variance. Project scoring policy must be explicit and distinguished from exact upstream reproduction.",
+      "source_url": "https://github.com/deep-symbolic-mathematics/llm-srbench/blob/6fdbe409b75ea749c0a93c69b6861637d804dec4/bench/pipelines.py#L12"
+    }
+  ],
+  "environment_plan": {
+    "symbolic_baselines_installed_by_this_step": false,
+    "separate_task_environment_from_openhands": true,
+    "lasr_separate_python_julia_environment": true,
+    "lasr_paper_branch_requires_local_juliapkg_path_adaptation": true,
+    "dependencies_locked_and_verified": false
+  },
+  "pending_acceptance_items": [
+    "obtain authorized dataset access without bypassing gating",
+    "record actual dataset revision and numeric file SHA-256",
+    "inventory exact problem IDs and confirm counts",
+    "verify HDF5 keys, shapes, dtypes, finite values and metadata-to-column mapping",
+    "audit equation families, duplicates and coefficient/variable-name variants",
+    "freeze per-equation fit/selection rules and equation-family holdouts",
+    "separate hidden evaluator files and logs from agent-visible tools",
+    "implement and verify finite-output and zero-variance metric handling",
+    "define structure recovery and complexity policies",
+    "lock independent symbolic baseline environments and run offline checks",
+    "freeze revision mechanism and experiment budgets after preparatory checks"
+  ],
+  "evidence_scope": "public-source static inspection only; no restricted data, formula search, model calls or benchmark results in this step"
+}
