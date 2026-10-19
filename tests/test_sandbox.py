@@ -96,6 +96,19 @@ def get_plan(objects, init, goal):
         result = run_candidate(source, REQUEST)
         self.assertEqual(result["status"], "candidate_process_error", result)
 
+    def test_malformed_json_forgery_is_rejected_without_host_exception(self):
+        payloads = {
+            "nonfinite_constant": '{"status":"ok","value":NaN}',
+            "overflowing_float": '{"status":"ok","value":1e999}',
+            "excessive_nesting": '{"status":"ok","value":' + '[' * 2000 + '0' + ']' * 2000 + '}',
+        }
+        for label, payload in payloads.items():
+            with self.subTest(label=label):
+                source = f"import os\nos.write(1, {payload.encode('utf-8')!r})\nos._exit(0)\n"
+                result = run_candidate(source, REQUEST)
+                self.assertEqual(result["status"], "candidate_process_error", result)
+        self.assert_completed(EMPTY)
+
 
 if __name__ == "__main__":
     unittest.main()

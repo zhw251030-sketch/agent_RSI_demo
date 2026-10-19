@@ -11,7 +11,7 @@ class ExecutorContractTests(unittest.TestCase):
         task = {'family': 'symbolic', 'task_id': 'oscillator1',
                 'X': [[0], [1], [2]], 'y': [1, 3, 5], 'input_names': ['x']}
         responses = [
-            {'status': 'completed', 'result': {'status': 'success', 'params': [2, 1], 'nfev': 3, 'converged': True}},
+            {'status': 'completed', 'result': {'status': 'success', 'params': [2, 1], 'nfev': 3, 'converged': True, 'candidate_calls': 6}},
             {'status': 'completed', 'result': {'status': 'success', 'predictions': [1, 2, 3], 'mse': 0}},
         ]
         with tempfile.TemporaryDirectory() as td, patch('rsi_eval.executor.symbolic.prepare_task', return_value=task), patch('rsi_eval.executor.run_candidate', side_effect=responses) as run:
@@ -33,6 +33,15 @@ class ExecutorContractTests(unittest.TestCase):
             result = evaluate_candidate('shell', 'any', 'source', root=Path(td))
         self.assertEqual(result['status'], 'invalid_request')
         run.assert_not_called()
+
+    def test_untrusted_fit_metadata_cannot_break_journal(self):
+        task = {'family': 'symbolic', 'task_id': 'oscillator1', 'X': [[1]], 'y': [2], 'input_names': ['x']}
+        for bad in [float('nan'), float('inf'), '3', [3], True]:
+            payload = {'status': 'success', 'params': [1], 'nfev': bad, 'converged': True, 'candidate_calls': 3}
+            with self.subTest(bad=bad), tempfile.TemporaryDirectory() as td, patch('rsi_eval.executor.symbolic.prepare_task', return_value=task), patch('rsi_eval.executor.run_candidate', return_value={'status': 'completed', 'result': payload}) as run:
+                result = evaluate_candidate('symbolic', 'oscillator1', 'source', root=Path(td), n_params=1)
+                self.assertEqual(result['error_kind'], 'invalid_fit_metadata')
+                self.assertEqual(run.call_count, 1)
 
 
 if __name__ == '__main__':

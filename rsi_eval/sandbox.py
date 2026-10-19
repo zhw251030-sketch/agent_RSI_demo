@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 from pathlib import Path
 import selectors
@@ -11,6 +12,17 @@ import subprocess
 import sys
 import tempfile
 import time
+
+
+def _finite_float(token):
+    value = float(token)
+    if not math.isfinite(value):
+        raise ValueError("nonfinite JSON number")
+    return value
+
+
+def _reject_constant(token):
+    raise ValueError("nonfinite JSON constant")
 
 
 def run_candidate(source: str, request: dict, *, timeout_seconds=20, memory_mb=2048,
@@ -125,10 +137,11 @@ def run_candidate(source: str, request: dict, *, timeout_seconds=20, memory_mb=2
                 return outcome(status, returncode=process.returncode,
                                error=buffers["stderr_bytes"].decode("utf-8", "replace")[-1000:])
             try:
-                result = json.loads(buffers["stdout_bytes"])
+                result = json.loads(buffers["stdout_bytes"], parse_float=_finite_float,
+                                    parse_constant=_reject_constant)
                 if not isinstance(result, dict) or not isinstance(result.get("status"), str):
                     raise ValueError("worker response is not a result object")
-            except (ValueError, UnicodeError) as exc:
+            except (ValueError, UnicodeError, RecursionError) as exc:
                 return outcome("candidate_process_error", error=f"invalid worker output: {exc}")
             if result["status"] == "resource_limit":
                 return outcome("resource_limit", result=result)

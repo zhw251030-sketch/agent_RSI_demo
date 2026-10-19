@@ -70,10 +70,15 @@ def evaluate_candidate(family, task_id, source, *, root=ROOT, n_params=3,
         payload = response.get('result')
         if not isinstance(payload, dict) or payload.get('status') not in ('success', 'ok'):
             payload = payload if isinstance(payload, dict) else {}
-            return None, {'status': payload.get('status', 'candidate_error'),
-                          'error_kind': payload.get('error', payload.get('error_kind', 'invalid_worker_result')),
-                          'public_diagnostic': payload.get('public_diagnostic', payload.get('diagnostic', '')),
-                          **{k: payload[k] for k in ('exception_type', 'candidate_line') if k in payload}}
+            error = {'status': 'candidate_error', 'error_kind': 'invalid_worker_result'}
+            for name, value in [('error_kind', payload.get('error', payload.get('error_kind'))),
+                                ('exception_type', payload.get('exception_type'))]:
+                if isinstance(value, str) and len(value) <= 128:
+                    error[name] = value
+            line = payload.get('candidate_line')
+            if type(line) is int and 1 <= line <= 100000:
+                error['candidate_line'] = line
+            return None, error
         return payload, None
 
     if family == 'planning':
@@ -92,6 +97,11 @@ def evaluate_candidate(family, task_id, source, *, root=ROOT, n_params=3,
     if (not isinstance(params, list) or len(params) != n_params
             or any(type(v) not in (float, int) or not math.isfinite(v) for v in params)):
         return finish({'status': 'candidate_error', 'error_kind': 'invalid_fitted_parameters'})
+    if (payload.get('converged') is not True or type(payload.get('nfev')) is not int
+            or not 1 <= payload['nfev'] <= 100
+            or type(payload.get('candidate_calls')) is not int
+            or not 1 <= payload['candidate_calls'] <= 100000):
+        return finish({'status': 'candidate_error', 'error_kind': 'invalid_fit_metadata'})
     result['fitting'] = {'params': params, 'n_params': n_params,
                          'nfev': payload.get('nfev'), 'converged': payload.get('converged'),
                          'candidate_calls': payload.get('candidate_calls'),
