@@ -11,8 +11,8 @@
 | 层次 | 当前状态 |
 |---|---|
 | 研究路线 | 已选择形式规划与符号发现一起推进；基础 LLM 权重固定 |
-| 规划任务 | 已固定本次核查的 llm-genplan 源码版本与 Spanner 400 文件清单；seed0 的 2/8/30 准备稿未启动执行，正式协议待冻结 |
-| 符号任务 | 已核查 LLM-SRBench 的 phys_osc 接口并固定源码版本；受限数据未取得，具体方程和划分未冻结 |
+| 规划任务 | Spanner 的 400 问题与域文件已下载到服务器，完整性检查和固定 prompt 的 VAL 验收通过；seed0 的 2/8/30 仍为准备稿 |
+| 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，正式协议待冻结 |
 | 更新对象 | 建议区分产物 P（程序/公式）与修订策略 S，重点检验策略对新搜索状态的作用 |
 | 方法参照 | GEPA 式策略优化为共同候选，llm-genplan、LLM-SR、LaSR 等为任务参照；最终规则未选定 |
 | Agent 框架 | OpenHands SDK/tools 1.55.1 已安装，无模型工具检查通过；MiniMax-M3 连接已验证；任务执行器和生成代码隔离尚未接入 |
@@ -28,6 +28,8 @@
 4. [OpenHands 安装与检查结果](docs/environment/2026-10-20-setup-and-verification.md)
 5. [两类任务的共用研究契约](docs/protocols/2026-10-20-shared-contract.md)
 6. [GitHub 与服务器同步约定](docs/operations/git-sync.md)
+7. [两类任务下载、替代选型与验收说明](docs/operations/task-data.md)
+8. [当前符号数据接口：LLM-SR 公开原始任务](docs/protocols/2026-10-20-symbolic-public-data.md)
 
 ## 仓库边界
 

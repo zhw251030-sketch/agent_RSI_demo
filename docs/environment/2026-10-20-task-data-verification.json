@@ -1,0 +1,494 @@
+{
+  "checked_at_utc": "2026-10-19T20:24:16.184568+00:00",
+  "code_commit": "11180384f120b5f6cdac325887f17eedaea7d240",
+  "python": "Python 3.10.12",
+  "acquisition": {
+    "schema_version": "0.1",
+    "model_calls": 0,
+    "sources": [
+      {
+        "name": "llm-genplan",
+        "commit": "a2b8baa7153d5a8f2df51fbc72c51def80ddc169",
+        "archive_sha256": "5f4c73db32b250b8a648cbd130357eac435463c1d30cc0e0015e55f098146d6b",
+        "archive_bytes": 35942434,
+        "source_files_verified": 8665
+      },
+      {
+        "name": "LLM-SR",
+        "commit": "41c212312df6c16d936c9cb395356a62774c47e3",
+        "archive_sha256": "3c8b06d3ad790f00339c31364accd95320d707a44b8ad3f7452f3dc2d73966eb",
+        "archive_bytes": 4374359,
+        "source_files_verified": 42
+      }
+    ],
+    "planning_files_verified": 401,
+    "symbolic_files_verified": 12
+  },
+  "acquisition_idempotent_rerun": "passed",
+  "planning": {
+    "schema_version": "1.0",
+    "checked_at_utc": "2026-10-19T20:23:37.823565+00:00",
+    "script_sha256": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547",
+    "scope": "Downloaded data integrity and hand-authored VAL installation fixtures; not a benchmark or candidate evaluation.",
+    "model_calls": 0,
+    "agent_rollouts": 0,
+    "sealed_tasks_executed": 0,
+    "official_pddl_parser_executed": false,
+    "generated_code_executed": false,
+    "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+    "upstream_commit": "a2b8baa7153d5a8f2df51fbc72c51def80ddc169",
+    "integrity": {
+      "status": "passed",
+      "expected_files_per_copy": 401,
+      "verified_files_per_copy": {
+        "vendor": 401,
+        "copied_data": 401
+      },
+      "structural_check_scope": "Balanced parentheses and one define form only; not an official PDDL parser.",
+      "official_subset_counts": {
+        "official_train": 100,
+        "official_test": 300
+      },
+      "pilot_role_counts": {
+        "prompt": 2,
+        "development_feedback": 8,
+        "sealed_evaluation": 30,
+        "inventory_not_selected": 360
+      }
+    },
+    "validator": {
+      "status": "passed",
+      "artifacts": {
+        "Validate": {
+          "status": "passed",
+          "sha256": "752b40692acb14f9c9d165e57662f84b9ada9a4d1d33ea31ed897aea6d8bb06d",
+          "expected_sha256": "752b40692acb14f9c9d165e57662f84b9ada9a4d1d33ea31ed897aea6d8bb06d"
+        },
+        "libVAL.so": {
+          "status": "passed",
+          "sha256": "b889dfee9450cd32f55b0a74b8cebd78a4eb5104f2184c1dd87db919a887f2f2",
+          "expected_sha256": "b889dfee9450cd32f55b0a74b8cebd78a4eb5104f2184c1dd87db919a887f2f2"
+        }
+      },
+      "task_id": "spannerlearning/seed0/problem0",
+      "task_role": "prompt",
+      "fixtures": {
+        "valid_hand_authored_plan": {
+          "plan_length": 11,
+          "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "4343231fd2d8412874e8bd41bef585662eee94c839a1fe157c36485cdd1646d6",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2068,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.004409,
+          "expected_status": "valid",
+          "passed": true
+        },
+        "empty_plan": {
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status": "invalid",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "stdout_sha256": "0e43ea84c8d2dee24fea1a89d6421d09ca410a3c3de9ee02d49abf9fcfc4c6eb",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 677,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.005076,
+          "expected_status": "invalid",
+          "passed": true
+        },
+        "unsatisfied_precondition": {
+          "plan_length": 1,
+          "plan_sha256": "e5ffc5a73508e421560cf8f55c4c4f72acbbe16fc85bfeb5cb1d9b3fec77b6ae",
+          "status": "invalid",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "stdout_sha256": "59416d0ee29f9085c9dd99ffd0260d8fa6f0e80ad7ad52ea9627d410c9fb8c3a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 885,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003859,
+          "expected_status": "invalid",
+          "passed": true
+        },
+        "missing_binary": {
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status": "infrastructure_error",
+          "reason": "missing_executable",
+          "returncode": null,
+          "elapsed_seconds": 0.000387,
+          "expected_status": "infrastructure_error",
+          "passed": true
+        }
+      },
+      "sealed_tasks_executed": 0,
+      "reference_solver_implemented": false
+    },
+    "status": "passed"
+  },
+  "symbolic": {
+    "source_name": "LLM-SR",
+    "data_dir": "data/symbolic/llm-sr",
+    "status": "ok",
+    "files": [
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 239515,
+        "sha256": "9f4f97b56636a4dc70e92c8c462d13582913bd6d0d9bff798da969b0a999cdea",
+        "columns_match": true,
+        "rows": 2500,
+        "expected_rows": 2500,
+        "columns": 5,
+        "finite_rows": 2500,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 2500,
+        "unique_inputs": 2500,
+        "output_column_index": 4,
+        "relative_path": "bactgrow/test_id.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 1428009,
+        "sha256": "30d1b63ae379b695b4811f696f38f93f516d39a0c34329909f9f26ebe0cfc13c",
+        "columns_match": true,
+        "rows": 15000,
+        "expected_rows": 15000,
+        "columns": 5,
+        "finite_rows": 15000,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 15000,
+        "unique_inputs": 15000,
+        "output_column_index": 4,
+        "relative_path": "bactgrow/test_ood.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 718485,
+        "sha256": "e3c0cc688b4543652360bda708302f1134091fe18c119a2033f204a5826a49da",
+        "columns_match": true,
+        "rows": 7500,
+        "expected_rows": 7500,
+        "columns": 5,
+        "finite_rows": 7500,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 7500,
+        "unique_inputs": 7500,
+        "output_column_index": 4,
+        "relative_path": "bactgrow/train.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 610829,
+        "sha256": "ef7ce4294c8b630dfe0fd07fb5b7d61bbb3bd2a1c391eab8d57e4f8064cc1547",
+        "columns_match": true,
+        "rows": 10000,
+        "expected_rows": 10000,
+        "columns": 3,
+        "finite_rows": 10000,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 10000,
+        "unique_inputs": 10000,
+        "output_column_index": 2,
+        "relative_path": "oscillator1/test_id.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 608448,
+        "sha256": "2ff98bf12d6e77f906621fc7f3ccae8177e67fd912b09768b1656dbfdfb25a2f",
+        "columns_match": true,
+        "rows": 10000,
+        "expected_rows": 10000,
+        "columns": 3,
+        "finite_rows": 10000,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 10000,
+        "unique_inputs": 10000,
+        "output_column_index": 2,
+        "relative_path": "oscillator1/test_ood.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 610862,
+        "sha256": "a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7",
+        "columns_match": true,
+        "rows": 10000,
+        "expected_rows": 10000,
+        "columns": 3,
+        "finite_rows": 10000,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 10000,
+        "unique_inputs": 10000,
+        "output_column_index": 2,
+        "relative_path": "oscillator1/train.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 790823,
+        "sha256": "fde57f561b6a04610657806d68ae9b817f70cf6a9a860ae105f421a7a1a85f6a",
+        "columns_match": true,
+        "rows": 10000,
+        "expected_rows": 10000,
+        "columns": 4,
+        "finite_rows": 10000,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 10000,
+        "unique_inputs": 10000,
+        "output_column_index": 3,
+        "relative_path": "oscillator2/test_id.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 783485,
+        "sha256": "d0c85e094a432b579f4fee8f5280955bd547048b528dd0be1be7dc0090bfe2cd",
+        "columns_match": true,
+        "rows": 10000,
+        "expected_rows": 10000,
+        "columns": 4,
+        "finite_rows": 10000,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 10000,
+        "unique_inputs": 10000,
+        "output_column_index": 3,
+        "relative_path": "oscillator2/test_ood.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 790770,
+        "sha256": "40ba3225a90dcdabcf5fb5a73d6ad1b5aaafd1927f5507736d5aaf343fd26edf",
+        "columns_match": true,
+        "rows": 10000,
+        "expected_rows": 10000,
+        "columns": 4,
+        "finite_rows": 10000,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 10000,
+        "unique_inputs": 10000,
+        "output_column_index": 3,
+        "relative_path": "oscillator2/train.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 45816,
+        "sha256": "c970b8142c98b0fc7c387c7a1ab011a739150f7c5997e40a5dee5236ec231f5a",
+        "columns_match": true,
+        "rows": 1442,
+        "expected_rows": 1442,
+        "columns": 3,
+        "finite_rows": 1442,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 1442,
+        "unique_inputs": 1442,
+        "output_column_index": 2,
+        "relative_path": "stressstrain/test_id.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 26100,
+        "sha256": "0f53c2d5ca25069b2b2febf730a59514a841276a4f9d71fbd564fb445fe73b04",
+        "columns_match": true,
+        "rows": 738,
+        "expected_rows": 738,
+        "columns": 3,
+        "finite_rows": 738,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 738,
+        "unique_inputs": 738,
+        "output_column_index": 2,
+        "relative_path": "stressstrain/test_ood.csv"
+      },
+      {
+        "status": "ok",
+        "errors": [],
+        "bytes": 68596,
+        "sha256": "6b850acb3567b10ccadb0d57cda3d7926297846f30be35ca1bc258b1c135fa73",
+        "columns_match": true,
+        "rows": 2161,
+        "expected_rows": 2161,
+        "columns": 3,
+        "finite_rows": 2161,
+        "invalid_width_rows": 0,
+        "nonnumeric_rows": 0,
+        "nonfinite_rows": 0,
+        "duplicate_rows": 0,
+        "duplicate_input_rows": 0,
+        "unique_rows": 2161,
+        "unique_inputs": 2161,
+        "output_column_index": 2,
+        "relative_path": "stressstrain/train.csv"
+      }
+    ],
+    "cross_split_overlap": {
+      "bactgrow": [
+        {
+          "left": "test_id",
+          "right": "test_ood",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_id",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_ood",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        }
+      ],
+      "oscillator1": [
+        {
+          "left": "test_id",
+          "right": "test_ood",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_id",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_ood",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        }
+      ],
+      "oscillator2": [
+        {
+          "left": "test_id",
+          "right": "test_ood",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_id",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_ood",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        }
+      ],
+      "stressstrain": [
+        {
+          "left": "test_id",
+          "right": "test_ood",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_id",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        },
+        {
+          "left": "test_ood",
+          "right": "train",
+          "status": "checked",
+          "shared_rows": 0,
+          "shared_inputs": 0
+        }
+      ]
+    },
+    "output_column": "last",
+    "model_calls": 0,
+    "formal_experiments": 0,
+    "report_scope": "Schema, integrity and exact numeric overlap; no formulas, rows or scores.",
+    "overlap_semantics": "Exact finite float tuples; counts are distinct shared rows/inputs, not pair counts.",
+    "independence_limit": "Zero exact overlap does not prove statistical independence; oscillator observations come from trajectories.",
+    "files_checked": 12,
+    "total_rows": 89341,
+    "checked_at_utc": "2026-10-19T20:23:38.431934+00:00",
+    "config_sha256": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8"
+  },
+  "raw_report_sha256": {
+    "acquisition.json": "7936844482f7c01925afb8b3cd516d2a9af5f9a293b3b99f1a0b8ab8ff4bf106",
+    "planning.json": "78ba90daf127575277531d9dd110cfc0f9b829a1c5900001c7eba8eb654b4e55",
+    "symbolic.json": "7b7a0de736ab5e24e1a7e96ec1168e0930ed470bb9adf5b0d911d7165a1e18b1"
+  },
+  "script_sha256": {
+    "check_symbolic_data.py": "81243ba1384a743120c6319b178a68091d6b99661f815b9c015cc6c3de80c5b0",
+    "check_planning_data.py": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547"
+  }
+}

@@ -3,6 +3,8 @@
 先读 README.md、STATUS.md 和最新联合设计。当前用户要求优先于历史稿。重要判断应核查原始论文、官方代码或实际日志，不能仅凭对话记忆推断。
 
 - 当前研究为固定基础 LLM 权重下的形式规划与符号发现；具体方法和任务子集尚未冻结。
+- 当前服务器数据为 Spanner（400 问题+域文件）与 LLM-SR 原始四任务（12 CSV，先用 oscillator1/2）。后者按用户要求替代受限 LLM-SRBench，输出在最后一列；看 docs/operations/task-data.md 和最新 symbolic-public-data 协议。旧 phys_osc 清单保留作历史，不继续作为当前下载目标。
+- vendor/ 与 data/ 都是准备材料，未实现权限隔离；上游源码含参考解与缓存，后续 Agent 不可直接读取整个项目。当前仅数据检查和固定 VAL 样例通过，无正式模型实验。
 - 官方 Canvas 1.28.1 已部署；`scripts/canvas.py` 管理网页服务，状态与依赖分别在被忽略的 `.canvas-state/`、`.canvas-runtime/`。网页后端的 SDK 1.56.0 与实验 `.venv` 1.55.1 分开；不要因网页版本改变实验依赖。入口通过 SSH 隧道访问回环 18080；MiniMax-M3 已配置；详见 docs/operations/minimax.md。
 - 服务器项目 `.venv` 已安装 OpenHands SDK/tools 1.55.1，并通过固定命令的无模型检查；使用 requirements 中的实际版本记录。模型连接及内存工具往返已验证；两套任务执行器与生成代码隔离未接入，不把普通 TerminalExecutor 当沙箱。
 - 区分研究建议、静态核查、部署、运行和结果。没有实验就不能填写性能或简历成果。
