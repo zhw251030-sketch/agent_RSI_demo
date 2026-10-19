@@ -1,0 +1,197 @@
+{
+  "schema_version": "0.1",
+  "sources": [
+    {
+      "name": "llm-genplan",
+      "repository": "https://github.com/tomsilver/llm-genplan",
+      "commit": "a2b8baa7153d5a8f2df51fbc72c51def80ddc169",
+      "url": "https://codeload.github.com/tomsilver/llm-genplan/zip/a2b8baa7153d5a8f2df51fbc72c51def80ddc169",
+      "size": 35942434,
+      "sha256": "5f4c73db32b250b8a648cbd130357eac435463c1d30cc0e0015e55f098146d6b"
+    },
+    {
+      "name": "LLM-SR",
+      "repository": "https://github.com/deep-symbolic-mathematics/LLM-SR",
+      "commit": "41c212312df6c16d936c9cb395356a62774c47e3",
+      "url": "https://codeload.github.com/deep-symbolic-mathematics/LLM-SR/zip/41c212312df6c16d936c9cb395356a62774c47e3",
+      "size": 4374359,
+      "sha256": "3c8b06d3ad790f00339c31364accd95320d707a44b8ad3f7452f3dc2d73966eb"
+    }
+  ],
+  "planning": {
+    "manifest": "configs/tasks/planning-spanner-v0.1.json",
+    "data_dir": "data/planning/spanner",
+    "source_prefix": "llm_genplan/envs/assets/pddl/pg3"
+  },
+  "symbolic": {
+    "source_name": "LLM-SR",
+    "data_dir": "data/symbolic/llm-sr",
+    "active_pilot_tasks": [
+      "oscillator1",
+      "oscillator2"
+    ],
+    "reserve_tasks": [
+      "bactgrow",
+      "stressstrain"
+    ],
+    "publication": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/28df8e730c054c5331855fd4d5403ba9-Abstract-Conference.html",
+    "selection_reason": "Public original LLM-SR benchmark selected after the user requested an accessible substitute for gated LLM-SRBench. Not the same dataset.",
+    "target_column": "last",
+    "split_policy": "Preserve upstream train/test_id/test_ood; no benchmark scoring in data preparation. Independent strategy-selection design remains pending.",
+    "files": [
+      {
+        "upstream_path": "data/bactgrow/test_id.csv",
+        "relative_path": "bactgrow/test_id.csv",
+        "sha256": "9f4f97b56636a4dc70e92c8c462d13582913bd6d0d9bff798da969b0a999cdea",
+        "size": 239515,
+        "rows": 2500,
+        "columns": [
+          "b",
+          "s",
+          "temp",
+          "pH",
+          "db"
+        ]
+      },
+      {
+        "upstream_path": "data/bactgrow/test_ood.csv",
+        "relative_path": "bactgrow/test_ood.csv",
+        "sha256": "30d1b63ae379b695b4811f696f38f93f516d39a0c34329909f9f26ebe0cfc13c",
+        "size": 1428009,
+        "rows": 15000,
+        "columns": [
+          "b",
+          "s",
+          "temp",
+          "pH",
+          "db"
+        ]
+      },
+      {
+        "upstream_path": "data/bactgrow/train.csv",
+        "relative_path": "bactgrow/train.csv",
+        "sha256": "e3c0cc688b4543652360bda708302f1134091fe18c119a2033f204a5826a49da",
+        "size": 718485,
+        "rows": 7500,
+        "columns": [
+          "b",
+          "s",
+          "temp",
+          "pH",
+          "db"
+        ]
+      },
+      {
+        "upstream_path": "data/oscillator1/test_id.csv",
+        "relative_path": "oscillator1/test_id.csv",
+        "sha256": "ef7ce4294c8b630dfe0fd07fb5b7d61bbb3bd2a1c391eab8d57e4f8064cc1547",
+        "size": 610829,
+        "rows": 10000,
+        "columns": [
+          "x",
+          "v",
+          "a"
+        ]
+      },
+      {
+        "upstream_path": "data/oscillator1/test_ood.csv",
+        "relative_path": "oscillator1/test_ood.csv",
+        "sha256": "2ff98bf12d6e77f906621fc7f3ccae8177e67fd912b09768b1656dbfdfb25a2f",
+        "size": 608448,
+        "rows": 10000,
+        "columns": [
+          "x",
+          "v",
+          "a"
+        ]
+      },
+      {
+        "upstream_path": "data/oscillator1/train.csv",
+        "relative_path": "oscillator1/train.csv",
+        "sha256": "a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7",
+        "size": 610862,
+        "rows": 10000,
+        "columns": [
+          "x",
+          "v",
+          "a"
+        ]
+      },
+      {
+        "upstream_path": "data/oscillator2/test_id.csv",
+        "relative_path": "oscillator2/test_id.csv",
+        "sha256": "fde57f561b6a04610657806d68ae9b817f70cf6a9a860ae105f421a7a1a85f6a",
+        "size": 790823,
+        "rows": 10000,
+        "columns": [
+          "t",
+          "x",
+          "v",
+          "a"
+        ]
+      },
+      {
+        "upstream_path": "data/oscillator2/test_ood.csv",
+        "relative_path": "oscillator2/test_ood.csv",
+        "sha256": "d0c85e094a432b579f4fee8f5280955bd547048b528dd0be1be7dc0090bfe2cd",
+        "size": 783485,
+        "rows": 10000,
+        "columns": [
+          "t",
+          "x",
+          "v",
+          "a"
+        ]
+      },
+      {
+        "upstream_path": "data/oscillator2/train.csv",
+        "relative_path": "oscillator2/train.csv",
+        "sha256": "40ba3225a90dcdabcf5fb5a73d6ad1b5aaafd1927f5507736d5aaf343fd26edf",
+        "size": 790770,
+        "rows": 10000,
+        "columns": [
+          "t",
+          "x",
+          "v",
+          "a"
+        ]
+      },
+      {
+        "upstream_path": "data/stressstrain/test_id.csv",
+        "relative_path": "stressstrain/test_id.csv",
+        "sha256": "c970b8142c98b0fc7c387c7a1ab011a739150f7c5997e40a5dee5236ec231f5a",
+        "size": 45816,
+        "rows": 1442,
+        "columns": [
+          "strain",
+          "temp",
+          "stress"
+        ]
+      },
+      {
+        "upstream_path": "data/stressstrain/test_ood.csv",
+        "relative_path": "stressstrain/test_ood.csv",
+        "sha256": "0f53c2d5ca25069b2b2febf730a59514a841276a4f9d71fbd564fb445fe73b04",
+        "size": 26100,
+        "rows": 738,
+        "columns": [
+          "strain",
+          "temp",
+          "stress"
+        ]
+      },
+      {
+        "upstream_path": "data/stressstrain/train.csv",
+        "relative_path": "stressstrain/train.csv",
+        "sha256": "6b850acb3567b10ccadb0d57cda3d7926297846f30be35ca1bc258b1c135fa73",
+        "size": 68596,
+        "rows": 2161,
+        "columns": [
+          "strain",
+          "temp",
+          "stress"
+        ]
+      }
+    ]
+  }
+}
