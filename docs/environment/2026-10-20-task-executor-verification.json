@@ -1,0 +1,988 @@
+{
+  "checked_at_utc": "2026-10-19T20:54:02.162842+00:00",
+  "code_commit": "ecc32efc8a265674bc692742634657b6ed286a00",
+  "scope": "Execution infrastructure and hand-authored fixtures; no model or RSI effectiveness experiment.",
+  "unit_tests": {
+    "system_python": {
+      "tests_run": 43,
+      "passed": 39,
+      "skipped": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "openhands_python": {
+      "tests_run": 4,
+      "passed": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "distinct_tests_passed": 43
+  },
+  "acceptance": {
+    "checked_at_utc": "2026-10-19T20:53:26.618810+00:00",
+    "scope": "Hand-authored executor acceptance, not LLM/RSI performance.",
+    "model_calls": 0,
+    "agent_rollouts": 0,
+    "sealed_tasks_executed": 0,
+    "planning": [
+      {
+        "schema_version": "0.1",
+        "run_id": "cfdf572bafab4875a23bed77b6cd76c7",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem0",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.040082,
+            "stdout_bytes": 423,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "c8f5ba8d8794596a2029a85462a53ff45ac7125852896af2bed9cba9aeadde95",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "bd595d44ec91c051bc3cb4db7ab948b9ac3e76f54add2c10b65e569c17712923",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.005098
+        },
+        "elapsed_seconds": 0.054417
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "4d25fcebdfee4278894e74e078e9dcbd",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem1",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.038187,
+            "stdout_bytes": 423,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "16d7ec48e6700629c34d9c4cb0c52e4d77c3b8328d897a2dbb804cc86465a76a",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "9cf2445fbced9002a04fdb980bea3c5e458c3bc0974b39a5c5ba2d38b23af6aa",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.004314
+        },
+        "elapsed_seconds": 0.050166
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "1ec25911d09c4e84b0426e0457e0dcc3",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem2",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.040997,
+            "stdout_bytes": 432,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "12f18302b88448e57181a33318ac0191c31242280f94dc365857cdf2a0fe15af",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "e9ff2fd830eab3158e71ebe0c396b73f2e65a06dce4b32691f86d54405420a96",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2045,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003476
+        },
+        "elapsed_seconds": 0.051236
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "40e315565038457b92ff38ea74294866",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem3",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.040588,
+            "stdout_bytes": 474,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 12,
+        "validator": {
+          "plan_length": 12,
+          "plan_sha256": "088cbf39764d43dc36b40ddc604648bf94c226db76750d199e496c2fab0dcaf7",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "500607ceef2a0246645084bf00abe271bf9e40930eacdb4facc9a61d8ab8a0a3",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2190,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.004651
+        },
+        "elapsed_seconds": 0.052946
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "2d573bcb0cfe406faef8327d32a66a74",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem4",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.040513,
+            "stdout_bytes": 456,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 12,
+        "validator": {
+          "plan_length": 12,
+          "plan_sha256": "a5005efb8f0ad87fc7e984046b7306d03fe9b6f40985caf09fc2a7594e7a1ac0",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "a4044cafbb70054b604262328010dc73b048cd74c680357e3b6fdb4d886247f1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2152,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.004128
+        },
+        "elapsed_seconds": 0.051752
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "b1211a7bf89d4017902466c5d892b1e7",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem5",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.040016,
+            "stdout_bytes": 498,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 13,
+        "validator": {
+          "plan_length": 13,
+          "plan_sha256": "2e973ab5535655a9e59b7f0c446cdf60b6168e6df777ee8af9a374487d615253",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "42090da94cfaf6819156e2901e51a0b8c256289a01b5b19c51d6d0621ea982c8",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2297,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003319
+        },
+        "elapsed_seconds": 0.049222
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "1869b82c463343f89076e549b3b8d6f1",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem6",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.037623,
+            "stdout_bytes": 423,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "062a399314c3cfb430dc0a0e0022408a7a94b14258ee00f15c02e016fb0a7ef1",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "9ba94b1acb0e4479aa0531c774ab622bf23abfa5df0654299c78c7d0e4c17961",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.00386
+        },
+        "elapsed_seconds": 0.047477
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "c77ac715005a432ea4dc6d65c8b00168",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem7",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.034804,
+            "stdout_bytes": 504,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 13,
+        "validator": {
+          "plan_length": 13,
+          "plan_sha256": "f7afd231781db1af7f54bc080290068438687bd8dddeed7ecaa75b9b8b11507b",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "3b31b068af9e51516d52593b401fa09c976a4e1c72b970922c617fd6a30d465d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2323,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.004084
+        },
+        "elapsed_seconds": 0.047885
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "05a8a5651e224907921bcb8a17a7cccc",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem8",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.040338,
+            "stdout_bytes": 423,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "1e00503b13f9517103bea28c95819b334d2178d1a7c732b6e3a7c89f802c163e",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "a5c326f69d3df82207805d2a3576f86d4f17eaac30dcb175871280aa2a86f573",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.004215
+        },
+        "elapsed_seconds": 0.05164
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "12da0b7576684a55aad6766636d4b270",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem9",
+        "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.03867,
+            "stdout_bytes": 390,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 10,
+        "validator": {
+          "plan_length": 10,
+          "plan_sha256": "5530b8298a904957138bfd7aa4477b1c842075afd924a1ac1d6049cbc663c74c",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "1ea209ffe803072bb8a457542ed2a742818abf13d83b3bfa26877d8ed7a15fb2",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1900,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003707
+        },
+        "elapsed_seconds": 0.049465
+      }
+    ],
+    "symbolic": [
+      {
+        "schema_version": "0.1",
+        "run_id": "ea7955c69aed4a6cabda6215c6284a1c",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+        "candidate_hash": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.223252,
+            "stdout_bytes": 145,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.2125,
+            "stdout_bytes": 205328,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.16318676523595563,
+            0.0006580616489267332,
+            -0.0021869751670145973
+          ],
+          "n_params": 3,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 13,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.0004185108784986807,
+          "nmse": 0.09591726394116994
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "elapsed_seconds": 0.486124,
+        "fixture": "linear.py"
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "6013efad78934e1f9877af510d9f7e8a",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "candidate_hash": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.213954,
+            "stdout_bytes": 99,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.216797,
+            "stdout_bytes": 210037,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            0.014332824030977465
+          ],
+          "n_params": 1,
+          "nfev": 2,
+          "converged": true,
+          "candidate_calls": 5,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.004363248713551409,
+          "nmse": 1.0
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "elapsed_seconds": 0.480738,
+        "fixture": "constant.py"
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "764127dc70284baf9e87ab34ba71f61a",
+        "family": "symbolic",
+        "task_id": "oscillator2",
+        "candidate_id": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+        "candidate_hash": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.225377,
+            "stdout_bytes": 161,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.221998,
+            "stdout_bytes": 200208,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.002218872095541123,
+            -3.850744130448484,
+            -0.06352419985726929,
+            0.06436296707087828
+          ],
+          "n_params": 4,
+          "nfev": 4,
+          "converged": true,
+          "candidate_calls": 21,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.031912306976159224,
+          "nmse": 0.19453053969714007
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "elapsed_seconds": 0.498209,
+        "fixture": "linear.py"
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "eece39c57a0d47e18b86bf8ab3225420",
+        "family": "symbolic",
+        "task_id": "oscillator2",
+        "candidate_id": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "candidate_hash": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "parent_id": null,
+        "strategy_version": "manual-acceptance-v0",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.216939,
+            "stdout_bytes": 98,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.215154,
+            "stdout_bytes": 200037,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            0.00709581046644403
+          ],
+          "n_params": 1,
+          "nfev": 2,
+          "converged": true,
+          "candidate_calls": 5,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.16404779951694334,
+          "nmse": 1.0
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "elapsed_seconds": 0.480065,
+        "fixture": "constant.py"
+      }
+    ],
+    "failure_fixtures": [
+      {
+        "name": "empty_plan",
+        "expected_status": "task_failure",
+        "expected_error": "plan_semantics",
+        "passed": true,
+        "observed": {
+          "schema_version": "0.1",
+          "run_id": "9e3f0a37d15042958fd6131803d2e02c",
+          "family": "planning",
+          "task_id": "spannerlearning/seed0/problem0",
+          "candidate_id": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "parent_id": null,
+          "strategy_version": "manual-negative-fixture-v0",
+          "feedback_role": "development_only",
+          "limits": {
+            "timeout_seconds": 20,
+            "memory_mb": 2048,
+            "cpu_seconds": 10,
+            "max_output_bytes": 2000000
+          },
+          "model_calls": 0,
+          "sealed_tasks_executed": 0,
+          "executions": [
+            {
+              "phase": "plan",
+              "status": "completed",
+              "elapsed_seconds": 0.035011,
+              "stdout_bytes": 26,
+              "stderr_bytes": 0
+            }
+          ],
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+          "plan_length": 0,
+          "validator": {
+            "plan_length": 0,
+            "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "status": "invalid",
+            "reason": "semantic_failure_marker",
+            "returncode": 1,
+            "stdout_sha256": "c7c80ab3f288936d944d6ac16b10312a0335d6e841883799f4033148d9e7b77f",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 663,
+            "stderr_bytes": 0,
+            "elapsed_seconds": 0.003774
+          },
+          "elapsed_seconds": 0.045484
+        }
+      },
+      {
+        "name": "invalid_shape",
+        "expected_status": "candidate_error",
+        "expected_error": "invalid_shape",
+        "passed": true,
+        "observed": {
+          "schema_version": "0.1",
+          "run_id": "3456d646d0a74f6e8c31d765ebe15617",
+          "family": "symbolic",
+          "task_id": "oscillator1",
+          "candidate_id": "534c54b385824b206e6c9f93c33e00052038659db3474be8913df90b1947bc7f",
+          "candidate_hash": "534c54b385824b206e6c9f93c33e00052038659db3474be8913df90b1947bc7f",
+          "parent_id": null,
+          "strategy_version": "manual-negative-fixture-v0",
+          "feedback_role": "development_only",
+          "limits": {
+            "timeout_seconds": 20,
+            "memory_mb": 2048,
+            "cpu_seconds": 10,
+            "max_output_bytes": 2000000
+          },
+          "model_calls": 0,
+          "sealed_tasks_executed": 0,
+          "executions": [
+            {
+              "phase": "fit",
+              "status": "completed",
+              "elapsed_seconds": 0.208386,
+              "stdout_bytes": 53,
+              "stderr_bytes": 0
+            }
+          ],
+          "status": "candidate_error",
+          "error_kind": "invalid_shape",
+          "elapsed_seconds": 0.235704
+        }
+      },
+      {
+        "name": "nonfinite_output",
+        "expected_status": "candidate_error",
+        "expected_error": "nonfinite_output",
+        "passed": true,
+        "observed": {
+          "schema_version": "0.1",
+          "run_id": "39c14171db71471da7d809cc43214cdf",
+          "family": "symbolic",
+          "task_id": "oscillator1",
+          "candidate_id": "efcef021648c5605a2fd44400b54fb7957d1a6bf8b24ea02bfe0dc192e0d9aa7",
+          "candidate_hash": "efcef021648c5605a2fd44400b54fb7957d1a6bf8b24ea02bfe0dc192e0d9aa7",
+          "parent_id": null,
+          "strategy_version": "manual-negative-fixture-v0",
+          "feedback_role": "development_only",
+          "limits": {
+            "timeout_seconds": 20,
+            "memory_mb": 2048,
+            "cpu_seconds": 10,
+            "max_output_bytes": 2000000
+          },
+          "model_calls": 0,
+          "sealed_tasks_executed": 0,
+          "executions": [
+            {
+              "phase": "fit",
+              "status": "completed",
+              "elapsed_seconds": 0.20648,
+              "stdout_bytes": 56,
+              "stderr_bytes": 0
+            }
+          ],
+          "status": "candidate_error",
+          "error_kind": "nonfinite_output",
+          "elapsed_seconds": 0.231902
+        }
+      },
+      {
+        "name": "sealed_planning_refused",
+        "expected_status": "invalid_request",
+        "expected_error": "task_contract_rejected",
+        "passed": true,
+        "observed": {
+          "schema_version": "0.1",
+          "run_id": "f660669c4db3464ea5a05ac128d50c9c",
+          "family": "planning",
+          "task_id": "spannerlearning_test/seed0/problem0",
+          "candidate_id": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+          "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+          "parent_id": null,
+          "strategy_version": "manual-negative-fixture-v0",
+          "feedback_role": "development_only",
+          "limits": {
+            "timeout_seconds": 20,
+            "memory_mb": 2048,
+            "cpu_seconds": 10,
+            "max_output_bytes": 2000000
+          },
+          "model_calls": 0,
+          "sealed_tasks_executed": 0,
+          "executions": [],
+          "status": "invalid_request",
+          "error_kind": "task_contract_rejected",
+          "public_diagnostic": "PermissionError",
+          "elapsed_seconds": 0.001124
+        }
+      },
+      {
+        "name": "symbolic_test_refused",
+        "expected_status": "invalid_request",
+        "expected_error": "task_contract_rejected",
+        "passed": true,
+        "observed": {
+          "schema_version": "0.1",
+          "run_id": "35fced93f0f74e328e347b4757810c7c",
+          "family": "symbolic",
+          "task_id": "oscillator1/test_id",
+          "candidate_id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "candidate_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "parent_id": null,
+          "strategy_version": "manual-negative-fixture-v0",
+          "feedback_role": "development_only",
+          "limits": {
+            "timeout_seconds": 20,
+            "memory_mb": 2048,
+            "cpu_seconds": 10,
+            "max_output_bytes": 2000000
+          },
+          "model_calls": 0,
+          "sealed_tasks_executed": 0,
+          "executions": [],
+          "status": "invalid_request",
+          "error_kind": "task_contract_rejected",
+          "public_diagnostic": "ValueError",
+          "elapsed_seconds": 3.9e-05
+        }
+      }
+    ],
+    "passed": true,
+    "source_sha256": {
+      "rsi_eval/__init__.py": "34dbd6e7bd04ecfe30cd28a01a30c83ae9dba715fe5af2cc701eadd10605de12",
+      "rsi_eval/executor.py": "2ff5fe56d9d5698f36d27363ddd6b1c3589623f21d9092daea09108a1057931a",
+      "rsi_eval/openhands_tool.py": "00612b5b7503bcd9016c9365897d45cbdac4f4e9ff21fcf1b82121cb3a24c29c",
+      "rsi_eval/planning.py": "15a382c3081f964e51e4818bdec3aebdc26a0b72e1cd02831fefd06319050ef6",
+      "rsi_eval/planning_worker.py": "ec61d162ae47214231333bd12d39791d0f22ebfd060caecf4ba2979f7ac9ff7b",
+      "rsi_eval/sandbox.py": "8fd1a4fb149c7632b4e9ce2af187c074633c800a4e8d427eb3b3467e4e77203e",
+      "rsi_eval/symbolic.py": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58",
+      "rsi_eval/symbolic_worker.py": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca",
+      "rsi_eval/worker.py": "f451771c60d0f1cdebc597387ed7896d119ab274c05f3e7faae5cb9d22692e4a",
+      "fixtures/planning/collect_then_tighten.py": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+      "fixtures/planning/empty_plan.py": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+      "fixtures/symbolic/constant.py": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+      "fixtures/symbolic/invalid_shape.py": "534c54b385824b206e6c9f93c33e00052038659db3474be8913df90b1947bc7f",
+      "fixtures/symbolic/linear.py": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+      "fixtures/symbolic/nan.py": "efcef021648c5605a2fd44400b54fb7957d1a6bf8b24ea02bfe0dc192e0d9aa7"
+    },
+    "python": "3.10.12",
+    "bubblewrap": "bubblewrap 0.6.1"
+  },
+  "openhands_tool": {
+    "checked_at_utc": "2026-10-19T20:53:39.361518+00:00",
+    "sdk_version": "1.55.1",
+    "checks": [
+      {
+        "family": "planning",
+        "passed": true,
+        "feedback": {
+          "status": "success",
+          "family": "planning",
+          "task_id": "spannerlearning/seed0/problem0",
+          "feedback_role": "development_only",
+          "public_diagnostic": "Authorized development evaluation completed.",
+          "candidate_hash": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+          "run_id": "795f054d9c5b40d58ce79f69bf5f747c",
+          "plan_length": 11,
+          "elapsed_seconds": 0.050186
+        }
+      },
+      {
+        "family": "symbolic",
+        "passed": true,
+        "feedback": {
+          "status": "success",
+          "family": "symbolic",
+          "task_id": "oscillator1",
+          "feedback_role": "development_only",
+          "public_diagnostic": "Authorized development evaluation completed.",
+          "candidate_hash": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+          "run_id": "d12ce71b3c924db3a3df8e2085995c39",
+          "elapsed_seconds": 0.465417,
+          "metric_split": "train",
+          "metric_scope": "Training fit only; not a held-out or generalization result.",
+          "metrics": {
+            "mse": 0.0004185108784986807,
+            "nmse": 0.09591726394116994
+          }
+        }
+      }
+    ],
+    "passed": true,
+    "model_calls": 0,
+    "agent_rollouts": 0,
+    "canvas_modified": false,
+    "scope": "Offline custom tool dispatch, not an Agent conversation or method experiment."
+  },
+  "dependencies": [
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "url": "https://files.pythonhosted.org/packages/4b/d7/ecf66c1cd12dc28b4040b15ab4d17b773b87fa9d29ca16125de01adb36cd/numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "ffa75af20b44f8dba823498024771d5ac50620e6915abac414251bd971b4529f"
+    },
+    {
+      "name": "scipy",
+      "version": "1.13.1",
+      "url": "https://files.pythonhosted.org/packages/a3/ba/7255e5dc82a65adbe83771c72f384d99c43063648456796436c9a5585ec3/scipy-1.13.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "f26264b282b9da0952a024ae34710c2aff7d27480ee91a2e82b7b7073c24722f"
+    }
+  ],
+  "openhands_pip_check": "passed",
+  "raw_log_sha256": {
+    "unit-tests.json": "8d2130e6ff57e397a17e56917b007b58044931b74e725d1c9ed1d743f79fd141",
+    "openhands-tool.json": "9317a14b8f2f74282301ff0ed475607e37fb5ec01dcac60a2713ca5330fcf15a",
+    "sdk-integration.log": "c74235fed85d3cf3d537e3e7024b1eb04eece40f4b224600c2ba7305623e40f5",
+    "sdk-tests.log": "9ee61b789cc36d9c1faf1572ecd9d884141a9d194530a855cd31f2fff42bd283",
+    "integration.log": "84dd36932001ea323bcb976de37c548918ba1d1e2d07354998bc1618fdf9e439",
+    "report.json": "b25efb5c2acf65d45c05bc878a45bc769f22df134691bd730f901058d31058b9",
+    "openhands-deps.log": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+    "tests.log": "3ded0bd681809dfa0ec2d5f5f71b7e6bf05d01a818ad6bb2c43406225fd20276"
+  },
+  "model_calls_this_step": 0,
+  "formal_agent_rollouts": 0,
+  "sealed_task_evaluations": 0
+}

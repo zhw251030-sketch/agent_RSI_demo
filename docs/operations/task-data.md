@@ -2,6 +2,8 @@
 
 更新：2026-10-20。服务器已取得规划与符号两类真实公开数据，下载和离线验收通过；本次模型调用为 0，没有运行 Agent、方法基线或正式研究实验。
 
+后续进展：开发任务执行器、候选隔离和 OpenHands 工具已实现并通过离线验收，见 [任务执行器说明](task-executors.md)。下文保留本次数据准备时的证据边界与下一步记录。
+
 ## 当前实际使用的数据
 
 规划保留 llm-genplan 的 Spanner，来源是 [AAAI 2024 正式论文](https://ojs.aaai.org/index.php/AAAI/article/view/30006)及[作者仓库](https://github.com/tomsilver/llm-genplan)。完整包有 100 个训练问题、300 个测试问题和 1 个域文件。现有 seed0 的 2 个 prompt、8 个开发问题、30 个封存问题仍只是准备稿，没有扩大实验授权或冻结评价协议。
