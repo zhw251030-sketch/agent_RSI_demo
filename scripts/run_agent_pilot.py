@@ -56,10 +56,35 @@ def source_provenance():
             "sdk_version": importlib.metadata.version("openhands-sdk")}
 
 
+def resume_ledger_path(root, parent_run_id, new_run_id, config_sha256):
+    """Validate a first-transport-failure recovery without resetting its budget."""
+    if (not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}", parent_run_id)
+            or parent_run_id == new_run_id):
+        raise ValueError("Recovery requires a distinct safe parent run identity")
+    parent = root / "runs/agent-pilot" / parent_run_id
+    ledger_path = parent / "budget-ledger.json"
+    summary_path = parent / "summary.json"
+    if (parent.is_symlink() or summary_path.is_symlink() or ledger_path.is_symlink()
+            or not summary_path.is_file() or not ledger_path.is_file()):
+        raise ValueError("Recovery needs an existing original run and budget ledger")
+    previous = json.loads(summary_path.read_text(encoding="utf-8"))
+    if (previous.get("run_id") != parent_run_id or previous.get("mode") != "execute"
+            or previous.get("parent_run_id") is not None
+            or previous.get("config_sha256") != config_sha256
+            or previous.get("status") != "completed_with_stops"):
+        raise ValueError("Recovery parent or protocol mismatch")
+    sessions = previous.get("sessions", [])
+    if (len(sessions) != 2 or {item.get("session_id") for item in sessions} != {"planning", "symbolic"}
+            or any(item.get("controller", {}).get("generated_candidates") != 0 for item in sessions)):
+        raise ValueError("Recovery is restricted to a pilot with no generated candidates")
+    return ledger_path
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "configs/pilots/development-v0.1.json")
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--resume-from", help="Explicit one-time recovery using the failed run's existing budget ledger.")
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--prepare-only", action="store_true")
     mode.add_argument("--execute", action="store_true")
@@ -67,10 +92,14 @@ def main():
     args = parser.parse_args()
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}", args.run_id):
         parser.error("run-id must be a short safe identifier")
+    if args.resume_from and not args.execute:
+        parser.error("resume-from requires explicit execute mode")
     output = ROOT / "runs/agent-pilot" / args.run_id
     output.mkdir(parents=True, exist_ok=False)
     report = {"run_id": args.run_id, "mode": "execute" if args.execute else "prepare_only",
               "status": "error", "sessions": [], "sealed_test_evaluations": 0}
+    if args.resume_from:
+        report["parent_run_id"] = args.resume_from
     ledger = None
     logging.disable(logging.CRITICAL)
     try:
@@ -86,7 +115,10 @@ def main():
             report["config_sha256"] = hashlib.sha256(config_bytes).hexdigest()
             report.update(source_provenance())
             write_json(output / "config.json", config)
-            ledger = BudgetLedger(output / "budget-ledger.json", **budgets)
+            ledger_path = (resume_ledger_path(ROOT, args.resume_from, args.run_id, report["config_sha256"])
+                           if args.resume_from else output / "budget-ledger.json")
+            report["budget_ledger"] = ledger_path.relative_to(ROOT).as_posix()
+            ledger = BudgetLedger(ledger_path, **budgets)
             controllers = []
             for item in sessions:
                 session_dir = output / item["session_id"]
@@ -109,6 +141,8 @@ def main():
                                 api_mode="chat", fallback_strategy=None, log_completions=False)
             report["effective_model_config"] = dict(model_config)
             if args.execute:
+                if args.resume_from:
+                    ledger.resume_after_transport_failure()
                 # Read the user's existing key only here, after preparation succeeded.
                 model_config["api_key"] = read_key(auth_path(args.auth_file))
                 report["sessions"] = []

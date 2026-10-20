@@ -1,5 +1,6 @@
 """Actual OpenHands integration with a fake transport; no credentials or API calls."""
 import importlib.util
+import hashlib
 import json
 import contextlib
 import io
@@ -181,6 +182,105 @@ class PilotAgentTests(unittest.TestCase):
             self.assertEqual(ledger.settlements, [("1", None, "RuntimeError")])
             saved = "".join(p.read_text() for p in output.glob("*.json"))
             self.assertNotIn("fake-test-key", saved)
+
+    def test_http_error_keeps_only_numeric_status_and_whitelisted_code(self):
+        from rsi_eval.pilot_agent import safe_error_metadata
+        error = RuntimeError("fake-test-key")
+        error.status_code = 503
+        error.code = "api_error"
+        error.response = types.SimpleNamespace(status_code=500, text="fake-test-key", headers={"key": "fake-test-key"})
+        self.assertEqual(safe_error_metadata(error), {"http_status": 503, "error_code": "api_error"})
+        error.status_code = "fake-test-key"; error.code = "fake-test-key"
+        self.assertEqual(safe_error_metadata(error), {"http_status": 500})
+        ledger = FakeLedger()
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            with patch("openhands.sdk.llm.llm.litellm_completion", side_effect=error), self.assertRaises(RuntimeError):
+                self.llm(ledger, output)._transport_call(messages=[], max_tokens=4096)
+            saved = (output / "1.response.json").read_text()
+            self.assertEqual(json.loads(saved)["http_status"], 500)
+            self.assertNotIn("fake-test-key", saved)
+
+    def test_resume_reuses_failed_ledger_without_overwriting_parent_report(self):
+        from scripts import run_agent_pilot as runner
+        from rsi_eval.pilot_budget import BudgetLedger
+        config = {"sessions": [{"session_id": name, "family": name, "max_generated_candidates": 3}
+                               for name in ("planning", "symbolic")],
+                  "budgets": {"max_requests": 8, "max_requests_per_session": 4,
+                              "max_output_tokens": 4096, "max_input_bytes": 98304,
+                              "max_reserved_tokens": 800000, "max_cost_cny": 5,
+                              "input_cny_per_million": 2.1, "output_cny_per_million": 8.4}}
+
+        class ReadyController(FakeController):
+            def __init__(self, *args, **kwargs):
+                super().__init__(); self.halted = False
+
+            def baseline(self):
+                return {"status": "evaluated"}
+
+        class FakeBoundedLLM:
+            def __init__(self, **kwargs):
+                pass
+
+            def bind_pilot(self, ledger, session_id, output_dir):
+                self.ledger = ledger
+                return self
+
+        def fake_run(controller, llm, session_id, output):
+            request_id = llm.ledger.reserve(session_id, {"messages": []}, 4096)
+            llm.ledger.settle(request_id, {"prompt_tokens": 100, "completion_tokens": 10, "total_tokens": 110})
+            return {"session_id": session_id, "status": "completed"}
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); cfg = root / "config.json"; cfg.write_text(json.dumps(config))
+            old = root / "runs/agent-pilot/failed"; old.mkdir(parents=True)
+            ledger = BudgetLedger(old / "budget-ledger.json", **config["budgets"])
+            request_id = ledger.reserve("planning", {"messages": []}, 4096)
+            ledger.settle(request_id, None, error_type="InternalServerError")
+            old_report = {"run_id": "failed", "mode": "execute", "status": "completed_with_stops",
+                          "config_sha256": hashlib.sha256(cfg.read_bytes()).hexdigest(),
+                          "sessions": [{"session_id": name, "controller": {"generated_candidates": 0}}
+                                       for name in ("planning", "symbolic")]}
+            (old / "summary.json").write_text(json.dumps(old_report))
+            original = (old / "summary.json").read_bytes()
+            auth = types.ModuleType("configure_minimax")
+            auth.CONFIG = root / "model.json"; auth.CONFIG.write_text(json.dumps({"model": "test", "timeout": 60}))
+            auth.auth_path = Mock(return_value="unused")
+            auth.read_key = Mock(return_value="fake-test-key")
+            with patch.object(runner, "ROOT", root), patch.object(runner, "source_provenance", return_value={}), \
+                    patch("rsi_eval.pilot_controller.PilotController", ReadyController), \
+                    patch("rsi_eval.pilot_agent.BoundedPilotLLM", FakeBoundedLLM), \
+                    patch("rsi_eval.pilot_agent.run_session", side_effect=fake_run), \
+                    patch.dict(sys.modules, {"configure_minimax": auth}), \
+                    patch.object(sys, "argv", ["run_agent_pilot", "--config", str(cfg), "--run-id", "recovery", "--resume-from", "failed", "--execute"]), \
+                    contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(runner.main(), 0)
+            self.assertEqual((old / "summary.json").read_bytes(), original)
+            self.assertFalse((root / "runs/agent-pilot/recovery/budget-ledger.json").exists())
+            saved = json.loads((root / "runs/agent-pilot/recovery/summary.json").read_text())
+            self.assertEqual(saved["parent_run_id"], "failed")
+            self.assertEqual(saved["budget"]["request_count"], 3)
+            self.assertEqual(saved["budget"]["failed_count"], 1)
+            self.assertEqual(saved["budget"]["session_counts"], {"planning": 2, "symbolic": 1})
+
+    def test_resume_rejects_protocol_change_and_original_run_overwrite(self):
+        from scripts import run_agent_pilot as runner
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); old = root / "runs/agent-pilot/failed"; old.mkdir(parents=True)
+            (old / "budget-ledger.json").write_text("{}")
+            report = {"run_id": "failed", "mode": "execute", "status": "completed_with_stops",
+                      "config_sha256": "a", "sessions": [{"session_id": name, "controller": {"generated_candidates": 0}}
+                                                           for name in ("planning", "symbolic")]}
+            (old / "summary.json").write_text(json.dumps(report))
+            with self.assertRaises(ValueError):
+                runner.resume_ledger_path(root, "failed", "recovery", "changed")
+            with self.assertRaises(ValueError):
+                runner.resume_ledger_path(root, "failed", "failed", "a")
+            with patch.object(runner, "ROOT", root), \
+                    patch.object(sys, "argv", ["runner", "--run-id", "failed", "--resume-from", "failed", "--execute"]), \
+                    self.assertRaises(FileExistsError):
+                runner.main()
+            self.assertEqual(json.loads((old / "summary.json").read_text()), report)
 
 
 if __name__ == "__main__":

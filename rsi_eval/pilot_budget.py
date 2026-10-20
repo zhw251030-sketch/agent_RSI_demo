@@ -4,6 +4,8 @@ The input reservation is compact UTF-8 JSON bytes + 8192, NOT a provider token
 count. Costs use configured uncached token prices, NOT an invoice or provider
 spending limit. Reservations are never refunded, even when a request fails.
 Missing response usage halts later requests, regardless of success or failure.
+An operator may explicitly recover once from a recognized transport failure;
+that action never refunds reservations or turns unknown usage into zero.
 
 An exclusive-create lock works across processes on Linux and Windows. Lock
 contention immediately refuses the operation; a crash can leave a stale lock
@@ -194,6 +196,28 @@ class BudgetLedger:
                 state['halt_reasons'] = sorted(set(state['halt_reasons'] + reasons))
             self._write(state)
 
+    def resume_after_transport_failure(self):
+        """Explicit one-time operator recovery; never call as an automatic retry."""
+        allowed = {'InternalServerError', 'APIConnectionError', 'Timeout', 'ReadTimeout'}
+        with self._locked():
+            state = self._read()
+            if (not state['halted'] or state['halt_reasons'] != ['usage_unknown']
+                    or state.get('recovery') is not None):
+                raise BudgetExceeded('ledger is not eligible for transport recovery')
+            unknown = [r for r in state['requests'] if r['usage_state'] != 'known']
+            if (not unknown
+                    or any(r['status'] == 'reserved' for r in state['requests'])
+                    or any(r['usage_state'] != 'unknown' or r['status'] != 'failed'
+                           or r.get('error_type') not in allowed for r in unknown)):
+                raise BudgetExceeded('unknown usage is not exclusively settled transport failure')
+            state['recovery'] = {
+                'kind': 'operator_transport_recovery',
+                'unknown_request_ids': [r['request_id'] for r in unknown],
+            }
+            state['halted'] = False
+            state['halt_reasons'] = []
+            self._write(state)
+
     def summary(self):
         with self._locked():
             state = self._read()
@@ -222,6 +246,7 @@ class BudgetLedger:
             'actual_tokens': None if unknown else prompt + completion,
             'actual_estimated_cost_cny': None if unknown else known_cost,
             'halted': state['halted'], 'halt_reasons': list(state['halt_reasons']),
+            'recovery': state.get('recovery'),
             'reservation_method': 'compact_utf8_json_bytes_plus_8192',
             'cost_basis': 'configured_uncached_prices_estimate_not_provider_invoice',
         }

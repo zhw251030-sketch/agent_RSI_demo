@@ -160,6 +160,60 @@ class PilotBudgetTests(unittest.TestCase):
             ledger.settle(request_id, None, error_type='TimeoutError: secret')
         self.assertNotIn('secret', self.path.read_text(encoding='utf-8'))
 
+    def test_transport_recovery_preserves_counts_and_reserved_budget(self):
+        ledger = BudgetLedger(self.path, max_requests=2)
+        request_id = ledger.reserve('planning', {}, 10)
+        ledger.settle(request_id, None, error_type='InternalServerError')
+        before = ledger.summary()
+        ledger.resume_after_transport_failure()
+        after = ledger.summary()
+        self.assertFalse(after['halted'])
+        self.assertEqual(after['request_count'], 1)
+        self.assertEqual(after['reserved_tokens'], before['reserved_tokens'])
+        self.assertEqual(after['reserved_cost_cny'], before['reserved_cost_cny'])
+        self.assertEqual(after['usage_unknown_count'], 1)
+        self.assertIsNone(after['actual_tokens'])
+        self.assertEqual(after['recovery']['kind'], 'operator_transport_recovery')
+        self.assertEqual(after['recovery']['unknown_request_ids'], [request_id])
+        ledger.reserve('symbolic', {}, 10)
+        with self.assertRaises(BudgetExceeded):
+            ledger.reserve('symbolic', {}, 10)
+
+    def test_transport_recovery_is_allowed_only_once_even_after_reopen(self):
+        ledger = BudgetLedger(self.path)
+        first = ledger.reserve('planning', {}, 10)
+        ledger.settle(first, None, error_type='APIConnectionError')
+        ledger.resume_after_transport_failure()
+        second = ledger.reserve('planning', {}, 10)
+        ledger.settle(second, None, error_type='ReadTimeout')
+        reopened = BudgetLedger(self.path)
+        with self.assertRaises(BudgetExceeded):
+            reopened.resume_after_transport_failure()
+        self.assertTrue(reopened.summary()['halted'])
+
+    def test_transport_recovery_rejects_nontransport_missing_usage(self):
+        for i, error_type in enumerate((None, 'ValueError', 'TimeoutError')):
+            with self.subTest(error_type=error_type):
+                ledger = BudgetLedger(Path(self.temp.name) / f'recovery-{i}.json')
+                request_id = ledger.reserve('planning', {}, 10)
+                ledger.settle(request_id, None, error_type=error_type)
+                with self.assertRaises(BudgetExceeded):
+                    ledger.resume_after_transport_failure()
+                self.assertTrue(ledger.summary()['halted'])
+
+    def test_transport_recovery_rejects_invalid_usage_and_pending_requests(self):
+        invalid = BudgetLedger(self.path)
+        request_id = invalid.reserve('planning', {}, 10)
+        invalid.settle(request_id, {}, error_type='InternalServerError')
+        with self.assertRaises(BudgetExceeded):
+            invalid.resume_after_transport_failure()
+        pending = BudgetLedger(Path(self.temp.name) / 'pending.json')
+        first = pending.reserve('planning', {}, 10)
+        pending.reserve('symbolic', {}, 10)
+        pending.settle(first, None, error_type='Timeout')
+        with self.assertRaises(BudgetExceeded):
+            pending.resume_after_transport_failure()
+
 
 if __name__ == '__main__':
     unittest.main()

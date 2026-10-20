@@ -34,6 +34,28 @@ class PilotResponseContractError(RuntimeError):
     """A paid response is recorded but cannot dispatch its proposed actions."""
 
 
+def safe_error_metadata(error):
+    """Read only status integers and a fixed code vocabulary, never HTTP bodies."""
+    allowed_codes = {"internal_server_error", "api_error", "overloaded_error",
+                     "service_unavailable", "rate_limit_error", "timeout",
+                     "invalid_request_error", "authentication_error", "permission_error",
+                     "not_found_error", "request_too_large"}
+    result = {}
+    current = error
+    for _ in range(3):
+        if current is None:
+            break
+        for carrier in (current, getattr(current, "response", None)):
+            status = getattr(carrier, "status_code", None)
+            if "http_status" not in result and type(status) is int and 100 <= status <= 599:
+                result["http_status"] = status
+        code = getattr(current, "code", None)
+        if type(code) is str and code in allowed_codes:
+            result.setdefault("error_code", code)
+        current = current.__cause__
+    return result
+
+
 def write_json(path, value):
     Path(path).write_text(json.dumps(value, ensure_ascii=False, allow_nan=False,
                                     indent=2) + "\n", encoding="utf-8")
@@ -155,7 +177,7 @@ class BoundedPilotLLM(LLM):
         except Exception as error:
             error_type = type(error).__name__
             if not response_path.exists():
-                write_json(response_path, {"error_type": error_type})
+                write_json(response_path, {"error_type": error_type, **safe_error_metadata(error)})
             raise
         finally:
             self._pilot_ledger.settle(request_id, usage, error_type=error_type)
@@ -239,6 +261,7 @@ def run_session(controller, llm, session_id, output_dir):
         result["status"] = "completed" if result["conversation_status"].lower().endswith("finished") else "stopped"
     except Exception as error:
         result["model_error_type"] = type(error).__name__
+        result.update(safe_error_metadata(error))
         if error.__cause__ is not None:
             result["cause_type"] = type(error.__cause__).__name__
     finally:
