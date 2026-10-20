@@ -1,0 +1,393 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "status": "complete_bounded_development_pairs_no_generalization_claim",
+  "runtime_commit": "5bb61dba33033e9dbd215efeca28b232ec844f8c",
+  "runtime_source_files_matched": 63,
+  "runtime_sources_match_git_commit_and_local_server": true,
+  "tests_before_paid_requests": {
+    "distinct_tests_passed": 321,
+    "task_tests_passed": 285,
+    "sdk_tests_passed": 36,
+    "preflight_file": "docs/environment/2026-10-20-paired-repair-preflight.json",
+    "post_test_policy_field_name_correction_reprepared": true
+  },
+  "offline_response_replay": {
+    "legacy_responses": 13,
+    "synthetic_flat_interface_fixtures": 14,
+    "old_archive_files_unchanged": 68,
+    "model_calls": 0,
+    "candidate_executions": 0
+  },
+  "run": {
+    "run_id": "20261020-paired-repair-v01",
+    "recorded_status": "attempts_completed",
+    "baseline_reexecutions": 0,
+    "sealed_test_evaluations": 0,
+    "strategy_updated": false,
+    "sessions": [
+      {
+        "session_id": "P1-r1-hidden",
+        "state_id": "P1",
+        "family": "planning",
+        "condition": "hidden",
+        "repeat": 1,
+        "pair_id": "P1-r1",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 10,
+          "archived_task_records": 10,
+          "baseline_metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "child_metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "improvement": 0,
+          "submitted_and_improved": false
+        }
+      },
+      {
+        "session_id": "S1-r1-checked",
+        "state_id": "S1",
+        "family": "symbolic",
+        "condition": "checked",
+        "repeat": 1,
+        "pair_id": "S1-r1",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 1,
+          "archived_task_records": 1,
+          "baseline_metrics": {
+            "mse": 0.00042058301188823533,
+            "nmse": 0.09639217003192727
+          },
+          "child_metrics": {
+            "mse": 0.0004183857131756457,
+            "nmse": 0.09588857767292072
+          },
+          "improvement": 0.0005035923590065439,
+          "submitted_and_improved": true
+        }
+      },
+      {
+        "session_id": "P1-r1-checked",
+        "state_id": "P1",
+        "family": "planning",
+        "condition": "checked",
+        "repeat": 1,
+        "pair_id": "P1-r1",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 10,
+          "archived_task_records": 10,
+          "baseline_metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "child_metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "improvement": 0,
+          "submitted_and_improved": false
+        }
+      },
+      {
+        "session_id": "S1-r1-hidden",
+        "state_id": "S1",
+        "family": "symbolic",
+        "condition": "hidden",
+        "repeat": 1,
+        "pair_id": "S1-r1",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 1,
+          "archived_task_records": 1,
+          "baseline_metrics": {
+            "mse": 0.00042058301188823533,
+            "nmse": 0.09639217003192727
+          },
+          "child_metrics": {
+            "mse": 2.1089077703613825e-05,
+            "nmse": 0.004833343017581193
+          },
+          "improvement": 0.09155882701434608,
+          "submitted_and_improved": true
+        }
+      },
+      {
+        "session_id": "S1-r2-hidden",
+        "state_id": "S1",
+        "family": "symbolic",
+        "condition": "hidden",
+        "repeat": 2,
+        "pair_id": "S1-r2",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 1,
+          "archived_task_records": 1,
+          "baseline_metrics": {
+            "mse": 0.00042058301188823533,
+            "nmse": 0.09639217003192727
+          },
+          "child_metrics": {
+            "mse": 0.00041836181538525564,
+            "nmse": 0.0958831006093933
+          },
+          "improvement": 0.000509069422533967,
+          "submitted_and_improved": true
+        }
+      },
+      {
+        "session_id": "P1-r2-checked",
+        "state_id": "P1",
+        "family": "planning",
+        "condition": "checked",
+        "repeat": 2,
+        "pair_id": "P1-r2",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 10,
+          "archived_task_records": 10,
+          "baseline_metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "child_metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "improvement": 0,
+          "submitted_and_improved": false
+        }
+      },
+      {
+        "session_id": "S1-r2-checked",
+        "state_id": "S1",
+        "family": "symbolic",
+        "condition": "checked",
+        "repeat": 2,
+        "pair_id": "S1-r2",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 1,
+          "archived_task_records": 1,
+          "baseline_metrics": {
+            "mse": 0.00042058301188823533,
+            "nmse": 0.09639217003192727
+          },
+          "child_metrics": {
+            "mse": 0.0004027059272621961,
+            "nmse": 0.09229497415800965
+          },
+          "improvement": 0.004097195873917617,
+          "submitted_and_improved": true
+        }
+      },
+      {
+        "session_id": "P1-r2-hidden",
+        "state_id": "P1",
+        "family": "planning",
+        "condition": "hidden",
+        "repeat": 2,
+        "pair_id": "P1-r2",
+        "status": "stopped",
+        "step_status": "candidate_evaluated",
+        "endpoint": {
+          "generated_candidates_executed": 1,
+          "actual_task_executions": 10,
+          "archived_task_records": 10,
+          "baseline_metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "child_metrics": {
+            "prompt_successes": 2,
+            "prompt_total": 2,
+            "development_successes": 8,
+            "development_total": 8,
+            "total_successes": 10,
+            "total_tasks": 10
+          },
+          "improvement": 10,
+          "submitted_and_improved": true
+        }
+      }
+    ],
+    "budget": {
+      "config": {
+        "max_requests": 8,
+        "max_requests_per_session": 1,
+        "max_output_tokens": 4096,
+        "max_input_bytes": 98304,
+        "max_reserved_tokens": 1500000,
+        "max_cost_cny": 5.0,
+        "input_cny_per_million": 2.1,
+        "output_cny_per_million": 8.4,
+        "session_ids": [
+          "P1-r1-hidden",
+          "S1-r1-checked",
+          "P1-r1-checked",
+          "S1-r1-hidden",
+          "S1-r2-hidden",
+          "P1-r2-checked",
+          "S1-r2-checked",
+          "P1-r2-hidden"
+        ]
+      },
+      "request_count": 8,
+      "session_counts": {
+        "P1-r1-hidden": 1,
+        "S1-r1-checked": 1,
+        "P1-r1-checked": 1,
+        "S1-r1-hidden": 1,
+        "S1-r2-hidden": 1,
+        "P1-r2-checked": 1,
+        "S1-r2-checked": 1,
+        "P1-r2-hidden": 1
+      },
+      "reserved_count": 0,
+      "failed_count": 0,
+      "reserved_input_tokens": 334752,
+      "reserved_output_tokens": 32768,
+      "reserved_tokens": 367520,
+      "reserved_cost_cny": 0.9782304,
+      "usage_unknown_count": 0,
+      "known_prompt_tokens": 74548,
+      "known_completion_tokens": 7812,
+      "known_total_tokens": 82360,
+      "known_estimated_cost_cny": 0.2221716,
+      "actual_tokens": 82360,
+      "actual_estimated_cost_cny": 0.2221716,
+      "halted": false,
+      "halt_reasons": [],
+      "recovery": null,
+      "reservation_method": "compact_utf8_json_bytes_plus_8192",
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    }
+  },
+  "independent_audit": {
+    "file": "docs/analysis/2026-10-20-paired-repair-audit.json",
+    "sha256": "b2c584f1eaa3b9862e3ad07835513d8d9dda2214b1a0e4886361358336a77640",
+    "script_sha256": "6232b80470356d3bf3f40b56a4a8c97c7219922bf5d86c5e166aed0a5f6c77ea",
+    "repeated_independently_identical_report": true,
+    "request_pairs_verified": 4,
+    "request_comparison_scope": "Exact saved SDK pre-transport request envelopes, including system messages and tools; raw provider HTTP payloads were not separately captured.",
+    "registration_timing_independently_proven": false,
+    "timing_evidence_limit": "Final files independently verify exact response declarations, registry mapping, parent values and child outcomes. Their write order is supported by frozen controller source and tests; the final archive is not an independently timestamped attestation.",
+    "counts": {
+      "assigned_sessions": 8,
+      "generated_candidate_records": 8,
+      "candidate_evaluation_attempts": 8,
+      "candidates_with_complete_score": 8,
+      "new_task_result_records": 44,
+      "archived_task_result_records": 44,
+      "claim_statuses": {
+        "contradicted": 3,
+        "supported": 3,
+        "schema_invalid": 2
+      },
+      "registration_statuses": {
+        "supported": 8
+      },
+      "prediction_statuses": {
+        "contradicted": 6,
+        "supported": 2
+      },
+      "response_kinds": {
+        "submit_candidate_tool": 8
+      }
+    },
+    "negative_copy_checks": 4,
+    "negative_report_sha256": "c1d3f5f90080f91555712b92244a0676171821093ed18968e99e3a05cc20c5b0"
+  },
+  "archive": {
+    "path": "artifacts/paired-repair/2026-10-20/v01",
+    "manifest_sha256": "e75974a65aebe1e33147d7dbdb83a115ed3529e453d8d9c5fd400fb86049fd32",
+    "raw_files_verified": 148,
+    "archive_files_including_manifest": 154,
+    "candidate_sources": 16,
+    "all_raw_copies_byte_identical": true,
+    "source_tar_sha256": "c88a18fb36de64128f0536866bc984040ee5a1904f72ac6e0e0cb62eb6a59fb0"
+  },
+  "server_postrun": {
+    "old_raw_unchanged": {
+      "20261020-checked-feedback-v01": {
+        "files": 74,
+        "unchanged": true
+      },
+      "20261020-checked-feedback-v02": {
+        "files": 97,
+        "unchanged": true
+      }
+    },
+    "new_raw_files_unchanged": 148,
+    "runtime_source_files_matched": 63,
+    "runtime_commit": "5bb61dba33033e9dbd215efeca28b232ec844f8c",
+    "server_head": "5bb61dba33033e9dbd215efeca28b232ec844f8c",
+    "server_clean": true
+  },
+  "research_ledger_cumulative": {
+    "scope": "development pilot + diagnostic comparison + checked-feedback v01/v02 + paired-repair v01; excludes seven earlier connection/debug responses and other account activity",
+    "request_count": 48,
+    "known_tokens": 409556,
+    "usage_unknown_requests": 1,
+    "sum_known_estimated_cny": "1.2271245",
+    "sum_reserved_cny": "5.2573878",
+    "exact_project_total_cny": null,
+    "provider_invoice_verified": false,
+    "authorized_project_ceiling_cny": 300
+  },
+  "scientific_limits": [
+    "Two postselected development states, two draws per condition, not eight independent tasks",
+    "No strategy S update",
+    "No held-out evaluation",
+    "No consistent checked advantage; no effectiveness or generalization claim",
+    "Supported narrow predicates do not certify free-text explanations"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schema_version": "0.1",
+  "base_config": "configs/pilots/development-v0.1.json",
+  "policy_file": "prompts/paired/policy.md",
+  "protocol": "docs/protocols/2026-10-20-paired-repair-v0.1.md",
+  "purpose": "Paired single-step development repair of two archived failed-prediction states; no strategy update or held-out claim.",
+  "states": [
+    {
+      "state_id": "P1",
+      "family": "planning",
+      "archive_session": "planning_hidden",
+      "archived_candidate_id": "planning-001",
+      "files": {
+        "source": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/planning_hidden/candidates/planning-001.py",
+          "sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c"
+        },
+        "trajectory": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/planning_hidden/trajectory.json",
+          "sha256": "0d33f5e216020d374d43c1d597329c3bd700400c4fd62fe4e598621d74648be6"
+        },
+        "diagnostics": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/planning_hidden/diagnostics.json",
+          "sha256": "106651b2873a6e437f97e2e000b9d6a5e9226b2ae4158f397d9346c010a03152"
+        },
+        "evidence": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/planning_hidden/evidence.json",
+          "sha256": "5c3385dab136ef705af4da24b86dda01c10a8d63a8127f29481b23cdc0979dcc"
+        },
+        "audits": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/planning_hidden/audits.json",
+          "sha256": "37ddc683563613c5a0a07021d22152d6dde52c982270a4fa159d8754622d55e2"
+        }
+      }
+    },
+    {
+      "state_id": "S1",
+      "family": "symbolic",
+      "archive_session": "symbolic_checked",
+      "archived_candidate_id": "symbolic-002",
+      "files": {
+        "source": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/symbolic_checked/candidates/symbolic-002.py",
+          "sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d"
+        },
+        "trajectory": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/symbolic_checked/trajectory.json",
+          "sha256": "479d46bf17e0708172c4f1fb88dcd6c52d792f71e3315d91a07e5373d509fcd5"
+        },
+        "diagnostics": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/symbolic_checked/diagnostics.json",
+          "sha256": "597b13476e5b5b1d4d3bb10fe4f9645ca1da3334b0147174f5ef948527ae0e7e"
+        },
+        "evidence": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/symbolic_checked/evidence.json",
+          "sha256": "a9d7e7aa1d2d7e489ebabf463cbe224ec97045a78751dc2197f3fa7bf1995819"
+        },
+        "audits": {
+          "path": "artifacts/checked-feedback/2026-10-20/v02/symbolic_checked/audits.json",
+          "sha256": "6df0ac3afa2f5128fd2d265ea24ca52ff07559d1083ed8868603ad425c4c2628"
+        }
+      }
+    }
+  ],
+  "order": [
+    {
+      "state_id": "P1",
+      "family": "planning",
+      "condition": "hidden",
+      "repeat": 1,
+      "pair_id": "P1-r1",
+      "session_id": "P1-r1-hidden"
+    },
+    {
+      "state_id": "S1",
+      "family": "symbolic",
+      "condition": "checked",
+      "repeat": 1,
+      "pair_id": "S1-r1",
+      "session_id": "S1-r1-checked"
+    },
+    {
+      "state_id": "P1",
+      "family": "planning",
+      "condition": "checked",
+      "repeat": 1,
+      "pair_id": "P1-r1",
+      "session_id": "P1-r1-checked"
+    },
+    {
+      "state_id": "S1",
+      "family": "symbolic",
+      "condition": "hidden",
+      "repeat": 1,
+      "pair_id": "S1-r1",
+      "session_id": "S1-r1-hidden"
+    },
+    {
+      "state_id": "S1",
+      "family": "symbolic",
+      "condition": "hidden",
+      "repeat": 2,
+      "pair_id": "S1-r2",
+      "session_id": "S1-r2-hidden"
+    },
+    {
+      "state_id": "P1",
+      "family": "planning",
+      "condition": "checked",
+      "repeat": 2,
+      "pair_id": "P1-r2",
+      "session_id": "P1-r2-checked"
+    },
+    {
+      "state_id": "S1",
+      "family": "symbolic",
+      "condition": "checked",
+      "repeat": 2,
+      "pair_id": "S1-r2",
+      "session_id": "S1-r2-checked"
+    },
+    {
+      "state_id": "P1",
+      "family": "planning",
+      "condition": "hidden",
+      "repeat": 2,
+      "pair_id": "P1-r2",
+      "session_id": "P1-r2-hidden"
+    }
+  ],
+  "max_generated_candidates": 1,
+  "max_iterations": 1,
+  "budgets": {
+    "max_requests": 8,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 1500000,
+    "max_cost_cny": 5.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  },
+  "source_limit_bytes": 16384,
+  "strategy_updated": false,
+  "checks_gate_execution": false,
+  "checks_change_selection": false,
+  "automatic_recovery": false,
+  "missing_candidate_score": null,
+  "baseline_reexecution": false,
+  "comparison": "Both arms receive identical archived child, diagnostics, historical declarations, prior/current scores and parent evidence. Only checked receives historical machine outcomes before its first new candidate."
+}

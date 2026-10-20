@@ -1,0 +1,114 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "compact_declaration": {
+      "claim_id": "e_6823a7ff46270eb8",
+      "claim_op": "gt",
+      "claim_value_json": "0",
+      "prediction_id": "e_c373ebf9024c762d",
+      "prediction_direction": "increase",
+      "prediction_min_delta": 2.0
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "0933e750116692011ecc18d05eaeee594f812abcdbf3a552ec6dcee79df49106"
+    },
+    "claim_expansion": {
+      "status": "resolved",
+      "value": {
+        "kind": "scalar",
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:P1-r2",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+          "task_id": "spannerlearning/seed0/problem1",
+          "version": "evidence-v0.1",
+          "scope": "public_prompt",
+          "key": "executed_actions"
+        },
+        "op": "gt",
+        "value": 0
+      }
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:P1-r2",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1",
+          "scope": "public_prompt",
+          "key": "executed_actions"
+        },
+        "direction": "increase",
+        "min_delta": 2.0
+      }
+    },
+    "claim_results": [
+      {
+        "status": "contradicted",
+        "reason": "comparison_contradicted",
+        "actual": 0.0,
+        "tolerance": 1e-10,
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:P1-r2",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+          "task_id": "spannerlearning/seed0/problem1",
+          "version": "evidence-v0.1",
+          "scope": "public_prompt",
+          "key": "executed_actions"
+        },
+        "op": "gt",
+        "expected": 0.0
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "direction": "increase",
+      "min_delta": 2.0
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.0,
+      "tolerance": 2.01e-08,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "before": 0.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 2.0,
+      "child_reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "311ac19c6190c1397c851864d5a6bdeb8abb8d17f3770db436f6c771e880235c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "after": 0.0
+    }
+  }
+]

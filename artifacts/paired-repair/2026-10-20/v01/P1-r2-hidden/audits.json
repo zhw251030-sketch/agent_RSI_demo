@@ -1,0 +1,88 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "compact_declaration": {
+      "claim_id": "e_86be3ba0fdc34aa",
+      "claim_op": "eq",
+      "claim_value_json": "0",
+      "prediction_id": "e_b164d8eb0f5a57a2",
+      "prediction_direction": "increase",
+      "prediction_min_delta": 2.0
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "0933e750116692011ecc18d05eaeee594f812abcdbf3a552ec6dcee79df49106"
+    },
+    "claim_expansion": {
+      "status": "schema_invalid",
+      "reason": "claim_schema_invalid"
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:P1-r2",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "total_successes"
+        },
+        "direction": "increase",
+        "min_delta": 2.0
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "direction": "increase",
+      "min_delta": 2.0
+    },
+    "prediction_result": {
+      "status": "supported",
+      "reason": "prediction_supported",
+      "actual": 10.0,
+      "tolerance": 1.0009999999999999e-07,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "before": 0.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 2.0,
+      "child_reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "5f384f214a546d40f69ab4a9fc962623c31bd80e0ecd573a3fb8b576a9a7afb2",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "after": 10.0
+    }
+  }
+]

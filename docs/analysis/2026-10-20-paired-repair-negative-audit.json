@@ -1,0 +1,41 @@
+{
+  "version": "paired-negative-audit-v0.1",
+  "status": "passed",
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "original_raw_unchanged": true,
+  "original_raw_file_count": 148,
+  "original_tree_sha256": "412ce446141bb030f90780332545ecb7df6cbbaa9f473d34c0b7ae47e8e59083",
+  "analysis_script_sha256": "6232b80470356d3bf3f40b56a4a8c97c7219922bf5d86c5e166aed0a5f6c77ea",
+  "cases": [
+    {
+      "case": "request_hash",
+      "synthetic_modified_copy": true,
+      "result": "error",
+      "rejection": "Request, ledger and input-audit bytes/hash disagree",
+      "copy_unchanged_during_analysis": true
+    },
+    {
+      "case": "actual_pair_tools",
+      "synthetic_modified_copy": true,
+      "result": "error",
+      "rejection": "ACTUAL complete provider-bound common requests differ",
+      "copy_unchanged_during_analysis": true
+    },
+    {
+      "case": "registry_parent_binding",
+      "synthetic_modified_copy": true,
+      "result": "error",
+      "rejection": "Parent registry does not match exact parent evidence",
+      "copy_unchanged_during_analysis": true
+    },
+    {
+      "case": "child_metric_binding",
+      "synthetic_modified_copy": true,
+      "result": "error",
+      "rejection": "Bound evidence metrics differ from complete task result metrics",
+      "copy_unchanged_during_analysis": true
+    }
+  ],
+  "note": "Only newly created tmp copies were altered. Rejection is independent of performance results; no source candidate was executed."
+}

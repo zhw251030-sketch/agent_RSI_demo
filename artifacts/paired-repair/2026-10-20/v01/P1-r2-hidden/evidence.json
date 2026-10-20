@@ -1,0 +1,1076 @@
+{
+  "planning-000": [
+    {
+      "binding": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary"
+      },
+      "scalars": {
+        "prompt_successes": 0.0,
+        "prompt_total": 2.0,
+        "development_successes": 0.0,
+        "development_total": 8.0,
+        "total_successes": 0.0,
+        "total_tasks": 10.0
+      },
+      "facts": {}
+    },
+    {
+      "binding": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt"
+      },
+      "scalars": {
+        "executed_actions": 0.0,
+        "plan_length": 1.0
+      },
+      "facts": {
+        "init": [
+          [
+            "at",
+            "bob",
+            "shed"
+          ],
+          [
+            "at",
+            "nut1",
+            "gate"
+          ],
+          [
+            "at",
+            "nut2",
+            "gate"
+          ],
+          [
+            "at",
+            "nut3",
+            "gate"
+          ],
+          [
+            "at",
+            "spanner1",
+            "location4"
+          ],
+          [
+            "at",
+            "spanner2",
+            "location4"
+          ],
+          [
+            "at",
+            "spanner3",
+            "location1"
+          ],
+          [
+            "link",
+            "location1",
+            "location2"
+          ],
+          [
+            "link",
+            "location2",
+            "location3"
+          ],
+          [
+            "link",
+            "location3",
+            "location4"
+          ],
+          [
+            "link",
+            "location4",
+            "gate"
+          ],
+          [
+            "link",
+            "shed",
+            "location1"
+          ],
+          [
+            "loose",
+            "nut1"
+          ],
+          [
+            "loose",
+            "nut2"
+          ],
+          [
+            "loose",
+            "nut3"
+          ],
+          [
+            "useable",
+            "spanner1"
+          ],
+          [
+            "useable",
+            "spanner2"
+          ],
+          [
+            "useable",
+            "spanner3"
+          ]
+        ],
+        "goal": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "action.pickup_spanner.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.negative": [],
+        "action.pickup_spanner.effects.positive": [
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.pickup_spanner.effects.negative": [
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.tighten_nut.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ],
+          [
+            "$3",
+            "nut"
+          ]
+        ],
+        "action.tighten_nut.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$3",
+            "$0"
+          ],
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ],
+          [
+            "useable",
+            "$1"
+          ],
+          [
+            "loose",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.preconditions.negative": [],
+        "action.tighten_nut.effects.positive": [
+          [
+            "tightened",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.effects.negative": [
+          [
+            "loose",
+            "$3"
+          ],
+          [
+            "useable",
+            "$1"
+          ]
+        ],
+        "action.walk.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "location"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.walk.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "link",
+            "$0",
+            "$1"
+          ]
+        ],
+        "action.walk.preconditions.negative": [],
+        "action.walk.effects.positive": [
+          [
+            "at",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.walk.effects.negative": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ]
+        ]
+      }
+    },
+    {
+      "binding": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt"
+      },
+      "scalars": {
+        "executed_actions": 0.0,
+        "plan_length": 1.0
+      },
+      "facts": {
+        "init": [
+          [
+            "at",
+            "bob",
+            "shed"
+          ],
+          [
+            "at",
+            "nut1",
+            "gate"
+          ],
+          [
+            "at",
+            "nut2",
+            "gate"
+          ],
+          [
+            "at",
+            "nut3",
+            "gate"
+          ],
+          [
+            "at",
+            "spanner1",
+            "location3"
+          ],
+          [
+            "at",
+            "spanner2",
+            "location4"
+          ],
+          [
+            "at",
+            "spanner3",
+            "location4"
+          ],
+          [
+            "link",
+            "location1",
+            "location2"
+          ],
+          [
+            "link",
+            "location2",
+            "location3"
+          ],
+          [
+            "link",
+            "location3",
+            "location4"
+          ],
+          [
+            "link",
+            "location4",
+            "gate"
+          ],
+          [
+            "link",
+            "shed",
+            "location1"
+          ],
+          [
+            "loose",
+            "nut1"
+          ],
+          [
+            "loose",
+            "nut2"
+          ],
+          [
+            "loose",
+            "nut3"
+          ],
+          [
+            "useable",
+            "spanner1"
+          ],
+          [
+            "useable",
+            "spanner2"
+          ],
+          [
+            "useable",
+            "spanner3"
+          ]
+        ],
+        "goal": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "action.pickup_spanner.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.negative": [],
+        "action.pickup_spanner.effects.positive": [
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.pickup_spanner.effects.negative": [
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.tighten_nut.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ],
+          [
+            "$3",
+            "nut"
+          ]
+        ],
+        "action.tighten_nut.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$3",
+            "$0"
+          ],
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ],
+          [
+            "useable",
+            "$1"
+          ],
+          [
+            "loose",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.preconditions.negative": [],
+        "action.tighten_nut.effects.positive": [
+          [
+            "tightened",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.effects.negative": [
+          [
+            "loose",
+            "$3"
+          ],
+          [
+            "useable",
+            "$1"
+          ]
+        ],
+        "action.walk.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "location"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.walk.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "link",
+            "$0",
+            "$1"
+          ]
+        ],
+        "action.walk.preconditions.negative": [],
+        "action.walk.effects.positive": [
+          [
+            "at",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.walk.effects.negative": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ]
+        ]
+      }
+    }
+  ],
+  "planning-001": [
+    {
+      "binding": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "5f384f214a546d40f69ab4a9fc962623c31bd80e0ecd573a3fb8b576a9a7afb2",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary"
+      },
+      "scalars": {
+        "prompt_successes": 2.0,
+        "prompt_total": 2.0,
+        "development_successes": 8.0,
+        "development_total": 8.0,
+        "total_successes": 10.0,
+        "total_tasks": 10.0
+      },
+      "facts": {}
+    },
+    {
+      "binding": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "5f384f214a546d40f69ab4a9fc962623c31bd80e0ecd573a3fb8b576a9a7afb2",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt"
+      },
+      "scalars": {
+        "executed_actions": 11.0,
+        "plan_length": 11.0
+      },
+      "facts": {
+        "init": [
+          [
+            "at",
+            "bob",
+            "shed"
+          ],
+          [
+            "at",
+            "nut1",
+            "gate"
+          ],
+          [
+            "at",
+            "nut2",
+            "gate"
+          ],
+          [
+            "at",
+            "nut3",
+            "gate"
+          ],
+          [
+            "at",
+            "spanner1",
+            "location4"
+          ],
+          [
+            "at",
+            "spanner2",
+            "location4"
+          ],
+          [
+            "at",
+            "spanner3",
+            "location1"
+          ],
+          [
+            "link",
+            "location1",
+            "location2"
+          ],
+          [
+            "link",
+            "location2",
+            "location3"
+          ],
+          [
+            "link",
+            "location3",
+            "location4"
+          ],
+          [
+            "link",
+            "location4",
+            "gate"
+          ],
+          [
+            "link",
+            "shed",
+            "location1"
+          ],
+          [
+            "loose",
+            "nut1"
+          ],
+          [
+            "loose",
+            "nut2"
+          ],
+          [
+            "loose",
+            "nut3"
+          ],
+          [
+            "useable",
+            "spanner1"
+          ],
+          [
+            "useable",
+            "spanner2"
+          ],
+          [
+            "useable",
+            "spanner3"
+          ]
+        ],
+        "goal": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "action.pickup_spanner.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.negative": [],
+        "action.pickup_spanner.effects.positive": [
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.pickup_spanner.effects.negative": [
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.tighten_nut.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ],
+          [
+            "$3",
+            "nut"
+          ]
+        ],
+        "action.tighten_nut.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$3",
+            "$0"
+          ],
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ],
+          [
+            "useable",
+            "$1"
+          ],
+          [
+            "loose",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.preconditions.negative": [],
+        "action.tighten_nut.effects.positive": [
+          [
+            "tightened",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.effects.negative": [
+          [
+            "loose",
+            "$3"
+          ],
+          [
+            "useable",
+            "$1"
+          ]
+        ],
+        "action.walk.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "location"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.walk.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "link",
+            "$0",
+            "$1"
+          ]
+        ],
+        "action.walk.preconditions.negative": [],
+        "action.walk.effects.positive": [
+          [
+            "at",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.walk.effects.negative": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ]
+        ]
+      }
+    },
+    {
+      "binding": {
+        "session_id": "20261020-paired-repair-v01:P1-r2",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "5f384f214a546d40f69ab4a9fc962623c31bd80e0ecd573a3fb8b576a9a7afb2",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt"
+      },
+      "scalars": {
+        "executed_actions": 11.0,
+        "plan_length": 11.0
+      },
+      "facts": {
+        "init": [
+          [
+            "at",
+            "bob",
+            "shed"
+          ],
+          [
+            "at",
+            "nut1",
+            "gate"
+          ],
+          [
+            "at",
+            "nut2",
+            "gate"
+          ],
+          [
+            "at",
+            "nut3",
+            "gate"
+          ],
+          [
+            "at",
+            "spanner1",
+            "location3"
+          ],
+          [
+            "at",
+            "spanner2",
+            "location4"
+          ],
+          [
+            "at",
+            "spanner3",
+            "location4"
+          ],
+          [
+            "link",
+            "location1",
+            "location2"
+          ],
+          [
+            "link",
+            "location2",
+            "location3"
+          ],
+          [
+            "link",
+            "location3",
+            "location4"
+          ],
+          [
+            "link",
+            "location4",
+            "gate"
+          ],
+          [
+            "link",
+            "shed",
+            "location1"
+          ],
+          [
+            "loose",
+            "nut1"
+          ],
+          [
+            "loose",
+            "nut2"
+          ],
+          [
+            "loose",
+            "nut3"
+          ],
+          [
+            "useable",
+            "spanner1"
+          ],
+          [
+            "useable",
+            "spanner2"
+          ],
+          [
+            "useable",
+            "spanner3"
+          ]
+        ],
+        "goal": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "action.pickup_spanner.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.pickup_spanner.preconditions.negative": [],
+        "action.pickup_spanner.effects.positive": [
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.pickup_spanner.effects.negative": [
+          [
+            "at",
+            "$1",
+            "$0"
+          ]
+        ],
+        "action.tighten_nut.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "spanner"
+          ],
+          [
+            "$2",
+            "man"
+          ],
+          [
+            "$3",
+            "nut"
+          ]
+        ],
+        "action.tighten_nut.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "at",
+            "$3",
+            "$0"
+          ],
+          [
+            "carrying",
+            "$2",
+            "$1"
+          ],
+          [
+            "useable",
+            "$1"
+          ],
+          [
+            "loose",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.preconditions.negative": [],
+        "action.tighten_nut.effects.positive": [
+          [
+            "tightened",
+            "$3"
+          ]
+        ],
+        "action.tighten_nut.effects.negative": [
+          [
+            "loose",
+            "$3"
+          ],
+          [
+            "useable",
+            "$1"
+          ]
+        ],
+        "action.walk.parameters": [
+          [
+            "$0",
+            "location"
+          ],
+          [
+            "$1",
+            "location"
+          ],
+          [
+            "$2",
+            "man"
+          ]
+        ],
+        "action.walk.preconditions.positive": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ],
+          [
+            "link",
+            "$0",
+            "$1"
+          ]
+        ],
+        "action.walk.preconditions.negative": [],
+        "action.walk.effects.positive": [
+          [
+            "at",
+            "$2",
+            "$1"
+          ]
+        ],
+        "action.walk.effects.negative": [
+          [
+            "at",
+            "$2",
+            "$0"
+          ]
+        ]
+      }
+    }
+  ]
+}

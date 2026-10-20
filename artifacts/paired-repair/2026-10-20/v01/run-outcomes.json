@@ -1,0 +1,372 @@
+{
+  "version": "paired-repair-archive-outcomes-v0.1",
+  "run_id": "20261020-paired-repair-v01",
+  "runtime_commit": "5bb61dba33033e9dbd215efeca28b232ec844f8c",
+  "status": "attempts_completed",
+  "sdk_stop_interpretation": "Each session dispatched its one allowed request and executed one candidate; SDK ERROR/MaxIterationsReached is the frozen one-iteration boundary, not a missing candidate.",
+  "requests": 8,
+  "archived_baseline_copies": 8,
+  "distinct_archived_repair_states": 2,
+  "new_candidates": 8,
+  "new_task_executions": 44,
+  "archived_task_records": 44,
+  "claim_status_counts": {
+    "contradicted": 3,
+    "supported": 3,
+    "schema_invalid": 2
+  },
+  "prediction_status_counts": {
+    "contradicted": 6,
+    "supported": 2
+  },
+  "budget": {
+    "config": {
+      "max_requests": 8,
+      "max_requests_per_session": 1,
+      "max_output_tokens": 4096,
+      "max_input_bytes": 98304,
+      "max_reserved_tokens": 1500000,
+      "max_cost_cny": 5.0,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4,
+      "session_ids": [
+        "P1-r1-hidden",
+        "S1-r1-checked",
+        "P1-r1-checked",
+        "S1-r1-hidden",
+        "S1-r2-hidden",
+        "P1-r2-checked",
+        "S1-r2-checked",
+        "P1-r2-hidden"
+      ]
+    },
+    "request_count": 8,
+    "session_counts": {
+      "P1-r1-hidden": 1,
+      "S1-r1-checked": 1,
+      "P1-r1-checked": 1,
+      "S1-r1-hidden": 1,
+      "S1-r2-hidden": 1,
+      "P1-r2-checked": 1,
+      "S1-r2-checked": 1,
+      "P1-r2-hidden": 1
+    },
+    "reserved_count": 0,
+    "failed_count": 0,
+    "reserved_input_tokens": 334752,
+    "reserved_output_tokens": 32768,
+    "reserved_tokens": 367520,
+    "reserved_cost_cny": 0.9782304,
+    "usage_unknown_count": 0,
+    "known_prompt_tokens": 74548,
+    "known_completion_tokens": 7812,
+    "known_total_tokens": 82360,
+    "known_estimated_cost_cny": 0.2221716,
+    "actual_tokens": 82360,
+    "actual_estimated_cost_cny": 0.2221716,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null,
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  },
+  "sessions": [
+    {
+      "session_id": "P1-r1-hidden",
+      "state_id": "P1",
+      "pair_id": "P1-r1",
+      "family": "planning",
+      "condition": "hidden",
+      "repeat": 1,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 10,
+        "archived_task_records": 10,
+        "baseline_metrics": {
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "development_successes": 0,
+          "development_total": 8,
+          "total_successes": 0,
+          "total_tasks": 10
+        },
+        "child_metrics": {
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "development_successes": 0,
+          "development_total": 8,
+          "total_successes": 0,
+          "total_tasks": 10
+        },
+        "improvement": 0,
+        "submitted_and_improved": false
+      },
+      "claim_statuses": [
+        "contradicted"
+      ],
+      "prediction_status": "contradicted",
+      "prediction_actual_delta": 0.0,
+      "prediction_min_delta": 1.0
+    },
+    {
+      "session_id": "S1-r1-checked",
+      "state_id": "S1",
+      "pair_id": "S1-r1",
+      "family": "symbolic",
+      "condition": "checked",
+      "repeat": 1,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 1,
+        "archived_task_records": 1,
+        "baseline_metrics": {
+          "mse": 0.00042058301188823533,
+          "nmse": 0.09639217003192727
+        },
+        "child_metrics": {
+          "mse": 0.0004183857131756457,
+          "nmse": 0.09588857767292072
+        },
+        "improvement": 0.0005035923590065439,
+        "submitted_and_improved": true
+      },
+      "claim_statuses": [
+        "supported"
+      ],
+      "prediction_status": "contradicted",
+      "prediction_actual_delta": 0.0005035923590065439,
+      "prediction_min_delta": 0.002
+    },
+    {
+      "session_id": "P1-r1-checked",
+      "state_id": "P1",
+      "pair_id": "P1-r1",
+      "family": "planning",
+      "condition": "checked",
+      "repeat": 1,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 10,
+        "archived_task_records": 10,
+        "baseline_metrics": {
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "development_successes": 0,
+          "development_total": 8,
+          "total_successes": 0,
+          "total_tasks": 10
+        },
+        "child_metrics": {
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "development_successes": 0,
+          "development_total": 8,
+          "total_successes": 0,
+          "total_tasks": 10
+        },
+        "improvement": 0,
+        "submitted_and_improved": false
+      },
+      "claim_statuses": [
+        "supported"
+      ],
+      "prediction_status": "contradicted",
+      "prediction_actual_delta": 0.0,
+      "prediction_min_delta": 2.0
+    },
+    {
+      "session_id": "S1-r1-hidden",
+      "state_id": "S1",
+      "pair_id": "S1-r1",
+      "family": "symbolic",
+      "condition": "hidden",
+      "repeat": 1,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 1,
+        "archived_task_records": 1,
+        "baseline_metrics": {
+          "mse": 0.00042058301188823533,
+          "nmse": 0.09639217003192727
+        },
+        "child_metrics": {
+          "mse": 2.1089077703613825e-05,
+          "nmse": 0.004833343017581193
+        },
+        "improvement": 0.09155882701434608,
+        "submitted_and_improved": true
+      },
+      "claim_statuses": [
+        "contradicted"
+      ],
+      "prediction_status": "supported",
+      "prediction_actual_delta": 0.09155882701434608,
+      "prediction_min_delta": 0.002
+    },
+    {
+      "session_id": "S1-r2-hidden",
+      "state_id": "S1",
+      "pair_id": "S1-r2",
+      "family": "symbolic",
+      "condition": "hidden",
+      "repeat": 2,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 1,
+        "archived_task_records": 1,
+        "baseline_metrics": {
+          "mse": 0.00042058301188823533,
+          "nmse": 0.09639217003192727
+        },
+        "child_metrics": {
+          "mse": 0.00041836181538525564,
+          "nmse": 0.0958831006093933
+        },
+        "improvement": 0.000509069422533967,
+        "submitted_and_improved": true
+      },
+      "claim_statuses": [
+        "supported"
+      ],
+      "prediction_status": "contradicted",
+      "prediction_actual_delta": 0.000509069422533967,
+      "prediction_min_delta": 0.005
+    },
+    {
+      "session_id": "P1-r2-checked",
+      "state_id": "P1",
+      "pair_id": "P1-r2",
+      "family": "planning",
+      "condition": "checked",
+      "repeat": 2,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 10,
+        "archived_task_records": 10,
+        "baseline_metrics": {
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "development_successes": 0,
+          "development_total": 8,
+          "total_successes": 0,
+          "total_tasks": 10
+        },
+        "child_metrics": {
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "development_successes": 0,
+          "development_total": 8,
+          "total_successes": 0,
+          "total_tasks": 10
+        },
+        "improvement": 0,
+        "submitted_and_improved": false
+      },
+      "claim_statuses": [
+        "contradicted"
+      ],
+      "prediction_status": "contradicted",
+      "prediction_actual_delta": 0.0,
+      "prediction_min_delta": 2.0
+    },
+    {
+      "session_id": "S1-r2-checked",
+      "state_id": "S1",
+      "pair_id": "S1-r2",
+      "family": "symbolic",
+      "condition": "checked",
+      "repeat": 2,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 1,
+        "archived_task_records": 1,
+        "baseline_metrics": {
+          "mse": 0.00042058301188823533,
+          "nmse": 0.09639217003192727
+        },
+        "child_metrics": {
+          "mse": 0.0004027059272621961,
+          "nmse": 0.09229497415800965
+        },
+        "improvement": 0.004097195873917617,
+        "submitted_and_improved": true
+      },
+      "claim_statuses": [
+        "schema_invalid"
+      ],
+      "prediction_status": "contradicted",
+      "prediction_actual_delta": 0.004097195873917617,
+      "prediction_min_delta": 0.005
+    },
+    {
+      "session_id": "P1-r2-hidden",
+      "state_id": "P1",
+      "pair_id": "P1-r2",
+      "family": "planning",
+      "condition": "hidden",
+      "repeat": 2,
+      "status": "stopped",
+      "conversation_status": "ConversationExecutionStatus.ERROR",
+      "model_error_type": null,
+      "step_status": "candidate_evaluated",
+      "endpoint": {
+        "generated_candidates_executed": 1,
+        "actual_task_executions": 10,
+        "archived_task_records": 10,
+        "baseline_metrics": {
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "development_successes": 0,
+          "development_total": 8,
+          "total_successes": 0,
+          "total_tasks": 10
+        },
+        "child_metrics": {
+          "prompt_successes": 2,
+          "prompt_total": 2,
+          "development_successes": 8,
+          "development_total": 8,
+          "total_successes": 10,
+          "total_tasks": 10
+        },
+        "improvement": 10,
+        "submitted_and_improved": true
+      },
+      "claim_statuses": [
+        "schema_invalid"
+      ],
+      "prediction_status": "supported",
+      "prediction_actual_delta": 10.0,
+      "prediction_min_delta": 2.0
+    }
+  ],
+  "mechanism_effect_conclusion": "No evidence of consistent benefit from check visibility; two reused development states and two attempts per condition, no held-out or strategy-update result."
+}

@@ -4,7 +4,7 @@
 
 - 当前研究为固定基础 LLM 权重下的形式规划与符号发现；开发子集已固定运行；正式机制、独立选择/评价子集和协议尚未冻结。
 - 当前服务器数据为 Spanner（400 问题+域文件）与 LLM-SR 原始四任务（12 CSV，先用 oscillator1/2）。后者按用户要求替代受限 LLM-SRBench，输出在最后一列；看 docs/operations/task-data.md 和最新 symbolic-public-data 协议。旧 phys_osc 清单保留作历史，不继续作为当前下载目标。
-- vendor/ 与 data/ 不直接挂载给候选进程；上游源码含参考解与缓存。rsi_eval 的候选执行已有 Bubblewrap/seccomp 隔离与资源限制，v0.2运行前247项不同测试通过；受控研究 Agent 仅有 submit_candidate/finish，已完成首轮开发小试，不可直接读取整个项目。已有一次诊断开发对照的部分结果，尚无完整独立机制对照。
+- vendor/ 与 data/ 不直接挂载给候选进程；上游源码含参考解与缓存。rsi_eval 的候选执行已有 Bubblewrap/seccomp 隔离与资源限制，最新配对轮运行前321项不同测试通过；受控研究 Agent 仅有 submit_candidate/finish，已完成首轮开发小试，不可直接读取整个项目。已有一次诊断开发对照的部分结果，尚无完整独立机制对照。
 - 官方 Canvas 1.28.1 已部署；`scripts/canvas.py` 管理网页服务，状态与依赖分别在被忽略的 `.canvas-state/`、`.canvas-runtime/`。网页后端的 SDK 1.56.0 与实验 `.venv` 1.55.1 分开；不要因网页版本改变实验依赖。入口通过 SSH 隧道访问回环 18080；MiniMax-M3 已配置；详见 docs/operations/minimax.md。
 - 服务器 `.venv` 为 OpenHands SDK/tools 1.55.1，`.task-runtime/python` 独立提供系统 Python 3.10 的 NumPy 1.26.4/SciPy 1.13.1。两套开发执行器及 SDK 专用工具已通过离线往返；看 docs/operations/task-executors.md。普通 TerminalExecutor 和现有 Canvas 通用会话仍不具备本执行器的受控数据边界。
 - 区分研究建议、静态核查、部署、运行和结果。没有实验就不能填写性能或简历成果。
@@ -22,4 +22,6 @@
 
 - 最新诊断开发对照见 docs/operations/diagnostic-comparison.md 与对应核验/轨迹分析。planning_A 10/10、planning_B 0/10、symbolic_C NMSE0.09577；其余三个会话未启动，不能把初始分数当方法结果。候选修补属于人工干预，不计入模型成果；证据引用不等于推断成立。这些是上一轮历史结果，最新检查轮见下项。
 
-- 最新继续工作见 docs/operations/checked-feedback.md、docs/analysis/2026-10-20-checked-feedback-v02-analysis.md 和对应verification。已完成全请求摘要与窄范围主张/事前预测检查。v0.1因SDK审查缺陷8请求后停止；修复轮v0.2在e298713运行13请求，6个实际执行的新候选，12主张(8支持4格式错)、6预测(4支持2矛盾)。planning_checked首个候选即10/10，不能归因于后续反馈；symbolic_hidden无真实工具调用但SDK结束，0候选不能给方法分数。两轮21请求估算0.545706元、预留2.1317184元，均不可恢复或改旧日志；事后响应契约防护未用于产生v0.2结果。下一步先离线稳定接口/证据绑定，再固定修订状态做配对；无S更新、无封存集评分、无新方法或泛化结论。
+- 最新继续工作见 docs/operations/checked-feedback.md、docs/analysis/2026-10-20-checked-feedback-v02-analysis.md 和对应verification。已完成全请求摘要与窄范围主张/事前预测检查。v0.1因SDK审查缺陷8请求后停止；修复轮v0.2在e298713运行13请求，6个实际执行的新候选，12主张(8支持4格式错)、6预测(4支持2矛盾)。planning_checked首个候选即10/10，不能归因于后续反馈；symbolic_hidden无真实工具调用但SDK结束，0候选不能给方法分数。两轮21请求估算0.545706元、预留2.1317184元，均不可恢复或改旧日志；事后响应契约防护未用于产生v0.2结果。该项为历史检查轮，后续配对进展见下项；无S更新、无封存集评分、无新方法或泛化结论。
+
+- 最新继续工作见 docs/operations/paired-repair.md、docs/analysis/2026-10-20-paired-repair-analysis.md、docs/environment/2026-10-20-paired-repair-verification.json。2026-10-20 已完成短证据ID、真实归档状态装载与固定起点单步配对。运行版本5bb61db，321项不同测试通过；8请求8新候选、4个完整配对，新增40次规划与4次符号评价，旧起点零次重跑。规划hidden两次0/10与10/10、checked均0/10；符号hidden train NMSE0.00483334/0.09588310、checked0.09588858/0.09229497。8主张3支持3矛盾2格式错，8预测2支持6矛盾；四对SDK发送前共同请求逐字节相同。未观察到稳定检查优势；只有两个已参与设计的开发状态，无S更新、无封存成绩或普适性结论。82360tokens，已知费用估算0.2221716元、保守预留0.9782304元，本轮usage全已知；更早未知用量不抹除。本轮最大8请求、每会话1请求/1候选、成本预留上限5元；已用完请求额度，不恢复补跑。先从已保存轨迹整理具有不同失败类型的固定修订状态池，连接观测、可证伪诊断、具体编辑和执行反证，再冻结修订策略S的表示与更新规则。比较普通固定修订、仅显示检查、检查约束修订决策时保持任务信息与模型预算公平。当前两个状态只能开发，不把增加抽样当独立泛化；策略修改、选择和独立评价状态必须分开。旧冻结轮不恢复、不补跑、不改判。

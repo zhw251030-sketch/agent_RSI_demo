@@ -1,0 +1,2050 @@
+{
+  "version": "evidence-ids-v0.1",
+  "session_id": "20261020-paired-repair-v01:P1-r1",
+  "entries": {
+    "e_00fdef442290876a": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_00ff363ed6bafefe": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_0785520d9abe5975": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_08e8870333b54331": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "kind": "scalar",
+      "value": 10.0
+    },
+    "e_0b313bbcc534c461": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_0c08f168f1c9bf8a": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_0c589f9fd529d857": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_1b91d650ccb6d686": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_total"
+      },
+      "kind": "scalar",
+      "value": 2.0
+    },
+    "e_1f9a02f51320878c": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_212c00dc77de9071": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_total"
+      },
+      "kind": "scalar",
+      "value": 2.0
+    },
+    "e_24431347e0ee2a14": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_25aa5ac24b395dc5": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_3021e0bbf9e22767": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_36ade3116cabb85a": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_39edb4eca2fc4e13": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_3a19000e365aba0b": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_3c0c85e79c776f00": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_3dd4c3cd0d524405": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_3e72c5ff7ab06ce8": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_3f6bc85d08e3ceed": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_42db60c8a7a55471": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_434a26515a9c9aed": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_44e3db098e520e6d": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_5b5abec088297d9f": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_5d7fcc131ecca58b": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_5e92213ca7fae333": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_65b0f026e0a5748d": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_6b33856b10b7b738": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_6feecf0749667fb4": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_72284dda07161b2e": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_75e4bc8d7c9d9b10": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_766934db455e9d16": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_81c2a74174ea7172": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_81cd9d8df4adb558": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_834741e7e3a2485f": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_84c763b9e8b68ae0": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_8609a07de311d92f": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_861bd826d1ce15e3": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_86f408b57c2fac11": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_total"
+      },
+      "kind": "scalar",
+      "value": 8.0
+    },
+    "e_8754701c29db9a58": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_87d793375c3e4710": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_8c8a7bfe982a70f5": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_8f265bf072d9d919": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_8f6728cf1eef048e": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "kind": "scalar",
+      "value": 10.0
+    },
+    "e_917d467b5a10a038": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_9555dd9df71ff5c1": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_9af6c60471b47ce1": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_9bbf6abafc89d4a8": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_9c69077f75536f19": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_9f8714c23c09c027": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_9faf8d39aef1cc30": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_a3c40de09a075b01": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 11.0
+    },
+    "e_a55c93bf0fcb9cb9": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_a74b76bb8d36f307": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_a81d773749605dee": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 1.0
+    },
+    "e_a948565435e0d7f7": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_a9b05d1b27f0b4be": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_aa38209bd2dbb2fb": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_aa7fb061cce9fbb8": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_abf8d8e46d95484e": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_af797910791ba114": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_affef561bcf94590": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_b48da24b73a05006": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_b662fd0c86ae8226": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_bd24d63938b5e6a2": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_bfb9f9be255bfd46": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_c02125a11b6735fa": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_c268e442f7d94640": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 1.0
+    },
+    "e_c2a9472b9979fc04": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_total"
+      },
+      "kind": "scalar",
+      "value": 8.0
+    },
+    "e_d23ff3350c79d53b": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 11.0
+    },
+    "e_d46bc749c60d01d8": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_da831fc14159e69d": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_db696cfebcc44838": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_db9d91ac2ab4f21a": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_df873ef6bfa84787": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_e128ec6b1b17a2c8": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_e1e5168c18b1dcea": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_e25d794e94d20d5e": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_e9049713d0ed9cf3": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_e9275305eab8425a": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_ea43c2b3e0494c3a": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_ec3b511923aa793c": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_f08d0de242fbbbc3": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_f3d3b52f6deb1d7a": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_f87673782f755a1c": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_fb95ac73724b9628": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_fec5b587d915045e": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_ff6deb2b84f08234": {
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:P1-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    }
+  }
+}

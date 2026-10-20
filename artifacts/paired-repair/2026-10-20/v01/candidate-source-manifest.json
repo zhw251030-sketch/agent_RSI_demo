@@ -1,0 +1,338 @@
+[
+  {
+    "session_id": "P1-r1-hidden",
+    "state_id": "P1",
+    "condition": "hidden",
+    "repeat": 1,
+    "candidate_id": "planning-000",
+    "source_path": "P1-r1-hidden/candidates/planning-000.py",
+    "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+    "bytes": 4481,
+    "n_params": 0,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "P1-r1-hidden",
+    "state_id": "P1",
+    "condition": "hidden",
+    "repeat": 1,
+    "candidate_id": "planning-001",
+    "source_path": "P1-r1-hidden/candidates/planning-001.py",
+    "source_sha256": "9dfbaa3402c2f6e209a523e4ec3c49c670485cde35c69ff67ce2734061f905dc",
+    "bytes": 4457,
+    "n_params": 0,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "accepted": false
+  },
+  {
+    "session_id": "S1-r1-checked",
+    "state_id": "S1",
+    "condition": "checked",
+    "repeat": 1,
+    "candidate_id": "symbolic-000",
+    "source_path": "S1-r1-checked/candidates/symbolic-000.py",
+    "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+    "bytes": 109,
+    "n_params": 3,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 0.00042058301188823533,
+      "nmse": 0.09639217003192727
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "S1-r1-checked",
+    "state_id": "S1",
+    "condition": "checked",
+    "repeat": 1,
+    "candidate_id": "symbolic-001",
+    "source_path": "S1-r1-checked/candidates/symbolic-001.py",
+    "source_sha256": "c73538e1966a3c452c44920fc5d8dd3cca71d345a868b2e48f7356a52532b3a0",
+    "bytes": 188,
+    "n_params": 3,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 0.0004183857131756457,
+      "nmse": 0.09588857767292072
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "P1-r1-checked",
+    "state_id": "P1",
+    "condition": "checked",
+    "repeat": 1,
+    "candidate_id": "planning-000",
+    "source_path": "P1-r1-checked/candidates/planning-000.py",
+    "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+    "bytes": 4481,
+    "n_params": 0,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "P1-r1-checked",
+    "state_id": "P1",
+    "condition": "checked",
+    "repeat": 1,
+    "candidate_id": "planning-001",
+    "source_path": "P1-r1-checked/candidates/planning-001.py",
+    "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+    "bytes": 4537,
+    "n_params": 0,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "accepted": false
+  },
+  {
+    "session_id": "S1-r1-hidden",
+    "state_id": "S1",
+    "condition": "hidden",
+    "repeat": 1,
+    "candidate_id": "symbolic-000",
+    "source_path": "S1-r1-hidden/candidates/symbolic-000.py",
+    "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+    "bytes": 109,
+    "n_params": 3,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 0.00042058301188823533,
+      "nmse": 0.09639217003192727
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "S1-r1-hidden",
+    "state_id": "S1",
+    "condition": "hidden",
+    "repeat": 1,
+    "candidate_id": "symbolic-001",
+    "source_path": "S1-r1-hidden/candidates/symbolic-001.py",
+    "source_sha256": "e69daefc457cb678b5bdb37b336d1ed0b092055a523a24c3e006121e77dd4334",
+    "bytes": 109,
+    "n_params": 3,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 2.1089077703613825e-05,
+      "nmse": 0.004833343017581193
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "S1-r2-hidden",
+    "state_id": "S1",
+    "condition": "hidden",
+    "repeat": 2,
+    "candidate_id": "symbolic-000",
+    "source_path": "S1-r2-hidden/candidates/symbolic-000.py",
+    "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+    "bytes": 109,
+    "n_params": 3,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 0.00042058301188823533,
+      "nmse": 0.09639217003192727
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "S1-r2-hidden",
+    "state_id": "S1",
+    "condition": "hidden",
+    "repeat": 2,
+    "candidate_id": "symbolic-001",
+    "source_path": "S1-r2-hidden/candidates/symbolic-001.py",
+    "source_sha256": "a3c5cb82c24b765aab52ceb63487ccb7db9fb255807a3ffc817ad99df6357619",
+    "bytes": 232,
+    "n_params": 3,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 0.00041836181538525564,
+      "nmse": 0.0958831006093933
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "P1-r2-checked",
+    "state_id": "P1",
+    "condition": "checked",
+    "repeat": 2,
+    "candidate_id": "planning-000",
+    "source_path": "P1-r2-checked/candidates/planning-000.py",
+    "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+    "bytes": 4481,
+    "n_params": 0,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "P1-r2-checked",
+    "state_id": "P1",
+    "condition": "checked",
+    "repeat": 2,
+    "candidate_id": "planning-001",
+    "source_path": "P1-r2-checked/candidates/planning-001.py",
+    "source_sha256": "311ac19c6190c1397c851864d5a6bdeb8abb8d17f3770db436f6c771e880235c",
+    "bytes": 3322,
+    "n_params": 0,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "accepted": false
+  },
+  {
+    "session_id": "S1-r2-checked",
+    "state_id": "S1",
+    "condition": "checked",
+    "repeat": 2,
+    "candidate_id": "symbolic-000",
+    "source_path": "S1-r2-checked/candidates/symbolic-000.py",
+    "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+    "bytes": 109,
+    "n_params": 3,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 0.00042058301188823533,
+      "nmse": 0.09639217003192727
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "S1-r2-checked",
+    "state_id": "S1",
+    "condition": "checked",
+    "repeat": 2,
+    "candidate_id": "symbolic-001",
+    "source_path": "S1-r2-checked/candidates/symbolic-001.py",
+    "source_sha256": "0994c41d29376c4336024a96eb8e41ffc36f06d5b2ba80b3480c08d47a18757f",
+    "bytes": 207,
+    "n_params": 5,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 1,
+    "metrics": {
+      "mse": 0.0004027059272621961,
+      "nmse": 0.09229497415800965
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "P1-r2-hidden",
+    "state_id": "P1",
+    "condition": "hidden",
+    "repeat": 2,
+    "candidate_id": "planning-000",
+    "source_path": "P1-r2-hidden/candidates/planning-000.py",
+    "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+    "bytes": 4481,
+    "n_params": 0,
+    "role": "archived_baseline_copy",
+    "executed_in_this_run": false,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "accepted": true
+  },
+  {
+    "session_id": "P1-r2-hidden",
+    "state_id": "P1",
+    "condition": "hidden",
+    "repeat": 2,
+    "candidate_id": "planning-001",
+    "source_path": "P1-r2-hidden/candidates/planning-001.py",
+    "source_sha256": "5f384f214a546d40f69ab4a9fc962623c31bd80e0ecd573a3fb8b576a9a7afb2",
+    "bytes": 3719,
+    "n_params": 0,
+    "role": "new_model_proposed_child",
+    "executed_in_this_run": true,
+    "task_record_count": 10,
+    "metrics": {
+      "prompt_successes": 2,
+      "prompt_total": 2,
+      "development_successes": 8,
+      "development_total": 8,
+      "total_successes": 10,
+      "total_tasks": 10
+    },
+    "accepted": true
+  }
+]

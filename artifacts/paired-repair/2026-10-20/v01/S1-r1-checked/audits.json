@@ -1,0 +1,114 @@
+[
+  {
+    "candidate_id": "symbolic-001",
+    "compact_declaration": {
+      "claim_id": "e_a4d831670b9949a1",
+      "claim_op": "lt",
+      "claim_value_json": "0.003",
+      "prediction_id": "e_ba76640116adf2e6",
+      "prediction_direction": "decrease",
+      "prediction_min_delta": 0.002
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "17b31ab1b483a13d5e9b6b8a0c87849f149844f9d687e58d3d55635b047e600e"
+    },
+    "claim_expansion": {
+      "status": "resolved",
+      "value": {
+        "kind": "scalar",
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:S1-r1",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "bin.v.2.mean_residual"
+        },
+        "op": "lt",
+        "value": 0.003
+      }
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:S1-r1",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "direction": "decrease",
+        "min_delta": 0.002
+      }
+    },
+    "claim_results": [
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": -0.002613533686042207,
+        "tolerance": 1.3000000000000002e-10,
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:S1-r1",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "bin.v.2.mean_residual"
+        },
+        "op": "lt",
+        "expected": 0.003
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.09639217003192727,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:S1-r1",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "direction": "decrease",
+      "min_delta": 0.002
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.0005035923590065439,
+      "tolerance": 1.2e-10,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:S1-r1",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "before": 0.09639217003192727,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.002,
+      "child_reference": {
+        "session_id": "20261020-paired-repair-v01:S1-r1",
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "c73538e1966a3c452c44920fc5d8dd3cca71d345a868b2e48f7356a52532b3a0",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "after": 0.09588857767292072
+    }
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "candidate_id": "symbolic-001",
+    "compact_declaration": {
+      "claim_id": "e_9a088a58dc080cd1",
+      "claim_op": "lt",
+      "claim_value_json": "\"0.096\"",
+      "prediction_id": "e_9a088a58dc080cd1",
+      "prediction_direction": "decrease",
+      "prediction_min_delta": 0.005
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "8670ce62c5f9c714eb249ede9209773c1553ee3de17eddc0899ee5d31f29d278"
+    },
+    "claim_expansion": {
+      "status": "schema_invalid",
+      "reason": "claim_schema_invalid"
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-paired-repair-v01:S1-r2",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "direction": "decrease",
+        "min_delta": 0.005
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.09639217003192727,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:S1-r2",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "direction": "decrease",
+      "min_delta": 0.005
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.004097195873917617,
+      "tolerance": 1.5e-10,
+      "reference": {
+        "session_id": "20261020-paired-repair-v01:S1-r2",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "before": 0.09639217003192727,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.005,
+      "child_reference": {
+        "session_id": "20261020-paired-repair-v01:S1-r2",
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "0994c41d29376c4336024a96eb8e41ffc36f06d5b2ba80b3480c08d47a18757f",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "after": 0.09229497415800965
+    }
+  }
+]

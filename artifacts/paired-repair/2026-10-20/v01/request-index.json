@@ -1,0 +1,258 @@
+[
+  {
+    "request_id": "request-0001",
+    "session_id": "P1-r1-hidden",
+    "pair_id": "P1-r1",
+    "condition": "hidden",
+    "request_path": "P1-r1-hidden/requests/request-0001.request.json",
+    "response_path": "P1-r1-hidden/requests/request-0001.response.json",
+    "input_audit_path": "P1-r1-hidden/requests/input-audit-0001.json",
+    "packet_path": "P1-r1-hidden/requests/packet-0001.json",
+    "canonical_input_bytes": 42574,
+    "canonical_payload_sha256": "aaf116f437d61c8711e80fe6571888d0843976844761df1636b7bca1723578ac",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_1WZiLiGViRyjBfHZPmtbWxTo",
+    "executed_child_id": "planning-001",
+    "executed_source_sha256": "9dfbaa3402c2f6e209a523e4ec3c49c670485cde35c69ff67ce2734061f905dc",
+    "usage": {
+      "prompt_tokens": 11661,
+      "completion_tokens": 1706,
+      "total_tokens": 13367
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  },
+  {
+    "request_id": "request-0002",
+    "session_id": "S1-r1-checked",
+    "pair_id": "S1-r1",
+    "condition": "checked",
+    "request_path": "S1-r1-checked/requests/request-0002.request.json",
+    "response_path": "S1-r1-checked/requests/request-0002.response.json",
+    "input_audit_path": "S1-r1-checked/requests/input-audit-0001.json",
+    "packet_path": "S1-r1-checked/requests/packet-0001.json",
+    "canonical_input_bytes": 24530,
+    "canonical_payload_sha256": "47b3592a5b9b8e10c2275a3da2409dc44877b4efa4f0ae1f0d8e5e391f992062",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a1580ea8d872bd87c5a3a7",
+    "executed_child_id": "symbolic-001",
+    "executed_source_sha256": "c73538e1966a3c452c44920fc5d8dd3cca71d345a868b2e48f7356a52532b3a0",
+    "usage": {
+      "prompt_tokens": 6946,
+      "completion_tokens": 449,
+      "total_tokens": 7395
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  },
+  {
+    "request_id": "request-0003",
+    "session_id": "P1-r1-checked",
+    "pair_id": "P1-r1",
+    "condition": "checked",
+    "request_path": "P1-r1-checked/requests/request-0003.request.json",
+    "response_path": "P1-r1-checked/requests/request-0003.response.json",
+    "input_audit_path": "P1-r1-checked/requests/input-audit-0001.json",
+    "packet_path": "P1-r1-checked/requests/packet-0001.json",
+    "canonical_input_bytes": 44513,
+    "canonical_payload_sha256": "238df92e40a12aad223c5f1365824ed34319dd27a357e6eded412380c8c15c37",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a1580eeeb37011ac08f9fb",
+    "executed_child_id": "planning-001",
+    "executed_source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+    "usage": {
+      "prompt_tokens": 12158,
+      "completion_tokens": 1605,
+      "total_tokens": 13763
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  },
+  {
+    "request_id": "request-0004",
+    "session_id": "S1-r1-hidden",
+    "pair_id": "S1-r1",
+    "condition": "hidden",
+    "request_path": "S1-r1-hidden/requests/request-0004.request.json",
+    "response_path": "S1-r1-hidden/requests/request-0004.response.json",
+    "input_audit_path": "S1-r1-hidden/requests/input-audit-0001.json",
+    "packet_path": "S1-r1-hidden/requests/packet-0001.json",
+    "canonical_input_bytes": 22991,
+    "canonical_payload_sha256": "6f9ccd90fe021dd560f5d6dd3aa897a8a76417a096d36efb5884fa9cfd839280",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a1580f0ed07788965e086d",
+    "executed_child_id": "symbolic-001",
+    "executed_source_sha256": "e69daefc457cb678b5bdb37b336d1ed0b092055a523a24c3e006121e77dd4334",
+    "usage": {
+      "prompt_tokens": 6514,
+      "completion_tokens": 437,
+      "total_tokens": 6951
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  },
+  {
+    "request_id": "request-0005",
+    "session_id": "S1-r2-hidden",
+    "pair_id": "S1-r2",
+    "condition": "hidden",
+    "request_path": "S1-r2-hidden/requests/request-0005.request.json",
+    "response_path": "S1-r2-hidden/requests/request-0005.response.json",
+    "input_audit_path": "S1-r2-hidden/requests/input-audit-0001.json",
+    "packet_path": "S1-r2-hidden/requests/packet-0001.json",
+    "canonical_input_bytes": 22991,
+    "canonical_payload_sha256": "3b544eb7d16fbaf6b0ab68edd59f5e48a97bfff5e554eb689d0a962d95afd01e",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_g7ojFER45znTycJ8qQ5DR9j3",
+    "executed_child_id": "symbolic-001",
+    "executed_source_sha256": "a3c5cb82c24b765aab52ceb63487ccb7db9fb255807a3ffc817ad99df6357619",
+    "usage": {
+      "prompt_tokens": 6506,
+      "completion_tokens": 739,
+      "total_tokens": 7245
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  },
+  {
+    "request_id": "request-0006",
+    "session_id": "P1-r2-checked",
+    "pair_id": "P1-r2",
+    "condition": "checked",
+    "request_path": "P1-r2-checked/requests/request-0006.request.json",
+    "response_path": "P1-r2-checked/requests/request-0006.response.json",
+    "input_audit_path": "P1-r2-checked/requests/input-audit-0001.json",
+    "packet_path": "P1-r2-checked/requests/packet-0001.json",
+    "canonical_input_bytes": 44513,
+    "canonical_payload_sha256": "b6c9e37a1a3527bab91242d97d20235a6402231263d5ac3bec5b62651c407c1f",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a1580f8a47762e9fb74853",
+    "executed_child_id": "planning-001",
+    "executed_source_sha256": "311ac19c6190c1397c851864d5a6bdeb8abb8d17f3770db436f6c771e880235c",
+    "usage": {
+      "prompt_tokens": 12161,
+      "completion_tokens": 1174,
+      "total_tokens": 13335
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  },
+  {
+    "request_id": "request-0007",
+    "session_id": "S1-r2-checked",
+    "pair_id": "S1-r2",
+    "condition": "checked",
+    "request_path": "S1-r2-checked/requests/request-0007.request.json",
+    "response_path": "S1-r2-checked/requests/request-0007.response.json",
+    "input_audit_path": "S1-r2-checked/requests/input-audit-0001.json",
+    "packet_path": "S1-r2-checked/requests/packet-0001.json",
+    "canonical_input_bytes": 24530,
+    "canonical_payload_sha256": "f2c855ab10ceea7b6c72f6a2d442fcc31d0935a5c8fbd590eb9c646b4cc90332",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a1580fa3f5744584d26a9c",
+    "executed_child_id": "symbolic-001",
+    "executed_source_sha256": "0994c41d29376c4336024a96eb8e41ffc36f06d5b2ba80b3480c08d47a18757f",
+    "usage": {
+      "prompt_tokens": 6938,
+      "completion_tokens": 394,
+      "total_tokens": 7332
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  },
+  {
+    "request_id": "request-0008",
+    "session_id": "P1-r2-hidden",
+    "pair_id": "P1-r2",
+    "condition": "hidden",
+    "request_path": "P1-r2-hidden/requests/request-0008.request.json",
+    "response_path": "P1-r2-hidden/requests/request-0008.response.json",
+    "input_audit_path": "P1-r2-hidden/requests/input-audit-0001.json",
+    "packet_path": "P1-r2-hidden/requests/packet-0001.json",
+    "canonical_input_bytes": 42574,
+    "canonical_payload_sha256": "6d7b8202df853a72bc5de9493913e2627f731fbfaba3d8e28a6e250bf95668ff",
+    "response_finish_reason": "tool_calls",
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a1580fce557416ad7b878e",
+    "executed_child_id": "planning-001",
+    "executed_source_sha256": "5f384f214a546d40f69ab4a9fc962623c31bd80e0ecd573a3fb8b576a9a7afb2",
+    "usage": {
+      "prompt_tokens": 11664,
+      "completion_tokens": 1308,
+      "total_tokens": 12972
+    },
+    "event_types": [
+      "SystemPromptEvent",
+      "MessageEvent",
+      "ActionEvent",
+      "ObservationEvent",
+      "ConversationErrorEvent"
+    ],
+    "response_tool_validation": {
+      "status": "valid_submission"
+    }
+  }
+]
