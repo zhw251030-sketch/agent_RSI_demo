@@ -1,0 +1,23 @@
+{
+  "version": "decision-replay-v0.1",
+  "protocol": "docs/protocols/2026-10-21-decision-replay-v0.1.md",
+  "case_order": ["P-format", "P-empty", "S-v3", "S-x5"],
+  "repeats": 2,
+  "minimum_gain_nmse": 0.00001,
+  "simplification_loss_nmse": 0.00001,
+  "numeric_tolerance": 0.0000000001,
+  "max_sandbox_calls": 96,
+  "resume": false,
+  "new_probe_executions": 0,
+  "sealed_tasks_executed": 0,
+  "budgets": {
+    "max_requests": 16,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 2000000,
+    "max_cost_cny": 5,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  }
+}
