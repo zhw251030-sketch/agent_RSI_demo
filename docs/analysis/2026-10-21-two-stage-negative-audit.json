@@ -1,0 +1,80 @@
+{
+  "cases": [
+    {
+      "case": "config",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Frozen configuration changed"
+    },
+    {
+      "case": "runtime",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Clean runtime anchor"
+    },
+    {
+      "case": "registration",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Frozen phase files changed"
+    },
+    {
+      "case": "probe",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Frozen phase files changed"
+    },
+    {
+      "case": "source",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Candidate is not SDK-submitted source"
+    },
+    {
+      "case": "score",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Recomputed score"
+    },
+    {
+      "case": "request",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Request payload digest"
+    },
+    {
+      "case": "received_usage",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Received usage differs from ledger"
+    },
+    {
+      "case": "sdk_business",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "SDK normalized submission mismatch"
+    },
+    {
+      "case": "budget_summary",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Budget summary totals or fields differ"
+    },
+    {
+      "case": "missing_slot",
+      "rejected": true,
+      "error_type": "KeyError",
+      "error": "'P-prefix-checked'"
+    },
+    {
+      "case": "counts",
+      "rejected": true,
+      "error_type": "ValueError",
+      "error": "Nonnegative integer counts"
+    }
+  ],
+  "all_rejected": true,
+  "original_files_unchanged": true,
+  "model_calls": 0,
+  "candidate_executions": 0
+}

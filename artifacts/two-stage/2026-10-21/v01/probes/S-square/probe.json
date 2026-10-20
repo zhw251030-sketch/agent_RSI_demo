@@ -1,0 +1,567 @@
+{
+  "version": "matched-term-removal-v0.1",
+  "case_id": "S-square",
+  "status": "completed",
+  "verdict": "supported",
+  "reason": "removal_loss_exceeds_threshold",
+  "claim": "Removing the selected additive term and refitting under the fixed protocol increases oscillator1 train NMSE by more than epsilon.",
+  "epsilon": 1e-05,
+  "tolerance": 1e-10,
+  "transformation": {
+    "contract": "single-independent-additive-coefficient-v0.1",
+    "status": "ready",
+    "verdict": "unknown",
+    "reason": null,
+    "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+    "parent_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+    "n_params_before": 3,
+    "n_params_after": 2,
+    "remove_param_index": 2,
+    "mapping": {
+      "0": 0,
+      "1": 1,
+      "2": null
+    },
+    "canonical_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * (x * x)\n",
+    "removed_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v\n",
+    "canonical_sha256": "3c25a152824100142776443051615c5bcfbf11a35541d68533d4c2532b78e4b7",
+    "removed_sha256": "a71f0f8118d3c5442294a10a88851592dbf49a5844b4675a910f581901bb6370",
+    "term_ast_sha256": "5027a8cd04b0d2ddfbcf911e65c17a16c48b9f57c28e851015844d25e32f14b4"
+  },
+  "variants": [
+    {
+      "name": "original",
+      "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x * x",
+      "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+      "n_params": 3,
+      "result": {
+        "schema_version": "0.1",
+        "run_id": "4f02f7af358e47beb9723470315be9b7",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "S-square-original",
+        "candidate_hash": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "parent_id": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "strategy_version": "matched-term-removal-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.210702,
+            "stdout_bytes": 143,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.211664,
+            "stdout_bytes": 205336,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.16312504337458042,
+            0.001121487498331103,
+            -0.008707545022741459
+          ],
+          "n_params": 3,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 13,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.00042058301188823533,
+          "nmse": 0.09639217003192727
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "oscillator1",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "scope": "train",
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 0.0007975487124018605,
+            "rmse": 0.020508120632769727,
+            "standardized_bias": 0.012074029526606907,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0006229776548986106,
+                    "rmse": 0.016940848986185388
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0001152077925771282,
+                    "rmse": 0.022879268653233763
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0028462577856588124,
+                    "rmse": 0.01806180543863364
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": -0.00016383279837285257,
+                    "rmse": 0.023359150955681203
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 2.388207190304739e-05,
+                    "rmse": 0.012160743932446224
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.004091271791985808,
+                    "rmse": 0.0189146104700079
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.002613533686042207,
+                    "rmse": 0.01184218124474014
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0016885746717607935,
+                    "rmse": 0.03219392192164549
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "elapsed_seconds": 0.497701
+      }
+    },
+    {
+      "name": "canonical_full",
+      "source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * (x * x)\n",
+      "source_sha256": "3c25a152824100142776443051615c5bcfbf11a35541d68533d4c2532b78e4b7",
+      "n_params": 3,
+      "result": {
+        "schema_version": "0.1",
+        "run_id": "35f2a8d1c9d24f9c945c6dae9ce169b6",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "S-square-canonical_full",
+        "candidate_hash": "3c25a152824100142776443051615c5bcfbf11a35541d68533d4c2532b78e4b7",
+        "parent_id": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "strategy_version": "matched-term-removal-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.205602,
+            "stdout_bytes": 143,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.215071,
+            "stdout_bytes": 205165,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.16312504337702446,
+            0.0011214875053535411,
+            -0.00870754502038705
+          ],
+          "n_params": 3,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 13,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.00042058301188823533,
+          "nmse": 0.09639217003192727
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "oscillator1",
+          "candidate_sha256": "3c25a152824100142776443051615c5bcfbf11a35541d68533d4c2532b78e4b7",
+          "scope": "train",
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 0.0007975487129634723,
+            "rmse": 0.020508120632769727,
+            "standardized_bias": 0.012074029535109105,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0006229776567902117,
+                    "rmse": 0.016940848985817623
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.00011520779159025788,
+                    "rmse": 0.022879268652220834
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.00284625778563607,
+                    "rmse": 0.018061805439266485
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": -0.00016383279898213483,
+                    "rmse": 0.02335915095645071
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 2.388207101227853e-05,
+                    "rmse": 0.012160743933044135
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.004091271792135253,
+                    "rmse": 0.01891461047104942
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.002613533684851474,
+                    "rmse": 0.011842181244279326
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0016885746735578312,
+                    "rmse": 0.032193921920977225
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "elapsed_seconds": 0.494786
+      }
+    },
+    {
+      "name": "removed",
+      "source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v\n",
+      "source_sha256": "a71f0f8118d3c5442294a10a88851592dbf49a5844b4675a910f581901bb6370",
+      "n_params": 2,
+      "result": {
+        "schema_version": "0.1",
+        "run_id": "22a16484fa79459cb96b516243f77b2e",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "S-square-removed",
+        "candidate_hash": "a71f0f8118d3c5442294a10a88851592dbf49a5844b4675a910f581901bb6370",
+        "parent_id": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "strategy_version": "matched-term-removal-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.20311,
+            "stdout_bytes": 120,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.21112,
+            "stdout_bytes": 205231,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.1618007888423157,
+            0.001342837650957024
+          ],
+          "n_params": 2,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 10,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.0004229742450282299,
+          "nmse": 0.09694020964575169
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "oscillator1",
+          "candidate_sha256": "a71f0f8118d3c5442294a10a88851592dbf49a5844b4675a910f581901bb6370",
+          "scope": "train",
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 0.002040885783723853,
+            "rmse": 0.0205663376668825,
+            "standardized_bias": 0.030896815241421727,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.002270788091066765,
+                    "rmse": 0.017119305311459783
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0006004179439446756,
+                    "rmse": 0.02284072824787925
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.003097484366620963,
+                    "rmse": 0.0181852066370288
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.002194852733263008,
+                    "rmse": 0.023375751505374947
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.00038433028228914063,
+                    "rmse": 0.012012400549177737
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.005627055117392109,
+                    "rmse": 0.018851500528436597
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0005000076015659311,
+                    "rmse": 0.011738877297187382
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0026521653367800936,
+                    "rmse": 0.03247181702318131
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "elapsed_seconds": 0.484554
+      }
+    }
+  ],
+  "dataset_identity": {
+    "task": "oscillator1",
+    "split": "train",
+    "rows": 10000,
+    "input_names": [
+      "x",
+      "v"
+    ],
+    "manifest_sha256": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8",
+    "data_sha256": "a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7"
+  },
+  "delta_nmse": 0.000548039613824422,
+  "sham_delta_nmse": 0.0,
+  "candidate_evaluations": 3,
+  "sandbox_executions": 6,
+  "executions": {
+    "sandbox_calls": 6,
+    "new_candidate_executions": 3,
+    "fit_calls": 3,
+    "predict_calls": 3
+  },
+  "execution_accounting_complete": true,
+  "model_calls": 0,
+  "sealed_tasks_executed": 0,
+  "infrastructure_stopped": false
+}

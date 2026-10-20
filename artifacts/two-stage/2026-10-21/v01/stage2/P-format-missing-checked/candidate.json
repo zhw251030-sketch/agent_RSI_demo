@@ -1,0 +1,1659 @@
+{
+  "candidate_id": "planning-001",
+  "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+  "source_sha256": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+  "n_params": 0,
+  "rationale": "The registered probe returned `unknown` with reason `normalization_contract_unavailable` on both public instances: the emitted strings contain no parentheses at all, so the probe's \"trim whitespace outside/inside parentheses\" contract could not apply. That is evidence against a whitespace-only diagnosis and for the interface statement \"Each action is one parenthesized string\". My single edit is therefore to fmt(): wrap each action's tokens in parentheses, preserving token order, names, and argument order required by the domain schemas (walk ?start ?end ?m; pickup_spanner ?l ?s ?m; tighten_nut ?l ?s ?m ?n). Search logic, generation, and pruning are untouched, so any regression risk is limited to the string format. Uncertainty: I cannot observe the evaluator; if the host instead expects bare strings, or rejects parentheses, this would be contradicted. Also unverified whether VAL's stricter type/precondition checks are fully satisfied by the simplified apply() (e.g. spanner not simultaneously required elsewhere), though the public instances only tighten each nut once.",
+  "auxiliary": {
+    "forecast": {
+      "development_successes": 8
+    },
+    "planned_edit": "Change fmt() to return parenthesized action strings: '(walk l1 l2 m)', '(pickup_spanner l s m)', '(tighten_nut l s m n)'. No other edits.",
+    "probe_feedback_use": "The whitespace-normalization probe returned unknown/normalization_contract_unavailable on both public instances, so the prior hypothesis (stray surrounding whitespace) is not supported as the fixable cause; instead fmt() emitted bare, unparenthesized strings while the interface requires parenthesized action strings.",
+    "uncertainty": "The real failure cause is not directly observed; I infer it from the interface spec and the probe's inability to apply its contract. There is a residual risk the host wants bare tokens."
+  },
+  "source_file": "candidate.py",
+  "results": [
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "diagnostics": {
+        "candidate_sha256": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+        "plan_replay": {
+          "error_kind": null,
+          "executed_actions": 11,
+          "first_failed_action": null,
+          "missing_preconditions": [],
+          "missing_preconditions_truncated": false,
+          "plan_length": 11,
+          "status": "valid",
+          "unsatisfied_goals": [],
+          "unsatisfied_goals_truncated": false
+        },
+        "scope": "public_prompt",
+        "task_id": "spannerlearning/seed0/problem0",
+        "trace": {
+          "event_limit": 20000,
+          "events_seen": 15176,
+          "functions": [
+            {
+              "call_events": 1,
+              "container_length_max": 11,
+              "container_length_min": 11,
+              "exception_events": 0,
+              "first_line": 13,
+              "name": "get_plan",
+              "none_return_events": 0,
+              "return_events": 1,
+              "return_types": {
+                "list": 1
+              }
+            },
+            {
+              "call_events": 78,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 27,
+              "name": "satisfies",
+              "none_return_events": 0,
+              "return_events": 78,
+              "return_types": {
+                "bool": 78
+              }
+            },
+            {
+              "call_events": 188,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 77,
+              "first_line": 28,
+              "name": "<genexpr>",
+              "none_return_events": 78,
+              "return_events": 188,
+              "return_types": {
+                "bool": 110,
+                "none": 78
+              }
+            },
+            {
+              "call_events": 69,
+              "container_length_max": 1,
+              "container_length_min": 0,
+              "exception_events": 0,
+              "first_line": 33,
+              "name": "walk_actions",
+              "none_return_events": 0,
+              "return_events": 69,
+              "return_types": {
+                "list": 69
+              }
+            },
+            {
+              "call_events": 69,
+              "container_length_max": 2,
+              "container_length_min": 0,
+              "exception_events": 0,
+              "first_line": 44,
+              "name": "pickup_actions",
+              "none_return_events": 0,
+              "return_events": 69,
+              "return_types": {
+                "list": 69
+              }
+            },
+            {
+              "call_events": 69,
+              "container_length_max": 9,
+              "container_length_min": 0,
+              "exception_events": 0,
+              "first_line": 55,
+              "name": "tighten_actions",
+              "none_return_events": 0,
+              "return_events": 69,
+              "return_types": {
+                "list": 69
+              }
+            },
+            {
+              "call_events": 133,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 71,
+              "name": "apply",
+              "none_return_events": 0,
+              "return_events": 133,
+              "return_types": {
+                "other": 133
+              }
+            },
+            {
+              "call_events": 11,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 91,
+              "name": "fmt",
+              "none_return_events": 0,
+              "return_events": 11,
+              "return_types": {
+                "str": 11
+              }
+            },
+            {
+              "call_events": 774,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 116,
+              "name": "<genexpr>",
+              "none_return_events": 133,
+              "return_events": 774,
+              "return_types": {
+                "none": 133,
+                "str": 641
+              }
+            },
+            {
+              "call_events": 133,
+              "container_length_max": 5,
+              "container_length_min": 4,
+              "exception_events": 0,
+              "first_line": 116,
+              "name": "<lambda>",
+              "none_return_events": 0,
+              "return_events": 133,
+              "return_types": {
+                "tuple": 133
+              }
+            }
+          ],
+          "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+          "interrupted": false,
+          "lines": [
+            {
+              "hits": 1,
+              "line": 15
+            },
+            {
+              "hits": 14,
+              "line": 16
+            },
+            {
+              "hits": 13,
+              "line": 17
+            },
+            {
+              "hits": 1,
+              "line": 19
+            },
+            {
+              "hits": 1,
+              "line": 20
+            },
+            {
+              "hits": 1,
+              "line": 21
+            },
+            {
+              "hits": 1,
+              "line": 22
+            },
+            {
+              "hits": 1,
+              "line": 24
+            },
+            {
+              "hits": 1,
+              "line": 25
+            },
+            {
+              "hits": 1,
+              "line": 27
+            },
+            {
+              "hits": 189,
+              "line": 28
+            },
+            {
+              "hits": 1,
+              "line": 30
+            },
+            {
+              "hits": 1,
+              "line": 33
+            },
+            {
+              "hits": 69,
+              "line": 34
+            },
+            {
+              "hits": 138,
+              "line": 35
+            },
+            {
+              "hits": 483,
+              "line": 36
+            },
+            {
+              "hits": 414,
+              "line": 37
+            },
+            {
+              "hits": 345,
+              "line": 38
+            },
+            {
+              "hits": 483,
+              "line": 39
+            },
+            {
+              "hits": 414,
+              "line": 40
+            },
+            {
+              "hits": 15,
+              "line": 41
+            },
+            {
+              "hits": 69,
+              "line": 42
+            },
+            {
+              "hits": 1,
+              "line": 44
+            },
+            {
+              "hits": 69,
+              "line": 45
+            },
+            {
+              "hits": 138,
+              "line": 46
+            },
+            {
+              "hits": 483,
+              "line": 47
+            },
+            {
+              "hits": 414,
+              "line": 48
+            },
+            {
+              "hits": 345,
+              "line": 49
+            },
+            {
+              "hits": 276,
+              "line": 50
+            },
+            {
+              "hits": 207,
+              "line": 51
+            },
+            {
+              "hits": 9,
+              "line": 52
+            },
+            {
+              "hits": 69,
+              "line": 53
+            },
+            {
+              "hits": 1,
+              "line": 55
+            },
+            {
+              "hits": 69,
+              "line": 56
+            },
+            {
+              "hits": 138,
+              "line": 57
+            },
+            {
+              "hits": 483,
+              "line": 58
+            },
+            {
+              "hits": 414,
+              "line": 59
+            },
+            {
+              "hits": 345,
+              "line": 60
+            },
+            {
+              "hits": 276,
+              "line": 61
+            },
+            {
+              "hits": 207,
+              "line": 62
+            },
+            {
+              "hits": 45,
+              "line": 63
+            },
+            {
+              "hits": 162,
+              "line": 64
+            },
+            {
+              "hits": 56,
+              "line": 65
+            },
+            {
+              "hits": 424,
+              "line": 66
+            },
+            {
+              "hits": 318,
+              "line": 67
+            },
+            {
+              "hits": 109,
+              "line": 68
+            },
+            {
+              "hits": 69,
+              "line": 69
+            },
+            {
+              "hits": 1,
+              "line": 71
+            },
+            {
+              "hits": 133,
+              "line": 72
+            },
+            {
+              "hits": 133,
+              "line": 73
+            },
+            {
+              "hits": 133,
+              "line": 74
+            },
+            {
+              "hits": 15,
+              "line": 75
+            },
+            {
+              "hits": 15,
+              "line": 76
+            },
+            {
+              "hits": 15,
+              "line": 77
+            },
+            {
+              "hits": 118,
+              "line": 78
+            },
+            {
+              "hits": 9,
+              "line": 79
+            },
+            {
+              "hits": 9,
+              "line": 80
+            },
+            {
+              "hits": 9,
+              "line": 81
+            },
+            {
+              "hits": 109,
+              "line": 82
+            },
+            {
+              "hits": 109,
+              "line": 83
+            },
+            {
+              "hits": 109,
+              "line": 84
+            },
+            {
+              "hits": 109,
+              "line": 85
+            },
+            {
+              "hits": 109,
+              "line": 86
+            },
+            {
+              "hits": 133,
+              "line": 89
+            },
+            {
+              "hits": 1,
+              "line": 91
+            },
+            {
+              "hits": 11,
+              "line": 92
+            },
+            {
+              "hits": 11,
+              "line": 93
+            },
+            {
+              "hits": 5,
+              "line": 94
+            },
+            {
+              "hits": 6,
+              "line": 95
+            },
+            {
+              "hits": 3,
+              "line": 96
+            },
+            {
+              "hits": 3,
+              "line": 97
+            },
+            {
+              "hits": 3,
+              "line": 98
+            },
+            {
+              "hits": 1,
+              "line": 101
+            },
+            {
+              "hits": 1,
+              "line": 102
+            },
+            {
+              "hits": 1,
+              "line": 103
+            },
+            {
+              "hits": 1,
+              "line": 104
+            },
+            {
+              "hits": 1,
+              "line": 105
+            },
+            {
+              "hits": 69,
+              "line": 107
+            },
+            {
+              "hits": 69,
+              "line": 108
+            },
+            {
+              "hits": 69,
+              "line": 109
+            },
+            {
+              "hits": 69,
+              "line": 110
+            },
+            {
+              "hits": 69,
+              "line": 112
+            },
+            {
+              "hits": 276,
+              "line": 113
+            },
+            {
+              "hits": 340,
+              "line": 114
+            },
+            {
+              "hits": 133,
+              "line": 115
+            },
+            {
+              "hits": 976,
+              "line": 116
+            },
+            {
+              "hits": 201,
+              "line": 117
+            },
+            {
+              "hits": 133,
+              "line": 118
+            },
+            {
+              "hits": 133,
+              "line": 119
+            },
+            {
+              "hits": 56,
+              "line": 120
+            },
+            {
+              "hits": 77,
+              "line": 121
+            },
+            {
+              "hits": 77,
+              "line": 122
+            },
+            {
+              "hits": 77,
+              "line": 123
+            },
+            {
+              "hits": 1,
+              "line": 125
+            },
+            {
+              "hits": 1,
+              "line": 126
+            },
+            {
+              "hits": 12,
+              "line": 127
+            },
+            {
+              "hits": 11,
+              "line": 128
+            },
+            {
+              "hits": 11,
+              "line": 129
+            },
+            {
+              "hits": 11,
+              "line": 130
+            },
+            {
+              "hits": 1,
+              "line": 131
+            },
+            {
+              "hits": 1,
+              "line": 132
+            },
+            {
+              "hits": 1,
+              "line": 134
+            },
+            {
+              "hits": 76,
+              "line": 135
+            }
+          ],
+          "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+          "provenance": "candidate_process_trace_not_trusted_score",
+          "truncated": false
+        },
+        "version": "diagnostics-v0.1"
+      },
+      "elapsed_seconds": 0.069817,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.050987,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 5285
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 11,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "25737a4cacd44a08bc11eab6c21c1b58",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem0",
+      "validator": {
+        "elapsed_seconds": 0.004481,
+        "plan_length": 11,
+        "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2026,
+        "stdout_sha256": "8a18909b534ee3418064e0283ddb88ab9e9a6df703bdb3fce72493263b2b15dd"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "diagnostics": {
+        "candidate_sha256": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+        "plan_replay": {
+          "error_kind": null,
+          "executed_actions": 11,
+          "first_failed_action": null,
+          "missing_preconditions": [],
+          "missing_preconditions_truncated": false,
+          "plan_length": 11,
+          "status": "valid",
+          "unsatisfied_goals": [],
+          "unsatisfied_goals_truncated": false
+        },
+        "scope": "public_prompt",
+        "task_id": "spannerlearning/seed0/problem1",
+        "trace": {
+          "event_limit": 20000,
+          "events_seen": 14852,
+          "functions": [
+            {
+              "call_events": 1,
+              "container_length_max": 11,
+              "container_length_min": 11,
+              "exception_events": 0,
+              "first_line": 13,
+              "name": "get_plan",
+              "none_return_events": 0,
+              "return_events": 1,
+              "return_types": {
+                "list": 1
+              }
+            },
+            {
+              "call_events": 76,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 27,
+              "name": "satisfies",
+              "none_return_events": 0,
+              "return_events": 76,
+              "return_types": {
+                "bool": 76
+              }
+            },
+            {
+              "call_events": 184,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 75,
+              "first_line": 28,
+              "name": "<genexpr>",
+              "none_return_events": 76,
+              "return_events": 184,
+              "return_types": {
+                "bool": 108,
+                "none": 76
+              }
+            },
+            {
+              "call_events": 67,
+              "container_length_max": 1,
+              "container_length_min": 0,
+              "exception_events": 0,
+              "first_line": 33,
+              "name": "walk_actions",
+              "none_return_events": 0,
+              "return_events": 67,
+              "return_types": {
+                "list": 67
+              }
+            },
+            {
+              "call_events": 67,
+              "container_length_max": 2,
+              "container_length_min": 0,
+              "exception_events": 0,
+              "first_line": 44,
+              "name": "pickup_actions",
+              "none_return_events": 0,
+              "return_events": 67,
+              "return_types": {
+                "list": 67
+              }
+            },
+            {
+              "call_events": 67,
+              "container_length_max": 9,
+              "container_length_min": 0,
+              "exception_events": 0,
+              "first_line": 55,
+              "name": "tighten_actions",
+              "none_return_events": 0,
+              "return_events": 67,
+              "return_types": {
+                "list": 67
+              }
+            },
+            {
+              "call_events": 131,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 71,
+              "name": "apply",
+              "none_return_events": 0,
+              "return_events": 131,
+              "return_types": {
+                "other": 131
+              }
+            },
+            {
+              "call_events": 11,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 91,
+              "name": "fmt",
+              "none_return_events": 0,
+              "return_events": 11,
+              "return_types": {
+                "str": 11
+              }
+            },
+            {
+              "call_events": 764,
+              "container_length_max": null,
+              "container_length_min": null,
+              "exception_events": 0,
+              "first_line": 116,
+              "name": "<genexpr>",
+              "none_return_events": 131,
+              "return_events": 764,
+              "return_types": {
+                "none": 131,
+                "str": 633
+              }
+            },
+            {
+              "call_events": 131,
+              "container_length_max": 5,
+              "container_length_min": 4,
+              "exception_events": 0,
+              "first_line": 116,
+              "name": "<lambda>",
+              "none_return_events": 0,
+              "return_events": 131,
+              "return_types": {
+                "tuple": 131
+              }
+            }
+          ],
+          "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+          "interrupted": false,
+          "lines": [
+            {
+              "hits": 1,
+              "line": 15
+            },
+            {
+              "hits": 14,
+              "line": 16
+            },
+            {
+              "hits": 13,
+              "line": 17
+            },
+            {
+              "hits": 1,
+              "line": 19
+            },
+            {
+              "hits": 1,
+              "line": 20
+            },
+            {
+              "hits": 1,
+              "line": 21
+            },
+            {
+              "hits": 1,
+              "line": 22
+            },
+            {
+              "hits": 1,
+              "line": 24
+            },
+            {
+              "hits": 1,
+              "line": 25
+            },
+            {
+              "hits": 1,
+              "line": 27
+            },
+            {
+              "hits": 185,
+              "line": 28
+            },
+            {
+              "hits": 1,
+              "line": 30
+            },
+            {
+              "hits": 1,
+              "line": 33
+            },
+            {
+              "hits": 67,
+              "line": 34
+            },
+            {
+              "hits": 134,
+              "line": 35
+            },
+            {
+              "hits": 469,
+              "line": 36
+            },
+            {
+              "hits": 402,
+              "line": 37
+            },
+            {
+              "hits": 335,
+              "line": 38
+            },
+            {
+              "hits": 469,
+              "line": 39
+            },
+            {
+              "hits": 402,
+              "line": 40
+            },
+            {
+              "hits": 13,
+              "line": 41
+            },
+            {
+              "hits": 67,
+              "line": 42
+            },
+            {
+              "hits": 1,
+              "line": 44
+            },
+            {
+              "hits": 67,
+              "line": 45
+            },
+            {
+              "hits": 134,
+              "line": 46
+            },
+            {
+              "hits": 469,
+              "line": 47
+            },
+            {
+              "hits": 402,
+              "line": 48
+            },
+            {
+              "hits": 335,
+              "line": 49
+            },
+            {
+              "hits": 268,
+              "line": 50
+            },
+            {
+              "hits": 201,
+              "line": 51
+            },
+            {
+              "hits": 9,
+              "line": 52
+            },
+            {
+              "hits": 67,
+              "line": 53
+            },
+            {
+              "hits": 1,
+              "line": 55
+            },
+            {
+              "hits": 67,
+              "line": 56
+            },
+            {
+              "hits": 134,
+              "line": 57
+            },
+            {
+              "hits": 469,
+              "line": 58
+            },
+            {
+              "hits": 402,
+              "line": 59
+            },
+            {
+              "hits": 335,
+              "line": 60
+            },
+            {
+              "hits": 268,
+              "line": 61
+            },
+            {
+              "hits": 201,
+              "line": 62
+            },
+            {
+              "hits": 39,
+              "line": 63
+            },
+            {
+              "hits": 162,
+              "line": 64
+            },
+            {
+              "hits": 56,
+              "line": 65
+            },
+            {
+              "hits": 424,
+              "line": 66
+            },
+            {
+              "hits": 318,
+              "line": 67
+            },
+            {
+              "hits": 109,
+              "line": 68
+            },
+            {
+              "hits": 67,
+              "line": 69
+            },
+            {
+              "hits": 1,
+              "line": 71
+            },
+            {
+              "hits": 131,
+              "line": 72
+            },
+            {
+              "hits": 131,
+              "line": 73
+            },
+            {
+              "hits": 131,
+              "line": 74
+            },
+            {
+              "hits": 13,
+              "line": 75
+            },
+            {
+              "hits": 13,
+              "line": 76
+            },
+            {
+              "hits": 13,
+              "line": 77
+            },
+            {
+              "hits": 118,
+              "line": 78
+            },
+            {
+              "hits": 9,
+              "line": 79
+            },
+            {
+              "hits": 9,
+              "line": 80
+            },
+            {
+              "hits": 9,
+              "line": 81
+            },
+            {
+              "hits": 109,
+              "line": 82
+            },
+            {
+              "hits": 109,
+              "line": 83
+            },
+            {
+              "hits": 109,
+              "line": 84
+            },
+            {
+              "hits": 109,
+              "line": 85
+            },
+            {
+              "hits": 109,
+              "line": 86
+            },
+            {
+              "hits": 131,
+              "line": 89
+            },
+            {
+              "hits": 1,
+              "line": 91
+            },
+            {
+              "hits": 11,
+              "line": 92
+            },
+            {
+              "hits": 11,
+              "line": 93
+            },
+            {
+              "hits": 5,
+              "line": 94
+            },
+            {
+              "hits": 6,
+              "line": 95
+            },
+            {
+              "hits": 3,
+              "line": 96
+            },
+            {
+              "hits": 3,
+              "line": 97
+            },
+            {
+              "hits": 3,
+              "line": 98
+            },
+            {
+              "hits": 1,
+              "line": 101
+            },
+            {
+              "hits": 1,
+              "line": 102
+            },
+            {
+              "hits": 1,
+              "line": 103
+            },
+            {
+              "hits": 1,
+              "line": 104
+            },
+            {
+              "hits": 1,
+              "line": 105
+            },
+            {
+              "hits": 67,
+              "line": 107
+            },
+            {
+              "hits": 67,
+              "line": 108
+            },
+            {
+              "hits": 67,
+              "line": 109
+            },
+            {
+              "hits": 67,
+              "line": 110
+            },
+            {
+              "hits": 67,
+              "line": 112
+            },
+            {
+              "hits": 268,
+              "line": 113
+            },
+            {
+              "hits": 332,
+              "line": 114
+            },
+            {
+              "hits": 131,
+              "line": 115
+            },
+            {
+              "hits": 962,
+              "line": 116
+            },
+            {
+              "hits": 197,
+              "line": 117
+            },
+            {
+              "hits": 131,
+              "line": 118
+            },
+            {
+              "hits": 131,
+              "line": 119
+            },
+            {
+              "hits": 56,
+              "line": 120
+            },
+            {
+              "hits": 75,
+              "line": 121
+            },
+            {
+              "hits": 75,
+              "line": 122
+            },
+            {
+              "hits": 75,
+              "line": 123
+            },
+            {
+              "hits": 1,
+              "line": 125
+            },
+            {
+              "hits": 1,
+              "line": 126
+            },
+            {
+              "hits": 12,
+              "line": 127
+            },
+            {
+              "hits": 11,
+              "line": 128
+            },
+            {
+              "hits": 11,
+              "line": 129
+            },
+            {
+              "hits": 11,
+              "line": 130
+            },
+            {
+              "hits": 1,
+              "line": 131
+            },
+            {
+              "hits": 1,
+              "line": 132
+            },
+            {
+              "hits": 1,
+              "line": 134
+            },
+            {
+              "hits": 74,
+              "line": 135
+            }
+          ],
+          "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+          "provenance": "candidate_process_trace_not_trusted_score",
+          "truncated": false
+        },
+        "version": "diagnostics-v0.1"
+      },
+      "elapsed_seconds": 0.069281,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.053542,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 5285
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 11,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "834d2ebc94454222bb142a6e3f3d56e7",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem1",
+      "validator": {
+        "elapsed_seconds": 0.003679,
+        "plan_length": 11,
+        "plan_sha256": "16d7ec48e6700629c34d9c4cb0c52e4d77c3b8328d897a2dbb804cc86465a76a",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2026,
+        "stdout_sha256": "e8b3f3e27e0eb46adae5ed54f357f1787e5ff22e0df75d532bc93cc9102643c7"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.048006,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.036349,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 390
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 10,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "74cf494a30f34c93a57d046b983ba20f",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem2",
+      "validator": {
+        "elapsed_seconds": 0.003759,
+        "plan_length": 10,
+        "plan_sha256": "250f4f475829f1782710505080ec2be598786c9004d6a9b50f3059dfdf1d8fa1",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1900,
+        "stdout_sha256": "bf4fbcded6fc2811a7523aabb5c4e7af8b8a49e6bf19a82406e90460339befa6"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.049176,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.037654,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 390
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 10,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "566aa7f8be034e7e8a18e0b1db110d29",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem3",
+      "validator": {
+        "elapsed_seconds": 0.00457,
+        "plan_length": 10,
+        "plan_sha256": "d7232501817e2fa82bc39793ef83e9d843f2fbbc35122afd27dd2ddff15566bb",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1900,
+        "stdout_sha256": "90e1d96e88349351c66063cda0cad9bbf9763a013dfb5e3b3e88999a8ad00015"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.048109,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.03708,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 456
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 12,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "f65466c54bf4491ea8f9f8e24aa3a099",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem4",
+      "validator": {
+        "elapsed_seconds": 0.003717,
+        "plan_length": 12,
+        "plan_sha256": "0ce2e1bcb3e240adb1320feae42fbf04364414d1ed0d2d7b8b479126be290c61",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2152,
+        "stdout_sha256": "9bfcae79dbdb991473e12e540666e9ed0aa2a73d94a258d4fce2c5f7a33484e0"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.053377,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.040248,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 456
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 12,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "b287095bc0834bef9d87c0caa283df55",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem5",
+      "validator": {
+        "elapsed_seconds": 0.003353,
+        "plan_length": 12,
+        "plan_sha256": "55e8834ae1b5c490b4753b41bf63b0060b976e0795ea67186f5b61d510bccc08",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2152,
+        "stdout_sha256": "be91acfa9c6398724efc04667995a2db5889518f91cd107249698330cf67ea6b"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.048819,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.035991,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 423
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 11,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "7094e26b546640028b8bf28e10a2799e",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem6",
+      "validator": {
+        "elapsed_seconds": 0.003946,
+        "plan_length": 11,
+        "plan_sha256": "062a399314c3cfb430dc0a0e0022408a7a94b14258ee00f15c02e016fb0a7ef1",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2026,
+        "stdout_sha256": "7951757a52875d1c7fce31c007e018b040d5f0f406c549c9bb0f8fad0a3187eb"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.052049,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.039459,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 504
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 13,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "cbaf589eaac641afa48f977ad7ff2a19",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem7",
+      "validator": {
+        "elapsed_seconds": 0.003511,
+        "plan_length": 13,
+        "plan_sha256": "05a9d5b0782e5c3e2df17f9baff5b069641bf72b1037e9459fd586edd0bf9778",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2323,
+        "stdout_sha256": "1ddc5de26f83f6306b626368166ae9dfa4c7fcb73cef31e5c6c02f051c387273"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.054021,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.042844,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 423
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 11,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "0133aa21d57a417d816c03dd0452764c",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem8",
+      "validator": {
+        "elapsed_seconds": 0.003301,
+        "plan_length": 11,
+        "plan_sha256": "4622ecbec1e281d44483226e038666a6bd554f3715c8196433ba667431e4c24f",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2026,
+        "stdout_sha256": "0ebbd7530b879d743ef42aa6e214d756aa9f58722f0da1576dc7aa488c3ad717"
+      }
+    },
+    {
+      "candidate_hash": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "candidate_id": "planning-001",
+      "elapsed_seconds": 0.046704,
+      "error_kind": null,
+      "executions": [
+        {
+          "elapsed_seconds": 0.035161,
+          "phase": "plan",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 390
+        }
+      ],
+      "family": "planning",
+      "feedback_role": "development_only",
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "model_calls": 0,
+      "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "plan_length": 10,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "run_id": "8c548a2124f34cd2be38ef1016f46c79",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "spannerlearning/seed0/problem9",
+      "validator": {
+        "elapsed_seconds": 0.003849,
+        "plan_length": 10,
+        "plan_sha256": "b426e4512c3ed04583e217b9021f3bd8536b859c9ce4bfd738538045568d85e3",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "status": "valid",
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1900,
+        "stdout_sha256": "6d17dfd348c89bb8832c57a553666847732dc3d27d0218fd5ed45b91f2ba96de"
+      }
+    }
+  ],
+  "evaluation_files": [
+    "evaluations/evaluation-00.json",
+    "evaluations/evaluation-01.json",
+    "evaluations/evaluation-02.json",
+    "evaluations/evaluation-03.json",
+    "evaluations/evaluation-04.json",
+    "evaluations/evaluation-05.json",
+    "evaluations/evaluation-06.json",
+    "evaluations/evaluation-07.json",
+    "evaluations/evaluation-08.json",
+    "evaluations/evaluation-09.json"
+  ],
+  "status": "evaluated",
+  "edit": {
+    "kind": "other_change",
+    "source_changed": true,
+    "parameter_delta": 0,
+    "semantic_equivalence_proven": false
+  },
+  "score": {
+    "complete": true,
+    "family": "planning",
+    "strict_improvement": true,
+    "acceptable_simplification": null,
+    "achieved_improvement": true,
+    "development_successes": 8,
+    "development_total": 8,
+    "prompt_successes": 2,
+    "prompt_total": 2,
+    "total_successes": 10,
+    "total_tasks": 10,
+    "baseline_development_successes": 0,
+    "baseline_prompt_successes": 0,
+    "development_delta": 8,
+    "prompt_delta": 2
+  },
+  "forecast": {
+    "status": "evaluated",
+    "metric": "development_successes",
+    "predicted": 8,
+    "observed": 8,
+    "absolute_error": 0
+  }
+}

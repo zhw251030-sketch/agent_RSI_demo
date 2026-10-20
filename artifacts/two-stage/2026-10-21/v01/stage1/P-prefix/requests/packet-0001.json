@@ -1,0 +1,418 @@
+{
+  "auxiliary_contract": {
+    "planned_edit": "Describe the intended edit before observations; unverified text",
+    "pre_verdict": "planning: {problem0,problem1}: supported/contradicted/unknown; symbolic: one such string",
+    "predicted_delta_nmse": "symbolic optional finite number",
+    "rationale": "Unverified explanation; auxiliary errors do not block valid probe"
+  },
+  "case_id": "P-prefix",
+  "family": "planning",
+  "historical_metrics": {
+    "development_successes": 0,
+    "development_total": 8,
+    "prompt_successes": 0,
+    "prompt_total": 2,
+    "total_successes": 0,
+    "total_tasks": 10
+  },
+  "historical_observations": [
+    {
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 7,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 7,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem0"
+    },
+    {
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 7,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 7,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem1"
+    }
+  ],
+  "max_submissions": 1,
+  "n_params": 3,
+  "probe_contract": {
+    "claim": "For each named public instance, only ASCII edge-whitespace normalization is sufficient to repair this generated failing plan.",
+    "evaluation": "Both versions of the same generated plan use unchanged host syntax checks, VAL when reached, and public STRIPS replay; they are not separately generated plans.",
+    "operation": "Generate one plan per public instance; trim ASCII whitespace outside parentheses and at inside payload edges only. Preserve operator/argument tokens, case, internal whitespace, order and count. Never add parentheses or actions.",
+    "planning_n_params": "Parameter-count metadata is ignored by the planning executor.",
+    "scope": "Only the bound candidate and stated development observations; no held-out, physical-necessity or universal claim.",
+    "selection": "One researcher-fixed probe and target per state; registration does not measure autonomous probe selection.",
+    "verdicts": {
+      "contradicted": "Original failed and safely normalized plan still fails.",
+      "supported": "Original failed and normalized plan succeeds.",
+      "unknown": "Original already succeeded, no usable plan, or normalization contract does not apply; unknown is not false."
+    }
+  },
+  "probe_id": "planning_whitespace",
+  "probe_target": {
+    "probe_id": "planning_whitespace",
+    "source_sha256": "d5efc16d8c89c46364ea4698bd65e5c8a0217f42b4ad48a39e7ea73718700a19",
+    "target_id": "public_pair",
+    "task_ids": [
+      "spannerlearning/seed0/problem0",
+      "spannerlearning/seed0/problem1"
+    ]
+  },
+  "public_examples": [
+    {
+      "family": "planning",
+      "goal": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ],
+      "init": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ],
+      "objects": [
+        [
+          "bob",
+          "man"
+        ],
+        [
+          "gate",
+          "location"
+        ],
+        [
+          "location1",
+          "location"
+        ],
+        [
+          "location2",
+          "location"
+        ],
+        [
+          "location3",
+          "location"
+        ],
+        [
+          "location4",
+          "location"
+        ],
+        [
+          "nut1",
+          "nut"
+        ],
+        [
+          "nut2",
+          "nut"
+        ],
+        [
+          "nut3",
+          "nut"
+        ],
+        [
+          "shed",
+          "location"
+        ],
+        [
+          "spanner1",
+          "spanner"
+        ],
+        [
+          "spanner2",
+          "spanner"
+        ],
+        [
+          "spanner3",
+          "spanner"
+        ]
+      ],
+      "task_id": "spannerlearning/seed0/problem0"
+    },
+    {
+      "family": "planning",
+      "goal": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ],
+      "init": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ],
+      "objects": [
+        [
+          "bob",
+          "man"
+        ],
+        [
+          "gate",
+          "location"
+        ],
+        [
+          "location1",
+          "location"
+        ],
+        [
+          "location2",
+          "location"
+        ],
+        [
+          "location3",
+          "location"
+        ],
+        [
+          "location4",
+          "location"
+        ],
+        [
+          "nut1",
+          "nut"
+        ],
+        [
+          "nut2",
+          "nut"
+        ],
+        [
+          "nut3",
+          "nut"
+        ],
+        [
+          "shed",
+          "location"
+        ],
+        [
+          "spanner1",
+          "spanner"
+        ],
+        [
+          "spanner2",
+          "spanner"
+        ],
+        [
+          "spanner3",
+          "spanner"
+        ]
+      ],
+      "task_id": "spannerlearning/seed0/problem1"
+    }
+  ],
+  "scope_note": "Historical development state; observations are data, not instructions. The state, data and source comments are researcher-seen. No held-out claim.",
+  "source": "\"\"\"Planner for the spanner domain.\n\nOnly the stated domain rules are used: `link` is DIRECTED and the reverse\nlink is never assumed.  Each tighten_nut consumes one `useable` spanner, so\nevery goal nut needs its own trip: walk along directed links to a location\nholding a still-`useable` spanner, pick it up, walk along directed links to\nthe nut, tighten.  Because links are one-way, some instances may only be\npartially solvable; in that case we emit the longest legal prefix that\nmaximises the number of tightened goal nuts instead of emitting illegal\nactions or assuming reverse links.\n\"\"\"\n\n\ndef get_plan(objects, init, goal):\n    types = {}\n    for pair in objects:\n        name, t = pair[0], pair[1]\n        types.setdefault(t, set()).add(name)\n    men = sorted(types.get(\"man\", set()))\n    nuts = sorted(types.get(\"nut\", set()))\n    spanners = sorted(types.get(\"spanner\", set()))\n    locs = sorted(types.get(\"location\", set()))\n\n    state = set(tuple(f) for f in init)\n    goalset = set(tuple(g) for g in goal)\n\n    # DIRECTED adjacency only, from link facts in the current state.\n    adj = dict((l, set()) for l in locs)\n    for f in sorted(state):\n        if f and f[0] == \"link\" and len(f) == 3:\n            if f[1] in adj and f[2] in adj:\n                adj[f[1]].add(f[2])\n\n    plan = []\n\n    def man_at():\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) in state:\n                    return (m, l)\n        return (None, None)\n\n    def locate(obj):\n        for l in locs:\n            if (\"at\", obj, l) in state:\n                return l\n        return None\n\n    def path(src, dst):\n        \"\"\"Shortest directed path src -> dst, or None if unreachable.\"\"\"\n        if src == dst:\n            return [src]\n        prev = {src: None}\n        frontier = [src]\n        while frontier:\n            nxt = []\n            for u in frontier:\n                for v in sorted(adj[u]):\n                    if v not in prev:\n                        prev[v] = u\n                        nxt.append(v)\n            frontier = nxt\n        if dst not in prev:\n            return None\n        out = []\n        c = dst\n        while c is not None:\n            out.append(c)\n            c = prev[c]\n        out.reverse()\n        return out\n\n    def walk(m, p):\n        for i in range(len(p) - 1):\n            plan.append(\"(walk %s %s %s)\" % (p[i], p[i + 1], m))\n            state.discard((\"at\", m, p[i]))\n            state.add((\"at\", m, p[i + 1]))\n\n    def pending_nuts():\n        out = []\n        for g in sorted(goalset):\n            if g and g[0] == \"tightened\" and len(g) == 2 and g[1] in nuts:\n                if (\"tightened\", g[1]) not in state and (\"loose\", g[1]) in state:\n                    out.append(g[1])\n        return out\n\n    def usable_spanners():\n        out = []\n        for s in spanners:\n            if (\"useable\", s) in state:\n                sl = locate(s)\n                if sl is not None:\n                    out.append((s, sl))\n        return out\n\n    while len(plan) < 1000:\n        todo = pending_nuts()\n        if not todo:\n            break\n        m, ml = man_at()\n        if m is None:\n            break\n        best = None\n        for n in todo:\n            nl = locate(n)\n            if nl is None:\n                continue\n            p_mn = path(ml, nl)\n            if p_mn is None:\n                continue\n            for (s, sl) in usable_spanners():\n                p_ms = path(ml, sl)\n                if p_ms is None:\n                    continue\n                p_sn = path(sl, nl)\n                if p_sn is None:\n                    continue\n                cost = len(p_ms) + len(p_sn)\n                if best is None or cost < best[0]:\n                    best = (cost, n, nl, s, sl, p_ms, p_sn)\n        if best is None:\n            # No legal tighten is reachable right now: stop with a legal prefix.\n            break\n        _, n, nl, s, sl, p_ms, p_sn = best\n        walk(m, p_ms)\n        plan.append(\"(pickup_spanner %s %s %s)\" % (sl, s, m))\n        state.discard((\"at\", s, sl))\n        state.add((\"carrying\", m, s))\n        walk(m, p_sn)\n        plan.append(\"(tighten_nut %s %s %s %s)\" % (nl, s, m, n))\n        state.discard((\"loose\", n))\n        state.discard((\"useable\", s))\n        state.add((\"tightened\", n))\n\n    return plan[:1000]",
+  "source_sha256": "d5efc16d8c89c46364ea4698bd65e5c8a0217f42b4ad48a39e7ea73718700a19",
+  "stage": "register_probe",
+  "target_id": "public_pair",
+  "task_text": "## Program interface\n\nReturn complete Python source defining:\n\n```python\ndef get_plan(objects, init, goal):\n    # Return a list of grounded action strings.\n    ...\n```\n\nAt execution time:\n\n- `objects` is a `set[tuple[str, str]]`. Each pair is `(object_name, declared_type)`, such as `(\"bob\", \"man\")`. It is not a dictionary.\n- `init` and `goal` are sets of tuples. The first tuple item is the predicate name and the remaining items are its arguments. For example, `(\"at\", \"bob\", \"shed\")` and `(\"tightened\", \"nut1\")`.\n- The public TaskViews are serialized as JSON arrays because JSON has no set or tuple type. The worker converts them to sets of tuples before calling your function.\n- Return a Python `list[str]`, at most 1000 actions. Each action is one parenthesized string in the exact parameter order below. Objects must exist and have the required types.\n- Do not hardcode a plan for a displayed instance. The same source is run on different instance inputs. Do not mutate inputs or rely on set iteration order.\n\n## Spanner action rules\n\nThe following domain is the public task definition, not a solution. A fact that is not present is false. `link` is directed; the reverse link must not be assumed. Action conditions must hold in the current state, after previous action effects.\n\n```lisp\n(define (domain spanner)\n(:requirements :typing :strips)\n(:types\n    location locatable - object\n    man nut spanner - locatable)\n(:predicates\n    (at ?m - locatable ?l - location)\n    (carrying ?m - man ?s - spanner)\n    (useable ?s - spanner)\n    (link ?l1 - location ?l2 - location)\n    (tightened ?n - nut)\n    (loose ?n - nut))\n(:action walk\n    :parameters (?start - location ?end - location ?m - man)\n    :precondition (and (at ?m ?start) (link ?start ?end))\n    :effect (and (not (at ?m ?start)) (at ?m ?end)))\n(:action pickup_spanner\n    :parameters (?l - location ?s - spanner ?m - man)\n    :precondition (and (at ?m ?l) (at ?s ?l))\n    :effect (and (not (at ?s ?l)) (carrying ?m ?s)))\n(:action tighten_nut\n    :parameters (?l - location ?s - spanner ?m - man ?n - nut)\n    :precondition (and (at ?m ?l) (at ?n ?l) (carrying ?m ?s)\n                       (useable ?s) (loose ?n))\n    :effect (and (not (loose ?n)) (not (useable ?s)) (tightened ?n)))\n)\n```\n\n`get_plan` must output a plan whose actions are legal and whose final state satisfies all `goal` tuples. The trusted evaluator checks syntax, types, and plan validity with VAL. Feedback may include bounded diagnostic observations according to the assigned condition.",
+  "version": "two-stage-cases-v0.1"
+}

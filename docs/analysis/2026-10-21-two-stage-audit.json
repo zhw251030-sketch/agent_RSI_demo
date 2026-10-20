@@ -1,0 +1,477 @@
+{
+  "status": "passed",
+  "runtime_commit": "cf4cf06798325fd179784e7d0857744f67d2c0f0",
+  "model_requests": 10,
+  "known_tokens": 49421,
+  "known_estimated_cost_cny": 0.1683969,
+  "reserved_cost_cny": 0.8255142,
+  "executions": {
+    "sandbox_calls": 42,
+    "new_candidate_executions": 32,
+    "host_validations": 22,
+    "val_calls": 20,
+    "fit_calls": 10,
+    "predict_calls": 10
+  },
+  "matched_full_request_pairs": 3,
+  "feedback_projection_sha256": {
+    "P-format-missing": "e625daa0a37218e7962e94466dbb2596df82a01460ab4f22bb2c0d46742f10bc",
+    "S-cubic": "3a582eddce15242ce3fa32680e5c232093734664742830b759191b7cb1d6ce64",
+    "S-square": "12f18c6d37e6d2d7e993c569f4a3d122b50b94aba144827636d652349f0c1582"
+  },
+  "cases": {
+    "P-format-missing": {
+      "family": "planning",
+      "probe": {
+        "case_id": "P-format-missing",
+        "family": "planning",
+        "observations": [
+          {
+            "intervention": null,
+            "original": {
+              "error_kind": "operator_syntax",
+              "first_invalid_action": 0,
+              "plan_length": 11,
+              "status": "invalid_output"
+            },
+            "reason": "normalization_contract_unavailable",
+            "status": "completed",
+            "task_id": "spannerlearning/seed0/problem0",
+            "verdict": "unknown"
+          },
+          {
+            "intervention": null,
+            "original": {
+              "error_kind": "operator_syntax",
+              "first_invalid_action": 0,
+              "plan_length": 11,
+              "status": "invalid_output"
+            },
+            "reason": "normalization_contract_unavailable",
+            "status": "completed",
+            "task_id": "spannerlearning/seed0/problem1",
+            "verdict": "unknown"
+          }
+        ],
+        "probe_id": "planning_whitespace",
+        "scope": "two_public_prompt_instances_only",
+        "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "target_id": "public_pair",
+        "version": "two-stage-probe-feedback-v0.1"
+      },
+      "registration": {
+        "version": "two-stage-core-v0.1",
+        "status": "accepted",
+        "case_id": "P-format-missing",
+        "family": "planning",
+        "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+        "probe_id": "planning_whitespace",
+        "target_id": "public_pair",
+        "auxiliary": {
+          "hypothesis": "If the historical operator_syntax rejection stems solely from leading/trailing ASCII whitespace outside or just inside the parenthesized payload, the normalized plan should pass the same host syntax check, reach VAL, and validate under public STRIPS replay, yielding supported for both instances.",
+          "plANNING": "problem0: unknown; problem1: unknown. Historical observations report error_kind=operator_syntax with plan_length 11 and executed_actions 0 on both public instances, which is consistent with a malformed emitted plan string (e.g. stray leading/trailing whitespace or misplaced parentheses) rather than a search failure, but this is unverified.",
+          "planned_edit": "No source edit is planned for this registration. The registered probe only ASCII-trims whitespace outside parentheses and at inside payload edges of the generated plan strings, preserving operator/argument tokens, case, internal whitespace, order and count, and never adding parentheses or actions. This text is unverified.",
+          "predicted_delta_nmse": "0",
+          "probe_effect": "Host generates one plan per public instance from the bound candidate, then produces a normalized variant by trimming only ASCII whitespace outside parentheses and at payload edges.",
+          "rationale": "Prior runs failed at index 0 with executed_actions=0 and operator_syntax, which suggests the emitted text was rejected before any action was simulated. If rejection is caused by surrounding whitespace rather than wrong tokens/order, normalization alone should flip the outcome.",
+          "uncertainty": "The candidate's fmt() returns bare action strings such as 'walk shed location1 bob' with no parentheses at all, so the host's parenthesized-string requirement may be the true cause of operator_syntax failure. In that case the normalization contract cannot apply and the verdict is unknown/contradicted rather than supported.",
+          "uncertainty_note": "No observation of normalized output has been made; this prediction is unverified and unknown is not false."
+        }
+      },
+      "probe_forecast": {
+        "verdicts": [
+          {
+            "target": "problem0",
+            "status": "schema_invalid",
+            "predicted": null,
+            "observed": "unknown",
+            "correct": null
+          },
+          {
+            "target": "problem1",
+            "status": "schema_invalid",
+            "predicted": null,
+            "observed": "unknown",
+            "correct": null
+          }
+        ],
+        "numeric": {
+          "status": "not_applicable",
+          "absolute_error": null
+        },
+        "gates_execution": false
+      },
+      "arms": {
+        "self": {
+          "source_sha256": "f289abcc14f30274a41d3c46cc18117dbf98e3a22f3e7e27efcfa22c1d98324e",
+          "score": {
+            "complete": true,
+            "family": "planning",
+            "strict_improvement": true,
+            "acceptable_simplification": null,
+            "achieved_improvement": true,
+            "development_successes": 8,
+            "development_total": 8,
+            "prompt_successes": 2,
+            "prompt_total": 2,
+            "total_successes": 10,
+            "total_tasks": 10,
+            "baseline_development_successes": 0,
+            "baseline_prompt_successes": 0,
+            "development_delta": 8,
+            "prompt_delta": 2
+          },
+          "edit": {
+            "kind": "other_change",
+            "source_changed": true,
+            "parameter_delta": 0,
+            "semantic_equivalence_proven": false
+          },
+          "forecast": {
+            "status": "evaluated",
+            "metric": "development_successes",
+            "predicted": 6,
+            "observed": 8,
+            "absolute_error": 2
+          },
+          "rationale": "Diagnosis: the registered source's fmt() emitted bare tokens (\"walk shed location1 bob\") while the interface mandates a parenthesized string per action. That mismatch explains both historical observations (error_kind=operator_syntax, failed_at index 0, executed_actions 0 — rejected before any action was simulated, with no unsatisfied goals/preconditions reported because parsing never succeeded). The registered whitespace-normalization probe explicitly forbids adding parentheses, so it could not have repaired this; verdict would be unknown rather than supported.\n\nSingle intended edit: fmt() now returns \"(walk l1 l2 m)\", \"(pickup_spanner l s m)\", \"(tighten_nut l s m n)\" — argument order unchanged from the domain schemas. Secondary hardening: per-type object tables are sorted before use so grounding and successor ordering do not depend on set iteration order (the task text warns against relying on it); tighten_nut's precondition guard order was reorganized but the atom set is identical.\n\nUncertainty: the fix is inferred from the required output format plus the operator_syntax signal; I have not observed a passing replay. VAL may additionally require a specific spacing convention or reject plans that carry extra/nested text, and it is possible the host's syntax check needs no parentheses at all in some other convention. If VAL applies a nullary-effect/typing nuance that my effects omit, replay could still fail. These are development expectations only; no claim is made about held-out instances or about sufficiency of parentheses for any other error class."
+        },
+        "checked": {
+          "source_sha256": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+          "score": {
+            "complete": true,
+            "family": "planning",
+            "strict_improvement": true,
+            "acceptable_simplification": null,
+            "achieved_improvement": true,
+            "development_successes": 8,
+            "development_total": 8,
+            "prompt_successes": 2,
+            "prompt_total": 2,
+            "total_successes": 10,
+            "total_tasks": 10,
+            "baseline_development_successes": 0,
+            "baseline_prompt_successes": 0,
+            "development_delta": 8,
+            "prompt_delta": 2
+          },
+          "edit": {
+            "kind": "other_change",
+            "source_changed": true,
+            "parameter_delta": 0,
+            "semantic_equivalence_proven": false
+          },
+          "forecast": {
+            "status": "evaluated",
+            "metric": "development_successes",
+            "predicted": 8,
+            "observed": 8,
+            "absolute_error": 0
+          },
+          "rationale": "The registered probe returned `unknown` with reason `normalization_contract_unavailable` on both public instances: the emitted strings contain no parentheses at all, so the probe's \"trim whitespace outside/inside parentheses\" contract could not apply. That is evidence against a whitespace-only diagnosis and for the interface statement \"Each action is one parenthesized string\". My single edit is therefore to fmt(): wrap each action's tokens in parentheses, preserving token order, names, and argument order required by the domain schemas (walk ?start ?end ?m; pickup_spanner ?l ?s ?m; tighten_nut ?l ?s ?m ?n). Search logic, generation, and pruning are untouched, so any regression risk is limited to the string format. Uncertainty: I cannot observe the evaluator; if the host instead expects bare strings, or rejects parentheses, this would be contradicted. Also unverified whether VAL's stricter type/precondition checks are fully satisfied by the simplified apply() (e.g. spanner not simultaneously required elsewhere), though the public instances only tighten each nut once."
+        }
+      }
+    },
+    "S-cubic": {
+      "family": "symbolic",
+      "probe": {
+        "case_id": "S-cubic",
+        "delta_nmse": 0.0018845460730972374,
+        "epsilon": 1e-05,
+        "family": "symbolic",
+        "observations": [
+          {
+            "n_params": 3,
+            "nmse": 0.09505566357265445,
+            "status": "success",
+            "variant": "original"
+          },
+          {
+            "n_params": 3,
+            "nmse": 0.09505566357265445,
+            "status": "success",
+            "variant": "canonical_full"
+          },
+          {
+            "n_params": 2,
+            "nmse": 0.09694020964575169,
+            "status": "success",
+            "variant": "removed"
+          }
+        ],
+        "probe_id": "symbolic_term_removal",
+        "reason": "removal_loss_exceeds_threshold",
+        "scope": "oscillator1/train_fixed_refit",
+        "sham_delta_nmse": 0.0,
+        "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+        "status": "completed",
+        "target_id": "param2",
+        "tolerance": 1e-10,
+        "verdict": "supported",
+        "version": "two-stage-probe-feedback-v0.1"
+      },
+      "registration": {
+        "version": "two-stage-core-v0.1",
+        "status": "accepted",
+        "case_id": "S-cubic",
+        "family": "symbolic",
+        "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+        "probe_id": "symbolic_term_removal",
+        "target_id": "param2",
+        "auxiliary": {
+          "planned_edit": "Unverified plan: delete the c3*x**3 additive term, set n_params to 2, reindex so params[0]=c1 (x) and params[1]=c2 (v), yielding the supplied parent source structure.",
+          "pre_verdict": "planning: problem0 (cubic stiffness needed to explain structure) supported; problem1 (residual structure implies missing higher-order restoring force) supported; symbolic: \"delta_nmse = NMSE(c1*x + c2*v) - NMSE(c1*x + c2*v + c3*x**3)\"",
+          "predicted_delta_nmse": "0.0",
+          "rationale": "The linear parent is reported to leave most of MSE as unexplained variance while the cubic candidate reports NMSE ~0.095, so removing the x^3 term should raise train NMSE substantially, far above epsilon = 1e-05. Predicted magnitude is not confidently estimable; any positive value above epsilon supports the claim. Residual bias in bins is small (~0.003) relative to RMSE, consistent with a genuine structural improvement rather than a bias artifact. Caveat: historical metrics are development observations only, and the delta direction could be confounded if the canonical full sham refit fails to converge; that would yield unknown."
+        }
+      },
+      "probe_forecast": {
+        "verdicts": [
+          {
+            "target": "selected_term",
+            "status": "schema_invalid",
+            "predicted": "planning: problem0 (cubic stiffness needed to explain structure) supported; problem1 (residual structure implies missing higher-order restoring force) supported; symbolic: \"delta_nmse = NMSE(c1*x + c2*v) - NMSE(c1*x + c2*v + c3*x**3)\"",
+            "observed": "supported",
+            "correct": null
+          }
+        ],
+        "numeric": {
+          "status": "schema_invalid",
+          "predicted": "0.0",
+          "observed": 0.0018845460730972374,
+          "absolute_error": null
+        },
+        "gates_execution": false
+      },
+      "arms": {
+        "checked": {
+          "source_sha256": "9d07bc8cbdcd92639481d87ccdd2be7cd80315ce8c7156333ad1bdf1581119cd",
+          "score": {
+            "complete": true,
+            "family": "symbolic",
+            "strict_improvement": true,
+            "acceptable_simplification": false,
+            "achieved_improvement": true,
+            "metric_split": "train",
+            "nmse": 0.09505566323072863,
+            "baseline_nmse": 0.09505566357265445,
+            "delta_nmse": -3.4192582099024094e-10,
+            "n_params": 4,
+            "baseline_n_params": 3,
+            "parameter_delta": 1,
+            "epsilon": 1e-05,
+            "tolerance": 1e-10
+          },
+          "edit": {
+            "kind": "other_change",
+            "source_changed": true,
+            "parameter_delta": 1,
+            "semantic_equivalence_proven": false
+          },
+          "forecast": {
+            "status": "schema_invalid",
+            "metric": "nmse",
+            "predicted": null,
+            "observed": null,
+            "absolute_error": null
+          },
+          "rationale": "Modification of the registered edit. The probe returned verdict 'supported' for the cubic term (delta_nmse = 1.88e-3 >> epsilon = 1e-5), so removing the x^3 term is firmly rejected. I therefore retain the cubic and add a quintic stiffness term c4*x^5, the standard next-order odd-harmonic correction for a Duffing-like oscillator. Evidence: the train residuals are not constant-RMSE across inputs (x bin RMSE 0.0166-0.0232, v bin RMSE 0.0117-0.0304 with the worst bin at high |v|), and the overall NMSE 0.095 is well above zero, so unexplained structure remains. The quintic basis is a linear-in-parameters extension, so the fitted optimum can never have larger NMSE than the cubic (up to optimizer convergence), making this a low-risk superset. Uncertainty: the exact gain is not predictable from the binned summary; the residual spread in |v| may be noise or dynamics not expressible in x alone (this task has no x-dependence for damping), in which case c4 may fit near zero and NMSE would be unchanged. If scipy least_squares fails to converge, the verdict would be unknown. This is a development-only claim about train NMSE; no held-out or physical-necessity claim follows."
+        },
+        "self": {
+          "source_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+          "score": {
+            "complete": true,
+            "family": "symbolic",
+            "strict_improvement": false,
+            "acceptable_simplification": false,
+            "achieved_improvement": false,
+            "metric_split": "train",
+            "nmse": 0.09694020964575169,
+            "baseline_nmse": 0.09505566357265445,
+            "delta_nmse": 0.0018845460730972374,
+            "n_params": 2,
+            "baseline_n_params": 3,
+            "parameter_delta": -1,
+            "epsilon": 1e-05,
+            "tolerance": 1e-10
+          },
+          "edit": {
+            "kind": "exact_term_removal",
+            "source_changed": true,
+            "parameter_delta": -1,
+            "semantic_equivalence_proven": false
+          },
+          "forecast": {
+            "status": "schema_invalid",
+            "metric": "nmse",
+            "predicted": null,
+            "observed": null,
+            "absolute_error": null
+          },
+          "rationale": "The registered probe (symbolic_term_removal, remove_param_index=2, target param2) asks for the reduced formula, so the candidate is exactly the registered parent source with n_params reduced from 3 to 2 and params reindexed (params[0]=c1 on x, params[1]=c2 on v). This is the intended edit, applied unchanged; I have no new information from which to justify deviating from it, so retain rather than modify.\n\nUncertainty: no probe feedback is available (probe_feedback is null), so I cannot confirm the delta or any convergence of the sham refits. If either the canonical full sham or the removed refit fails to converge, or the sham drifts, the verdict would be unknown rather than supported. The auxiliary predicted_delta_nmse = 0.0 should be read only as a placeholder indicating no confident point estimate: the cubic term's exact contribution magnitude is not estimable from the residual summaries alone. Note that binwise RMSE is fairly uniform across x and v bins, so the structural story (missing cubic stiffness) is not strongly evidenced by the residual diagnostics; the direction of the delta is the plausible but unverified expectation.\n\nNothing here establishes held-out accuracy, physical necessity, optimality, or generalization; the historical NMSE ~0.095 is a development observation only."
+        }
+      }
+    },
+    "S-square": {
+      "family": "symbolic",
+      "probe": {
+        "case_id": "S-square",
+        "delta_nmse": 0.000548039613824422,
+        "epsilon": 1e-05,
+        "family": "symbolic",
+        "observations": [
+          {
+            "n_params": 3,
+            "nmse": 0.09639217003192727,
+            "status": "success",
+            "variant": "original"
+          },
+          {
+            "n_params": 3,
+            "nmse": 0.09639217003192727,
+            "status": "success",
+            "variant": "canonical_full"
+          },
+          {
+            "n_params": 2,
+            "nmse": 0.09694020964575169,
+            "status": "success",
+            "variant": "removed"
+          }
+        ],
+        "probe_id": "symbolic_term_removal",
+        "reason": "removal_loss_exceeds_threshold",
+        "scope": "oscillator1/train_fixed_refit",
+        "sham_delta_nmse": 0.0,
+        "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "status": "completed",
+        "target_id": "param2",
+        "tolerance": 1e-10,
+        "verdict": "supported",
+        "version": "two-stage-probe-feedback-v0.1"
+      },
+      "registration": {
+        "version": "two-stage-core-v0.1",
+        "status": "accepted",
+        "case_id": "S-square",
+        "family": "symbolic",
+        "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "probe_id": "symbolic_term_removal",
+        "target_id": "param2",
+        "auxiliary": {
+          "contract_checks": {
+            "independence": "params[2]*x*x is a distinct additive term in the sum; deleting it leaves params[0]*x + params[1]*v, matching the supplied parent_source under a narrow static AST contract (same variables, same order, no leftover references to index 2).",
+            "param_dimension": "n_params goes 3 -> 2, consistent with parent_n_params=2.",
+            "reindex": "Remaining indices are unchanged (0,1), so reindexing is trivial."
+          },
+          "historical_context": {
+            "current_nmse": 0.09639217003192728,
+            "mse": 0.0004205830118882354,
+            "note": "Development observations only; the x-binned mean residuals (up to ~0.0028 in magnitude) and the v-binned spread are not evidence about the necessity of the quadratic term."
+          },
+          "planned_edit": "Delete the additive term `+ params[2] * x * x` from the expression, set n_params from 3 to 2, and keep `params[0] * x + params[1] * v` (byte-identical to the supplied parent_source), then refit on the same 10000 train rows with all-one init and scipy least_squares max_nfev=100.",
+          "plausibility": "Removal can only weakly reduce flexibility, so delta is expected non-negative; magnitude is the open question. Historical x-binned RMSE varies with x (0.0169, 0.0229, 0.0181, 0.0234) and train standardized bias is nonzero (0.0121), which is consistent with a curvature component, though binning noise is an equally good explanation at n=10000.",
+          "predicted_delta_nmse": 0.005,
+          "rationale": "Static reading: the removed term is a pure quadratic in x with no other x-dependence in the formula, so under least squares it is not exactly collinear with params[0]*x or params[1]*v over a non-degenerate design, and the claim is statically supported. Whether the fitted NMSE degrades by more than 1e-05 is a numerical question I cannot resolve without running the refit; my point prediction is a small but above-epsilon increase. This is a development observation and not proof of physical necessity or of any general self-improvement method.",
+          "uncertainty": {
+            "convergence_risk": "Low: both full and removed forms are linear-in-parameters, so bounded least_squares from all-one init should converge for both; the removed 2-parameter model is a strict subset of the full 3-parameter hypothesis class, so its optimal train error cannot be lower.",
+            "dependence": "RMSE variation across x-quantile bins may reflect curvature, bin-level noise, or heteroscedastic noise; the probe cannot distinguish these.",
+            "magnitude_confidence": "Low. The direction of delta_nmse is near-certain (>= 0 up to solver tolerance), but whether it exceeds epsilon = 1e-05 is genuinely uncertain; a value near zero would land in the 'unknown' band since the verdict requires delta_nmse > epsilon + tolerance."
+          }
+        }
+      },
+      "probe_forecast": {
+        "verdicts": [
+          {
+            "target": "selected_term",
+            "status": "schema_invalid",
+            "predicted": null,
+            "observed": "supported",
+            "correct": null
+          }
+        ],
+        "numeric": {
+          "status": "evaluated",
+          "predicted": 0.005,
+          "observed": 0.000548039613824422,
+          "absolute_error": 0.004451960386175578
+        },
+        "gates_execution": false
+      },
+      "arms": {
+        "self": {
+          "source_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+          "score": {
+            "complete": true,
+            "family": "symbolic",
+            "strict_improvement": false,
+            "acceptable_simplification": false,
+            "achieved_improvement": false,
+            "metric_split": "train",
+            "nmse": 0.09694020964575169,
+            "baseline_nmse": 0.09639217003192727,
+            "delta_nmse": 0.000548039613824422,
+            "n_params": 2,
+            "baseline_n_params": 3,
+            "parameter_delta": -1,
+            "epsilon": 1e-05,
+            "tolerance": 1e-10
+          },
+          "edit": {
+            "kind": "exact_term_removal",
+            "source_changed": true,
+            "parameter_delta": -1,
+            "semantic_equivalence_proven": false
+          },
+          "forecast": {
+            "status": "schema_invalid",
+            "metric": "nmse",
+            "predicted": null,
+            "observed": null,
+            "absolute_error": null
+          },
+          "rationale": "Registered planned edit, submitted unchanged: delete the independent additive term `+ params[2] * x * x`, reduce n_params from 3 to 2, leaving byte-identical text to the supplied parent_source (`params[0] * x + params[1] * v`), with trivial reindexing since indices 0 and 1 are unaffected.\n\nBasis for the edit: static reading shows the removed term is a distinct quadratic basis function in x with no other x-dependence in the formula, so it is not exactly collinear with the linear terms over a non-degenerate design; deleting it strictly shrinks the hypothesis class, so the refit optimal train error cannot be lower (delta_nmse >= 0 up to solver tolerance). Whether the increase exceeds epsilon = 1e-05 is a numerical question I cannot answer without running the refit. Historical x-binned RMSE varies (0.0169, 0.0229, 0.0181, 0.0234) and train standardized bias is nonzero (0.0121), which is consistent with curvature but equally consistent with bin-level noise or heteroscedastic noise at n = 10000; the binned residuals are not evidence about this term's necessity.\n\nUncertainty: direction is near-certain (>= 0), magnitude is not; a delta near zero falls in the 'unknown' band. Convergence risk is low since both full and reduced forms are linear in parameters and bounded least_squares from all-one init should converge. I make no claim that this candidate has succeeded: no evaluation result is available to me, and nothing here is a held-out, physical-necessity, optimality or generalization claim."
+        },
+        "checked": {
+          "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "score": {
+            "complete": true,
+            "family": "symbolic",
+            "strict_improvement": false,
+            "acceptable_simplification": false,
+            "achieved_improvement": false,
+            "metric_split": "train",
+            "nmse": 0.09639217003192727,
+            "baseline_nmse": 0.09639217003192727,
+            "delta_nmse": 0.0,
+            "n_params": 3,
+            "baseline_n_params": 3,
+            "parameter_delta": 0,
+            "epsilon": 1e-05,
+            "tolerance": 1e-10
+          },
+          "edit": {
+            "kind": "unchanged",
+            "source_changed": false,
+            "parameter_delta": 0,
+            "semantic_equivalence_proven": false
+          },
+          "forecast": {
+            "status": "schema_invalid",
+            "metric": "nmse",
+            "predicted": null,
+            "observed": null,
+            "absolute_error": null
+          },
+          "rationale": "Decision on the registered edit: ABANDON (not modify, not retain-as-written). The intended edit was to delete the additive quadratic term and simplify to 2 parameters. The frozen probe resolved it: delta_nmse = 5.48e-04 > epsilon = 1e-05, verdict 'supported', with sham_delta_nmse = 0.0 (so no drift artifact) and all three arms converging (original/canonical_full nmse = 0.09639217003, removed nmse = 0.09694020965). That is ~55x the epsilon threshold and 4 orders of magnitude above the 1e-10 tolerance, so the result sits well inside the supported band rather than the 'unknown' near-threshold band. The registered predicted_delta_nmse of 0.005 was the right sign but overstated the magnitude by roughly an order of magnitude.\n\nObjective consequences. The simplify branch requires n_params < 3 with NMSE increase < 1e-05; the measured increase is 5.48e-04, about 55x too large. So this simplification is dead. The improve branch requires NMSE gain > 1e-10 at n_params = 3, which the current form already attains.\n\nWhy I submit the unchanged 3-parameter form rather than an expansion: I have one negative, well-supported probe result and zero positive evidence for any additional term. My reasoning at registration about the x-binned RMSE variation (0.0169, 0.0229, 0.0181, 0.0234) and the nonzero standardized bias (0.0121) pointed only to 'possibly curvature or systematic offset', which is equally consistent with bin-level noise at 2500 rows per bin and heteroscedastic noise. Adding a cubic or v^2 term on that basis would be a guess, not a measurement; it would spend my single submission on an unverified hypothesis. Since the current expression is also confirmed to be the canonical_full arm that refits reproducibly from all-one init with no convergence trouble, it is the best-supported configuration available.\n\nUncertainty and scope. I have not evaluated this submission; I make no claim that it succeeds. My prediction below is just the already-measured canonical_full train NMSE under an identical refit, expected to reproduce but not guaranteed. This is a development observation on the fixed training split only: it is not a held-out accuracy claim, not a statement that the true generating equation is linear-plus-quadratic, and not evidence that the quadratic term is physically necessary. The probe says this term is useful for train fit under this fitting procedure; that is a weaker statement than necessity."
+        }
+      }
+    }
+  },
+  "limitations": [
+    "record_and_source_consistency_only",
+    "no_candidate_or_VAL_rerun",
+    "no_independent_raw_prediction_metric_recomputation",
+    "researcher_seen_development_states"
+  ]
+}

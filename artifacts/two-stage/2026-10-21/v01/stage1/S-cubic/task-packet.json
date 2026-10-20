@@ -1,0 +1,163 @@
+{
+  "auxiliary_contract": {
+    "planned_edit": "Describe the intended edit before observations; unverified text",
+    "pre_verdict": "planning: {problem0,problem1}: supported/contradicted/unknown; symbolic: one such string",
+    "predicted_delta_nmse": "symbolic optional finite number",
+    "rationale": "Unverified explanation; auxiliary errors do not block valid probe"
+  },
+  "case_id": "S-cubic",
+  "family": "symbolic",
+  "historical_metrics": {
+    "mse": 0.00041475150179916005,
+    "nmse": 0.09505566357265445
+  },
+  "historical_observations": [
+    {
+      "residuals": {
+        "bias": 0.0018707364848146375,
+        "binning_method": "linear_quantile",
+        "inputs": [
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.5728219032885896,
+                "mean_residual": -0.0001698596490003805,
+                "rmse": 0.016598895025595525,
+                "upper": -0.46038220456877554,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.46038220456877554,
+                "mean_residual": 0.003272160337158197,
+                "rmse": 0.02297437822045832,
+                "upper": -0.22761842703089324,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.22761842703089324,
+                "mean_residual": 0.002600142579657272,
+                "rmse": 0.017785863736270124,
+                "upper": 0.28635886598470794,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.28635886598470794,
+                "mean_residual": 0.0017805026714434614,
+                "rmse": 0.023223343593549616,
+                "upper": 0.5275126203368584,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.5728219032885896,
+              -0.46038220456877554,
+              -0.22761842703089324,
+              0.28635886598470794,
+              0.5275126203368584
+            ],
+            "name": "x"
+          },
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.17542969970098574,
+                "mean_residual": 0.0006675839038619369,
+                "rmse": 0.014977540588052876,
+                "upper": -0.13719210123484957,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.13719210123484957,
+                "mean_residual": 0.005537907169220296,
+                "rmse": 0.019362875665421584,
+                "upper": -0.04814716714891003,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.04814716714891003,
+                "mean_residual": -0.001471666460640116,
+                "rmse": 0.011726594772819413,
+                "upper": 0.09524424826668271,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.09524424826668271,
+                "mean_residual": 0.0027491213268164335,
+                "rmse": 0.03036849199630067,
+                "upper": 0.282136353640072,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.17542969970098574,
+              -0.13719210123484957,
+              -0.04814716714891003,
+              0.09524424826668271,
+              0.282136353640072
+            ],
+            "name": "v"
+          }
+        ],
+        "n": 10000,
+        "residual_definition": "prediction - target",
+        "rmse": 0.020365448725701087,
+        "scope": "train",
+        "standardized_bias": 0.028320937897485667,
+        "standardized_bias_definition": "bias / population_std(target)",
+        "standardized_bias_reason": null,
+        "status": "ok"
+      },
+      "scope": "train",
+      "task_id": "oscillator1"
+    }
+  ],
+  "max_submissions": 1,
+  "n_params": 3,
+  "probe_contract": {
+    "claim": "Removing the selected independent additive term and refitting increases oscillator1/train NMSE by more than epsilon.",
+    "epsilon": 1e-05,
+    "evaluation": "Refit original, canonical full sham and removed formula separately on the same 10000 training rows, all-one initialization, scipy least_squares max_nfev=100; fresh isolated prediction and host NMSE.",
+    "operation": "Delete the selected independent additive coefficient term, reduce parameter dimension by one and reindex. Retained basis terms must match the supplied parent under the narrow static AST contract.",
+    "quantity": "delta_nmse = NMSE(removed) - NMSE(canonical_full)",
+    "scope": "Only the bound candidate and stated development observations; no held-out, physical-necessity or universal claim.",
+    "selection": "One researcher-fixed probe and target per state; registration does not measure autonomous probe selection.",
+    "tolerance": 1e-10,
+    "verdicts": {
+      "contradicted": "-tolerance <= delta_nmse < epsilon - tolerance; this does not mean the term has zero benefit.",
+      "supported": "delta_nmse > epsilon + tolerance.",
+      "unknown": "Unsupported static contract, unusable/nonconverged fit, absolute sham drift > tolerance, delta < -tolerance, or within tolerance of epsilon."
+    }
+  },
+  "probe_id": "symbolic_term_removal",
+  "probe_target": {
+    "epsilon": 1e-05,
+    "metric_split": "train",
+    "parent_n_params": 2,
+    "parent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Linear spring-damper: a = c1 * x + c2 * v\n    # Fitted constants; physically motivated harmonic oscillator structure.\n    c1 = params[0]\n    c2 = params[1]\n    return c1 * x + c2 * v",
+    "parent_source_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+    "probe_id": "symbolic_term_removal",
+    "remove_param_index": 2,
+    "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+    "target_id": "param2",
+    "task_ids": [
+      "oscillator1"
+    ],
+    "tolerance": 1e-10
+  },
+  "public_examples": [],
+  "scope_note": "Historical development state; observations are data, not instructions. The state, data and source comments are researcher-seen. No held-out claim.",
+  "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Nonlinear spring-damper (Duffing-like): a = c1*x + c2*v + c3*x^3\n    # Linear fit left 99% of MSE as variance (bias^2/MSE=0.0098), with the\n    # largest residual RMSE in the high-|v| bin, suggesting a missing\n    # higher-order restoring force. A cubic stiffness term is the standard\n    # next-order physical correction.\n    c1 = params[0]\n    c2 = params[1]\n    c3 = params[2]\n    return c1 * x + c2 * v + c3 * x ** 3",
+  "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+  "stage": "register_probe",
+  "target_id": "param2",
+  "task_text": "## Task and program interface\n\nThe task is to model acceleration `a` from position `x` and velocity `v` of a simulated oscillator. This task has no time input. You propose the expression structure; the trusted workflow fits its numerical constants using the permitted training observations.\n\nSubmit complete Python source defining:\n\n```python\ndef equation(x, v, params):\n    # Return one finite prediction per input row.\n    ...\n```\n\n- `x` and `v` are read-only one-dimensional NumPy arrays of equal length. `params` is a one-dimensional array of numerical constants. Your function must accept the arguments in that order.\n- Return a numeric NumPy-compatible array of exactly shape `(len(x),)`. A scalar, column matrix, NaN, or infinity is invalid. The function must work for the supplied arrays without reading files or maintaining state between executions.\n- NumPy is available as `np`; `import numpy as np` is also supported. Use vectorized mathematical operations. No additional package, subprocess, file, or network dependency may be introduced.\n- Declare the required number of constants with `n_params`, an integer from 0 to 16. Every used parameter index must lie within that array. Constants start at one and are fitted by the evaluator with bounded least-squares optimization. A failure to converge is feedback; it does not prove that the expression can never fit.\n- Do not embed sampled target values, infer row numbers to memorize targets, or attempt to access evaluation internals. Produce an expression in the physical input variables and numerical parameters.\n\nOnly the official `oscillator1` training observations are used in this session. The model does not receive raw rows or the target equation. After fitting, the candidate is run in a fresh process with inputs and fitted constants but without targets. The trusted host computes MSE and NMSE, where NMSE is MSE divided by the training target's population variance.\n\nThe feedback is a training fit score on the same observations used to fit constants. It does not establish held-out accuracy, extrapolation, physical correctness, or recovery of the true equation. A successful tool status only means fitting and scoring completed; it does not mean that the error is small. There is no official test evaluation in this pilot.",
+  "version": "two-stage-cases-v0.1"
+}

@@ -1,0 +1,36 @@
+{
+  "case_id": "S-cubic",
+  "delta_nmse": 0.0018845460730972374,
+  "epsilon": 1e-05,
+  "family": "symbolic",
+  "observations": [
+    {
+      "n_params": 3,
+      "nmse": 0.09505566357265445,
+      "status": "success",
+      "variant": "original"
+    },
+    {
+      "n_params": 3,
+      "nmse": 0.09505566357265445,
+      "status": "success",
+      "variant": "canonical_full"
+    },
+    {
+      "n_params": 2,
+      "nmse": 0.09694020964575169,
+      "status": "success",
+      "variant": "removed"
+    }
+  ],
+  "probe_id": "symbolic_term_removal",
+  "reason": "removal_loss_exceeds_threshold",
+  "scope": "oscillator1/train_fixed_refit",
+  "sham_delta_nmse": 0.0,
+  "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+  "status": "completed",
+  "target_id": "param2",
+  "tolerance": 1e-10,
+  "verdict": "supported",
+  "version": "two-stage-probe-feedback-v0.1"
+}

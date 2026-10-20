@@ -1,0 +1,45 @@
+{
+  "response_id": "chatcmpl-7f2e5164-47aa-4d5b-aa05-a1cc441fe6c2",
+  "usage": {
+    "prompt_tokens": 3052,
+    "completion_tokens": 378,
+    "total_tokens": 3430
+  },
+  "usage_details": {
+    "prompt_tokens_details": {
+      "cached_tokens": 128,
+      "text_tokens": 2924,
+      "cache_write_tokens": 0,
+      "cache_creation_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 378
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 128
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"auxiliary\": {\"planned_edit\": \"Unverified plan: delete the c3*x**3 additive term, set n_params to 2, reindex so params[0]=c1 (x) and params[1]=c2 (v), yielding the supplied parent source structure.\", \"pre_verdict\": \"planning: problem0 (cubic stiffness needed to explain structure) supported; problem1 (residual structure implies missing higher-order restoring force) supported; symbolic: \\\"delta_nmse = NMSE(c1*x + c2*v) - NMSE(c1*x + c2*v + c3*x**3)\\\"\", \"predicted_delta_nmse\": \"0.0\", \"rationale\": \"The linear parent is reported to leave most of MSE as unexplained variance while the cubic candidate reports NMSE ~0.095, so removing the x^3 term should raise train NMSE substantially, far above epsilon = 1e-05. Predicted magnitude is not confidently estimable; any positive value above epsilon supports the claim. Residual bias in bins is small (~0.003) relative to RMSE, consistent with a genuine structural improvement rather than a bias artifact. Caveat: historical metrics are development observations only, and the delta direction could be confounded if the canonical full sham refit fails to converge; that would yield unknown.\"}, \"probe_id\": \"symbolic_term_removal\", \"security_risk\": \"UNKNOWN\", \"summary\": \"Register cubic stiffness term removal probe on param2\", \"target_id\": \"param2\"}",
+              "name": "submit_probe"
+            },
+            "id": "call-62553804-9b38-4341-a400-1172c2a59e10",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

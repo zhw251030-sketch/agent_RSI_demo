@@ -1,0 +1,215 @@
+{
+  "candidate_id": "symbolic-001",
+  "parent_id": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+  "source_sha256": "9d07bc8cbdcd92639481d87ccdd2be7cd80315ce8c7156333ad1bdf1581119cd",
+  "n_params": 4,
+  "rationale": "Modification of the registered edit. The probe returned verdict 'supported' for the cubic term (delta_nmse = 1.88e-3 >> epsilon = 1e-5), so removing the x^3 term is firmly rejected. I therefore retain the cubic and add a quintic stiffness term c4*x^5, the standard next-order odd-harmonic correction for a Duffing-like oscillator. Evidence: the train residuals are not constant-RMSE across inputs (x bin RMSE 0.0166-0.0232, v bin RMSE 0.0117-0.0304 with the worst bin at high |v|), and the overall NMSE 0.095 is well above zero, so unexplained structure remains. The quintic basis is a linear-in-parameters extension, so the fitted optimum can never have larger NMSE than the cubic (up to optimizer convergence), making this a low-risk superset. Uncertainty: the exact gain is not predictable from the binned summary; the residual spread in |v| may be noise or dynamics not expressible in x alone (this task has no x-dependence for damping), in which case c4 may fit near zero and NMSE would be unchanged. If scipy least_squares fails to converge, the verdict would be unknown. This is a development-only claim about train NMSE; no held-out or physical-necessity claim follows.",
+  "auxiliary": {
+    "decision": "modify: retain cubic (probe supported), extend with quintic",
+    "forecast": {
+      "nmse": "finite nonnegative train NMSE, expected <= 0.09505566357265445 if the fit converges"
+    },
+    "scope": "Train-split development observation only; not held-out, not optimality or physical-necessity."
+  },
+  "source_file": "candidate.py",
+  "results": [
+    {
+      "candidate_hash": "9d07bc8cbdcd92639481d87ccdd2be7cd80315ce8c7156333ad1bdf1581119cd",
+      "candidate_id": "symbolic-001",
+      "diagnostics": {
+        "candidate_sha256": "9d07bc8cbdcd92639481d87ccdd2be7cd80315ce8c7156333ad1bdf1581119cd",
+        "residuals": {
+          "bias": 0.0018708164661599253,
+          "binning_method": "linear_quantile",
+          "inputs": [
+            {
+              "bins": [
+                {
+                  "count": 2500,
+                  "lower": -0.5728219032885896,
+                  "mean_residual": -0.00016961875535139974,
+                  "rmse": 0.016598977713203858,
+                  "upper": -0.46038220456877554,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.46038220456877554,
+                  "mean_residual": 0.0032719185519909585,
+                  "rmse": 0.022974395961513853,
+                  "upper": -0.22761842703089324,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.22761842703089324,
+                  "mean_residual": 0.0025999735565028796,
+                  "rmse": 0.017785712788648583,
+                  "upper": 0.28635886598470794,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": 0.28635886598470794,
+                  "mean_residual": 0.0017809925114972626,
+                  "rmse": 0.023223382417487136,
+                  "upper": 0.5275126203368584,
+                  "upper_inclusive": true
+                }
+              ],
+              "boundaries": [
+                -0.5728219032885896,
+                -0.46038220456877554,
+                -0.22761842703089324,
+                0.28635886598470794,
+                0.5275126203368584
+              ],
+              "name": "x"
+            },
+            {
+              "bins": [
+                {
+                  "count": 2500,
+                  "lower": -0.17542969970098574,
+                  "mean_residual": 0.0006676131194202216,
+                  "rmse": 0.014978340504544774,
+                  "upper": -0.13719210123484957,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.13719210123484957,
+                  "mean_residual": 0.005537850769515924,
+                  "rmse": 0.0193622097753762,
+                  "upper": -0.04814716714891003,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.04814716714891003,
+                  "mean_residual": -0.001471264156791716,
+                  "rmse": 0.011726852418940344,
+                  "upper": 0.09524424826668271,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": 0.09524424826668271,
+                  "mean_residual": 0.0027490661324952714,
+                  "rmse": 0.0303684224469702,
+                  "upper": 0.282136353640072,
+                  "upper_inclusive": true
+                }
+              ],
+              "boundaries": [
+                -0.17542969970098574,
+                -0.13719210123484957,
+                -0.04814716714891003,
+                0.09524424826668271,
+                0.282136353640072
+              ],
+              "name": "v"
+            }
+          ],
+          "n": 10000,
+          "residual_definition": "prediction - target",
+          "rmse": 0.020365448689072693,
+          "scope": "train",
+          "standardized_bias": 0.028322148729011773,
+          "standardized_bias_definition": "bias / population_std(target)",
+          "standardized_bias_reason": null,
+          "status": "ok"
+        },
+        "scope": "train",
+        "task_id": "oscillator1",
+        "version": "diagnostics-v0.1"
+      },
+      "elapsed_seconds": 0.530827,
+      "executions": [
+        {
+          "elapsed_seconds": 0.216411,
+          "phase": "fit",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 165
+        },
+        {
+          "elapsed_seconds": 0.217568,
+          "phase": "predict",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 205043
+        }
+      ],
+      "family": "symbolic",
+      "feedback_role": "development_only",
+      "fitting": {
+        "candidate_calls": 16,
+        "converged": true,
+        "max_nfev": 100,
+        "n_params": 4,
+        "nfev": 3,
+        "params": [
+          -0.18377998951392874,
+          0.0026994547556293915,
+          0.09881296125201608,
+          -0.0004726457624539271
+        ],
+        "split": "train"
+      },
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "metric_scope": "Training fit only; not a held-out or generalization result.",
+      "metric_split": "train",
+      "metrics": {
+        "mse": 0.00041475150030725264,
+        "nmse": 0.09505566323072863
+      },
+      "model_calls": 0,
+      "parent_id": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+      "run_id": "908952f741ce413ba4d395fa5abeb02f",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "two-stage-revision-v0.1",
+      "task_id": "oscillator1"
+    }
+  ],
+  "evaluation_files": [
+    "evaluations/evaluation-00.json"
+  ],
+  "status": "evaluated",
+  "edit": {
+    "kind": "other_change",
+    "source_changed": true,
+    "parameter_delta": 1,
+    "semantic_equivalence_proven": false
+  },
+  "score": {
+    "complete": true,
+    "family": "symbolic",
+    "strict_improvement": true,
+    "acceptable_simplification": false,
+    "achieved_improvement": true,
+    "metric_split": "train",
+    "nmse": 0.09505566323072863,
+    "baseline_nmse": 0.09505566357265445,
+    "delta_nmse": -3.4192582099024094e-10,
+    "n_params": 4,
+    "baseline_n_params": 3,
+    "parameter_delta": 1,
+    "epsilon": 1e-05,
+    "tolerance": 1e-10
+  },
+  "forecast": {
+    "status": "schema_invalid",
+    "metric": "nmse",
+    "predicted": null,
+    "observed": null,
+    "absolute_error": null
+  }
+}

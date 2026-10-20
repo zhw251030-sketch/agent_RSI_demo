@@ -1,0 +1,1161 @@
+{
+  "version": "two-stage-verification-v0.1",
+  "runtime_commit": "cf4cf06798325fd179784e7d0857744f67d2c0f0",
+  "tests": {
+    "local_new_tests": {
+      "python": "3.12.14",
+      "platform": "win32",
+      "tests_run": 78,
+      "passed": 62,
+      "skipped": 16,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 2.203,
+      "output": ".............s.................................................sssssssssssssss\n----------------------------------------------------------------------\nRan 78 tests in 2.202s\n\nOK (skipped=16)\n",
+      "skipped_tests": [
+        [
+          "test_symlinked_input_is_rejected (tests.test_two_stage_cases.TwoStageCasesTests.test_symlinked_input_is_rejected)",
+          "[WinError 1314] 客户端没有所需的特权。: 'C:\\\\Users\\\\22271\\\\AppData\\\\Local\\\\Temp\\\\tmp7z4wbxm9\\\\replacement.py' -> 'C:\\\\Users\\\\22271\\\\AppData\\\\Local\\\\Temp\\\\tmp7z4wbxm9\\\\artifacts\\\\paired-repair\\\\2026-10-20\\\\v01\\\\P1-r1-checked\\\\candidates\\\\planning-001.py'"
+        ],
+        [
+          "test_actual_revision_requests_differ_only_in_probe_feedback (tests.test_two_stage_agent.TwoStageSDKTests.test_actual_revision_requests_differ_only_in_probe_feedback)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_auxiliary_nonfinite_or_oversized_json_is_rejected_without_semantic_coercion (tests.test_two_stage_agent.TwoStageSDKTests.test_auxiliary_nonfinite_or_oversized_json_is_rejected_without_semantic_coercion)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_each_stage_makes_one_real_sdk_tool_roundtrip_with_trusted_session (tests.test_two_stage_agent.TwoStageSDKTests.test_each_stage_makes_one_real_sdk_tool_roundtrip_with_trusted_session)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_existing_sdk_submission_is_never_overwritten_or_dispatched (tests.test_two_stage_agent.TwoStageSDKTests.test_existing_sdk_submission_is_never_overwritten_or_dispatched)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_finish_plain_text_and_missing_tool_call_do_not_fabricate_submission (tests.test_two_stage_agent.TwoStageSDKTests.test_finish_plain_text_and_missing_tool_call_do_not_fabricate_submission)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_input_limit_denies_before_provider_or_reservation (tests.test_two_stage_agent.TwoStageSDKTests.test_input_limit_denies_before_provider_or_reservation)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_invalid_required_business_fields_never_reach_controller (tests.test_two_stage_agent.TwoStageSDKTests.test_invalid_required_business_fields_never_reach_controller)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_invalid_stage_binding_and_repeated_output_refuse_before_network (tests.test_two_stage_agent.TwoStageSDKTests.test_invalid_stage_binding_and_repeated_output_refuse_before_network)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_multiple_or_wrong_tools_never_dispatch (tests.test_two_stage_agent.TwoStageSDKTests.test_multiple_or_wrong_tools_never_dispatch)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_required_fields_and_source_bounds_reject_unsafe_structure (tests.test_two_stage_agent.TwoStageSDKTests.test_required_fields_and_source_bounds_reject_unsafe_structure)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_schemas_require_only_business_identity_and_keep_auxiliary_semantics_soft (tests.test_two_stage_agent.TwoStageSDKTests.test_schemas_require_only_business_identity_and_keep_auxiliary_semantics_soft)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_sdk_metadata_and_top_level_null_preserve_raw_response_separately (tests.test_two_stage_agent.TwoStageSDKTests.test_sdk_metadata_and_top_level_null_preserve_raw_response_separately)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_sdk_normalized_submission_is_written_before_controller_dispatch (tests.test_two_stage_agent.TwoStageSDKTests.test_sdk_normalized_submission_is_written_before_controller_dispatch)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_tool_storage_failure_marks_fatal_state_even_when_sdk_swallows_exception (tests.test_two_stage_agent.TwoStageSDKTests.test_tool_storage_failure_marks_fatal_state_even_when_sdk_swallows_exception)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_unknown_usage_halts_ledger_and_denies_second_transport (tests.test_two_stage_agent.TwoStageSDKTests.test_unknown_usage_halts_ledger_and_denies_second_transport)",
+          "OpenHands SDK is not installed in this interpreter"
+        ]
+      ],
+      "tested_files_sha256": {
+        "rsi_eval/__init__.py": "34dbd6e7bd04ecfe30cd28a01a30c83ae9dba715fe5af2cc701eadd10605de12",
+        "rsi_eval/checked_agent.py": "cb330f9965c4751b61a3012b3e37a2659d8835ba9e2b87b9b97a3bb44cdc454f",
+        "rsi_eval/checked_controller.py": "4ed37d182b2eb942157e38b7e1b40174c869c2406c3ebd0b2f43f18a4d1d1b06",
+        "rsi_eval/compact_agent.py": "aa412918f30d875b23f29d7388564116edd69c8e84c93fdb4d42f38ac6dce02f",
+        "rsi_eval/compact_controller.py": "fe3a569e64fc2c6dbf69d7c7ea3754a89cc62a01425b54b3a566cd8a7ec94d00",
+        "rsi_eval/diagnostic_controller.py": "81f29500c93af8331b92ccd28fbff6e136c4537fd6c4857b70004b95337f4521",
+        "rsi_eval/evidence_checks.py": "82c9ab42eaf966e16569363733104655abdabe92f3ae23e96ae3716b8fd715b5",
+        "rsi_eval/evidence_ids.py": "65ee8c174a346d41f27978acc0e8dece46b2f909c707683fb584a7524a3307c8",
+        "rsi_eval/executor.py": "7fae8f15dbbdf74858b527a09f13f0afb639b374eabbdcbff8c8bfe19deedfa1",
+        "rsi_eval/grounded_policy.py": "871ed17c30af0e086e97f94126b0f8a25bfc78a7985b3d435c871b159625a386",
+        "rsi_eval/grounded_policy_agent.py": "3a9fad0d5df756b2916ec93b4af0816efd3a8b9f031f5939645315d850ac8d92",
+        "rsi_eval/grounded_states.py": "16867b0497a91e60eaa3d444430af7a03758fc37e0f9da9fdf7ef0684f4251dc",
+        "rsi_eval/inference_cases.py": "392ae204bf58da38a20d02eb34412d055955965616a96e09202f39fc643145c2",
+        "rsi_eval/inference_policy.py": "27f1fb2fd0f80f92ed2cfc88bb5243305fbbcea8743b31f4942d4f59f0fb9f9b",
+        "rsi_eval/inference_policy_agent.py": "fd7d5856127d6514b38e9d14e4db82c9f29b5b1e31519d582a74bf2d49ace673",
+        "rsi_eval/openhands_tool.py": "00612b5b7503bcd9016c9365897d45cbdac4f4e9ff21fcf1b82121cb3a24c29c",
+        "rsi_eval/pilot_agent.py": "280aac8dd405e22e77b59033fee848d4255426ffb3fb41826a064b557d375edc",
+        "rsi_eval/pilot_budget.py": "b808b951ed6d1ddc62725c4c4b4c05db93c977c8e82e9b5cb405e36ac628f330",
+        "rsi_eval/pilot_controller.py": "718861605f050fba6cabe84adfcead53d689701c3a39f0e03c9b6139383a7c87",
+        "rsi_eval/planning.py": "15a382c3081f964e51e4818bdec3aebdc26a0b72e1cd02831fefd06319050ef6",
+        "rsi_eval/planning_diagnostics.py": "03ef4f361887d8d5bd4d3945e8f87852b00266b16a1358a7079f8822d0ffd8d7",
+        "rsi_eval/planning_probe.py": "6205e1db6a8f709b1dea486beaf595860b1139b65df7db06104fdf05e8ea2515",
+        "rsi_eval/planning_trace.py": "b2c67ef8d2d774826cc7930357ca20642a87c3548a7135842a95d75014bd9023",
+        "rsi_eval/planning_worker.py": "457d059c0e1cb258d9bfa1e7051d0ed00cc5849931ea072e7ea43ec3261f4be9",
+        "rsi_eval/policy_agent.py": "ad7dd9f050de5075a27c47a5a3667fe3e5db236a28063b2bb60382346ac46009",
+        "rsi_eval/policy_cases.py": "7fa5fb1a2526f5f20443766e59da70126859e9c87e243fa0df066af9b1558967",
+        "rsi_eval/policy_transfer.py": "bf04ad550dfb2c14c20ffad4a6a5227f1fa3298967138876fd8f2e96736df3c7",
+        "rsi_eval/probe_cases.py": "b66587320f9f42e1665ca30c61de032c3d3255495de830d0215fa5f7dc5a4f16",
+        "rsi_eval/repair_states.py": "e6ac9a037ed2b0f62fff48792124835f67bf5ead93fb1614694c38ecf7dd00ba",
+        "rsi_eval/revision_policy.py": "e7f03948527d8fa305a952bb792a3e053785e136b891b5f6ae62681e0ad6fb63",
+        "rsi_eval/sandbox.py": "8fd1a4fb149c7632b4e9ce2af187c074633c800a4e8d427eb3b3467e4e77203e",
+        "rsi_eval/state_packet.py": "36341aad849c7d50184286b24a5b9566638149f599ac397138c3ae351986de8c",
+        "rsi_eval/symbolic.py": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58",
+        "rsi_eval/symbolic_diagnostics.py": "60e76a1f71440fd966cad6bcedb3c9b5cb943723e75767659b8c80c2a2357e29",
+        "rsi_eval/symbolic_probe.py": "dcc406138b069aa0866c7e4421af5b4a2ccdd5c78248a96bf6f8c67a5d949f03",
+        "rsi_eval/symbolic_worker.py": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca",
+        "rsi_eval/two_stage_agent.py": "e6f5040aa776707f5331568f6fd698155bd9a53d4d426ba5fc5a565acb5ea0f2",
+        "rsi_eval/two_stage_audit.py": "2cd80220dfa22527eca9f0ab0e51cad5f445e39164aba8b13676a8d3405b5057",
+        "rsi_eval/two_stage_cases.py": "19b9129de70b2e856b019b78732b380c33047c2a449672e30aa042b68308cdce",
+        "rsi_eval/two_stage_core.py": "3c02942206077a8fdde7cf404f2ab6db231520c5a25915813cb88f00a057f4f8",
+        "rsi_eval/worker.py": "f451771c60d0f1cdebc597387ed7896d119ab274c05f3e7faae5cb9d22692e4a",
+        "scripts/analyze_grounded_policy.py": "a3bfbbaa7bd9cde8dbaa7e27dafcffd97036f3cb1777d9a6fc12aa717f2fc7b8",
+        "scripts/analyze_inference_policy.py": "570d7be3f2369469c8a8bcd3a188376e1b527400f277262e839e0c07937ff8b5",
+        "scripts/analyze_intervention_probes.py": "f5e4d817c45155c24b6de2edd50e2069b5111abee2233a4c1560fb1511e8e0ab",
+        "scripts/analyze_paired_repair.py": "6232b80470356d3bf3f40b56a4a8c97c7219922bf5d86c5e166aed0a5f6c77ea",
+        "scripts/analyze_policy_transfer.py": "4cb6c6d9a9a029247f650fd55a56fb093d957e8455c2f9a22f58ae71e189add4",
+        "scripts/analyze_two_stage.py": "d19763a4c248e6af7e98ec21ff9389c9fed5d01688cfab386099bcce05770870",
+        "scripts/canvas.py": "2b75eb3a3aaeb68c9f41feeda67184240c655d9091d248b69c173537623f14dd",
+        "scripts/check_diagnostic_observations.py": "80923dbb96c684528a23b7f71906cacd7719da0804e7ab6c565fcfae41a9dd76",
+        "scripts/check_minimax_connection.py": "93e505338416403fa98685e9f6aa3ac64afb269a40e16a35754964d6b352a15c",
+        "scripts/check_openhands_evaluator.py": "a1fd37b08a9f95da9ff2372f85484793b99d551077c52ea32f12f3af1968946a",
+        "scripts/check_openhands_offline.py": "f9576a4977e728834916f1680952a14ca503cd7dafb617ed1742f540ea09cdb5",
+        "scripts/check_planning_data.py": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547",
+        "scripts/check_symbolic_data.py": "81243ba1384a743120c6319b178a68091d6b99661f815b9c015cc6c3de80c5b0",
+        "scripts/check_task_executors.py": "21e6ed7ba3bd4af697c034be717c16725c9866cf7f067e51d53f3972d3183e99",
+        "scripts/configure_minimax.py": "30489303e66a2209d04754a51baa9e182eae9208497d7edcd19e387aae75fbe0",
+        "scripts/evaluate_candidate.py": "573301501ec13a5bb8f7a92d2474d31cfb723e0bc7137e76c0449b29c14075d1",
+        "scripts/prepare_task_sources.py": "3bf18c0cff5f19e97c07c24551ba5010ba2f9acbc348359fdee036b5554462d1",
+        "scripts/replay_checked_history.py": "497ebc41e4953c538dba55d559afae375792508d0330b5740340af9ff2e4adf6",
+        "scripts/replay_short_interface.py": "20ecb7d79665ca471d09f77562b0f1bf4a51aafc0ad548ff0e293c8da2795f14",
+        "scripts/run_agent_pilot.py": "9700eca3527b2caa20c59c09c5b2c4f228cc4e39355812b708978e55463e5a09",
+        "scripts/run_checked_feedback.py": "1179f6bf6c322a985165a9a1d56e01344d80fe6d4f9e2bb777ab4ca0bdf288b8",
+        "scripts/run_diagnostic_comparison.py": "579c622aa33bb769e6c24fc8db5f22be3458446cad88bd66ac83443893040b91",
+        "scripts/run_grounded_policy.py": "41549cb122bc0650165b67f550a949825b3cf3c821502770b3a52fe4743d311c",
+        "scripts/run_inference_policy.py": "294b9c31e8b4310153c520352fef9383cba9d1c48712ba5ddd4f1ab99ef3b709",
+        "scripts/run_intervention_probes.py": "ae9ee38d12b21a71c3533018d4a3a093e351e79d34b21f8e5c7a864b03860d74",
+        "scripts/run_paired_repair.py": "56f04f1789f75f3b4d02cb7f7f480406b1ef1cbef57359ea2b171d6eb3be774a",
+        "scripts/run_policy_transfer.py": "eb6ab0a48241c31bf3f5c6b6b244387dd40833df66bead1301653faa6425d2ef",
+        "scripts/run_two_stage.py": "4638565730e42b67ab1aaaa9e8f40a64ee6cbdc2383241131108dc31e60bfba9",
+        "tests/__init__.py": "827da4ed1cc1b29d67a8dff5c61cc6927db60dd92cb3f9e0674a82fd1582f722",
+        "tests/test_checked_controller.py": "4592ed7929ae4dd4279b6ab37a5daf17d3fb46852255658de6dc72c9d5b39052",
+        "tests/test_checked_runner.py": "bb6fbf5f2e25f6a5c9bba25c8e0ca7d1c762d7ec13389f9757f3850fca5330f9",
+        "tests/test_checked_sdk.py": "ebfd566b489a374e6feae986d16f4a2201ff7e90471db1e40aaac91eb1321f4c",
+        "tests/test_compact_controller.py": "97aae5b5ad346ce237a161c589f434e84999d770d7b203cc9d4ee6316141e820",
+        "tests/test_compact_sdk.py": "420bdb0be693900ea96d53270ab4019dbc33ddb630f1c2b0dad247b4aba4ed4b",
+        "tests/test_diagnostic_controller.py": "b83bf921d9f3d3638614cbc3453bf32b5852ad96d52fed0160faf4113fef7168",
+        "tests/test_diagnostic_probe.py": "a3f66521f0b333c360547b02e04e75a97fdb67fc54706d63af54edaa064a934f",
+        "tests/test_diagnostic_runner.py": "fcfb82bb4a452e69300276d1044cc8d388ae663721b0b1ca3b64cbfa28b9c55b",
+        "tests/test_diagnostic_sdk.py": "7e096f472fd0cac94b7d9a11c8e7c4583fc812111df73335f3369298f65c8df2",
+        "tests/test_evidence_checks.py": "59cea9ff24b0ac5a9a599fbf340542143b28b51356533e43dc0f0c162f8e2ed1",
+        "tests/test_evidence_ids.py": "f0beb30b5cf25ae5b0a680fcb288f99c90e3033a7d200272e017974ad2f761a9",
+        "tests/test_executor.py": "59abd5ce10e50ffbf1ecdf73711569c0d20c32b92d0e74f7c90e7671b7135570",
+        "tests/test_executor_diagnostics.py": "81948714bea2f7309525ce5fa7b90db5892c3a8657ebdf382ed47fc814e20248",
+        "tests/test_grounded_analysis.py": "aa2d9d616d3a7d982202493b7a94f4c035a7a52d76096cbdf8a944ce0f5d3f93",
+        "tests/test_grounded_policy.py": "8ed6fe320c71c90c3314d3e23b42dc9efed7cd30b6fac159d894efaa4e08fe2d",
+        "tests/test_grounded_policy_agent.py": "5a5ce8e6ffea2d6fcb537f37205485971b05f251c3c0cba1c35133e37e8a2106",
+        "tests/test_grounded_runner.py": "bbe8eab30a6d0c6f1434585d745699ca270cb87ef6430203913349a0c9be2cdf",
+        "tests/test_grounded_states.py": "7c50c144f79e852b4e6cc18e9cd9e870f983644e0d807bfa503adc5f6d2aecb2",
+        "tests/test_inference_analysis.py": "e0328563057a098beaf6877843d142e3565db20d357938d61d57adc4f9b165e2",
+        "tests/test_inference_cases.py": "a58cc279634b624820f6deabcbded2c164d42bf890b3867201ff806325609a40",
+        "tests/test_inference_policy.py": "4c52e3829add35c0e6f04eb670ecec1984da4b4dc53f63838ebb3618e0bd23f1",
+        "tests/test_inference_policy_agent.py": "ecc0da707bce87029a75bf4ba72afb154969b43a7266b5689b8ddc63c3bb4053",
+        "tests/test_inference_runner.py": "87954ebfc67b229577119b756748518c03a95c9c62092e88df295b31e9c68509",
+        "tests/test_intervention_analysis.py": "52d0f55dfd354feab1414204b9e26f63036913a4e0703962e99aa5be63e01b93",
+        "tests/test_intervention_runner.py": "0c564e9f6b7ce4432fc528e6328781d230bda03e0a5721b7b9ded4fbfe76a387",
+        "tests/test_openhands_tool.py": "d2322923116a736aeabdf1c92ca15de52275f2edfc65493dc9b68f7e758229d8",
+        "tests/test_paired_runner.py": "c096e9c1113d91b4b4a0c158f5d4a541a5b7aaaa9e8c64a8aaf5ba0535d69187",
+        "tests/test_pilot_agent.py": "3a41cb2ff4f8f32d722060085bb98ad87e29001b9047ce22a7f21a84bceb4311",
+        "tests/test_pilot_budget.py": "62940739418c612f910376048642a31fd01f33398e895507d41bd0b4bb8225d3",
+        "tests/test_pilot_controller.py": "75562be4f1a656ffd56bf5c210fec03b6e7225f6d71a0c0cae40fa5f1f4ea1c3",
+        "tests/test_planning.py": "9e68e3094c32f5675de472ff5a8233002f366563bece9f427d2fdfa71148a129",
+        "tests/test_planning_diagnostics.py": "37fd0497050965f4b077ef954725f1f96689c64ff0946da31fbb54c622f273ed",
+        "tests/test_planning_probe.py": "16b66323ee589f7b2ab3a2d09773525e388e26ec64d107c266349daeddff9382",
+        "tests/test_planning_trace.py": "a39dab64654d1e4a055ea11223f23f617500fb26e08dfa54838e3d544adeb25d",
+        "tests/test_policy_analysis.py": "a5dbd990d8acd9fbdc9c08ef258b03f32cb41784341faea9cf5649e136bcdcf8",
+        "tests/test_policy_cases.py": "924a4d4e479f40e6493bc2010071a527a8f487a4d9a9743ad5c4a185e67c6d9c",
+        "tests/test_policy_runner.py": "7511e1198f43dc421c4c1aec1f059da9c3724185a77ec78ba796089e2cd13f42",
+        "tests/test_policy_sdk.py": "26ab7191ac8d02661ce07728d1fe6201ca378d59a3b75607536bf12c27b4e49e",
+        "tests/test_policy_transfer.py": "673b7468466510b97601c16c787b832474063eb619e398a6df74ddaac3fafa84",
+        "tests/test_probe_cases.py": "90736ef25cd145babeff002ae49f711e53f2905be65760eaa8432b89641ecb6c",
+        "tests/test_repair_states.py": "9672900376f1fbb8864ed751405bcd9163708de7397731f71c255fb14f125c2e",
+        "tests/test_revision_policy.py": "ca3ad83d2a28c70d5338490afe5b4e7aa7df816501396ae1b593d7591f5e1ff2",
+        "tests/test_sandbox.py": "05e6b4bad691b89f6db8560844ef58e5541f13559495a99decb5d624faf6a894",
+        "tests/test_state_packet.py": "8a5a1716e331dd90259cf5b5ed35b598f6bb60e69e907a045a78c31951e11c42",
+        "tests/test_symbolic.py": "9632261f3d51976102c5e0b29e8db4f9c5b8220283f2586edf75f8f2441d90b5",
+        "tests/test_symbolic_diagnostics.py": "b54f8dbd3a6c95606254a8a86d879f21b583ab4f9f050b65b5e79d64c978cf1e",
+        "tests/test_symbolic_probe.py": "ff91ec2aa46d27892e4b7eb2519ddf521f8b35009db63fe824b58a1b942c49b4",
+        "tests/test_two_stage_agent.py": "a000410d09891532bbaf2f9750c1cf48e9b698242966a199a9a12437579cdac5",
+        "tests/test_two_stage_analysis.py": "68fdec5325de506909d6e82c458e213f145291b4065b5254013c9bbb119eb373",
+        "tests/test_two_stage_audit.py": "90ab2323966720cda650449209feb85e309aa6cc8c1f544431c02ebbee86eca9",
+        "tests/test_two_stage_cases.py": "c4e7b978258b4163a7c0ddcfd3b8bd1c0a4ddda48f25aab07427db78ca4b937a",
+        "tests/test_two_stage_core.py": "d17a2a4079ba7a91bc57790fd6e9c29c9770334c1454d60c4a544b6f8164bdb9",
+        "tests/test_two_stage_runner.py": "795318fd507e52d2348c4002140d86caac955763a4c86736c3790da9a7759eb0"
+      }
+    },
+    "server_task_tests": {
+      "python": "3.10.12",
+      "platform": "linux",
+      "tests_run": 701,
+      "passed": 614,
+      "skipped": 87,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 11.462,
+      "output": ".........................sssssssssss..........ssssssss................................sss.............................................................................................ssssssssssss.......................................................................sssssssssssssss.......................................ssss....................ssssssssss..................................................................................................................................sssssssss...................................................................................................................................sssssssssssssss...............................................................\n----------------------------------------------------------------------\nRan 701 tests in 11.462s\n\nOK (skipped=87)\n",
+      "skipped_tests": [
+        [
+          "test_action_rejects_coercion_oversize_and_extra_capabilities (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_cumulative_budget_denial_does_not_claim_network_dispatch (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_declaration_bound_counts_complete_json_at_2048_bytes (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_four_sdk_requests_replace_history_and_hide_check_outcomes (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_incomplete_tool_response_stops_sdk_and_preserves_settled_usage (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_oversize_complete_payload_is_recorded_before_reservation_or_network (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_packet_contract_failure_keeps_safe_denial_without_partial_payload (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_plain_stop_and_explicit_finish_remain_legitimate (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_request_log_failure_records_reservation_without_claiming_dispatch (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_schema_observer_agrees_with_sdk_envelope_and_argument_repairs (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_schema_rejection_survives_replacement_then_clears_after_valid_submission (test_checked_sdk.CheckedSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_action_forwards_semantic_invalidity_without_attempting_to_repair (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_action_rejects_transport_coercion_oversize_and_old_nested_capabilities (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_actual_advertised_action_schema_has_only_top_level_primitives (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_failed_error_record_write_still_keeps_controller_halted (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_no_action_response_never_invents_a_candidate (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_observer_agrees_with_sdk_metadata_handling_and_rejection (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_one_sdk_iteration_records_one_candidate_and_settles_one_request (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_swallowed_controller_and_feedback_errors_mark_fatal_host_state (test_compact_sdk.CompactSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_diagnostics_survive_actual_tool_round_trip_only_in_b_and_c (test_diagnostic_sdk.DiagnosticSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_fourth_submission_is_rejected_by_real_controller_in_every_arm (test_diagnostic_sdk.DiagnosticSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_unadvertised_tool_is_rejected_before_controller_dispatch (test_diagnostic_sdk.DiagnosticSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_actual_review_requests_differ_only_in_premise_feedback (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_executor_storage_failure_marks_fatal_state_without_private_text (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_incomplete_stop_and_finish_are_not_policy_submissions (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_non_ascii_aggregate_uses_exact_core_canonical_business_field_limit (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_observer_and_sdk_reject_schema_errors_without_rewriting_response (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_policy_purpose_remains_single_iteration_and_rejects_candidate_purpose (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_real_controller_archives_false_premises_and_freezes_only_rule_ids (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_schema_is_closed_flat_thirty_fields_with_all_bounds_preserved (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_semantically_false_premises_reach_controller_without_execution_or_gate (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_strict_schema_rejects_coercion_unknown_fields_bounds_and_invalid_utf8 (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_unknown_usage_blocks_another_transport_even_after_submission (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_wrong_tool_and_multiple_calls_never_dispatch (test_grounded_policy_agent.GroundedPolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_actual_review_requests_differ_only_in_inference_feedback (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_auxiliary_values_are_soft_and_defaults_preserve_rule_only_submission (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_disallowed_tools_and_multiple_calls_never_dispatch (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_duplicate_rules_are_core_rejection_without_infrastructure_halt (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_hard_rule_types_and_extra_fields_reject_before_controller (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_long_unicode_notes_and_wrong_auxiliary_values_reach_controller_unchanged (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_observer_and_sdk_reject_unknown_fields_without_rewriting_response (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_policy_purpose_enforces_one_iteration (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_real_core_archives_soft_invalid_auxiliary_values_and_freezes_legal_policy (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_real_core_duplicate_rejection_remains_a_known_missing_policy (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_schema_advertises_thirteen_flat_strings_but_only_rules_are_required (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_sdk_metadata_is_excluded_from_business_fields (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_storage_failure_halts_controller_without_preserving_private_error_text (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_unknown_usage_blocks_another_transport (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_whole_submission_cap_is_65536_utf8_bytes_not_16384 (test_inference_policy_agent.InferencePolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_action_rejects_path_shell_root_and_unbounded_parameters (test_openhands_tool.OpenHandsEvaluationToolTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_actual_sdk_dispatch_filters_private_fields_and_candidate_diagnostics (test_openhands_tool.OpenHandsEvaluationToolTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_success_keeps_finite_metrics_and_explicit_training_scope (test_openhands_tool.OpenHandsEvaluationToolTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_tool_schema_exposes_only_candidate_evaluation (test_openhands_tool.OpenHandsEvaluationToolTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_actual_agent_round_trip_and_only_allowed_tools (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_budget_denial_happens_before_transport (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_execute_refuses_to_read_key_when_baseline_infrastructure_fails (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_http_error_keeps_only_numeric_status_and_whitelisted_code (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_multiple_candidate_calls_or_finish_mix_never_reach_controller (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_provider_error_is_recorded_without_exception_text_or_secret (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_resume_rejects_protocol_change_and_original_run_overwrite (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_resume_reuses_failed_ledger_without_overwriting_parent_report (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_runner_rejects_budget_expansion_and_wrong_sessions (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_schema_rejects_task_path_command_and_boolean_parameter_count (test_pilot_agent.PilotAgentTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_flat_schema_and_strict_catalog_fields_exclude_source_capabilities (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_missing_tool_finish_and_unknown_usage_do_not_imply_policy_acceptance (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_observer_and_sdk_reject_bad_rule_or_extra_fields_but_accept_metadata (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_one_update_uses_policy_tools_and_records_response_usage_events_without_task_execution (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_policy_and_candidate_allowlists_are_separate_and_cannot_be_model_fields (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_policy_storage_exception_marks_fatal_state_even_if_sdk_swallows_it (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_real_controller_freezes_policy_without_forwarding_rationale_or_evaluation_sources (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_unknown_usage_halts_ledger_and_prevents_any_second_transport (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_wrong_tool_and_multiple_calls_never_dispatch_policy (test_policy_sdk.PolicySDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_actual_revision_requests_differ_only_in_probe_feedback (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_auxiliary_nonfinite_or_oversized_json_is_rejected_without_semantic_coercion (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_each_stage_makes_one_real_sdk_tool_roundtrip_with_trusted_session (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_existing_sdk_submission_is_never_overwritten_or_dispatched (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_finish_plain_text_and_missing_tool_call_do_not_fabricate_submission (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_input_limit_denies_before_provider_or_reservation (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_invalid_required_business_fields_never_reach_controller (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_invalid_stage_binding_and_repeated_output_refuse_before_network (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_multiple_or_wrong_tools_never_dispatch (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_required_fields_and_source_bounds_reject_unsafe_structure (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_schemas_require_only_business_identity_and_keep_auxiliary_semantics_soft (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_sdk_metadata_and_top_level_null_preserve_raw_response_separately (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_sdk_normalized_submission_is_written_before_controller_dispatch (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_tool_storage_failure_marks_fatal_state_even_when_sdk_swallows_exception (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ],
+        [
+          "test_unknown_usage_halts_ledger_and_denies_second_transport (test_two_stage_agent.TwoStageSDKTests)",
+          "OpenHands SDK is not installed in this interpreter"
+        ]
+      ],
+      "tested_files_sha256": {
+        "rsi_eval/__init__.py": "34dbd6e7bd04ecfe30cd28a01a30c83ae9dba715fe5af2cc701eadd10605de12",
+        "rsi_eval/checked_agent.py": "cb330f9965c4751b61a3012b3e37a2659d8835ba9e2b87b9b97a3bb44cdc454f",
+        "rsi_eval/checked_controller.py": "4ed37d182b2eb942157e38b7e1b40174c869c2406c3ebd0b2f43f18a4d1d1b06",
+        "rsi_eval/compact_agent.py": "aa412918f30d875b23f29d7388564116edd69c8e84c93fdb4d42f38ac6dce02f",
+        "rsi_eval/compact_controller.py": "fe3a569e64fc2c6dbf69d7c7ea3754a89cc62a01425b54b3a566cd8a7ec94d00",
+        "rsi_eval/diagnostic_controller.py": "81f29500c93af8331b92ccd28fbff6e136c4537fd6c4857b70004b95337f4521",
+        "rsi_eval/evidence_checks.py": "82c9ab42eaf966e16569363733104655abdabe92f3ae23e96ae3716b8fd715b5",
+        "rsi_eval/evidence_ids.py": "65ee8c174a346d41f27978acc0e8dece46b2f909c707683fb584a7524a3307c8",
+        "rsi_eval/executor.py": "7fae8f15dbbdf74858b527a09f13f0afb639b374eabbdcbff8c8bfe19deedfa1",
+        "rsi_eval/grounded_policy.py": "871ed17c30af0e086e97f94126b0f8a25bfc78a7985b3d435c871b159625a386",
+        "rsi_eval/grounded_policy_agent.py": "3a9fad0d5df756b2916ec93b4af0816efd3a8b9f031f5939645315d850ac8d92",
+        "rsi_eval/grounded_states.py": "16867b0497a91e60eaa3d444430af7a03758fc37e0f9da9fdf7ef0684f4251dc",
+        "rsi_eval/inference_cases.py": "392ae204bf58da38a20d02eb34412d055955965616a96e09202f39fc643145c2",
+        "rsi_eval/inference_policy.py": "27f1fb2fd0f80f92ed2cfc88bb5243305fbbcea8743b31f4942d4f59f0fb9f9b",
+        "rsi_eval/inference_policy_agent.py": "fd7d5856127d6514b38e9d14e4db82c9f29b5b1e31519d582a74bf2d49ace673",
+        "rsi_eval/openhands_tool.py": "00612b5b7503bcd9016c9365897d45cbdac4f4e9ff21fcf1b82121cb3a24c29c",
+        "rsi_eval/pilot_agent.py": "280aac8dd405e22e77b59033fee848d4255426ffb3fb41826a064b557d375edc",
+        "rsi_eval/pilot_budget.py": "b808b951ed6d1ddc62725c4c4b4c05db93c977c8e82e9b5cb405e36ac628f330",
+        "rsi_eval/pilot_controller.py": "718861605f050fba6cabe84adfcead53d689701c3a39f0e03c9b6139383a7c87",
+        "rsi_eval/planning.py": "15a382c3081f964e51e4818bdec3aebdc26a0b72e1cd02831fefd06319050ef6",
+        "rsi_eval/planning_diagnostics.py": "03ef4f361887d8d5bd4d3945e8f87852b00266b16a1358a7079f8822d0ffd8d7",
+        "rsi_eval/planning_probe.py": "6205e1db6a8f709b1dea486beaf595860b1139b65df7db06104fdf05e8ea2515",
+        "rsi_eval/planning_trace.py": "b2c67ef8d2d774826cc7930357ca20642a87c3548a7135842a95d75014bd9023",
+        "rsi_eval/planning_worker.py": "457d059c0e1cb258d9bfa1e7051d0ed00cc5849931ea072e7ea43ec3261f4be9",
+        "rsi_eval/policy_agent.py": "ad7dd9f050de5075a27c47a5a3667fe3e5db236a28063b2bb60382346ac46009",
+        "rsi_eval/policy_cases.py": "7fa5fb1a2526f5f20443766e59da70126859e9c87e243fa0df066af9b1558967",
+        "rsi_eval/policy_transfer.py": "bf04ad550dfb2c14c20ffad4a6a5227f1fa3298967138876fd8f2e96736df3c7",
+        "rsi_eval/probe_cases.py": "b66587320f9f42e1665ca30c61de032c3d3255495de830d0215fa5f7dc5a4f16",
+        "rsi_eval/repair_states.py": "e6ac9a037ed2b0f62fff48792124835f67bf5ead93fb1614694c38ecf7dd00ba",
+        "rsi_eval/revision_policy.py": "e7f03948527d8fa305a952bb792a3e053785e136b891b5f6ae62681e0ad6fb63",
+        "rsi_eval/sandbox.py": "8fd1a4fb149c7632b4e9ce2af187c074633c800a4e8d427eb3b3467e4e77203e",
+        "rsi_eval/state_packet.py": "36341aad849c7d50184286b24a5b9566638149f599ac397138c3ae351986de8c",
+        "rsi_eval/symbolic.py": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58",
+        "rsi_eval/symbolic_diagnostics.py": "60e76a1f71440fd966cad6bcedb3c9b5cb943723e75767659b8c80c2a2357e29",
+        "rsi_eval/symbolic_probe.py": "dcc406138b069aa0866c7e4421af5b4a2ccdd5c78248a96bf6f8c67a5d949f03",
+        "rsi_eval/symbolic_worker.py": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca",
+        "rsi_eval/two_stage_agent.py": "e6f5040aa776707f5331568f6fd698155bd9a53d4d426ba5fc5a565acb5ea0f2",
+        "rsi_eval/two_stage_audit.py": "2cd80220dfa22527eca9f0ab0e51cad5f445e39164aba8b13676a8d3405b5057",
+        "rsi_eval/two_stage_cases.py": "19b9129de70b2e856b019b78732b380c33047c2a449672e30aa042b68308cdce",
+        "rsi_eval/two_stage_core.py": "3c02942206077a8fdde7cf404f2ab6db231520c5a25915813cb88f00a057f4f8",
+        "rsi_eval/worker.py": "f451771c60d0f1cdebc597387ed7896d119ab274c05f3e7faae5cb9d22692e4a",
+        "scripts/analyze_grounded_policy.py": "a3bfbbaa7bd9cde8dbaa7e27dafcffd97036f3cb1777d9a6fc12aa717f2fc7b8",
+        "scripts/analyze_inference_policy.py": "570d7be3f2369469c8a8bcd3a188376e1b527400f277262e839e0c07937ff8b5",
+        "scripts/analyze_intervention_probes.py": "f5e4d817c45155c24b6de2edd50e2069b5111abee2233a4c1560fb1511e8e0ab",
+        "scripts/analyze_paired_repair.py": "6232b80470356d3bf3f40b56a4a8c97c7219922bf5d86c5e166aed0a5f6c77ea",
+        "scripts/analyze_policy_transfer.py": "4cb6c6d9a9a029247f650fd55a56fb093d957e8455c2f9a22f58ae71e189add4",
+        "scripts/analyze_two_stage.py": "d19763a4c248e6af7e98ec21ff9389c9fed5d01688cfab386099bcce05770870",
+        "scripts/canvas.py": "2b75eb3a3aaeb68c9f41feeda67184240c655d9091d248b69c173537623f14dd",
+        "scripts/check_diagnostic_observations.py": "80923dbb96c684528a23b7f71906cacd7719da0804e7ab6c565fcfae41a9dd76",
+        "scripts/check_minimax_connection.py": "93e505338416403fa98685e9f6aa3ac64afb269a40e16a35754964d6b352a15c",
+        "scripts/check_openhands_evaluator.py": "a1fd37b08a9f95da9ff2372f85484793b99d551077c52ea32f12f3af1968946a",
+        "scripts/check_openhands_offline.py": "f9576a4977e728834916f1680952a14ca503cd7dafb617ed1742f540ea09cdb5",
+        "scripts/check_planning_data.py": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547",
+        "scripts/check_symbolic_data.py": "81243ba1384a743120c6319b178a68091d6b99661f815b9c015cc6c3de80c5b0",
+        "scripts/check_task_executors.py": "21e6ed7ba3bd4af697c034be717c16725c9866cf7f067e51d53f3972d3183e99",
+        "scripts/configure_minimax.py": "30489303e66a2209d04754a51baa9e182eae9208497d7edcd19e387aae75fbe0",
+        "scripts/evaluate_candidate.py": "573301501ec13a5bb8f7a92d2474d31cfb723e0bc7137e76c0449b29c14075d1",
+        "scripts/prepare_task_sources.py": "3bf18c0cff5f19e97c07c24551ba5010ba2f9acbc348359fdee036b5554462d1",
+        "scripts/replay_checked_history.py": "497ebc41e4953c538dba55d559afae375792508d0330b5740340af9ff2e4adf6",
+        "scripts/replay_short_interface.py": "20ecb7d79665ca471d09f77562b0f1bf4a51aafc0ad548ff0e293c8da2795f14",
+        "scripts/run_agent_pilot.py": "9700eca3527b2caa20c59c09c5b2c4f228cc4e39355812b708978e55463e5a09",
+        "scripts/run_checked_feedback.py": "1179f6bf6c322a985165a9a1d56e01344d80fe6d4f9e2bb777ab4ca0bdf288b8",
+        "scripts/run_diagnostic_comparison.py": "579c622aa33bb769e6c24fc8db5f22be3458446cad88bd66ac83443893040b91",
+        "scripts/run_grounded_policy.py": "41549cb122bc0650165b67f550a949825b3cf3c821502770b3a52fe4743d311c",
+        "scripts/run_inference_policy.py": "294b9c31e8b4310153c520352fef9383cba9d1c48712ba5ddd4f1ab99ef3b709",
+        "scripts/run_intervention_probes.py": "ae9ee38d12b21a71c3533018d4a3a093e351e79d34b21f8e5c7a864b03860d74",
+        "scripts/run_paired_repair.py": "56f04f1789f75f3b4d02cb7f7f480406b1ef1cbef57359ea2b171d6eb3be774a",
+        "scripts/run_policy_transfer.py": "eb6ab0a48241c31bf3f5c6b6b244387dd40833df66bead1301653faa6425d2ef",
+        "scripts/run_two_stage.py": "4638565730e42b67ab1aaaa9e8f40a64ee6cbdc2383241131108dc31e60bfba9",
+        "tests/__init__.py": "827da4ed1cc1b29d67a8dff5c61cc6927db60dd92cb3f9e0674a82fd1582f722",
+        "tests/test_checked_controller.py": "4592ed7929ae4dd4279b6ab37a5daf17d3fb46852255658de6dc72c9d5b39052",
+        "tests/test_checked_runner.py": "bb6fbf5f2e25f6a5c9bba25c8e0ca7d1c762d7ec13389f9757f3850fca5330f9",
+        "tests/test_checked_sdk.py": "ebfd566b489a374e6feae986d16f4a2201ff7e90471db1e40aaac91eb1321f4c",
+        "tests/test_compact_controller.py": "97aae5b5ad346ce237a161c589f434e84999d770d7b203cc9d4ee6316141e820",
+        "tests/test_compact_sdk.py": "420bdb0be693900ea96d53270ab4019dbc33ddb630f1c2b0dad247b4aba4ed4b",
+        "tests/test_diagnostic_controller.py": "b83bf921d9f3d3638614cbc3453bf32b5852ad96d52fed0160faf4113fef7168",
+        "tests/test_diagnostic_probe.py": "a3f66521f0b333c360547b02e04e75a97fdb67fc54706d63af54edaa064a934f",
+        "tests/test_diagnostic_runner.py": "fcfb82bb4a452e69300276d1044cc8d388ae663721b0b1ca3b64cbfa28b9c55b",
+        "tests/test_diagnostic_sdk.py": "7e096f472fd0cac94b7d9a11c8e7c4583fc812111df73335f3369298f65c8df2",
+        "tests/test_evidence_checks.py": "59cea9ff24b0ac5a9a599fbf340542143b28b51356533e43dc0f0c162f8e2ed1",
+        "tests/test_evidence_ids.py": "f0beb30b5cf25ae5b0a680fcb288f99c90e3033a7d200272e017974ad2f761a9",
+        "tests/test_executor.py": "59abd5ce10e50ffbf1ecdf73711569c0d20c32b92d0e74f7c90e7671b7135570",
+        "tests/test_executor_diagnostics.py": "81948714bea2f7309525ce5fa7b90db5892c3a8657ebdf382ed47fc814e20248",
+        "tests/test_grounded_analysis.py": "aa2d9d616d3a7d982202493b7a94f4c035a7a52d76096cbdf8a944ce0f5d3f93",
+        "tests/test_grounded_policy.py": "8ed6fe320c71c90c3314d3e23b42dc9efed7cd30b6fac159d894efaa4e08fe2d",
+        "tests/test_grounded_policy_agent.py": "5a5ce8e6ffea2d6fcb537f37205485971b05f251c3c0cba1c35133e37e8a2106",
+        "tests/test_grounded_runner.py": "bbe8eab30a6d0c6f1434585d745699ca270cb87ef6430203913349a0c9be2cdf",
+        "tests/test_grounded_states.py": "7c50c144f79e852b4e6cc18e9cd9e870f983644e0d807bfa503adc5f6d2aecb2",
+        "tests/test_inference_analysis.py": "e0328563057a098beaf6877843d142e3565db20d357938d61d57adc4f9b165e2",
+        "tests/test_inference_cases.py": "a58cc279634b624820f6deabcbded2c164d42bf890b3867201ff806325609a40",
+        "tests/test_inference_policy.py": "4c52e3829add35c0e6f04eb670ecec1984da4b4dc53f63838ebb3618e0bd23f1",
+        "tests/test_inference_policy_agent.py": "ecc0da707bce87029a75bf4ba72afb154969b43a7266b5689b8ddc63c3bb4053",
+        "tests/test_inference_runner.py": "87954ebfc67b229577119b756748518c03a95c9c62092e88df295b31e9c68509",
+        "tests/test_intervention_analysis.py": "52d0f55dfd354feab1414204b9e26f63036913a4e0703962e99aa5be63e01b93",
+        "tests/test_intervention_runner.py": "0c564e9f6b7ce4432fc528e6328781d230bda03e0a5721b7b9ded4fbfe76a387",
+        "tests/test_openhands_tool.py": "d2322923116a736aeabdf1c92ca15de52275f2edfc65493dc9b68f7e758229d8",
+        "tests/test_paired_runner.py": "c096e9c1113d91b4b4a0c158f5d4a541a5b7aaaa9e8c64a8aaf5ba0535d69187",
+        "tests/test_pilot_agent.py": "3a41cb2ff4f8f32d722060085bb98ad87e29001b9047ce22a7f21a84bceb4311",
+        "tests/test_pilot_budget.py": "62940739418c612f910376048642a31fd01f33398e895507d41bd0b4bb8225d3",
+        "tests/test_pilot_controller.py": "75562be4f1a656ffd56bf5c210fec03b6e7225f6d71a0c0cae40fa5f1f4ea1c3",
+        "tests/test_planning.py": "9e68e3094c32f5675de472ff5a8233002f366563bece9f427d2fdfa71148a129",
+        "tests/test_planning_diagnostics.py": "37fd0497050965f4b077ef954725f1f96689c64ff0946da31fbb54c622f273ed",
+        "tests/test_planning_probe.py": "16b66323ee589f7b2ab3a2d09773525e388e26ec64d107c266349daeddff9382",
+        "tests/test_planning_trace.py": "a39dab64654d1e4a055ea11223f23f617500fb26e08dfa54838e3d544adeb25d",
+        "tests/test_policy_analysis.py": "a5dbd990d8acd9fbdc9c08ef258b03f32cb41784341faea9cf5649e136bcdcf8",
+        "tests/test_policy_cases.py": "924a4d4e479f40e6493bc2010071a527a8f487a4d9a9743ad5c4a185e67c6d9c",
+        "tests/test_policy_runner.py": "7511e1198f43dc421c4c1aec1f059da9c3724185a77ec78ba796089e2cd13f42",
+        "tests/test_policy_sdk.py": "26ab7191ac8d02661ce07728d1fe6201ca378d59a3b75607536bf12c27b4e49e",
+        "tests/test_policy_transfer.py": "673b7468466510b97601c16c787b832474063eb619e398a6df74ddaac3fafa84",
+        "tests/test_probe_cases.py": "90736ef25cd145babeff002ae49f711e53f2905be65760eaa8432b89641ecb6c",
+        "tests/test_repair_states.py": "9672900376f1fbb8864ed751405bcd9163708de7397731f71c255fb14f125c2e",
+        "tests/test_revision_policy.py": "ca3ad83d2a28c70d5338490afe5b4e7aa7df816501396ae1b593d7591f5e1ff2",
+        "tests/test_sandbox.py": "05e6b4bad691b89f6db8560844ef58e5541f13559495a99decb5d624faf6a894",
+        "tests/test_state_packet.py": "8a5a1716e331dd90259cf5b5ed35b598f6bb60e69e907a045a78c31951e11c42",
+        "tests/test_symbolic.py": "9632261f3d51976102c5e0b29e8db4f9c5b8220283f2586edf75f8f2441d90b5",
+        "tests/test_symbolic_diagnostics.py": "b54f8dbd3a6c95606254a8a86d879f21b583ab4f9f050b65b5e79d64c978cf1e",
+        "tests/test_symbolic_probe.py": "ff91ec2aa46d27892e4b7eb2519ddf521f8b35009db63fe824b58a1b942c49b4",
+        "tests/test_two_stage_agent.py": "a000410d09891532bbaf2f9750c1cf48e9b698242966a199a9a12437579cdac5",
+        "tests/test_two_stage_analysis.py": "68fdec5325de506909d6e82c458e213f145291b4065b5254013c9bbb119eb373",
+        "tests/test_two_stage_audit.py": "90ab2323966720cda650449209feb85e309aa6cc8c1f544431c02ebbee86eca9",
+        "tests/test_two_stage_cases.py": "c4e7b978258b4163a7c0ddcfd3b8bd1c0a4ddda48f25aab07427db78ca4b937a",
+        "tests/test_two_stage_core.py": "d17a2a4079ba7a91bc57790fd6e9c29c9770334c1454d60c4a544b6f8164bdb9",
+        "tests/test_two_stage_runner.py": "795318fd507e52d2348c4002140d86caac955763a4c86736c3790da9a7759eb0"
+      }
+    },
+    "server_sdk_tests": {
+      "python": "3.12.14",
+      "platform": "linux",
+      "tests_run": 87,
+      "passed": 87,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 5.117,
+      "output": ".......................................................................................\n----------------------------------------------------------------------\nRan 87 tests in 5.117s\n\nOK\n",
+      "skipped_tests": [],
+      "tested_files_sha256": {
+        "rsi_eval/__init__.py": "34dbd6e7bd04ecfe30cd28a01a30c83ae9dba715fe5af2cc701eadd10605de12",
+        "rsi_eval/checked_agent.py": "cb330f9965c4751b61a3012b3e37a2659d8835ba9e2b87b9b97a3bb44cdc454f",
+        "rsi_eval/checked_controller.py": "4ed37d182b2eb942157e38b7e1b40174c869c2406c3ebd0b2f43f18a4d1d1b06",
+        "rsi_eval/compact_agent.py": "aa412918f30d875b23f29d7388564116edd69c8e84c93fdb4d42f38ac6dce02f",
+        "rsi_eval/compact_controller.py": "fe3a569e64fc2c6dbf69d7c7ea3754a89cc62a01425b54b3a566cd8a7ec94d00",
+        "rsi_eval/diagnostic_controller.py": "81f29500c93af8331b92ccd28fbff6e136c4537fd6c4857b70004b95337f4521",
+        "rsi_eval/evidence_checks.py": "82c9ab42eaf966e16569363733104655abdabe92f3ae23e96ae3716b8fd715b5",
+        "rsi_eval/evidence_ids.py": "65ee8c174a346d41f27978acc0e8dece46b2f909c707683fb584a7524a3307c8",
+        "rsi_eval/executor.py": "7fae8f15dbbdf74858b527a09f13f0afb639b374eabbdcbff8c8bfe19deedfa1",
+        "rsi_eval/grounded_policy.py": "871ed17c30af0e086e97f94126b0f8a25bfc78a7985b3d435c871b159625a386",
+        "rsi_eval/grounded_policy_agent.py": "3a9fad0d5df756b2916ec93b4af0816efd3a8b9f031f5939645315d850ac8d92",
+        "rsi_eval/grounded_states.py": "16867b0497a91e60eaa3d444430af7a03758fc37e0f9da9fdf7ef0684f4251dc",
+        "rsi_eval/inference_cases.py": "392ae204bf58da38a20d02eb34412d055955965616a96e09202f39fc643145c2",
+        "rsi_eval/inference_policy.py": "27f1fb2fd0f80f92ed2cfc88bb5243305fbbcea8743b31f4942d4f59f0fb9f9b",
+        "rsi_eval/inference_policy_agent.py": "fd7d5856127d6514b38e9d14e4db82c9f29b5b1e31519d582a74bf2d49ace673",
+        "rsi_eval/openhands_tool.py": "00612b5b7503bcd9016c9365897d45cbdac4f4e9ff21fcf1b82121cb3a24c29c",
+        "rsi_eval/pilot_agent.py": "280aac8dd405e22e77b59033fee848d4255426ffb3fb41826a064b557d375edc",
+        "rsi_eval/pilot_budget.py": "b808b951ed6d1ddc62725c4c4b4c05db93c977c8e82e9b5cb405e36ac628f330",
+        "rsi_eval/pilot_controller.py": "718861605f050fba6cabe84adfcead53d689701c3a39f0e03c9b6139383a7c87",
+        "rsi_eval/planning.py": "15a382c3081f964e51e4818bdec3aebdc26a0b72e1cd02831fefd06319050ef6",
+        "rsi_eval/planning_diagnostics.py": "03ef4f361887d8d5bd4d3945e8f87852b00266b16a1358a7079f8822d0ffd8d7",
+        "rsi_eval/planning_probe.py": "6205e1db6a8f709b1dea486beaf595860b1139b65df7db06104fdf05e8ea2515",
+        "rsi_eval/planning_trace.py": "b2c67ef8d2d774826cc7930357ca20642a87c3548a7135842a95d75014bd9023",
+        "rsi_eval/planning_worker.py": "457d059c0e1cb258d9bfa1e7051d0ed00cc5849931ea072e7ea43ec3261f4be9",
+        "rsi_eval/policy_agent.py": "ad7dd9f050de5075a27c47a5a3667fe3e5db236a28063b2bb60382346ac46009",
+        "rsi_eval/policy_cases.py": "7fa5fb1a2526f5f20443766e59da70126859e9c87e243fa0df066af9b1558967",
+        "rsi_eval/policy_transfer.py": "bf04ad550dfb2c14c20ffad4a6a5227f1fa3298967138876fd8f2e96736df3c7",
+        "rsi_eval/probe_cases.py": "b66587320f9f42e1665ca30c61de032c3d3255495de830d0215fa5f7dc5a4f16",
+        "rsi_eval/repair_states.py": "e6ac9a037ed2b0f62fff48792124835f67bf5ead93fb1614694c38ecf7dd00ba",
+        "rsi_eval/revision_policy.py": "e7f03948527d8fa305a952bb792a3e053785e136b891b5f6ae62681e0ad6fb63",
+        "rsi_eval/sandbox.py": "8fd1a4fb149c7632b4e9ce2af187c074633c800a4e8d427eb3b3467e4e77203e",
+        "rsi_eval/state_packet.py": "36341aad849c7d50184286b24a5b9566638149f599ac397138c3ae351986de8c",
+        "rsi_eval/symbolic.py": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58",
+        "rsi_eval/symbolic_diagnostics.py": "60e76a1f71440fd966cad6bcedb3c9b5cb943723e75767659b8c80c2a2357e29",
+        "rsi_eval/symbolic_probe.py": "dcc406138b069aa0866c7e4421af5b4a2ccdd5c78248a96bf6f8c67a5d949f03",
+        "rsi_eval/symbolic_worker.py": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca",
+        "rsi_eval/two_stage_agent.py": "e6f5040aa776707f5331568f6fd698155bd9a53d4d426ba5fc5a565acb5ea0f2",
+        "rsi_eval/two_stage_audit.py": "2cd80220dfa22527eca9f0ab0e51cad5f445e39164aba8b13676a8d3405b5057",
+        "rsi_eval/two_stage_cases.py": "19b9129de70b2e856b019b78732b380c33047c2a449672e30aa042b68308cdce",
+        "rsi_eval/two_stage_core.py": "3c02942206077a8fdde7cf404f2ab6db231520c5a25915813cb88f00a057f4f8",
+        "rsi_eval/worker.py": "f451771c60d0f1cdebc597387ed7896d119ab274c05f3e7faae5cb9d22692e4a",
+        "scripts/analyze_grounded_policy.py": "a3bfbbaa7bd9cde8dbaa7e27dafcffd97036f3cb1777d9a6fc12aa717f2fc7b8",
+        "scripts/analyze_inference_policy.py": "570d7be3f2369469c8a8bcd3a188376e1b527400f277262e839e0c07937ff8b5",
+        "scripts/analyze_intervention_probes.py": "f5e4d817c45155c24b6de2edd50e2069b5111abee2233a4c1560fb1511e8e0ab",
+        "scripts/analyze_paired_repair.py": "6232b80470356d3bf3f40b56a4a8c97c7219922bf5d86c5e166aed0a5f6c77ea",
+        "scripts/analyze_policy_transfer.py": "4cb6c6d9a9a029247f650fd55a56fb093d957e8455c2f9a22f58ae71e189add4",
+        "scripts/analyze_two_stage.py": "d19763a4c248e6af7e98ec21ff9389c9fed5d01688cfab386099bcce05770870",
+        "scripts/canvas.py": "2b75eb3a3aaeb68c9f41feeda67184240c655d9091d248b69c173537623f14dd",
+        "scripts/check_diagnostic_observations.py": "80923dbb96c684528a23b7f71906cacd7719da0804e7ab6c565fcfae41a9dd76",
+        "scripts/check_minimax_connection.py": "93e505338416403fa98685e9f6aa3ac64afb269a40e16a35754964d6b352a15c",
+        "scripts/check_openhands_evaluator.py": "a1fd37b08a9f95da9ff2372f85484793b99d551077c52ea32f12f3af1968946a",
+        "scripts/check_openhands_offline.py": "f9576a4977e728834916f1680952a14ca503cd7dafb617ed1742f540ea09cdb5",
+        "scripts/check_planning_data.py": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547",
+        "scripts/check_symbolic_data.py": "81243ba1384a743120c6319b178a68091d6b99661f815b9c015cc6c3de80c5b0",
+        "scripts/check_task_executors.py": "21e6ed7ba3bd4af697c034be717c16725c9866cf7f067e51d53f3972d3183e99",
+        "scripts/configure_minimax.py": "30489303e66a2209d04754a51baa9e182eae9208497d7edcd19e387aae75fbe0",
+        "scripts/evaluate_candidate.py": "573301501ec13a5bb8f7a92d2474d31cfb723e0bc7137e76c0449b29c14075d1",
+        "scripts/prepare_task_sources.py": "3bf18c0cff5f19e97c07c24551ba5010ba2f9acbc348359fdee036b5554462d1",
+        "scripts/replay_checked_history.py": "497ebc41e4953c538dba55d559afae375792508d0330b5740340af9ff2e4adf6",
+        "scripts/replay_short_interface.py": "20ecb7d79665ca471d09f77562b0f1bf4a51aafc0ad548ff0e293c8da2795f14",
+        "scripts/run_agent_pilot.py": "9700eca3527b2caa20c59c09c5b2c4f228cc4e39355812b708978e55463e5a09",
+        "scripts/run_checked_feedback.py": "1179f6bf6c322a985165a9a1d56e01344d80fe6d4f9e2bb777ab4ca0bdf288b8",
+        "scripts/run_diagnostic_comparison.py": "579c622aa33bb769e6c24fc8db5f22be3458446cad88bd66ac83443893040b91",
+        "scripts/run_grounded_policy.py": "41549cb122bc0650165b67f550a949825b3cf3c821502770b3a52fe4743d311c",
+        "scripts/run_inference_policy.py": "294b9c31e8b4310153c520352fef9383cba9d1c48712ba5ddd4f1ab99ef3b709",
+        "scripts/run_intervention_probes.py": "ae9ee38d12b21a71c3533018d4a3a093e351e79d34b21f8e5c7a864b03860d74",
+        "scripts/run_paired_repair.py": "56f04f1789f75f3b4d02cb7f7f480406b1ef1cbef57359ea2b171d6eb3be774a",
+        "scripts/run_policy_transfer.py": "eb6ab0a48241c31bf3f5c6b6b244387dd40833df66bead1301653faa6425d2ef",
+        "scripts/run_two_stage.py": "4638565730e42b67ab1aaaa9e8f40a64ee6cbdc2383241131108dc31e60bfba9",
+        "tests/__init__.py": "827da4ed1cc1b29d67a8dff5c61cc6927db60dd92cb3f9e0674a82fd1582f722",
+        "tests/test_checked_controller.py": "4592ed7929ae4dd4279b6ab37a5daf17d3fb46852255658de6dc72c9d5b39052",
+        "tests/test_checked_runner.py": "bb6fbf5f2e25f6a5c9bba25c8e0ca7d1c762d7ec13389f9757f3850fca5330f9",
+        "tests/test_checked_sdk.py": "ebfd566b489a374e6feae986d16f4a2201ff7e90471db1e40aaac91eb1321f4c",
+        "tests/test_compact_controller.py": "97aae5b5ad346ce237a161c589f434e84999d770d7b203cc9d4ee6316141e820",
+        "tests/test_compact_sdk.py": "420bdb0be693900ea96d53270ab4019dbc33ddb630f1c2b0dad247b4aba4ed4b",
+        "tests/test_diagnostic_controller.py": "b83bf921d9f3d3638614cbc3453bf32b5852ad96d52fed0160faf4113fef7168",
+        "tests/test_diagnostic_probe.py": "a3f66521f0b333c360547b02e04e75a97fdb67fc54706d63af54edaa064a934f",
+        "tests/test_diagnostic_runner.py": "fcfb82bb4a452e69300276d1044cc8d388ae663721b0b1ca3b64cbfa28b9c55b",
+        "tests/test_diagnostic_sdk.py": "7e096f472fd0cac94b7d9a11c8e7c4583fc812111df73335f3369298f65c8df2",
+        "tests/test_evidence_checks.py": "59cea9ff24b0ac5a9a599fbf340542143b28b51356533e43dc0f0c162f8e2ed1",
+        "tests/test_evidence_ids.py": "f0beb30b5cf25ae5b0a680fcb288f99c90e3033a7d200272e017974ad2f761a9",
+        "tests/test_executor.py": "59abd5ce10e50ffbf1ecdf73711569c0d20c32b92d0e74f7c90e7671b7135570",
+        "tests/test_executor_diagnostics.py": "81948714bea2f7309525ce5fa7b90db5892c3a8657ebdf382ed47fc814e20248",
+        "tests/test_grounded_analysis.py": "aa2d9d616d3a7d982202493b7a94f4c035a7a52d76096cbdf8a944ce0f5d3f93",
+        "tests/test_grounded_policy.py": "8ed6fe320c71c90c3314d3e23b42dc9efed7cd30b6fac159d894efaa4e08fe2d",
+        "tests/test_grounded_policy_agent.py": "5a5ce8e6ffea2d6fcb537f37205485971b05f251c3c0cba1c35133e37e8a2106",
+        "tests/test_grounded_runner.py": "bbe8eab30a6d0c6f1434585d745699ca270cb87ef6430203913349a0c9be2cdf",
+        "tests/test_grounded_states.py": "7c50c144f79e852b4e6cc18e9cd9e870f983644e0d807bfa503adc5f6d2aecb2",
+        "tests/test_inference_analysis.py": "e0328563057a098beaf6877843d142e3565db20d357938d61d57adc4f9b165e2",
+        "tests/test_inference_cases.py": "a58cc279634b624820f6deabcbded2c164d42bf890b3867201ff806325609a40",
+        "tests/test_inference_policy.py": "4c52e3829add35c0e6f04eb670ecec1984da4b4dc53f63838ebb3618e0bd23f1",
+        "tests/test_inference_policy_agent.py": "ecc0da707bce87029a75bf4ba72afb154969b43a7266b5689b8ddc63c3bb4053",
+        "tests/test_inference_runner.py": "87954ebfc67b229577119b756748518c03a95c9c62092e88df295b31e9c68509",
+        "tests/test_intervention_analysis.py": "52d0f55dfd354feab1414204b9e26f63036913a4e0703962e99aa5be63e01b93",
+        "tests/test_intervention_runner.py": "0c564e9f6b7ce4432fc528e6328781d230bda03e0a5721b7b9ded4fbfe76a387",
+        "tests/test_openhands_tool.py": "d2322923116a736aeabdf1c92ca15de52275f2edfc65493dc9b68f7e758229d8",
+        "tests/test_paired_runner.py": "c096e9c1113d91b4b4a0c158f5d4a541a5b7aaaa9e8c64a8aaf5ba0535d69187",
+        "tests/test_pilot_agent.py": "3a41cb2ff4f8f32d722060085bb98ad87e29001b9047ce22a7f21a84bceb4311",
+        "tests/test_pilot_budget.py": "62940739418c612f910376048642a31fd01f33398e895507d41bd0b4bb8225d3",
+        "tests/test_pilot_controller.py": "75562be4f1a656ffd56bf5c210fec03b6e7225f6d71a0c0cae40fa5f1f4ea1c3",
+        "tests/test_planning.py": "9e68e3094c32f5675de472ff5a8233002f366563bece9f427d2fdfa71148a129",
+        "tests/test_planning_diagnostics.py": "37fd0497050965f4b077ef954725f1f96689c64ff0946da31fbb54c622f273ed",
+        "tests/test_planning_probe.py": "16b66323ee589f7b2ab3a2d09773525e388e26ec64d107c266349daeddff9382",
+        "tests/test_planning_trace.py": "a39dab64654d1e4a055ea11223f23f617500fb26e08dfa54838e3d544adeb25d",
+        "tests/test_policy_analysis.py": "a5dbd990d8acd9fbdc9c08ef258b03f32cb41784341faea9cf5649e136bcdcf8",
+        "tests/test_policy_cases.py": "924a4d4e479f40e6493bc2010071a527a8f487a4d9a9743ad5c4a185e67c6d9c",
+        "tests/test_policy_runner.py": "7511e1198f43dc421c4c1aec1f059da9c3724185a77ec78ba796089e2cd13f42",
+        "tests/test_policy_sdk.py": "26ab7191ac8d02661ce07728d1fe6201ca378d59a3b75607536bf12c27b4e49e",
+        "tests/test_policy_transfer.py": "673b7468466510b97601c16c787b832474063eb619e398a6df74ddaac3fafa84",
+        "tests/test_probe_cases.py": "90736ef25cd145babeff002ae49f711e53f2905be65760eaa8432b89641ecb6c",
+        "tests/test_repair_states.py": "9672900376f1fbb8864ed751405bcd9163708de7397731f71c255fb14f125c2e",
+        "tests/test_revision_policy.py": "ca3ad83d2a28c70d5338490afe5b4e7aa7df816501396ae1b593d7591f5e1ff2",
+        "tests/test_sandbox.py": "05e6b4bad691b89f6db8560844ef58e5541f13559495a99decb5d624faf6a894",
+        "tests/test_state_packet.py": "8a5a1716e331dd90259cf5b5ed35b598f6bb60e69e907a045a78c31951e11c42",
+        "tests/test_symbolic.py": "9632261f3d51976102c5e0b29e8db4f9c5b8220283f2586edf75f8f2441d90b5",
+        "tests/test_symbolic_diagnostics.py": "b54f8dbd3a6c95606254a8a86d879f21b583ab4f9f050b65b5e79d64c978cf1e",
+        "tests/test_symbolic_probe.py": "ff91ec2aa46d27892e4b7eb2519ddf521f8b35009db63fe824b58a1b942c49b4",
+        "tests/test_two_stage_agent.py": "a000410d09891532bbaf2f9750c1cf48e9b698242966a199a9a12437579cdac5",
+        "tests/test_two_stage_analysis.py": "68fdec5325de506909d6e82c458e213f145291b4065b5254013c9bbb119eb373",
+        "tests/test_two_stage_audit.py": "90ab2323966720cda650449209feb85e309aa6cc8c1f544431c02ebbee86eca9",
+        "tests/test_two_stage_cases.py": "c4e7b978258b4163a7c0ddcfd3b8bd1c0a4ddda48f25aab07427db78ca4b937a",
+        "tests/test_two_stage_core.py": "d17a2a4079ba7a91bc57790fd6e9c29c9770334c1454d60c4a544b6f8164bdb9",
+        "tests/test_two_stage_runner.py": "795318fd507e52d2348c4002140d86caac955763a4c86736c3790da9a7759eb0"
+      }
+    }
+  },
+  "distinct_server_tests_passed": 701,
+  "offline_sdk_real_case_preflight": {
+    "kind": "offline_mock_preflight",
+    "tests_run": 52,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "provider_network_calls": 0,
+    "candidate_executions": 0,
+    "real_cost_cny": 0,
+    "fixture_files_copied": 40,
+    "integration": [
+      {
+        "case_id": "P-format-missing",
+        "probe_registered": true,
+        "revision_finish_count": 2,
+        "common_full_request_equal": true,
+        "probe_request_bytes": 16322,
+        "self_request_bytes": 16808,
+        "checked_request_bytes": 17510
+      },
+      {
+        "case_id": "P-prefix",
+        "probe_registered": true,
+        "revision_finish_count": 2,
+        "common_full_request_equal": true,
+        "probe_request_bytes": 16044,
+        "self_request_bytes": 16522,
+        "checked_request_bytes": 17216
+      },
+      {
+        "case_id": "S-cubic",
+        "probe_registered": true,
+        "revision_finish_count": 2,
+        "common_full_request_equal": true,
+        "probe_request_bytes": 11089,
+        "self_request_bytes": 11562,
+        "checked_request_bytes": 12053
+      },
+      {
+        "case_id": "S-square",
+        "probe_registered": true,
+        "revision_finish_count": 2,
+        "common_full_request_equal": true,
+        "probe_request_bytes": 10553,
+        "self_request_bytes": 11027,
+        "checked_request_bytes": 11519
+      }
+    ],
+    "mock_provider_responses": 12
+  },
+  "run": {
+    "requests": 10,
+    "known_tokens": 49421,
+    "known_estimate_cny": 0.1683969,
+    "reserved_cost_cny": 0.8255142,
+    "sandbox_calls": 42,
+    "new_task_evaluations": 32,
+    "host_validations": 22,
+    "val_calls": 20,
+    "fit_calls": 10,
+    "predict_calls": 10
+  },
+  "archive": {
+    "version": "two-stage-archive-v0.1",
+    "runtime_commit": "cf4cf06798325fd179784e7d0857744f67d2c0f0",
+    "server_source": "/home/hanwen/Project/project/agent_RSI_demo/runs/two-stage/20261021-two-stage-v01",
+    "raw_file_count": 157,
+    "raw_tree_sha256": "bb8e830296e166eef4a28a2507076eb5d6a1c104873be90fab4a47ed8b784191",
+    "raw_files": {
+      "budget-ledger.json": "93c7b8c7cd2b109296a9526ab165f17f6995bbf95f4f4eafd93cf31c26b1a3ea",
+      "cases.json": "863c7ca73b2eca3fe6cb7b9fe38e262ccba10a36a61fffff7fae95fe8a106e95",
+      "config.json": "aa4445e0e6666c76d8adca52501ac5adf638dbac292bce3498c1df7d525859ab",
+      "execution-ledger.json": "85800cb2fb68b693dd720cddfa553c7fa8dc9b6e8095894d32111ead9447cc4b",
+      "phase-freeze.json": "5a817177c97ae6c31b7d04a1fc3381058b46cb9caedad8356aae61ab8676f624",
+      "probes/P-format-missing/feedback.json": "bca8cb8997459372836f3401e1278dcfa9dd092dc5e39c85ce9c5a2aa5ecc88d",
+      "probes/P-format-missing/probe.json": "8ebed33cc85bdc85298fd0f7030ae78983b10887c4fc9b5dfd325603f65d5b91",
+      "probes/S-cubic/feedback.json": "4601c9773b04f556f0df6789ac0074d8713c8b83bf5c196c1573f5711bd228dd",
+      "probes/S-cubic/probe.json": "1fb61d45f7347d5905c84de40d4adc7cfe6043b2755bdec5199e234ac2d9718b",
+      "probes/S-square/feedback.json": "e92f3f766a6cb0eab1de4576a1a911f634f8d26e425de9e9374684a0c07d8b74",
+      "probes/S-square/probe.json": "4b62edcde97c7ff87c436aa9ea4b6f05a833a6f999b0c0b05d06a7fb55377d25",
+      "registration-freeze.json": "40087334c2b370f3ea47371dfd74c1b0c060c6e1ba3ab3e9e60fa6242b4e60ff",
+      "runtime-freeze.json": "611ca2aa1f310c03d3097fb6414972a2ea07eb00f4f0a8547fcd470ed2225f9b",
+      "stage1/P-format-missing/attempts.json": "0ac0f6e5fe21a2c37f11ae9591d06127b8b23e5b87e75489b47d01eea74bcc1e",
+      "stage1/P-format-missing/controller-binding.json": "1269c40a2800e5fcfa7515d1fb80b896395f216b65233c8c6b449b3ac3fbbf52",
+      "stage1/P-format-missing/events.jsonl": "daedfe6de646ae4204953f30259325c61c42fcf3f3705be331c8a6b8b867d0c2",
+      "stage1/P-format-missing/registration.json": "ce50d8927aa7020941e4d4194a731f0fa16b360bd83177adfff3d65202caa2c5",
+      "stage1/P-format-missing/requests/input-audit-0001.json": "5459415b338b6b51d7c2d0e65e149a9b5955f0d14716b4e71ac0a5ddb75e26a5",
+      "stage1/P-format-missing/requests/packet-0001.json": "8c0d7bbd0b4f0f9305cdd9d8bf7f7bd4e92a666885d6b8a926a764f55a4287a2",
+      "stage1/P-format-missing/requests/request-0001.request.json": "d3a3bf7c02cf945ff5d369327aeb4058d221d76fa0cb17c263a22afca2e34fd0",
+      "stage1/P-format-missing/requests/request-0001.response.json": "5c9e755ef851b6c9e3fef657d6ae290244fd1cc0c1e46fac748f4b8f0fb2a75d",
+      "stage1/P-format-missing/sdk-submission.json": "638aee547a80440f53b7bf9ac70f31cd6be23090085dd424791160ca7ab298f1",
+      "stage1/P-format-missing/session-summary.json": "2d0aa1ac2daa85c312475130da3460cfd3979f34d148d6861370332f22000c62",
+      "stage1/P-format-missing/task-packet.json": "8c0d7bbd0b4f0f9305cdd9d8bf7f7bd4e92a666885d6b8a926a764f55a4287a2",
+      "stage1/P-prefix/controller-binding.json": "ac69fde9addea72526242c480c863103a9761fb6c3babec50f841df157c483d1",
+      "stage1/P-prefix/events.jsonl": "da74eee9ea83936fa87b248b6ea2ffefe351b4357d00dc5d1dbdb8870d6cb7da",
+      "stage1/P-prefix/requests/input-audit-0001.json": "b04bc1334cc9d8f21bb88162d99c32a06e26639a04b7d2c391b37fba3e29fbe1",
+      "stage1/P-prefix/requests/packet-0001.json": "65f185ea885727c4954ebd0d4621a45cf7918e9baeeb55fccde4260326a26582",
+      "stage1/P-prefix/requests/request-0002.request.json": "6ddfac13a4216f8a9074d2679a3e8e5d654f909535645b936a5f81cb5fc9ec15",
+      "stage1/P-prefix/requests/request-0002.response.json": "221b76a6b375a3f047a35f1421df74d60fd64cd6e9b8267e101c596c9f7609fb",
+      "stage1/P-prefix/session-summary.json": "5b5b6e81df193a85b58e0038a48d07c99b8303ca33660adb45967b15e6bbea65",
+      "stage1/P-prefix/task-packet.json": "65f185ea885727c4954ebd0d4621a45cf7918e9baeeb55fccde4260326a26582",
+      "stage1/S-cubic/attempts.json": "c340929dcdd78b5c7ed28be4fae750f674335b55a127a65c61fdeccf06540569",
+      "stage1/S-cubic/controller-binding.json": "ad7643a6aec81eb22c43a26f958a7b4e8bc7f4fd606df44a384cf1b689e6929c",
+      "stage1/S-cubic/events.jsonl": "9a71cb0837817c166a896beac0f4b4eae8402b2bc029e8aba2619c0db07bcd4d",
+      "stage1/S-cubic/registration.json": "424fe53f5492cc7fa6c8a5c107ed713070dacfe56aabc416d5b545af3d9b9eea",
+      "stage1/S-cubic/requests/input-audit-0001.json": "ac5cc3118106df6cfd5c0d867555bb491c3ee44084370719b3fd6cb2620985a8",
+      "stage1/S-cubic/requests/packet-0001.json": "a3f3559dac6cd8b698e0faded43742ee0e99cf50f22dc9f7a4773bd999dfe980",
+      "stage1/S-cubic/requests/request-0003.request.json": "586eff209ffff35ee8bbe477270793de0bd8597bb1b5a5bf0f8ea430f3861354",
+      "stage1/S-cubic/requests/request-0003.response.json": "749756ae83f7c43c8dd69af9c96193926fe45700603e5cae5e7d866e9a5434d9",
+      "stage1/S-cubic/sdk-submission.json": "37f57f514702aff73a4b34b6b8e58584438dba13ddfb04799af02c20564b5302",
+      "stage1/S-cubic/session-summary.json": "6dfb4c41e944dee6a92bcc8fc75b2ca7fe07b2c3b34391fc33e4df013c1a020b",
+      "stage1/S-cubic/task-packet.json": "a3f3559dac6cd8b698e0faded43742ee0e99cf50f22dc9f7a4773bd999dfe980",
+      "stage1/S-square/attempts.json": "e6f291070e8d43b247ad8c9b5aa98c56410147500c284395855858fe33286a2c",
+      "stage1/S-square/controller-binding.json": "5d74465ee1d4ac8f2367e7c935a0a97bf671baa04b6e878cef5f308d0a34c80c",
+      "stage1/S-square/events.jsonl": "8bf7b96be6377cbf7b2846d1ff258f279270c05161cb72649158c8dfa1321243",
+      "stage1/S-square/registration.json": "27947185631798d3bf0c8699c2461ff86d472c3d7bb1bc5843fae131523fd59a",
+      "stage1/S-square/requests/input-audit-0001.json": "d9a18b39b871167e321161d204eafcc047392c64cc5693150c020062b56421b2",
+      "stage1/S-square/requests/packet-0001.json": "40ea14e6677e2c44d2d1fe78be3610558a9ad654b796b428bda1ce31d864d7ce",
+      "stage1/S-square/requests/request-0004.request.json": "350f3588472ad6a2f5664b1bed5e49627ea71324dca2bef4e91a221bf69521f4",
+      "stage1/S-square/requests/request-0004.response.json": "08cbca74c8cd852a319142fa2c7466a0ca37b42704caa3ed018d476e8d1aaf11",
+      "stage1/S-square/sdk-submission.json": "c0f01c29b0c62a6832e6425e6a86e2d9153f5b13a523287343dd64f5aa9dc521",
+      "stage1/S-square/session-summary.json": "7d642cb0b58cb3880cd6df0200d5218fd5ffa659a30da7cf2f7c3cf08059bf9a",
+      "stage1/S-square/task-packet.json": "40ea14e6677e2c44d2d1fe78be3610558a9ad654b796b428bda1ce31d864d7ce",
+      "stage2/P-format-missing-checked/attempts.json": "54f37888ad8f6dc5fe8b4452abe60ad699bd346de05b41c096f847909cc53b0a",
+      "stage2/P-format-missing-checked/candidate.json": "db9b9f1472f3c32938520d6edd9ee9c1fa86d7a95ec3950e118f793cb7b5fc1d",
+      "stage2/P-format-missing-checked/candidate.py": "6c277f2e4c8b71166ecfdef261488522c6e3f6bced369fb357b821424915f1f5",
+      "stage2/P-format-missing-checked/controller-binding.json": "2059879cb55e9d74733cee6e3107262ed618071bb4dbb2f3ae4792b4c72bbbac",
+      "stage2/P-format-missing-checked/controller-summary.json": "1a38434f2db03ddc287e4c38a9daa2a89f368f62838c2c73db3470853a33a799",
+      "stage2/P-format-missing-checked/evaluations/evaluation-00.json": "0c5ac8503f6911c1f48372b2afc5f75f6d87a40348a68dfba8ce344e5e40e60f",
+      "stage2/P-format-missing-checked/evaluations/evaluation-01.json": "b47a90fd5b74c43f9df6194c37e21758d84fb5597cbc9da66f6089162aabb8ca",
+      "stage2/P-format-missing-checked/evaluations/evaluation-02.json": "41e55e4c4cf567647ac988046ef3de57d395918544033d3f7dbff46d55d872c8",
+      "stage2/P-format-missing-checked/evaluations/evaluation-03.json": "41c72f2248402cc76dbb450d28b1ca4a10ec1a3d640a555e5cdf113c29c16edb",
+      "stage2/P-format-missing-checked/evaluations/evaluation-04.json": "81431a9c3ce4d4a1873e9792a02652b8b193df9c39e9aa6bc3afe4f85d586bf8",
+      "stage2/P-format-missing-checked/evaluations/evaluation-05.json": "c51e24810c495eb1a33a2ef716668f771896d217ae0ff3d117b6ab2eeed81f69",
+      "stage2/P-format-missing-checked/evaluations/evaluation-06.json": "1e7a2cb272a2b65e3ba9577709459f15eefd21f0966ce1b70a6b0af4d427e05b",
+      "stage2/P-format-missing-checked/evaluations/evaluation-07.json": "24144728455b27b321750c9c16edcc937b179eb3c6fd40f1faaecd8348027523",
+      "stage2/P-format-missing-checked/evaluations/evaluation-08.json": "e054dea11e0bfe7a46616802e198e2a31e8b4b0ff2705c997fceff68f503f84b",
+      "stage2/P-format-missing-checked/evaluations/evaluation-09.json": "dea91476c219efcc4919a63dc7f240a45671045d346e71509bfc817f35241a6d",
+      "stage2/P-format-missing-checked/events.jsonl": "a536465acfc90cc0c57521077dae28ebefc04b51fca74a721c5458110c8aa888",
+      "stage2/P-format-missing-checked/requests/input-audit-0001.json": "2970e274ca247f2a65ad61730fa97ecd6b6b582c72ba0fe05d71f28511e9fbf1",
+      "stage2/P-format-missing-checked/requests/packet-0001.json": "7ef7fb7a2ffb2ccec3cef4c2ae127e74bb9ee0f9bd659f0cfe8c9ca0274fb95a",
+      "stage2/P-format-missing-checked/requests/request-0007.request.json": "a70a00bee23f99b8e034fc68e69740c66b902b107a54dee3e661d25c753c3637",
+      "stage2/P-format-missing-checked/requests/request-0007.response.json": "139c68ff4571cb30b4274e5c12e0927dc8912f30eef4a5b77ccf6f9f76a08228",
+      "stage2/P-format-missing-checked/sdk-submission.json": "632a5d16ac329b9d5cd2c5193cba24d1d0a735b8921fe1a05803272a8fedac7d",
+      "stage2/P-format-missing-checked/session-summary.json": "1ace1516ab9ad1ce5435d2902c1e5bcd19d08803421b6381f55dbe4e437724c0",
+      "stage2/P-format-missing-checked/task-packet.json": "7ef7fb7a2ffb2ccec3cef4c2ae127e74bb9ee0f9bd659f0cfe8c9ca0274fb95a",
+      "stage2/P-format-missing-self/attempts.json": "cd161c3d5a64661159a719231428e667b7296d2711d61bc5b542022d78f7fc63",
+      "stage2/P-format-missing-self/candidate.json": "8c65d42fc695aadbf5363b100353799f32e5541b6bcd5688634cb68527875d36",
+      "stage2/P-format-missing-self/candidate.py": "f289abcc14f30274a41d3c46cc18117dbf98e3a22f3e7e27efcfa22c1d98324e",
+      "stage2/P-format-missing-self/controller-binding.json": "2059879cb55e9d74733cee6e3107262ed618071bb4dbb2f3ae4792b4c72bbbac",
+      "stage2/P-format-missing-self/controller-summary.json": "8c2ce6a428b117a24d6ec21aef9a342fc11edb0df81f3e18675c626191725945",
+      "stage2/P-format-missing-self/evaluations/evaluation-00.json": "f1cd3880455657be17b952f4cf36b6143b58eac65c4e9fb1a4e6f08facb01dc4",
+      "stage2/P-format-missing-self/evaluations/evaluation-01.json": "f95179ebab205830062d4e30565f7ff88fe209089ce9bf5372637f634943e1cc",
+      "stage2/P-format-missing-self/evaluations/evaluation-02.json": "b357af4792c81efb8a2186a9fb5055bbb2daccfc570cdf568390378786c747a5",
+      "stage2/P-format-missing-self/evaluations/evaluation-03.json": "29d99193c3885033b06aa85cbfa28c0a250ffb6021463b96302a53aab3455342",
+      "stage2/P-format-missing-self/evaluations/evaluation-04.json": "915d2894c0a7ebad8f6d5192865f961a918046e252088da5cbfa07cdc63b01ec",
+      "stage2/P-format-missing-self/evaluations/evaluation-05.json": "c6d5bdc855bf9f8d05990023d27ac67f4723101abd9d59b6317fa3e9a9278c49",
+      "stage2/P-format-missing-self/evaluations/evaluation-06.json": "0a63e24833557e789dc560bce8b0295b2214b159ced94f75f338cc44e7169925",
+      "stage2/P-format-missing-self/evaluations/evaluation-07.json": "6f2316f320c25c2bd089a99099f8ef189de4abfe05bb5c303b99d9e4412021e8",
+      "stage2/P-format-missing-self/evaluations/evaluation-08.json": "1b061b7beae817b680ce625deda02f892880fe7a23a269df6686375b1f3668e6",
+      "stage2/P-format-missing-self/evaluations/evaluation-09.json": "e07ac0a66f3ff4169e18ac1210e75c01583a9107cafad5c6d23d70f40e3e6056",
+      "stage2/P-format-missing-self/events.jsonl": "87df10afdcfd2267ed6db921e5f61ac479de3cc64335e578c0ae2009e78b2ba9",
+      "stage2/P-format-missing-self/requests/input-audit-0001.json": "bfcf74b89d08b56d0e3530ba71fbe1e88ba404e3c724659c098cb0a7d18016ff",
+      "stage2/P-format-missing-self/requests/packet-0001.json": "45a404ae3633a9aef0b4fd581698fceb285682045606fc10eecce371dec96a66",
+      "stage2/P-format-missing-self/requests/request-0005.request.json": "f0c9f030b4ec835bbf29e27729673c014c7a16894181a425d339363e28ca000c",
+      "stage2/P-format-missing-self/requests/request-0005.response.json": "83f675d30fc1a3ab8e61fbc64156f8f7ed4affbb76909a4f89c9d8cff990c4c6",
+      "stage2/P-format-missing-self/sdk-submission.json": "36d95dcccf0696deb4d90b5d1a36a823c7f7564e45b1932ca40e3ad501ea1ee0",
+      "stage2/P-format-missing-self/session-summary.json": "aa17e235b3f1bba9ca1750746bc93b6145369ccb2a0ee09904019bb4b86e6fac",
+      "stage2/P-format-missing-self/task-packet.json": "45a404ae3633a9aef0b4fd581698fceb285682045606fc10eecce371dec96a66",
+      "stage2/S-cubic-checked/attempts.json": "18db5bdcb6d2b35daa184236325896ffe5c6e3ade371fb63651a954201260a64",
+      "stage2/S-cubic-checked/candidate.json": "4f39654278669d302e2b8385b00b9a1e1b55160abb6442b60c5e4c3c3fbd4603",
+      "stage2/S-cubic-checked/candidate.py": "9d07bc8cbdcd92639481d87ccdd2be7cd80315ce8c7156333ad1bdf1581119cd",
+      "stage2/S-cubic-checked/controller-binding.json": "673ca5adf2d449b3306bffec878dcc3ad3af909e8448698fd8d845c95df1f318",
+      "stage2/S-cubic-checked/controller-summary.json": "0261cfdb704af87fc7e91e67c544c5f9e19705bdf3bbe80b8a8bf93b551bf83b",
+      "stage2/S-cubic-checked/evaluations/evaluation-00.json": "8ab7111fcca8357e8128ad42ece0c1cf98cf93f3ffbb34c379dc25f455f55335",
+      "stage2/S-cubic-checked/events.jsonl": "c06a286fa9e46cb6a436bcf120414207e67cdc85fecde08e592b362d1f13d40b",
+      "stage2/S-cubic-checked/requests/input-audit-0001.json": "45cfdf4780fe589f1e7c43d395a5c23d1cfaa9aa0586ffbe77e4a2e29659b365",
+      "stage2/S-cubic-checked/requests/packet-0001.json": "939a3f90afe927888706abef3a282b62c75099dbe9c461205fd84e5815181f14",
+      "stage2/S-cubic-checked/requests/request-0006.request.json": "3f2d7d429afdb3a1484d8fdfc799d95b561478c981d3b16e92a4e78762e86326",
+      "stage2/S-cubic-checked/requests/request-0006.response.json": "087b7ac473e5ed8d6aae43a0fee43e178f924e16b3758936c971d9597be152ca",
+      "stage2/S-cubic-checked/sdk-submission.json": "f1b431edd8b7e55066c44f3252852919ac8caf9ca03573ce0266aa31a080469c",
+      "stage2/S-cubic-checked/session-summary.json": "d6a2c7fbcbb526da031770110775d7394a6a565c041794bafdbd33e8c9595217",
+      "stage2/S-cubic-checked/task-packet.json": "939a3f90afe927888706abef3a282b62c75099dbe9c461205fd84e5815181f14",
+      "stage2/S-cubic-self/attempts.json": "6c0fd5bf44220689645282e72e7a349509ace73666fb4c77ca9a406be270c33e",
+      "stage2/S-cubic-self/candidate.json": "f90135b28b8efb292f96e8aafad819ee1d5ee9600db4e7135189f70794a49626",
+      "stage2/S-cubic-self/candidate.py": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+      "stage2/S-cubic-self/controller-binding.json": "673ca5adf2d449b3306bffec878dcc3ad3af909e8448698fd8d845c95df1f318",
+      "stage2/S-cubic-self/controller-summary.json": "c335b21ece631b5937fed1ce2595536510add65a43b48763fb85d7499c7d86b3",
+      "stage2/S-cubic-self/evaluations/evaluation-00.json": "7f350aba18363a6797aeda9bc9d15f5aed04f4ddae11695329ed234cab883844",
+      "stage2/S-cubic-self/events.jsonl": "362904ca70289adba3ebe4757b315feef8a164da0f0430748c47deef2d0663b1",
+      "stage2/S-cubic-self/requests/input-audit-0001.json": "68f61a26a8de8302d0eadc6807162e62e2303d1b0ad5780466d2958013e42edf",
+      "stage2/S-cubic-self/requests/packet-0001.json": "ba34fd63415bfdfda8453e87ace794210659c713c353b083a089f39a624fd7d6",
+      "stage2/S-cubic-self/requests/request-0008.request.json": "fe69e78fec5503f25c30dce8f8cabcca3884543c1bfa98432669b047e832555a",
+      "stage2/S-cubic-self/requests/request-0008.response.json": "7465b97f5f138debae45eae7d0115227a56289746e21b1ab71fbdfa332fe7aa5",
+      "stage2/S-cubic-self/sdk-submission.json": "3cfdf5beb9ceb1cfdbd6562b561a8ef52bb870800ec4f6407a3363ffe874f6db",
+      "stage2/S-cubic-self/session-summary.json": "3e6ecd68c6fcfdb7e052f0643bb1b58a28de9d0a6657754b96c5f2bc5b957cd8",
+      "stage2/S-cubic-self/task-packet.json": "ba34fd63415bfdfda8453e87ace794210659c713c353b083a089f39a624fd7d6",
+      "stage2/S-square-checked/attempts.json": "c1381e863e332583e8d4d88d07a5b58535ff9b28a1b5f9db802516c5dd87e492",
+      "stage2/S-square-checked/candidate.json": "13ec1f41d3b014bd747e3e64b326cdfe846c0c4854b20633fc4521f418d1ab01",
+      "stage2/S-square-checked/candidate.py": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+      "stage2/S-square-checked/controller-binding.json": "072087624c625c0c9976f12a24ad4195b117eebc8ba1fe0b39bc28bfe65e1081",
+      "stage2/S-square-checked/controller-summary.json": "c71e9f6aaa56b7566a584635d000efb381c209a4999b9292d97c792dac03b261",
+      "stage2/S-square-checked/evaluations/evaluation-00.json": "bbf00ac200b04c7a0297adbbeaf48562ea3f6bbb280a93163217169d700a5a82",
+      "stage2/S-square-checked/events.jsonl": "39587823fd5d2e7599d783e8e698fe5cb72e0ff2095e82704e7e79c69cd331fd",
+      "stage2/S-square-checked/requests/input-audit-0001.json": "49f5ac3cfda8b475734a4f1ed9a15e6532ec01deca0a5a5158d6fd832d9de3b0",
+      "stage2/S-square-checked/requests/packet-0001.json": "51d4832bbae690dc975c36f0d974d0b6aa20b8310fcb186e5d2b2bd3e61f19a5",
+      "stage2/S-square-checked/requests/request-0010.request.json": "397d4fa254be0dd6eaceead61cea3e925ca73f2a856c6bf7f51aaa35f49066df",
+      "stage2/S-square-checked/requests/request-0010.response.json": "661c48371afb0ad972a8554314ef6b3f39ce63706d3c98217859db9e3820f623",
+      "stage2/S-square-checked/sdk-submission.json": "23f010a64abd25fde3d3d791711d516c35a0a1ad0b1edeabcd8858dad34fb2bb",
+      "stage2/S-square-checked/session-summary.json": "9675d6a5ef05742b62601f097c4602f94aaa0b286bc5420e6a8fb00b7dc3714c",
+      "stage2/S-square-checked/task-packet.json": "51d4832bbae690dc975c36f0d974d0b6aa20b8310fcb186e5d2b2bd3e61f19a5",
+      "stage2/S-square-self/attempts.json": "f4ed4091e7728ccf3eff71c8fbbcd318bc7dcc4dca4f4fd313c288df40382a96",
+      "stage2/S-square-self/candidate.json": "aed7a81bce1f92c26d7fe7fb7fcefeafcd1848e69e4381626472a552f4dcf014",
+      "stage2/S-square-self/candidate.py": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+      "stage2/S-square-self/controller-binding.json": "072087624c625c0c9976f12a24ad4195b117eebc8ba1fe0b39bc28bfe65e1081",
+      "stage2/S-square-self/controller-summary.json": "36545d8b15be064341949f81c451ddb55322d5c9a3d90a4f1783c0ec904ef431",
+      "stage2/S-square-self/evaluations/evaluation-00.json": "fbf1d10efe9df7611dbfc7d77b9aaeaca348816fd864c2baed86731c5003144e",
+      "stage2/S-square-self/events.jsonl": "112238e4a707b1a8838e11819814934f9af069e3e56901a226de1e6e371b5347",
+      "stage2/S-square-self/requests/input-audit-0001.json": "cd6f5323cb837a60a4fa933af87e508b201ca94f2d14eb6ca2fdfb63607d3bca",
+      "stage2/S-square-self/requests/packet-0001.json": "dcc7afffc002e4828deb8d9d826b8f50cd8b21be3cc3873f790290215631ad88",
+      "stage2/S-square-self/requests/request-0009.request.json": "5743eed0c9b24f3341589a02fb13ec005ed1a52afc97f1c185cc64a6006cfef5",
+      "stage2/S-square-self/requests/request-0009.response.json": "1d1a427fa4ad8ffac6ea70dc6721554fff21e1a1660c327d4fb610983d116cea",
+      "stage2/S-square-self/sdk-submission.json": "e738f5c1b73eeccd6721f30b00799f22f1fbf130c5d42b9e8a611890e421ee97",
+      "stage2/S-square-self/session-summary.json": "463438dc39a1b792eb6e3f99aa1e0d558f5f0065db3a6656406ac10b321319b7",
+      "stage2/S-square-self/task-packet.json": "dcc7afffc002e4828deb8d9d826b8f50cd8b21be3cc3873f790290215631ad88",
+      "summary.json": "cb76187a7d8738ca49862eb0fab8a7d0b76f1d0b17521a1fb691752aead0d9ed"
+    },
+    "copy_mode": "byte_identical_all_original_run_files",
+    "model_requests": 10,
+    "new_candidates": 6,
+    "missing_registration": "P-prefix",
+    "historical_artifacts_modified": false,
+    "note": "Copies include researcher-selected historical compact views inside cases.json; these retain their original derived-view provenance."
+  },
+  "server_audit_passed": true,
+  "local_audit_passed": true,
+  "raw_files_byte_identical": true,
+  "negative_audit": {
+    "cases": [
+      {
+        "case": "config",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Frozen configuration changed"
+      },
+      {
+        "case": "runtime",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Clean runtime anchor"
+      },
+      {
+        "case": "registration",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Frozen phase files changed"
+      },
+      {
+        "case": "probe",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Frozen phase files changed"
+      },
+      {
+        "case": "source",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Candidate is not SDK-submitted source"
+      },
+      {
+        "case": "score",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Recomputed score"
+      },
+      {
+        "case": "request",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Request payload digest"
+      },
+      {
+        "case": "received_usage",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Received usage differs from ledger"
+      },
+      {
+        "case": "sdk_business",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "SDK normalized submission mismatch"
+      },
+      {
+        "case": "budget_summary",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Budget summary totals or fields differ"
+      },
+      {
+        "case": "missing_slot",
+        "rejected": true,
+        "error_type": "KeyError",
+        "error": "'P-prefix-checked'"
+      },
+      {
+        "case": "counts",
+        "rejected": true,
+        "error_type": "ValueError",
+        "error": "Nonnegative integer counts"
+      }
+    ],
+    "all_rejected": true,
+    "original_files_unchanged": true,
+    "model_calls": 0,
+    "candidate_executions": 0
+  },
+  "audit_boundaries": [
+    "Record/source consistency; not a rerun of VAL or numerical predictions.",
+    "One malformed missing-slot negative produces KeyError; it is rejected, not a clean diagnostic."
+  ],
+  "cumulative_research": {
+    "requests": 87,
+    "known_tokens": 739760,
+    "known_estimate_cny": 2.198868,
+    "reserved_cost_cny": 9.4846878,
+    "earlier_unknown_usage_requests": 1,
+    "excluded": "7 connection/debug requests and Canvas/other projects"
+  }
+}

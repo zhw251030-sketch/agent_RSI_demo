@@ -1,0 +1,37 @@
+{
+  "case_id": "P-format-missing",
+  "family": "planning",
+  "observations": [
+    {
+      "intervention": null,
+      "original": {
+        "error_kind": "operator_syntax",
+        "first_invalid_action": 0,
+        "plan_length": 11,
+        "status": "invalid_output"
+      },
+      "reason": "normalization_contract_unavailable",
+      "status": "completed",
+      "task_id": "spannerlearning/seed0/problem0",
+      "verdict": "unknown"
+    },
+    {
+      "intervention": null,
+      "original": {
+        "error_kind": "operator_syntax",
+        "first_invalid_action": 0,
+        "plan_length": 11,
+        "status": "invalid_output"
+      },
+      "reason": "normalization_contract_unavailable",
+      "status": "completed",
+      "task_id": "spannerlearning/seed0/problem1",
+      "verdict": "unknown"
+    }
+  ],
+  "probe_id": "planning_whitespace",
+  "scope": "two_public_prompt_instances_only",
+  "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+  "target_id": "public_pair",
+  "version": "two-stage-probe-feedback-v0.1"
+}

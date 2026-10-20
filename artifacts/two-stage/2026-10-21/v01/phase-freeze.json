@@ -1,0 +1,231 @@
+{
+  "registrations": {
+    "P-format-missing": {
+      "version": "two-stage-core-v0.1",
+      "status": "accepted",
+      "case_id": "P-format-missing",
+      "family": "planning",
+      "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "probe_id": "planning_whitespace",
+      "target_id": "public_pair",
+      "auxiliary": {
+        "hypothesis": "If the historical operator_syntax rejection stems solely from leading/trailing ASCII whitespace outside or just inside the parenthesized payload, the normalized plan should pass the same host syntax check, reach VAL, and validate under public STRIPS replay, yielding supported for both instances.",
+        "plANNING": "problem0: unknown; problem1: unknown. Historical observations report error_kind=operator_syntax with plan_length 11 and executed_actions 0 on both public instances, which is consistent with a malformed emitted plan string (e.g. stray leading/trailing whitespace or misplaced parentheses) rather than a search failure, but this is unverified.",
+        "planned_edit": "No source edit is planned for this registration. The registered probe only ASCII-trims whitespace outside parentheses and at inside payload edges of the generated plan strings, preserving operator/argument tokens, case, internal whitespace, order and count, and never adding parentheses or actions. This text is unverified.",
+        "predicted_delta_nmse": "0",
+        "probe_effect": "Host generates one plan per public instance from the bound candidate, then produces a normalized variant by trimming only ASCII whitespace outside parentheses and at payload edges.",
+        "rationale": "Prior runs failed at index 0 with executed_actions=0 and operator_syntax, which suggests the emitted text was rejected before any action was simulated. If rejection is caused by surrounding whitespace rather than wrong tokens/order, normalization alone should flip the outcome.",
+        "uncertainty": "The candidate's fmt() returns bare action strings such as 'walk shed location1 bob' with no parentheses at all, so the host's parenthesized-string requirement may be the true cause of operator_syntax failure. In that case the normalization contract cannot apply and the verdict is unknown/contradicted rather than supported.",
+        "uncertainty_note": "No observation of normalized output has been made; this prediction is unverified and unknown is not false."
+      }
+    },
+    "S-cubic": {
+      "version": "two-stage-core-v0.1",
+      "status": "accepted",
+      "case_id": "S-cubic",
+      "family": "symbolic",
+      "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+      "probe_id": "symbolic_term_removal",
+      "target_id": "param2",
+      "auxiliary": {
+        "planned_edit": "Unverified plan: delete the c3*x**3 additive term, set n_params to 2, reindex so params[0]=c1 (x) and params[1]=c2 (v), yielding the supplied parent source structure.",
+        "pre_verdict": "planning: problem0 (cubic stiffness needed to explain structure) supported; problem1 (residual structure implies missing higher-order restoring force) supported; symbolic: \"delta_nmse = NMSE(c1*x + c2*v) - NMSE(c1*x + c2*v + c3*x**3)\"",
+        "predicted_delta_nmse": "0.0",
+        "rationale": "The linear parent is reported to leave most of MSE as unexplained variance while the cubic candidate reports NMSE ~0.095, so removing the x^3 term should raise train NMSE substantially, far above epsilon = 1e-05. Predicted magnitude is not confidently estimable; any positive value above epsilon supports the claim. Residual bias in bins is small (~0.003) relative to RMSE, consistent with a genuine structural improvement rather than a bias artifact. Caveat: historical metrics are development observations only, and the delta direction could be confounded if the canonical full sham refit fails to converge; that would yield unknown."
+      }
+    },
+    "S-square": {
+      "version": "two-stage-core-v0.1",
+      "status": "accepted",
+      "case_id": "S-square",
+      "family": "symbolic",
+      "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+      "probe_id": "symbolic_term_removal",
+      "target_id": "param2",
+      "auxiliary": {
+        "contract_checks": {
+          "independence": "params[2]*x*x is a distinct additive term in the sum; deleting it leaves params[0]*x + params[1]*v, matching the supplied parent_source under a narrow static AST contract (same variables, same order, no leftover references to index 2).",
+          "param_dimension": "n_params goes 3 -> 2, consistent with parent_n_params=2.",
+          "reindex": "Remaining indices are unchanged (0,1), so reindexing is trivial."
+        },
+        "historical_context": {
+          "current_nmse": 0.09639217003192728,
+          "mse": 0.0004205830118882354,
+          "note": "Development observations only; the x-binned mean residuals (up to ~0.0028 in magnitude) and the v-binned spread are not evidence about the necessity of the quadratic term."
+        },
+        "planned_edit": "Delete the additive term `+ params[2] * x * x` from the expression, set n_params from 3 to 2, and keep `params[0] * x + params[1] * v` (byte-identical to the supplied parent_source), then refit on the same 10000 train rows with all-one init and scipy least_squares max_nfev=100.",
+        "plausibility": "Removal can only weakly reduce flexibility, so delta is expected non-negative; magnitude is the open question. Historical x-binned RMSE varies with x (0.0169, 0.0229, 0.0181, 0.0234) and train standardized bias is nonzero (0.0121), which is consistent with a curvature component, though binning noise is an equally good explanation at n=10000.",
+        "predicted_delta_nmse": 0.005,
+        "rationale": "Static reading: the removed term is a pure quadratic in x with no other x-dependence in the formula, so under least squares it is not exactly collinear with params[0]*x or params[1]*v over a non-degenerate design, and the claim is statically supported. Whether the fitted NMSE degrades by more than 1e-05 is a numerical question I cannot resolve without running the refit; my point prediction is a small but above-epsilon increase. This is a development observation and not proof of physical necessity or of any general self-improvement method.",
+        "uncertainty": {
+          "convergence_risk": "Low: both full and removed forms are linear-in-parameters, so bounded least_squares from all-one init should converge for both; the removed 2-parameter model is a strict subset of the full 3-parameter hypothesis class, so its optimal train error cannot be lower.",
+          "dependence": "RMSE variation across x-quantile bins may reflect curvature, bin-level noise, or heteroscedastic noise; the probe cannot distinguish these.",
+          "magnitude_confidence": "Low. The direction of delta_nmse is near-certain (>= 0 up to solver tolerance), but whether it exceeds epsilon = 1e-05 is genuinely uncertain; a value near zero would land in the 'unknown' band since the verdict requires delta_nmse > epsilon + tolerance."
+        }
+      }
+    }
+  },
+  "feedback": {
+    "P-format-missing": {
+      "case_id": "P-format-missing",
+      "family": "planning",
+      "observations": [
+        {
+          "intervention": null,
+          "original": {
+            "error_kind": "operator_syntax",
+            "first_invalid_action": 0,
+            "plan_length": 11,
+            "status": "invalid_output"
+          },
+          "reason": "normalization_contract_unavailable",
+          "status": "completed",
+          "task_id": "spannerlearning/seed0/problem0",
+          "verdict": "unknown"
+        },
+        {
+          "intervention": null,
+          "original": {
+            "error_kind": "operator_syntax",
+            "first_invalid_action": 0,
+            "plan_length": 11,
+            "status": "invalid_output"
+          },
+          "reason": "normalization_contract_unavailable",
+          "status": "completed",
+          "task_id": "spannerlearning/seed0/problem1",
+          "verdict": "unknown"
+        }
+      ],
+      "probe_id": "planning_whitespace",
+      "scope": "two_public_prompt_instances_only",
+      "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "target_id": "public_pair",
+      "version": "two-stage-probe-feedback-v0.1"
+    },
+    "S-cubic": {
+      "case_id": "S-cubic",
+      "delta_nmse": 0.0018845460730972374,
+      "epsilon": 1e-05,
+      "family": "symbolic",
+      "observations": [
+        {
+          "n_params": 3,
+          "nmse": 0.09505566357265445,
+          "status": "success",
+          "variant": "original"
+        },
+        {
+          "n_params": 3,
+          "nmse": 0.09505566357265445,
+          "status": "success",
+          "variant": "canonical_full"
+        },
+        {
+          "n_params": 2,
+          "nmse": 0.09694020964575169,
+          "status": "success",
+          "variant": "removed"
+        }
+      ],
+      "probe_id": "symbolic_term_removal",
+      "reason": "removal_loss_exceeds_threshold",
+      "scope": "oscillator1/train_fixed_refit",
+      "sham_delta_nmse": 0.0,
+      "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+      "status": "completed",
+      "target_id": "param2",
+      "tolerance": 1e-10,
+      "verdict": "supported",
+      "version": "two-stage-probe-feedback-v0.1"
+    },
+    "S-square": {
+      "case_id": "S-square",
+      "delta_nmse": 0.000548039613824422,
+      "epsilon": 1e-05,
+      "family": "symbolic",
+      "observations": [
+        {
+          "n_params": 3,
+          "nmse": 0.09639217003192727,
+          "status": "success",
+          "variant": "original"
+        },
+        {
+          "n_params": 3,
+          "nmse": 0.09639217003192727,
+          "status": "success",
+          "variant": "canonical_full"
+        },
+        {
+          "n_params": 2,
+          "nmse": 0.09694020964575169,
+          "status": "success",
+          "variant": "removed"
+        }
+      ],
+      "probe_id": "symbolic_term_removal",
+      "reason": "removal_loss_exceeds_threshold",
+      "scope": "oscillator1/train_fixed_refit",
+      "sham_delta_nmse": 0.0,
+      "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+      "status": "completed",
+      "target_id": "param2",
+      "tolerance": 1e-10,
+      "verdict": "supported",
+      "version": "two-stage-probe-feedback-v0.1"
+    }
+  },
+  "registration_freeze_sha256": "40087334c2b370f3ea47371dfd74c1b0c060c6e1ba3ab3e9e60fa6242b4e60ff",
+  "stage1_files": {
+    "P-format-missing/attempts.json": "0ac0f6e5fe21a2c37f11ae9591d06127b8b23e5b87e75489b47d01eea74bcc1e",
+    "P-format-missing/controller-binding.json": "1269c40a2800e5fcfa7515d1fb80b896395f216b65233c8c6b449b3ac3fbbf52",
+    "P-format-missing/events.jsonl": "daedfe6de646ae4204953f30259325c61c42fcf3f3705be331c8a6b8b867d0c2",
+    "P-format-missing/registration.json": "ce50d8927aa7020941e4d4194a731f0fa16b360bd83177adfff3d65202caa2c5",
+    "P-format-missing/requests/input-audit-0001.json": "5459415b338b6b51d7c2d0e65e149a9b5955f0d14716b4e71ac0a5ddb75e26a5",
+    "P-format-missing/requests/packet-0001.json": "8c0d7bbd0b4f0f9305cdd9d8bf7f7bd4e92a666885d6b8a926a764f55a4287a2",
+    "P-format-missing/requests/request-0001.request.json": "d3a3bf7c02cf945ff5d369327aeb4058d221d76fa0cb17c263a22afca2e34fd0",
+    "P-format-missing/requests/request-0001.response.json": "5c9e755ef851b6c9e3fef657d6ae290244fd1cc0c1e46fac748f4b8f0fb2a75d",
+    "P-format-missing/sdk-submission.json": "638aee547a80440f53b7bf9ac70f31cd6be23090085dd424791160ca7ab298f1",
+    "P-format-missing/session-summary.json": "2d0aa1ac2daa85c312475130da3460cfd3979f34d148d6861370332f22000c62",
+    "P-format-missing/task-packet.json": "8c0d7bbd0b4f0f9305cdd9d8bf7f7bd4e92a666885d6b8a926a764f55a4287a2",
+    "P-prefix/controller-binding.json": "ac69fde9addea72526242c480c863103a9761fb6c3babec50f841df157c483d1",
+    "P-prefix/events.jsonl": "da74eee9ea83936fa87b248b6ea2ffefe351b4357d00dc5d1dbdb8870d6cb7da",
+    "P-prefix/requests/input-audit-0001.json": "b04bc1334cc9d8f21bb88162d99c32a06e26639a04b7d2c391b37fba3e29fbe1",
+    "P-prefix/requests/packet-0001.json": "65f185ea885727c4954ebd0d4621a45cf7918e9baeeb55fccde4260326a26582",
+    "P-prefix/requests/request-0002.request.json": "6ddfac13a4216f8a9074d2679a3e8e5d654f909535645b936a5f81cb5fc9ec15",
+    "P-prefix/requests/request-0002.response.json": "221b76a6b375a3f047a35f1421df74d60fd64cd6e9b8267e101c596c9f7609fb",
+    "P-prefix/session-summary.json": "5b5b6e81df193a85b58e0038a48d07c99b8303ca33660adb45967b15e6bbea65",
+    "P-prefix/task-packet.json": "65f185ea885727c4954ebd0d4621a45cf7918e9baeeb55fccde4260326a26582",
+    "S-cubic/attempts.json": "c340929dcdd78b5c7ed28be4fae750f674335b55a127a65c61fdeccf06540569",
+    "S-cubic/controller-binding.json": "ad7643a6aec81eb22c43a26f958a7b4e8bc7f4fd606df44a384cf1b689e6929c",
+    "S-cubic/events.jsonl": "9a71cb0837817c166a896beac0f4b4eae8402b2bc029e8aba2619c0db07bcd4d",
+    "S-cubic/registration.json": "424fe53f5492cc7fa6c8a5c107ed713070dacfe56aabc416d5b545af3d9b9eea",
+    "S-cubic/requests/input-audit-0001.json": "ac5cc3118106df6cfd5c0d867555bb491c3ee44084370719b3fd6cb2620985a8",
+    "S-cubic/requests/packet-0001.json": "a3f3559dac6cd8b698e0faded43742ee0e99cf50f22dc9f7a4773bd999dfe980",
+    "S-cubic/requests/request-0003.request.json": "586eff209ffff35ee8bbe477270793de0bd8597bb1b5a5bf0f8ea430f3861354",
+    "S-cubic/requests/request-0003.response.json": "749756ae83f7c43c8dd69af9c96193926fe45700603e5cae5e7d866e9a5434d9",
+    "S-cubic/sdk-submission.json": "37f57f514702aff73a4b34b6b8e58584438dba13ddfb04799af02c20564b5302",
+    "S-cubic/session-summary.json": "6dfb4c41e944dee6a92bcc8fc75b2ca7fe07b2c3b34391fc33e4df013c1a020b",
+    "S-cubic/task-packet.json": "a3f3559dac6cd8b698e0faded43742ee0e99cf50f22dc9f7a4773bd999dfe980",
+    "S-square/attempts.json": "e6f291070e8d43b247ad8c9b5aa98c56410147500c284395855858fe33286a2c",
+    "S-square/controller-binding.json": "5d74465ee1d4ac8f2367e7c935a0a97bf671baa04b6e878cef5f308d0a34c80c",
+    "S-square/events.jsonl": "8bf7b96be6377cbf7b2846d1ff258f279270c05161cb72649158c8dfa1321243",
+    "S-square/registration.json": "27947185631798d3bf0c8699c2461ff86d472c3d7bb1bc5843fae131523fd59a",
+    "S-square/requests/input-audit-0001.json": "d9a18b39b871167e321161d204eafcc047392c64cc5693150c020062b56421b2",
+    "S-square/requests/packet-0001.json": "40ea14e6677e2c44d2d1fe78be3610558a9ad654b796b428bda1ce31d864d7ce",
+    "S-square/requests/request-0004.request.json": "350f3588472ad6a2f5664b1bed5e49627ea71324dca2bef4e91a221bf69521f4",
+    "S-square/requests/request-0004.response.json": "08cbca74c8cd852a319142fa2c7466a0ca37b42704caa3ed018d476e8d1aaf11",
+    "S-square/sdk-submission.json": "c0f01c29b0c62a6832e6425e6a86e2d9153f5b13a523287343dd64f5aa9dc521",
+    "S-square/session-summary.json": "7d642cb0b58cb3880cd6df0200d5218fd5ffa659a30da7cf2f7c3cf08059bf9a",
+    "S-square/task-packet.json": "40ea14e6677e2c44d2d1fe78be3610558a9ad654b796b428bda1ce31d864d7ce"
+  },
+  "probe_files": {
+    "P-format-missing/feedback.json": "bca8cb8997459372836f3401e1278dcfa9dd092dc5e39c85ce9c5a2aa5ecc88d",
+    "P-format-missing/probe.json": "8ebed33cc85bdc85298fd0f7030ae78983b10887c4fc9b5dfd325603f65d5b91",
+    "S-cubic/feedback.json": "4601c9773b04f556f0df6789ac0074d8713c8b83bf5c196c1573f5711bd228dd",
+    "S-cubic/probe.json": "1fb61d45f7347d5905c84de40d4adc7cfe6043b2755bdec5199e234ac2d9718b",
+    "S-square/feedback.json": "e92f3f766a6cb0eab1de4576a1a911f634f8d26e425de9e9374684a0c07d8b74",
+    "S-square/probe.json": "4b62edcde97c7ff87c436aa9ea4b6f05a833a6f999b0c0b05d06a7fb55377d25"
+  }
+}

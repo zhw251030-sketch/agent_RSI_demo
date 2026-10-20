@@ -1,0 +1,36 @@
+{
+  "case_id": "S-square",
+  "delta_nmse": 0.000548039613824422,
+  "epsilon": 1e-05,
+  "family": "symbolic",
+  "observations": [
+    {
+      "n_params": 3,
+      "nmse": 0.09639217003192727,
+      "status": "success",
+      "variant": "original"
+    },
+    {
+      "n_params": 3,
+      "nmse": 0.09639217003192727,
+      "status": "success",
+      "variant": "canonical_full"
+    },
+    {
+      "n_params": 2,
+      "nmse": 0.09694020964575169,
+      "status": "success",
+      "variant": "removed"
+    }
+  ],
+  "probe_id": "symbolic_term_removal",
+  "reason": "removal_loss_exceeds_threshold",
+  "scope": "oscillator1/train_fixed_refit",
+  "sham_delta_nmse": 0.0,
+  "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+  "status": "completed",
+  "target_id": "param2",
+  "tolerance": 1e-10,
+  "verdict": "supported",
+  "version": "two-stage-probe-feedback-v0.1"
+}

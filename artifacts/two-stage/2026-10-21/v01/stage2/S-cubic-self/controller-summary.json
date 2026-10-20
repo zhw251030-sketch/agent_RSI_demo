@@ -1,0 +1,236 @@
+{
+  "version": "two-stage-core-v0.1",
+  "case_id": "S-cubic",
+  "family": "symbolic",
+  "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+  "probe_id": "symbolic_term_removal",
+  "target_id": "param2",
+  "attempts": 1,
+  "candidate": {
+    "candidate_id": "symbolic-001",
+    "parent_id": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+    "source_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+    "n_params": 2,
+    "rationale": "The registered probe (symbolic_term_removal, remove_param_index=2, target param2) asks for the reduced formula, so the candidate is exactly the registered parent source with n_params reduced from 3 to 2 and params reindexed (params[0]=c1 on x, params[1]=c2 on v). This is the intended edit, applied unchanged; I have no new information from which to justify deviating from it, so retain rather than modify.\n\nUncertainty: no probe feedback is available (probe_feedback is null), so I cannot confirm the delta or any convergence of the sham refits. If either the canonical full sham or the removed refit fails to converge, or the sham drifts, the verdict would be unknown rather than supported. The auxiliary predicted_delta_nmse = 0.0 should be read only as a placeholder indicating no confident point estimate: the cubic term's exact contribution magnitude is not estimable from the residual summaries alone. Note that binwise RMSE is fairly uniform across x and v bins, so the structural story (missing cubic stiffness) is not strongly evidenced by the residual diagnostics; the direction of the delta is the plausible but unverified expectation.\n\nNothing here establishes held-out accuracy, physical necessity, optimality, or generalization; the historical NMSE ~0.095 is a development observation only.",
+    "auxiliary": {
+      "case_id": "S-cubic",
+      "planned_edit": "delete c3*x**3 term; n_params 3 -> 2; params[0]=c1 (x), params[1]=c2 (v); source identical to registered parent_source",
+      "pre_verdict": "planning: supports the claim that removing the cubic term increases train NMSE by more than epsilon=1e-5, but unverified",
+      "predicted_delta_nmse_placeholder": 0,
+      "predicted_nmse_qualitative": "removed formula should fit worse than the cubic candidate; exact value not confidently estimable",
+      "probe_feedback_available": false,
+      "source_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+      "target_id": "param2",
+      "uncertainty": "convergence of sham/removed refits unknown; residual bins show no strong cubic structure; magnitude of delta not estimable"
+    },
+    "source_file": "candidate.py",
+    "results": [
+      {
+        "candidate_hash": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+        "candidate_id": "symbolic-001",
+        "diagnostics": {
+          "candidate_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+          "residuals": {
+            "bias": 0.002040885783723853,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": 0.002270788091066765,
+                    "rmse": 0.017119305311459783,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0006004179439446756,
+                    "rmse": 0.02284072824787925,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": 0.003097484366620963,
+                    "rmse": 0.0181852066370288,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.002194852733263008,
+                    "rmse": 0.023375751505374947,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": 0.00038433028228914063,
+                    "rmse": 0.012012400549177737,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.005627055117392109,
+                    "rmse": 0.018851500528436597,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.0005000076015659311,
+                    "rmse": 0.011738877297187382,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.0026521653367800936,
+                    "rmse": 0.03247181702318131,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.0205663376668825,
+            "scope": "train",
+            "standardized_bias": 0.030896815241421727,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1"
+        },
+        "elapsed_seconds": 0.51458,
+        "executions": [
+          {
+            "elapsed_seconds": 0.210179,
+            "phase": "fit",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 120
+          },
+          {
+            "elapsed_seconds": 0.214415,
+            "phase": "predict",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 205231
+          }
+        ],
+        "family": "symbolic",
+        "feedback_role": "development_only",
+        "fitting": {
+          "candidate_calls": 10,
+          "converged": true,
+          "max_nfev": 100,
+          "n_params": 2,
+          "nfev": 3,
+          "params": [
+            -0.1618007888423157,
+            0.001342837650957024
+          ],
+          "split": "train"
+        },
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "metric_split": "train",
+        "metrics": {
+          "mse": 0.0004229742450282299,
+          "nmse": 0.09694020964575169
+        },
+        "model_calls": 0,
+        "parent_id": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+        "run_id": "d2a824b5516f4a47ad92400ca67e56fa",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "two-stage-revision-v0.1",
+        "task_id": "oscillator1"
+      }
+    ],
+    "evaluation_files": [
+      "evaluations/evaluation-00.json"
+    ],
+    "status": "evaluated",
+    "edit": {
+      "kind": "exact_term_removal",
+      "source_changed": true,
+      "parameter_delta": -1,
+      "semantic_equivalence_proven": false
+    },
+    "score": {
+      "complete": true,
+      "family": "symbolic",
+      "strict_improvement": false,
+      "acceptable_simplification": false,
+      "achieved_improvement": false,
+      "metric_split": "train",
+      "nmse": 0.09694020964575169,
+      "baseline_nmse": 0.09505566357265445,
+      "delta_nmse": 0.0018845460730972374,
+      "n_params": 2,
+      "baseline_n_params": 3,
+      "parameter_delta": -1,
+      "epsilon": 1e-05,
+      "tolerance": 1e-10
+    },
+    "forecast": {
+      "status": "schema_invalid",
+      "metric": "nmse",
+      "predicted": null,
+      "observed": null,
+      "absolute_error": null
+    }
+  },
+  "halted": false,
+  "infrastructure_error_type": null,
+  "counts": {
+    "candidate_evaluations": 1,
+    "sandbox_calls": 2,
+    "counts_complete": true
+  },
+  "generated_candidates": 1,
+  "model_calls_owned": 0,
+  "sealed_tasks_executed": 0
+}

@@ -1,0 +1,32 @@
+{
+  "candidate_executions": 0,
+  "model_calls": 0,
+  "planning_checked_other_ast_unchanged": true,
+  "symbolic_checked_append_x5_static_contract": {
+    "contract": "single-independent-additive-coefficient-v0.1",
+    "status": "ready",
+    "verdict": "unknown",
+    "reason": null,
+    "source_sha256": "9d07bc8cbdcd92639481d87ccdd2be7cd80315ce8c7156333ad1bdf1581119cd",
+    "parent_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+    "n_params_before": 4,
+    "n_params_after": 3,
+    "remove_param_index": 3,
+    "mapping": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": null
+    },
+    "canonical_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * x ** 5\n",
+    "removed_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3\n",
+    "canonical_sha256": "6adf25ae2e45205978646ac4b0c6f7be581f4ded969c98030cbcbe620651d319",
+    "removed_sha256": "75362aad6403d2e2335429705c621fc530de3813fc8b4182d1a209fec663c766",
+    "term_ast_sha256": "e7d1fd993b7a9d6fb8d6187b8912bf3657c3cdb249c56b14ecb81739738f1285"
+  },
+  "symbolic_self_equal_parent": {
+    "S-cubic": true,
+    "S-square": true
+  },
+  "square_checked_equal_start": true
+}

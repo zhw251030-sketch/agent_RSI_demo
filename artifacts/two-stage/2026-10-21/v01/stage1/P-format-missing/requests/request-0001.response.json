@@ -1,0 +1,45 @@
+{
+  "response_id": "chatcmpl-7dfcd4c1-e98d-4a96-a516-2cb186f9e1f2",
+  "usage": {
+    "prompt_tokens": 4303,
+    "completion_tokens": 516,
+    "total_tokens": 4819
+  },
+  "usage_details": {
+    "prompt_tokens_details": {
+      "cached_tokens": 128,
+      "text_tokens": 4175,
+      "cache_write_tokens": 0,
+      "cache_creation_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 516
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 128
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"auxiliary\": {\"hypothesis\": \"If the historical operator_syntax rejection stems solely from leading/trailing ASCII whitespace outside or just inside the parenthesized payload, the normalized plan should pass the same host syntax check, reach VAL, and validate under public STRIPS replay, yielding supported for both instances.\", \"plANNING\": \"problem0: unknown; problem1: unknown. Historical observations report error_kind=operator_syntax with plan_length 11 and executed_actions 0 on both public instances, which is consistent with a malformed emitted plan string (e.g. stray leading/trailing whitespace or misplaced parentheses) rather than a search failure, but this is unverified.\", \"planned_edit\": \"No source edit is planned for this registration. The registered probe only ASCII-trims whitespace outside parentheses and at inside payload edges of the generated plan strings, preserving operator/argument tokens, case, internal whitespace, order and count, and never adding parentheses or actions. This text is unverified.\", \"predicted_delta_nmse\": \"0\", \"probe_effect\": \"Host generates one plan per public instance from the bound candidate, then produces a normalized variant by trimming only ASCII whitespace outside parentheses and at payload edges.\", \"rationale\": \"Prior runs failed at index 0 with executed_actions=0 and operator_syntax, which suggests the emitted text was rejected before any action was simulated. If rejection is caused by surrounding whitespace rather than wrong tokens/order, normalization alone should flip the outcome.\", \"uncertainty\": \"The candidate's fmt() returns bare action strings such as 'walk shed location1 bob' with no parentheses at all, so the host's parenthesized-string requirement may be the true cause of operator_syntax failure. In that case the normalization contract cannot apply and the verdict is unknown/contradicted rather than supported.\", \"uncertainty_note\": \"No observation of normalized output has been made; this prediction is unverified and unknown is not false.\"}, \"probe_id\": \"planning_whitespace\", \"security_risk\": \"UNKNOWN\", \"summary\": \"Register whitespace-normalization probe on public_pair target\", \"target_id\": \"public_pair\"}",
+              "name": "submit_probe"
+            },
+            "id": "call-065d43a9-9845-45c3-96bc-ac9f154a5718",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

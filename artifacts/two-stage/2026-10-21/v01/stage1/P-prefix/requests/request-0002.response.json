@@ -1,0 +1,45 @@
+{
+  "response_id": "chatcmpl-c147276e-faea-46c7-b86b-8eb791d3bff5",
+  "usage": {
+    "prompt_tokens": 4320,
+    "completion_tokens": 1017,
+    "total_tokens": 5337
+  },
+  "usage_details": {
+    "prompt_tokens_details": {
+      "cached_tokens": 128,
+      "text_tokens": 4192,
+      "cache_write_tokens": 0,
+      "cache_creation_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 1017
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 128
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"auxiliary\": {\"contract\": \"echo\", \"delta_nmse\": 0, \"livelock\": false, \"loop_plan\": \"no\", \"metric_note\": \"Prediction is unverified until host executes the registered probe.\", \"missing_repeated_atom_note\": \"No repeated atoms are produced by whitespace trimming; token order and count are preserved.\", \"planned_edit\": \"No candidate source edit is claimed here; the probe only re-checks the bound source's generated plan under ASCII edge-whitespace normalization (strip whitespace immediately outside parentheses and at inside payload edges), preserving operator/argument tokens, case, internal whitespace, order and count.\", \"planned_repair\": \"Regenerate the plan, then strip ASCII whitespace between '(' and the first token, between the last token and ')', and around separators, without adding parentheses or actions.\", \"post_edit_plan\": \"trimmed ASCII edge whitespace in each action string, tokens unchanged, same action order and count.\", \"pre_verdict\": {\"problem0\": \"unknown\", \"problem0_detail\": \"Historical replay of the bound source reports status goal_unsatisfied with 7 executed actions and no failed action, with tightened(nut2) and tightened(nut3) unsatisfied. Actions are legal and well-formed, so the failure looks like genuine partial reachability (directed links) rather than a whitespace/syntax artifact. Therefore normalization alone is predicted not to change the outcome; expect contradicted if the original plan fails.\", \"problem1\": \"unknown\", \"problem1_detail\": \"Same reported shape as problem0: goal_unsatisfied with unsatisfied tightened(nut2) and tightened(nut3), 7 executed actions, no failed action. Spanner initial positions differ (spanner1 at location3 instead of location1), so the predicted trimming result is likewise a no-op.\", \"symbolic_remainder\": \"unsatisfied tightened nut2\", \"symbolic_string\": \"(tightened nut2) (tightened nut3)\"}}, \"predicted_delta_nmse\": 0, \"predicted_delta_nmse_symbolic\": 0, \"predicted_verdict\": \"contradicted\", \"prediction\": \"Both original plans already satisfy host syntax checks, so trimmed plans are byte-identical after trimming; both remain goal_unsatisfied with the same two unsatisfied tightened goals.\", \"probe_id\": \"planning_whitespace\", \"probe_whitespace_contract\": \"Normalization applies only if the generated plan contains stray ASCII whitespace outside parentheses or at inside payload edges; if the plan is already clean, the normalization contract is a no-op and the verdict is unknown/contradicted rather than supported.\", \"rationale\": \"The planner builds action strings via '%s' formatting with no stray whitespace, and the recorded replays show zero failed actions, so plan text is already clean. Trimming therefore cannot change replay results, and the residual failure is caused by one-way link reachability in the state tracker, which normalization does not touch.\", \"residual_cause\": \"Directed-link reachability / spanner-consumption bookkeeping in the bound candidate, not plan-text formatting.\", \"security_risk\": \"UNKNOWN\", \"status_effect\": \"Normalization leaves action count, order and tokens unchanged, so goal satisfaction is unchanged from the original replay (goal_unsatisfied on nut2 and nut3).\", \"summary\": \"Register whitespace-normalization plan probe on spanner public pair\", \"symbolic\": \"tightened(nut2)\", \"symbolic_string\": \"tightened(nut2) tightened(nut3)\", \"target_id\": \"public_pair\", \"uncertainty\": \"If the host's parser is stricter than the recorded replay suggests and does reject the emitted strings, trimmed versions could newly succeed; I did not inspect the evaluator, so this branch remains possible but is not my primary prediction.\", \"uncertainty_note\": \"Cannot confirm whether any plan string actually contains edge whitespace without executing; if none does, verdict should be unknown.\"}",
+              "name": "submit_probe"
+            },
+            "id": "call_01a15aa8d9f772f4a3a3174b",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

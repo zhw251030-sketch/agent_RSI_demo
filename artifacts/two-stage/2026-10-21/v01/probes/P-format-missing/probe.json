@@ -1,0 +1,154 @@
+{
+  "results": [
+    {
+      "version": "planning-format-probe-v0.1",
+      "status": "completed",
+      "verdict": "unknown",
+      "reason": "normalization_contract_unavailable",
+      "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "task_id": "spannerlearning/seed0/problem0",
+      "task_binding": {
+        "pilot_role": "prompt",
+        "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+        "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+        "problem_sha256": "9dd3f63454e646145a4a555cdd974d0c4fce27603274b06e82f137ffe489c944",
+        "request_sha256": "cfa3a0584dd1e4724b528d9ee158c44e8e961fa1505e088e7f38b8f052aac9ca"
+      },
+      "normalization": {
+        "status": "unknown",
+        "reason": "action_shape",
+        "original": [
+          "walk shed location1 bob",
+          "pickup_spanner location1 spanner3 bob",
+          "walk location1 location2 bob",
+          "walk location2 location3 bob",
+          "walk location3 location4 bob",
+          "pickup_spanner location4 spanner1 bob",
+          "pickup_spanner location4 spanner2 bob",
+          "walk location4 gate bob",
+          "tighten_nut gate spanner1 bob nut1",
+          "tighten_nut gate spanner2 bob nut2",
+          "tighten_nut gate spanner3 bob nut3"
+        ],
+        "normalized": null,
+        "changed_indices": [],
+        "token_preserved": null
+      },
+      "raw": {
+        "validation": {
+          "status": "invalid_output",
+          "error_kind": "operator_syntax",
+          "public_diagnostic": "Action must be one parenthesized grounded operator.",
+          "plan_length": 11,
+          "first_invalid_action": 0
+        },
+        "replay": {
+          "status": "invalid_output",
+          "error_kind": "operator_syntax",
+          "executed_actions": 0,
+          "plan_length": 11,
+          "first_failed_action": {
+            "index": 0,
+            "action": null
+          },
+          "missing_preconditions": [],
+          "missing_preconditions_truncated": false,
+          "unsatisfied_goals": [],
+          "unsatisfied_goals_truncated": false
+        }
+      },
+      "normalized": null,
+      "transport": {
+        "status": "completed",
+        "stdout_bytes": 401,
+        "stderr_bytes": 0,
+        "elapsed_seconds": 0.03755
+      },
+      "executions": {
+        "new_candidate_executions": 1,
+        "sandbox_calls": 1,
+        "host_validations": 1,
+        "diagnostic_replays": 1,
+        "val_calls": 0,
+        "val_count_complete": true
+      },
+      "model_calls": 0,
+      "changes_historical_scores": false
+    },
+    {
+      "version": "planning-format-probe-v0.1",
+      "status": "completed",
+      "verdict": "unknown",
+      "reason": "normalization_contract_unavailable",
+      "source_sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+      "task_id": "spannerlearning/seed0/problem1",
+      "task_binding": {
+        "pilot_role": "prompt",
+        "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+        "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+        "problem_sha256": "6bfc9e1215a82f90ee7c47b125e6095ef8d4b69f2af3bed9a911102c914b1e6f",
+        "request_sha256": "834f86423965d0f76e609742f374dc9067ac8a49f493a2077e6d7c882a7a723c"
+      },
+      "normalization": {
+        "status": "unknown",
+        "reason": "action_shape",
+        "original": [
+          "walk shed location1 bob",
+          "walk location1 location2 bob",
+          "walk location2 location3 bob",
+          "pickup_spanner location3 spanner1 bob",
+          "walk location3 location4 bob",
+          "pickup_spanner location4 spanner2 bob",
+          "pickup_spanner location4 spanner3 bob",
+          "walk location4 gate bob",
+          "tighten_nut gate spanner1 bob nut1",
+          "tighten_nut gate spanner2 bob nut2",
+          "tighten_nut gate spanner3 bob nut3"
+        ],
+        "normalized": null,
+        "changed_indices": [],
+        "token_preserved": null
+      },
+      "raw": {
+        "validation": {
+          "status": "invalid_output",
+          "error_kind": "operator_syntax",
+          "public_diagnostic": "Action must be one parenthesized grounded operator.",
+          "plan_length": 11,
+          "first_invalid_action": 0
+        },
+        "replay": {
+          "status": "invalid_output",
+          "error_kind": "operator_syntax",
+          "executed_actions": 0,
+          "plan_length": 11,
+          "first_failed_action": {
+            "index": 0,
+            "action": null
+          },
+          "missing_preconditions": [],
+          "missing_preconditions_truncated": false,
+          "unsatisfied_goals": [],
+          "unsatisfied_goals_truncated": false
+        }
+      },
+      "normalized": null,
+      "transport": {
+        "status": "completed",
+        "stdout_bytes": 401,
+        "stderr_bytes": 0,
+        "elapsed_seconds": 0.040378
+      },
+      "executions": {
+        "new_candidate_executions": 1,
+        "sandbox_calls": 1,
+        "host_validations": 1,
+        "diagnostic_replays": 1,
+        "val_calls": 0,
+        "val_count_complete": true
+      },
+      "model_calls": 0,
+      "changes_historical_scores": false
+    }
+  ]
+}

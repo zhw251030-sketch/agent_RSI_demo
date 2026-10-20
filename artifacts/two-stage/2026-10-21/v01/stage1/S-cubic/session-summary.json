@@ -1,0 +1,40 @@
+{
+  "session_id": "S-cubic-probe",
+  "stage": "probe",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_probe"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "version": "two-stage-core-v0.1",
+    "case_id": "S-cubic",
+    "family": "symbolic",
+    "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+    "probe_id": "symbolic_term_removal",
+    "target_id": "param2",
+    "attempts": 1,
+    "registration": {
+      "version": "two-stage-core-v0.1",
+      "status": "accepted",
+      "case_id": "S-cubic",
+      "family": "symbolic",
+      "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+      "probe_id": "symbolic_term_removal",
+      "target_id": "param2",
+      "auxiliary": {
+        "planned_edit": "Unverified plan: delete the c3*x**3 additive term, set n_params to 2, reindex so params[0]=c1 (x) and params[1]=c2 (v), yielding the supplied parent source structure.",
+        "pre_verdict": "planning: problem0 (cubic stiffness needed to explain structure) supported; problem1 (residual structure implies missing higher-order restoring force) supported; symbolic: \"delta_nmse = NMSE(c1*x + c2*v) - NMSE(c1*x + c2*v + c3*x**3)\"",
+        "predicted_delta_nmse": "0.0",
+        "rationale": "The linear parent is reported to leave most of MSE as unexplained variance while the cubic candidate reports NMSE ~0.095, so removing the x^3 term should raise train NMSE substantially, far above epsilon = 1e-05. Predicted magnitude is not confidently estimable; any positive value above epsilon supports the claim. Residual bias in bins is small (~0.003) relative to RMSE, consistent with a genuine structural improvement rather than a bias artifact. Caveat: historical metrics are development observations only, and the delta direction could be confounded if the canonical full sham refit fails to converge; that would yield unknown."
+      }
+    },
+    "halted": false,
+    "infrastructure_error_type": null,
+    "model_calls_owned": 0,
+    "candidate_evaluations": 0
+  }
+}

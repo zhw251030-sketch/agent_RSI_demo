@@ -1,0 +1,45 @@
+{
+  "candidate_hash": "f289abcc14f30274a41d3c46cc18117dbf98e3a22f3e7e27efcfa22c1d98324e",
+  "candidate_id": "planning-001",
+  "elapsed_seconds": 0.057383,
+  "error_kind": null,
+  "executions": [
+    {
+      "elapsed_seconds": 0.042684,
+      "phase": "plan",
+      "status": "completed",
+      "stderr_bytes": 0,
+      "stdout_bytes": 504
+    }
+  ],
+  "family": "planning",
+  "feedback_role": "development_only",
+  "limits": {
+    "cpu_seconds": 10,
+    "max_output_bytes": 2000000,
+    "memory_mb": 2048,
+    "timeout_seconds": 20
+  },
+  "model_calls": 0,
+  "parent_id": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429",
+  "plan_length": 13,
+  "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+  "run_id": "4ce54c812f7944919a2c6edcb7d6d118",
+  "schema_version": "0.1",
+  "sealed_tasks_executed": 0,
+  "status": "success",
+  "strategy_version": "two-stage-revision-v0.1",
+  "task_id": "spannerlearning/seed0/problem7",
+  "validator": {
+    "elapsed_seconds": 0.004061,
+    "plan_length": 13,
+    "plan_sha256": "05a9d5b0782e5c3e2df17f9baff5b069641bf72b1037e9459fd586edd0bf9778",
+    "reason": "plan_valid_marker",
+    "returncode": 0,
+    "status": "valid",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 2323,
+    "stdout_sha256": "e37fd188f8910e13dc9a6a59406a6183ba438f667f94cfd3b750e2c70a05051a"
+  }
+}

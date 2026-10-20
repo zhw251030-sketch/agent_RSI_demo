@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已完成两类可执行干预的离线校准，0次新增模型调用。** 规划同plan格式检查在两个公开题均支持，限定源码修复后的新程序10/10；符号两次删项分别支持保留v³项和考虑简化x⁵项。共22次任务评价、28次sandbox调用，属于研究者干预校准，尚无Agent自主改进或独立泛化结论。见[最新完整说明](docs/operations/intervention-probes.md)、[逐项结果](docs/analysis/2026-10-21-intervention-results.md)和[31份原始证据](artifacts/intervention-probes/2026-10-21/v01/README.md)。运行前538项服务器任务测试通过，72项SDK测试跳过。
+**已完成两阶段真实Agent开发对照：10次模型请求、6个新候选。** 规划有效配对两臂均8/8开发+2/2公开；两个符号checked分支避免self的删项退化，但存在“测试干预被当成最终编辑”的混淆，未证明稳定方法优势。一个登记结构拒绝、两条分支未启动，原样保留。见[最新完整说明](docs/operations/two-stage.md)、[结果与边界](docs/analysis/2026-10-21-two-stage-results.md)、[157份原始记录](artifacts/two-stage/2026-10-21/v01/README.md)。实跑前701项不同服务器测试通过。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -15,7 +15,7 @@
 | 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，oscillator1/train已开发运行，独立评价协议待冻结 |
 | 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，已完成首次更新；最新两初稿各做self/checked复查并冻结，四状态后续评价完成 |
 | 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前525项不同测试通过 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前701项不同服务器测试通过 |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
