@@ -225,6 +225,22 @@ class PlanningProbeTests(unittest.TestCase):
 
 
 class FormatPatchTests(unittest.TestCase):
+    def test_ast_projection_ignores_only_empty_python312_type_params(self):
+        old_tree = ast.parse(OLD_FORMAT)
+        old_function = old_tree.body[0]
+        old_function._fields = tuple(field for field in old_function._fields if field != 'type_params')
+        new_tree = copy.deepcopy(old_tree)
+        new_function = new_tree.body[0]
+        new_function._fields += ('type_params',)
+        new_function.type_params = []
+        before = ast.dump(new_tree, include_attributes=False)
+        self.assertNotEqual(ast.dump(old_tree, include_attributes=False), before)
+        self.assertEqual(planning_probe._ast_dump(old_tree), planning_probe._ast_dump(new_tree))
+        self.assertEqual(ast.dump(new_tree, include_attributes=False), before)
+        new_function.type_params = [ast.Name(id='T', ctx=ast.Load())]
+        self.assertNotEqual(planning_probe._ast_dump(old_tree), planning_probe._ast_dump(new_tree))
+        self.assertIn('type_params=', planning_probe._ast_dump(new_tree))
+
     def test_exact_format_expression_patch_keeps_every_other_ast_node(self):
         source = '# preserved comment\n'+OLD_FORMAT+'\n'+SOURCE
         result = planning_probe.build_format_patch(source)
@@ -235,6 +251,7 @@ class FormatPatchTests(unittest.TestCase):
         self.assertEqual(result['original_sha256'], hashlib.sha256(source.encode()).hexdigest())
         self.assertTrue(result['contract']['other_ast_unchanged'])
         self.assertEqual(result['contract']['function'], '_fmt')
+        self.assertEqual(result['contract']['ast_projection_version'], 'python310-empty-type-params-v0.1')
 
     def test_nonmatching_function_contracts_are_rejected_without_source(self):
         cases = [SOURCE, OLD_FORMAT+OLD_FORMAT, '@decorator\n'+OLD_FORMAT,

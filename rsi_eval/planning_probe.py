@@ -21,6 +21,7 @@ from .sandbox import run_candidate
 
 
 VERSION = "planning-format-probe-v0.1"
+AST_PROJECTION_VERSION = "python310-empty-type-params-v0.1"
 ASCII_SPACE = " \t\r\n\f\v"
 MAX_SOURCE_BYTES = 65536
 MAX_ACTION_CHARACTERS = 4096
@@ -243,7 +244,19 @@ persisting this complete result; this function writes no score journal.
 
 
 def _ast_dump(node):
-    return ast.dump(node, annotate_fields=True, include_attributes=False)
+    """Match Python 3.10 for empty fields introduced by Python 3.12.
+
+Only the copied node's field projection changes; the caller's AST and nonempty
+type parameters remain intact. This keeps static contracts reproducible across
+the server's 3.10 parser and the local 3.12 parser for the supported sources.
+"""
+    projected = copy.deepcopy(node)
+    for child in ast.walk(projected):
+        if ("type_params" in child._fields
+                and type(getattr(child, "type_params", None)) is list
+                and not child.type_params):
+            child._fields = tuple(field for field in child._fields if field != "type_params")
+    return ast.dump(projected, annotate_fields=True, include_attributes=False)
 
 
 def build_format_patch(source):
@@ -301,6 +314,7 @@ intervention, not a model-generated repair or proof of planning correctness.
     result.update(status="accepted", reason="exact_formatter_return_replaced",
                   source=patched_source, source_sha256=_sha(patched_bytes),
                   contract={"function": "_fmt", "other_ast_unchanged": True,
+                            "ast_projection_version": AST_PROJECTION_VERSION,
                             "other_ast_sha256": _sha(_ast_dump(expected).encode("utf-8")),
                             "original_return_ast_sha256": _sha(_ast_dump(_OLD_RETURN).encode("utf-8")),
                             "patched_return_ast_sha256": _sha(_ast_dump(_NEW_RETURN).encode("utf-8")),
