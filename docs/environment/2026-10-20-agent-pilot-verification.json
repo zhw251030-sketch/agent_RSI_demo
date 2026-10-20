@@ -1,0 +1,467 @@
+{
+  "verified_at": "2026-10-20T03:39:49.883899+00:00",
+  "code_commit": "49b4b9f6d967360b264cd93f52c326a7814bb595",
+  "git_clean": true,
+  "source_hashes_match_run": true,
+  "system_tests": {
+    "tests_run": 82,
+    "passed": 68,
+    "skipped": 14,
+    "failures": 0,
+    "errors": 0
+  },
+  "sdk_tests": {
+    "run": 14,
+    "passed": 14,
+    "evidence": "runs/agent-pilot-preflight/recovery-tests.log",
+    "other_budget_tests_in_same_log": 17
+  },
+  "raw_file_sha256": {
+    "runs/agent-pilot/20261020-minimax-v01-recovery/config.json": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/summary.json": "120a1d642fc228da48c52f51dff2fb91c2b928e9bd2759a8eec598b075f0f86d",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/candidates.json": "1337a904fd2e61b0ba32b4b06ee5058b59d5420b4f738f209a49ea380aad811f",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/summary.json": "6329c1d52717f468b4bc4b6ec4db2881e707f57e2c825c07a50e52a69a2137f2",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/session-summary.json": "f362e40e9aa0adff79173b9096c5e59a6d1532b1ac6d8c30719d32d4fe9b1506",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/requests/request-0004.response.json": "c03722cd5a67ecaf555b1784c5de497cabb0297f938f8aad3fd6633e818d3a2a",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/requests/request-0002.response.json": "6fa5489d64e1d736b845030e2a21c9cdf178f68d4e53d5aa77e0d3e4bc727730",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/requests/request-0002.request.json": "193b00fcc7c3932b3b3f5fcb79f47598b4da816a1921721f231bbd9eb2209a5e",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/requests/request-0004.request.json": "d525d6ef0dfb8816e5e247b6d54e1ba1c096690df3262a21b819357fb46fe10b",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/requests/request-0003.request.json": "6dd4c65b191bdea22e5dbc573b818ecd45932c3666f1d6444042b21ecf8f90df",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/requests/request-0003.response.json": "b4bd9c133c10cf23e2e52febfce83a127417a05d875a3b79d47b3adf13f3524b",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/candidates.json": "1dc3e696b6dae76acdad8c11d68456561b38abb46888043554696391511bd18a",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/summary.json": "9a231e90716451df5010a5785b284cc554adf9b4968ee4941e6558c30fdec38b",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/session-summary.json": "d3b742b1bf4b3c109980d3757a82b1852b1ac10384e18e991454c93d6d84730c",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0008.response.json": "e22f99cd4695d015264dec6b41370ef088c42dc653daf0d11b6cb0baa38762f4",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0006.request.json": "aac2ae15cff5d55837a5429f56ef3fdf677ce188c6492624ae24b97143b88e04",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0006.response.json": "43a6d224c3976a6e661066301e5b3647aaf44cd6675f739be20bb98ef88530fa",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0007.request.json": "d5a9077ed3f6d0cf12bea90616c4fda8379813b1f857dffb20c524e8667c9d5d",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0005.response.json": "e22c8680120fb195ce16408a18d5fd10e45cab609799fd2bcd3e8f0c00aab228",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0008.request.json": "0c494cc60657d90a5ec073bb8c561c3394f0d9a11f45412dac31dd772cde3fd4",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0007.response.json": "339e144632d82690c5f4d61faf5c40e892f36e93bdc84ee79c20a8ad2f6605d6",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/requests/request-0005.request.json": "1c5895f21f6056e3e8dc56aaf1d1c75c32c478d63c949d8b9bccf1bd299d0048",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/candidates/planning-003.py": "14256dd1c5566584839bef13f8749e07544bb411350c25607624991bc40d703b",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/candidates/planning-000.py": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/candidates/planning-002.py": "0e78844ff86947136a96ab63bbfff709de8605fe59c7bdeed26145256b62ea78",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/candidates/planning-001.py": "967dc52a3dfdd1481dc8f498d1592fb1c8f8d1bc1298054921bc150cbaf19dbc",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/candidates/symbolic-001.py": "78591b5b201f15ee390a724bdb1b0302712bc88ff62a9479bbbe898dd4bd3018",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/candidates/symbolic-002.py": "c0389afc4e793d01812c7b84e5604a415cd77fd5f2b95f249e6ab097646feebf",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/candidates/symbolic-003.py": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/candidates/symbolic-000.py": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/planning/task-prompt.txt": "61905ccbb0a417e769ebd40740e535099d843f83acfcab64391492a075596963",
+    "runs/agent-pilot/20261020-minimax-v01-recovery/symbolic/task-prompt.txt": "802c37c335421615edc9500928a6a7368e7830750046d233a0ec6780a18e10e8",
+    "runs/agent-pilot/20261020-minimax-v01/summary.json": "ff9af6222663b95625fdeb22c2d865ab85040b8c94d46a0a8e2483761141ed21",
+    "runs/agent-pilot/20261020-minimax-v01/budget-ledger.json": "5da2f034ec901a4f5a27d4ecf79a628ff9ebfaa3399804e0976598d58550bb38",
+    "runs/agent-pilot/20261020-prepare-v01/summary.json": "3fbaf13f18802893c22e2c765c89b9a3e8354d0c42897fea037c3cd19c0b0efe",
+    "runs/agent-pilot-preflight/recovery-tests.log": "0ae37b356c3823484caa242aeec97aa485fe98788704b31fcf0a5bd63d5a2ef0",
+    "runs/agent-pilot-preflight/system-tests-final.log": "9d96766865018e55b5ac49c2899414d2998ded74e880edf61d7994a27f32ab4b",
+    "runs/agent-pilot-preflight/recovery-pilot.log": "ea25545f3d70915f3fc2909a33f66f6443b835c43139fde4b6bb70c5dd79a00d"
+  },
+  "session_outcomes": [
+    {
+      "session_id": "planning",
+      "status": "error",
+      "cause_type": "BudgetExceeded",
+      "generated_candidates": 3,
+      "executions": 40,
+      "tool_rejections": 0,
+      "strategy_updated": false,
+      "sealed_tasks_executed": 0,
+      "positions": {
+        "baseline": "planning-000",
+        "first": "planning-001",
+        "last": "planning-003",
+        "best": "planning-000"
+      },
+      "trajectory": [
+        {
+          "candidate_id": "planning-000",
+          "parent_id": null,
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "origin": "hand_authored_initial",
+          "n_params": 0,
+          "rationale": "Fixed weak starting candidate.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "outcome_counts": {
+            "task_failure:plan_semantics": 10
+          },
+          "plan_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "evaluator_run_ids": [
+            "af8f2852f3554b30a1d348a87b64e259",
+            "53b3e121cc6742f595d314662867a0c0",
+            "4a8b3c18c89845ba898ef416a296527f",
+            "75b2dd63786f49b7bf7530eff324c49d",
+            "3891890c49c64198930aabf4571b18a2",
+            "d0975a2b080644cc808f2a1e8ba64c53",
+            "473db161afa642d58c4352bd65f89077",
+            "13bf04c2e5fa4138b951ff869c8ea583",
+            "8ddc57d4b3f8486295413c46365c2d3f",
+            "b50c2d3574784024af463d09a923dd71"
+          ]
+        },
+        {
+          "candidate_id": "planning-001",
+          "parent_id": "planning-000",
+          "source_sha256": "967dc52a3dfdd1481dc8f498d1592fb1c8f8d1bc1298054921bc150cbaf19dbc",
+          "origin": "model_proposed",
+          "n_params": 0,
+          "rationale": "Baseline returned an empty plan and failed all 10 instances with plan_semantics errors (confirmed error: no actions emitted). Hypothesis: a general BFS over the grounded Spanner state space with correct action parameter order and effects will produce legal plans; states are frozensets so hashing/dedup is sound, and ordering is deterministic.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "outcome_counts": {
+            "candidate_error:python_exception": 10
+          },
+          "plan_lengths": [],
+          "evaluator_run_ids": [
+            "821fe00d33044971aeb5603a8333b9ea",
+            "299d94097bb049beae9085655a7fe2b2",
+            "24839fb053b242bab27a9d84b0018dba",
+            "784b11f0638d4d42897320672687b926",
+            "f49feee68ed34475bd94297aba8ef13a",
+            "51ea502042414aea876ec129e047158d",
+            "582a7ee75e4d4425b7fb64f06bb234be",
+            "5ba95213607f4c879e0cd249798c94d8",
+            "5e1616a9a9a94876abfe5dfc4e8043e8",
+            "21bd984c2cae4c399ca4b3865af13e22"
+          ]
+        },
+        {
+          "candidate_id": "planning-002",
+          "parent_id": "planning-000",
+          "source_sha256": "0e78844ff86947136a96ab63bbfff709de8605fe59c7bdeed26145256b62ea78",
+          "origin": "model_proposed",
+          "n_params": 0,
+          "rationale": "Confirmed bug: unpacking every state fact into a fixed 3-tuple raised ValueError on 2-arity facts such as (useable,s) and (loose,n). Fix: collect link facts and man locations explicitly by checking fact length/arity instead of blind tuple unpacking, keeping the BFS structure unchanged.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "outcome_counts": {
+            "task_failure:plan_semantics": 10
+          },
+          "plan_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "evaluator_run_ids": [
+            "6e86f0f01eef402eb5924cf7feb1ffe0",
+            "fcaca390e2464bf582a1151f9cef0276",
+            "a8b2398ad11b490b85ef8fc635e036c4",
+            "c57003face764e21851e276350602995",
+            "a877951557164ec2bc42fd1b2c3b14c6",
+            "39c6fc328e784d109f3bdf043e7d631e",
+            "213dc001fdd342aa8cc4aad96172b871",
+            "1ae0e72b63d04c95a6c9c73391db41d7",
+            "d3db43559f6a4faf96d93331a9c8ef98",
+            "0cf923cda04b45429b8c4df20f37833c"
+          ]
+        },
+        {
+          "candidate_id": "planning-003",
+          "parent_id": "planning-000",
+          "source_sha256": "14256dd1c5566584839bef13f8749e07544bb411350c25607624991bc40d703b",
+          "origin": "model_proposed",
+          "n_params": 0,
+          "rationale": "Confirmed: no exception now, but every plan_length is 0, so BFS exhausted its 300k-node cap without reaching a goal state (state blowup from the spanner-permutation branching). Hypothesis: the Spanner goal set is always achievable by a constructive greedy routine, so replace exhaustive BFS as the primary path with: for each loose goal nut, route the man to the nut, then to a useable spanner, pick it up, return to the nut and tighten. Keep a small BFS fallback for cases the constructive routine cannot handle.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "outcome_counts": {
+            "task_failure:plan_semantics": 10
+          },
+          "plan_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "evaluator_run_ids": [
+            "f49a012d991246b1b1d9e16f02e4bce1",
+            "f72b66095d9c45e4bc7986bf4d20e463",
+            "520b7fed16ce4ffea8488f644be41210",
+            "d65f618140444043ae05e47ce9547da3",
+            "92d4efd27c7a48469c0276f76885aa08",
+            "cdc3b36baeed4024bbb6de4fe42660b8",
+            "2bc060fe905140a08dbe2966b4126998",
+            "851a0809732b49fcb86e837a8449e5b0",
+            "a4e9e40ef4f5465abf3738ed40e1656d",
+            "7f410f73e03e41d5bea0fc04ef536cf9"
+          ]
+        }
+      ]
+    },
+    {
+      "session_id": "symbolic",
+      "status": "completed",
+      "cause_type": null,
+      "generated_candidates": 3,
+      "executions": 4,
+      "tool_rejections": 0,
+      "strategy_updated": false,
+      "sealed_tasks_executed": 0,
+      "positions": {
+        "baseline": "symbolic-000",
+        "first": "symbolic-001",
+        "last": "symbolic-003",
+        "best": "symbolic-003"
+      },
+      "trajectory": [
+        {
+          "candidate_id": "symbolic-000",
+          "parent_id": null,
+          "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "origin": "hand_authored_initial",
+          "n_params": 1,
+          "rationale": "Fixed weak starting candidate.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "mse": 0.004363248713551409,
+            "nmse": 1.0
+          },
+          "outcome_counts": {
+            "success:none": 1
+          },
+          "plan_lengths": [],
+          "evaluator_run_ids": [
+            "4ab580f820774f558a9de99bb99586fa"
+          ]
+        },
+        {
+          "candidate_id": "symbolic-001",
+          "parent_id": "symbolic-000",
+          "source_sha256": "78591b5b201f15ee390a724bdb1b0302712bc88ff62a9479bbbe898dd4bd3018",
+          "origin": "model_proposed",
+          "n_params": 2,
+          "rationale": "For a simulated damped harmonic oscillator, acceleration is expected to be a linear restoring force plus linear damping: a = -k*x - c*v. This replaces the constant baseline with a physically motivated linear combination of position and velocity, leaving both coefficients to be fit.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "mse": 0.0004229742450282299,
+            "nmse": 0.09694020964575169
+          },
+          "outcome_counts": {
+            "success:none": 1
+          },
+          "plan_lengths": [],
+          "evaluator_run_ids": [
+            "acea3f3c9c7a465bad08f3a175615c0f"
+          ]
+        },
+        {
+          "candidate_id": "symbolic-002",
+          "parent_id": "symbolic-001",
+          "source_sha256": "c0389afc4e793d01812c7b84e5604a415cd77fd5f2b95f249e6ab097646feebf",
+          "origin": "model_proposed",
+          "n_params": 3,
+          "rationale": "After fitting the linear damped oscillator (NMSE ~0.097), the residual suggests a nonlinear contribution. Adding a cubic (Duffing) restoring term d*x**3 to the existing linear form captures common nonlinear-oscillator behavior with one additional parameter.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "mse": 0.0004147515017991601,
+            "nmse": 0.09505566357265446
+          },
+          "outcome_counts": {
+            "success:none": 1
+          },
+          "plan_lengths": [],
+          "evaluator_run_ids": [
+            "a1d12b3e4b45400d82fcd7543bd6c6e1"
+          ]
+        },
+        {
+          "candidate_id": "symbolic-003",
+          "parent_id": "symbolic-002",
+          "source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+          "origin": "model_proposed",
+          "n_params": 4,
+          "rationale": "The position-cubic (Duffing) addition only marginally reduced NMSE (0.0969 -> 0.0951), implying the residual is dominated by the velocity channel. Adding a quadratic-in-velocity damping term -c2*v*abs(v), the canonical form for aerodynamic-like drag, as a fourth parameter.",
+          "strategy_version": "fixed-revision-v0.1",
+          "status": "evaluated",
+          "metrics": {
+            "mse": 0.00040056676206938317,
+            "nmse": 0.09180470524756017
+          },
+          "outcome_counts": {
+            "success:none": 1
+          },
+          "plan_lengths": [],
+          "evaluator_run_ids": [
+            "a8019bf73a40470f9d61dd196b2e0821"
+          ]
+        }
+      ]
+    }
+  ],
+  "budget": {
+    "config": {
+      "max_requests": 8,
+      "max_requests_per_session": 4,
+      "max_output_tokens": 4096,
+      "max_input_bytes": 98304,
+      "max_reserved_tokens": 800000,
+      "max_cost_cny": 5.0,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4
+    },
+    "request_count": 8,
+    "session_counts": {
+      "planning": 4,
+      "symbolic": 4
+    },
+    "reserved_count": 0,
+    "failed_count": 1,
+    "reserved_input_tokens": 224525,
+    "reserved_output_tokens": 32768,
+    "reserved_tokens": 257293,
+    "reserved_cost_cny": 0.7467537,
+    "usage_unknown_count": 1,
+    "known_prompt_tokens": 35412,
+    "known_completion_tokens": 5226,
+    "known_total_tokens": 40638,
+    "known_estimated_cost_cny": 0.1182636,
+    "actual_tokens": null,
+    "actual_estimated_cost_cny": null,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": {
+      "kind": "operator_transport_recovery",
+      "unknown_request_ids": [
+        "request-0001"
+      ]
+    },
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  },
+  "source_sha256": {
+    "configs/models/minimax-m3.json": "d4fa1bae7741af63e7a0375660d39012a4bba3a40f43ceff41907818e464385d",
+    "configs/pilots/development-v0.1.json": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+    "configs/tasks/downloads-v0.1.json": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8",
+    "configs/tasks/planning-spanner-v0.1.json": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+    "configs/tasks/symbolic-phys-osc-v0.1.json": "23a3ba2d218ab13cebb1992558af2c325f4f6b4f255203211833879254a16bac",
+    "fixtures/planning/collect_then_tighten.py": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+    "fixtures/planning/empty_plan.py": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+    "fixtures/symbolic/constant.py": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+    "fixtures/symbolic/invalid_shape.py": "534c54b385824b206e6c9f93c33e00052038659db3474be8913df90b1947bc7f",
+    "fixtures/symbolic/linear.py": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+    "fixtures/symbolic/nan.py": "efcef021648c5605a2fd44400b54fb7957d1a6bf8b24ea02bfe0dc192e0d9aa7",
+    "prompts/pilot/planning.md": "f3011b08938fdae73cd6a8df7768685b08f682515b8544ad0623f914408024bc",
+    "prompts/pilot/symbolic.md": "5f6381a3285edda855b70fe9e466069bf4207a256bc8a98040181d7a5dec7d64",
+    "rsi_eval/__init__.py": "34dbd6e7bd04ecfe30cd28a01a30c83ae9dba715fe5af2cc701eadd10605de12",
+    "rsi_eval/executor.py": "2ff5fe56d9d5698f36d27363ddd6b1c3589623f21d9092daea09108a1057931a",
+    "rsi_eval/openhands_tool.py": "00612b5b7503bcd9016c9365897d45cbdac4f4e9ff21fcf1b82121cb3a24c29c",
+    "rsi_eval/pilot_agent.py": "868b48fc55a3eb959035c1c4dab8c1a89ee6e3c8a30ab0550113f276ef3ec7ae",
+    "rsi_eval/pilot_budget.py": "4a69a89e1ebf1949bce6ae44953d2e71b2bd218f868b5303f4d6ea5364742654",
+    "rsi_eval/pilot_controller.py": "dfe20ab0d67a80cedc7693e4398ac8120e615f9c13e65a742eeb37aa10c1e0e9",
+    "rsi_eval/planning.py": "15a382c3081f964e51e4818bdec3aebdc26a0b72e1cd02831fefd06319050ef6",
+    "rsi_eval/planning_worker.py": "ec61d162ae47214231333bd12d39791d0f22ebfd060caecf4ba2979f7ac9ff7b",
+    "rsi_eval/sandbox.py": "8fd1a4fb149c7632b4e9ce2af187c074633c800a4e8d427eb3b3467e4e77203e",
+    "rsi_eval/symbolic.py": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58",
+    "rsi_eval/symbolic_worker.py": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca",
+    "rsi_eval/worker.py": "f451771c60d0f1cdebc597387ed7896d119ab274c05f3e7faae5cb9d22692e4a",
+    "scripts/canvas.py": "2b75eb3a3aaeb68c9f41feeda67184240c655d9091d248b69c173537623f14dd",
+    "scripts/check_minimax_connection.py": "93e505338416403fa98685e9f6aa3ac64afb269a40e16a35754964d6b352a15c",
+    "scripts/check_openhands_evaluator.py": "a1fd37b08a9f95da9ff2372f85484793b99d551077c52ea32f12f3af1968946a",
+    "scripts/check_openhands_offline.py": "f9576a4977e728834916f1680952a14ca503cd7dafb617ed1742f540ea09cdb5",
+    "scripts/check_planning_data.py": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547",
+    "scripts/check_symbolic_data.py": "81243ba1384a743120c6319b178a68091d6b99661f815b9c015cc6c3de80c5b0",
+    "scripts/check_task_executors.py": "21e6ed7ba3bd4af697c034be717c16725c9866cf7f067e51d53f3972d3183e99",
+    "scripts/configure_minimax.py": "30489303e66a2209d04754a51baa9e182eae9208497d7edcd19e387aae75fbe0",
+    "scripts/evaluate_candidate.py": "573301501ec13a5bb8f7a92d2474d31cfb723e0bc7137e76c0449b29c14075d1",
+    "scripts/prepare_task_sources.py": "3bf18c0cff5f19e97c07c24551ba5010ba2f9acbc348359fdee036b5554462d1",
+    "scripts/run_agent_pilot.py": "9700eca3527b2caa20c59c09c5b2c4f228cc4e39355812b708978e55463e5a09"
+  },
+  "model_config": {
+    "model": "anthropic/MiniMax-M3",
+    "model_canonical_name": "minimax/MiniMax-M3",
+    "base_url": "https://api.minimax.cn/anthropic",
+    "api_mode": "chat",
+    "native_tool_calling": true,
+    "force_string_serializer": false,
+    "reasoning_effort": "none",
+    "capability_overrides": {
+      "supports_reasoning_effort": false,
+      "supports_sampling_params": true
+    },
+    "litellm_extra_body": {
+      "thinking": {
+        "type": "disabled"
+      }
+    },
+    "temperature": 1.0,
+    "max_output_tokens": 4096,
+    "num_retries": 0,
+    "timeout": 60,
+    "caching_prompt": false,
+    "stream": false,
+    "fallback_strategy": null,
+    "log_completions": false
+  },
+  "config_sha256": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+  "original_attempt_code_commit": "240ad8099ea9a1f63a70f1b3069e9e4742d37d09",
+  "run_id": "20261020-minimax-v01-recovery",
+  "parent_run_id": "20261020-minimax-v01",
+  "status": "completed_with_stops",
+  "prepare_and_original_attempt_extra_executions": {
+    "planning": 20,
+    "symbolic": 2
+  },
+  "all_three_run_directories_executions": {
+    "planning": 60,
+    "symbolic": 6
+  }
+}

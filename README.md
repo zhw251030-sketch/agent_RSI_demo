@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**OpenHands SDK 已通过无模型工具检查，Agent Canvas 网页已部署并选中本项目；当前仍为研究准备阶段。实验 Agent 调用为 0，尚无 RSI 方法实现、正式实验或性能结果。** 仓库名中的 RSI 是项目简称，不代表已实现递归自我改写。
+**首轮受控真实 Agent 开发小试已执行：MiniMax-M3 生成 3 个规划程序和 3 个符号公式；规划均未通过，符号训练 NMSE 最低 0.09180。固定修订提示未更新，没有 RSI 有效性、泛化或正式对照结论。** 仓库名中的 RSI 是项目简称，不代表已实现递归自我改写。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -15,11 +15,11 @@
 | 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，正式协议待冻结 |
 | 更新对象 | 建议区分产物 P（程序/公式）与修订策略 S，重点检验策略对新搜索状态的作用 |
 | 方法参照 | GEPA 式策略优化为共同候选，llm-genplan、LLM-SR、LaSR 等为任务参照；最终规则未选定 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1 已安装；MiniMax-M3 连接已验证；专用评价工具已完成两类任务离线往返，尚未启动研究 Agent 会话 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1 已安装；MiniMax-M3 连接已验证；受控真实会话已运行；82 项不同测试通过，调用/候选/数据范围受限 |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
-模型配置与验收：[MiniMax-M3 使用说明](docs/operations/minimax.md)。本次包含连接检查调用，正式研究 Agent rollout 仍为 0。
+模型配置与验收：[MiniMax-M3 使用说明](docs/operations/minimax.md)。连接检查与开发小试分开计数。小试 8 次请求含 1 次服务错误，7 次有响应；费用仍有一笔未知用量，详见 [真实小试说明](docs/operations/agent-pilot.md)。
 
 ## 阅读入口
 
@@ -32,6 +32,8 @@
 7. [两类任务下载、替代选型与验收说明](docs/operations/task-data.md)
 8. [当前符号数据接口：LLM-SR 公开原始任务](docs/protocols/2026-10-20-symbolic-public-data.md)
 9. [任务执行器、隔离与 OpenHands 工具使用说明](docs/operations/task-executors.md)
+10. [首轮真实 Agent 小试：操作、结果与限制](docs/operations/agent-pilot.md)
+11. [全部候选源码与开发成绩](artifacts/pilot/2026-10-20/README.md)
 
 ## 仓库边界
 
