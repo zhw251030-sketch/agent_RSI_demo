@@ -1,0 +1,279 @@
+{
+  "date": "2026-10-20",
+  "runtime_commit": "154bc39aa64d680ade8b3ddfedbecd296f0b4e81",
+  "run_id": "20261020-policy-transfer-v01",
+  "status": "completed_and_independently_audited",
+  "tests_before_execution": {
+    "distinct": 380,
+    "task": 335,
+    "sdk": 45
+  },
+  "runtime_source_files_verified": 72,
+  "input_triplets_verified": 4,
+  "policy_update": {
+    "request_id": "request-0001",
+    "input_bytes": 17056,
+    "payload_sha256": "d5e2511b5c15fad80e41fc076b3f21024925d12deb28d5fd788a223a9f979d12",
+    "response_sha256": "094cb8e34bf0f27a473eea7048aa2e6a9bab6df4429b1ec1ee399f995a755f5c",
+    "usage_state": "known",
+    "usage": {
+      "prompt_tokens": 4689,
+      "completion_tokens": 1104,
+      "total_tokens": 5793
+    },
+    "response_tool_validation": {
+      "status": "valid_submission"
+    },
+    "parent_policy": {
+      "version": "revision-policy-v0.1",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    "selected_policy": {
+      "version": "revision-policy-v0.1",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R02",
+        "R06"
+      ]
+    },
+    "no_op": false,
+    "policy_changed": true,
+    "freeze_file_sha256": "256de5eb32ba87050cfe12cfaf15d417914bcc6e93c53589ed77d74fcf102aba",
+    "added_rules": [
+      "R02"
+    ],
+    "removed_rules": [
+      "R08"
+    ],
+    "host_rationale_rendered": false,
+    "rule_support": [
+      {
+        "rule_id": "R03",
+        "support": "both"
+      },
+      {
+        "rule_id": "R04",
+        "support": "both"
+      },
+      {
+        "rule_id": "R02",
+        "support": "U-P"
+      },
+      {
+        "rule_id": "R06",
+        "support": "U-S"
+      }
+    ]
+  },
+  "counts": {
+    "requests": 13,
+    "update_requests": 1,
+    "evaluation_requests": 12,
+    "generated_candidate_records": 11,
+    "new_task_result_records": 56,
+    "archived_task_result_records": 66,
+    "claim_statuses": {
+      "unavailable": 1,
+      "contradicted": 5,
+      "schema_invalid": 4,
+      "supported": 1
+    },
+    "registration_statuses": {
+      "supported": 11
+    },
+    "prediction_statuses": {
+      "contradicted": 9,
+      "supported": 2
+    }
+  },
+  "cost_by_stage_and_condition": {
+    "all": {
+      "requests": 13,
+      "known_prompt_tokens": 101698,
+      "known_completion_tokens": 18309,
+      "known_total_tokens": 120007,
+      "known_estimated_cost_cny": 0.3673614,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 120007,
+      "actual_estimated_cost_cny": 0.3673614,
+      "reserved_tokens": 538758,
+      "reserved_cost_cny": 1.4668542,
+      "input_bytes": 379014,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "policy_update": {
+      "requests": 1,
+      "known_prompt_tokens": 4689,
+      "known_completion_tokens": 1104,
+      "known_total_tokens": 5793,
+      "known_estimated_cost_cny": 0.0191205,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 5793,
+      "actual_estimated_cost_cny": 0.0191205,
+      "reserved_tokens": 29344,
+      "reserved_cost_cny": 0.0874272,
+      "input_bytes": 17056,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "fixed": {
+      "requests": 4,
+      "known_prompt_tokens": 28903,
+      "known_completion_tokens": 5993,
+      "known_total_tokens": 34896,
+      "known_estimated_cost_cny": 0.1110375,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 34896,
+      "actual_estimated_cost_cny": 0.1110375,
+      "reserved_tokens": 157382,
+      "reserved_cost_cny": 0.4337214,
+      "input_bytes": 108230,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "memory": {
+      "requests": 4,
+      "known_prompt_tokens": 39210,
+      "known_completion_tokens": 6216,
+      "known_total_tokens": 45426,
+      "known_estimated_cost_cny": 0.1345554,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 45426,
+      "actual_estimated_cost_cny": 0.1345554,
+      "reserved_tokens": 194530,
+      "reserved_cost_cny": 0.5117322,
+      "input_bytes": 145378,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "updated": {
+      "requests": 4,
+      "known_prompt_tokens": 28896,
+      "known_completion_tokens": 4996,
+      "known_total_tokens": 33892,
+      "known_estimated_cost_cny": 0.102648,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 33892,
+      "actual_estimated_cost_cny": 0.102648,
+      "reserved_tokens": 157502,
+      "reserved_cost_cny": 0.4339734,
+      "input_bytes": 108350,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "updated_plus_update": {
+      "requests": 5,
+      "known_prompt_tokens": 33585,
+      "known_completion_tokens": 6100,
+      "known_total_tokens": 39685,
+      "known_estimated_cost_cny": 0.1217685,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 39685,
+      "actual_estimated_cost_cny": 0.1217685,
+      "reserved_tokens": 186846,
+      "reserved_cost_cny": 0.5214006,
+      "input_bytes": 125406,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    }
+  },
+  "condition_endpoints": {
+    "fixed": {
+      "assigned_sessions": 4,
+      "generated_candidates": 4,
+      "submitted_and_improved": 2
+    },
+    "memory": {
+      "assigned_sessions": 4,
+      "generated_candidates": 3,
+      "submitted_and_improved": 2
+    },
+    "updated": {
+      "assigned_sessions": 4,
+      "generated_candidates": 4,
+      "submitted_and_improved": 3
+    }
+  },
+  "new_raw_files_verified_unchanged": 231,
+  "prior_raw_files_verified_unchanged": 319,
+  "original_verification": [
+    {
+      "run_id": "20261020-checked-feedback-v01",
+      "verified_files": 74,
+      "mismatches": []
+    },
+    {
+      "run_id": "20261020-checked-feedback-v02",
+      "verified_files": 97,
+      "mismatches": []
+    },
+    {
+      "run_id": "20261020-paired-repair-v01",
+      "verified_files": 148,
+      "mismatches": []
+    },
+    {
+      "run_id": "20261020-policy-transfer-v01",
+      "verified_files": 231,
+      "mismatches": []
+    }
+  ],
+  "archive_manifest_sha256": "e28bf3d6f9aaa922f8686be159035ebbe63460efe61890deff2e02e5f9c2cd5e",
+  "archive_raw_mappings": 231,
+  "new_unique_task_executions": 56,
+  "baseline_records_copied": 66,
+  "baseline_unique_old_execution_ids": 11,
+  "baseline_reexecutions": 0,
+  "sealed_test_evaluations": 0,
+  "new_run_usage_unknown_requests": 0,
+  "historical_unknown_usage_requests": 1,
+  "project_accounting": {
+    "research_requests_including_this_round": 61,
+    "known_total_tokens": 529563,
+    "known_estimated_cny": 1.5944859,
+    "reserved_cny": 6.724242,
+    "actual_total_cny": null,
+    "excludes": "Seven earlier connection/debug requests and consumption by Canvas or other projects. One earliest research request still has unknown usage."
+  },
+  "boundaries": [
+    "One learned selection of four human-authored rules, not free-form rule invention or updater self-rewriting.",
+    "Two already inspected development repair states on the same Spanner/oscillator1 data, not unseen tasks.",
+    "Two draws per condition do not repeat the policy update.",
+    "Request equality covers saved SDK pre-transport envelopes; provider HTTP bytes were not separately captured.",
+    "File consistency does not independently timestamp registration or prove process order.",
+    "Model explanation contains unsupported interpretations; accepted rule IDs do not validate rationale.",
+    "EP-r1-memory rationale length was 2016 characters, exceeding the 2000-character bound by 16; no candidate executed and score remains null."
+  ],
+  "sensitive_pattern_scan": {
+    "files_checked": 231,
+    "matches": 0,
+    "scope": "Selected key/header/bearer/server patterns; not proof against all secret formats."
+  },
+  "post_run_audit_tests": {
+    "count": 14,
+    "local_passed": true,
+    "server_passed": true
+  },
+  "tampered_copy_checks": {
+    "count": 13,
+    "all_rejected": true
+  },
+  "settlement_state": {
+    "request_count": 13,
+    "reserved_count": 0,
+    "failed_count": 0,
+    "usage_unknown_count": 0,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null
+  },
+  "analysis_sha256": "fad850b0824a4342bc1e8f0e893cd8a0705b500c521bba9d07b3476529fb230e",
+  "negative_analysis_sha256": "b4f726ee16133884d8d838d10dd017516acc796c299464d3a89ff7047d58f2f6",
+  "post_run_audit_fix": "Independent review found that settled request status was not checked in the initial analysis script. Added regression tests and ledger/summary consistency checks; the actual run was already fully settled and its results were unchanged.",
+  "project_relative_links_checked": 120,
+  "changed_files_secret_pattern_scan": {
+    "files": 244,
+    "matches": 0
+  }
+}

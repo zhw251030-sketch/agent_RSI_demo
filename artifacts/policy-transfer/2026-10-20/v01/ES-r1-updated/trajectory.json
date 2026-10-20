@@ -1,0 +1,187 @@
+[
+  {
+    "candidate_id": "symbolic-000",
+    "parent_id": null,
+    "source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "origin": "archived_model_proposed_initial",
+    "n_params": 3,
+    "rationale": "Observation: NMSE dropped 1.0→0.097 with -p0*x - p1*v. New standardized_bias = 0.0309 (non-zero), and x-bin mean residuals are now uniformly ~0.002 across all four bins — a constant offset, not an x-dependent term. v-bin RMSE is highest (0.0324) in the high-velocity bin, but the dominant remaining error is the constant offset. Hypothesis: the true acceleration has a constant offset (e.g., gravity, equilibrium shift, or driving bias) added to the linear Hooke restoration. Prediction: adding a constant p2 should drive the bias to ~0 and drop NMSE further by eliminating the systematic shift. Check: supported by uniform ~0.002 mean residuals across x bins. Evidence: oscillator1:residuals standardized_bias and x-bin mean residuals. Change: add constant term +p2 to the 2-parameter linear form.",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004185108784986807,
+      "nmse": 0.09591726394116994
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-000",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Damped oscillator + constant offset (captures bias and linear terms)\n    p0, p1, p2 = params[0], params[1], params[2]\n    return -p0 * x - p1 * v + p2\n",
+      "instruction": "Revise this explicit archived starting candidate once."
+    },
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "run_id": "e63f0890ecb549d19fdd7b549af28fc9",
+        "metrics": {
+          "mse": 0.0004185108784986807,
+          "nmse": 0.09591726394116994
+        }
+      }
+    ]
+  },
+  {
+    "candidate_id": "symbolic-001",
+    "parent_id": "symbolic-000",
+    "source_sha256": "f1c498c54bfa52752ae40314e6b6144be6bb2529dae3aa9a2e6be26d7d74985f",
+    "origin": "model_proposed",
+    "n_params": 4,
+    "rationale": "R02/R05: After p2 fixed the bias, the dominant remaining signal is in v-bins — bin.v.3 RMSE = 0.0319 (highest) and v-bin mean residuals alternate in sign across bins (+0.0037, -0.0025, +0.0004...), consistent with a missing higher-order v dependence rather than another linear term (R06: hypothesis). The change adds p3 * v * |v| (a smooth quadratic-in-v correction that keeps sign with v) to the existing -p0*x - p1*v + p2 form. Submitted source reflects this. Predict NMSE drop ≥ 0.03 absolute given v-bin RMSE was ~50% larger than x-bin RMSE; if p3 fits near zero the model still preserves the parent's behavior (R08).",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "f1c498c54bfa52752ae40314e6b6144be6bb2529dae3aa9a2e6be26d7d74985f",
+        "run_id": "5092629025a5458684040ef164e1da69",
+        "metrics": {
+          "mse": 0.00041077901677871324,
+          "nmse": 0.09414522154167211
+        },
+        "diagnostics": {
+          "candidate_sha256": "f1c498c54bfa52752ae40314e6b6144be6bb2529dae3aa9a2e6be26d7d74985f",
+          "residuals": {
+            "bias": -1.0850738101974431e-13,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": 0.0020831660839802763,
+                    "rmse": 0.014870506742345205,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": -0.0015096902781814776,
+                    "rmse": 0.021927518599008763,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.0010748931371998326,
+                    "rmse": 0.017404550115876025,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0005014173309670042,
+                    "rmse": 0.02526360345823223,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0019800031793188737,
+                    "rmse": 0.012313251998989791,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.0021100163007795503,
+                    "rmse": 0.01856147662183694,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.00012059915210250663,
+                    "rmse": 0.011208536372167848,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": -9.41396979219924e-06,
+                    "rmse": 0.03195841345146874,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020267684050692947,
+            "scope": "train",
+            "standardized_bias": -1.642685019629307e-12,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.00041077901677871324,
+      "nmse": 0.09414522154167211
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-001",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Damped oscillator with quadratic-velocity nonlinearity (cubic-like restoring)\n    # Adds p3 * v * |v| term to address elevated RMSE and alternating residuals in v-bins.\n    p0, p1, p2, p3 = params[0], params[1], params[2], params[3]\n    return -p0 * x - p1 * v + p2 + p3 * v * np.abs(v)",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  }
+]

@@ -1,0 +1,253 @@
+{
+  "family": "planning",
+  "session_id": "planning",
+  "strategy_version": "finite-rule-policy-transfer-v0.1",
+  "strategy_updated": false,
+  "generated_candidates": 0,
+  "tool_rejections": 0,
+  "halted": false,
+  "executions": 0,
+  "baseline": {
+    "candidate_id": "planning-000",
+    "parent_id": null,
+    "source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "origin": "archived_model_proposed_initial",
+    "n_params": 3,
+    "rationale": "Feedback from planning-002: goal_nuts ran only twice and do_pickup/do_tighten once each; the second pass found no useable spanner reachable from the nut location and bailed. The nut location is a sink in the directed link graph (shed->loc1->...->gate, no link out of gate), so a man who walks to the nuts can never fetch another spanner, yet three nuts each consume one spanner. The only consistent resolution is that walking is effectively available in both directions along a link pair, so I compute the adjacency as the symmetric closure of link (still only traversing edges that appear as link facts, never inventing new location pairs). I keep directed BFS as a fallback check but prefer symmetric reachability, and I no longer break the inner loop after one tighten - I iterate over every remaining loose goal nut, re-deriving the man's position each time. Each tighten consumes exactly one useable spanner, so the loop terminates.",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "planning-000",
+      "incumbent_source": "\"\"\"Planner for the spanner domain.\n\nEvery loose goal nut consumes one `useable` spanner (tighten_nut deletes\nuseable), so each nut needs its own trip: fetch a useable spanner, carry it to\nthe nut, tighten.  Movement uses BFS over the link graph; we traverse a link\nedge in either direction because otherwise the nut location is often a dead end\nand the remaining nuts could never be reached.\n\"\"\"\n\n\ndef get_plan(objects, init, goal):\n    types = {}\n    for name, t in objects:\n        types.setdefault(t, set()).add(name)\n    men = sorted(types.get(\"man\", set()))\n    nuts = sorted(types.get(\"nut\", set()))\n    spanners = sorted(types.get(\"spanner\", set()))\n    locs = sorted(types.get(\"location\", set()))\n\n    state = set(tuple(f) for f in init)\n    goal = set(tuple(g) for g in goal)\n\n    # undirected adjacency over link facts (never invents location pairs)\n    adj = dict((l, set()) for l in locs)\n    for f in sorted(state):\n        if f[0] == \"link\" and f[1] in adj and f[2] in adj:\n            adj[f[1]].add(f[2])\n            adj[f[2]].add(f[1])\n\n    plan = []\n\n    def man_at():\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) in state:\n                    return (m, l)\n        return (None, None)\n\n    def locate(obj):\n        for l in locs:\n            if (\"at\", obj, l) in state:\n                return l\n        return None\n\n    def path(src, dst):\n        if src == dst:\n            return [src]\n        prev = {src: None}\n        q = [src]\n        while q:\n            nq = []\n            for u in q:\n                for v in sorted(adj[u]):\n                    if v not in prev:\n                        prev[v] = u\n                        nq.append(v)\n            q = nq\n        if dst not in prev:\n            return None\n        p = []\n        c = dst\n        while c is not None:\n            p.append(c)\n            c = prev[c]\n        p.reverse()\n        return p\n\n    def walk(m, p):\n        for i in range(len(p) - 1):\n            plan.append(\"(walk %s %s %s)\" % (p[i], p[i + 1], m))\n            state.discard((\"at\", m, p[i]))\n            state.add((\"at\", m, p[i + 1]))\n\n    def pending():\n        res = []\n        for g in sorted(goal):\n            if g and g[0] == \"tightened\" and len(g) == 2 and g[1] in nuts:\n                if (\"tightened\", g[1]) not in state and (\"loose\", g[1]) in state:\n                    res.append(g[1])\n        return res\n\n    def free_spanners():\n        out = []\n        for s in spanners:\n            if (\"useable\", s) in state:\n                sl = locate(s)\n                if sl is not None:\n                    out.append((s, sl))\n        return out\n\n    while len(plan) < 1000:\n        todo = pending()\n        if not todo:\n            break\n        m, ml = man_at()\n        if m is None:\n            break\n        best = None\n        for n in todo:\n            nl = locate(n)\n            if nl is None:\n                continue\n            pn = path(ml, nl)\n            if pn is None:\n                continue\n            for (s, sl) in free_spanners():\n                ps = path(ml, sl)\n                if ps is None:\n                    continue\n                pn2 = path(sl, nl)\n                if pn2 is None:\n                    continue\n                cost = len(ps) + len(pn2)\n                if best is None or cost < best[0]:\n                    best = (cost, n, nl, s, sl, ps, pn2)\n        if best is None:\n            break\n        _, n, nl, s, sl, ps, pn2 = best\n        walk(m, ps)\n        plan.append(\"(pickup_spanner %s %s %s)\" % (sl, s, m))\n        state.discard((\"at\", s, sl))\n        state.add((\"carrying\", m, s))\n        walk(m, pn2)\n        plan.append(\"(tighten_nut %s %s %s %s)\" % (nl, s, m, n))\n        state.discard((\"loose\", n))\n        state.discard((\"useable\", s))\n        state.add((\"tightened\", n))\n\n    return plan[:1000]",
+      "instruction": "Revise this explicit archived starting candidate once."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "3d95051cb0334fc79fd084f172517366",
+        "plan_length": 21
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "783403ccad0144dab9b1a7496993d324",
+        "plan_length": 15
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7501c5e92cc54f11927697f93fd0901a",
+        "plan_length": 16
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "1c470bf96bb540efbfd3a75bb53f4e06",
+        "plan_length": 16
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "8d9e80d6e3da4369a44db240f4bc4641",
+        "plan_length": 20
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "b78a949b829d4efd87fd6936d61fef5c",
+        "plan_length": 20
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "ab36821541d249739c8a21a99ae42c9e",
+        "plan_length": 23
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7a6d12fddd4d4ca7a6623f649babdcf5",
+        "plan_length": 27
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "da8b6d06104e4abc967d57c38c08c1ad",
+        "plan_length": 19
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7eced74c7a41436aadb607151a41eaf7",
+        "plan_length": 16
+      }
+    ]
+  },
+  "first": null,
+  "last": null,
+  "best": {
+    "candidate_id": "planning-000",
+    "parent_id": null,
+    "source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "origin": "archived_model_proposed_initial",
+    "n_params": 3,
+    "rationale": "Feedback from planning-002: goal_nuts ran only twice and do_pickup/do_tighten once each; the second pass found no useable spanner reachable from the nut location and bailed. The nut location is a sink in the directed link graph (shed->loc1->...->gate, no link out of gate), so a man who walks to the nuts can never fetch another spanner, yet three nuts each consume one spanner. The only consistent resolution is that walking is effectively available in both directions along a link pair, so I compute the adjacency as the symmetric closure of link (still only traversing edges that appear as link facts, never inventing new location pairs). I keep directed BFS as a fallback check but prefer symmetric reachability, and I no longer break the inner loop after one tighten - I iterate over every remaining loose goal nut, re-deriving the man's position each time. Each tighten consumes exactly one useable spanner, so the loop terminates.",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "planning-000",
+      "incumbent_source": "\"\"\"Planner for the spanner domain.\n\nEvery loose goal nut consumes one `useable` spanner (tighten_nut deletes\nuseable), so each nut needs its own trip: fetch a useable spanner, carry it to\nthe nut, tighten.  Movement uses BFS over the link graph; we traverse a link\nedge in either direction because otherwise the nut location is often a dead end\nand the remaining nuts could never be reached.\n\"\"\"\n\n\ndef get_plan(objects, init, goal):\n    types = {}\n    for name, t in objects:\n        types.setdefault(t, set()).add(name)\n    men = sorted(types.get(\"man\", set()))\n    nuts = sorted(types.get(\"nut\", set()))\n    spanners = sorted(types.get(\"spanner\", set()))\n    locs = sorted(types.get(\"location\", set()))\n\n    state = set(tuple(f) for f in init)\n    goal = set(tuple(g) for g in goal)\n\n    # undirected adjacency over link facts (never invents location pairs)\n    adj = dict((l, set()) for l in locs)\n    for f in sorted(state):\n        if f[0] == \"link\" and f[1] in adj and f[2] in adj:\n            adj[f[1]].add(f[2])\n            adj[f[2]].add(f[1])\n\n    plan = []\n\n    def man_at():\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) in state:\n                    return (m, l)\n        return (None, None)\n\n    def locate(obj):\n        for l in locs:\n            if (\"at\", obj, l) in state:\n                return l\n        return None\n\n    def path(src, dst):\n        if src == dst:\n            return [src]\n        prev = {src: None}\n        q = [src]\n        while q:\n            nq = []\n            for u in q:\n                for v in sorted(adj[u]):\n                    if v not in prev:\n                        prev[v] = u\n                        nq.append(v)\n            q = nq\n        if dst not in prev:\n            return None\n        p = []\n        c = dst\n        while c is not None:\n            p.append(c)\n            c = prev[c]\n        p.reverse()\n        return p\n\n    def walk(m, p):\n        for i in range(len(p) - 1):\n            plan.append(\"(walk %s %s %s)\" % (p[i], p[i + 1], m))\n            state.discard((\"at\", m, p[i]))\n            state.add((\"at\", m, p[i + 1]))\n\n    def pending():\n        res = []\n        for g in sorted(goal):\n            if g and g[0] == \"tightened\" and len(g) == 2 and g[1] in nuts:\n                if (\"tightened\", g[1]) not in state and (\"loose\", g[1]) in state:\n                    res.append(g[1])\n        return res\n\n    def free_spanners():\n        out = []\n        for s in spanners:\n            if (\"useable\", s) in state:\n                sl = locate(s)\n                if sl is not None:\n                    out.append((s, sl))\n        return out\n\n    while len(plan) < 1000:\n        todo = pending()\n        if not todo:\n            break\n        m, ml = man_at()\n        if m is None:\n            break\n        best = None\n        for n in todo:\n            nl = locate(n)\n            if nl is None:\n                continue\n            pn = path(ml, nl)\n            if pn is None:\n                continue\n            for (s, sl) in free_spanners():\n                ps = path(ml, sl)\n                if ps is None:\n                    continue\n                pn2 = path(sl, nl)\n                if pn2 is None:\n                    continue\n                cost = len(ps) + len(pn2)\n                if best is None or cost < best[0]:\n                    best = (cost, n, nl, s, sl, ps, pn2)\n        if best is None:\n            break\n        _, n, nl, s, sl, ps, pn2 = best\n        walk(m, ps)\n        plan.append(\"(pickup_spanner %s %s %s)\" % (sl, s, m))\n        state.discard((\"at\", s, sl))\n        state.add((\"carrying\", m, s))\n        walk(m, pn2)\n        plan.append(\"(tighten_nut %s %s %s %s)\" % (nl, s, m, n))\n        state.discard((\"loose\", n))\n        state.discard((\"useable\", s))\n        state.add((\"tightened\", n))\n\n    return plan[:1000]",
+      "instruction": "Revise this explicit archived starting candidate once."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "3d95051cb0334fc79fd084f172517366",
+        "plan_length": 21
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "783403ccad0144dab9b1a7496993d324",
+        "plan_length": 15
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7501c5e92cc54f11927697f93fd0901a",
+        "plan_length": 16
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "1c470bf96bb540efbfd3a75bb53f4e06",
+        "plan_length": 16
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "8d9e80d6e3da4369a44db240f4bc4641",
+        "plan_length": 20
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "b78a949b829d4efd87fd6936d61fef5c",
+        "plan_length": 20
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "ab36821541d249739c8a21a99ae42c9e",
+        "plan_length": 23
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7a6d12fddd4d4ca7a6623f649babdcf5",
+        "plan_length": 27
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "da8b6d06104e4abc967d57c38c08c1ad",
+        "plan_length": 19
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7eced74c7a41436aadb607151a41eaf7",
+        "plan_length": 16
+      }
+    ]
+  },
+  "selection_rule": "development_successes_then_prompt_then_earlier",
+  "sealed_tasks_executed": 0,
+  "scope": "One development repair with an externally frozen rule selection; the actor cannot update policy, weights, or evaluation data.",
+  "diagnostics_computed": true,
+  "diagnostics_visible": true,
+  "condition": "hidden",
+  "checks_visible": false,
+  "check_gates_execution": false,
+  "check_changes_selection": false,
+  "archived_task_records": 10,
+  "baseline_reexecuted": false,
+  "max_generated_candidates": 1,
+  "policy": {
+    "version": "revision-policy-v0.1",
+    "rule_ids": [
+      "R03",
+      "R04",
+      "R06",
+      "R08"
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "candidate_id": "symbolic-001",
+    "compact_declaration": {
+      "claim_id": "e_87b69baf0dd36cbb",
+      "claim_op": "lt",
+      "claim_value_json": "0.0004185108784986807",
+      "prediction_id": "e_c5d2de2fa44e45ac",
+      "prediction_direction": "decrease",
+      "prediction_min_delta": 0.0001
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "bd47e8af781dd5463c14e14c032d3a10a2f216dea59fe862d0cffcfa2604d723"
+    },
+    "claim_expansion": {
+      "status": "resolved",
+      "value": {
+        "kind": "scalar",
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:ES-r1",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "op": "lt",
+        "value": 0.0004185108784986807
+      }
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:ES-r1",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "mse"
+        },
+        "direction": "decrease",
+        "min_delta": 0.0001
+      }
+    },
+    "claim_results": [
+      {
+        "status": "contradicted",
+        "reason": "comparison_contradicted",
+        "actual": 0.09591726394116994,
+        "tolerance": 1.0591726394116994e-09,
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:ES-r1",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "op": "lt",
+        "expected": 0.0004185108784986807
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0004185108784986807,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:ES-r1",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "mse"
+      },
+      "direction": "decrease",
+      "min_delta": 0.0001
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 6.527051946320929e-07,
+      "tolerance": 1.01e-10,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:ES-r1",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "mse"
+      },
+      "before": 0.0004185108784986807,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.0001,
+      "child_reference": {
+        "session_id": "20261020-policy-transfer-v01:ES-r1",
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "7cc7bbf448e5bd9e3d1edad2dbf4a8942577eb8ccc146192208dbf98196b7a19",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "mse"
+      },
+      "after": 0.0004178581733040486
+    }
+  }
+]

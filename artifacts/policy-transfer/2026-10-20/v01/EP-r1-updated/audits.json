@@ -1,0 +1,88 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "compact_declaration": {
+      "claim_id": "e_eec0ba77ecf07b8c",
+      "claim_op": "eq",
+      "claim_value_json": "[\"$0\",\"location\"]",
+      "prediction_id": "e_2b6f2b44628dbcca",
+      "prediction_direction": "increase",
+      "prediction_min_delta": 1.0
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "e3a885452d1a34519d60729e5c89c3e199fa07a42ffac67b054b8b879175476f"
+    },
+    "claim_expansion": {
+      "status": "schema_invalid",
+      "reason": "claim_schema_invalid"
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:EP-r1",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "development_successes"
+        },
+        "direction": "increase",
+        "min_delta": 1.0
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "direction": "increase",
+      "min_delta": 1.0
+    },
+    "prediction_result": {
+      "status": "supported",
+      "reason": "prediction_supported",
+      "actual": 8.0,
+      "tolerance": 8.01e-08,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "before": 0.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 1.0,
+      "child_reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "after": 8.0
+    }
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "candidate_id": "symbolic-001",
+    "compact_declaration": {
+      "claim_id": "e_f9d4cddc6ed6aea2",
+      "claim_op": "contains",
+      "claim_value_json": "[\"v * np.abs(v)\"]",
+      "prediction_id": "e_87b69baf0dd36cbb",
+      "prediction_direction": "decrease",
+      "prediction_min_delta": 0.03
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "bd47e8af781dd5463c14e14c032d3a10a2f216dea59fe862d0cffcfa2604d723"
+    },
+    "claim_expansion": {
+      "status": "schema_invalid",
+      "reason": "claim_schema_invalid"
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:ES-r1",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "direction": "decrease",
+        "min_delta": 0.03
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.09591726394116994,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:ES-r1",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "direction": "decrease",
+      "min_delta": 0.03
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.0017720423994978252,
+      "tolerance": 4e-10,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:ES-r1",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "before": 0.09591726394116994,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.03,
+      "child_reference": {
+        "session_id": "20261020-policy-transfer-v01:ES-r1",
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "f1c498c54bfa52752ae40314e6b6144be6bb2529dae3aa9a2e6be26d7d74985f",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "after": 0.09414522154167211
+    }
+  }
+]

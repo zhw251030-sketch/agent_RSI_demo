@@ -1,0 +1,3448 @@
+{
+  "state_id": "E-P",
+  "family": "planning",
+  "condition": "updated",
+  "repeat": 1,
+  "pair_id": "EP-r1",
+  "session_id": "EP-r1-updated",
+  "status": "stopped",
+  "baseline_source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+  "baseline_n_params": 3,
+  "task_prompt_sha256": "c5f81d8e26abc5b211d8a0f40a13fb1df31862828f65c5b78d38db2f92af9ba9",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "family": "planning",
+    "session_id": "planning",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "strategy_updated": false,
+    "generated_candidates": 1,
+    "tool_rejections": 0,
+    "halted": false,
+    "executions": 10,
+    "baseline": {
+      "candidate_id": "planning-000",
+      "parent_id": null,
+      "source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "origin": "archived_model_proposed_initial",
+      "n_params": 3,
+      "rationale": "Feedback from planning-002: goal_nuts ran only twice and do_pickup/do_tighten once each; the second pass found no useable spanner reachable from the nut location and bailed. The nut location is a sink in the directed link graph (shed->loc1->...->gate, no link out of gate), so a man who walks to the nuts can never fetch another spanner, yet three nuts each consume one spanner. The only consistent resolution is that walking is effectively available in both directions along a link pair, so I compute the adjacency as the symmetric closure of link (still only traversing edges that appear as link facts, never inventing new location pairs). I keep directed BFS as a fallback check but prefer symmetric reachability, and I no longer break the inner loop after one tighten - I iterate over every remaining loose goal nut, re-deriving the man's position each time. Each tighten consumes exactly one useable spanner, so the loop terminates.",
+      "strategy_version": "finite-rule-policy-transfer-v0.1",
+      "feedback_role": "development_only",
+      "metric_scope": "Development feedback only; no held-out evaluation.",
+      "status": "evaluated",
+      "metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      },
+      "generated_candidates_used": 0,
+      "generated_candidates_remaining": 1,
+      "selection": {
+        "accepted": true,
+        "incumbent_id": "planning-000",
+        "incumbent_source": "\"\"\"Planner for the spanner domain.\n\nEvery loose goal nut consumes one `useable` spanner (tighten_nut deletes\nuseable), so each nut needs its own trip: fetch a useable spanner, carry it to\nthe nut, tighten.  Movement uses BFS over the link graph; we traverse a link\nedge in either direction because otherwise the nut location is often a dead end\nand the remaining nuts could never be reached.\n\"\"\"\n\n\ndef get_plan(objects, init, goal):\n    types = {}\n    for name, t in objects:\n        types.setdefault(t, set()).add(name)\n    men = sorted(types.get(\"man\", set()))\n    nuts = sorted(types.get(\"nut\", set()))\n    spanners = sorted(types.get(\"spanner\", set()))\n    locs = sorted(types.get(\"location\", set()))\n\n    state = set(tuple(f) for f in init)\n    goal = set(tuple(g) for g in goal)\n\n    # undirected adjacency over link facts (never invents location pairs)\n    adj = dict((l, set()) for l in locs)\n    for f in sorted(state):\n        if f[0] == \"link\" and f[1] in adj and f[2] in adj:\n            adj[f[1]].add(f[2])\n            adj[f[2]].add(f[1])\n\n    plan = []\n\n    def man_at():\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) in state:\n                    return (m, l)\n        return (None, None)\n\n    def locate(obj):\n        for l in locs:\n            if (\"at\", obj, l) in state:\n                return l\n        return None\n\n    def path(src, dst):\n        if src == dst:\n            return [src]\n        prev = {src: None}\n        q = [src]\n        while q:\n            nq = []\n            for u in q:\n                for v in sorted(adj[u]):\n                    if v not in prev:\n                        prev[v] = u\n                        nq.append(v)\n            q = nq\n        if dst not in prev:\n            return None\n        p = []\n        c = dst\n        while c is not None:\n            p.append(c)\n            c = prev[c]\n        p.reverse()\n        return p\n\n    def walk(m, p):\n        for i in range(len(p) - 1):\n            plan.append(\"(walk %s %s %s)\" % (p[i], p[i + 1], m))\n            state.discard((\"at\", m, p[i]))\n            state.add((\"at\", m, p[i + 1]))\n\n    def pending():\n        res = []\n        for g in sorted(goal):\n            if g and g[0] == \"tightened\" and len(g) == 2 and g[1] in nuts:\n                if (\"tightened\", g[1]) not in state and (\"loose\", g[1]) in state:\n                    res.append(g[1])\n        return res\n\n    def free_spanners():\n        out = []\n        for s in spanners:\n            if (\"useable\", s) in state:\n                sl = locate(s)\n                if sl is not None:\n                    out.append((s, sl))\n        return out\n\n    while len(plan) < 1000:\n        todo = pending()\n        if not todo:\n            break\n        m, ml = man_at()\n        if m is None:\n            break\n        best = None\n        for n in todo:\n            nl = locate(n)\n            if nl is None:\n                continue\n            pn = path(ml, nl)\n            if pn is None:\n                continue\n            for (s, sl) in free_spanners():\n                ps = path(ml, sl)\n                if ps is None:\n                    continue\n                pn2 = path(sl, nl)\n                if pn2 is None:\n                    continue\n                cost = len(ps) + len(pn2)\n                if best is None or cost < best[0]:\n                    best = (cost, n, nl, s, sl, ps, pn2)\n        if best is None:\n            break\n        _, n, nl, s, sl, ps, pn2 = best\n        walk(m, ps)\n        plan.append(\"(pickup_spanner %s %s %s)\" % (sl, s, m))\n        state.discard((\"at\", s, sl))\n        state.add((\"carrying\", m, s))\n        walk(m, pn2)\n        plan.append(\"(tighten_nut %s %s %s %s)\" % (nl, s, m, n))\n        state.discard((\"loose\", n))\n        state.discard((\"useable\", s))\n        state.add((\"tightened\", n))\n\n    return plan[:1000]",
+        "instruction": "Revise this explicit archived starting candidate once."
+      },
+      "results": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "3d95051cb0334fc79fd084f172517366",
+          "plan_length": 21
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "783403ccad0144dab9b1a7496993d324",
+          "plan_length": 15
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem2",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "7501c5e92cc54f11927697f93fd0901a",
+          "plan_length": 16
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem3",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "1c470bf96bb540efbfd3a75bb53f4e06",
+          "plan_length": 16
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem4",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "8d9e80d6e3da4369a44db240f4bc4641",
+          "plan_length": 20
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem5",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "b78a949b829d4efd87fd6936d61fef5c",
+          "plan_length": 20
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem6",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "ab36821541d249739c8a21a99ae42c9e",
+          "plan_length": 23
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem7",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "7a6d12fddd4d4ca7a6623f649babdcf5",
+          "plan_length": 27
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem8",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "da8b6d06104e4abc967d57c38c08c1ad",
+          "plan_length": 19
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem9",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "run_id": "7eced74c7a41436aadb607151a41eaf7",
+          "plan_length": 16
+        }
+      ]
+    },
+    "first": {
+      "candidate_id": "planning-001",
+      "parent_id": "planning-000",
+      "source_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+      "origin": "model_proposed",
+      "n_params": 4,
+      "rationale": "Rule R01/R04/R05: I checked argument order and types against the domain definition. walk parameters are (?start ?end ?m) and the incumbent emitted \"(walk %s %s %s)\" with (p[i], p[i+1], m) — consistent. tighten_nut is (?l ?s ?m ?n) and the incumbent emitted (nl, s, m, n) — consistent. So the failure is not argument order; the earliest observed error is plan_semantics on every task with full plan_length (21, 15) far above executed_actions (7, 7), meaning the emitted walk steps stop being executable mid-plan. The concrete defect is R03-violating: the incumbent computes the symmetric closure of the directed link relation (\"we traverse a link edge in either direction because otherwise ... dead end\"), so every backward walk it emits is illegal. I therefore removed that illegal assumption and instead replaced the hand-written state updates with a faithful STRIPS simulator: successors() enumerates exactly the ground actions whose preconditions hold, so no emitted action can be illegal; BFS over that space returns the shortest legal plan reaching all goal tuples. This also removes the duplicated/hand-maintained effect bookkeeping that could drift from the domain. Alternative explanation considered (R06): that success requires re-visiting nuts in a specific order — but that is subsumed since BFS explores orderings exhaustively. Prediction is on development_successes only, a development observation, not a held-out claim.",
+      "strategy_version": "finite-rule-policy-transfer-v0.1",
+      "results": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "26cf2a9de75847998c0bfc4d46c72c15",
+          "plan_length": 11,
+          "diagnostics": {
+            "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+            "plan_replay": {
+              "error_kind": null,
+              "executed_actions": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "plan_length": 11,
+              "status": "valid",
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            },
+            "scope": "public_prompt",
+            "task_id": "spannerlearning/seed0/problem0",
+            "trace": {
+              "event_limit": 20000,
+              "events_seen": 10242,
+              "functions": [
+                {
+                  "call_events": 1,
+                  "container_length_max": 11,
+                  "container_length_min": 11,
+                  "exception_events": 0,
+                  "first_line": 15,
+                  "name": "get_plan",
+                  "none_return_events": 0,
+                  "return_events": 1,
+                  "return_types": {
+                    "list": 1
+                  }
+                },
+                {
+                  "call_events": 19,
+                  "container_length_max": 3,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 26,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 19,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 18
+                  }
+                },
+                {
+                  "call_events": 4,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 27,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 4,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 3
+                  }
+                },
+                {
+                  "call_events": 7,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 30,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 7,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 6
+                  }
+                },
+                {
+                  "call_events": 69,
+                  "container_length_max": 9,
+                  "container_length_min": 0,
+                  "exception_events": 0,
+                  "first_line": 38,
+                  "name": "successors",
+                  "none_return_events": 0,
+                  "return_events": 69,
+                  "return_types": {
+                    "list": 69
+                  }
+                },
+                {
+                  "call_events": 133,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 70,
+                  "name": "<genexpr>",
+                  "none_return_events": 69,
+                  "return_events": 133,
+                  "return_types": {
+                    "none": 69,
+                    "str": 64
+                  }
+                },
+                {
+                  "call_events": 133,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 86,
+                  "name": "<lambda>",
+                  "none_return_events": 0,
+                  "return_events": 133,
+                  "return_types": {
+                    "str": 133
+                  }
+                },
+                {
+                  "call_events": 78,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 89,
+                  "name": "goal_ok",
+                  "none_return_events": 0,
+                  "return_events": 78,
+                  "return_types": {
+                    "bool": 78
+                  }
+                }
+              ],
+              "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+              "interrupted": false,
+              "lines": [
+                {
+                  "hits": 1,
+                  "line": 16
+                },
+                {
+                  "hits": 14,
+                  "line": 17
+                },
+                {
+                  "hits": 13,
+                  "line": 18
+                },
+                {
+                  "hits": 1,
+                  "line": 20
+                },
+                {
+                  "hits": 1,
+                  "line": 21
+                },
+                {
+                  "hits": 1,
+                  "line": 22
+                },
+                {
+                  "hits": 1,
+                  "line": 23
+                },
+                {
+                  "hits": 1,
+                  "line": 24
+                },
+                {
+                  "hits": 20,
+                  "line": 26
+                },
+                {
+                  "hits": 5,
+                  "line": 27
+                },
+                {
+                  "hits": 8,
+                  "line": 30
+                },
+                {
+                  "hits": 19,
+                  "line": 31
+                },
+                {
+                  "hits": 18,
+                  "line": 32
+                },
+                {
+                  "hits": 5,
+                  "line": 33
+                },
+                {
+                  "hits": 5,
+                  "line": 34
+                },
+                {
+                  "hits": 7,
+                  "line": 35
+                },
+                {
+                  "hits": 6,
+                  "line": 36
+                },
+                {
+                  "hits": 1,
+                  "line": 38
+                },
+                {
+                  "hits": 69,
+                  "line": 40
+                },
+                {
+                  "hits": 138,
+                  "line": 42
+                },
+                {
+                  "hits": 483,
+                  "line": 43
+                },
+                {
+                  "hits": 414,
+                  "line": 44
+                },
+                {
+                  "hits": 345,
+                  "line": 45
+                },
+                {
+                  "hits": 84,
+                  "line": 46
+                },
+                {
+                  "hits": 15,
+                  "line": 47
+                },
+                {
+                  "hits": 15,
+                  "line": 48
+                },
+                {
+                  "hits": 15,
+                  "line": 49
+                },
+                {
+                  "hits": 30,
+                  "line": 50
+                },
+                {
+                  "hits": 15,
+                  "line": 51
+                },
+                {
+                  "hits": 138,
+                  "line": 53
+                },
+                {
+                  "hits": 483,
+                  "line": 54
+                },
+                {
+                  "hits": 414,
+                  "line": 55
+                },
+                {
+                  "hits": 345,
+                  "line": 56
+                },
+                {
+                  "hits": 276,
+                  "line": 57
+                },
+                {
+                  "hits": 207,
+                  "line": 58
+                },
+                {
+                  "hits": 198,
+                  "line": 59
+                },
+                {
+                  "hits": 9,
+                  "line": 60
+                },
+                {
+                  "hits": 9,
+                  "line": 61
+                },
+                {
+                  "hits": 9,
+                  "line": 62
+                },
+                {
+                  "hits": 18,
+                  "line": 63
+                },
+                {
+                  "hits": 9,
+                  "line": 64
+                },
+                {
+                  "hits": 138,
+                  "line": 66
+                },
+                {
+                  "hits": 483,
+                  "line": 67
+                },
+                {
+                  "hits": 414,
+                  "line": 68
+                },
+                {
+                  "hits": 345,
+                  "line": 69
+                },
+                {
+                  "hits": 409,
+                  "line": 70
+                },
+                {
+                  "hits": 207,
+                  "line": 71
+                },
+                {
+                  "hits": 271,
+                  "line": 72
+                },
+                {
+                  "hits": 69,
+                  "line": 73
+                },
+                {
+                  "hits": 24,
+                  "line": 74
+                },
+                {
+                  "hits": 180,
+                  "line": 75
+                },
+                {
+                  "hits": 135,
+                  "line": 76
+                },
+                {
+                  "hits": 59,
+                  "line": 77
+                },
+                {
+                  "hits": 185,
+                  "line": 78
+                },
+                {
+                  "hits": 109,
+                  "line": 79
+                },
+                {
+                  "hits": 109,
+                  "line": 80
+                },
+                {
+                  "hits": 109,
+                  "line": 81
+                },
+                {
+                  "hits": 109,
+                  "line": 82
+                },
+                {
+                  "hits": 218,
+                  "line": 83
+                },
+                {
+                  "hits": 218,
+                  "line": 84
+                },
+                {
+                  "hits": 109,
+                  "line": 85
+                },
+                {
+                  "hits": 202,
+                  "line": 86
+                },
+                {
+                  "hits": 69,
+                  "line": 87
+                },
+                {
+                  "hits": 1,
+                  "line": 89
+                },
+                {
+                  "hits": 111,
+                  "line": 90
+                },
+                {
+                  "hits": 110,
+                  "line": 91
+                },
+                {
+                  "hits": 77,
+                  "line": 92
+                },
+                {
+                  "hits": 1,
+                  "line": 93
+                },
+                {
+                  "hits": 1,
+                  "line": 95
+                },
+                {
+                  "hits": 1,
+                  "line": 98
+                },
+                {
+                  "hits": 1,
+                  "line": 101
+                },
+                {
+                  "hits": 1,
+                  "line": 102
+                },
+                {
+                  "hits": 1,
+                  "line": 103
+                },
+                {
+                  "hits": 11,
+                  "line": 104
+                },
+                {
+                  "hits": 11,
+                  "line": 105
+                },
+                {
+                  "hits": 79,
+                  "line": 106
+                },
+                {
+                  "hits": 69,
+                  "line": 107
+                },
+                {
+                  "hits": 201,
+                  "line": 109
+                },
+                {
+                  "hits": 133,
+                  "line": 110
+                },
+                {
+                  "hits": 56,
+                  "line": 111
+                },
+                {
+                  "hits": 77,
+                  "line": 112
+                },
+                {
+                  "hits": 77,
+                  "line": 113
+                },
+                {
+                  "hits": 1,
+                  "line": 114
+                },
+                {
+                  "hits": 76,
+                  "line": 115
+                },
+                {
+                  "hits": 76,
+                  "line": 116
+                },
+                {
+                  "hits": 68,
+                  "line": 117
+                },
+                {
+                  "hits": 68,
+                  "line": 118
+                },
+                {
+                  "hits": 10,
+                  "line": 120
+                }
+              ],
+              "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+              "provenance": "candidate_process_trace_not_trusted_score",
+              "truncated": false
+            },
+            "version": "diagnostics-v0.1",
+            "evidence_ids": [
+              "spannerlearning/seed0/problem0:plan_replay",
+              "spannerlearning/seed0/problem0:trace"
+            ]
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "61a89b05f928452fbe568574156826bb",
+          "plan_length": 11,
+          "diagnostics": {
+            "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+            "plan_replay": {
+              "error_kind": null,
+              "executed_actions": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "plan_length": 11,
+              "status": "valid",
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            },
+            "scope": "public_prompt",
+            "task_id": "spannerlearning/seed0/problem1",
+            "trace": {
+              "event_limit": 20000,
+              "events_seen": 9982,
+              "functions": [
+                {
+                  "call_events": 1,
+                  "container_length_max": 11,
+                  "container_length_min": 11,
+                  "exception_events": 0,
+                  "first_line": 15,
+                  "name": "get_plan",
+                  "none_return_events": 0,
+                  "return_events": 1,
+                  "return_types": {
+                    "list": 1
+                  }
+                },
+                {
+                  "call_events": 19,
+                  "container_length_max": 3,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 26,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 19,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 18
+                  }
+                },
+                {
+                  "call_events": 4,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 27,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 4,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 3
+                  }
+                },
+                {
+                  "call_events": 7,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 30,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 7,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 6
+                  }
+                },
+                {
+                  "call_events": 67,
+                  "container_length_max": 9,
+                  "container_length_min": 0,
+                  "exception_events": 0,
+                  "first_line": 38,
+                  "name": "successors",
+                  "none_return_events": 0,
+                  "return_events": 67,
+                  "return_types": {
+                    "list": 67
+                  }
+                },
+                {
+                  "call_events": 129,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 70,
+                  "name": "<genexpr>",
+                  "none_return_events": 67,
+                  "return_events": 129,
+                  "return_types": {
+                    "none": 67,
+                    "str": 62
+                  }
+                },
+                {
+                  "call_events": 131,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 86,
+                  "name": "<lambda>",
+                  "none_return_events": 0,
+                  "return_events": 131,
+                  "return_types": {
+                    "str": 131
+                  }
+                },
+                {
+                  "call_events": 76,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 89,
+                  "name": "goal_ok",
+                  "none_return_events": 0,
+                  "return_events": 76,
+                  "return_types": {
+                    "bool": 76
+                  }
+                }
+              ],
+              "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+              "interrupted": false,
+              "lines": [
+                {
+                  "hits": 1,
+                  "line": 16
+                },
+                {
+                  "hits": 14,
+                  "line": 17
+                },
+                {
+                  "hits": 13,
+                  "line": 18
+                },
+                {
+                  "hits": 1,
+                  "line": 20
+                },
+                {
+                  "hits": 1,
+                  "line": 21
+                },
+                {
+                  "hits": 1,
+                  "line": 22
+                },
+                {
+                  "hits": 1,
+                  "line": 23
+                },
+                {
+                  "hits": 1,
+                  "line": 24
+                },
+                {
+                  "hits": 20,
+                  "line": 26
+                },
+                {
+                  "hits": 5,
+                  "line": 27
+                },
+                {
+                  "hits": 8,
+                  "line": 30
+                },
+                {
+                  "hits": 19,
+                  "line": 31
+                },
+                {
+                  "hits": 18,
+                  "line": 32
+                },
+                {
+                  "hits": 5,
+                  "line": 33
+                },
+                {
+                  "hits": 5,
+                  "line": 34
+                },
+                {
+                  "hits": 7,
+                  "line": 35
+                },
+                {
+                  "hits": 6,
+                  "line": 36
+                },
+                {
+                  "hits": 1,
+                  "line": 38
+                },
+                {
+                  "hits": 67,
+                  "line": 40
+                },
+                {
+                  "hits": 134,
+                  "line": 42
+                },
+                {
+                  "hits": 469,
+                  "line": 43
+                },
+                {
+                  "hits": 402,
+                  "line": 44
+                },
+                {
+                  "hits": 335,
+                  "line": 45
+                },
+                {
+                  "hits": 80,
+                  "line": 46
+                },
+                {
+                  "hits": 13,
+                  "line": 47
+                },
+                {
+                  "hits": 13,
+                  "line": 48
+                },
+                {
+                  "hits": 13,
+                  "line": 49
+                },
+                {
+                  "hits": 26,
+                  "line": 50
+                },
+                {
+                  "hits": 13,
+                  "line": 51
+                },
+                {
+                  "hits": 134,
+                  "line": 53
+                },
+                {
+                  "hits": 469,
+                  "line": 54
+                },
+                {
+                  "hits": 402,
+                  "line": 55
+                },
+                {
+                  "hits": 335,
+                  "line": 56
+                },
+                {
+                  "hits": 268,
+                  "line": 57
+                },
+                {
+                  "hits": 201,
+                  "line": 58
+                },
+                {
+                  "hits": 192,
+                  "line": 59
+                },
+                {
+                  "hits": 9,
+                  "line": 60
+                },
+                {
+                  "hits": 9,
+                  "line": 61
+                },
+                {
+                  "hits": 9,
+                  "line": 62
+                },
+                {
+                  "hits": 18,
+                  "line": 63
+                },
+                {
+                  "hits": 9,
+                  "line": 64
+                },
+                {
+                  "hits": 134,
+                  "line": 66
+                },
+                {
+                  "hits": 469,
+                  "line": 67
+                },
+                {
+                  "hits": 402,
+                  "line": 68
+                },
+                {
+                  "hits": 335,
+                  "line": 69
+                },
+                {
+                  "hits": 397,
+                  "line": 70
+                },
+                {
+                  "hits": 201,
+                  "line": 71
+                },
+                {
+                  "hits": 263,
+                  "line": 72
+                },
+                {
+                  "hits": 67,
+                  "line": 73
+                },
+                {
+                  "hits": 24,
+                  "line": 74
+                },
+                {
+                  "hits": 172,
+                  "line": 75
+                },
+                {
+                  "hits": 129,
+                  "line": 76
+                },
+                {
+                  "hits": 53,
+                  "line": 77
+                },
+                {
+                  "hits": 185,
+                  "line": 78
+                },
+                {
+                  "hits": 109,
+                  "line": 79
+                },
+                {
+                  "hits": 109,
+                  "line": 80
+                },
+                {
+                  "hits": 109,
+                  "line": 81
+                },
+                {
+                  "hits": 109,
+                  "line": 82
+                },
+                {
+                  "hits": 218,
+                  "line": 83
+                },
+                {
+                  "hits": 218,
+                  "line": 84
+                },
+                {
+                  "hits": 109,
+                  "line": 85
+                },
+                {
+                  "hits": 198,
+                  "line": 86
+                },
+                {
+                  "hits": 67,
+                  "line": 87
+                },
+                {
+                  "hits": 1,
+                  "line": 89
+                },
+                {
+                  "hits": 109,
+                  "line": 90
+                },
+                {
+                  "hits": 108,
+                  "line": 91
+                },
+                {
+                  "hits": 75,
+                  "line": 92
+                },
+                {
+                  "hits": 1,
+                  "line": 93
+                },
+                {
+                  "hits": 1,
+                  "line": 95
+                },
+                {
+                  "hits": 1,
+                  "line": 98
+                },
+                {
+                  "hits": 1,
+                  "line": 101
+                },
+                {
+                  "hits": 1,
+                  "line": 102
+                },
+                {
+                  "hits": 1,
+                  "line": 103
+                },
+                {
+                  "hits": 11,
+                  "line": 104
+                },
+                {
+                  "hits": 11,
+                  "line": 105
+                },
+                {
+                  "hits": 77,
+                  "line": 106
+                },
+                {
+                  "hits": 67,
+                  "line": 107
+                },
+                {
+                  "hits": 197,
+                  "line": 109
+                },
+                {
+                  "hits": 131,
+                  "line": 110
+                },
+                {
+                  "hits": 56,
+                  "line": 111
+                },
+                {
+                  "hits": 75,
+                  "line": 112
+                },
+                {
+                  "hits": 75,
+                  "line": 113
+                },
+                {
+                  "hits": 1,
+                  "line": 114
+                },
+                {
+                  "hits": 74,
+                  "line": 115
+                },
+                {
+                  "hits": 74,
+                  "line": 116
+                },
+                {
+                  "hits": 66,
+                  "line": 117
+                },
+                {
+                  "hits": 66,
+                  "line": 118
+                },
+                {
+                  "hits": 10,
+                  "line": 120
+                }
+              ],
+              "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+              "provenance": "candidate_process_trace_not_trusted_score",
+              "truncated": false
+            },
+            "version": "diagnostics-v0.1",
+            "evidence_ids": [
+              "spannerlearning/seed0/problem1:plan_replay",
+              "spannerlearning/seed0/problem1:trace"
+            ]
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem2",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "9ea34ca3cb3d42acb030393be0e4b8cd",
+          "plan_length": 10
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem3",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "917798634a3b43949452be06e0b24b49",
+          "plan_length": 10
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem4",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "0e9c3833309547e1ac70be05df41cdde",
+          "plan_length": 12
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem5",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "3868e637899448b9b25b88efbcce0b89",
+          "plan_length": 12
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem6",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "effe9f9f4ee449c3856a05b8716699f6",
+          "plan_length": 11
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem7",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "6032c1485e3944649bcc4a43703a345f",
+          "plan_length": 13
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem8",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "4fe91b703ba7455aa986924a333c3129",
+          "plan_length": 11
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem9",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "5d79bef0a6b74917af14eb8415dbfda5",
+          "plan_length": 10
+        }
+      ],
+      "feedback_role": "development_only",
+      "metric_scope": "Development feedback only; no held-out evaluation.",
+      "status": "evaluated",
+      "metrics": {
+        "prompt_successes": 2,
+        "prompt_total": 2,
+        "development_successes": 8,
+        "development_total": 8,
+        "total_successes": 10,
+        "total_tasks": 10
+      },
+      "generated_candidates_used": 1,
+      "generated_candidates_remaining": 0,
+      "selection": {
+        "accepted": true,
+        "incumbent_id": "planning-001",
+        "incumbent_source": "\"\"\"Planner for the spanner domain.\n\nRules preserved exactly from the task definition: `link` is DIRECTED, so\nmovement uses only (link A B) edges in that order.  Each tighten_nut consumes\none `useable` spanner, and a carried spanner stays carried, so the man must\nfetch a fresh useable spanner for every loose goal nut that is not co-located\nwith the man.  We build a full STRIPS simulator, enumerate every ground action\nwhose typed preconditions hold in the current state, and run breadth-first\nsearch over the resulting state space, choosing the goal-achieving plan of\nminimum length.  The state space is small in this domain, so an exhaustive\nbest-first search is affordable and cannot emit an illegal action.\n\"\"\"\n\n\ndef get_plan(objects, init, goal):\n    types = {}\n    for name, t in objects:\n        types.setdefault(t, set()).add(name)\n\n    men = sorted(types.get(\"man\", set()))\n    nuts = sorted(types.get(\"nut\", set()))\n    spanners = sorted(types.get(\"spanner\", set()))\n    locs = sorted(types.get(\"location\", set()))\n    objects_set = set(objects)\n\n    start = frozenset(tuple(f) for f in init)\n    goals = frozenset(tuple(g) for g in goal)\n\n    # directed adjacency, built only from link facts\n    adj = dict((l, []) for l in locs)\n    for f in start:\n        if f[0] == \"link\" and f[1] in adj and f[2] in adj:\n            if f[2] not in adj[f[1]]:\n                adj[f[1]].append(f[2])\n    for l in adj:\n        adj[l].sort()\n\n    def successors(state):\n        \"\"\"Yield (new_state, action_string) for every applicable action.\"\"\"\n        out = []\n        # walk: precondition (at m start) and (link start end)\n        for m in men:\n            for start_l in locs:\n                if (\"at\", m, start_l) not in state:\n                    continue\n                for end_l in adj[start_l]:\n                    ns = set(state)\n                    ns.discard((\"at\", m, start_l))\n                    ns.add((\"at\", m, end_l))\n                    out.append((frozenset(ns),\n                                \"(walk %s %s %s)\" % (start_l, end_l, m)))\n        # pickup_spanner: (at m l) and (at s l)\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) not in state:\n                    continue\n                for s in spanners:\n                    if (\"at\", s, l) not in state:\n                        continue\n                    ns = set(state)\n                    ns.discard((\"at\", s, l))\n                    ns.add((\"carrying\", m, s))\n                    out.append((frozenset(ns),\n                                \"(pickup_spanner %s %s %s)\" % (l, s, m)))\n        # tighten_nut: (at m l) (at n l) (carrying m s) (useable s) (loose n)\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) not in state:\n                    continue\n                held = sorted(s for s in spanners\n                              if (\"carrying\", m, s) in state\n                              and (\"useable\", s) in state)\n                if not held:\n                    continue\n                for n in nuts:\n                    if (\"at\", n, l) not in state or (\"loose\", n) not in state:\n                        continue\n                    for s in held:\n                        ns = set(state)\n                        ns.discard((\"loose\", n))\n                        ns.discard((\"useable\", s))\n                        ns.add((\"tightened\", n))\n                        out.append((frozenset(ns),\n                                    \"(tighten_nut %s %s %s %s)\"\n                                    % (l, s, m, n)))\n        out.sort(key=lambda p: p[1])\n        return out\n\n    def goal_ok(state):\n        for g in goals:\n            if tuple(g) not in state:\n                return False\n        return True\n\n    if goal_ok(start):\n        return []\n\n    limit = 200000\n    # BFS layers keep the shortest plan and bound memory by storing paths only\n    # for states actually expanded.\n    frontier = [(start, [])]\n    seen = set([start])\n    expanded = 0\n    while frontier and expanded < limit:\n        nxt = []\n        for (state, path) in frontier:\n            if len(path) >= 999:\n                continue\n            for (ns, act) in successors(state):\n                if ns in seen:\n                    continue\n                np = path + [act]\n                if goal_ok(ns):\n                    return np\n                seen.add(ns)\n                nxt.append((ns, np))\n            expanded += 1\n            if expanded >= limit:\n                break\n        frontier = nxt\n\n    return []",
+        "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+      }
+    },
+    "last": {
+      "candidate_id": "planning-001",
+      "parent_id": "planning-000",
+      "source_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+      "origin": "model_proposed",
+      "n_params": 4,
+      "rationale": "Rule R01/R04/R05: I checked argument order and types against the domain definition. walk parameters are (?start ?end ?m) and the incumbent emitted \"(walk %s %s %s)\" with (p[i], p[i+1], m) — consistent. tighten_nut is (?l ?s ?m ?n) and the incumbent emitted (nl, s, m, n) — consistent. So the failure is not argument order; the earliest observed error is plan_semantics on every task with full plan_length (21, 15) far above executed_actions (7, 7), meaning the emitted walk steps stop being executable mid-plan. The concrete defect is R03-violating: the incumbent computes the symmetric closure of the directed link relation (\"we traverse a link edge in either direction because otherwise ... dead end\"), so every backward walk it emits is illegal. I therefore removed that illegal assumption and instead replaced the hand-written state updates with a faithful STRIPS simulator: successors() enumerates exactly the ground actions whose preconditions hold, so no emitted action can be illegal; BFS over that space returns the shortest legal plan reaching all goal tuples. This also removes the duplicated/hand-maintained effect bookkeeping that could drift from the domain. Alternative explanation considered (R06): that success requires re-visiting nuts in a specific order — but that is subsumed since BFS explores orderings exhaustively. Prediction is on development_successes only, a development observation, not a held-out claim.",
+      "strategy_version": "finite-rule-policy-transfer-v0.1",
+      "results": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "26cf2a9de75847998c0bfc4d46c72c15",
+          "plan_length": 11,
+          "diagnostics": {
+            "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+            "plan_replay": {
+              "error_kind": null,
+              "executed_actions": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "plan_length": 11,
+              "status": "valid",
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            },
+            "scope": "public_prompt",
+            "task_id": "spannerlearning/seed0/problem0",
+            "trace": {
+              "event_limit": 20000,
+              "events_seen": 10242,
+              "functions": [
+                {
+                  "call_events": 1,
+                  "container_length_max": 11,
+                  "container_length_min": 11,
+                  "exception_events": 0,
+                  "first_line": 15,
+                  "name": "get_plan",
+                  "none_return_events": 0,
+                  "return_events": 1,
+                  "return_types": {
+                    "list": 1
+                  }
+                },
+                {
+                  "call_events": 19,
+                  "container_length_max": 3,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 26,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 19,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 18
+                  }
+                },
+                {
+                  "call_events": 4,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 27,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 4,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 3
+                  }
+                },
+                {
+                  "call_events": 7,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 30,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 7,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 6
+                  }
+                },
+                {
+                  "call_events": 69,
+                  "container_length_max": 9,
+                  "container_length_min": 0,
+                  "exception_events": 0,
+                  "first_line": 38,
+                  "name": "successors",
+                  "none_return_events": 0,
+                  "return_events": 69,
+                  "return_types": {
+                    "list": 69
+                  }
+                },
+                {
+                  "call_events": 133,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 70,
+                  "name": "<genexpr>",
+                  "none_return_events": 69,
+                  "return_events": 133,
+                  "return_types": {
+                    "none": 69,
+                    "str": 64
+                  }
+                },
+                {
+                  "call_events": 133,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 86,
+                  "name": "<lambda>",
+                  "none_return_events": 0,
+                  "return_events": 133,
+                  "return_types": {
+                    "str": 133
+                  }
+                },
+                {
+                  "call_events": 78,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 89,
+                  "name": "goal_ok",
+                  "none_return_events": 0,
+                  "return_events": 78,
+                  "return_types": {
+                    "bool": 78
+                  }
+                }
+              ],
+              "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+              "interrupted": false,
+              "lines": [
+                {
+                  "hits": 1,
+                  "line": 16
+                },
+                {
+                  "hits": 14,
+                  "line": 17
+                },
+                {
+                  "hits": 13,
+                  "line": 18
+                },
+                {
+                  "hits": 1,
+                  "line": 20
+                },
+                {
+                  "hits": 1,
+                  "line": 21
+                },
+                {
+                  "hits": 1,
+                  "line": 22
+                },
+                {
+                  "hits": 1,
+                  "line": 23
+                },
+                {
+                  "hits": 1,
+                  "line": 24
+                },
+                {
+                  "hits": 20,
+                  "line": 26
+                },
+                {
+                  "hits": 5,
+                  "line": 27
+                },
+                {
+                  "hits": 8,
+                  "line": 30
+                },
+                {
+                  "hits": 19,
+                  "line": 31
+                },
+                {
+                  "hits": 18,
+                  "line": 32
+                },
+                {
+                  "hits": 5,
+                  "line": 33
+                },
+                {
+                  "hits": 5,
+                  "line": 34
+                },
+                {
+                  "hits": 7,
+                  "line": 35
+                },
+                {
+                  "hits": 6,
+                  "line": 36
+                },
+                {
+                  "hits": 1,
+                  "line": 38
+                },
+                {
+                  "hits": 69,
+                  "line": 40
+                },
+                {
+                  "hits": 138,
+                  "line": 42
+                },
+                {
+                  "hits": 483,
+                  "line": 43
+                },
+                {
+                  "hits": 414,
+                  "line": 44
+                },
+                {
+                  "hits": 345,
+                  "line": 45
+                },
+                {
+                  "hits": 84,
+                  "line": 46
+                },
+                {
+                  "hits": 15,
+                  "line": 47
+                },
+                {
+                  "hits": 15,
+                  "line": 48
+                },
+                {
+                  "hits": 15,
+                  "line": 49
+                },
+                {
+                  "hits": 30,
+                  "line": 50
+                },
+                {
+                  "hits": 15,
+                  "line": 51
+                },
+                {
+                  "hits": 138,
+                  "line": 53
+                },
+                {
+                  "hits": 483,
+                  "line": 54
+                },
+                {
+                  "hits": 414,
+                  "line": 55
+                },
+                {
+                  "hits": 345,
+                  "line": 56
+                },
+                {
+                  "hits": 276,
+                  "line": 57
+                },
+                {
+                  "hits": 207,
+                  "line": 58
+                },
+                {
+                  "hits": 198,
+                  "line": 59
+                },
+                {
+                  "hits": 9,
+                  "line": 60
+                },
+                {
+                  "hits": 9,
+                  "line": 61
+                },
+                {
+                  "hits": 9,
+                  "line": 62
+                },
+                {
+                  "hits": 18,
+                  "line": 63
+                },
+                {
+                  "hits": 9,
+                  "line": 64
+                },
+                {
+                  "hits": 138,
+                  "line": 66
+                },
+                {
+                  "hits": 483,
+                  "line": 67
+                },
+                {
+                  "hits": 414,
+                  "line": 68
+                },
+                {
+                  "hits": 345,
+                  "line": 69
+                },
+                {
+                  "hits": 409,
+                  "line": 70
+                },
+                {
+                  "hits": 207,
+                  "line": 71
+                },
+                {
+                  "hits": 271,
+                  "line": 72
+                },
+                {
+                  "hits": 69,
+                  "line": 73
+                },
+                {
+                  "hits": 24,
+                  "line": 74
+                },
+                {
+                  "hits": 180,
+                  "line": 75
+                },
+                {
+                  "hits": 135,
+                  "line": 76
+                },
+                {
+                  "hits": 59,
+                  "line": 77
+                },
+                {
+                  "hits": 185,
+                  "line": 78
+                },
+                {
+                  "hits": 109,
+                  "line": 79
+                },
+                {
+                  "hits": 109,
+                  "line": 80
+                },
+                {
+                  "hits": 109,
+                  "line": 81
+                },
+                {
+                  "hits": 109,
+                  "line": 82
+                },
+                {
+                  "hits": 218,
+                  "line": 83
+                },
+                {
+                  "hits": 218,
+                  "line": 84
+                },
+                {
+                  "hits": 109,
+                  "line": 85
+                },
+                {
+                  "hits": 202,
+                  "line": 86
+                },
+                {
+                  "hits": 69,
+                  "line": 87
+                },
+                {
+                  "hits": 1,
+                  "line": 89
+                },
+                {
+                  "hits": 111,
+                  "line": 90
+                },
+                {
+                  "hits": 110,
+                  "line": 91
+                },
+                {
+                  "hits": 77,
+                  "line": 92
+                },
+                {
+                  "hits": 1,
+                  "line": 93
+                },
+                {
+                  "hits": 1,
+                  "line": 95
+                },
+                {
+                  "hits": 1,
+                  "line": 98
+                },
+                {
+                  "hits": 1,
+                  "line": 101
+                },
+                {
+                  "hits": 1,
+                  "line": 102
+                },
+                {
+                  "hits": 1,
+                  "line": 103
+                },
+                {
+                  "hits": 11,
+                  "line": 104
+                },
+                {
+                  "hits": 11,
+                  "line": 105
+                },
+                {
+                  "hits": 79,
+                  "line": 106
+                },
+                {
+                  "hits": 69,
+                  "line": 107
+                },
+                {
+                  "hits": 201,
+                  "line": 109
+                },
+                {
+                  "hits": 133,
+                  "line": 110
+                },
+                {
+                  "hits": 56,
+                  "line": 111
+                },
+                {
+                  "hits": 77,
+                  "line": 112
+                },
+                {
+                  "hits": 77,
+                  "line": 113
+                },
+                {
+                  "hits": 1,
+                  "line": 114
+                },
+                {
+                  "hits": 76,
+                  "line": 115
+                },
+                {
+                  "hits": 76,
+                  "line": 116
+                },
+                {
+                  "hits": 68,
+                  "line": 117
+                },
+                {
+                  "hits": 68,
+                  "line": 118
+                },
+                {
+                  "hits": 10,
+                  "line": 120
+                }
+              ],
+              "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+              "provenance": "candidate_process_trace_not_trusted_score",
+              "truncated": false
+            },
+            "version": "diagnostics-v0.1",
+            "evidence_ids": [
+              "spannerlearning/seed0/problem0:plan_replay",
+              "spannerlearning/seed0/problem0:trace"
+            ]
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "61a89b05f928452fbe568574156826bb",
+          "plan_length": 11,
+          "diagnostics": {
+            "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+            "plan_replay": {
+              "error_kind": null,
+              "executed_actions": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "plan_length": 11,
+              "status": "valid",
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            },
+            "scope": "public_prompt",
+            "task_id": "spannerlearning/seed0/problem1",
+            "trace": {
+              "event_limit": 20000,
+              "events_seen": 9982,
+              "functions": [
+                {
+                  "call_events": 1,
+                  "container_length_max": 11,
+                  "container_length_min": 11,
+                  "exception_events": 0,
+                  "first_line": 15,
+                  "name": "get_plan",
+                  "none_return_events": 0,
+                  "return_events": 1,
+                  "return_types": {
+                    "list": 1
+                  }
+                },
+                {
+                  "call_events": 19,
+                  "container_length_max": 3,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 26,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 19,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 18
+                  }
+                },
+                {
+                  "call_events": 4,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 27,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 4,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 3
+                  }
+                },
+                {
+                  "call_events": 7,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 30,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 7,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 6
+                  }
+                },
+                {
+                  "call_events": 67,
+                  "container_length_max": 9,
+                  "container_length_min": 0,
+                  "exception_events": 0,
+                  "first_line": 38,
+                  "name": "successors",
+                  "none_return_events": 0,
+                  "return_events": 67,
+                  "return_types": {
+                    "list": 67
+                  }
+                },
+                {
+                  "call_events": 129,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 70,
+                  "name": "<genexpr>",
+                  "none_return_events": 67,
+                  "return_events": 129,
+                  "return_types": {
+                    "none": 67,
+                    "str": 62
+                  }
+                },
+                {
+                  "call_events": 131,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 86,
+                  "name": "<lambda>",
+                  "none_return_events": 0,
+                  "return_events": 131,
+                  "return_types": {
+                    "str": 131
+                  }
+                },
+                {
+                  "call_events": 76,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 89,
+                  "name": "goal_ok",
+                  "none_return_events": 0,
+                  "return_events": 76,
+                  "return_types": {
+                    "bool": 76
+                  }
+                }
+              ],
+              "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+              "interrupted": false,
+              "lines": [
+                {
+                  "hits": 1,
+                  "line": 16
+                },
+                {
+                  "hits": 14,
+                  "line": 17
+                },
+                {
+                  "hits": 13,
+                  "line": 18
+                },
+                {
+                  "hits": 1,
+                  "line": 20
+                },
+                {
+                  "hits": 1,
+                  "line": 21
+                },
+                {
+                  "hits": 1,
+                  "line": 22
+                },
+                {
+                  "hits": 1,
+                  "line": 23
+                },
+                {
+                  "hits": 1,
+                  "line": 24
+                },
+                {
+                  "hits": 20,
+                  "line": 26
+                },
+                {
+                  "hits": 5,
+                  "line": 27
+                },
+                {
+                  "hits": 8,
+                  "line": 30
+                },
+                {
+                  "hits": 19,
+                  "line": 31
+                },
+                {
+                  "hits": 18,
+                  "line": 32
+                },
+                {
+                  "hits": 5,
+                  "line": 33
+                },
+                {
+                  "hits": 5,
+                  "line": 34
+                },
+                {
+                  "hits": 7,
+                  "line": 35
+                },
+                {
+                  "hits": 6,
+                  "line": 36
+                },
+                {
+                  "hits": 1,
+                  "line": 38
+                },
+                {
+                  "hits": 67,
+                  "line": 40
+                },
+                {
+                  "hits": 134,
+                  "line": 42
+                },
+                {
+                  "hits": 469,
+                  "line": 43
+                },
+                {
+                  "hits": 402,
+                  "line": 44
+                },
+                {
+                  "hits": 335,
+                  "line": 45
+                },
+                {
+                  "hits": 80,
+                  "line": 46
+                },
+                {
+                  "hits": 13,
+                  "line": 47
+                },
+                {
+                  "hits": 13,
+                  "line": 48
+                },
+                {
+                  "hits": 13,
+                  "line": 49
+                },
+                {
+                  "hits": 26,
+                  "line": 50
+                },
+                {
+                  "hits": 13,
+                  "line": 51
+                },
+                {
+                  "hits": 134,
+                  "line": 53
+                },
+                {
+                  "hits": 469,
+                  "line": 54
+                },
+                {
+                  "hits": 402,
+                  "line": 55
+                },
+                {
+                  "hits": 335,
+                  "line": 56
+                },
+                {
+                  "hits": 268,
+                  "line": 57
+                },
+                {
+                  "hits": 201,
+                  "line": 58
+                },
+                {
+                  "hits": 192,
+                  "line": 59
+                },
+                {
+                  "hits": 9,
+                  "line": 60
+                },
+                {
+                  "hits": 9,
+                  "line": 61
+                },
+                {
+                  "hits": 9,
+                  "line": 62
+                },
+                {
+                  "hits": 18,
+                  "line": 63
+                },
+                {
+                  "hits": 9,
+                  "line": 64
+                },
+                {
+                  "hits": 134,
+                  "line": 66
+                },
+                {
+                  "hits": 469,
+                  "line": 67
+                },
+                {
+                  "hits": 402,
+                  "line": 68
+                },
+                {
+                  "hits": 335,
+                  "line": 69
+                },
+                {
+                  "hits": 397,
+                  "line": 70
+                },
+                {
+                  "hits": 201,
+                  "line": 71
+                },
+                {
+                  "hits": 263,
+                  "line": 72
+                },
+                {
+                  "hits": 67,
+                  "line": 73
+                },
+                {
+                  "hits": 24,
+                  "line": 74
+                },
+                {
+                  "hits": 172,
+                  "line": 75
+                },
+                {
+                  "hits": 129,
+                  "line": 76
+                },
+                {
+                  "hits": 53,
+                  "line": 77
+                },
+                {
+                  "hits": 185,
+                  "line": 78
+                },
+                {
+                  "hits": 109,
+                  "line": 79
+                },
+                {
+                  "hits": 109,
+                  "line": 80
+                },
+                {
+                  "hits": 109,
+                  "line": 81
+                },
+                {
+                  "hits": 109,
+                  "line": 82
+                },
+                {
+                  "hits": 218,
+                  "line": 83
+                },
+                {
+                  "hits": 218,
+                  "line": 84
+                },
+                {
+                  "hits": 109,
+                  "line": 85
+                },
+                {
+                  "hits": 198,
+                  "line": 86
+                },
+                {
+                  "hits": 67,
+                  "line": 87
+                },
+                {
+                  "hits": 1,
+                  "line": 89
+                },
+                {
+                  "hits": 109,
+                  "line": 90
+                },
+                {
+                  "hits": 108,
+                  "line": 91
+                },
+                {
+                  "hits": 75,
+                  "line": 92
+                },
+                {
+                  "hits": 1,
+                  "line": 93
+                },
+                {
+                  "hits": 1,
+                  "line": 95
+                },
+                {
+                  "hits": 1,
+                  "line": 98
+                },
+                {
+                  "hits": 1,
+                  "line": 101
+                },
+                {
+                  "hits": 1,
+                  "line": 102
+                },
+                {
+                  "hits": 1,
+                  "line": 103
+                },
+                {
+                  "hits": 11,
+                  "line": 104
+                },
+                {
+                  "hits": 11,
+                  "line": 105
+                },
+                {
+                  "hits": 77,
+                  "line": 106
+                },
+                {
+                  "hits": 67,
+                  "line": 107
+                },
+                {
+                  "hits": 197,
+                  "line": 109
+                },
+                {
+                  "hits": 131,
+                  "line": 110
+                },
+                {
+                  "hits": 56,
+                  "line": 111
+                },
+                {
+                  "hits": 75,
+                  "line": 112
+                },
+                {
+                  "hits": 75,
+                  "line": 113
+                },
+                {
+                  "hits": 1,
+                  "line": 114
+                },
+                {
+                  "hits": 74,
+                  "line": 115
+                },
+                {
+                  "hits": 74,
+                  "line": 116
+                },
+                {
+                  "hits": 66,
+                  "line": 117
+                },
+                {
+                  "hits": 66,
+                  "line": 118
+                },
+                {
+                  "hits": 10,
+                  "line": 120
+                }
+              ],
+              "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+              "provenance": "candidate_process_trace_not_trusted_score",
+              "truncated": false
+            },
+            "version": "diagnostics-v0.1",
+            "evidence_ids": [
+              "spannerlearning/seed0/problem1:plan_replay",
+              "spannerlearning/seed0/problem1:trace"
+            ]
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem2",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "9ea34ca3cb3d42acb030393be0e4b8cd",
+          "plan_length": 10
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem3",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "917798634a3b43949452be06e0b24b49",
+          "plan_length": 10
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem4",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "0e9c3833309547e1ac70be05df41cdde",
+          "plan_length": 12
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem5",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "3868e637899448b9b25b88efbcce0b89",
+          "plan_length": 12
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem6",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "effe9f9f4ee449c3856a05b8716699f6",
+          "plan_length": 11
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem7",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "6032c1485e3944649bcc4a43703a345f",
+          "plan_length": 13
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem8",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "4fe91b703ba7455aa986924a333c3129",
+          "plan_length": 11
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem9",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "5d79bef0a6b74917af14eb8415dbfda5",
+          "plan_length": 10
+        }
+      ],
+      "feedback_role": "development_only",
+      "metric_scope": "Development feedback only; no held-out evaluation.",
+      "status": "evaluated",
+      "metrics": {
+        "prompt_successes": 2,
+        "prompt_total": 2,
+        "development_successes": 8,
+        "development_total": 8,
+        "total_successes": 10,
+        "total_tasks": 10
+      },
+      "generated_candidates_used": 1,
+      "generated_candidates_remaining": 0,
+      "selection": {
+        "accepted": true,
+        "incumbent_id": "planning-001",
+        "incumbent_source": "\"\"\"Planner for the spanner domain.\n\nRules preserved exactly from the task definition: `link` is DIRECTED, so\nmovement uses only (link A B) edges in that order.  Each tighten_nut consumes\none `useable` spanner, and a carried spanner stays carried, so the man must\nfetch a fresh useable spanner for every loose goal nut that is not co-located\nwith the man.  We build a full STRIPS simulator, enumerate every ground action\nwhose typed preconditions hold in the current state, and run breadth-first\nsearch over the resulting state space, choosing the goal-achieving plan of\nminimum length.  The state space is small in this domain, so an exhaustive\nbest-first search is affordable and cannot emit an illegal action.\n\"\"\"\n\n\ndef get_plan(objects, init, goal):\n    types = {}\n    for name, t in objects:\n        types.setdefault(t, set()).add(name)\n\n    men = sorted(types.get(\"man\", set()))\n    nuts = sorted(types.get(\"nut\", set()))\n    spanners = sorted(types.get(\"spanner\", set()))\n    locs = sorted(types.get(\"location\", set()))\n    objects_set = set(objects)\n\n    start = frozenset(tuple(f) for f in init)\n    goals = frozenset(tuple(g) for g in goal)\n\n    # directed adjacency, built only from link facts\n    adj = dict((l, []) for l in locs)\n    for f in start:\n        if f[0] == \"link\" and f[1] in adj and f[2] in adj:\n            if f[2] not in adj[f[1]]:\n                adj[f[1]].append(f[2])\n    for l in adj:\n        adj[l].sort()\n\n    def successors(state):\n        \"\"\"Yield (new_state, action_string) for every applicable action.\"\"\"\n        out = []\n        # walk: precondition (at m start) and (link start end)\n        for m in men:\n            for start_l in locs:\n                if (\"at\", m, start_l) not in state:\n                    continue\n                for end_l in adj[start_l]:\n                    ns = set(state)\n                    ns.discard((\"at\", m, start_l))\n                    ns.add((\"at\", m, end_l))\n                    out.append((frozenset(ns),\n                                \"(walk %s %s %s)\" % (start_l, end_l, m)))\n        # pickup_spanner: (at m l) and (at s l)\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) not in state:\n                    continue\n                for s in spanners:\n                    if (\"at\", s, l) not in state:\n                        continue\n                    ns = set(state)\n                    ns.discard((\"at\", s, l))\n                    ns.add((\"carrying\", m, s))\n                    out.append((frozenset(ns),\n                                \"(pickup_spanner %s %s %s)\" % (l, s, m)))\n        # tighten_nut: (at m l) (at n l) (carrying m s) (useable s) (loose n)\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) not in state:\n                    continue\n                held = sorted(s for s in spanners\n                              if (\"carrying\", m, s) in state\n                              and (\"useable\", s) in state)\n                if not held:\n                    continue\n                for n in nuts:\n                    if (\"at\", n, l) not in state or (\"loose\", n) not in state:\n                        continue\n                    for s in held:\n                        ns = set(state)\n                        ns.discard((\"loose\", n))\n                        ns.discard((\"useable\", s))\n                        ns.add((\"tightened\", n))\n                        out.append((frozenset(ns),\n                                    \"(tighten_nut %s %s %s %s)\"\n                                    % (l, s, m, n)))\n        out.sort(key=lambda p: p[1])\n        return out\n\n    def goal_ok(state):\n        for g in goals:\n            if tuple(g) not in state:\n                return False\n        return True\n\n    if goal_ok(start):\n        return []\n\n    limit = 200000\n    # BFS layers keep the shortest plan and bound memory by storing paths only\n    # for states actually expanded.\n    frontier = [(start, [])]\n    seen = set([start])\n    expanded = 0\n    while frontier and expanded < limit:\n        nxt = []\n        for (state, path) in frontier:\n            if len(path) >= 999:\n                continue\n            for (ns, act) in successors(state):\n                if ns in seen:\n                    continue\n                np = path + [act]\n                if goal_ok(ns):\n                    return np\n                seen.add(ns)\n                nxt.append((ns, np))\n            expanded += 1\n            if expanded >= limit:\n                break\n        frontier = nxt\n\n    return []",
+        "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+      }
+    },
+    "best": {
+      "candidate_id": "planning-001",
+      "parent_id": "planning-000",
+      "source_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+      "origin": "model_proposed",
+      "n_params": 4,
+      "rationale": "Rule R01/R04/R05: I checked argument order and types against the domain definition. walk parameters are (?start ?end ?m) and the incumbent emitted \"(walk %s %s %s)\" with (p[i], p[i+1], m) — consistent. tighten_nut is (?l ?s ?m ?n) and the incumbent emitted (nl, s, m, n) — consistent. So the failure is not argument order; the earliest observed error is plan_semantics on every task with full plan_length (21, 15) far above executed_actions (7, 7), meaning the emitted walk steps stop being executable mid-plan. The concrete defect is R03-violating: the incumbent computes the symmetric closure of the directed link relation (\"we traverse a link edge in either direction because otherwise ... dead end\"), so every backward walk it emits is illegal. I therefore removed that illegal assumption and instead replaced the hand-written state updates with a faithful STRIPS simulator: successors() enumerates exactly the ground actions whose preconditions hold, so no emitted action can be illegal; BFS over that space returns the shortest legal plan reaching all goal tuples. This also removes the duplicated/hand-maintained effect bookkeeping that could drift from the domain. Alternative explanation considered (R06): that success requires re-visiting nuts in a specific order — but that is subsumed since BFS explores orderings exhaustively. Prediction is on development_successes only, a development observation, not a held-out claim.",
+      "strategy_version": "finite-rule-policy-transfer-v0.1",
+      "results": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "26cf2a9de75847998c0bfc4d46c72c15",
+          "plan_length": 11,
+          "diagnostics": {
+            "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+            "plan_replay": {
+              "error_kind": null,
+              "executed_actions": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "plan_length": 11,
+              "status": "valid",
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            },
+            "scope": "public_prompt",
+            "task_id": "spannerlearning/seed0/problem0",
+            "trace": {
+              "event_limit": 20000,
+              "events_seen": 10242,
+              "functions": [
+                {
+                  "call_events": 1,
+                  "container_length_max": 11,
+                  "container_length_min": 11,
+                  "exception_events": 0,
+                  "first_line": 15,
+                  "name": "get_plan",
+                  "none_return_events": 0,
+                  "return_events": 1,
+                  "return_types": {
+                    "list": 1
+                  }
+                },
+                {
+                  "call_events": 19,
+                  "container_length_max": 3,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 26,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 19,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 18
+                  }
+                },
+                {
+                  "call_events": 4,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 27,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 4,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 3
+                  }
+                },
+                {
+                  "call_events": 7,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 30,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 7,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 6
+                  }
+                },
+                {
+                  "call_events": 69,
+                  "container_length_max": 9,
+                  "container_length_min": 0,
+                  "exception_events": 0,
+                  "first_line": 38,
+                  "name": "successors",
+                  "none_return_events": 0,
+                  "return_events": 69,
+                  "return_types": {
+                    "list": 69
+                  }
+                },
+                {
+                  "call_events": 133,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 70,
+                  "name": "<genexpr>",
+                  "none_return_events": 69,
+                  "return_events": 133,
+                  "return_types": {
+                    "none": 69,
+                    "str": 64
+                  }
+                },
+                {
+                  "call_events": 133,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 86,
+                  "name": "<lambda>",
+                  "none_return_events": 0,
+                  "return_events": 133,
+                  "return_types": {
+                    "str": 133
+                  }
+                },
+                {
+                  "call_events": 78,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 89,
+                  "name": "goal_ok",
+                  "none_return_events": 0,
+                  "return_events": 78,
+                  "return_types": {
+                    "bool": 78
+                  }
+                }
+              ],
+              "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+              "interrupted": false,
+              "lines": [
+                {
+                  "hits": 1,
+                  "line": 16
+                },
+                {
+                  "hits": 14,
+                  "line": 17
+                },
+                {
+                  "hits": 13,
+                  "line": 18
+                },
+                {
+                  "hits": 1,
+                  "line": 20
+                },
+                {
+                  "hits": 1,
+                  "line": 21
+                },
+                {
+                  "hits": 1,
+                  "line": 22
+                },
+                {
+                  "hits": 1,
+                  "line": 23
+                },
+                {
+                  "hits": 1,
+                  "line": 24
+                },
+                {
+                  "hits": 20,
+                  "line": 26
+                },
+                {
+                  "hits": 5,
+                  "line": 27
+                },
+                {
+                  "hits": 8,
+                  "line": 30
+                },
+                {
+                  "hits": 19,
+                  "line": 31
+                },
+                {
+                  "hits": 18,
+                  "line": 32
+                },
+                {
+                  "hits": 5,
+                  "line": 33
+                },
+                {
+                  "hits": 5,
+                  "line": 34
+                },
+                {
+                  "hits": 7,
+                  "line": 35
+                },
+                {
+                  "hits": 6,
+                  "line": 36
+                },
+                {
+                  "hits": 1,
+                  "line": 38
+                },
+                {
+                  "hits": 69,
+                  "line": 40
+                },
+                {
+                  "hits": 138,
+                  "line": 42
+                },
+                {
+                  "hits": 483,
+                  "line": 43
+                },
+                {
+                  "hits": 414,
+                  "line": 44
+                },
+                {
+                  "hits": 345,
+                  "line": 45
+                },
+                {
+                  "hits": 84,
+                  "line": 46
+                },
+                {
+                  "hits": 15,
+                  "line": 47
+                },
+                {
+                  "hits": 15,
+                  "line": 48
+                },
+                {
+                  "hits": 15,
+                  "line": 49
+                },
+                {
+                  "hits": 30,
+                  "line": 50
+                },
+                {
+                  "hits": 15,
+                  "line": 51
+                },
+                {
+                  "hits": 138,
+                  "line": 53
+                },
+                {
+                  "hits": 483,
+                  "line": 54
+                },
+                {
+                  "hits": 414,
+                  "line": 55
+                },
+                {
+                  "hits": 345,
+                  "line": 56
+                },
+                {
+                  "hits": 276,
+                  "line": 57
+                },
+                {
+                  "hits": 207,
+                  "line": 58
+                },
+                {
+                  "hits": 198,
+                  "line": 59
+                },
+                {
+                  "hits": 9,
+                  "line": 60
+                },
+                {
+                  "hits": 9,
+                  "line": 61
+                },
+                {
+                  "hits": 9,
+                  "line": 62
+                },
+                {
+                  "hits": 18,
+                  "line": 63
+                },
+                {
+                  "hits": 9,
+                  "line": 64
+                },
+                {
+                  "hits": 138,
+                  "line": 66
+                },
+                {
+                  "hits": 483,
+                  "line": 67
+                },
+                {
+                  "hits": 414,
+                  "line": 68
+                },
+                {
+                  "hits": 345,
+                  "line": 69
+                },
+                {
+                  "hits": 409,
+                  "line": 70
+                },
+                {
+                  "hits": 207,
+                  "line": 71
+                },
+                {
+                  "hits": 271,
+                  "line": 72
+                },
+                {
+                  "hits": 69,
+                  "line": 73
+                },
+                {
+                  "hits": 24,
+                  "line": 74
+                },
+                {
+                  "hits": 180,
+                  "line": 75
+                },
+                {
+                  "hits": 135,
+                  "line": 76
+                },
+                {
+                  "hits": 59,
+                  "line": 77
+                },
+                {
+                  "hits": 185,
+                  "line": 78
+                },
+                {
+                  "hits": 109,
+                  "line": 79
+                },
+                {
+                  "hits": 109,
+                  "line": 80
+                },
+                {
+                  "hits": 109,
+                  "line": 81
+                },
+                {
+                  "hits": 109,
+                  "line": 82
+                },
+                {
+                  "hits": 218,
+                  "line": 83
+                },
+                {
+                  "hits": 218,
+                  "line": 84
+                },
+                {
+                  "hits": 109,
+                  "line": 85
+                },
+                {
+                  "hits": 202,
+                  "line": 86
+                },
+                {
+                  "hits": 69,
+                  "line": 87
+                },
+                {
+                  "hits": 1,
+                  "line": 89
+                },
+                {
+                  "hits": 111,
+                  "line": 90
+                },
+                {
+                  "hits": 110,
+                  "line": 91
+                },
+                {
+                  "hits": 77,
+                  "line": 92
+                },
+                {
+                  "hits": 1,
+                  "line": 93
+                },
+                {
+                  "hits": 1,
+                  "line": 95
+                },
+                {
+                  "hits": 1,
+                  "line": 98
+                },
+                {
+                  "hits": 1,
+                  "line": 101
+                },
+                {
+                  "hits": 1,
+                  "line": 102
+                },
+                {
+                  "hits": 1,
+                  "line": 103
+                },
+                {
+                  "hits": 11,
+                  "line": 104
+                },
+                {
+                  "hits": 11,
+                  "line": 105
+                },
+                {
+                  "hits": 79,
+                  "line": 106
+                },
+                {
+                  "hits": 69,
+                  "line": 107
+                },
+                {
+                  "hits": 201,
+                  "line": 109
+                },
+                {
+                  "hits": 133,
+                  "line": 110
+                },
+                {
+                  "hits": 56,
+                  "line": 111
+                },
+                {
+                  "hits": 77,
+                  "line": 112
+                },
+                {
+                  "hits": 77,
+                  "line": 113
+                },
+                {
+                  "hits": 1,
+                  "line": 114
+                },
+                {
+                  "hits": 76,
+                  "line": 115
+                },
+                {
+                  "hits": 76,
+                  "line": 116
+                },
+                {
+                  "hits": 68,
+                  "line": 117
+                },
+                {
+                  "hits": 68,
+                  "line": 118
+                },
+                {
+                  "hits": 10,
+                  "line": 120
+                }
+              ],
+              "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+              "provenance": "candidate_process_trace_not_trusted_score",
+              "truncated": false
+            },
+            "version": "diagnostics-v0.1",
+            "evidence_ids": [
+              "spannerlearning/seed0/problem0:plan_replay",
+              "spannerlearning/seed0/problem0:trace"
+            ]
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "61a89b05f928452fbe568574156826bb",
+          "plan_length": 11,
+          "diagnostics": {
+            "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+            "plan_replay": {
+              "error_kind": null,
+              "executed_actions": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "plan_length": 11,
+              "status": "valid",
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            },
+            "scope": "public_prompt",
+            "task_id": "spannerlearning/seed0/problem1",
+            "trace": {
+              "event_limit": 20000,
+              "events_seen": 9982,
+              "functions": [
+                {
+                  "call_events": 1,
+                  "container_length_max": 11,
+                  "container_length_min": 11,
+                  "exception_events": 0,
+                  "first_line": 15,
+                  "name": "get_plan",
+                  "none_return_events": 0,
+                  "return_events": 1,
+                  "return_types": {
+                    "list": 1
+                  }
+                },
+                {
+                  "call_events": 19,
+                  "container_length_max": 3,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 26,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 19,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 18
+                  }
+                },
+                {
+                  "call_events": 4,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 27,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 4,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 3
+                  }
+                },
+                {
+                  "call_events": 7,
+                  "container_length_max": 2,
+                  "container_length_min": 2,
+                  "exception_events": 0,
+                  "first_line": 30,
+                  "name": "<genexpr>",
+                  "none_return_events": 1,
+                  "return_events": 7,
+                  "return_types": {
+                    "none": 1,
+                    "tuple": 6
+                  }
+                },
+                {
+                  "call_events": 67,
+                  "container_length_max": 9,
+                  "container_length_min": 0,
+                  "exception_events": 0,
+                  "first_line": 38,
+                  "name": "successors",
+                  "none_return_events": 0,
+                  "return_events": 67,
+                  "return_types": {
+                    "list": 67
+                  }
+                },
+                {
+                  "call_events": 129,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 70,
+                  "name": "<genexpr>",
+                  "none_return_events": 67,
+                  "return_events": 129,
+                  "return_types": {
+                    "none": 67,
+                    "str": 62
+                  }
+                },
+                {
+                  "call_events": 131,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 86,
+                  "name": "<lambda>",
+                  "none_return_events": 0,
+                  "return_events": 131,
+                  "return_types": {
+                    "str": 131
+                  }
+                },
+                {
+                  "call_events": 76,
+                  "container_length_max": null,
+                  "container_length_min": null,
+                  "exception_events": 0,
+                  "first_line": 89,
+                  "name": "goal_ok",
+                  "none_return_events": 0,
+                  "return_events": 76,
+                  "return_types": {
+                    "bool": 76
+                  }
+                }
+              ],
+              "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+              "interrupted": false,
+              "lines": [
+                {
+                  "hits": 1,
+                  "line": 16
+                },
+                {
+                  "hits": 14,
+                  "line": 17
+                },
+                {
+                  "hits": 13,
+                  "line": 18
+                },
+                {
+                  "hits": 1,
+                  "line": 20
+                },
+                {
+                  "hits": 1,
+                  "line": 21
+                },
+                {
+                  "hits": 1,
+                  "line": 22
+                },
+                {
+                  "hits": 1,
+                  "line": 23
+                },
+                {
+                  "hits": 1,
+                  "line": 24
+                },
+                {
+                  "hits": 20,
+                  "line": 26
+                },
+                {
+                  "hits": 5,
+                  "line": 27
+                },
+                {
+                  "hits": 8,
+                  "line": 30
+                },
+                {
+                  "hits": 19,
+                  "line": 31
+                },
+                {
+                  "hits": 18,
+                  "line": 32
+                },
+                {
+                  "hits": 5,
+                  "line": 33
+                },
+                {
+                  "hits": 5,
+                  "line": 34
+                },
+                {
+                  "hits": 7,
+                  "line": 35
+                },
+                {
+                  "hits": 6,
+                  "line": 36
+                },
+                {
+                  "hits": 1,
+                  "line": 38
+                },
+                {
+                  "hits": 67,
+                  "line": 40
+                },
+                {
+                  "hits": 134,
+                  "line": 42
+                },
+                {
+                  "hits": 469,
+                  "line": 43
+                },
+                {
+                  "hits": 402,
+                  "line": 44
+                },
+                {
+                  "hits": 335,
+                  "line": 45
+                },
+                {
+                  "hits": 80,
+                  "line": 46
+                },
+                {
+                  "hits": 13,
+                  "line": 47
+                },
+                {
+                  "hits": 13,
+                  "line": 48
+                },
+                {
+                  "hits": 13,
+                  "line": 49
+                },
+                {
+                  "hits": 26,
+                  "line": 50
+                },
+                {
+                  "hits": 13,
+                  "line": 51
+                },
+                {
+                  "hits": 134,
+                  "line": 53
+                },
+                {
+                  "hits": 469,
+                  "line": 54
+                },
+                {
+                  "hits": 402,
+                  "line": 55
+                },
+                {
+                  "hits": 335,
+                  "line": 56
+                },
+                {
+                  "hits": 268,
+                  "line": 57
+                },
+                {
+                  "hits": 201,
+                  "line": 58
+                },
+                {
+                  "hits": 192,
+                  "line": 59
+                },
+                {
+                  "hits": 9,
+                  "line": 60
+                },
+                {
+                  "hits": 9,
+                  "line": 61
+                },
+                {
+                  "hits": 9,
+                  "line": 62
+                },
+                {
+                  "hits": 18,
+                  "line": 63
+                },
+                {
+                  "hits": 9,
+                  "line": 64
+                },
+                {
+                  "hits": 134,
+                  "line": 66
+                },
+                {
+                  "hits": 469,
+                  "line": 67
+                },
+                {
+                  "hits": 402,
+                  "line": 68
+                },
+                {
+                  "hits": 335,
+                  "line": 69
+                },
+                {
+                  "hits": 397,
+                  "line": 70
+                },
+                {
+                  "hits": 201,
+                  "line": 71
+                },
+                {
+                  "hits": 263,
+                  "line": 72
+                },
+                {
+                  "hits": 67,
+                  "line": 73
+                },
+                {
+                  "hits": 24,
+                  "line": 74
+                },
+                {
+                  "hits": 172,
+                  "line": 75
+                },
+                {
+                  "hits": 129,
+                  "line": 76
+                },
+                {
+                  "hits": 53,
+                  "line": 77
+                },
+                {
+                  "hits": 185,
+                  "line": 78
+                },
+                {
+                  "hits": 109,
+                  "line": 79
+                },
+                {
+                  "hits": 109,
+                  "line": 80
+                },
+                {
+                  "hits": 109,
+                  "line": 81
+                },
+                {
+                  "hits": 109,
+                  "line": 82
+                },
+                {
+                  "hits": 218,
+                  "line": 83
+                },
+                {
+                  "hits": 218,
+                  "line": 84
+                },
+                {
+                  "hits": 109,
+                  "line": 85
+                },
+                {
+                  "hits": 198,
+                  "line": 86
+                },
+                {
+                  "hits": 67,
+                  "line": 87
+                },
+                {
+                  "hits": 1,
+                  "line": 89
+                },
+                {
+                  "hits": 109,
+                  "line": 90
+                },
+                {
+                  "hits": 108,
+                  "line": 91
+                },
+                {
+                  "hits": 75,
+                  "line": 92
+                },
+                {
+                  "hits": 1,
+                  "line": 93
+                },
+                {
+                  "hits": 1,
+                  "line": 95
+                },
+                {
+                  "hits": 1,
+                  "line": 98
+                },
+                {
+                  "hits": 1,
+                  "line": 101
+                },
+                {
+                  "hits": 1,
+                  "line": 102
+                },
+                {
+                  "hits": 1,
+                  "line": 103
+                },
+                {
+                  "hits": 11,
+                  "line": 104
+                },
+                {
+                  "hits": 11,
+                  "line": 105
+                },
+                {
+                  "hits": 77,
+                  "line": 106
+                },
+                {
+                  "hits": 67,
+                  "line": 107
+                },
+                {
+                  "hits": 197,
+                  "line": 109
+                },
+                {
+                  "hits": 131,
+                  "line": 110
+                },
+                {
+                  "hits": 56,
+                  "line": 111
+                },
+                {
+                  "hits": 75,
+                  "line": 112
+                },
+                {
+                  "hits": 75,
+                  "line": 113
+                },
+                {
+                  "hits": 1,
+                  "line": 114
+                },
+                {
+                  "hits": 74,
+                  "line": 115
+                },
+                {
+                  "hits": 74,
+                  "line": 116
+                },
+                {
+                  "hits": 66,
+                  "line": 117
+                },
+                {
+                  "hits": 66,
+                  "line": 118
+                },
+                {
+                  "hits": 10,
+                  "line": 120
+                }
+              ],
+              "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+              "provenance": "candidate_process_trace_not_trusted_score",
+              "truncated": false
+            },
+            "version": "diagnostics-v0.1",
+            "evidence_ids": [
+              "spannerlearning/seed0/problem1:plan_replay",
+              "spannerlearning/seed0/problem1:trace"
+            ]
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem2",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "9ea34ca3cb3d42acb030393be0e4b8cd",
+          "plan_length": 10
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem3",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "917798634a3b43949452be06e0b24b49",
+          "plan_length": 10
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem4",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "0e9c3833309547e1ac70be05df41cdde",
+          "plan_length": 12
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem5",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "3868e637899448b9b25b88efbcce0b89",
+          "plan_length": 12
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem6",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "effe9f9f4ee449c3856a05b8716699f6",
+          "plan_length": 11
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem7",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "6032c1485e3944649bcc4a43703a345f",
+          "plan_length": 13
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem8",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "4fe91b703ba7455aa986924a333c3129",
+          "plan_length": 11
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem9",
+          "status": "success",
+          "candidate_hash": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+          "run_id": "5d79bef0a6b74917af14eb8415dbfda5",
+          "plan_length": 10
+        }
+      ],
+      "feedback_role": "development_only",
+      "metric_scope": "Development feedback only; no held-out evaluation.",
+      "status": "evaluated",
+      "metrics": {
+        "prompt_successes": 2,
+        "prompt_total": 2,
+        "development_successes": 8,
+        "development_total": 8,
+        "total_successes": 10,
+        "total_tasks": 10
+      },
+      "generated_candidates_used": 1,
+      "generated_candidates_remaining": 0,
+      "selection": {
+        "accepted": true,
+        "incumbent_id": "planning-001",
+        "incumbent_source": "\"\"\"Planner for the spanner domain.\n\nRules preserved exactly from the task definition: `link` is DIRECTED, so\nmovement uses only (link A B) edges in that order.  Each tighten_nut consumes\none `useable` spanner, and a carried spanner stays carried, so the man must\nfetch a fresh useable spanner for every loose goal nut that is not co-located\nwith the man.  We build a full STRIPS simulator, enumerate every ground action\nwhose typed preconditions hold in the current state, and run breadth-first\nsearch over the resulting state space, choosing the goal-achieving plan of\nminimum length.  The state space is small in this domain, so an exhaustive\nbest-first search is affordable and cannot emit an illegal action.\n\"\"\"\n\n\ndef get_plan(objects, init, goal):\n    types = {}\n    for name, t in objects:\n        types.setdefault(t, set()).add(name)\n\n    men = sorted(types.get(\"man\", set()))\n    nuts = sorted(types.get(\"nut\", set()))\n    spanners = sorted(types.get(\"spanner\", set()))\n    locs = sorted(types.get(\"location\", set()))\n    objects_set = set(objects)\n\n    start = frozenset(tuple(f) for f in init)\n    goals = frozenset(tuple(g) for g in goal)\n\n    # directed adjacency, built only from link facts\n    adj = dict((l, []) for l in locs)\n    for f in start:\n        if f[0] == \"link\" and f[1] in adj and f[2] in adj:\n            if f[2] not in adj[f[1]]:\n                adj[f[1]].append(f[2])\n    for l in adj:\n        adj[l].sort()\n\n    def successors(state):\n        \"\"\"Yield (new_state, action_string) for every applicable action.\"\"\"\n        out = []\n        # walk: precondition (at m start) and (link start end)\n        for m in men:\n            for start_l in locs:\n                if (\"at\", m, start_l) not in state:\n                    continue\n                for end_l in adj[start_l]:\n                    ns = set(state)\n                    ns.discard((\"at\", m, start_l))\n                    ns.add((\"at\", m, end_l))\n                    out.append((frozenset(ns),\n                                \"(walk %s %s %s)\" % (start_l, end_l, m)))\n        # pickup_spanner: (at m l) and (at s l)\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) not in state:\n                    continue\n                for s in spanners:\n                    if (\"at\", s, l) not in state:\n                        continue\n                    ns = set(state)\n                    ns.discard((\"at\", s, l))\n                    ns.add((\"carrying\", m, s))\n                    out.append((frozenset(ns),\n                                \"(pickup_spanner %s %s %s)\" % (l, s, m)))\n        # tighten_nut: (at m l) (at n l) (carrying m s) (useable s) (loose n)\n        for m in men:\n            for l in locs:\n                if (\"at\", m, l) not in state:\n                    continue\n                held = sorted(s for s in spanners\n                              if (\"carrying\", m, s) in state\n                              and (\"useable\", s) in state)\n                if not held:\n                    continue\n                for n in nuts:\n                    if (\"at\", n, l) not in state or (\"loose\", n) not in state:\n                        continue\n                    for s in held:\n                        ns = set(state)\n                        ns.discard((\"loose\", n))\n                        ns.discard((\"useable\", s))\n                        ns.add((\"tightened\", n))\n                        out.append((frozenset(ns),\n                                    \"(tighten_nut %s %s %s %s)\"\n                                    % (l, s, m, n)))\n        out.sort(key=lambda p: p[1])\n        return out\n\n    def goal_ok(state):\n        for g in goals:\n            if tuple(g) not in state:\n                return False\n        return True\n\n    if goal_ok(start):\n        return []\n\n    limit = 200000\n    # BFS layers keep the shortest plan and bound memory by storing paths only\n    # for states actually expanded.\n    frontier = [(start, [])]\n    seen = set([start])\n    expanded = 0\n    while frontier and expanded < limit:\n        nxt = []\n        for (state, path) in frontier:\n            if len(path) >= 999:\n                continue\n            for (ns, act) in successors(state):\n                if ns in seen:\n                    continue\n                np = path + [act]\n                if goal_ok(ns):\n                    return np\n                seen.add(ns)\n                nxt.append((ns, np))\n            expanded += 1\n            if expanded >= limit:\n                break\n        frontier = nxt\n\n    return []",
+        "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+      }
+    },
+    "selection_rule": "development_successes_then_prompt_then_earlier",
+    "sealed_tasks_executed": 0,
+    "scope": "One development repair with an externally frozen rule selection; the actor cannot update policy, weights, or evaluation data.",
+    "diagnostics_computed": true,
+    "diagnostics_visible": true,
+    "condition": "hidden",
+    "checks_visible": false,
+    "check_gates_execution": false,
+    "check_changes_selection": false,
+    "archived_task_records": 10,
+    "baseline_reexecuted": false,
+    "max_generated_candidates": 1,
+    "policy": {
+      "version": "revision-policy-v0.1",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R02",
+        "R06"
+      ]
+    }
+  },
+  "endpoint": {
+    "generated_candidates_executed": 1,
+    "actual_task_executions": 10,
+    "archived_task_records": 10,
+    "baseline_metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "child_metrics": {
+      "prompt_successes": 2,
+      "prompt_total": 2,
+      "development_successes": 8,
+      "development_total": 8,
+      "total_successes": 10,
+      "total_tasks": 10
+    },
+    "improvement": 10,
+    "submitted_and_improved": true
+  },
+  "step_status": "candidate_evaluated"
+}

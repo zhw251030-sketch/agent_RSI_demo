@@ -1,0 +1,27 @@
+{
+  "version": "policy-submission-v0.1",
+  "status": "accepted",
+  "parent_policy_sha256": "28ee01d94de1b3f21659d67ed7229c890a9cf8c6c1455656fe84c19c095698c0",
+  "policy_sha256": "9743a60c3540280504cd558ea981b2caf752360a7d1993bf5f0b328391d82663",
+  "update_bundle_sha256": "bda01e437fbb9f84bcf6eca8e04e9dc5ad181ce4b8ba44c86836fd36f8e377b3",
+  "rule_support": [
+    {
+      "rule_id": "R03",
+      "support": "both"
+    },
+    {
+      "rule_id": "R04",
+      "support": "both"
+    },
+    {
+      "rule_id": "R02",
+      "support": "U-P"
+    },
+    {
+      "rule_id": "R06",
+      "support": "U-S"
+    }
+  ],
+  "rationale": "Both experience cases show a parent prediction contradicted despite a supported intermediate diagnostic claim. U-P: plan_length>=1 was supported (1.0>=1.0) yet total_successes>=2 failed (observed 0); the earliest executed failure was operator_syntax at index 0 with executed_actions=0, not the plan_length metric the parent fix targeted. U-S: mean_residual<0.003 was supported yet NMSE decrease>=0.002 failed (observed 0.0005); the rationale substituted a bin-level association (high-|v| RMSE) for the population NMSE target. Ordering rationale: (1) R03 first -- both cases rewrote task-specific assumptions (plan reconstruction walk; adding a v-amplitude term) that risked altering the environment definition rather than the artifact; preserving explicit task rules prevents the next agent from repeating this drift. (2) R04 second -- U-S directly substituted a per-bin mean_residual for the population NMSE metric and bin identity for candidate identity; U-P's success metric (total_successes) was conflated with plan_length. Exact metric/unit/scope discipline must precede diagnostic reasoning. (3) R02 third (U-P) -- the earliest observed execution signal was at action index 0 with operator_syntax errors; the parent fix targeted plan_length which is a proposed metric, not the observed failure. Future agents should anchor on the first executed failure, not the most recently edited line. (4) R06 fourth (U-S) -- the U-S rationale treated a marginal high-|v| bin RMSE association as a necessary mechanism (amplitude-dependent damping) without considering alternatives; a supported association is a hypothesis, not a proof. The two cases together do not evidence R01 (input-format failure), R05 (source-location tracing), R07 (forecast threshold), or R08 (scope-creep) as the dominant failure mode, so the prior S0 ordering on those is not retained. Each rule is anchored to a specific observed failure in the supplied cases.",
+  "no_op": false
+}

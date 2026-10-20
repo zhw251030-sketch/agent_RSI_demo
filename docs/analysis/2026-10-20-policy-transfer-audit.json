@@ -1,0 +1,1770 @@
+{
+  "version": "policy-transfer-analysis-v0.1",
+  "status": "verified",
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "sessions": [
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "fixed",
+      "repeat": 1,
+      "pair_id": "EP-r1",
+      "session_id": "EP-r1-fixed",
+      "baseline_score": 0.0,
+      "child_score": 0.0,
+      "improvement": 0.0,
+      "submitted_and_improved": false,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "e3a885452d1a34519d60729e5c89c3e199fa07a42ffac67b054b8b879175476f",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_5571ff2020b2d356",
+            "claim_op": "eq",
+            "claim_value_json": "0.0",
+            "prediction_id": "e_2b6f2b44628dbcca",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 1.0
+          },
+          "claim_result": {
+            "status": "unavailable",
+            "reason": "reference_not_found"
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r1",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "direction": "increase",
+            "min_delta": 1.0
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0,
+            "tolerance": 1.01e-08,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r1",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "before": 0.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 1.0,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r1",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "after": 0.0
+          }
+        }
+      ],
+      "baseline_source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0002",
+      "input_bytes": 35337,
+      "payload_sha256": "dca76a7298b21abe674339cb16c4a38f816c9389105aae2181e4652a3c4e884e",
+      "response_sha256": "d84d304fae20b7744626ad63c5bab6a7ee5ef57d900b438bbe71742104bcee34",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9607,
+        "completion_tokens": 2115,
+        "total_tokens": 11722
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "memory",
+      "repeat": 1,
+      "pair_id": "ES-r1",
+      "session_id": "ES-r1-memory",
+      "baseline_score": 0.09591726394116994,
+      "child_score": 0.09576767237821251,
+      "improvement": 0.00014959156295742126,
+      "submitted_and_improved": true,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "bd47e8af781dd5463c14e14c032d3a10a2f216dea59fe862d0cffcfa2604d723",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_33c69cbb9d755e28",
+            "claim_op": "lt",
+            "claim_value_json": "0.031",
+            "prediction_id": "e_87b69baf0dd36cbb",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.0005
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.03193126832135946,
+            "tolerance": 4.1931268321359463e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "bin.v.3.rmse"
+            },
+            "op": "lt",
+            "expected": 0.031
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.09591726394116994,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.0005
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.00014959156295742126,
+            "tolerance": 1.05e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "before": 0.09591726394116994,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.0005,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "e40144d64971402b7ed6253ffd3970581d0c62cf1ebf3199d5c417f9d2bd7b83",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "after": 0.09576767237821251
+          }
+        }
+      ],
+      "baseline_source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0003",
+      "input_bytes": 28065,
+      "payload_sha256": "d510314eb9489919275c36a10436d8b0e849bbf0539906ab46379c38fc53a126",
+      "response_sha256": "9e0abd1cd512ad6308f08722674b49f74d58122f08c3ddf494d111a1fcdc3a3d",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 7436,
+        "completion_tokens": 589,
+        "total_tokens": 8025
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "updated",
+      "repeat": 1,
+      "pair_id": "EP-r1",
+      "session_id": "EP-r1-updated",
+      "baseline_score": 0.0,
+      "child_score": 10.0,
+      "improvement": 10.0,
+      "submitted_and_improved": true,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "e3a885452d1a34519d60729e5c89c3e199fa07a42ffac67b054b8b879175476f",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_eec0ba77ecf07b8c",
+            "claim_op": "eq",
+            "claim_value_json": "[\"$0\",\"location\"]",
+            "prediction_id": "e_2b6f2b44628dbcca",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 1.0
+          },
+          "claim_result": {
+            "status": "schema_invalid",
+            "reason": "claim_schema_invalid"
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r1",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "direction": "increase",
+            "min_delta": 1.0
+          },
+          "prediction_result": {
+            "status": "supported",
+            "reason": "prediction_supported",
+            "actual": 8.0,
+            "tolerance": 8.01e-08,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r1",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "before": 0.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 1.0,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r1",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "after": 8.0
+          }
+        }
+      ],
+      "baseline_source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0004",
+      "input_bytes": 35367,
+      "payload_sha256": "a693d0dbf91726e0c3a5d6a773d3802bc1325c24be1bab484a05b2ad3dc8eda9",
+      "response_sha256": "cdd44e65569c865794b7c0d1136c3120f95a5800f986b0e02058bbc7158e0713",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9611,
+        "completion_tokens": 1547,
+        "total_tokens": 11158
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "fixed",
+      "repeat": 1,
+      "pair_id": "ES-r1",
+      "session_id": "ES-r1-fixed",
+      "baseline_score": 0.09591726394116994,
+      "child_score": 0.09576767237821251,
+      "improvement": 0.00014959156295742126,
+      "submitted_and_improved": true,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "bd47e8af781dd5463c14e14c032d3a10a2f216dea59fe862d0cffcfa2604d723",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_87b69baf0dd36cbb",
+            "claim_op": "lt",
+            "claim_value_json": "0.0004185108784986807",
+            "prediction_id": "e_c5d2de2fa44e45ac",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.0001
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.09591726394116994,
+            "tolerance": 1.0591726394116994e-09,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "op": "lt",
+            "expected": 0.0004185108784986807
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0004185108784986807,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "mse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.0001
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 6.527051946320929e-07,
+            "tolerance": 1.01e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "mse"
+            },
+            "before": 0.0004185108784986807,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.0001,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "7cc7bbf448e5bd9e3d1edad2dbf4a8942577eb8ccc146192208dbf98196b7a19",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "mse"
+            },
+            "after": 0.0004178581733040486
+          }
+        }
+      ],
+      "baseline_source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0005",
+      "input_bytes": 18778,
+      "payload_sha256": "daf674bf7f582b23edb8aa7fa6936771f8a69d14b1c904f5ce7de435b66e9b79",
+      "response_sha256": "729b5a987e272ef96002b765b6a50ba747f6b8402854117886c280e578d2f419",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 4853,
+        "completion_tokens": 611,
+        "total_tokens": 5464
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "memory",
+      "repeat": 1,
+      "pair_id": "EP-r1",
+      "session_id": "EP-r1-memory",
+      "baseline_score": 0.0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 10,
+      "request_count": 1,
+      "audits": [],
+      "baseline_source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "no_candidate",
+      "request_id": "request-0006",
+      "input_bytes": 44624,
+      "payload_sha256": "d60604a8cc63e756d1037686171b7392836bce8303e1b7cc5bf1747bf0b82086",
+      "response_sha256": "d1ac6cc317b3270abe18383b5e7ab0e0fae1a0706ad209cee74a30c1a0ad6535",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 12187,
+        "completion_tokens": 1808,
+        "total_tokens": 13995
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "invalid_request",
+        "error_kind": "submission_schema"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "updated",
+      "repeat": 1,
+      "pair_id": "ES-r1",
+      "session_id": "ES-r1-updated",
+      "baseline_score": 0.09591726394116994,
+      "child_score": 0.09414522154167211,
+      "improvement": 0.0017720423994978252,
+      "submitted_and_improved": true,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "bd47e8af781dd5463c14e14c032d3a10a2f216dea59fe862d0cffcfa2604d723",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_f9d4cddc6ed6aea2",
+            "claim_op": "contains",
+            "claim_value_json": "[\"v * np.abs(v)\"]",
+            "prediction_id": "e_87b69baf0dd36cbb",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.03
+          },
+          "claim_result": {
+            "status": "schema_invalid",
+            "reason": "claim_schema_invalid"
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.09591726394116994,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.03
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0017720423994978252,
+            "tolerance": 4e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "before": 0.09591726394116994,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.03,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r1",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "f1c498c54bfa52752ae40314e6b6144be6bb2529dae3aa9a2e6be26d7d74985f",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "after": 0.09414522154167211
+          }
+        }
+      ],
+      "baseline_source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0007",
+      "input_bytes": 18808,
+      "payload_sha256": "e8d73f842abf3f830c4d7798370ea0062e9e83aa9d55a8004f598cf12fa4f516",
+      "response_sha256": "91bcaa1bf8a8c696c207485ac3f7d4269d875f7628ebd6cda738449d1e6d0059",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 4847,
+        "completion_tokens": 924,
+        "total_tokens": 5771
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "updated",
+      "repeat": 2,
+      "pair_id": "ES-r2",
+      "session_id": "ES-r2-updated",
+      "baseline_score": 0.09591726394116994,
+      "child_score": 0.09414522154167211,
+      "improvement": 0.0017720423994978252,
+      "submitted_and_improved": true,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "0bd94bc47d3c04076d9a6c21a882b1f1921d3bd610b0d61e4a6412af7b5c1ebc",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_ea7241bbb884b24b",
+            "claim_op": "gt",
+            "claim_value_json": "0.025",
+            "prediction_id": "e_379eaf1196717853",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.0001
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.012421511940592843,
+            "tolerance": 3.5000000000000003e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "bin.v.0.rmse"
+            },
+            "op": "gt",
+            "expected": 0.025
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.020457538427158844,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "rmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.0001
+          },
+          "prediction_result": {
+            "status": "supported",
+            "reason": "prediction_supported",
+            "actual": 0.00018985437646589637,
+            "tolerance": 1.0189854376465896e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "rmse"
+            },
+            "before": 0.020457538427158844,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.0001,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "3e624df8e427972d5711bdf1ae69060341bd64b4d60f76b5a2396a336c744650",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "rmse"
+            },
+            "after": 0.020267684050692947
+          }
+        }
+      ],
+      "baseline_source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0008",
+      "input_bytes": 18808,
+      "payload_sha256": "3e60e0915f43679ffd77739682d4dd2708c132777f1d9e29c3e7bcf87d1b789a",
+      "response_sha256": "3d7c5028346468ba356a9aabf4c28587c2b33ba1d257403ce7c2be5a0e401fc9",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 4830,
+        "completion_tokens": 981,
+        "total_tokens": 5811
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "memory",
+      "repeat": 2,
+      "pair_id": "EP-r2",
+      "session_id": "EP-r2-memory",
+      "baseline_score": 0.0,
+      "child_score": 0.0,
+      "improvement": 0.0,
+      "submitted_and_improved": false,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "355f51653908a99e990ff186da67f484e4fdc9312725706d90fdd3a592b3b9cb",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_bd6be2f89b15f186",
+            "claim_op": "contains",
+            "claim_value_json": "\"[\\\"tightened\\\",\\\"nut1\\\"]\"",
+            "prediction_id": "e_76a5c1ec674a19ac",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 1.0
+          },
+          "claim_result": {
+            "status": "schema_invalid",
+            "reason": "claim_schema_invalid"
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "direction": "increase",
+            "min_delta": 1.0
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0,
+            "tolerance": 1.01e-08,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "before": 0.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 1.0,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "b8602610589e3bada9932e41e0fabb0686949a5dfcd4f4ba7f75c458741a8ed9",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "after": 0.0
+          }
+        }
+      ],
+      "baseline_source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0009",
+      "input_bytes": 44624,
+      "payload_sha256": "53ce63ada5fd0a02e8c24db8003e0f35b6284e74746b8f07c1a6c6c887beed60",
+      "response_sha256": "2058eee9054448479fb59c40a8c36e602bbb05b3968a0c1f7db596f7ee30e89c",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 12171,
+        "completion_tokens": 2969,
+        "total_tokens": 15140
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "fixed",
+      "repeat": 2,
+      "pair_id": "ES-r2",
+      "session_id": "ES-r2-fixed",
+      "baseline_score": 0.09591726394116994,
+      "child_score": 0.0958831006093933,
+      "improvement": 3.416333177663766e-05,
+      "submitted_and_improved": true,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "0bd94bc47d3c04076d9a6c21a882b1f1921d3bd610b0d61e4a6412af7b5c1ebc",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_bc1a9ea1c6378466",
+            "claim_op": "lt",
+            "claim_value_json": "0.09591726394116994",
+            "prediction_id": "e_379eaf1196717853",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.0015
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.09591726394116994,
+            "tolerance": 1.0591726394116994e-09,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "op": "lt",
+            "expected": 0.09591726394116994
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.020457538427158844,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "rmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.0015
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 3.6435563706485596e-06,
+            "tolerance": 1.15e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "rmse"
+            },
+            "before": 0.020457538427158844,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.0015,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "7c6969196bd2b432cb75507519b5b61347cf0d399e89d83f4ed70952cc647155",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "rmse"
+            },
+            "after": 0.020453894870788195
+          }
+        }
+      ],
+      "baseline_source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0010",
+      "input_bytes": 18778,
+      "payload_sha256": "546ba4f6d89c11770f731d577ff8fe840a6c5e5acf28a718c75813eee494168d",
+      "response_sha256": "d231f2d5b2d87602eefc5e8ea2f82ed56258221e52e7b88899df0dbf4ea4f6d4",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 4839,
+        "completion_tokens": 573,
+        "total_tokens": 5412
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "updated",
+      "repeat": 2,
+      "pair_id": "EP-r2",
+      "session_id": "EP-r2-updated",
+      "baseline_score": 0.0,
+      "child_score": 0.0,
+      "improvement": 0.0,
+      "submitted_and_improved": false,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "355f51653908a99e990ff186da67f484e4fdc9312725706d90fdd3a592b3b9cb",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_9a512d1b1f766cd3",
+            "claim_op": "eq",
+            "claim_value_json": "[[\"$0\",\"location\"],[\"$1\",\"spanner\"],[\"$2\",\"man\"],[\"$3\",\"nut\"]]",
+            "prediction_id": "e_76a5c1ec674a19ac",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 1.0
+          },
+          "claim_result": {
+            "status": "schema_invalid",
+            "reason": "claim_schema_invalid"
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "direction": "increase",
+            "min_delta": 1.0
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0,
+            "tolerance": 1.01e-08,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "before": 0.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 1.0,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "d5efc16d8c89c46364ea4698bd65e5c8a0217f42b4ad48a39e7ea73718700a19",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "after": 0.0
+          }
+        }
+      ],
+      "baseline_source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0011",
+      "input_bytes": 35367,
+      "payload_sha256": "97b7b3c005be7e1db0df2fe3b725e4d4ac00ea94bf729862b0d9db1320fefdff",
+      "response_sha256": "307e8fb88cc373a4c1b6cca43aa43a9acbbd454ecf406ebd587654c1e79abe4c",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9608,
+        "completion_tokens": 1544,
+        "total_tokens": 11152
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "memory",
+      "repeat": 2,
+      "pair_id": "ES-r2",
+      "session_id": "ES-r2-memory",
+      "baseline_score": 0.09591726394116994,
+      "child_score": 0.09576767237821251,
+      "improvement": 0.00014959156295742126,
+      "submitted_and_improved": true,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "0bd94bc47d3c04076d9a6c21a882b1f1921d3bd610b0d61e4a6412af7b5c1ebc",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_bc1a9ea1c6378466",
+            "claim_op": "lt",
+            "claim_value_json": "0.09",
+            "prediction_id": "e_bc1a9ea1c6378466",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.002
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.09591726394116994,
+            "tolerance": 1.0591726394116994e-09,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "op": "lt",
+            "expected": 0.09
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.09591726394116994,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.002
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.00014959156295742126,
+            "tolerance": 1.2e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "before": 0.09591726394116994,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.002,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:ES-r2",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "93c36731b6213e9359bd05866c300d3d076ed1f500d81d718535c5fd0c6213d5",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "after": 0.09576767237821251
+          }
+        }
+      ],
+      "baseline_source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0012",
+      "input_bytes": 28065,
+      "payload_sha256": "43146e6d31ebab60c96ff5868fa7c3fbc0ebef8e287cb5253c02f945854e86be",
+      "response_sha256": "bc880cfce00692c3e960c497ecbb9c02bcbff4d7fa494bcb1a9d1fb9a3205391",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 7416,
+        "completion_tokens": 850,
+        "total_tokens": 8266
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "fixed",
+      "repeat": 2,
+      "pair_id": "EP-r2",
+      "session_id": "EP-r2-fixed",
+      "baseline_score": 0.0,
+      "child_score": 0.0,
+      "improvement": 0.0,
+      "submitted_and_improved": false,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "request_count": 1,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "355f51653908a99e990ff186da67f484e4fdc9312725706d90fdd3a592b3b9cb",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_76a5c1ec674a19ac",
+            "claim_op": "eq",
+            "claim_value_json": "0",
+            "prediction_id": "e_0deb7b57f2140dbf",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 1.0
+          },
+          "claim_result": {
+            "status": "supported",
+            "reason": "comparison_supported",
+            "actual": 0.0,
+            "tolerance": 1e-10,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "op": "eq",
+            "expected": 0.0
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 10.0,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_tasks"
+            },
+            "direction": "increase",
+            "min_delta": 1.0
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0,
+            "tolerance": 1.01e-08,
+            "reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_tasks"
+            },
+            "before": 10.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 1.0,
+            "child_reference": {
+              "session_id": "20261020-policy-transfer-v01:EP-r2",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "00d6dab361dbc82d8e88335cb3cdd30f5b078b67da20eed25726026c8dd88ace",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_tasks"
+            },
+            "after": 10.0
+          }
+        }
+      ],
+      "baseline_source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "step_status": "candidate_evaluated",
+      "request_id": "request-0013",
+      "input_bytes": 35337,
+      "payload_sha256": "325d8a877e0ebd66a634890d66ef9fb8e3f04e01fa8d6a67f971a09247eac6ad",
+      "response_sha256": "860d7df0e77ecec1cbf93e1eac9a4d8eb6c472cbe304d3f8fb3ba6a6d429886c",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9604,
+        "completion_tokens": 2694,
+        "total_tokens": 12298
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool"
+    }
+  ],
+  "request_comparison_scope": "Saved SDK pre-transport envelopes; raw provider HTTP messages were not separately captured.",
+  "registration_timing_independently_proven": false,
+  "scope": "Two reused development repair states with two attempts per condition; no held-out, independent-task, or significance claim.",
+  "run_id": "20261020-policy-transfer-v01",
+  "runtime_commit": "154bc39aa64d680ade8b3ddfedbecd296f0b4e81",
+  "reported_run_status": "attempts_completed",
+  "source_provenance_files_verified": 72,
+  "stop_reason": null,
+  "settlement_state": {
+    "request_count": 13,
+    "reserved_count": 0,
+    "failed_count": 0,
+    "usage_unknown_count": 0,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null
+  },
+  "policy_update": {
+    "request_id": "request-0001",
+    "input_bytes": 17056,
+    "payload_sha256": "d5e2511b5c15fad80e41fc076b3f21024925d12deb28d5fd788a223a9f979d12",
+    "response_sha256": "094cb8e34bf0f27a473eea7048aa2e6a9bab6df4429b1ec1ee399f995a755f5c",
+    "usage_state": "known",
+    "usage": {
+      "prompt_tokens": 4689,
+      "completion_tokens": 1104,
+      "total_tokens": 5793
+    },
+    "settlement_status": "settled",
+    "transport_error_type": null,
+    "response_tool_validation": {
+      "status": "valid_submission"
+    },
+    "parent_policy": {
+      "version": "revision-policy-v0.1",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    "selected_policy": {
+      "version": "revision-policy-v0.1",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R02",
+        "R06"
+      ]
+    },
+    "no_op": false,
+    "policy_changed": true,
+    "freeze_file_sha256": "256de5eb32ba87050cfe12cfaf15d417914bcc6e93c53589ed77d74fcf102aba",
+    "added_rules": [
+      "R02"
+    ],
+    "removed_rules": [
+      "R08"
+    ],
+    "host_rationale_rendered": false,
+    "rule_support": [
+      {
+        "rule_id": "R03",
+        "support": "both"
+      },
+      {
+        "rule_id": "R04",
+        "support": "both"
+      },
+      {
+        "rule_id": "R02",
+        "support": "U-P"
+      },
+      {
+        "rule_id": "R06",
+        "support": "U-S"
+      }
+    ]
+  },
+  "actual_request_triplets": {
+    "EP-r1": {
+      "sessions": [
+        "EP-r1-fixed",
+        "EP-r1-updated",
+        "EP-r1-memory"
+      ],
+      "requested_sessions": [
+        "EP-r1-fixed",
+        "EP-r1-updated",
+        "EP-r1-memory"
+      ],
+      "all_three_requested": true,
+      "exact_common_request_equality": true,
+      "common_request_sha256": "904eb574603ff4811b6ba57228ea9cb2155bc7d9aff5f79a86015d6c0cbf7c39",
+      "common_request_bytes": 34714,
+      "removed_packet_fields": [
+        "repair_policy",
+        "experience_memory"
+      ]
+    },
+    "EP-r2": {
+      "sessions": [
+        "EP-r2-memory",
+        "EP-r2-updated",
+        "EP-r2-fixed"
+      ],
+      "requested_sessions": [
+        "EP-r2-memory",
+        "EP-r2-updated",
+        "EP-r2-fixed"
+      ],
+      "all_three_requested": true,
+      "exact_common_request_equality": true,
+      "common_request_sha256": "97e2dba9f872b6af0d01a8ff71a98c65a5266bbaff0215ad534de081e3793673",
+      "common_request_bytes": 34714,
+      "removed_packet_fields": [
+        "repair_policy",
+        "experience_memory"
+      ]
+    },
+    "ES-r1": {
+      "sessions": [
+        "ES-r1-memory",
+        "ES-r1-fixed",
+        "ES-r1-updated"
+      ],
+      "requested_sessions": [
+        "ES-r1-memory",
+        "ES-r1-fixed",
+        "ES-r1-updated"
+      ],
+      "all_three_requested": true,
+      "exact_common_request_equality": true,
+      "common_request_sha256": "dce61efaf4506d034ef6db6fa4584f5901191c1c4b3583faf2f4ab67e5de6dc2",
+      "common_request_bytes": 18155,
+      "removed_packet_fields": [
+        "repair_policy",
+        "experience_memory"
+      ]
+    },
+    "ES-r2": {
+      "sessions": [
+        "ES-r2-updated",
+        "ES-r2-fixed",
+        "ES-r2-memory"
+      ],
+      "requested_sessions": [
+        "ES-r2-updated",
+        "ES-r2-fixed",
+        "ES-r2-memory"
+      ],
+      "all_three_requested": true,
+      "exact_common_request_equality": true,
+      "common_request_sha256": "a451feb0abaaaf73676249329ba1ee5ebd9d2ad50ae3d7e2d2f883dbdb580a6d",
+      "common_request_bytes": 18155,
+      "removed_packet_fields": [
+        "repair_policy",
+        "experience_memory"
+      ]
+    }
+  },
+  "cost_by_stage_and_condition": {
+    "all": {
+      "requests": 13,
+      "known_prompt_tokens": 101698,
+      "known_completion_tokens": 18309,
+      "known_total_tokens": 120007,
+      "known_estimated_cost_cny": 0.3673614,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 120007,
+      "actual_estimated_cost_cny": 0.3673614,
+      "reserved_tokens": 538758,
+      "reserved_cost_cny": 1.4668542,
+      "input_bytes": 379014,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "policy_update": {
+      "requests": 1,
+      "known_prompt_tokens": 4689,
+      "known_completion_tokens": 1104,
+      "known_total_tokens": 5793,
+      "known_estimated_cost_cny": 0.0191205,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 5793,
+      "actual_estimated_cost_cny": 0.0191205,
+      "reserved_tokens": 29344,
+      "reserved_cost_cny": 0.0874272,
+      "input_bytes": 17056,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "fixed": {
+      "requests": 4,
+      "known_prompt_tokens": 28903,
+      "known_completion_tokens": 5993,
+      "known_total_tokens": 34896,
+      "known_estimated_cost_cny": 0.1110375,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 34896,
+      "actual_estimated_cost_cny": 0.1110375,
+      "reserved_tokens": 157382,
+      "reserved_cost_cny": 0.4337214,
+      "input_bytes": 108230,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "memory": {
+      "requests": 4,
+      "known_prompt_tokens": 39210,
+      "known_completion_tokens": 6216,
+      "known_total_tokens": 45426,
+      "known_estimated_cost_cny": 0.1345554,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 45426,
+      "actual_estimated_cost_cny": 0.1345554,
+      "reserved_tokens": 194530,
+      "reserved_cost_cny": 0.5117322,
+      "input_bytes": 145378,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "updated": {
+      "requests": 4,
+      "known_prompt_tokens": 28896,
+      "known_completion_tokens": 4996,
+      "known_total_tokens": 33892,
+      "known_estimated_cost_cny": 0.102648,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 33892,
+      "actual_estimated_cost_cny": 0.102648,
+      "reserved_tokens": 157502,
+      "reserved_cost_cny": 0.4339734,
+      "input_bytes": 108350,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "updated_plus_update": {
+      "requests": 5,
+      "known_prompt_tokens": 33585,
+      "known_completion_tokens": 6100,
+      "known_total_tokens": 39685,
+      "known_estimated_cost_cny": 0.1217685,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 39685,
+      "actual_estimated_cost_cny": 0.1217685,
+      "reserved_tokens": 186846,
+      "reserved_cost_cny": 0.5214006,
+      "input_bytes": 125406,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    }
+  },
+  "counts": {
+    "requests": 13,
+    "update_requests": 1,
+    "evaluation_requests": 12,
+    "generated_candidate_records": 11,
+    "new_task_result_records": 56,
+    "archived_task_result_records": 66,
+    "claim_statuses": {
+      "unavailable": 1,
+      "contradicted": 5,
+      "schema_invalid": 4,
+      "supported": 1
+    },
+    "registration_statuses": {
+      "supported": 11
+    },
+    "prediction_statuses": {
+      "contradicted": 9,
+      "supported": 2
+    }
+  },
+  "condition_endpoints": {
+    "fixed": {
+      "assigned_sessions": 4,
+      "generated_candidates": 4,
+      "submitted_and_improved": 2
+    },
+    "memory": {
+      "assigned_sessions": 4,
+      "generated_candidates": 3,
+      "submitted_and_improved": 2
+    },
+    "updated": {
+      "assigned_sessions": 4,
+      "generated_candidates": 4,
+      "submitted_and_improved": 3
+    }
+  },
+  "run_file_count": 231,
+  "run_files_unchanged": true,
+  "run_tree_before_sha256": "6a291722a7abac6006cddbd5deb1a28a08a394b551d3622c43b4c0a2ddeee058",
+  "run_tree_after_sha256": "6a291722a7abac6006cddbd5deb1a28a08a394b551d3622c43b4c0a2ddeee058",
+  "input_file_sha256": {
+    "base-config.json": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+    "budget-ledger.json": "1bb4c56384860e8b5a09c67d335254bf33e018c3f79f9e91245f2688a65bbb86",
+    "config.json": "6992a3a47f161e6b8afb6fd8ba69f3f3cc2e584b7ed74377deff917f18eb08ec",
+    "EP-r1-fixed/audits.json": "cb00f3bab8322a4c913b3f0e8075d3d6e95f7b1a6a7cb3521fb3746b59ac4a6d",
+    "EP-r1-fixed/candidates/planning-000.py": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "EP-r1-fixed/candidates/planning-001.py": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+    "EP-r1-fixed/candidates.json": "04943c3e27f7fced9a842e6db61789200e651a1b6cf956e16f5304fce10e004d",
+    "EP-r1-fixed/diagnostics.json": "511a923b28f53078a70fd625ee7f3264d12006181ec8daa88c1b79adc03ba6e3",
+    "EP-r1-fixed/events.jsonl": "44a21a4d2aac92071fd4aba5899f16641d5da5cb5e5a4d47bf5c687f3caf43de",
+    "EP-r1-fixed/evidence-registry-000.json": "011fbfea09fc5b85c3abe48392688d3e8e9e32caad62354dce5f5f0db8aff7f2",
+    "EP-r1-fixed/evidence-registry-001.json": "d8215679d98f8483b67c5c045a1c7e52b684617716c645f5ea59332dbb75d680",
+    "EP-r1-fixed/evidence-registry.json": "d8215679d98f8483b67c5c045a1c7e52b684617716c645f5ea59332dbb75d680",
+    "EP-r1-fixed/evidence.json": "70303551929d3f8e26057c5991651ef1eaa1b8f38dad6c14c5d4d7ac38ce44ce",
+    "EP-r1-fixed/repair-state-provenance.json": "61f50c991c37fe382670a44c8aa79b073d6de4ac76ebe8837314ad2f9ca53914",
+    "EP-r1-fixed/requests/input-audit-0001.json": "f635566873748348b108cdbe897d5b21e2943350bb0ae1860ea7e681ce46d83c",
+    "EP-r1-fixed/requests/packet-0001.json": "b1ddc45a2a67572958946fa913f1d46465e9c6d863660b85b5746692bf8317de",
+    "EP-r1-fixed/requests/request-0002.request.json": "03e87b1ed8c4ae2ae6c3f02c307962b1235b3fa434b2019beb94e7f1142e63e7",
+    "EP-r1-fixed/requests/request-0002.response.json": "d84d304fae20b7744626ad63c5bab6a7ee5ef57d900b438bbe71742104bcee34",
+    "EP-r1-fixed/session-summary.json": "c74539316c448e4743a5d9d45fea6108d384c6a1d3c4e8f1b4925426dca1c16c",
+    "EP-r1-fixed/summary.json": "68327a2ab40248a2a7aee8e501aedcc9776eb0ebf4206abd14d30f972196902f",
+    "EP-r1-fixed/task-prompt.txt": "f2b2cae1418d0ab34aea76f0115671a850063f83bae25d2df4c7b82f52b49765",
+    "EP-r1-memory/candidates/planning-000.py": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "EP-r1-memory/candidates.json": "fffcf9750cb2b3af45e0510efbca9bafdd906c5818158aba5f7c260e5860bd30",
+    "EP-r1-memory/diagnostics.json": "ba461b3c2d8367bff81da1f737ccb8a4735b031565ba4cd32dbd86818a83eab1",
+    "EP-r1-memory/events.jsonl": "8e4a8de08a1868176beab73e51cc0d2dd4ac44b782f876969635f0f2d8340430",
+    "EP-r1-memory/evidence-registry-000.json": "011fbfea09fc5b85c3abe48392688d3e8e9e32caad62354dce5f5f0db8aff7f2",
+    "EP-r1-memory/evidence-registry.json": "011fbfea09fc5b85c3abe48392688d3e8e9e32caad62354dce5f5f0db8aff7f2",
+    "EP-r1-memory/evidence.json": "e82e0dbce83350a2d74994b3e4ece9d3c8c5f27cc9cb50775fd664ba9d366ee5",
+    "EP-r1-memory/repair-state-provenance.json": "61f50c991c37fe382670a44c8aa79b073d6de4ac76ebe8837314ad2f9ca53914",
+    "EP-r1-memory/requests/input-audit-0001.json": "6334cbec1cbf093c5364ad84329101726e29d079285a55362523844ff4961fd3",
+    "EP-r1-memory/requests/packet-0001.json": "c9d3d7f063c6284501f033eb526638f5e0093eb2a35fee17f4addf6310bc45dc",
+    "EP-r1-memory/requests/request-0006.request.json": "163e67a200d17ac705eaad88f2c2ae32b37d0859df021bbe0833df5a1f2493f2",
+    "EP-r1-memory/requests/request-0006.response.json": "d1ac6cc317b3270abe18383b5e7ab0e0fae1a0706ad209cee74a30c1a0ad6535",
+    "EP-r1-memory/session-summary.json": "d00ad81ea0e786a7a141e921e5ed6fca9d8584f6ae5bacb759f3480f23e49e99",
+    "EP-r1-memory/summary.json": "2550f975ef20d9ef1d4627dce1d908495dc38881e00827f7dbf2aa4a3f18e389",
+    "EP-r1-memory/task-prompt.txt": "28bc95e9bb03c195ef9d36218706596a7a425655d953f7167fe3b2f49d639c0b",
+    "EP-r1-updated/audits.json": "a6c2770db86ecca06aeb98baf66d835e36805ae7066af6ce6dffb6e84505c0cd",
+    "EP-r1-updated/candidates/planning-000.py": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "EP-r1-updated/candidates/planning-001.py": "6539046389e444c619549f64b5c9bd8768016cbef305502d267349637609f4ed",
+    "EP-r1-updated/candidates.json": "bd44d5d704fb7a85bec1c148f4eed2f6ec103bc6f13fb5fb76a3a2a0edcd6c08",
+    "EP-r1-updated/diagnostics.json": "00d34016a067ee85bdf2190b711f041d90918e9fa9ada614301a613deb6df28e",
+    "EP-r1-updated/events.jsonl": "760d6efc16bebbda6c0f44bfac5cb6c69f5e709f6d1299292841e89c68f7792a",
+    "EP-r1-updated/evidence-registry-000.json": "011fbfea09fc5b85c3abe48392688d3e8e9e32caad62354dce5f5f0db8aff7f2",
+    "EP-r1-updated/evidence-registry-001.json": "6ce21ec75a34f0c08a6bfe03d2f07df1a9e466999b1ac0b34133654588f67d72",
+    "EP-r1-updated/evidence-registry.json": "6ce21ec75a34f0c08a6bfe03d2f07df1a9e466999b1ac0b34133654588f67d72",
+    "EP-r1-updated/evidence.json": "00606ac3bb19c892a096fac98c4a0f7a1b07e5a50c623d0db686f15a21bc7187",
+    "EP-r1-updated/repair-state-provenance.json": "61f50c991c37fe382670a44c8aa79b073d6de4ac76ebe8837314ad2f9ca53914",
+    "EP-r1-updated/requests/input-audit-0001.json": "6a369d16bf9c77669ac1be040d9bd723df45034d2bdc5b1972821fb6fe7d1e7d",
+    "EP-r1-updated/requests/packet-0001.json": "01025fa53044f77717e92ed95fb6961d94f5d553800267937da23d8b2ed1d5fd",
+    "EP-r1-updated/requests/request-0004.request.json": "62ec113c351637d261751fdae944e073279caef7a6fe86c97cb9046f922f9be8",
+    "EP-r1-updated/requests/request-0004.response.json": "cdd44e65569c865794b7c0d1136c3120f95a5800f986b0e02058bbc7158e0713",
+    "EP-r1-updated/session-summary.json": "b3e370a747776cf6690b922d6db698506527f9dce4ba44c20e29ddde78fb6ebb",
+    "EP-r1-updated/summary.json": "1a4513a569b45a382b7b419ac9a334a18a8acb861b84dce7fa82d1fe68672fc8",
+    "EP-r1-updated/task-prompt.txt": "c5f81d8e26abc5b211d8a0f40a13fb1df31862828f65c5b78d38db2f92af9ba9",
+    "EP-r2-fixed/audits.json": "436906776010036e9a2070a808cab327d2b4afea8acc8c981d0066527247111f",
+    "EP-r2-fixed/candidates/planning-000.py": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "EP-r2-fixed/candidates/planning-001.py": "00d6dab361dbc82d8e88335cb3cdd30f5b078b67da20eed25726026c8dd88ace",
+    "EP-r2-fixed/candidates.json": "24aaafa57d54f603a82900c1cdaa5f5e9b0e3858481a5bd99e58f37940f7e719",
+    "EP-r2-fixed/diagnostics.json": "bcf1c9c5f6a74f4c6247dee2c4e47b015965ce65b013f5e1089254684f190b8b",
+    "EP-r2-fixed/events.jsonl": "a6f610c5fd0444bd6c585d697ffe8c35ee7af773322abdb0b32cfad0eaeb2ffd",
+    "EP-r2-fixed/evidence-registry-000.json": "9748cc233c841d5af235693e04e40da14dc89c5cb1e2774921d70a26450e1423",
+    "EP-r2-fixed/evidence-registry-001.json": "03b842f79bc5683875e3eed5b7dc69d75d448390f2d14b3500faf8188ee5871d",
+    "EP-r2-fixed/evidence-registry.json": "03b842f79bc5683875e3eed5b7dc69d75d448390f2d14b3500faf8188ee5871d",
+    "EP-r2-fixed/evidence.json": "76322f6f070f39bf0c0c348117ba1a80f1acb7a3e076109a7ff6596e260a0da5",
+    "EP-r2-fixed/repair-state-provenance.json": "61f50c991c37fe382670a44c8aa79b073d6de4ac76ebe8837314ad2f9ca53914",
+    "EP-r2-fixed/requests/input-audit-0001.json": "5d15ca92acd5cf2b20202c521e5beaaebefc69a22f65797033dd72200b1e74b6",
+    "EP-r2-fixed/requests/packet-0001.json": "64659cee15ab39687c694df380ae21407c550002cc13832d7e17943b5aba5640",
+    "EP-r2-fixed/requests/request-0013.request.json": "33d7278affa05be1d9be601cafbc11fa5029253e84548be964293f02ba317ffe",
+    "EP-r2-fixed/requests/request-0013.response.json": "860d7df0e77ecec1cbf93e1eac9a4d8eb6c472cbe304d3f8fb3ba6a6d429886c",
+    "EP-r2-fixed/session-summary.json": "4f725f1a9ac0742e2fccb602c2b3b10e28533de84bff69227f46197035865c76",
+    "EP-r2-fixed/summary.json": "b44e95b5de12db64b50a5c472dbce44110bff3f151c122f211939341cd753f8c",
+    "EP-r2-fixed/task-prompt.txt": "eae4f77522cea89df9ea7788ec97f62661ab6a4db6ccf0d4f445d6bbcdafe87c",
+    "EP-r2-memory/audits.json": "89ac74e07b35bfa57240cbac1ab77536f2fdc5d9a1952ad6cd3341027a96e25c",
+    "EP-r2-memory/candidates/planning-000.py": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "EP-r2-memory/candidates/planning-001.py": "b8602610589e3bada9932e41e0fabb0686949a5dfcd4f4ba7f75c458741a8ed9",
+    "EP-r2-memory/candidates.json": "21ac37692de6efe928999a2afa46aeb886bf888bafd921e72c75850b2f53a42e",
+    "EP-r2-memory/diagnostics.json": "e0de2697f981d4b08f59c5c4d2b2f947d458123a0aba0076296b9911a8981cce",
+    "EP-r2-memory/events.jsonl": "5af9b6f6638e386266f4f384fdbd9b830e41c5e63a22214bcc97d926f1b14688",
+    "EP-r2-memory/evidence-registry-000.json": "9748cc233c841d5af235693e04e40da14dc89c5cb1e2774921d70a26450e1423",
+    "EP-r2-memory/evidence-registry-001.json": "97c9cc31e86bc8e5d8036d7a15a7d02fd75297e266c24f9e33c846978c486a80",
+    "EP-r2-memory/evidence-registry.json": "97c9cc31e86bc8e5d8036d7a15a7d02fd75297e266c24f9e33c846978c486a80",
+    "EP-r2-memory/evidence.json": "1b1465ea44868b4d62194792e02ea8ea0df800d03011c3697ca31e78cfabd37b",
+    "EP-r2-memory/repair-state-provenance.json": "61f50c991c37fe382670a44c8aa79b073d6de4ac76ebe8837314ad2f9ca53914",
+    "EP-r2-memory/requests/input-audit-0001.json": "c9bda34b0ade189fbe2aa8cf42f71a8396c1201998dd63803a79cc29c993191e",
+    "EP-r2-memory/requests/packet-0001.json": "2aa056287a8a4bad9f362f5371fc4951d71c5a59e0f7a7772dd913ae71d17c16",
+    "EP-r2-memory/requests/request-0009.request.json": "39bfac443faf1f0bc656e932d4b0a79e543c1ed48d9700d067e42cac0939e032",
+    "EP-r2-memory/requests/request-0009.response.json": "2058eee9054448479fb59c40a8c36e602bbb05b3968a0c1f7db596f7ee30e89c",
+    "EP-r2-memory/session-summary.json": "ad580927e83ad32b1930de1c163cf83744754fe657e99256e5edc5112db20691",
+    "EP-r2-memory/summary.json": "60328358ca8e43c9966828b78bcd03b42b7723cdaae84c40bc8f53d14b17680d",
+    "EP-r2-memory/task-prompt.txt": "02dc8092f462be6d3506c6d85b67b991c9ec948a645e5bb5f486d6ab48fda483",
+    "EP-r2-updated/audits.json": "0130cb1ff8c16eb4af2b72b27d9d59be9bd9411abffa2a7660ffa562698bf97a",
+    "EP-r2-updated/candidates/planning-000.py": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "EP-r2-updated/candidates/planning-001.py": "d5efc16d8c89c46364ea4698bd65e5c8a0217f42b4ad48a39e7ea73718700a19",
+    "EP-r2-updated/candidates.json": "acd93ddae6a73bc423f5b2e2007e0fe5acb8cfb9b0eb2794b0b52ace2a1eb01e",
+    "EP-r2-updated/diagnostics.json": "636074f113cebb9bceb08e1f49ffdbf00020551635aaabd0b2f86dbf211e8b6c",
+    "EP-r2-updated/events.jsonl": "fe517a9548e79a5764dfd617af1927aeeb33135277f2574ec2226699a90d4106",
+    "EP-r2-updated/evidence-registry-000.json": "9748cc233c841d5af235693e04e40da14dc89c5cb1e2774921d70a26450e1423",
+    "EP-r2-updated/evidence-registry-001.json": "663fdc3c4a267a7606a37719e8f2568b5957d759baac59eacbbd220aa664190e",
+    "EP-r2-updated/evidence-registry.json": "663fdc3c4a267a7606a37719e8f2568b5957d759baac59eacbbd220aa664190e",
+    "EP-r2-updated/evidence.json": "2c47d0e5b279af6ad564aff04366d1cab548faa68b66e0aa678e655639b0c81b",
+    "EP-r2-updated/repair-state-provenance.json": "61f50c991c37fe382670a44c8aa79b073d6de4ac76ebe8837314ad2f9ca53914",
+    "EP-r2-updated/requests/input-audit-0001.json": "19ca323f2ca5d57d30888eeed6526533c9c05dd9a16a8380bfa34c01202be8dd",
+    "EP-r2-updated/requests/packet-0001.json": "7fe9c690520e701cb83e847a78626fabce08d9fbbc0d813a6934e690fadc1edc",
+    "EP-r2-updated/requests/request-0011.request.json": "87ac0b2aaaf5442aa43b1ccd924890103d06cc059176ae7c77ffceab92331816",
+    "EP-r2-updated/requests/request-0011.response.json": "307e8fb88cc373a4c1b6cca43aa43a9acbbd454ecf406ebd587654c1e79abe4c",
+    "EP-r2-updated/session-summary.json": "6097fb809f14aa03b63408f17487884ccca157fdd551f5ac8e9a2b934453805c",
+    "EP-r2-updated/summary.json": "49c1d656c1a78cf640add2f935ed9d76f70a8a6be898d6932b0554a5d2262c83",
+    "EP-r2-updated/task-prompt.txt": "33aa59a930c73f2a26482987418da4d83cc62fc9068e5b5be82170dd4cf8146c",
+    "ES-r1-fixed/audits.json": "4d97c00c3a91ffdbd714220dfabf399229e460a8b06af7d9af4fd9b89e9fd926",
+    "ES-r1-fixed/candidates/symbolic-000.py": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "ES-r1-fixed/candidates/symbolic-001.py": "7cc7bbf448e5bd9e3d1edad2dbf4a8942577eb8ccc146192208dbf98196b7a19",
+    "ES-r1-fixed/candidates.json": "3aa0b0d83b291500deb4daf0b127a631eb249a2e572c2a4a5768a9ab3b09d9db",
+    "ES-r1-fixed/diagnostics.json": "54b94d987aa3183cfb7f4d6fb6735e5e7fd836fcda540993422bd86a3d5c7a9c",
+    "ES-r1-fixed/events.jsonl": "3c277f0a6afc30f56c506150e92c328610b7768ca0a226bae13502e8af1dadfc",
+    "ES-r1-fixed/evidence-registry-000.json": "e3f88a6afedda7c296e305446312914dc343725115a156a891260830f1c9116b",
+    "ES-r1-fixed/evidence-registry-001.json": "956b288a1763f7e479e3abd6c968bb1a1d8b17bbbc53c299622ac83c8531e6d6",
+    "ES-r1-fixed/evidence-registry.json": "956b288a1763f7e479e3abd6c968bb1a1d8b17bbbc53c299622ac83c8531e6d6",
+    "ES-r1-fixed/evidence.json": "5da063709b44f09e703871fa767edb71f41c391303f029300e478500f549180a",
+    "ES-r1-fixed/repair-state-provenance.json": "51246ed1be4ea93fa8b86b4b9f7ae22eb8e3607fe726c954a873964c8387e2a3",
+    "ES-r1-fixed/requests/input-audit-0001.json": "b1fbccd5856c3034907fad1d3d2641970501117db9e71cbea6d80ce2b0254739",
+    "ES-r1-fixed/requests/packet-0001.json": "4734d67c1434b26cda44bc764fccbfcadcae3859c97034ee87ac8d81caab9ce8",
+    "ES-r1-fixed/requests/request-0005.request.json": "10117036fe400a243f0d82509de5dcdd56327f5cf68ef0dc83e58c4b04ba7724",
+    "ES-r1-fixed/requests/request-0005.response.json": "729b5a987e272ef96002b765b6a50ba747f6b8402854117886c280e578d2f419",
+    "ES-r1-fixed/session-summary.json": "57d45a530c2009b41bf0c30ddea11feb04bbfa410fc92dca2607e8724dde8d65",
+    "ES-r1-fixed/summary.json": "cfacd0e313c8c95582ffce150e9e7d84db5432c71fad36c24b900befe282c5ce",
+    "ES-r1-fixed/task-prompt.txt": "6ced007ed8f10b1bd985530550dcfcaaf2b85d9b24b2db57a1e45b27d7e66cb1",
+    "ES-r1-memory/audits.json": "1094e408fcc0fd2f489a3585c7620c787c959626440d8a499a56633b53a644d2",
+    "ES-r1-memory/candidates/symbolic-000.py": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "ES-r1-memory/candidates/symbolic-001.py": "e40144d64971402b7ed6253ffd3970581d0c62cf1ebf3199d5c417f9d2bd7b83",
+    "ES-r1-memory/candidates.json": "44a50b34d389486e974b4ab434d80bc98fd08f9962f776cc69aba495cfb2822f",
+    "ES-r1-memory/diagnostics.json": "a62270f5d28f9baa04d2a7cba86edc30a9622cf24e885e8a659532ce52ee4723",
+    "ES-r1-memory/events.jsonl": "0879c1bf6d93bf264686ce0f3b350be01d9a55ba094166689b876c5acee61317",
+    "ES-r1-memory/evidence-registry-000.json": "e3f88a6afedda7c296e305446312914dc343725115a156a891260830f1c9116b",
+    "ES-r1-memory/evidence-registry-001.json": "17f0ebdd86f5e4420a0672a68cf1295c4b2005ac7b51d5419153190b502d5c92",
+    "ES-r1-memory/evidence-registry.json": "17f0ebdd86f5e4420a0672a68cf1295c4b2005ac7b51d5419153190b502d5c92",
+    "ES-r1-memory/evidence.json": "f9ec65306f47d6964d1bfb7592526cb2a5fa59abf24fc5501ba2a434275b0330",
+    "ES-r1-memory/repair-state-provenance.json": "51246ed1be4ea93fa8b86b4b9f7ae22eb8e3607fe726c954a873964c8387e2a3",
+    "ES-r1-memory/requests/input-audit-0001.json": "ff0977d92e6c34cb395064b744ddb0824800bbd12c40dd2832b87d446989308c",
+    "ES-r1-memory/requests/packet-0001.json": "0f27797f63766da0f21a87dfc54976110132250c2bbd6487f77ba3cbeda92130",
+    "ES-r1-memory/requests/request-0003.request.json": "397bd4d655d5edbf8778fc88046f0c7575aecae1f227d5b871d30940b24650fe",
+    "ES-r1-memory/requests/request-0003.response.json": "9e0abd1cd512ad6308f08722674b49f74d58122f08c3ddf494d111a1fcdc3a3d",
+    "ES-r1-memory/session-summary.json": "b67dcb976062cb5d7bde0273c6db9e3d43a0f1cdbaf32f128b943c0beef90d4c",
+    "ES-r1-memory/summary.json": "1231703dfcca75d10a82a9eef28aaede84d65ebee37fbbad4c99b461fb635dec",
+    "ES-r1-memory/task-prompt.txt": "7c19bfdb48db1abcaa9a1effd77e410274b670819e9cc0aae5751b7c5b8e19e2",
+    "ES-r1-updated/audits.json": "b41ed90224e447577789d95585a2678eb1bf23f63e6bcd44520b9f27fe61fdb4",
+    "ES-r1-updated/candidates/symbolic-000.py": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "ES-r1-updated/candidates/symbolic-001.py": "f1c498c54bfa52752ae40314e6b6144be6bb2529dae3aa9a2e6be26d7d74985f",
+    "ES-r1-updated/candidates.json": "ffaa0b52ef76aee185bbdad7aa99db9c79e6c4bd20fe09eff7abf37d55a96ee9",
+    "ES-r1-updated/diagnostics.json": "e6c42c47ba59d5b54a6842cc583edca624d370795be8450667953e04c8fecd33",
+    "ES-r1-updated/events.jsonl": "77718343a34b27854ec7e8a3a1e22b17a08ff611adc0d58647982470f09033ed",
+    "ES-r1-updated/evidence-registry-000.json": "e3f88a6afedda7c296e305446312914dc343725115a156a891260830f1c9116b",
+    "ES-r1-updated/evidence-registry-001.json": "3b040d202463a8c5c69daedf8dc4fed2a6dc640f8453e53aef6bdccc2dc06619",
+    "ES-r1-updated/evidence-registry.json": "3b040d202463a8c5c69daedf8dc4fed2a6dc640f8453e53aef6bdccc2dc06619",
+    "ES-r1-updated/evidence.json": "56960d8b25cfb0fbcf6c679681adf7c47e8485f6c5dd4e169fbc4ac8517621fc",
+    "ES-r1-updated/repair-state-provenance.json": "51246ed1be4ea93fa8b86b4b9f7ae22eb8e3607fe726c954a873964c8387e2a3",
+    "ES-r1-updated/requests/input-audit-0001.json": "9c5a5f4800113380f584cfac8fae4b19197933f87a5d35d7e841f5527d5f2915",
+    "ES-r1-updated/requests/packet-0001.json": "477505ad3abadef80a7b6c34da9e024b3aefcb563bbe191bf3a763b9d296b71f",
+    "ES-r1-updated/requests/request-0007.request.json": "47c07f0bb0ec8e73ccaa70619c13b2c12284374208cd09200648e7ee7a1cbe90",
+    "ES-r1-updated/requests/request-0007.response.json": "91bcaa1bf8a8c696c207485ac3f7d4269d875f7628ebd6cda738449d1e6d0059",
+    "ES-r1-updated/session-summary.json": "b56e70d3dd05453505198fb725bbaab0b5425aae7d7468bdeeb676bf67e23158",
+    "ES-r1-updated/summary.json": "43ac529c64c9837f03957877f0e2545b449a1063dc2df103bf88bd70520f9abf",
+    "ES-r1-updated/task-prompt.txt": "7cc35ed721e3c07b6334b60a34d12acf5da89eea0acb7088cb6906549c53e61b",
+    "ES-r2-fixed/audits.json": "d7758125276ea67688f2e4604c46d40f799ca89bfea791548dbf2dccb704219f",
+    "ES-r2-fixed/candidates/symbolic-000.py": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "ES-r2-fixed/candidates/symbolic-001.py": "7c6969196bd2b432cb75507519b5b61347cf0d399e89d83f4ed70952cc647155",
+    "ES-r2-fixed/candidates.json": "001c464eeb0d6426587f44100b9374a966a051bc2ad61fe15149871c6d880504",
+    "ES-r2-fixed/diagnostics.json": "b946fc0eb73407aa27e2402b04ffe3013cde45a7c9116e7d63f8cd4e969d49dc",
+    "ES-r2-fixed/events.jsonl": "8f954b560d9e63b945a12aea4edbbafef540bcd9c7996807b5c27eb4ef14115e",
+    "ES-r2-fixed/evidence-registry-000.json": "833f3b9fcf1599f16891ae256cdebfa738f8fd9f974e278a108e16a9e06aeccd",
+    "ES-r2-fixed/evidence-registry-001.json": "16faa647789a9c90a83d4c96f65e640bf3a781d8e7c847ed59a68dc86d60ab6f",
+    "ES-r2-fixed/evidence-registry.json": "16faa647789a9c90a83d4c96f65e640bf3a781d8e7c847ed59a68dc86d60ab6f",
+    "ES-r2-fixed/evidence.json": "328d9741036ae8eeb7293495e6ee309255dc39a785f32dbbfb9c3bda00046b31",
+    "ES-r2-fixed/repair-state-provenance.json": "51246ed1be4ea93fa8b86b4b9f7ae22eb8e3607fe726c954a873964c8387e2a3",
+    "ES-r2-fixed/requests/input-audit-0001.json": "4606d9ed01bea78cb7fcf19ba64630175d3142b290bf14e5577b1aada8f91d21",
+    "ES-r2-fixed/requests/packet-0001.json": "e102142aad3b1f570a7eadef15ed2fbef1810b3b10229067eabc76eca6014a8b",
+    "ES-r2-fixed/requests/request-0010.request.json": "26cb326c5e2d34fd07b4b97b045aafe68f037fef58fee6de1ba0fb16b85526c8",
+    "ES-r2-fixed/requests/request-0010.response.json": "d231f2d5b2d87602eefc5e8ea2f82ed56258221e52e7b88899df0dbf4ea4f6d4",
+    "ES-r2-fixed/session-summary.json": "840472c6296e5524314c8cbb19b1c0de8add2a9dcf79888dba8123a233a520ea",
+    "ES-r2-fixed/summary.json": "aebc5b687bbc56a491c67ac74f67c7140d6ee3266a55df3da1272225b75d5daa",
+    "ES-r2-fixed/task-prompt.txt": "08379c19a2cbfbc6342bbeb424e348604cf3ce46fadb6e244254cf6426857203",
+    "ES-r2-memory/audits.json": "fd5079e69efce4471586afa58b2209e52a55268fd5c1fca38631ce3f9bdbe108",
+    "ES-r2-memory/candidates/symbolic-000.py": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "ES-r2-memory/candidates/symbolic-001.py": "93c36731b6213e9359bd05866c300d3d076ed1f500d81d718535c5fd0c6213d5",
+    "ES-r2-memory/candidates.json": "a294e10ba9986693b7126da241d431ede6023b5a0dce85371dbbf6b02c5460ec",
+    "ES-r2-memory/diagnostics.json": "26805bba40ba217f6fa2f55fd10bd1adeb2172c3bd9c546ba3fd0044355de9cc",
+    "ES-r2-memory/events.jsonl": "678a01f6a8c3532b8fc2d07a8cec1dd91992340b0c238f8799df906886b1f521",
+    "ES-r2-memory/evidence-registry-000.json": "833f3b9fcf1599f16891ae256cdebfa738f8fd9f974e278a108e16a9e06aeccd",
+    "ES-r2-memory/evidence-registry-001.json": "fc68ce3ebaaa9594553faa2673f8db729b8d69058ced1cfc339cc046c4b0ae36",
+    "ES-r2-memory/evidence-registry.json": "fc68ce3ebaaa9594553faa2673f8db729b8d69058ced1cfc339cc046c4b0ae36",
+    "ES-r2-memory/evidence.json": "ad0c2d3b4f38429c104043f012e757006533d58caba59fe7186fd19949497c55",
+    "ES-r2-memory/repair-state-provenance.json": "51246ed1be4ea93fa8b86b4b9f7ae22eb8e3607fe726c954a873964c8387e2a3",
+    "ES-r2-memory/requests/input-audit-0001.json": "161c5d54661294b8f723ba39883d049ee101a8fff95f5ee6ca18dc86bedaf8e1",
+    "ES-r2-memory/requests/packet-0001.json": "6e32dfa2ab83b1d1310abe02059a2a9f23ea7db00122ce39fea912f914a28025",
+    "ES-r2-memory/requests/request-0012.request.json": "39571bc94a62538e7ec8d86460df9234cb8781e9bc2f90eb854c1b239a588049",
+    "ES-r2-memory/requests/request-0012.response.json": "bc880cfce00692c3e960c497ecbb9c02bcbff4d7fa494bcb1a9d1fb9a3205391",
+    "ES-r2-memory/session-summary.json": "358a4cad939df4e5d31377eef29c3bd600630b3060db6ccf41f3997783717b24",
+    "ES-r2-memory/summary.json": "09bf57d2cdf6d4a4ee380a5597724809e4300dbf9227f0ca94658ba9c379a64d",
+    "ES-r2-memory/task-prompt.txt": "219fd61d65c2c3f81c6215e27046c2ab069ef93b21f62e88e585b5ddb1dcfea2",
+    "ES-r2-updated/audits.json": "35cd3fdae575690dd4162ae45ecab0fbc87c1150b813f6525a5f67becb5426e1",
+    "ES-r2-updated/candidates/symbolic-000.py": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "ES-r2-updated/candidates/symbolic-001.py": "3e624df8e427972d5711bdf1ae69060341bd64b4d60f76b5a2396a336c744650",
+    "ES-r2-updated/candidates.json": "4e9f004ea53f4152c110250d962ec28162a3236d10c584c85d75b0f485eee398",
+    "ES-r2-updated/diagnostics.json": "4fc07a8795f90df3f882b545b89f09cfcea0a2e0567556f65e208278a667ddc2",
+    "ES-r2-updated/events.jsonl": "a667b17a3bacc76c2b87e21da39b7dcf62dfa12c7f042369e7da4a796baedcc9",
+    "ES-r2-updated/evidence-registry-000.json": "833f3b9fcf1599f16891ae256cdebfa738f8fd9f974e278a108e16a9e06aeccd",
+    "ES-r2-updated/evidence-registry-001.json": "3d69d7ebd1ba6c4ae6893cb48f25dc40ce6426d9a70c7ebba3cca1fcd22b1eba",
+    "ES-r2-updated/evidence-registry.json": "3d69d7ebd1ba6c4ae6893cb48f25dc40ce6426d9a70c7ebba3cca1fcd22b1eba",
+    "ES-r2-updated/evidence.json": "abed5df4e59d6c707c8b474b2a1c05c75bfebcb85aaa29a6e6cb5ef0d44b7a6e",
+    "ES-r2-updated/repair-state-provenance.json": "51246ed1be4ea93fa8b86b4b9f7ae22eb8e3607fe726c954a873964c8387e2a3",
+    "ES-r2-updated/requests/input-audit-0001.json": "e23aae606d446550be1564889965583d5e62734a8999989459931b34b1686369",
+    "ES-r2-updated/requests/packet-0001.json": "27bdf64da5681e7ee137a7f71231c1d7f1756a2d809c937ab52bd4f5941a3027",
+    "ES-r2-updated/requests/request-0008.request.json": "c90c5e14275ba49de874568d0822c73f57dd6a64de0262e8a42ac175fcb5c8c2",
+    "ES-r2-updated/requests/request-0008.response.json": "3d7c5028346468ba356a9aabf4c28587c2b33ba1d257403ce7c2be5a0e401fc9",
+    "ES-r2-updated/session-summary.json": "5a55fb8e904dc030fc4b6e237983d126852a4053f81f74687ee648f773d16ba1",
+    "ES-r2-updated/summary.json": "6c46198dc58d777b4ffae10e20652621dd8062ba8cebea3204cb2e8ea7b86a94",
+    "ES-r2-updated/task-prompt.txt": "9725ba5f352dd922047e2291bb3222a85b5b31b72e80df7b3074ae890ee7c7ca",
+    "evaluation-started.json": "36525fc4e8af7bb4dbe65234c090930c99e0561e81d82fd1186d73e4bfb52358",
+    "policy-S0.json": "25e1c61cff1b4763a7c29b57a8ccf428c84664db2493f4413fc7b5aeb776caad",
+    "policy_update/events.jsonl": "00a62151f638dee0339ed5f43a7b5ab1943621524ab97e26fd12ee36cbc31cb6",
+    "policy_update/freeze.json": "256de5eb32ba87050cfe12cfaf15d417914bcc6e93c53589ed77d74fcf102aba",
+    "policy_update/policy-attempt.json": "dfc0258a5633718d8790cc2b3963f274daef39f9aa607aada18eab37e262d356",
+    "policy_update/policy-S1.json": "9eb34b1f4ef08b9a633218839dabe386098cc7c04e59bbcac8f05c651aaf78d0",
+    "policy_update/policy-submission.json": "7e90f660b77e684f48be8e4dfa24603d11849900d5500b3272f15a9f341a31a0",
+    "policy_update/requests/input-audit-0001.json": "c1fa5c422ec4b4ff9716beba26feedfa94ff1cf229fe61c5b4c9ad003314b2f7",
+    "policy_update/requests/packet-0001.json": "0f1e7d754eb40fa406edbbaa482a04f0f3e0975fc09d8ac0d1d34445c37bbee0",
+    "policy_update/requests/request-0001.request.json": "8a9292fee77c61900e4435eaff6d995581027e0a3b264f59d26133418ab3aba3",
+    "policy_update/requests/request-0001.response.json": "094cb8e34bf0f27a473eea7048aa2e6a9bab6df4429b1ec1ee399f995a755f5c",
+    "policy_update/session-summary.json": "14706830add42fb5dd011d8e83aeed640e84297f4ec61b147f7b05c659dbfe9a",
+    "policy_update/task-packet.json": "0f1e7d754eb40fa406edbbaa482a04f0f3e0975fc09d8ac0d1d34445c37bbee0",
+    "summary.json": "77a0674ab1565b98d3706074ff95222b5ac4876da48bb5d664f3537614e6117e",
+    "update-bundle.json": "1e86429e849abd6d9dd6c1ee00944371cedf3dd9bf973fc1e98bbd57ec52b09e"
+  },
+  "analysis_script_sha256": "4cb6c6d9a9a029247f650fd55a56fb093d957e8455c2f9a22f58ae71e189add4"
+}

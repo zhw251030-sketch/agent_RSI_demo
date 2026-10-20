@@ -1,0 +1,131 @@
+{
+  "version": "policy-transfer-negative-audit-v0.1",
+  "status": "passed",
+  "negative_cases": [
+    {
+      "case": "common_request",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Actual common requests differ beyond the two allowed channels",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Request payload, ledger digest and input audit were kept consistent to reach the substantive comparison gate.",
+      "analysis_sha256": "0c99c0aaf56025d5161ad4a002336089bad84fe8e71457e4169859f08b835dac"
+    },
+    {
+      "case": "rendered_host_rationale",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Actual repair policy differs from exact host renderer or includes free model text",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Request payload, ledger digest and input audit were kept consistent to reach the substantive comparison gate.",
+      "analysis_sha256": "fc142ffcabf864c1d0b26c8f5a9acc55291c38bf6a1e554277c269f538724aea"
+    },
+    {
+      "case": "freeze_external_digest",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "External summary freeze digest differs from the frozen policy file",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Exactly one selected saved record was changed in an isolated copy.",
+      "analysis_sha256": "13473599d0283a027fe484b077f97a42fee0fb52ab08bfa9c8c390815aaa7f23"
+    },
+    {
+      "case": "selected_policy",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Summary policy differs from frozen selection",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Exactly one selected saved record was changed in an isolated copy.",
+      "analysis_sha256": "92c6da3e78c0028515e319f3a66ab3d34c76b60bcea330c4a5b64679e85102ac"
+    },
+    {
+      "case": "missing_session",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Missing or extra evaluation session",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Exactly one selected saved record was changed in an isolated copy.",
+      "analysis_sha256": "b412666ac77052b0f0dfabeb258e1ca7e65f29ac7b4a635f48ecce81c2cce967"
+    },
+    {
+      "case": "usage",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Saved response usage differs from ledger",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Exactly one selected saved record was changed in an isolated copy.",
+      "analysis_sha256": "3c181d0149dbdbc4b8c08f68f2d583d78fd414ed3435ef3d7c17e8af8bb5eb15"
+    },
+    {
+      "case": "endpoint",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Reported endpoint differs from independent recomputation",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Exactly one selected saved record was changed in an isolated copy.",
+      "analysis_sha256": "73ac08dd10a02bcbd147976b2c19a89df1eb5efde188c7bac2751f3e35c368ef"
+    },
+    {
+      "case": "reserved_evaluation",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Reported reserved_count differs from actual ledger settlement state",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Only request-0002 status was changed from settled to reserved; all other values remained unchanged.",
+      "analysis_sha256": "e258f7c72e672cfdac06c25b40fee73dd50306dd16d7bf31f3b646d54ebc4dad"
+    },
+    {
+      "case": "settlement_error_mismatch",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Ledger settlement status or error differs from the saved response",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Ledger and summary were changed consistently to test the completed-run or response-settlement gate.",
+      "analysis_sha256": "ff3b8534f1f0d165fc987a8a1445024eec3943728e8bbf0c0c2cd5e5097b71e4"
+    },
+    {
+      "case": "summary_reserved_count",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Reported reserved_count differs from actual ledger settlement state",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Exactly one selected saved record was changed in an isolated copy.",
+      "analysis_sha256": "10f46be1fbd2dc7247a82f3fea7e5d1135f94fce2b25ae1c1ef402b1b86f02f1"
+    },
+    {
+      "case": "unknown_usage_completed",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Completed run contains unsettled, unknown-usage, or halted requests",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Ledger and summary were changed consistently to test the completed-run or response-settlement gate.",
+      "analysis_sha256": "496e85d146e367b1554a07a23241eae4db8ca0d4598182d28d406a8973c959a6"
+    },
+    {
+      "case": "halted_completed",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Completed run contains unsettled, unknown-usage, or halted requests",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Ledger and summary were changed consistently to test the completed-run or response-settlement gate.",
+      "analysis_sha256": "ea89a3a9a282c67e4e3ea6996e460e0ffdcd9a25b275fe341f502ece9fefcb2c"
+    },
+    {
+      "case": "summary_halt_mismatch",
+      "status": "rejected_as_expected",
+      "error_type": "ValueError",
+      "verification_failure": "Reported halt state differs from the ledger",
+      "mutated_copy_files_unchanged_by_analysis": true,
+      "mutation_note": "Exactly one selected saved record was changed in an isolated copy.",
+      "analysis_sha256": "7f9d6dfc781655a90607c304eea5cc9b13c879ca08d0a5c4ffdf99ce6e6aa992"
+    }
+  ],
+  "original_run_file_count": 231,
+  "original_run_files_unchanged": true,
+  "original_tree_before_sha256": "6a291722a7abac6006cddbd5deb1a28a08a394b551d3622c43b4c0a2ddeee058",
+  "original_tree_after_sha256": "6a291722a7abac6006cddbd5deb1a28a08a394b551d3622c43b4c0a2ddeee058",
+  "analysis_script_sha256": "4cb6c6d9a9a029247f650fd55a56fb093d957e8455c2f9a22f58ae71e189add4",
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "scope": "Deliberate record tampering in isolated copies only; does not add scientific performance evidence."
+}

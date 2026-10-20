@@ -1,0 +1,2306 @@
+{
+  "planning-000": [
+    {
+      "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 7,
+        "first_failed_action": {
+          "action": "(walk gate location4 bob)",
+          "index": 7
+        },
+        "missing_preconditions": [
+          [
+            "link",
+            "gate",
+            "location4"
+          ]
+        ],
+        "missing_preconditions_truncated": false,
+        "plan_length": 21,
+        "status": "precondition_failure",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem0",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 3560,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 21,
+            "container_length_min": 21,
+            "exception_events": 0,
+            "first_line": 11,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 19,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 20,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 19,
+            "return_types": {
+              "none": 1,
+              "tuple": 18
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 21,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "tuple": 3
+            }
+          },
+          {
+            "call_events": 7,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 24,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 7,
+            "return_types": {
+              "none": 1,
+              "tuple": 6
+            }
+          },
+          {
+            "call_events": 3,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 32,
+            "name": "man_at",
+            "none_return_events": 0,
+            "return_events": 3,
+            "return_types": {
+              "tuple": 3
+            }
+          },
+          {
+            "call_events": 20,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 39,
+            "name": "locate",
+            "none_return_events": 0,
+            "return_events": 20,
+            "return_types": {
+              "str": 20
+            }
+          },
+          {
+            "call_events": 34,
+            "container_length_max": 6,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 45,
+            "name": "path",
+            "none_return_events": 0,
+            "return_events": 34,
+            "return_types": {
+              "list": 34
+            }
+          },
+          {
+            "call_events": 6,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 68,
+            "name": "walk",
+            "none_return_events": 6,
+            "return_events": 6,
+            "return_types": {
+              "none": 6
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": 3,
+            "container_length_min": 0,
+            "exception_events": 0,
+            "first_line": 74,
+            "name": "pending",
+            "none_return_events": 0,
+            "return_events": 4,
+            "return_types": {
+              "list": 4
+            }
+          },
+          {
+            "call_events": 6,
+            "container_length_max": 3,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 82,
+            "name": "free_spanners",
+            "none_return_events": 0,
+            "return_events": 6,
+            "return_types": {
+              "list": 6
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 12
+          },
+          {
+            "hits": 14,
+            "line": 13
+          },
+          {
+            "hits": 13,
+            "line": 14
+          },
+          {
+            "hits": 1,
+            "line": 15
+          },
+          {
+            "hits": 1,
+            "line": 16
+          },
+          {
+            "hits": 1,
+            "line": 17
+          },
+          {
+            "hits": 1,
+            "line": 18
+          },
+          {
+            "hits": 20,
+            "line": 20
+          },
+          {
+            "hits": 5,
+            "line": 21
+          },
+          {
+            "hits": 8,
+            "line": 24
+          },
+          {
+            "hits": 19,
+            "line": 25
+          },
+          {
+            "hits": 18,
+            "line": 26
+          },
+          {
+            "hits": 5,
+            "line": 27
+          },
+          {
+            "hits": 5,
+            "line": 28
+          },
+          {
+            "hits": 1,
+            "line": 30
+          },
+          {
+            "hits": 1,
+            "line": 32
+          },
+          {
+            "hits": 3,
+            "line": 33
+          },
+          {
+            "hits": 8,
+            "line": 34
+          },
+          {
+            "hits": 8,
+            "line": 35
+          },
+          {
+            "hits": 3,
+            "line": 36
+          },
+          {
+            "hits": 1,
+            "line": 39
+          },
+          {
+            "hits": 58,
+            "line": 40
+          },
+          {
+            "hits": 58,
+            "line": 41
+          },
+          {
+            "hits": 20,
+            "line": 42
+          },
+          {
+            "hits": 1,
+            "line": 45
+          },
+          {
+            "hits": 34,
+            "line": 46
+          },
+          {
+            "hits": 3,
+            "line": 47
+          },
+          {
+            "hits": 31,
+            "line": 48
+          },
+          {
+            "hits": 31,
+            "line": 49
+          },
+          {
+            "hits": 203,
+            "line": 50
+          },
+          {
+            "hits": 172,
+            "line": 51
+          },
+          {
+            "hits": 358,
+            "line": 52
+          },
+          {
+            "hits": 496,
+            "line": 53
+          },
+          {
+            "hits": 310,
+            "line": 54
+          },
+          {
+            "hits": 155,
+            "line": 55
+          },
+          {
+            "hits": 155,
+            "line": 56
+          },
+          {
+            "hits": 172,
+            "line": 57
+          },
+          {
+            "hits": 31,
+            "line": 58
+          },
+          {
+            "hits": 31,
+            "line": 60
+          },
+          {
+            "hits": 31,
+            "line": 61
+          },
+          {
+            "hits": 150,
+            "line": 62
+          },
+          {
+            "hits": 119,
+            "line": 63
+          },
+          {
+            "hits": 119,
+            "line": 64
+          },
+          {
+            "hits": 31,
+            "line": 65
+          },
+          {
+            "hits": 31,
+            "line": 66
+          },
+          {
+            "hits": 1,
+            "line": 68
+          },
+          {
+            "hits": 21,
+            "line": 69
+          },
+          {
+            "hits": 15,
+            "line": 70
+          },
+          {
+            "hits": 15,
+            "line": 71
+          },
+          {
+            "hits": 15,
+            "line": 72
+          },
+          {
+            "hits": 1,
+            "line": 74
+          },
+          {
+            "hits": 4,
+            "line": 75
+          },
+          {
+            "hits": 16,
+            "line": 76
+          },
+          {
+            "hits": 12,
+            "line": 77
+          },
+          {
+            "hits": 12,
+            "line": 78
+          },
+          {
+            "hits": 6,
+            "line": 79
+          },
+          {
+            "hits": 4,
+            "line": 80
+          },
+          {
+            "hits": 1,
+            "line": 82
+          },
+          {
+            "hits": 6,
+            "line": 83
+          },
+          {
+            "hits": 24,
+            "line": 84
+          },
+          {
+            "hits": 18,
+            "line": 85
+          },
+          {
+            "hits": 14,
+            "line": 86
+          },
+          {
+            "hits": 14,
+            "line": 87
+          },
+          {
+            "hits": 14,
+            "line": 88
+          },
+          {
+            "hits": 6,
+            "line": 89
+          },
+          {
+            "hits": 4,
+            "line": 91
+          },
+          {
+            "hits": 4,
+            "line": 92
+          },
+          {
+            "hits": 4,
+            "line": 93
+          },
+          {
+            "hits": 1,
+            "line": 94
+          },
+          {
+            "hits": 3,
+            "line": 95
+          },
+          {
+            "hits": 3,
+            "line": 96
+          },
+          {
+            "hits": 3,
+            "line": 98
+          },
+          {
+            "hits": 9,
+            "line": 99
+          },
+          {
+            "hits": 6,
+            "line": 100
+          },
+          {
+            "hits": 6,
+            "line": 101
+          },
+          {
+            "hits": 6,
+            "line": 103
+          },
+          {
+            "hits": 6,
+            "line": 104
+          },
+          {
+            "hits": 20,
+            "line": 106
+          },
+          {
+            "hits": 14,
+            "line": 107
+          },
+          {
+            "hits": 14,
+            "line": 108
+          },
+          {
+            "hits": 14,
+            "line": 110
+          },
+          {
+            "hits": 14,
+            "line": 111
+          },
+          {
+            "hits": 14,
+            "line": 113
+          },
+          {
+            "hits": 14,
+            "line": 114
+          },
+          {
+            "hits": 3,
+            "line": 115
+          },
+          {
+            "hits": 3,
+            "line": 116
+          },
+          {
+            "hits": 3,
+            "line": 118
+          },
+          {
+            "hits": 3,
+            "line": 119
+          },
+          {
+            "hits": 3,
+            "line": 120
+          },
+          {
+            "hits": 3,
+            "line": 121
+          },
+          {
+            "hits": 3,
+            "line": 122
+          },
+          {
+            "hits": 3,
+            "line": 123
+          },
+          {
+            "hits": 3,
+            "line": 124
+          },
+          {
+            "hits": 3,
+            "line": 125
+          },
+          {
+            "hits": 3,
+            "line": 126
+          },
+          {
+            "hits": 3,
+            "line": 127
+          },
+          {
+            "hits": 1,
+            "line": 129
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem0:plan_replay",
+        "spannerlearning/seed0/problem0:trace"
+      ]
+    },
+    {
+      "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 7,
+        "first_failed_action": {
+          "action": "(walk gate location4 bob)",
+          "index": 7
+        },
+        "missing_preconditions": [
+          [
+            "link",
+            "gate",
+            "location4"
+          ]
+        ],
+        "missing_preconditions_truncated": false,
+        "plan_length": 15,
+        "status": "precondition_failure",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem1",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 3500,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 15,
+            "container_length_min": 15,
+            "exception_events": 0,
+            "first_line": 11,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 19,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 20,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 19,
+            "return_types": {
+              "none": 1,
+              "tuple": 18
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 21,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "tuple": 3
+            }
+          },
+          {
+            "call_events": 7,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 24,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 7,
+            "return_types": {
+              "none": 1,
+              "tuple": 6
+            }
+          },
+          {
+            "call_events": 3,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 32,
+            "name": "man_at",
+            "none_return_events": 0,
+            "return_events": 3,
+            "return_types": {
+              "tuple": 3
+            }
+          },
+          {
+            "call_events": 20,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 39,
+            "name": "locate",
+            "none_return_events": 0,
+            "return_events": 20,
+            "return_types": {
+              "str": 20
+            }
+          },
+          {
+            "call_events": 34,
+            "container_length_max": 6,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 45,
+            "name": "path",
+            "none_return_events": 0,
+            "return_events": 34,
+            "return_types": {
+              "list": 34
+            }
+          },
+          {
+            "call_events": 6,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 68,
+            "name": "walk",
+            "none_return_events": 6,
+            "return_events": 6,
+            "return_types": {
+              "none": 6
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": 3,
+            "container_length_min": 0,
+            "exception_events": 0,
+            "first_line": 74,
+            "name": "pending",
+            "none_return_events": 0,
+            "return_events": 4,
+            "return_types": {
+              "list": 4
+            }
+          },
+          {
+            "call_events": 6,
+            "container_length_max": 3,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 82,
+            "name": "free_spanners",
+            "none_return_events": 0,
+            "return_events": 6,
+            "return_types": {
+              "list": 6
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 12
+          },
+          {
+            "hits": 14,
+            "line": 13
+          },
+          {
+            "hits": 13,
+            "line": 14
+          },
+          {
+            "hits": 1,
+            "line": 15
+          },
+          {
+            "hits": 1,
+            "line": 16
+          },
+          {
+            "hits": 1,
+            "line": 17
+          },
+          {
+            "hits": 1,
+            "line": 18
+          },
+          {
+            "hits": 20,
+            "line": 20
+          },
+          {
+            "hits": 5,
+            "line": 21
+          },
+          {
+            "hits": 8,
+            "line": 24
+          },
+          {
+            "hits": 19,
+            "line": 25
+          },
+          {
+            "hits": 18,
+            "line": 26
+          },
+          {
+            "hits": 5,
+            "line": 27
+          },
+          {
+            "hits": 5,
+            "line": 28
+          },
+          {
+            "hits": 1,
+            "line": 30
+          },
+          {
+            "hits": 1,
+            "line": 32
+          },
+          {
+            "hits": 3,
+            "line": 33
+          },
+          {
+            "hits": 8,
+            "line": 34
+          },
+          {
+            "hits": 8,
+            "line": 35
+          },
+          {
+            "hits": 3,
+            "line": 36
+          },
+          {
+            "hits": 1,
+            "line": 39
+          },
+          {
+            "hits": 73,
+            "line": 40
+          },
+          {
+            "hits": 73,
+            "line": 41
+          },
+          {
+            "hits": 20,
+            "line": 42
+          },
+          {
+            "hits": 1,
+            "line": 45
+          },
+          {
+            "hits": 34,
+            "line": 46
+          },
+          {
+            "hits": 3,
+            "line": 47
+          },
+          {
+            "hits": 31,
+            "line": 48
+          },
+          {
+            "hits": 31,
+            "line": 49
+          },
+          {
+            "hits": 200,
+            "line": 50
+          },
+          {
+            "hits": 169,
+            "line": 51
+          },
+          {
+            "hits": 355,
+            "line": 52
+          },
+          {
+            "hits": 496,
+            "line": 53
+          },
+          {
+            "hits": 310,
+            "line": 54
+          },
+          {
+            "hits": 155,
+            "line": 55
+          },
+          {
+            "hits": 155,
+            "line": 56
+          },
+          {
+            "hits": 169,
+            "line": 57
+          },
+          {
+            "hits": 31,
+            "line": 58
+          },
+          {
+            "hits": 31,
+            "line": 60
+          },
+          {
+            "hits": 31,
+            "line": 61
+          },
+          {
+            "hits": 132,
+            "line": 62
+          },
+          {
+            "hits": 101,
+            "line": 63
+          },
+          {
+            "hits": 101,
+            "line": 64
+          },
+          {
+            "hits": 31,
+            "line": 65
+          },
+          {
+            "hits": 31,
+            "line": 66
+          },
+          {
+            "hits": 1,
+            "line": 68
+          },
+          {
+            "hits": 15,
+            "line": 69
+          },
+          {
+            "hits": 9,
+            "line": 70
+          },
+          {
+            "hits": 9,
+            "line": 71
+          },
+          {
+            "hits": 9,
+            "line": 72
+          },
+          {
+            "hits": 1,
+            "line": 74
+          },
+          {
+            "hits": 4,
+            "line": 75
+          },
+          {
+            "hits": 16,
+            "line": 76
+          },
+          {
+            "hits": 12,
+            "line": 77
+          },
+          {
+            "hits": 12,
+            "line": 78
+          },
+          {
+            "hits": 6,
+            "line": 79
+          },
+          {
+            "hits": 4,
+            "line": 80
+          },
+          {
+            "hits": 1,
+            "line": 82
+          },
+          {
+            "hits": 6,
+            "line": 83
+          },
+          {
+            "hits": 24,
+            "line": 84
+          },
+          {
+            "hits": 18,
+            "line": 85
+          },
+          {
+            "hits": 14,
+            "line": 86
+          },
+          {
+            "hits": 14,
+            "line": 87
+          },
+          {
+            "hits": 14,
+            "line": 88
+          },
+          {
+            "hits": 6,
+            "line": 89
+          },
+          {
+            "hits": 4,
+            "line": 91
+          },
+          {
+            "hits": 4,
+            "line": 92
+          },
+          {
+            "hits": 4,
+            "line": 93
+          },
+          {
+            "hits": 1,
+            "line": 94
+          },
+          {
+            "hits": 3,
+            "line": 95
+          },
+          {
+            "hits": 3,
+            "line": 96
+          },
+          {
+            "hits": 3,
+            "line": 98
+          },
+          {
+            "hits": 9,
+            "line": 99
+          },
+          {
+            "hits": 6,
+            "line": 100
+          },
+          {
+            "hits": 6,
+            "line": 101
+          },
+          {
+            "hits": 6,
+            "line": 103
+          },
+          {
+            "hits": 6,
+            "line": 104
+          },
+          {
+            "hits": 20,
+            "line": 106
+          },
+          {
+            "hits": 14,
+            "line": 107
+          },
+          {
+            "hits": 14,
+            "line": 108
+          },
+          {
+            "hits": 14,
+            "line": 110
+          },
+          {
+            "hits": 14,
+            "line": 111
+          },
+          {
+            "hits": 14,
+            "line": 113
+          },
+          {
+            "hits": 14,
+            "line": 114
+          },
+          {
+            "hits": 3,
+            "line": 115
+          },
+          {
+            "hits": 3,
+            "line": 116
+          },
+          {
+            "hits": 3,
+            "line": 118
+          },
+          {
+            "hits": 3,
+            "line": 119
+          },
+          {
+            "hits": 3,
+            "line": 120
+          },
+          {
+            "hits": 3,
+            "line": 121
+          },
+          {
+            "hits": 3,
+            "line": 122
+          },
+          {
+            "hits": 3,
+            "line": 123
+          },
+          {
+            "hits": 3,
+            "line": 124
+          },
+          {
+            "hits": 3,
+            "line": 125
+          },
+          {
+            "hits": 3,
+            "line": 126
+          },
+          {
+            "hits": 3,
+            "line": 127
+          },
+          {
+            "hits": 1,
+            "line": 129
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem1:plan_replay",
+        "spannerlearning/seed0/problem1:trace"
+      ]
+    }
+  ],
+  "planning-001": [
+    {
+      "candidate_sha256": "d5efc16d8c89c46364ea4698bd65e5c8a0217f42b4ad48a39e7ea73718700a19",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 7,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 7,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem0",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 2136,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 7,
+            "container_length_min": 7,
+            "exception_events": 0,
+            "first_line": 14,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 19,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 24,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 19,
+            "return_types": {
+              "none": 1,
+              "tuple": 18
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 25,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "tuple": 3
+            }
+          },
+          {
+            "call_events": 7,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 28,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 7,
+            "return_types": {
+              "none": 1,
+              "tuple": 6
+            }
+          },
+          {
+            "call_events": 2,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 36,
+            "name": "man_at",
+            "none_return_events": 0,
+            "return_events": 2,
+            "return_types": {
+              "tuple": 2
+            }
+          },
+          {
+            "call_events": 18,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 43,
+            "name": "locate",
+            "none_return_events": 0,
+            "return_events": 18,
+            "return_types": {
+              "str": 18
+            }
+          },
+          {
+            "call_events": 27,
+            "container_length_max": 6,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 49,
+            "name": "path",
+            "none_return_events": 4,
+            "return_events": 27,
+            "return_types": {
+              "list": 23,
+              "none": 4
+            }
+          },
+          {
+            "call_events": 2,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 73,
+            "name": "walk",
+            "none_return_events": 2,
+            "return_events": 2,
+            "return_types": {
+              "none": 2
+            }
+          },
+          {
+            "call_events": 2,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 79,
+            "name": "pending_nuts",
+            "none_return_events": 0,
+            "return_events": 2,
+            "return_types": {
+              "list": 2
+            }
+          },
+          {
+            "call_events": 5,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 87,
+            "name": "usable_spanners",
+            "none_return_events": 0,
+            "return_events": 5,
+            "return_types": {
+              "list": 5
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 15
+          },
+          {
+            "hits": 14,
+            "line": 16
+          },
+          {
+            "hits": 13,
+            "line": 17
+          },
+          {
+            "hits": 13,
+            "line": 18
+          },
+          {
+            "hits": 1,
+            "line": 19
+          },
+          {
+            "hits": 1,
+            "line": 20
+          },
+          {
+            "hits": 1,
+            "line": 21
+          },
+          {
+            "hits": 1,
+            "line": 22
+          },
+          {
+            "hits": 20,
+            "line": 24
+          },
+          {
+            "hits": 5,
+            "line": 25
+          },
+          {
+            "hits": 8,
+            "line": 28
+          },
+          {
+            "hits": 19,
+            "line": 29
+          },
+          {
+            "hits": 18,
+            "line": 30
+          },
+          {
+            "hits": 5,
+            "line": 31
+          },
+          {
+            "hits": 5,
+            "line": 32
+          },
+          {
+            "hits": 1,
+            "line": 34
+          },
+          {
+            "hits": 1,
+            "line": 36
+          },
+          {
+            "hits": 2,
+            "line": 37
+          },
+          {
+            "hits": 7,
+            "line": 38
+          },
+          {
+            "hits": 7,
+            "line": 39
+          },
+          {
+            "hits": 2,
+            "line": 40
+          },
+          {
+            "hits": 1,
+            "line": 43
+          },
+          {
+            "hits": 55,
+            "line": 44
+          },
+          {
+            "hits": 55,
+            "line": 45
+          },
+          {
+            "hits": 18,
+            "line": 46
+          },
+          {
+            "hits": 1,
+            "line": 49
+          },
+          {
+            "hits": 27,
+            "line": 51
+          },
+          {
+            "hits": 2,
+            "line": 52
+          },
+          {
+            "hits": 25,
+            "line": 53
+          },
+          {
+            "hits": 25,
+            "line": 54
+          },
+          {
+            "hits": 128,
+            "line": 55
+          },
+          {
+            "hits": 103,
+            "line": 56
+          },
+          {
+            "hits": 206,
+            "line": 57
+          },
+          {
+            "hits": 181,
+            "line": 58
+          },
+          {
+            "hits": 78,
+            "line": 59
+          },
+          {
+            "hits": 78,
+            "line": 60
+          },
+          {
+            "hits": 78,
+            "line": 61
+          },
+          {
+            "hits": 103,
+            "line": 62
+          },
+          {
+            "hits": 25,
+            "line": 63
+          },
+          {
+            "hits": 4,
+            "line": 64
+          },
+          {
+            "hits": 21,
+            "line": 65
+          },
+          {
+            "hits": 21,
+            "line": 66
+          },
+          {
+            "hits": 102,
+            "line": 67
+          },
+          {
+            "hits": 81,
+            "line": 68
+          },
+          {
+            "hits": 81,
+            "line": 69
+          },
+          {
+            "hits": 21,
+            "line": 70
+          },
+          {
+            "hits": 21,
+            "line": 71
+          },
+          {
+            "hits": 1,
+            "line": 73
+          },
+          {
+            "hits": 7,
+            "line": 74
+          },
+          {
+            "hits": 5,
+            "line": 75
+          },
+          {
+            "hits": 5,
+            "line": 76
+          },
+          {
+            "hits": 5,
+            "line": 77
+          },
+          {
+            "hits": 1,
+            "line": 79
+          },
+          {
+            "hits": 2,
+            "line": 80
+          },
+          {
+            "hits": 8,
+            "line": 81
+          },
+          {
+            "hits": 6,
+            "line": 82
+          },
+          {
+            "hits": 6,
+            "line": 83
+          },
+          {
+            "hits": 5,
+            "line": 84
+          },
+          {
+            "hits": 2,
+            "line": 85
+          },
+          {
+            "hits": 1,
+            "line": 87
+          },
+          {
+            "hits": 5,
+            "line": 88
+          },
+          {
+            "hits": 20,
+            "line": 89
+          },
+          {
+            "hits": 15,
+            "line": 90
+          },
+          {
+            "hits": 13,
+            "line": 91
+          },
+          {
+            "hits": 13,
+            "line": 92
+          },
+          {
+            "hits": 13,
+            "line": 93
+          },
+          {
+            "hits": 5,
+            "line": 94
+          },
+          {
+            "hits": 2,
+            "line": 96
+          },
+          {
+            "hits": 2,
+            "line": 97
+          },
+          {
+            "hits": 2,
+            "line": 98
+          },
+          {
+            "hits": 2,
+            "line": 100
+          },
+          {
+            "hits": 2,
+            "line": 101
+          },
+          {
+            "hits": 2,
+            "line": 103
+          },
+          {
+            "hits": 7,
+            "line": 104
+          },
+          {
+            "hits": 5,
+            "line": 105
+          },
+          {
+            "hits": 5,
+            "line": 106
+          },
+          {
+            "hits": 5,
+            "line": 108
+          },
+          {
+            "hits": 5,
+            "line": 109
+          },
+          {
+            "hits": 18,
+            "line": 111
+          },
+          {
+            "hits": 13,
+            "line": 112
+          },
+          {
+            "hits": 13,
+            "line": 113
+          },
+          {
+            "hits": 4,
+            "line": 114
+          },
+          {
+            "hits": 9,
+            "line": 115
+          },
+          {
+            "hits": 9,
+            "line": 116
+          },
+          {
+            "hits": 9,
+            "line": 118
+          },
+          {
+            "hits": 9,
+            "line": 119
+          },
+          {
+            "hits": 1,
+            "line": 120
+          },
+          {
+            "hits": 2,
+            "line": 121
+          },
+          {
+            "hits": 1,
+            "line": 123
+          },
+          {
+            "hits": 1,
+            "line": 124
+          },
+          {
+            "hits": 1,
+            "line": 125
+          },
+          {
+            "hits": 1,
+            "line": 126
+          },
+          {
+            "hits": 1,
+            "line": 127
+          },
+          {
+            "hits": 1,
+            "line": 128
+          },
+          {
+            "hits": 1,
+            "line": 129
+          },
+          {
+            "hits": 1,
+            "line": 130
+          },
+          {
+            "hits": 1,
+            "line": 131
+          },
+          {
+            "hits": 1,
+            "line": 132
+          },
+          {
+            "hits": 1,
+            "line": 133
+          },
+          {
+            "hits": 1,
+            "line": 135
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem0:plan_replay",
+        "spannerlearning/seed0/problem0:trace"
+      ]
+    },
+    {
+      "candidate_sha256": "d5efc16d8c89c46364ea4698bd65e5c8a0217f42b4ad48a39e7ea73718700a19",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 7,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 7,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem1",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 2100,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 7,
+            "container_length_min": 7,
+            "exception_events": 0,
+            "first_line": 14,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 19,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 24,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 19,
+            "return_types": {
+              "none": 1,
+              "tuple": 18
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 25,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "tuple": 3
+            }
+          },
+          {
+            "call_events": 7,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 28,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 7,
+            "return_types": {
+              "none": 1,
+              "tuple": 6
+            }
+          },
+          {
+            "call_events": 2,
+            "container_length_max": 2,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 36,
+            "name": "man_at",
+            "none_return_events": 0,
+            "return_events": 2,
+            "return_types": {
+              "tuple": 2
+            }
+          },
+          {
+            "call_events": 18,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 43,
+            "name": "locate",
+            "none_return_events": 0,
+            "return_events": 18,
+            "return_types": {
+              "str": 18
+            }
+          },
+          {
+            "call_events": 27,
+            "container_length_max": 6,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 49,
+            "name": "path",
+            "none_return_events": 4,
+            "return_events": 27,
+            "return_types": {
+              "list": 23,
+              "none": 4
+            }
+          },
+          {
+            "call_events": 2,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 73,
+            "name": "walk",
+            "none_return_events": 2,
+            "return_events": 2,
+            "return_types": {
+              "none": 2
+            }
+          },
+          {
+            "call_events": 2,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 79,
+            "name": "pending_nuts",
+            "none_return_events": 0,
+            "return_events": 2,
+            "return_types": {
+              "list": 2
+            }
+          },
+          {
+            "call_events": 5,
+            "container_length_max": 3,
+            "container_length_min": 2,
+            "exception_events": 0,
+            "first_line": 87,
+            "name": "usable_spanners",
+            "none_return_events": 0,
+            "return_events": 5,
+            "return_types": {
+              "list": 5
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 15
+          },
+          {
+            "hits": 14,
+            "line": 16
+          },
+          {
+            "hits": 13,
+            "line": 17
+          },
+          {
+            "hits": 13,
+            "line": 18
+          },
+          {
+            "hits": 1,
+            "line": 19
+          },
+          {
+            "hits": 1,
+            "line": 20
+          },
+          {
+            "hits": 1,
+            "line": 21
+          },
+          {
+            "hits": 1,
+            "line": 22
+          },
+          {
+            "hits": 20,
+            "line": 24
+          },
+          {
+            "hits": 5,
+            "line": 25
+          },
+          {
+            "hits": 8,
+            "line": 28
+          },
+          {
+            "hits": 19,
+            "line": 29
+          },
+          {
+            "hits": 18,
+            "line": 30
+          },
+          {
+            "hits": 5,
+            "line": 31
+          },
+          {
+            "hits": 5,
+            "line": 32
+          },
+          {
+            "hits": 1,
+            "line": 34
+          },
+          {
+            "hits": 1,
+            "line": 36
+          },
+          {
+            "hits": 2,
+            "line": 37
+          },
+          {
+            "hits": 7,
+            "line": 38
+          },
+          {
+            "hits": 7,
+            "line": 39
+          },
+          {
+            "hits": 2,
+            "line": 40
+          },
+          {
+            "hits": 1,
+            "line": 43
+          },
+          {
+            "hits": 67,
+            "line": 44
+          },
+          {
+            "hits": 67,
+            "line": 45
+          },
+          {
+            "hits": 18,
+            "line": 46
+          },
+          {
+            "hits": 1,
+            "line": 49
+          },
+          {
+            "hits": 27,
+            "line": 51
+          },
+          {
+            "hits": 2,
+            "line": 52
+          },
+          {
+            "hits": 25,
+            "line": 53
+          },
+          {
+            "hits": 25,
+            "line": 54
+          },
+          {
+            "hits": 122,
+            "line": 55
+          },
+          {
+            "hits": 97,
+            "line": 56
+          },
+          {
+            "hits": 194,
+            "line": 57
+          },
+          {
+            "hits": 169,
+            "line": 58
+          },
+          {
+            "hits": 72,
+            "line": 59
+          },
+          {
+            "hits": 72,
+            "line": 60
+          },
+          {
+            "hits": 72,
+            "line": 61
+          },
+          {
+            "hits": 97,
+            "line": 62
+          },
+          {
+            "hits": 25,
+            "line": 63
+          },
+          {
+            "hits": 4,
+            "line": 64
+          },
+          {
+            "hits": 21,
+            "line": 65
+          },
+          {
+            "hits": 21,
+            "line": 66
+          },
+          {
+            "hits": 102,
+            "line": 67
+          },
+          {
+            "hits": 81,
+            "line": 68
+          },
+          {
+            "hits": 81,
+            "line": 69
+          },
+          {
+            "hits": 21,
+            "line": 70
+          },
+          {
+            "hits": 21,
+            "line": 71
+          },
+          {
+            "hits": 1,
+            "line": 73
+          },
+          {
+            "hits": 7,
+            "line": 74
+          },
+          {
+            "hits": 5,
+            "line": 75
+          },
+          {
+            "hits": 5,
+            "line": 76
+          },
+          {
+            "hits": 5,
+            "line": 77
+          },
+          {
+            "hits": 1,
+            "line": 79
+          },
+          {
+            "hits": 2,
+            "line": 80
+          },
+          {
+            "hits": 8,
+            "line": 81
+          },
+          {
+            "hits": 6,
+            "line": 82
+          },
+          {
+            "hits": 6,
+            "line": 83
+          },
+          {
+            "hits": 5,
+            "line": 84
+          },
+          {
+            "hits": 2,
+            "line": 85
+          },
+          {
+            "hits": 1,
+            "line": 87
+          },
+          {
+            "hits": 5,
+            "line": 88
+          },
+          {
+            "hits": 20,
+            "line": 89
+          },
+          {
+            "hits": 15,
+            "line": 90
+          },
+          {
+            "hits": 13,
+            "line": 91
+          },
+          {
+            "hits": 13,
+            "line": 92
+          },
+          {
+            "hits": 13,
+            "line": 93
+          },
+          {
+            "hits": 5,
+            "line": 94
+          },
+          {
+            "hits": 2,
+            "line": 96
+          },
+          {
+            "hits": 2,
+            "line": 97
+          },
+          {
+            "hits": 2,
+            "line": 98
+          },
+          {
+            "hits": 2,
+            "line": 100
+          },
+          {
+            "hits": 2,
+            "line": 101
+          },
+          {
+            "hits": 2,
+            "line": 103
+          },
+          {
+            "hits": 7,
+            "line": 104
+          },
+          {
+            "hits": 5,
+            "line": 105
+          },
+          {
+            "hits": 5,
+            "line": 106
+          },
+          {
+            "hits": 5,
+            "line": 108
+          },
+          {
+            "hits": 5,
+            "line": 109
+          },
+          {
+            "hits": 18,
+            "line": 111
+          },
+          {
+            "hits": 13,
+            "line": 112
+          },
+          {
+            "hits": 13,
+            "line": 113
+          },
+          {
+            "hits": 4,
+            "line": 114
+          },
+          {
+            "hits": 9,
+            "line": 115
+          },
+          {
+            "hits": 9,
+            "line": 116
+          },
+          {
+            "hits": 9,
+            "line": 118
+          },
+          {
+            "hits": 9,
+            "line": 119
+          },
+          {
+            "hits": 1,
+            "line": 120
+          },
+          {
+            "hits": 2,
+            "line": 121
+          },
+          {
+            "hits": 1,
+            "line": 123
+          },
+          {
+            "hits": 1,
+            "line": 124
+          },
+          {
+            "hits": 1,
+            "line": 125
+          },
+          {
+            "hits": 1,
+            "line": 126
+          },
+          {
+            "hits": 1,
+            "line": 127
+          },
+          {
+            "hits": 1,
+            "line": 128
+          },
+          {
+            "hits": 1,
+            "line": 129
+          },
+          {
+            "hits": 1,
+            "line": 130
+          },
+          {
+            "hits": 1,
+            "line": 131
+          },
+          {
+            "hits": 1,
+            "line": 132
+          },
+          {
+            "hits": 1,
+            "line": 133
+          },
+          {
+            "hits": 1,
+            "line": 135
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem1:plan_replay",
+        "spannerlearning/seed0/problem1:trace"
+      ]
+    }
+  ]
+}

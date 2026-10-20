@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已完成固定起点的单步配对开发实验：8次请求全部产生候选，4对共同输入经实际记录核验相同。短ID减轻引用负担，但8条主张仍有2条格式错；检查报告没有表现出稳定修订优势。** 运行前321项不同测试通过。仅有两个开发状态、每条件两次抽样，尚无策略S更新、独立泛化或新方法有效性结论。
+**已首次完成持久外部策略S的真实更新，并在另两个修订起点完成三条件开发对照。** 模型从8条人工规则中选择、排序4条，S0的R03/R04/R06/R08变为S1的R03/R04/R02/R06。13请求产生1份策略和11个候选；四组三条件SDK共同输入核验相同。S1规划两次10/10与0/10，符号train NMSE均0.09414522；本轮对照及全部失败见[完整说明](docs/operations/policy-transfer.md)。实跑前380项不同测试通过。策略选择理由仍有误读；同一开发任务、一次策略学习、每条件两抽样，不构成泛化或新方法有效性结论。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -13,9 +13,9 @@
 | 研究路线 | 已选择形式规划与符号发现一起推进；基础 LLM 权重固定 |
 | 规划任务 | Spanner 的 400 问题与域文件已下载到服务器，完整性检查和固定 prompt 的 VAL 验收通过；seed0 的2提示/8开发已运行，30封存题未评分 |
 | 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，oscillator1/train已开发运行，独立评价协议待冻结 |
-| 更新对象 | 建议区分产物 P（程序/公式）与修订策略 S，重点检验策略对新搜索状态的作用 |
-| 方法参照 | GEPA 式策略优化为共同候选，llm-genplan、LLM-SR、LaSR 等为任务参照；最终规则未选定 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1 已安装；MiniMax-M3 连接已验证；受控真实会话已运行；最新运行前321项不同测试通过，调用/候选/数据范围受限 |
+| 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，模型已更新一次 |
+| 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前380项不同测试通过 |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
@@ -41,8 +41,10 @@
 16. [检查轮逐项证据与解释审查](docs/analysis/2026-10-20-checked-feedback-v02-analysis.md)
 17. [v0.1停止轮完整归档](artifacts/checked-feedback/2026-10-20/v01-stopped/README.md) · [v0.2修复轮完整归档](artifacts/checked-feedback/2026-10-20/v02/README.md)
 
-18. [最新：固定同一起点的单步修订与结果](docs/operations/paired-repair.md)
+18. [上一轮：固定同一起点的单步修订与结果](docs/operations/paired-repair.md)
 19. [配对轮源码、声明与解释分析](docs/analysis/2026-10-20-paired-repair-analysis.md) · [全部证据](artifacts/paired-repair/2026-10-20/v01/README.md)
+20. [最新：策略更新、三条件结果与操作说明](docs/operations/policy-transfer.md)
+21. [本轮为什么这样设计](docs/analysis/2026-10-20-policy-method-rationale.md) · [结果与更新理由核查](docs/analysis/2026-10-20-policy-transfer-analysis.md) · [全部证据](artifacts/policy-transfer/2026-10-20/v01/README.md)
 
 ## 仓库边界
 

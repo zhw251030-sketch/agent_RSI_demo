@@ -1,0 +1,228 @@
+{
+  "symbolic-000": [
+    {
+      "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "residuals": {
+        "bias": 1.3737282805568623e-17,
+        "binning_method": "linear_quantile",
+        "inputs": [
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.5728219032885896,
+                "mean_residual": 0.0007989547611293052,
+                "rmse": 0.017042503648496878,
+                "upper": -0.46038220456877554,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.46038220456877554,
+                "mean_residual": -0.001055799511525288,
+                "rmse": 0.022951704782400873,
+                "upper": -0.22761842703089324,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.22761842703089324,
+                "mean_residual": 0.0008655643638566236,
+                "rmse": 0.017819656014041334,
+                "upper": 0.28635886598470794,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.28635886598470794,
+                "mean_residual": -0.0006087196134605861,
+                "rmse": 0.023222310188877653,
+                "upper": 0.5275126203368584,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.5728219032885896,
+              -0.46038220456877554,
+              -0.22761842703089324,
+              0.28635886598470794,
+              0.5275126203368584
+            ],
+            "name": "x"
+          },
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.17542969970098574,
+                "mean_residual": -0.0016254212065535292,
+                "rmse": 0.012421511940592843,
+                "upper": -0.13719210123484957,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.13719210123484957,
+                "mean_residual": 0.0037080214966618927,
+                "rmse": 0.018933888479408106,
+                "upper": -0.04814716714891003,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.04814716714891003,
+                "mean_residual": -0.0024586815873297663,
+                "rmse": 0.01190174464282926,
+                "upper": 0.09524424826668271,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.09524424826668271,
+                "mean_residual": 0.0003760812972214578,
+                "rmse": 0.03193126832135946,
+                "upper": 0.282136353640072,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.17542969970098574,
+              -0.13719210123484957,
+              -0.04814716714891003,
+              0.09524424826668271,
+              0.282136353640072
+            ],
+            "name": "v"
+          }
+        ],
+        "n": 10000,
+        "residual_definition": "prediction - target",
+        "rmse": 0.020457538427158844,
+        "scope": "train",
+        "standardized_bias": 2.079676835165034e-16,
+        "standardized_bias_definition": "bias / population_std(target)",
+        "standardized_bias_reason": null,
+        "status": "ok"
+      },
+      "scope": "train",
+      "task_id": "oscillator1",
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "oscillator1:residuals"
+      ]
+    }
+  ],
+  "symbolic-001": [
+    {
+      "candidate_sha256": "3e624df8e427972d5711bdf1ae69060341bd64b4d60f76b5a2396a336c744650",
+      "residuals": {
+        "bias": -1.2619040749141465e-14,
+        "binning_method": "linear_quantile",
+        "inputs": [
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.5728219032885896,
+                "mean_residual": 0.0020831660670254516,
+                "rmse": 0.014870506771955961,
+                "upper": -0.46038220456877554,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.46038220456877554,
+                "mean_residual": -0.001509690270896421,
+                "rmse": 0.02192751861285225,
+                "upper": -0.22761842703089324,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.22761842703089324,
+                "mean_residual": -0.0010748931101605453,
+                "rmse": 0.01740455011696345,
+                "upper": 0.28635886598470794,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.28635886598470794,
+                "mean_residual": 0.0005014173139810383,
+                "rmse": 0.02526360342803834,
+                "upper": 0.5275126203368584,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.5728219032885896,
+              -0.46038220456877554,
+              -0.22761842703089324,
+              0.28635886598470794,
+              0.5275126203368584
+            ],
+            "name": "x"
+          },
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.17542969970098574,
+                "mean_residual": -0.001980003173683794,
+                "rmse": 0.01231325200076179,
+                "upper": -0.13719210123484957,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.13719210123484957,
+                "mean_residual": 0.002110016323888216,
+                "rmse": 0.018561476627274625,
+                "upper": -0.04814716714891003,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.04814716714891003,
+                "mean_residual": -0.00012059918486618143,
+                "rmse": 0.011208536376206979,
+                "upper": 0.09524424826668271,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.09524424826668271,
+                "mean_residual": -9.413965388716748e-06,
+                "rmse": 0.03195841344621118,
+                "upper": 0.282136353640072,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.17542969970098574,
+              -0.13719210123484957,
+              -0.04814716714891003,
+              0.09524424826668271,
+              0.282136353640072
+            ],
+            "name": "v"
+          }
+        ],
+        "n": 10000,
+        "residual_definition": "prediction - target",
+        "rmse": 0.020267684050692947,
+        "scope": "train",
+        "standardized_bias": -1.9103870175370415e-13,
+        "standardized_bias_definition": "bias / population_std(target)",
+        "standardized_bias_reason": null,
+        "status": "ok"
+      },
+      "scope": "train",
+      "task_id": "oscillator1",
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "oscillator1:residuals"
+      ]
+    }
+  ]
+}

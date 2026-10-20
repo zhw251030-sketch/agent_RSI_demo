@@ -1,0 +1,114 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "compact_declaration": {
+      "claim_id": "e_76a5c1ec674a19ac",
+      "claim_op": "eq",
+      "claim_value_json": "0",
+      "prediction_id": "e_0deb7b57f2140dbf",
+      "prediction_direction": "increase",
+      "prediction_min_delta": 1.0
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "355f51653908a99e990ff186da67f484e4fdc9312725706d90fdd3a592b3b9cb"
+    },
+    "claim_expansion": {
+      "status": "resolved",
+      "value": {
+        "kind": "scalar",
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:EP-r2",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "total_successes"
+        },
+        "op": "eq",
+        "value": 0
+      }
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:EP-r2",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "total_tasks"
+        },
+        "direction": "increase",
+        "min_delta": 1.0
+      }
+    },
+    "claim_results": [
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": 0.0,
+        "tolerance": 1e-10,
+        "reference": {
+          "session_id": "20261020-policy-transfer-v01:EP-r2",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "total_successes"
+        },
+        "op": "eq",
+        "expected": 0.0
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 10.0,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "direction": "increase",
+      "min_delta": 1.0
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.0,
+      "tolerance": 1.01e-08,
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r2",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "before": 10.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 1.0,
+      "child_reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r2",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "00d6dab361dbc82d8e88335cb3cdd30f5b078b67da20eed25726026c8dd88ace",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "after": 10.0
+    }
+  }
+]

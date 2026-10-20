@@ -1,0 +1,2050 @@
+{
+  "version": "evidence-ids-v0.1",
+  "session_id": "20261020-policy-transfer-v01:EP-r1",
+  "entries": {
+    "e_0249d315a848f5b0": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_053d5aa77d0bcaf6": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_0571ff2020b2d356": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_total"
+      },
+      "kind": "scalar",
+      "value": 8.0
+    },
+    "e_0982faea7b345d7d": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_0e56b7098e5dd7f2": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_0e9efc412868911d": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_11f4e0eb21ee39dc": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_12b92e21823ad8b8": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_1403e311ebce330a": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_143c1a33e2b6c7f0": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_144d5260be4a0e8e": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_158e72814675ff97": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_167fd47664f7e607": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_1706eb610d0e2219": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_17896cce3e2928a8": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_1be4ffd045c87f92": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_1cbd674cacc125b4": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_1d40d252c78813fd": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_1f959065daf22f42": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_2493481652bcc48a": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_2678f46acbbe2222": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_2aae61d3da24bd72": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_2b6f2b44628dbcca": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_362f30824368b98f": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_384f0a32af6c7d98": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_388f558e7b560e1e": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_38a5ac086e51a5fc": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_3ebe1fde1fb05a87": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_3efa05e78838d895": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_426fe8384477b2ce": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_487f70c2f7adb429": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_4a4b349ea9b6484a": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_4de4127e9c78637b": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 7.0
+    },
+    "e_518674a704135846": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_53c742ad33f146dc": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_5556694dd1983e6c": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 7.0
+    },
+    "e_5863055f1951ca15": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_5a6ba6118eb03797": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "kind": "scalar",
+      "value": 10.0
+    },
+    "e_5b97309747445d45": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_5f5fabfacd7ec6cd": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 7.0
+    },
+    "e_61a4031bc449728c": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_61ac329a8a207a24": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 7.0
+    },
+    "e_6400858f753caea9": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 7.0
+    },
+    "e_648400f7d7985727": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "kind": "scalar",
+      "value": 10.0
+    },
+    "e_68b1a86698e3c7ee": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_6a366c43eeaa5e25": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_6c1e17768f6f6eaa": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_7001e0431dbeca06": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_70d2bdf509ba4d8f": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 21.0
+    },
+    "e_74805ca9e6ec8e17": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_8113a426bf8dc3a5": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_83a4362db12f88e9": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_8534e105922ef327": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 7.0
+    },
+    "e_855fb8b28232b057": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_8565b38aefb99fdb": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_881f0319369ad212": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_8cfee5e76b5e321c": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_8e2709ab497d188d": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_8f37e366d7e03c6d": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_92a565e74728e238": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_92c0061e23dd4638": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_93e163d2d258b63b": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_9b6b799906473926": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_9e1d63655ba7fc3e": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_a7f7a07e22d3ac7f": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_a8a0b569c73c6b4f": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_b3be99257b2d9ba7": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_b556b6ed1da89eea": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_total"
+      },
+      "kind": "scalar",
+      "value": 8.0
+    },
+    "e_b74ce097140bfdfb": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_be9ec5457a60f35f": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_c1093b6fcae86186": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_c6d5cf7b0ad3b0c2": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_c6e4c757e0da8783": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_c78b2f865f819057": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_c85bea68681f904b": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_cccb2fdd2f1c13ac": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_cd5ab24ecdef8f18": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_d11a3a5b7ce018f9": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_d35f9c158d6250b5": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_e52d916a44353f03": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 15.0
+    },
+    "e_eb7af2ce9c3d5aac": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_ec7535dc8273e622": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_eec0ba77ecf07b8c": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_ef02845e65d962a8": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_total"
+      },
+      "kind": "scalar",
+      "value": 2.0
+    },
+    "e_f52d3d3bdb2bb55e": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_total"
+      },
+      "kind": "scalar",
+      "value": 2.0
+    },
+    "e_f5eac7f364cb4a7c": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_fad8c1d0852aae7a": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_fe8a17c15167b49f": {
+      "reference": {
+        "session_id": "20261020-policy-transfer-v01:EP-r1",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    }
+  }
+}
