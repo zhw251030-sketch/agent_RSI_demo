@@ -124,6 +124,10 @@ class BoundedPilotLLM(LLM):
         self._pilot_output.mkdir(parents=True, exist_ok=True)
         return self
 
+    def _pilot_transport_started(self, request_id):
+        """Optional audit hook immediately before the provider dispatch attempt."""
+        return None
+
     def _transport_call(self, *, messages, enable_streaming=False, on_token=None, **kwargs):
         if self._pilot_ledger is None or self._pilot_output is None:
             raise RuntimeError("Pilot LLM is not bound to a budget ledger")
@@ -147,6 +151,7 @@ class BoundedPilotLLM(LLM):
         error_type = None
         try:
             kwargs["max_retries"] = 0
+            self._pilot_transport_started(request_id)
             response = super()._transport_call(messages=messages, enable_streaming=False,
                                                on_token=None, **kwargs)
             raw_usage = getattr(response, "usage", None)
@@ -203,11 +208,11 @@ It does not change Canvas or globally alter the installed SDK.
         return None
 
 
-def create_conversation(controller, llm, session_id, output_dir, callback=None):
+def create_conversation(controller, llm, session_id, output_dir, callback=None, *, tool_factory=candidate_tool):
     if importlib.metadata.version("openhands-sdk") != "1.55.1":
         raise RuntimeError("Pilot lifecycle adapter requires OpenHands SDK 1.55.1")
     output_dir = Path(output_dir)
-    agent = Agent(llm=llm, tools=[candidate_tool(controller, session_id)],
+    agent = Agent(llm=llm, tools=[tool_factory(controller, session_id)],
                   include_default_tools=["FinishTool"], system_prompt=SYSTEM_PROMPT,
                   agent_context=None, mcp_config={}, condenser=None, critic=None,
                   tool_concurrency_limit=1)
@@ -231,7 +236,7 @@ def create_conversation(controller, llm, session_id, output_dir, callback=None):
     return conversation
 
 
-def run_session(controller, llm, session_id, output_dir):
+def run_session(controller, llm, session_id, output_dir, *, tool_factory=candidate_tool):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     events_path = output_dir / "events.jsonl"
@@ -254,7 +259,8 @@ def run_session(controller, llm, session_id, output_dir):
     result = {"session_id": session_id, "status": "error", "model_error_type": None,
               "sdk_version": importlib.metadata.version("openhands-sdk")}
     try:
-        conversation = create_conversation(controller, llm, session_id, output_dir, record)
+        conversation = create_conversation(controller, llm, session_id, output_dir, record,
+                                           tool_factory=tool_factory)
         result["tools"] = sorted(conversation.agent.tools_map)
         conversation.run()
         result["conversation_status"] = str(conversation.state.execution_status)
