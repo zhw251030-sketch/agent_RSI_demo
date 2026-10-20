@@ -1,0 +1,167 @@
+{
+  "candidate_hash": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+  "candidate_id": "symbolic-001",
+  "diagnostics": {
+    "candidate_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+    "residuals": {
+      "bias": 0.0005639422257550756,
+      "binning_method": "linear_quantile",
+      "inputs": [
+        {
+          "bins": [
+            {
+              "count": 2500,
+              "lower": -0.5728219032885896,
+              "mean_residual": -0.00010075549392167965,
+              "rmse": 0.014068987506896398,
+              "upper": -0.46038220456877554,
+              "upper_inclusive": false
+            },
+            {
+              "count": 2500,
+              "lower": -0.46038220456877554,
+              "mean_residual": 0.0023055852889629835,
+              "rmse": 0.021302196439631594,
+              "upper": -0.22761842703089324,
+              "upper_inclusive": false
+            },
+            {
+              "count": 2500,
+              "lower": -0.22761842703089324,
+              "mean_residual": -0.001244520940597262,
+              "rmse": 0.01710364227334989,
+              "upper": 0.28635886598470794,
+              "upper_inclusive": false
+            },
+            {
+              "count": 2500,
+              "lower": 0.28635886598470794,
+              "mean_residual": 0.0012954600485762604,
+              "rmse": 0.025802468018268614,
+              "upper": 0.5275126203368584,
+              "upper_inclusive": true
+            }
+          ],
+          "boundaries": [
+            -0.5728219032885896,
+            -0.46038220456877554,
+            -0.22761842703089324,
+            0.28635886598470794,
+            0.5275126203368584
+          ],
+          "name": "x"
+        },
+        {
+          "bins": [
+            {
+              "count": 2500,
+              "lower": -0.17542969970098574,
+              "mean_residual": -0.0009246785624518135,
+              "rmse": 0.015511890004455398,
+              "upper": -0.13719210123484957,
+              "upper_inclusive": false
+            },
+            {
+              "count": 2500,
+              "lower": -0.13719210123484957,
+              "mean_residual": 0.0025958348830276293,
+              "rmse": 0.019024272190527772,
+              "upper": -0.04814716714891003,
+              "upper_inclusive": false
+            },
+            {
+              "count": 2500,
+              "lower": -0.04814716714891003,
+              "mean_residual": -0.000591271229214222,
+              "rmse": 0.01120289431233866,
+              "upper": 0.09524424826668271,
+              "upper_inclusive": false
+            },
+            {
+              "count": 2500,
+              "lower": 0.09524424826668271,
+              "mean_residual": 0.0011758838116587083,
+              "rmse": 0.02969807085666196,
+              "upper": 0.282136353640072,
+              "upper_inclusive": true
+            }
+          ],
+          "boundaries": [
+            -0.17542969970098574,
+            -0.13719210123484957,
+            -0.04814716714891003,
+            0.09524424826668271,
+            0.282136353640072
+          ],
+          "name": "v"
+        }
+      ],
+      "n": 10000,
+      "residual_definition": "prediction - target",
+      "rmse": 0.02006253920538447,
+      "scope": "train",
+      "standardized_bias": 0.00853747862567713,
+      "standardized_bias_definition": "bias / population_std(target)",
+      "standardized_bias_reason": null,
+      "status": "ok"
+    },
+    "scope": "train",
+    "task_id": "oscillator1",
+    "version": "diagnostics-v0.1"
+  },
+  "elapsed_seconds": 0.527133,
+  "executions": [
+    {
+      "elapsed_seconds": 0.222187,
+      "phase": "fit",
+      "status": "completed",
+      "stderr_bytes": 0,
+      "stdout_bytes": 199
+    },
+    {
+      "elapsed_seconds": 0.224011,
+      "phase": "predict",
+      "status": "completed",
+      "stderr_bytes": 0,
+      "stdout_bytes": 205137
+    }
+  ],
+  "family": "symbolic",
+  "feedback_role": "development_only",
+  "fitting": {
+    "candidate_calls": 22,
+    "converged": true,
+    "max_nfev": 100,
+    "n_params": 6,
+    "nfev": 3,
+    "params": [
+      -0.1889737534984609,
+      0.051999724279486376,
+      0.1302351139835668,
+      0.03815854563408658,
+      -0.0450471228219963,
+      -1.2337184211451242
+    ],
+    "split": "train"
+  },
+  "limits": {
+    "cpu_seconds": 10,
+    "max_output_bytes": 2000000,
+    "memory_mb": 2048,
+    "timeout_seconds": 20
+  },
+  "metric_scope": "Training fit only; not a held-out or generalization result.",
+  "metric_split": "train",
+  "metrics": {
+    "mse": 0.00040250547936758897,
+    "nmse": 0.09224903410100932
+  },
+  "model_calls": 0,
+  "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+  "run_id": "cadf24ef7efe493db739627c9e8e46a3",
+  "schema_version": "0.1",
+  "sealed_tasks_executed": 0,
+  "status": "success",
+  "strategy_version": "edit-commitment-v0.1",
+  "task_id": "oscillator1"
+}

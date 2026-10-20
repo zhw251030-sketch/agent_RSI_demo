@@ -1,0 +1,157 @@
+{
+  "version": "edit-commitment-negative-audit-v0.1",
+  "runtime_commit": "6d6e36851479bae6d5a0e0276fb448a537cfa970",
+  "source_run": "tmp/edit-commitment-complete/20261021-edit-commitment-v01",
+  "source_file_count": 217,
+  "source_tree_sha256_before": "88f518db634e050c4f51a616d66845ff3bd3849c845c3f9f02e4b4f8c0fd147d",
+  "source_tree_sha256_after": "88f518db634e050c4f51a616d66845ff3bd3849c845c3f9f02e4b4f8c0fd147d",
+  "original_run_unchanged": true,
+  "runtime_files_unchanged": true,
+  "mutations": [
+    {
+      "case": "draft_source_bytes",
+      "description": "Change one frozen source file without altering the saved model response.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Source is not SDK-submitted bytes",
+      "actual_exception": "ValueError",
+      "actual_reason": "Source is not SDK-submitted bytes",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 4.422
+    },
+    {
+      "case": "frozen_draft_claim_with_updated_outer_digest",
+      "description": "Alter the frozen structured edit claim and recompute the summary phase hash; raw accepted draft remains unchanged.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Frozen draft objects differ",
+      "actual_exception": "ValueError",
+      "actual_reason": "Frozen draft objects differ",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 4.5
+    },
+    {
+      "case": "checker_feedback_with_updated_outer_digest",
+      "description": "Forge supported feedback and recompute the summary phase hash; recomputed source check must disagree.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Frozen feedback differs",
+      "actual_exception": "ValueError",
+      "actual_reason": "Frozen feedback differs",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 4.562
+    },
+    {
+      "case": "sdk_business_claim",
+      "description": "Change the SDK dispatch claim while preserving the actual provider response.",
+      "expected_exception": "ValueError",
+      "expected_reason": "SDK normalized submission mismatch",
+      "actual_exception": "ValueError",
+      "actual_reason": "SDK normalized submission mismatch",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 4.797
+    },
+    {
+      "case": "paired_model_envelope_with_updated_payload_digest",
+      "description": "Change the checked request model to an equal-byte-length string and update ledger payload SHA, preserving budget arithmetic; full pair comparison must still reject.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Two complete review requests differ",
+      "actual_exception": "ValueError",
+      "actual_reason": "Two complete review requests differ",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 5.594
+    },
+    {
+      "case": "final_candidate_source_bytes",
+      "description": "Append a comment to the final source without modifying raw receipt or SDK dispatch.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Source is not SDK-submitted bytes",
+      "actual_exception": "ValueError",
+      "actual_reason": "Source is not SDK-submitted bytes",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 5.266
+    },
+    {
+      "case": "final_score_and_summary_rewritten",
+      "description": "Change the saved final score and matching summary candidate, retaining the actual evaluation records.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Recomputed score",
+      "actual_exception": "ValueError",
+      "actual_reason": "Recomputed score",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 5.359
+    },
+    {
+      "case": "execution_event_count",
+      "description": "Inflate one VAL execution count in the event ledger, retaining bound evaluation records.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Per-event execution counts",
+      "actual_exception": "ValueError",
+      "actual_reason": "Per-event execution counts",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 5.922
+    },
+    {
+      "case": "draft_execution_zero_scope",
+      "description": "Declare an otherwise complete run executed one draft despite its zero-execution protocol.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Zero scope: draft_executions",
+      "actual_exception": "ValueError",
+      "actual_reason": "Zero scope: draft_executions",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 5.656
+    },
+    {
+      "case": "final_deployment_verdict_and_summary_rewritten",
+      "description": "Forge a supported final deployment verdict and matching summary while source/claims remain fixed.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Final claim check differs",
+      "actual_exception": "ValueError",
+      "actual_reason": "Final claim check differs",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 5.281
+    },
+    {
+      "case": "original_commitment_repair_and_summary_rewritten",
+      "description": "Claim original-commitment repair on an unchanged supported S-x5 draft, updating summary to match.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Original/final commitment comparison differs",
+      "actual_exception": "ValueError",
+      "actual_reason": "Original/final commitment comparison differs",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 4.859
+    },
+    {
+      "case": "known_model_cost_ledger",
+      "description": "Change one known model-cost estimate while preserving token usage and configured prices.",
+      "expected_exception": "ValueError",
+      "expected_reason": "Row actual estimate",
+      "actual_exception": "ValueError",
+      "actual_reason": "Row actual estimate",
+      "rejected": true,
+      "expected_reason_matched": true,
+      "elapsed_seconds": 4.281
+    }
+  ],
+  "total_cases": 12,
+  "rejected_count": 12,
+  "expected_reason_matches": 12,
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "new_task_evaluations": 0,
+  "elapsed_seconds": 32.047,
+  "method": "Each case begins as a byte-identical independent temporary copy. Selected enclosing hashes or summary copies are deliberately updated to exercise deeper bindings. Frozen production audit used unchanged. Only static source checks, file reads, JSON parsing and git show; no model, candidate, VAL, probe or data execution.",
+  "limitations": [
+    "Rejection of these twelve mutations is not proof against every possible tampering.",
+    "The audit verifies record/source consistency and cannot authenticate fully fabricated self-consistent histories.",
+    "This is audit regression evidence, not twelve task experiments or model-performance samples."
+  ]
+}

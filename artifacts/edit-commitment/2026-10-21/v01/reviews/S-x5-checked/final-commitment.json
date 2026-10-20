@@ -1,0 +1,68 @@
+{
+  "auxiliary": {
+    "forecast": {
+      "nmse": "0.0918"
+    },
+    "scope_note": "Development observation only; no held-out or generalization claim."
+  },
+  "deployment_claim": "raw_validation",
+  "edit_claim": "keep_bytes",
+  "n_params": 5,
+  "rationale": "Decision: keep the original artifact byte-for-byte (keep_bytes), 5 parameters, deployment raw_validation.\n\nEvidence summary:\n- Pre-registered probe removed only param4 (the d2*x**5 term) and refit on the 10000 training rows. delta_nmse = 7.18e-07 < epsilon = 1e-05, so the removal probe is \"contradicted\" (does not support simplification).\n- canonical_full sham drift 1.4e-17 confirms the refit pipeline is numerically trustworthy and the original is reproducible.\n- No meaningful gain (NMSE decrease > 1e-05) is observed: original and canonical_full have NMSE ~0.09180398723, essentially identical.\n- The probe covers exactly param4 only; other terms' necessity is unknown and I do not extrapolate.\n- Per the decision contract, evidence against deleting a term does not support adding a new term or extra parameters, so I do not invent structural edits.\n\nEdit claim: keep_bytes — the submitted source is byte-identical to the original base (sha256 6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e).\n\nDeployment claim: raw_validation — I claim only that the final executor checks the submitted source against its original syntax gate before later token normalization; I do not claim it passes that gate. No diagnostic-copy repair was applied to the final artifact, so probe_repair_deployed would be false.\n\nUncertainty:\n- All scores are train-split values on oscillator1 only; no held-out, physical-necessity, optimality or generalization claim follows.\n- No final evaluation of this artifact has been observed by me; I do not claim it succeeds before evaluation.\n- Removing param4 would likely score within epsilon on train, but its evaluation status is unknown and I do not claim it as a successful simplification.\n\nAuxiliary forecast (development observation only, not a result claim): nmse ~ 0.0918 on oscillator1/train.",
+  "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    k = params[0]\n    c = params[1]\n    d = params[2]\n    c2 = params[3]\n    d2 = params[4]\n    return -k * x - c * v - d * x ** 3 - c2 * v * np.abs(v) - d2 * x ** 5",
+  "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+  "commitment_check": {
+    "version": "edit-commitment-v0.1",
+    "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "case_id": "S-x5",
+    "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "n_params": 5,
+    "commitment_sha256": "331be2318f33ec5ca69765d92c7397ac8f36a1839982830aa2fb0fc7dfe93379",
+    "edit_claim": {
+      "kind": "keep_bytes",
+      "status": "supported",
+      "reason": "source_bytes_and_parameter_metadata_identical"
+    },
+    "deployment_claim": {
+      "kind": "raw_validation",
+      "status": "unknown",
+      "reason": "not_applicable_or_unspecified"
+    },
+    "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+  },
+  "review_change": {
+    "initial_claim": {
+      "kind": "keep_bytes",
+      "status": "supported",
+      "reason": "source_bytes_and_parameter_metadata_identical"
+    },
+    "under_original_claim": {
+      "status": "supported",
+      "reason": "source_bytes_and_parameter_metadata_identical"
+    },
+    "under_final_claim": {
+      "kind": "keep_bytes",
+      "status": "supported",
+      "reason": "source_bytes_and_parameter_metadata_identical"
+    },
+    "source_changed": false,
+    "parameters_changed": false,
+    "edit_claim_changed": false,
+    "deployment_claim_changed": false,
+    "original_commitment_repaired": false,
+    "declaration_only_change": false,
+    "final_general_edit": false,
+    "returned_to_base": true,
+    "initial_deployment": {
+      "kind": "raw_validation",
+      "status": "unknown",
+      "reason": "not_applicable_or_unspecified"
+    },
+    "final_deployment": {
+      "kind": "raw_validation",
+      "status": "unknown",
+      "reason": "not_applicable_or_unspecified"
+    },
+    "draft_task_performance": "not_measured"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "feedback": {
+    "P-format": {
+      "version": "edit-commitment-v0.1",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "case_id": "P-format",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "n_params": 0,
+      "commitment_sha256": "d34c37abb23be11c4dc2adb83bace8bd68ae6880a6694e92065d321ff7ca59f2",
+      "edit_claim": {
+        "kind": "apply_format_patch",
+        "status": "contradicted",
+        "reason": "candidate_ast_differs_from_exact_formatter_patch"
+      },
+      "deployment_claim": {
+        "kind": "raw_validation",
+        "status": "supported",
+        "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+        "scope": "This runtime only; not a general proof about execution hosts."
+      },
+      "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+    },
+    "S-v3": {
+      "version": "edit-commitment-v0.1",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "case_id": "S-v3",
+      "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "n_params": 6,
+      "commitment_sha256": "7f0ad2519bc5ecc0063a26ac3cf429f7339364159e767c6af0b3faab15c5de17",
+      "edit_claim": {
+        "kind": "keep_bytes",
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_claim": {
+        "kind": "unspecified",
+        "status": "unknown",
+        "reason": "not_applicable_or_unspecified"
+      },
+      "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+    },
+    "P-empty": {
+      "version": "edit-commitment-v0.1",
+      "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "case_id": "P-empty",
+      "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "n_params": 3,
+      "commitment_sha256": "73bec6d1f98d52719a3032536d137e3de5a1f3d0fbb40180687a83d593bda43d",
+      "edit_claim": {
+        "kind": "keep_bytes",
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_claim": {
+        "kind": "unspecified",
+        "status": "unknown",
+        "reason": "not_applicable_or_unspecified"
+      },
+      "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+    },
+    "S-x5": {
+      "version": "edit-commitment-v0.1",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "case_id": "S-x5",
+      "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "n_params": 5,
+      "commitment_sha256": "c0c25773468ba755723199e2453884bae23af5b7c0b1f8b33dca1ce90690bb62",
+      "edit_claim": {
+        "kind": "keep_bytes",
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_claim": {
+        "kind": "raw_validation",
+        "status": "unknown",
+        "reason": "not_applicable_or_unspecified"
+      },
+      "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+    }
+  },
+  "draft_freeze_sha256": "1e14420a159e7917e58b1def957afe89fe3befaea30fafc3b988fdf167fb157f"
+}

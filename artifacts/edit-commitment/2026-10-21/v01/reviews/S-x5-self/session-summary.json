@@ -1,0 +1,313 @@
+{
+  "session_id": "S-x5-self",
+  "stage": "review",
+  "adapter_version": "commitment-agent-v0.1",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "version": "edit-commitment-v0.1",
+    "case_id": "S-x5",
+    "family": "symbolic",
+    "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "probe_id": "symbolic_term_removal",
+    "target_id": "param4",
+    "attempts": 1,
+    "candidate": {
+      "candidate_id": "symbolic-001",
+      "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "n_params": 5,
+      "rationale": "Final decision: keep the original artifact byte-for-byte (keep_bytes), no repair deployed, and submit its complete source with n_params = 5.\n\nEvidence: the only pre-registered probe was a symbolic term removal targeting param4 (the -d2*x**5 term). All three refit arms converged (original nmse 0.09180398722781567, canonical_full sham 0.09180398722781569, removed/4-param 0.09180470524756015). delta_nmse = 7.18e-07, far below epsilon = 1e-5, so the verdict is \"contradicted\" for the claim that removal costs more than epsilon; the sham drift 1.39e-17 is below tolerance 1e-10, which indicates the refit pipeline reproduces the parent numerically within the stated tolerance.\n\nWhy no edit: the single-term probe gives no support for a meaningful-gain edit (a train NMSE decrease > 1e-5 was never observed; the sham arm changes nothing and the removal arm changes NMSE upward in the 7th decimal). Per the decision contract, evidence against deleting a term does not license adding a new term or extra parameters, so I do not introduce e.g. an x**7 term or any extension. Evidence for simplification is also weak: although the 4-parameter arm's NMSE increase (7.18e-07) is below 1e-5 in this narrow train-split refit, a single-arm diagnostic cannot establish that the reduced form is a sound simplification for the executor's own fit, and the original commitments only asked about the bound probe. Keeping the unchanged artifact is explicitly legal, so I avoid an unverified structural change.\n\nUncertainty: (1) All numbers are researcher-seen development observations on oscillator1/train with fresh host scoring; they are not held-out results and support no physical-necessity, optimality, or generalization claim. (2) The probe covers exactly one term; it says nothing about whether the other four terms are individually necessary, and a broader removal sweep was not run. (3) checker_feedback is null, so no independent check result is available — the absence of a check is not evidence of success or failure. (4) The draft is never executed; nothing here is a statement about how this final artifact will score. (5) I cannot verify the exact original bytes beyond reproducing the supplied source string, so keep_bytes is asserted relative to the provided packet text.\n\nDeployment: raw_validation — I claim only that the final executor checks the raw submitted plan against its original syntax gate before any later token normalization; I do not claim the plan passes that gate. No repair was applied to any diagnostic copy, so probe_repair_deployed would be false.",
+      "auxiliary": {
+        "forecast": {
+          "nmse": 0.0918
+        },
+        "scope_note": "Development observation only. The single pre-registered probe removed only the bound independent term param4 (d2*x**5) and refit on the same 10000 training rows: delta_nmse = 7.18e-07, below the 1e-05 threshold, verdict 'contradicted' for removal-cost claim. All three arms converged. This does not establish held-out accuracy, physical necessity, optimality, generalization, or that the final artifact will pass any gate or match the forecast value."
+      },
+      "source_file": "candidate.py",
+      "results": [
+        {
+          "candidate_hash": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+          "candidate_id": "symbolic-001",
+          "diagnostics": {
+            "candidate_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+            "residuals": {
+              "bias": 7.422000601366525e-05,
+              "binning_method": "linear_quantile",
+              "inputs": [
+                {
+                  "bins": [
+                    {
+                      "count": 2500,
+                      "lower": -0.5728219032885896,
+                      "mean_residual": -0.00023826826484560378,
+                      "rmse": 0.013814511461738734,
+                      "upper": -0.46038220456877554,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.46038220456877554,
+                      "mean_residual": 0.0016353239465025729,
+                      "rmse": 0.021579007504591654,
+                      "upper": -0.22761842703089324,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.22761842703089324,
+                      "mean_residual": -0.0017273291041812854,
+                      "rmse": 0.01695804351723196,
+                      "upper": 0.28635886598470794,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": 0.28635886598470794,
+                      "mean_residual": 0.0006271534465789773,
+                      "rmse": 0.025655116155273203,
+                      "upper": 0.5275126203368584,
+                      "upper_inclusive": true
+                    }
+                  ],
+                  "boundaries": [
+                    -0.5728219032885896,
+                    -0.46038220456877554,
+                    -0.22761842703089324,
+                    0.28635886598470794,
+                    0.5275126203368584
+                  ],
+                  "name": "x"
+                },
+                {
+                  "bins": [
+                    {
+                      "count": 2500,
+                      "lower": -0.17542969970098574,
+                      "mean_residual": -0.0014655893832921675,
+                      "rmse": 0.015551755746377688,
+                      "upper": -0.13719210123484957,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.13719210123484957,
+                      "mean_residual": 0.0019501968750964714,
+                      "rmse": 0.01906274458315923,
+                      "upper": -0.04814716714891003,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.04814716714891003,
+                      "mean_residual": -0.0005061747055151089,
+                      "rmse": 0.011098089827017375,
+                      "upper": 0.09524424826668271,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": 0.09524424826668271,
+                      "mean_residual": 0.0003184472377654661,
+                      "rmse": 0.029560811576076908,
+                      "upper": 0.282136353640072,
+                      "upper_inclusive": true
+                    }
+                  ],
+                  "boundaries": [
+                    -0.17542969970098574,
+                    -0.13719210123484957,
+                    -0.04814716714891003,
+                    0.09524424826668271,
+                    0.282136353640072
+                  ],
+                  "name": "v"
+                }
+              ],
+              "n": 10000,
+              "residual_definition": "prediction - target",
+              "rmse": 0.02001408576904418,
+              "scope": "train",
+              "standardized_bias": 0.0011236110473743723,
+              "standardized_bias_definition": "bias / population_std(target)",
+              "standardized_bias_reason": null,
+              "status": "ok"
+            },
+            "scope": "train",
+            "task_id": "oscillator1",
+            "version": "diagnostics-v0.1"
+          },
+          "elapsed_seconds": 0.509461,
+          "executions": [
+            {
+              "elapsed_seconds": 0.216598,
+              "phase": "fit",
+              "status": "completed",
+              "stderr_bytes": 0,
+              "stdout_bytes": 181
+            },
+            {
+              "elapsed_seconds": 0.222151,
+              "phase": "predict",
+              "status": "completed",
+              "stderr_bytes": 0,
+              "stdout_bytes": 205086
+            }
+          ],
+          "family": "symbolic",
+          "feedback_role": "development_only",
+          "fitting": {
+            "candidate_calls": 21,
+            "converged": true,
+            "max_nfev": 100,
+            "n_params": 5,
+            "nfev": 5,
+            "params": [
+              0.18826767613343184,
+              -0.08444560567969996,
+              -0.12034880397483333,
+              0.4184073771863192,
+              0.021661410323328873
+            ],
+            "split": "train"
+          },
+          "limits": {
+            "cpu_seconds": 10,
+            "max_output_bytes": 2000000,
+            "memory_mb": 2048,
+            "timeout_seconds": 20
+          },
+          "metric_scope": "Training fit only; not a held-out or generalization result.",
+          "metric_split": "train",
+          "metrics": {
+            "mse": 0.0004005636291706567,
+            "nmse": 0.09180398722781567
+          },
+          "model_calls": 0,
+          "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+          "run_id": "3229421a42884be9a8995686be0c136b",
+          "schema_version": "0.1",
+          "sealed_tasks_executed": 0,
+          "status": "success",
+          "strategy_version": "edit-commitment-v0.1",
+          "task_id": "oscillator1"
+        }
+      ],
+      "evaluation_files": [
+        "evaluations/evaluation-00.json"
+      ],
+      "status": "evaluated",
+      "edit": {
+        "kind": "unchanged",
+        "source_changed": false,
+        "parameter_delta": 0,
+        "semantic_equivalence_proven": false
+      },
+      "score": {
+        "complete": true,
+        "family": "symbolic",
+        "acceptable_simplification": false,
+        "achieved_improvement": false,
+        "metric_split": "train",
+        "nmse": 0.09180398722781567,
+        "baseline_nmse": 0.09180398722781567,
+        "delta_nmse": 0.0,
+        "n_params": 5,
+        "baseline_n_params": 5,
+        "parameter_delta": 0,
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": false,
+        "numerical_improvement": false,
+        "numerical_degradation": false,
+        "minimum_meaningful_gain": 1e-05,
+        "maximum_simplification_loss": 1e-05,
+        "degradation_threshold": 1e-05,
+        "complexity_proxy": "independent_parameter_count_only"
+      },
+      "forecast": {
+        "status": "evaluated",
+        "metric": "nmse",
+        "predicted": 0.0918,
+        "observed": 0.09180398722781567,
+        "absolute_error": 3.987227815666072e-06
+      },
+      "edit_claim": "keep_bytes",
+      "deployment_claim": "raw_validation",
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "case_id": "S-x5",
+        "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "n_params": 5,
+        "commitment_sha256": "beff71219fa4da6d67dca02da3243ae5c53ad2ced278ff16223596de840baadf",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "deployment_claim": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "source_changed": false,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": true,
+        "initial_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    "halted": false,
+    "infrastructure_error_type": null,
+    "counts": {
+      "candidate_evaluations": 1,
+      "sandbox_calls": 2,
+      "counts_complete": true
+    },
+    "generated_candidates": 1,
+    "model_calls_owned": 0,
+    "sealed_tasks_executed": 0,
+    "underlying_controller_version": "decision-core-v0.1",
+    "stage": "review"
+  }
+}

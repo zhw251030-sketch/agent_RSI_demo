@@ -1,0 +1,765 @@
+{
+  "status": "passed",
+  "runtime_commit": "6d6e36851479bae6d5a0e0276fb448a537cfa970",
+  "model_requests": 12,
+  "accepted_drafts": 4,
+  "candidate_submissions": 8,
+  "missing_review_submissions": 0,
+  "skipped_reviews": 0,
+  "matched_request_pairs": 4,
+  "known_tokens": 76242,
+  "known_estimated_cost_cny": 0.2582937,
+  "reserved_cost_cny": 1.1317824,
+  "executions": {
+    "sandbox_calls": 48,
+    "new_candidate_executions": 44,
+    "host_validations": 40,
+    "val_calls": 30,
+    "fit_calls": 4,
+    "predict_calls": 4
+  },
+  "draft_claim_counts": {
+    "contradicted": 1,
+    "supported": 3
+  },
+  "draft_deployment_counts": {
+    "supported": 1,
+    "unknown": 3
+  },
+  "drafts": [
+    {
+      "case_id": "P-format",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "edit_claim": {
+        "kind": "apply_format_patch",
+        "status": "contradicted",
+        "reason": "candidate_ast_differs_from_exact_formatter_patch"
+      },
+      "deployment_claim": {
+        "kind": "raw_validation",
+        "status": "supported",
+        "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+        "scope": "This runtime only; not a general proof about execution hosts."
+      }
+    },
+    {
+      "case_id": "S-v3",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "edit_claim": {
+        "kind": "keep_bytes",
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_claim": {
+        "kind": "unspecified",
+        "status": "unknown",
+        "reason": "not_applicable_or_unspecified"
+      }
+    },
+    {
+      "case_id": "P-empty",
+      "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "edit_claim": {
+        "kind": "keep_bytes",
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_claim": {
+        "kind": "unspecified",
+        "status": "unknown",
+        "reason": "not_applicable_or_unspecified"
+      }
+    },
+    {
+      "case_id": "S-x5",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "edit_claim": {
+        "kind": "keep_bytes",
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_claim": {
+        "kind": "raw_validation",
+        "status": "unknown",
+        "reason": "not_applicable_or_unspecified"
+      }
+    }
+  ],
+  "finals": [
+    {
+      "case_id": "P-format",
+      "condition": "self",
+      "session_id": "P-format-self",
+      "source_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+      "score": {
+        "complete": true,
+        "family": "planning",
+        "acceptable_simplification": null,
+        "achieved_improvement": true,
+        "development_successes": 8,
+        "development_total": 8,
+        "prompt_successes": 2,
+        "prompt_total": 2,
+        "total_successes": 10,
+        "total_tasks": 10,
+        "baseline_development_successes": 0,
+        "baseline_prompt_successes": 0,
+        "development_delta": 8,
+        "prompt_delta": 2,
+        "meaningful_improvement": true,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": null,
+        "numerical_improvement": true,
+        "numerical_degradation": false
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "case_id": "P-format",
+        "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "n_params": 0,
+        "commitment_sha256": "38bf7cbc888ce881277a591f5fa7566e2948d98c8eb84b545474a5b60e327791",
+        "edit_claim": {
+          "kind": "apply_format_patch",
+          "status": "supported",
+          "reason": "whole_ast_equals_exact_formatter_patch"
+        },
+        "deployment_claim": {
+          "kind": "raw_validation",
+          "status": "supported",
+          "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+          "scope": "This runtime only; not a general proof about execution hosts."
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "apply_format_patch",
+          "status": "contradicted",
+          "reason": "candidate_ast_differs_from_exact_formatter_patch"
+        },
+        "under_original_claim": {
+          "status": "supported",
+          "reason": "whole_ast_equals_exact_formatter_patch"
+        },
+        "under_final_claim": {
+          "kind": "apply_format_patch",
+          "status": "supported",
+          "reason": "whole_ast_equals_exact_formatter_patch"
+        },
+        "source_changed": true,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": true,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": false,
+        "initial_deployment": {
+          "kind": "raw_validation",
+          "status": "supported",
+          "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+          "scope": "This runtime only; not a general proof about execution hosts."
+        },
+        "final_deployment": {
+          "kind": "raw_validation",
+          "status": "supported",
+          "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+          "scope": "This runtime only; not a general proof about execution hosts."
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    {
+      "case_id": "P-format",
+      "condition": "checked",
+      "session_id": "P-format-checked",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "score": {
+        "complete": true,
+        "family": "planning",
+        "acceptable_simplification": null,
+        "achieved_improvement": false,
+        "development_successes": 0,
+        "development_total": 8,
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "total_successes": 0,
+        "total_tasks": 10,
+        "baseline_development_successes": 0,
+        "baseline_prompt_successes": 0,
+        "development_delta": 0,
+        "prompt_delta": 0,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": null,
+        "numerical_improvement": false,
+        "numerical_degradation": false
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "case_id": "P-format",
+        "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "n_params": 0,
+        "commitment_sha256": "91526239265b4b7aea2a35c9c160a28e2f2bbf5436b1b7e8c56751e629707b02",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "deployment_claim": {
+          "kind": "raw_validation",
+          "status": "supported",
+          "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+          "scope": "This runtime only; not a general proof about execution hosts."
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "apply_format_patch",
+          "status": "contradicted",
+          "reason": "candidate_ast_differs_from_exact_formatter_patch"
+        },
+        "under_original_claim": {
+          "status": "contradicted",
+          "reason": "candidate_ast_differs_from_exact_formatter_patch"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "source_changed": false,
+        "parameters_changed": false,
+        "edit_claim_changed": true,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": true,
+        "final_general_edit": false,
+        "returned_to_base": true,
+        "initial_deployment": {
+          "kind": "raw_validation",
+          "status": "supported",
+          "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+          "scope": "This runtime only; not a general proof about execution hosts."
+        },
+        "final_deployment": {
+          "kind": "raw_validation",
+          "status": "supported",
+          "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+          "scope": "This runtime only; not a general proof about execution hosts."
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    {
+      "case_id": "S-v3",
+      "condition": "checked",
+      "session_id": "S-v3-checked",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "score": {
+        "complete": true,
+        "family": "symbolic",
+        "acceptable_simplification": false,
+        "achieved_improvement": false,
+        "metric_split": "train",
+        "nmse": 0.09224903410100932,
+        "baseline_nmse": 0.09224903410100932,
+        "delta_nmse": 0.0,
+        "n_params": 6,
+        "baseline_n_params": 6,
+        "parameter_delta": 0,
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": false,
+        "numerical_improvement": false,
+        "numerical_degradation": false,
+        "minimum_meaningful_gain": 1e-05,
+        "maximum_simplification_loss": 1e-05,
+        "degradation_threshold": 1e-05,
+        "complexity_proxy": "independent_parameter_count_only"
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "case_id": "S-v3",
+        "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "n_params": 6,
+        "commitment_sha256": "d4a3a0d62037a471d24e7695e3a7042b56d0570ec2fc3216e27643cfd5f8394e",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "deployment_claim": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "source_changed": false,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": true,
+        "initial_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    {
+      "case_id": "S-v3",
+      "condition": "self",
+      "session_id": "S-v3-self",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "score": {
+        "complete": true,
+        "family": "symbolic",
+        "acceptable_simplification": false,
+        "achieved_improvement": false,
+        "metric_split": "train",
+        "nmse": 0.09224903410100932,
+        "baseline_nmse": 0.09224903410100932,
+        "delta_nmse": 0.0,
+        "n_params": 6,
+        "baseline_n_params": 6,
+        "parameter_delta": 0,
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": false,
+        "numerical_improvement": false,
+        "numerical_degradation": false,
+        "minimum_meaningful_gain": 1e-05,
+        "maximum_simplification_loss": 1e-05,
+        "degradation_threshold": 1e-05,
+        "complexity_proxy": "independent_parameter_count_only"
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "case_id": "S-v3",
+        "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "n_params": 6,
+        "commitment_sha256": "9f7aaecfaf7691320582f818c022c503c13af8c84a19e05a37a86a7d40ba236f",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "deployment_claim": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "source_changed": false,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": true,
+        "initial_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    {
+      "case_id": "P-empty",
+      "condition": "checked",
+      "session_id": "P-empty-checked",
+      "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+      "score": {
+        "complete": true,
+        "family": "planning",
+        "acceptable_simplification": null,
+        "achieved_improvement": false,
+        "development_successes": 0,
+        "development_total": 8,
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "total_successes": 0,
+        "total_tasks": 10,
+        "baseline_development_successes": 0,
+        "baseline_prompt_successes": 0,
+        "development_delta": 0,
+        "prompt_delta": 0,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": null,
+        "numerical_improvement": false,
+        "numerical_degradation": false
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "case_id": "P-empty",
+        "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "n_params": 3,
+        "commitment_sha256": "e3894dc4373e80cd7e7dec0510ea5a552cdc09bda3261fad6278fb9685a11093",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "contradicted",
+          "reason": "source_bytes_changed"
+        },
+        "deployment_claim": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "contradicted",
+          "reason": "source_bytes_changed"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "contradicted",
+          "reason": "source_bytes_changed"
+        },
+        "source_changed": true,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": false,
+        "initial_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    {
+      "case_id": "P-empty",
+      "condition": "self",
+      "session_id": "P-empty-self",
+      "source_sha256": "c8e5daebc4bc6ade5dbb938d9a0898d7616c9addd6b3b8c63a44e5a12fba8f81",
+      "score": {
+        "complete": true,
+        "family": "planning",
+        "acceptable_simplification": null,
+        "achieved_improvement": false,
+        "development_successes": 0,
+        "development_total": 8,
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "total_successes": 0,
+        "total_tasks": 10,
+        "baseline_development_successes": 0,
+        "baseline_prompt_successes": 0,
+        "development_delta": 0,
+        "prompt_delta": 0,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": null,
+        "numerical_improvement": false,
+        "numerical_degradation": false
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "c8e5daebc4bc6ade5dbb938d9a0898d7616c9addd6b3b8c63a44e5a12fba8f81",
+        "case_id": "P-empty",
+        "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "n_params": 3,
+        "commitment_sha256": "cccb843bfc62b448f65ce7329a4ebe3ff1a75021c847aadcb59b62abf467f7a3",
+        "edit_claim": {
+          "kind": "general_edit",
+          "status": "unknown",
+          "reason": "unsupported_claim"
+        },
+        "deployment_claim": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "contradicted",
+          "reason": "source_bytes_changed"
+        },
+        "under_final_claim": {
+          "kind": "general_edit",
+          "status": "unknown",
+          "reason": "unsupported_claim"
+        },
+        "source_changed": true,
+        "parameters_changed": false,
+        "edit_claim_changed": true,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": true,
+        "returned_to_base": false,
+        "initial_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "unspecified",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    {
+      "case_id": "S-x5",
+      "condition": "self",
+      "session_id": "S-x5-self",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "score": {
+        "complete": true,
+        "family": "symbolic",
+        "acceptable_simplification": false,
+        "achieved_improvement": false,
+        "metric_split": "train",
+        "nmse": 0.09180398722781567,
+        "baseline_nmse": 0.09180398722781567,
+        "delta_nmse": 0.0,
+        "n_params": 5,
+        "baseline_n_params": 5,
+        "parameter_delta": 0,
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": false,
+        "numerical_improvement": false,
+        "numerical_degradation": false,
+        "minimum_meaningful_gain": 1e-05,
+        "maximum_simplification_loss": 1e-05,
+        "degradation_threshold": 1e-05,
+        "complexity_proxy": "independent_parameter_count_only"
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "case_id": "S-x5",
+        "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "n_params": 5,
+        "commitment_sha256": "beff71219fa4da6d67dca02da3243ae5c53ad2ced278ff16223596de840baadf",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "deployment_claim": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "source_changed": false,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": true,
+        "initial_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    {
+      "case_id": "S-x5",
+      "condition": "checked",
+      "session_id": "S-x5-checked",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "score": {
+        "complete": true,
+        "family": "symbolic",
+        "acceptable_simplification": false,
+        "achieved_improvement": false,
+        "metric_split": "train",
+        "nmse": 0.09180398722781567,
+        "baseline_nmse": 0.09180398722781567,
+        "delta_nmse": 0.0,
+        "n_params": 5,
+        "baseline_n_params": 5,
+        "parameter_delta": 0,
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": false,
+        "numerical_improvement": false,
+        "numerical_degradation": false,
+        "minimum_meaningful_gain": 1e-05,
+        "maximum_simplification_loss": 1e-05,
+        "degradation_threshold": 1e-05,
+        "complexity_proxy": "independent_parameter_count_only"
+      },
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "case_id": "S-x5",
+        "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "n_params": 5,
+        "commitment_sha256": "331be2318f33ec5ca69765d92c7397ac8f36a1839982830aa2fb0fc7dfe93379",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "deployment_claim": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "source_changed": false,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": true,
+        "initial_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    }
+  ],
+  "limitations": [
+    "record_and_source_consistency_only_not_provider_authentication",
+    "no_candidate_VAL_or_probe_rerun",
+    "drafts_have_no_task_performance_measurement",
+    "fixed_seen_base_tasks_new_frozen_drafts_not_independent_tasks",
+    "one_pair_per_state_not_statistical_or_generalization_evidence",
+    "narrow_claim_support_does_not_certify_rationale_or_utility",
+    "no_strategy_or_weight_update"
+  ]
+}

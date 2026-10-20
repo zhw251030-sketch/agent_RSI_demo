@@ -1,0 +1,27 @@
+{
+  "version": "edit-commitment-v0.1",
+  "draft": {
+    "auxiliary": {
+      "forecast": {
+        "development_successes": "0"
+      }
+    },
+    "deployment_claim": "unspecified",
+    "edit_claim": "keep_bytes",
+    "n_params": 3,
+    "rationale": "Diagnostoc probe on both public instances reported \"contradicted\" (original failed and edge-whitespace-normalized plan also failed). The scoped probe thus did not establish that an isolated _fmt edge-whitespace patch would repair this artifact. I have no held-out or other evaluation evidence. To avoid asserting an unverified repair, I keep the exact original UTF-8 bytes and parameter metadata, do not claim the original commitment is fulfilled, and do not assert probe_repair_deployed or raw_validation as a deployment assumption. general_edit or apply_format_patch would be unsupported by the available evidence and risky on unseen development instances. forecast (auxiliary only, no semantic weight): development_successes = 0, consistent with historical metrics and contradicted probe.",
+    "source": "\"\"\"Greedy/BFS planner for spanner domain - v3.\"\"\"\n\nfrom collections import deque\n\n\ndef get_plan(objects, init, goal):\n    objects = list(objects)\n    init = set(init)\n    goal = set(goal)\n\n    men = [n for n, t in objects if t == \"man\"]\n    if not men:\n        return []\n    man = men[0]\n\n    spanners = sorted(n for n, t in objects if t == \"spanner\")\n    nuts = sorted(n for n, t in objects if t == \"nut\")\n\n    links = set()\n    for fact in init:\n        if fact[0] == \"link\":\n            links.add((fact[1], fact[2]))\n\n    # Initial state encoding.\n    spanner_locs = {}\n    spanner_usable = {}\n    nut_locs = {}\n    nut_loose = {}\n    man_loc = None\n    for fact in init:\n        if fact[0] == \"at\":\n            _, who, loc = fact\n            if who == man:\n                man_loc = loc\n            elif who in spanners:\n                spanner_locs[who] = loc\n            elif who in nuts:\n                nut_locs[who] = loc\n        elif fact[0] == \"useable\":\n            spanner_usable[fact[1]] = True\n        elif fact[0] == \"loose\":\n            nut_loose[fact[1]] = True\n\n    if man_loc is None:\n        return []\n\n    def state_key(man_loc, carried, sp_locs, sp_use, nu_loose):\n        return (man_loc, carried,\n                tuple(sorted(sp_locs.items())),\n                tuple(sorted(sp_use.items())),\n                tuple(sorted(nu_loose.items())))\n\n    def apply(mloc, carried, sp_locs, sp_use, nu_loose, action):\n        sp_locs = dict(sp_locs)\n        sp_use = dict(sp_use)\n        nu_loose = dict(nu_loose)\n        if action[0] == \"walk\":\n            mloc = action[2]\n        elif action[0] == \"pickup_spanner\":\n            s = action[2]\n            del sp_locs[s]\n            carried = s\n        elif action[0] == \"tighten_nut\":\n            n = action[4]\n            nu_loose[n] = False\n            sp_use[carried] = False\n            carried = None\n        return mloc, carried, sp_locs, sp_use, nu_loose\n\n    def goal_satisfied(nu_loose):\n        return all(not nu_loose.get(n, False) for n in nuts)\n\n    if goal_satisfied(nut_loose):\n        return []\n\n    initial = state_key(man_loc, None, spanner_locs, spanner_usable, nut_loose)\n    visited = {initial}\n    queue = deque([((man_loc, None, spanner_locs, spanner_usable, nut_loose), [])])\n\n    while queue:\n        (mloc, carried, sp_locs, sp_use, nu_loose), plan = queue.popleft()\n        actions = []\n\n        # Walk\n        for a, b in links:\n            if a == mloc:\n                actions.append((\"walk\", a, b, man))\n        # Pickup\n        for s in spanners:\n            if sp_locs.get(s) == mloc:\n                actions.append((\"pickup_spanner\", mloc, s, man))\n        # Tighten\n        if carried is not None and sp_use.get(carried, False):\n            for n in nuts:\n                if nu_loose.get(n, False) and nut_locs.get(n) == mloc:\n                    actions.append((\"tighten_nut\", mloc, carried, man, n))\n\n        for action in actions:\n            new_mloc, new_carried, new_sp_locs, new_sp_use, new_nu_loose = apply(\n                mloc, carried, sp_locs, sp_use, nu_loose, action\n            )\n            key = state_key(new_mloc, new_carried, new_sp_locs, new_sp_use, new_nu_loose)\n            if key in visited:\n                continue\n            new_plan = plan + [action]\n            if goal_satisfied(new_nu_loose):\n                return [_fmt(a) for a in new_plan]\n            visited.add(key)\n            queue.append(((new_mloc, new_carried, new_sp_locs, new_sp_use, new_nu_loose), new_plan))\n\n    return []\n\n\ndef _fmt(a):\n    if a[0] == \"walk\":\n        return f\"(walk {a[1]} {a[2]} {a[3]})\"\n    if a[0] == \"pickup_spanner\":\n        return f\"(pickup_spanner {a[1]} {a[2]} {a[3]})\"\n    if a[0] == \"tighten_nut\":\n        return f\"(tighten_nut {a[1]} {a[2]} {a[3]} {a[4]})\"\n    return str(a)\n",
+    "version": "edit-commitment-v0.1",
+    "status": "accepted",
+    "source_file": "draft.py",
+    "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+    "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+    "case_id": "P-empty"
+  },
+  "attempts": 1,
+  "halted": false,
+  "infrastructure_error_type": null,
+  "candidate_executions": 0,
+  "model_calls_owned": 0,
+  "sealed_tasks_executed": 0
+}

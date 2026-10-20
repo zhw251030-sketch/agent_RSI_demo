@@ -1,0 +1,1559 @@
+{
+  "version": "edit-commitment-v0.1",
+  "case_id": "P-format",
+  "family": "planning",
+  "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+  "probe_id": "planning_whitespace",
+  "target_id": "public_pair",
+  "attempts": 1,
+  "candidate": {
+    "candidate_id": "planning-001",
+    "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+    "source_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+    "n_params": 0,
+    "rationale": "Review decision: keep the base artifact rather than keep the draft's normalization, and apply the single registered _fmt whitespace patch instead. The archived probe reports that the unedited generator's plan is rejected by the host syntax gate at action 0 with error_kind operator_syntax on both public instances, while the same plan with only ASCII edge whitespace trimmed at inside payload edges (i.e. \"( walk shed bob )\" -> \"(walk shed bob)\") is accepted and passes VAL (plan_length 11). In the base source, _fmt inserts a space immediately after \"(\" and before \")\", so every emitted action has inner-edge whitespace; removing the two concatenation spaces in _fmt is a purely cosmetic change to the emitted strings. It preserves action names, argument tokens, case, order, count, the grounding predicates and the BFS logic, and the search semantics are unaffected. Uncertainty: the probe covers only the two public instances under one normalization contract; it is not evidence about the eight development instances, and nothing has been executed here, so I claim no success for this submission. Deployment is raw_validation: no probe-side repair is known to be applied before the executor's syntax gate, and the fix is carried in the submitted source itself.",
+    "auxiliary": {
+      "deployment_note": "The whitespace fix is inside the submitted source, so it does not depend on any probe-side repair reaching the final artifact.",
+      "forecast": {
+        "development_successes": 0
+      },
+      "probe_evidence_scope": "Archived probe feedback: edge normalization sufficient on 2 public instances only; not a development- or held-out-set result",
+      "unverified": "Final artifact has not been executed here; no success is claimed for it."
+    },
+    "source_file": "candidate.py",
+    "results": [
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "diagnostics": {
+          "candidate_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 11,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 11,
+            "status": "valid",
+            "unsatisfied_goals": [],
+            "unsatisfied_goals_truncated": false
+          },
+          "scope": "public_prompt",
+          "task_id": "spannerlearning/seed0/problem0",
+          "trace": {
+            "event_limit": 20000,
+            "events_seen": 20000,
+            "functions": [
+              {
+                "call_events": 1,
+                "container_length_max": 4,
+                "container_length_min": 4,
+                "exception_events": 0,
+                "first_line": 14,
+                "name": "_by_type",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "dict": 1
+                }
+              },
+              {
+                "call_events": 2,
+                "container_length_max": 18,
+                "container_length_min": 3,
+                "exception_events": 0,
+                "first_line": 31,
+                "name": "_norm",
+                "none_return_events": 0,
+                "return_events": 2,
+                "return_types": {
+                  "set": 2
+                }
+              },
+              {
+                "call_events": 75,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 39,
+                "name": "<genexpr>",
+                "none_return_events": 21,
+                "return_events": 75,
+                "return_types": {
+                  "none": 21,
+                  "str": 54
+                }
+              },
+              {
+                "call_events": 298,
+                "container_length_max": 1,
+                "container_length_min": 1,
+                "exception_events": 0,
+                "first_line": 45,
+                "name": "_loc_of",
+                "none_return_events": 0,
+                "return_events": 298,
+                "return_types": {
+                  "set": 298
+                }
+              },
+              {
+                "call_events": 596,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 46,
+                "name": "<genexpr>",
+                "none_return_events": 298,
+                "return_events": 596,
+                "return_types": {
+                  "none": 298,
+                  "str": 298
+                }
+              },
+              {
+                "call_events": 66,
+                "container_length_max": 9,
+                "container_length_min": 0,
+                "exception_events": 0,
+                "first_line": 49,
+                "name": "_actions",
+                "none_return_events": 0,
+                "return_events": 65,
+                "return_types": {
+                  "list": 65
+                }
+              },
+              {
+                "call_events": 179,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 51,
+                "name": "<genexpr>",
+                "none_return_events": 66,
+                "return_events": 179,
+                "return_types": {
+                  "none": 66,
+                  "str": 113
+                }
+              },
+              {
+                "call_events": 214,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 52,
+                "name": "<genexpr>",
+                "none_return_events": 66,
+                "return_events": 214,
+                "return_types": {
+                  "none": 66,
+                  "str": 148
+                }
+              },
+              {
+                "call_events": 214,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 53,
+                "name": "<genexpr>",
+                "none_return_events": 66,
+                "return_events": 214,
+                "return_types": {
+                  "none": 66,
+                  "str": 148
+                }
+              },
+              {
+                "call_events": 76,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 85,
+                "name": "_fmt",
+                "none_return_events": 0,
+                "return_events": 76,
+                "return_types": {
+                  "str": 76
+                }
+              },
+              {
+                "call_events": 1,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 89,
+                "name": "get_plan",
+                "none_return_events": 0,
+                "return_events": 0,
+                "return_types": {}
+              }
+            ],
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "interrupted": false,
+            "lines": [
+              {
+                "hits": 1,
+                "line": 15
+              },
+              {
+                "hits": 1,
+                "line": 16
+              },
+              {
+                "hits": 1,
+                "line": 17
+              },
+              {
+                "hits": 14,
+                "line": 20
+              },
+              {
+                "hits": 13,
+                "line": 21
+              },
+              {
+                "hits": 13,
+                "line": 22
+              },
+              {
+                "hits": 13,
+                "line": 25
+              },
+              {
+                "hits": 5,
+                "line": 26
+              },
+              {
+                "hits": 4,
+                "line": 27
+              },
+              {
+                "hits": 1,
+                "line": 28
+              },
+              {
+                "hits": 2,
+                "line": 32
+              },
+              {
+                "hits": 2,
+                "line": 33
+              },
+              {
+                "hits": 2,
+                "line": 34
+              },
+              {
+                "hits": 23,
+                "line": 37
+              },
+              {
+                "hits": 21,
+                "line": 38
+              },
+              {
+                "hits": 96,
+                "line": 39
+              },
+              {
+                "hits": 2,
+                "line": 42
+              },
+              {
+                "hits": 5776,
+                "line": 46
+              },
+              {
+                "hits": 66,
+                "line": 50
+              },
+              {
+                "hits": 1270,
+                "line": 51
+              },
+              {
+                "hits": 1270,
+                "line": 52
+              },
+              {
+                "hits": 1270,
+                "line": 53
+              },
+              {
+                "hits": 66,
+                "line": 54
+              },
+              {
+                "hits": 131,
+                "line": 55
+              },
+              {
+                "hits": 66,
+                "line": 56
+              },
+              {
+                "hits": 1204,
+                "line": 58
+              },
+              {
+                "hits": 1138,
+                "line": 59
+              },
+              {
+                "hits": 30,
+                "line": 60
+              },
+              {
+                "hits": 15,
+                "line": 61
+              },
+              {
+                "hits": 262,
+                "line": 63
+              },
+              {
+                "hits": 196,
+                "line": 64
+              },
+              {
+                "hits": 111,
+                "line": 65
+              },
+              {
+                "hits": 85,
+                "line": 66
+              },
+              {
+                "hits": 94,
+                "line": 67
+              },
+              {
+                "hits": 18,
+                "line": 68
+              },
+              {
+                "hits": 9,
+                "line": 69
+              },
+              {
+                "hits": 65,
+                "line": 71
+              },
+              {
+                "hits": 260,
+                "line": 73
+              },
+              {
+                "hits": 195,
+                "line": 74
+              },
+              {
+                "hits": 48,
+                "line": 75
+              },
+              {
+                "hits": 147,
+                "line": 76
+              },
+              {
+                "hits": 300,
+                "line": 77
+              },
+              {
+                "hits": 261,
+                "line": 78
+              },
+              {
+                "hits": 216,
+                "line": 79
+              },
+              {
+                "hits": 108,
+                "line": 80
+              },
+              {
+                "hits": 108,
+                "line": 81
+              },
+              {
+                "hits": 65,
+                "line": 82
+              },
+              {
+                "hits": 76,
+                "line": 86
+              },
+              {
+                "hits": 1,
+                "line": 90
+              },
+              {
+                "hits": 1,
+                "line": 91
+              },
+              {
+                "hits": 1,
+                "line": 92
+              },
+              {
+                "hits": 1,
+                "line": 93
+              },
+              {
+                "hits": 1,
+                "line": 95
+              },
+              {
+                "hits": 1,
+                "line": 96
+              },
+              {
+                "hits": 1,
+                "line": 97
+              },
+              {
+                "hits": 1,
+                "line": 98
+              },
+              {
+                "hits": 1,
+                "line": 99
+              },
+              {
+                "hits": 1,
+                "line": 101
+              },
+              {
+                "hits": 1,
+                "line": 102
+              },
+              {
+                "hits": 10,
+                "line": 103
+              },
+              {
+                "hits": 10,
+                "line": 104
+              },
+              {
+                "hits": 75,
+                "line": 105
+              },
+              {
+                "hits": 198,
+                "line": 106
+              },
+              {
+                "hits": 132,
+                "line": 107
+              },
+              {
+                "hits": 132,
+                "line": 108
+              },
+              {
+                "hits": 132,
+                "line": 109
+              },
+              {
+                "hits": 132,
+                "line": 110
+              },
+              {
+                "hits": 132,
+                "line": 111
+              },
+              {
+                "hits": 56,
+                "line": 112
+              },
+              {
+                "hits": 76,
+                "line": 113
+              },
+              {
+                "hits": 76,
+                "line": 114
+              },
+              {
+                "hits": 76,
+                "line": 116
+              },
+              {
+                "hits": 76,
+                "line": 118
+              },
+              {
+                "hits": 76,
+                "line": 119
+              },
+              {
+                "hits": 9,
+                "line": 120
+              },
+              {
+                "hits": 9,
+                "line": 122
+              }
+            ],
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "truncated": true
+          },
+          "version": "diagnostics-v0.1"
+        },
+        "elapsed_seconds": 0.070069,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.053808,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 4877
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 11,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "babe83a026ef473c8b952b0d38be2cb6",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem0",
+        "validator": {
+          "elapsed_seconds": 0.004706,
+          "plan_length": 11,
+          "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stdout_sha256": "14834fdde783bbef1efd9a11636f95bf67d5431ee2642dc28ecda6df255f57c2"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "diagnostics": {
+          "candidate_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 11,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 11,
+            "status": "valid",
+            "unsatisfied_goals": [],
+            "unsatisfied_goals_truncated": false
+          },
+          "scope": "public_prompt",
+          "task_id": "spannerlearning/seed0/problem1",
+          "trace": {
+            "event_limit": 20000,
+            "events_seen": 20000,
+            "functions": [
+              {
+                "call_events": 1,
+                "container_length_max": 4,
+                "container_length_min": 4,
+                "exception_events": 0,
+                "first_line": 14,
+                "name": "_by_type",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "dict": 1
+                }
+              },
+              {
+                "call_events": 2,
+                "container_length_max": 18,
+                "container_length_min": 3,
+                "exception_events": 0,
+                "first_line": 31,
+                "name": "_norm",
+                "none_return_events": 0,
+                "return_events": 2,
+                "return_types": {
+                  "set": 2
+                }
+              },
+              {
+                "call_events": 75,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 39,
+                "name": "<genexpr>",
+                "none_return_events": 21,
+                "return_events": 75,
+                "return_types": {
+                  "none": 21,
+                  "str": 54
+                }
+              },
+              {
+                "call_events": 295,
+                "container_length_max": 1,
+                "container_length_min": 1,
+                "exception_events": 0,
+                "first_line": 45,
+                "name": "_loc_of",
+                "none_return_events": 0,
+                "return_events": 295,
+                "return_types": {
+                  "set": 295
+                }
+              },
+              {
+                "call_events": 590,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 46,
+                "name": "<genexpr>",
+                "none_return_events": 295,
+                "return_events": 590,
+                "return_types": {
+                  "none": 295,
+                  "str": 295
+                }
+              },
+              {
+                "call_events": 67,
+                "container_length_max": 9,
+                "container_length_min": 0,
+                "exception_events": 0,
+                "first_line": 49,
+                "name": "_actions",
+                "none_return_events": 0,
+                "return_events": 67,
+                "return_types": {
+                  "list": 67
+                }
+              },
+              {
+                "call_events": 185,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 51,
+                "name": "<genexpr>",
+                "none_return_events": 67,
+                "return_events": 185,
+                "return_types": {
+                  "none": 67,
+                  "str": 118
+                }
+              },
+              {
+                "call_events": 212,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 52,
+                "name": "<genexpr>",
+                "none_return_events": 67,
+                "return_events": 212,
+                "return_types": {
+                  "none": 67,
+                  "str": 145
+                }
+              },
+              {
+                "call_events": 212,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 53,
+                "name": "<genexpr>",
+                "none_return_events": 67,
+                "return_events": 212,
+                "return_types": {
+                  "none": 67,
+                  "str": 145
+                }
+              },
+              {
+                "call_events": 75,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 85,
+                "name": "_fmt",
+                "none_return_events": 0,
+                "return_events": 75,
+                "return_types": {
+                  "str": 75
+                }
+              },
+              {
+                "call_events": 1,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 89,
+                "name": "get_plan",
+                "none_return_events": 0,
+                "return_events": 0,
+                "return_types": {}
+              }
+            ],
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "interrupted": false,
+            "lines": [
+              {
+                "hits": 1,
+                "line": 15
+              },
+              {
+                "hits": 1,
+                "line": 16
+              },
+              {
+                "hits": 1,
+                "line": 17
+              },
+              {
+                "hits": 14,
+                "line": 20
+              },
+              {
+                "hits": 13,
+                "line": 21
+              },
+              {
+                "hits": 13,
+                "line": 22
+              },
+              {
+                "hits": 13,
+                "line": 25
+              },
+              {
+                "hits": 5,
+                "line": 26
+              },
+              {
+                "hits": 4,
+                "line": 27
+              },
+              {
+                "hits": 1,
+                "line": 28
+              },
+              {
+                "hits": 2,
+                "line": 32
+              },
+              {
+                "hits": 2,
+                "line": 33
+              },
+              {
+                "hits": 2,
+                "line": 34
+              },
+              {
+                "hits": 23,
+                "line": 37
+              },
+              {
+                "hits": 21,
+                "line": 38
+              },
+              {
+                "hits": 96,
+                "line": 39
+              },
+              {
+                "hits": 2,
+                "line": 42
+              },
+              {
+                "hits": 5698,
+                "line": 46
+              },
+              {
+                "hits": 67,
+                "line": 50
+              },
+              {
+                "hits": 1284,
+                "line": 51
+              },
+              {
+                "hits": 1284,
+                "line": 52
+              },
+              {
+                "hits": 1284,
+                "line": 53
+              },
+              {
+                "hits": 67,
+                "line": 54
+              },
+              {
+                "hits": 134,
+                "line": 55
+              },
+              {
+                "hits": 67,
+                "line": 56
+              },
+              {
+                "hits": 1217,
+                "line": 58
+              },
+              {
+                "hits": 1150,
+                "line": 59
+              },
+              {
+                "hits": 26,
+                "line": 60
+              },
+              {
+                "hits": 13,
+                "line": 61
+              },
+              {
+                "hits": 268,
+                "line": 63
+              },
+              {
+                "hits": 201,
+                "line": 64
+              },
+              {
+                "hits": 118,
+                "line": 65
+              },
+              {
+                "hits": 83,
+                "line": 66
+              },
+              {
+                "hits": 92,
+                "line": 67
+              },
+              {
+                "hits": 18,
+                "line": 68
+              },
+              {
+                "hits": 9,
+                "line": 69
+              },
+              {
+                "hits": 67,
+                "line": 71
+              },
+              {
+                "hits": 268,
+                "line": 73
+              },
+              {
+                "hits": 201,
+                "line": 74
+              },
+              {
+                "hits": 56,
+                "line": 75
+              },
+              {
+                "hits": 145,
+                "line": 76
+              },
+              {
+                "hits": 293,
+                "line": 77
+              },
+              {
+                "hits": 257,
+                "line": 78
+              },
+              {
+                "hits": 218,
+                "line": 79
+              },
+              {
+                "hits": 109,
+                "line": 80
+              },
+              {
+                "hits": 109,
+                "line": 81
+              },
+              {
+                "hits": 67,
+                "line": 82
+              },
+              {
+                "hits": 75,
+                "line": 86
+              },
+              {
+                "hits": 1,
+                "line": 90
+              },
+              {
+                "hits": 1,
+                "line": 91
+              },
+              {
+                "hits": 1,
+                "line": 92
+              },
+              {
+                "hits": 1,
+                "line": 93
+              },
+              {
+                "hits": 1,
+                "line": 95
+              },
+              {
+                "hits": 1,
+                "line": 96
+              },
+              {
+                "hits": 1,
+                "line": 97
+              },
+              {
+                "hits": 1,
+                "line": 98
+              },
+              {
+                "hits": 1,
+                "line": 99
+              },
+              {
+                "hits": 1,
+                "line": 101
+              },
+              {
+                "hits": 1,
+                "line": 102
+              },
+              {
+                "hits": 11,
+                "line": 103
+              },
+              {
+                "hits": 11,
+                "line": 104
+              },
+              {
+                "hits": 77,
+                "line": 105
+              },
+              {
+                "hits": 197,
+                "line": 106
+              },
+              {
+                "hits": 131,
+                "line": 107
+              },
+              {
+                "hits": 131,
+                "line": 108
+              },
+              {
+                "hits": 131,
+                "line": 109
+              },
+              {
+                "hits": 131,
+                "line": 110
+              },
+              {
+                "hits": 131,
+                "line": 111
+              },
+              {
+                "hits": 56,
+                "line": 112
+              },
+              {
+                "hits": 75,
+                "line": 113
+              },
+              {
+                "hits": 75,
+                "line": 114
+              },
+              {
+                "hits": 75,
+                "line": 116
+              },
+              {
+                "hits": 1,
+                "line": 117
+              },
+              {
+                "hits": 74,
+                "line": 118
+              },
+              {
+                "hits": 74,
+                "line": 119
+              },
+              {
+                "hits": 10,
+                "line": 120
+              },
+              {
+                "hits": 10,
+                "line": 122
+              }
+            ],
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "truncated": true
+          },
+          "version": "diagnostics-v0.1"
+        },
+        "elapsed_seconds": 0.07339,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.056417,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 4901
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 11,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "b4b3d30c845744f5b04dee627006d130",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem1",
+        "validator": {
+          "elapsed_seconds": 0.004588,
+          "plan_length": 11,
+          "plan_sha256": "16d7ec48e6700629c34d9c4cb0c52e4d77c3b8328d897a2dbb804cc86465a76a",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stdout_sha256": "a87066412fc6f980527775987ed8bfd92f05d5de2f735dc0d9580e9e24e31810"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.054973,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.042075,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 390
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 10,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "ef3c44acee474108af9f632e3e2303ae",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem2",
+        "validator": {
+          "elapsed_seconds": 0.004105,
+          "plan_length": 10,
+          "plan_sha256": "5bcfc4db83ec3ea30ea53360d000ad877378ee21fe5deac3409c137ca49c4d35",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1900,
+          "stdout_sha256": "612a17d7bc6a6dd507e08b477d65a40c9f2c45db0109cd0ba201004d1cfef1f8"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.058136,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.046437,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 390
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 10,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "50d222b73dd74188adb86cd5ee056628",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem3",
+        "validator": {
+          "elapsed_seconds": 0.004049,
+          "plan_length": 10,
+          "plan_sha256": "43df46c5b097b7be42d3b7cdcbf6ae74078a1f0fff544e2440213926cacde8dd",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1900,
+          "stdout_sha256": "ebf276d76fa3b200c705d7b22dcd681637a95bc0adb4640324c5773b1f395824"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.055979,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.04166,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 456
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 12,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "be5629fb95bc469aae37197a9d62e9b3",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem4",
+        "validator": {
+          "elapsed_seconds": 0.00363,
+          "plan_length": 12,
+          "plan_sha256": "0ce2e1bcb3e240adb1320feae42fbf04364414d1ed0d2d7b8b479126be290c61",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2152,
+          "stdout_sha256": "783a71dc45ae2d72bbf82fac912c73fd4cc36bb91176adf5333b831f491cb565"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.05596,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.040025,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 456
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 12,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "ca53b83860a34fd4bc14700cb633234c",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem5",
+        "validator": {
+          "elapsed_seconds": 0.004424,
+          "plan_length": 12,
+          "plan_sha256": "59932793ebd4d3756f456bd11cb6c3f93fca1315309d9edaf17455b5b34d3659",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2152,
+          "stdout_sha256": "98c58142e719df13692d885ec4e5dd29bef76652d49b67ba08339e2158a0cae4"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.054554,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.039685,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 423
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 11,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "a5f5d40b6c7848f8b08d931c04f37fa9",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem6",
+        "validator": {
+          "elapsed_seconds": 0.004218,
+          "plan_length": 11,
+          "plan_sha256": "062a399314c3cfb430dc0a0e0022408a7a94b14258ee00f15c02e016fb0a7ef1",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stdout_sha256": "5b4661e43895dcdc529e3120deaaf08fa6531c9b08f014a53cd6e1f86c78318b"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.061245,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.047638,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 504
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 13,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "ad42e5da07b54499a437edebcb83f221",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem7",
+        "validator": {
+          "elapsed_seconds": 0.004036,
+          "plan_length": 13,
+          "plan_sha256": "05a9d5b0782e5c3e2df17f9baff5b069641bf72b1037e9459fd586edd0bf9778",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2323,
+          "stdout_sha256": "3731f480c54edf9dd9dbca511a47a08534871addb61f9b1e01a324571cdc0c6b"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.051784,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.037102,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 423
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 11,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "35187a724c4442138e5b04219523a4c5",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem8",
+        "validator": {
+          "elapsed_seconds": 0.004282,
+          "plan_length": 11,
+          "plan_sha256": "4622ecbec1e281d44483226e038666a6bd554f3715c8196433ba667431e4c24f",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stdout_sha256": "3b0bce3b30936f41735e7fd13999527c8ccfa191838ade7abc0282ecb8c22224"
+        }
+      },
+      {
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.054592,
+        "error_kind": null,
+        "executions": [
+          {
+            "elapsed_seconds": 0.039178,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 390
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "plan_length": 10,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "run_id": "5bf59fa5dc114f98a8a4c5a4eae73d61",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "edit-commitment-v0.1",
+        "task_id": "spannerlearning/seed0/problem9",
+        "validator": {
+          "elapsed_seconds": 0.004338,
+          "plan_length": 10,
+          "plan_sha256": "b426e4512c3ed04583e217b9021f3bd8536b859c9ce4bfd738538045568d85e3",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "status": "valid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1900,
+          "stdout_sha256": "685bd432478eeb4aea5a048ea231bcf07fa14e8906af0236276cdd8a5f1514e6"
+        }
+      }
+    ],
+    "evaluation_files": [
+      "evaluations/evaluation-00.json",
+      "evaluations/evaluation-01.json",
+      "evaluations/evaluation-02.json",
+      "evaluations/evaluation-03.json",
+      "evaluations/evaluation-04.json",
+      "evaluations/evaluation-05.json",
+      "evaluations/evaluation-06.json",
+      "evaluations/evaluation-07.json",
+      "evaluations/evaluation-08.json",
+      "evaluations/evaluation-09.json"
+    ],
+    "status": "evaluated",
+    "edit": {
+      "kind": "exact_format_patch",
+      "source_changed": true,
+      "parameter_delta": 0,
+      "semantic_equivalence_proven": false
+    },
+    "score": {
+      "complete": true,
+      "family": "planning",
+      "acceptable_simplification": null,
+      "achieved_improvement": true,
+      "development_successes": 8,
+      "development_total": 8,
+      "prompt_successes": 2,
+      "prompt_total": 2,
+      "total_successes": 10,
+      "total_tasks": 10,
+      "baseline_development_successes": 0,
+      "baseline_prompt_successes": 0,
+      "development_delta": 8,
+      "prompt_delta": 2,
+      "meaningful_improvement": true,
+      "degraded": false,
+      "parameter_increase_without_meaningful_gain": null,
+      "numerical_improvement": true,
+      "numerical_degradation": false
+    },
+    "forecast": {
+      "status": "evaluated",
+      "metric": "development_successes",
+      "predicted": 0,
+      "observed": 8,
+      "absolute_error": 8
+    },
+    "edit_claim": "apply_format_patch",
+    "deployment_claim": "raw_validation",
+    "commitment_check": {
+      "version": "edit-commitment-v0.1",
+      "source_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+      "case_id": "P-format",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "n_params": 0,
+      "commitment_sha256": "38bf7cbc888ce881277a591f5fa7566e2948d98c8eb84b545474a5b60e327791",
+      "edit_claim": {
+        "kind": "apply_format_patch",
+        "status": "supported",
+        "reason": "whole_ast_equals_exact_formatter_patch"
+      },
+      "deployment_claim": {
+        "kind": "raw_validation",
+        "status": "supported",
+        "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+        "scope": "This runtime only; not a general proof about execution hosts."
+      },
+      "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+    },
+    "review_change": {
+      "initial_claim": {
+        "kind": "apply_format_patch",
+        "status": "contradicted",
+        "reason": "candidate_ast_differs_from_exact_formatter_patch"
+      },
+      "under_original_claim": {
+        "status": "supported",
+        "reason": "whole_ast_equals_exact_formatter_patch"
+      },
+      "under_final_claim": {
+        "kind": "apply_format_patch",
+        "status": "supported",
+        "reason": "whole_ast_equals_exact_formatter_patch"
+      },
+      "source_changed": true,
+      "parameters_changed": false,
+      "edit_claim_changed": false,
+      "deployment_claim_changed": false,
+      "original_commitment_repaired": true,
+      "declaration_only_change": false,
+      "final_general_edit": false,
+      "returned_to_base": false,
+      "initial_deployment": {
+        "kind": "raw_validation",
+        "status": "supported",
+        "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+        "scope": "This runtime only; not a general proof about execution hosts."
+      },
+      "final_deployment": {
+        "kind": "raw_validation",
+        "status": "supported",
+        "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+        "scope": "This runtime only; not a general proof about execution hosts."
+      },
+      "draft_task_performance": "not_measured"
+    }
+  },
+  "halted": false,
+  "infrastructure_error_type": null,
+  "counts": {
+    "candidate_evaluations": 10,
+    "sandbox_calls": 10,
+    "counts_complete": true
+  },
+  "generated_candidates": 1,
+  "model_calls_owned": 0,
+  "sealed_tasks_executed": 0,
+  "underlying_controller_version": "decision-core-v0.1",
+  "stage": "review"
+}

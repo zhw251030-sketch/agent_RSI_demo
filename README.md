@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**最新已完成16份历史提交的编辑一致性离线检查。** 14条人工提取的窄编辑谓词支持、2条未知；明确逐字保持声明有1条仅因末尾换行不符。部署假设与编辑落实分开核对，本轮零模型/零候选执行，34项测试双端全通过、报告字节一致。见[本轮完整说明](docs/operations/edit-consistency.md)、[逐例结果](docs/analysis/2026-10-21-edit-consistency-results.md)与[核验](docs/environment/2026-10-21-edit-consistency-verification.json)。不认证完整解释或机制有效性。
+**最新已完成共享草稿与编辑承诺的真实对照。** 12次请求得到4草稿和8终稿；P-format自行复查真正修复达到10/10，检查组仅改声明仍0/10；两符号两臂均原样。四对请求输入及217原档核验通过。本轮揭示声明一致性与任务收益的差别，尚无独立机制优势。见[本轮完整说明](docs/operations/edit-commitment.md)、[逐例结果](docs/analysis/2026-10-21-edit-commitment-results.md)和[验收](docs/environment/2026-10-21-edit-commitment-verification.json)。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -13,9 +13,9 @@
 | 研究路线 | 已选择形式规划与符号发现一起推进；基础 LLM 权重固定 |
 | 规划任务 | Spanner 的 400 问题与域文件已下载到服务器，完整性检查和固定 prompt 的 VAL 验收通过；seed0 的2提示/8开发已运行，30封存题未评分 |
 | 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，oscillator1/train已开发运行，独立评价协议待冻结 |
-| 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，已完成首次更新；最新两初稿各做self/checked复查并冻结，四状态后续评价完成 |
+| 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，已完成历史首次更新；最新是编辑承诺组件对照，未再次更新S |
 | 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前759项不同服务器测试通过 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，本轮91项相关服务器测试全通过（此前各轮测试记录分别保留） |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 

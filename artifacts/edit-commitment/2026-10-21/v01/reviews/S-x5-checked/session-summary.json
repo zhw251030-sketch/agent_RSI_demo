@@ -1,0 +1,313 @@
+{
+  "session_id": "S-x5-checked",
+  "stage": "review",
+  "adapter_version": "commitment-agent-v0.1",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "version": "edit-commitment-v0.1",
+    "case_id": "S-x5",
+    "family": "symbolic",
+    "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "probe_id": "symbolic_term_removal",
+    "target_id": "param4",
+    "attempts": 1,
+    "candidate": {
+      "candidate_id": "symbolic-001",
+      "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "n_params": 5,
+      "rationale": "Decision: keep the original artifact byte-for-byte (keep_bytes), 5 parameters, deployment raw_validation.\n\nEvidence summary:\n- Pre-registered probe removed only param4 (the d2*x**5 term) and refit on the 10000 training rows. delta_nmse = 7.18e-07 < epsilon = 1e-05, so the removal probe is \"contradicted\" (does not support simplification).\n- canonical_full sham drift 1.4e-17 confirms the refit pipeline is numerically trustworthy and the original is reproducible.\n- No meaningful gain (NMSE decrease > 1e-05) is observed: original and canonical_full have NMSE ~0.09180398723, essentially identical.\n- The probe covers exactly param4 only; other terms' necessity is unknown and I do not extrapolate.\n- Per the decision contract, evidence against deleting a term does not support adding a new term or extra parameters, so I do not invent structural edits.\n\nEdit claim: keep_bytes — the submitted source is byte-identical to the original base (sha256 6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e).\n\nDeployment claim: raw_validation — I claim only that the final executor checks the submitted source against its original syntax gate before later token normalization; I do not claim it passes that gate. No diagnostic-copy repair was applied to the final artifact, so probe_repair_deployed would be false.\n\nUncertainty:\n- All scores are train-split values on oscillator1 only; no held-out, physical-necessity, optimality or generalization claim follows.\n- No final evaluation of this artifact has been observed by me; I do not claim it succeeds before evaluation.\n- Removing param4 would likely score within epsilon on train, but its evaluation status is unknown and I do not claim it as a successful simplification.\n\nAuxiliary forecast (development observation only, not a result claim): nmse ~ 0.0918 on oscillator1/train.",
+      "auxiliary": {
+        "forecast": {
+          "nmse": "0.0918"
+        },
+        "scope_note": "Development observation only; no held-out or generalization claim."
+      },
+      "source_file": "candidate.py",
+      "results": [
+        {
+          "candidate_hash": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+          "candidate_id": "symbolic-001",
+          "diagnostics": {
+            "candidate_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+            "residuals": {
+              "bias": 7.422000601366525e-05,
+              "binning_method": "linear_quantile",
+              "inputs": [
+                {
+                  "bins": [
+                    {
+                      "count": 2500,
+                      "lower": -0.5728219032885896,
+                      "mean_residual": -0.00023826826484560378,
+                      "rmse": 0.013814511461738734,
+                      "upper": -0.46038220456877554,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.46038220456877554,
+                      "mean_residual": 0.0016353239465025729,
+                      "rmse": 0.021579007504591654,
+                      "upper": -0.22761842703089324,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.22761842703089324,
+                      "mean_residual": -0.0017273291041812854,
+                      "rmse": 0.01695804351723196,
+                      "upper": 0.28635886598470794,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": 0.28635886598470794,
+                      "mean_residual": 0.0006271534465789773,
+                      "rmse": 0.025655116155273203,
+                      "upper": 0.5275126203368584,
+                      "upper_inclusive": true
+                    }
+                  ],
+                  "boundaries": [
+                    -0.5728219032885896,
+                    -0.46038220456877554,
+                    -0.22761842703089324,
+                    0.28635886598470794,
+                    0.5275126203368584
+                  ],
+                  "name": "x"
+                },
+                {
+                  "bins": [
+                    {
+                      "count": 2500,
+                      "lower": -0.17542969970098574,
+                      "mean_residual": -0.0014655893832921675,
+                      "rmse": 0.015551755746377688,
+                      "upper": -0.13719210123484957,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.13719210123484957,
+                      "mean_residual": 0.0019501968750964714,
+                      "rmse": 0.01906274458315923,
+                      "upper": -0.04814716714891003,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": -0.04814716714891003,
+                      "mean_residual": -0.0005061747055151089,
+                      "rmse": 0.011098089827017375,
+                      "upper": 0.09524424826668271,
+                      "upper_inclusive": false
+                    },
+                    {
+                      "count": 2500,
+                      "lower": 0.09524424826668271,
+                      "mean_residual": 0.0003184472377654661,
+                      "rmse": 0.029560811576076908,
+                      "upper": 0.282136353640072,
+                      "upper_inclusive": true
+                    }
+                  ],
+                  "boundaries": [
+                    -0.17542969970098574,
+                    -0.13719210123484957,
+                    -0.04814716714891003,
+                    0.09524424826668271,
+                    0.282136353640072
+                  ],
+                  "name": "v"
+                }
+              ],
+              "n": 10000,
+              "residual_definition": "prediction - target",
+              "rmse": 0.02001408576904418,
+              "scope": "train",
+              "standardized_bias": 0.0011236110473743723,
+              "standardized_bias_definition": "bias / population_std(target)",
+              "standardized_bias_reason": null,
+              "status": "ok"
+            },
+            "scope": "train",
+            "task_id": "oscillator1",
+            "version": "diagnostics-v0.1"
+          },
+          "elapsed_seconds": 0.512738,
+          "executions": [
+            {
+              "elapsed_seconds": 0.223739,
+              "phase": "fit",
+              "status": "completed",
+              "stderr_bytes": 0,
+              "stdout_bytes": 181
+            },
+            {
+              "elapsed_seconds": 0.209895,
+              "phase": "predict",
+              "status": "completed",
+              "stderr_bytes": 0,
+              "stdout_bytes": 205086
+            }
+          ],
+          "family": "symbolic",
+          "feedback_role": "development_only",
+          "fitting": {
+            "candidate_calls": 21,
+            "converged": true,
+            "max_nfev": 100,
+            "n_params": 5,
+            "nfev": 5,
+            "params": [
+              0.18826767613343184,
+              -0.08444560567969996,
+              -0.12034880397483333,
+              0.4184073771863192,
+              0.021661410323328873
+            ],
+            "split": "train"
+          },
+          "limits": {
+            "cpu_seconds": 10,
+            "max_output_bytes": 2000000,
+            "memory_mb": 2048,
+            "timeout_seconds": 20
+          },
+          "metric_scope": "Training fit only; not a held-out or generalization result.",
+          "metric_split": "train",
+          "metrics": {
+            "mse": 0.0004005636291706567,
+            "nmse": 0.09180398722781567
+          },
+          "model_calls": 0,
+          "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+          "run_id": "e66e56af993244fc94a5217a06616d42",
+          "schema_version": "0.1",
+          "sealed_tasks_executed": 0,
+          "status": "success",
+          "strategy_version": "edit-commitment-v0.1",
+          "task_id": "oscillator1"
+        }
+      ],
+      "evaluation_files": [
+        "evaluations/evaluation-00.json"
+      ],
+      "status": "evaluated",
+      "edit": {
+        "kind": "unchanged",
+        "source_changed": false,
+        "parameter_delta": 0,
+        "semantic_equivalence_proven": false
+      },
+      "score": {
+        "complete": true,
+        "family": "symbolic",
+        "acceptable_simplification": false,
+        "achieved_improvement": false,
+        "metric_split": "train",
+        "nmse": 0.09180398722781567,
+        "baseline_nmse": 0.09180398722781567,
+        "delta_nmse": 0.0,
+        "n_params": 5,
+        "baseline_n_params": 5,
+        "parameter_delta": 0,
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "meaningful_improvement": false,
+        "degraded": false,
+        "parameter_increase_without_meaningful_gain": false,
+        "numerical_improvement": false,
+        "numerical_degradation": false,
+        "minimum_meaningful_gain": 1e-05,
+        "maximum_simplification_loss": 1e-05,
+        "degradation_threshold": 1e-05,
+        "complexity_proxy": "independent_parameter_count_only"
+      },
+      "forecast": {
+        "status": "schema_invalid",
+        "metric": "nmse",
+        "predicted": null,
+        "observed": null,
+        "absolute_error": null
+      },
+      "edit_claim": "keep_bytes",
+      "deployment_claim": "raw_validation",
+      "commitment_check": {
+        "version": "edit-commitment-v0.1",
+        "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "case_id": "S-x5",
+        "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "n_params": 5,
+        "commitment_sha256": "331be2318f33ec5ca69765d92c7397ac8f36a1839982830aa2fb0fc7dfe93379",
+        "edit_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "deployment_claim": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "scope": "Named static relation only; not a proof of rationale, utility or arbitrary semantics."
+      },
+      "review_change": {
+        "initial_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_original_claim": {
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "under_final_claim": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "source_changed": false,
+        "parameters_changed": false,
+        "edit_claim_changed": false,
+        "deployment_claim_changed": false,
+        "original_commitment_repaired": false,
+        "declaration_only_change": false,
+        "final_general_edit": false,
+        "returned_to_base": true,
+        "initial_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "final_deployment": {
+          "kind": "raw_validation",
+          "status": "unknown",
+          "reason": "not_applicable_or_unspecified"
+        },
+        "draft_task_performance": "not_measured"
+      }
+    },
+    "halted": false,
+    "infrastructure_error_type": null,
+    "counts": {
+      "candidate_evaluations": 1,
+      "sandbox_calls": 2,
+      "counts_complete": true
+    },
+    "generated_candidates": 1,
+    "model_calls_owned": 0,
+    "sealed_tasks_executed": 0,
+    "underlying_controller_version": "decision-core-v0.1",
+    "stage": "review"
+  }
+}
