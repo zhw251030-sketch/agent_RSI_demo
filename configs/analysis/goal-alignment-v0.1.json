@@ -1,0 +1,40 @@
+{
+  "version": "goal-alignment-replay-v0.1",
+  "mode": "retrospective_all_submissions_no_counterfactual_strategy_claim",
+  "archives": [
+    {
+      "id": "decision-replay-v01",
+      "path": "artifacts/decision-replay/2026-10-21/v01",
+      "manifest_sha256": "0b32ada07fbc53761ba85a11dd521595a80d4befeebb138cad2d434eb35dc705",
+      "map_key": "raw_files",
+      "raw_file_count": 303,
+      "raw_tree_sha256": "065029305dd3434661889d3f508f56b94af3c89f7d790c1630cc489ff1166dd5",
+      "candidate_count": 16,
+      "summary_key": "revisions",
+      "directory": "sessions"
+    },
+    {
+      "id": "edit-commitment-v01",
+      "path": "artifacts/edit-commitment/2026-10-21/v01",
+      "manifest_sha256": "273ce6d00bc53eb35f5aa0749969a371821996c777aa20a592e1ce4d947b3ab9",
+      "map_key": "files",
+      "raw_file_count": 217,
+      "raw_tree_sha256": "88f518db634e050c4f51a616d66845ff3bd3849c845c3f9f02e4b4f8c0fd147d",
+      "candidate_count": 8,
+      "summary_key": "reviews",
+      "directory": "reviews"
+    }
+  ],
+  "expected_submissions": 24,
+  "expected_case_ids": ["P-format", "P-empty", "S-v3", "S-x5"],
+  "minimum_meaningful_gain": 0.00001,
+  "maximum_simplification_loss": 0.00001,
+  "numeric_tolerance": 0.0000000001,
+  "planning_preserve_previous_successes": true,
+  "allow_general_edits": true,
+  "draft_task_scores": "not_measured_excluded",
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "strategy_selection_executed": false,
+  "persistent_strategy_updated": false
+}
