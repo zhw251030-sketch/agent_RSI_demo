@@ -1,0 +1,2944 @@
+{
+  "version": "inference-policy-analysis-v0.1",
+  "status": "verified",
+  "updates": [
+    {
+      "pair_id": "p1",
+      "condition": "proposal",
+      "session_id": "p1-proposal",
+      "requested": true,
+      "accepted": true,
+      "frozen": true,
+      "disposition": "available",
+      "request_id": "request-0001",
+      "input_bytes": 36035,
+      "payload_sha256": "ec3705bf949a58e9ab20dc3385e7208b7ff0c37c54c1f5baeed25325d20cb696",
+      "response_sha256": "6089f89504d16dcfe7182e24170e02793f592328b49bfd6902b8c89d52c7b5ac",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 10309,
+        "completion_tokens": 569,
+        "total_tokens": 10878
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "accepted",
+        "halted": false,
+        "attempted": true,
+        "policy_changed": false,
+        "no_op": true,
+        "policy_sha256": "28ee01d94de1b3f21659d67ed7229c890a9cf8c6c1455656fe84c19c095698c0",
+        "all_checked_pass": false,
+        "passed_checks": 3,
+        "total_checks": 4,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with four inference evidence conditions."
+      },
+      "literal_submission": {
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Policy selection rationale (archived, unverified): D-P source diff shows directed-link fix vs undirected adjacency and addition of precondition-checked emit_* helpers (R03: environment not rewritten; R08: complete valid repair). D-S shows NMSE improvement but MSE forecast missed (R04: MSE/NMSE not interchangeable; R06: v^2 addition is a marginal hypothesis contradicted by tiny gain). C2 unknown because edit_contract is null. C4 unknown because matched_interventions is empty.",
+        "rule_1": "R03",
+        "rule_2": "R04",
+        "rule_3": "R06",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown"
+      },
+      "literal_structural_status": "valid",
+      "schema_length_issues": [],
+      "event_counts": {
+        "actions": 1,
+        "observations": 1,
+        "agent_errors": 0
+      },
+      "tool_call_id": "call_01a1596229be77a0b6de5567",
+      "llm_response_id": "chatcmpl-3b611310-8003-4532-8799-c417e7dbc1fb",
+      "selected_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R03",
+          "R04",
+          "R06",
+          "R08"
+        ]
+      },
+      "no_op": true,
+      "checks": {
+        "version": "inference-evidence-checks-v0.1",
+        "structural_status": "valid",
+        "assessments": [
+          {
+            "claim_id": "C1",
+            "case_id": "D-P",
+            "proposition": "The parent and child source bytes differ.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Exact source-byte comparison only; not repair correctness.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "source_bytes_changed": true,
+              "ast_equal": false
+            },
+            "reason": "Source hashes decide byte identity only.",
+            "claimed_verdict": "supported",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C2",
+            "case_id": "D-P",
+            "proposition": "The specific repair intended in the historical rationale was not implemented.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Requires a predeclared executable edit contract to judge the specific repair; source changes or execution failure alone cannot decide this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "predeclared_executable_edit_contract"
+            ],
+            "details": {
+              "source_bytes_changed": true
+            },
+            "reason": "A source diff does not decide whether the specific intended repair was implemented.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C3",
+            "case_id": "D-S",
+            "proposition": "Official training NMSE improved, but the registered forecast missed its target.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "A conjunction of official NMSE change and the forecast on its own registered metric; MSE and NMSE are not interchangeable.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_scope": "train",
+              "forecast_status": "contradicted",
+              "forecast_actual_delta": 6.527051946320929e-07,
+              "forecast_min_delta": 0.0001
+            },
+            "reason": "Compare official NMSE and the independently registered forecast on its original metric.",
+            "claimed_verdict": "contradicted",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "overclaim",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C4",
+            "case_id": "D-S",
+            "proposition": "The added structure is unnecessary for the current performance.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "Requires a matched intervention on the target structure; small gain, missed forecast, or failure to prove necessity cannot establish this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "matched_structure_intervention"
+            ],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_status": "contradicted"
+            },
+            "reason": "Neither a missed forecast nor the size of observed gain identifies structure necessity.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          }
+        ],
+        "auxiliary_status": "well_formed",
+        "notes_status": "unverified",
+        "passed_checks": 3,
+        "total_checks": 4,
+        "all_checked_pass": false,
+        "applicability_certified": false,
+        "open_text_certified": false,
+        "scope": "Four frozen evidence-contract propositions, not a general semantic or causal oracle."
+      },
+      "submission": {
+        "rule_1": "R03",
+        "rule_2": "R04",
+        "rule_3": "R06",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown",
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Policy selection rationale (archived, unverified): D-P source diff shows directed-link fix vs undirected adjacency and addition of precondition-checked emit_* helpers (R03: environment not rewritten; R08: complete valid repair). D-S shows NMSE improvement but MSE forecast missed (R04: MSE/NMSE not interchangeable; R06: v^2 addition is a marginal hypothesis contradicted by tiny gain). C2 unknown because edit_contract is null. C4 unknown because matched_interventions is empty."
+      },
+      "applicability_certified": false,
+      "sdk_top_level_null_fields": [],
+      "omitted_auxiliary_defaults": [],
+      "freeze_sha256": "e3e669ca81ccbab885edd2baf063971659de95f6f4323057ac0a415ebcfdd934"
+    },
+    {
+      "pair_id": "p1",
+      "condition": "self",
+      "session_id": "p1-self",
+      "requested": true,
+      "accepted": true,
+      "frozen": true,
+      "disposition": "available",
+      "request_id": "request-0002",
+      "input_bytes": 36896,
+      "payload_sha256": "5310aa1c9521862ba69e0a533823d425efbf36e7e495b1355501b4f18aee4e7b",
+      "response_sha256": "e05c4b85626081340b5994bc41a2c8e20c84368b0daab142afce8d9983b32fc5",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 10506,
+        "completion_tokens": 634,
+        "total_tokens": 11140
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "accepted",
+        "halted": false,
+        "attempted": true,
+        "policy_changed": false,
+        "no_op": true,
+        "policy_sha256": "28ee01d94de1b3f21659d67ed7229c890a9cf8c6c1455656fe84c19c095698c0",
+        "all_checked_pass": false,
+        "passed_checks": 3,
+        "total_checks": 4,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with four inference evidence conditions."
+      },
+      "literal_submission": {
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Rule choices rest on supplied updates only: D-P diff evidences directed-link preservation and emit_* precondition scaffolding (R03, R08); D-S metrics+forecast evidence the MSE/NMSE non-substitution (R04) and frame the v^2 addition as a marginal hypothesis contradicted by a sub-threshold delta (R06). C2 stays unknown because edit_contract is null; C4 stays unknown because matched_interventions is empty — neither edit-contract nor ablation evidence was supplied.",
+        "rule_1": "R03",
+        "rule_2": "R04",
+        "rule_3": "R06",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown"
+      },
+      "literal_structural_status": "valid",
+      "schema_length_issues": [],
+      "event_counts": {
+        "actions": 1,
+        "observations": 1,
+        "agent_errors": 0
+      },
+      "tool_call_id": "call_s7gmQ4BOliuiNzZQcV0ycFSk",
+      "llm_response_id": "chatcmpl-04ebaa62-cd60-457f-af41-823005f6b4d3",
+      "selected_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R03",
+          "R04",
+          "R06",
+          "R08"
+        ]
+      },
+      "no_op": true,
+      "checks": {
+        "version": "inference-evidence-checks-v0.1",
+        "structural_status": "valid",
+        "assessments": [
+          {
+            "claim_id": "C1",
+            "case_id": "D-P",
+            "proposition": "The parent and child source bytes differ.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Exact source-byte comparison only; not repair correctness.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "source_bytes_changed": true,
+              "ast_equal": false
+            },
+            "reason": "Source hashes decide byte identity only.",
+            "claimed_verdict": "supported",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C2",
+            "case_id": "D-P",
+            "proposition": "The specific repair intended in the historical rationale was not implemented.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Requires a predeclared executable edit contract to judge the specific repair; source changes or execution failure alone cannot decide this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "predeclared_executable_edit_contract"
+            ],
+            "details": {
+              "source_bytes_changed": true
+            },
+            "reason": "A source diff does not decide whether the specific intended repair was implemented.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C3",
+            "case_id": "D-S",
+            "proposition": "Official training NMSE improved, but the registered forecast missed its target.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "A conjunction of official NMSE change and the forecast on its own registered metric; MSE and NMSE are not interchangeable.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_scope": "train",
+              "forecast_status": "contradicted",
+              "forecast_actual_delta": 6.527051946320929e-07,
+              "forecast_min_delta": 0.0001
+            },
+            "reason": "Compare official NMSE and the independently registered forecast on its original metric.",
+            "claimed_verdict": "contradicted",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "overclaim",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C4",
+            "case_id": "D-S",
+            "proposition": "The added structure is unnecessary for the current performance.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "Requires a matched intervention on the target structure; small gain, missed forecast, or failure to prove necessity cannot establish this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "matched_structure_intervention"
+            ],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_status": "contradicted"
+            },
+            "reason": "Neither a missed forecast nor the size of observed gain identifies structure necessity.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          }
+        ],
+        "auxiliary_status": "well_formed",
+        "notes_status": "unverified",
+        "passed_checks": 3,
+        "total_checks": 4,
+        "all_checked_pass": false,
+        "applicability_certified": false,
+        "open_text_certified": false,
+        "scope": "Four frozen evidence-contract propositions, not a general semantic or causal oracle."
+      },
+      "submission": {
+        "rule_1": "R03",
+        "rule_2": "R04",
+        "rule_3": "R06",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown",
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Rule choices rest on supplied updates only: D-P diff evidences directed-link preservation and emit_* precondition scaffolding (R03, R08); D-S metrics+forecast evidence the MSE/NMSE non-substitution (R04) and frame the v^2 addition as a marginal hypothesis contradicted by a sub-threshold delta (R06). C2 stays unknown because edit_contract is null; C4 stays unknown because matched_interventions is empty — neither edit-contract nor ablation evidence was supplied."
+      },
+      "applicability_certified": false,
+      "sdk_top_level_null_fields": [],
+      "omitted_auxiliary_defaults": [],
+      "freeze_sha256": "cc5ff4b719fa140302402fa194025e35c2f3008ce86bcf139bc0c59da72f10ff"
+    },
+    {
+      "pair_id": "p1",
+      "condition": "checked",
+      "session_id": "p1-checked",
+      "requested": true,
+      "accepted": true,
+      "frozen": true,
+      "disposition": "available",
+      "request_id": "request-0003",
+      "input_bytes": 40366,
+      "payload_sha256": "78ed5b0f5d593f5d7511985b4985a93b00f68bcbe2382a125565a12886f8dce2",
+      "response_sha256": "8f6dec584a87b4ef535d463913424e474074ba1d3e77ce4c8e4c68598b16180a",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 11215,
+        "completion_tokens": 685,
+        "total_tokens": 11900
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "accepted",
+        "halted": false,
+        "attempted": true,
+        "policy_changed": true,
+        "no_op": false,
+        "policy_sha256": "cdf1f14c0b937d647e757d1244614114dc43e47d7f25e9c4e76484d0e9345801",
+        "all_checked_pass": true,
+        "passed_checks": 4,
+        "total_checks": 4,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with four inference evidence conditions."
+      },
+      "literal_submission": {
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Archived, unverified. Selection rationale: (R02) D-P shows the parent's actual earliest failure was a precondition failure at executed action 7 (\"walk gate location4 bob\", missing [link gate location4]) despite plan_length 21/15, while the child's earliest executed failure disappeared (status goal_unsatisfied, first_failed_action null) — grounding diagnosis in observed execution rather than proposed plan length. (R05) The only concrete defect signal in D-P is a missing directed link precondition on a walk step, so repair should target the walk-emission location; D-S's differential v-bin RMSE motivated a v^2 term that yielded only ~6.5e-07 MSE delta against a 1e-4 target. (R04) D-S's registered forecast was on train mse with min_delta 1e-4, while the official reported gain is nmse (0.0959173 -> 0.0957677); mse and nmse are distinct statistics and neither substitutes for the other. (R07) The D-S forecast threshold (min_delta 1e-4) was disproportionate to the ~6.5e-07 observed change and should have been scaled to the effect size the diagnostics could support; D-P's forecast with actual_delta 0.0 against min_delta 1.0 likewise predicted improvement that never appeared. Retaining R03 and R08 as important as good practice but noting both examples showed forecast contradicted despite apparently valid, minimal, non-environment-rewriting edits, so the parent/proposal emphasis on hypothesis-framing (R06) and repair-completeness (R08) is retained only indirectly; necessity claims still stay unknown (C4) with no matched intervention. Verdicts: C1 supported (source bytes/hashes differ). C2 unknown — edit_contract is null, so no executable contract decides whether the intended repair was implemented. C3 supported — official nmse improved (gain ~1.5e-04) while the registered forecast on train mse with min_delta 1e-4 was contradicted (actual_delta ~6.5e-07). C4 unknown — no matched intervention exists; a tiny gain or missed forecast cannot establish the v^2 structure is unnecessary.",
+        "rule_1": "R02",
+        "rule_2": "R05",
+        "rule_3": "R04",
+        "rule_4": "R07",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "supported",
+        "verdict_4": "unknown"
+      },
+      "literal_structural_status": "valid",
+      "schema_length_issues": [],
+      "event_counts": {
+        "actions": 1,
+        "observations": 1,
+        "agent_errors": 0
+      },
+      "tool_call_id": "call_01a1596271f076f3bd3a1bf9",
+      "llm_response_id": "chatcmpl-82c1a05a-42fb-4746-a508-a2f994e7e8bc",
+      "selected_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R02",
+          "R05",
+          "R04",
+          "R07"
+        ]
+      },
+      "no_op": false,
+      "checks": {
+        "version": "inference-evidence-checks-v0.1",
+        "structural_status": "valid",
+        "assessments": [
+          {
+            "claim_id": "C1",
+            "case_id": "D-P",
+            "proposition": "The parent and child source bytes differ.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Exact source-byte comparison only; not repair correctness.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "source_bytes_changed": true,
+              "ast_equal": false
+            },
+            "reason": "Source hashes decide byte identity only.",
+            "claimed_verdict": "supported",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C2",
+            "case_id": "D-P",
+            "proposition": "The specific repair intended in the historical rationale was not implemented.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Requires a predeclared executable edit contract to judge the specific repair; source changes or execution failure alone cannot decide this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "predeclared_executable_edit_contract"
+            ],
+            "details": {
+              "source_bytes_changed": true
+            },
+            "reason": "A source diff does not decide whether the specific intended repair was implemented.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C3",
+            "case_id": "D-S",
+            "proposition": "Official training NMSE improved, but the registered forecast missed its target.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "A conjunction of official NMSE change and the forecast on its own registered metric; MSE and NMSE are not interchangeable.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_scope": "train",
+              "forecast_status": "contradicted",
+              "forecast_actual_delta": 6.527051946320929e-07,
+              "forecast_min_delta": 0.0001
+            },
+            "reason": "Compare official NMSE and the independently registered forecast on its original metric.",
+            "claimed_verdict": "supported",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C4",
+            "case_id": "D-S",
+            "proposition": "The added structure is unnecessary for the current performance.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "Requires a matched intervention on the target structure; small gain, missed forecast, or failure to prove necessity cannot establish this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "matched_structure_intervention"
+            ],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_status": "contradicted"
+            },
+            "reason": "Neither a missed forecast nor the size of observed gain identifies structure necessity.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          }
+        ],
+        "auxiliary_status": "well_formed",
+        "notes_status": "unverified",
+        "passed_checks": 4,
+        "total_checks": 4,
+        "all_checked_pass": true,
+        "applicability_certified": false,
+        "open_text_certified": false,
+        "scope": "Four frozen evidence-contract propositions, not a general semantic or causal oracle."
+      },
+      "submission": {
+        "rule_1": "R02",
+        "rule_2": "R05",
+        "rule_3": "R04",
+        "rule_4": "R07",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "supported",
+        "verdict_4": "unknown",
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Archived, unverified. Selection rationale: (R02) D-P shows the parent's actual earliest failure was a precondition failure at executed action 7 (\"walk gate location4 bob\", missing [link gate location4]) despite plan_length 21/15, while the child's earliest executed failure disappeared (status goal_unsatisfied, first_failed_action null) — grounding diagnosis in observed execution rather than proposed plan length. (R05) The only concrete defect signal in D-P is a missing directed link precondition on a walk step, so repair should target the walk-emission location; D-S's differential v-bin RMSE motivated a v^2 term that yielded only ~6.5e-07 MSE delta against a 1e-4 target. (R04) D-S's registered forecast was on train mse with min_delta 1e-4, while the official reported gain is nmse (0.0959173 -> 0.0957677); mse and nmse are distinct statistics and neither substitutes for the other. (R07) The D-S forecast threshold (min_delta 1e-4) was disproportionate to the ~6.5e-07 observed change and should have been scaled to the effect size the diagnostics could support; D-P's forecast with actual_delta 0.0 against min_delta 1.0 likewise predicted improvement that never appeared. Retaining R03 and R08 as important as good practice but noting both examples showed forecast contradicted despite apparently valid, minimal, non-environment-rewriting edits, so the parent/proposal emphasis on hypothesis-framing (R06) and repair-completeness (R08) is retained only indirectly; necessity claims still stay unknown (C4) with no matched intervention. Verdicts: C1 supported (source bytes/hashes differ). C2 unknown — edit_contract is null, so no executable contract decides whether the intended repair was implemented. C3 supported — official nmse improved (gain ~1.5e-04) while the registered forecast on train mse with min_delta 1e-4 was contradicted (actual_delta ~6.5e-07). C4 unknown — no matched intervention exists; a tiny gain or missed forecast cannot establish the v^2 structure is unnecessary."
+      },
+      "applicability_certified": false,
+      "sdk_top_level_null_fields": [],
+      "omitted_auxiliary_defaults": [],
+      "freeze_sha256": "aeb0c1f27e4c76d83591fdefe8c8d26cc673a6636e6348987370b8641be3eb09"
+    },
+    {
+      "pair_id": "p2",
+      "condition": "proposal",
+      "session_id": "p2-proposal",
+      "requested": true,
+      "accepted": true,
+      "frozen": true,
+      "disposition": "available",
+      "request_id": "request-0004",
+      "input_bytes": 36035,
+      "payload_sha256": "cd98ffa4be32f22258c9bd0486fc61224d18881efb9e37f55611a9d3a0d1e8a6",
+      "response_sha256": "ef0627ce57d7480150883151a3260b6ed1d8f5238f6b835c998e10aa3a839b20",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 10312,
+        "completion_tokens": 844,
+        "total_tokens": 11156
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "accepted",
+        "halted": false,
+        "attempted": true,
+        "policy_changed": true,
+        "no_op": false,
+        "policy_sha256": "56244eaace21e6cba4604fe22f4e4af425776cb1deb47cf7eaf808ad1dd6d668",
+        "all_checked_pass": false,
+        "passed_checks": 3,
+        "total_checks": 4,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with four inference evidence conditions."
+      },
+      "literal_submission": {
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Selection rationale (unverified, archived only). Parent policy (R03, R04, R06, R08) addresses environment preservation, metric fidelity, causal overreach, and repair completeness, but it lacks any mechanism that (a) links a diagnostic observation to the specific source location and the failure it should remove, (b) anchors diagnosis to the earliest observed execution failure rather than plan length, and (c) requires a forecast threshold sized to the evidence. Both supplied cases show exactly these gaps: D-P's rationale names a first illegal walk failure and the source change (directed-link BFS plus gated precondition checks), yet outcome stayed 0/10 with forecast status contradicted; D-S posits a velocity-quadratic term from binned residuals and registers a min_delta of 1e-4 on train mse, but achieved delta was ~6.5e-7 — far below the registered threshold — while nmse moved only from 0.095917 to 0.095768 (a negligible change, so the improvement claim in C3 is itself weak). Hence R05 first (ground each diagnostic observation in a verifiable source-location change and the failure expected to vanish), R02 second (in D-P plan_length was 21 and 15 while executed_actions was 7 in both runs, so plan length is not a proxy for what executed; the earliest observed failure is the first_failed_action at index 7), R07 third (forecast thresholds in both cases were missed by orders of magnitude or flatly contradicted, indicating thresholds were not proportionate to the evidence — note R07's wording is forecasting-oriented and is a weak fit here, but it is the only threshold-discipline rule available; R04 was retained in the parent policy and is dropped for room), and R08 fourth to preserve the working parts and keep the repair complete without extra machinery. Deliberately omitted R01: although D-P's diff shows action-string and parameter-order handling, the registered failure is a missing link precondition, not a type/format/argument-order error, so R01 is not the binding constraint. R06 is retained in spirit by my C4 verdict of unknown rather than a necessity claim.\n\nAuxiliary verdicts: C1 supported (D-P:source-diff shows different parent/child hashes and a visible diff). C2 unknown: no edit_contract exists, and the packet states source changes or execution failure alone cannot decide whether the specific intended repair was implemented. C3 contradicted: official nmse did not materially improve (0.0959173 -> 0.0957677) and the registered forecast is contradicted (actual_delta ~6.5e-07 vs min_delta 1e-4 on train mse); both registered metric facts are present, so the conjunction fails. C4 unknown: matched_interventions is empty in both cases, so necessity of the added v^2 structure is undecidable; a small or missed gain cannot establish it. I am not claiming these four rules are optimal, nor that applying them to any candidate would improve outcomes; both supplied cases are researcher-seen development data with contradicted forecasts and unverified rationales.",
+        "rule_1": "R05",
+        "rule_2": "R02",
+        "rule_3": "R07",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown"
+      },
+      "literal_structural_status": "valid",
+      "schema_length_issues": [],
+      "event_counts": {
+        "actions": 1,
+        "observations": 1,
+        "agent_errors": 0
+      },
+      "tool_call_id": "call_01a1596287c17701877126f1",
+      "llm_response_id": "chatcmpl-a87de76d-facb-4763-a951-e175434ecf7f",
+      "selected_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R05",
+          "R02",
+          "R07",
+          "R08"
+        ]
+      },
+      "no_op": false,
+      "checks": {
+        "version": "inference-evidence-checks-v0.1",
+        "structural_status": "valid",
+        "assessments": [
+          {
+            "claim_id": "C1",
+            "case_id": "D-P",
+            "proposition": "The parent and child source bytes differ.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Exact source-byte comparison only; not repair correctness.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "source_bytes_changed": true,
+              "ast_equal": false
+            },
+            "reason": "Source hashes decide byte identity only.",
+            "claimed_verdict": "supported",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C2",
+            "case_id": "D-P",
+            "proposition": "The specific repair intended in the historical rationale was not implemented.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Requires a predeclared executable edit contract to judge the specific repair; source changes or execution failure alone cannot decide this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "predeclared_executable_edit_contract"
+            ],
+            "details": {
+              "source_bytes_changed": true
+            },
+            "reason": "A source diff does not decide whether the specific intended repair was implemented.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C3",
+            "case_id": "D-S",
+            "proposition": "Official training NMSE improved, but the registered forecast missed its target.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "A conjunction of official NMSE change and the forecast on its own registered metric; MSE and NMSE are not interchangeable.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_scope": "train",
+              "forecast_status": "contradicted",
+              "forecast_actual_delta": 6.527051946320929e-07,
+              "forecast_min_delta": 0.0001
+            },
+            "reason": "Compare official NMSE and the independently registered forecast on its original metric.",
+            "claimed_verdict": "contradicted",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "overclaim",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C4",
+            "case_id": "D-S",
+            "proposition": "The added structure is unnecessary for the current performance.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "Requires a matched intervention on the target structure; small gain, missed forecast, or failure to prove necessity cannot establish this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "matched_structure_intervention"
+            ],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_status": "contradicted"
+            },
+            "reason": "Neither a missed forecast nor the size of observed gain identifies structure necessity.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          }
+        ],
+        "auxiliary_status": "well_formed",
+        "notes_status": "unverified",
+        "passed_checks": 3,
+        "total_checks": 4,
+        "all_checked_pass": false,
+        "applicability_certified": false,
+        "open_text_certified": false,
+        "scope": "Four frozen evidence-contract propositions, not a general semantic or causal oracle."
+      },
+      "submission": {
+        "rule_1": "R05",
+        "rule_2": "R02",
+        "rule_3": "R07",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown",
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Selection rationale (unverified, archived only). Parent policy (R03, R04, R06, R08) addresses environment preservation, metric fidelity, causal overreach, and repair completeness, but it lacks any mechanism that (a) links a diagnostic observation to the specific source location and the failure it should remove, (b) anchors diagnosis to the earliest observed execution failure rather than plan length, and (c) requires a forecast threshold sized to the evidence. Both supplied cases show exactly these gaps: D-P's rationale names a first illegal walk failure and the source change (directed-link BFS plus gated precondition checks), yet outcome stayed 0/10 with forecast status contradicted; D-S posits a velocity-quadratic term from binned residuals and registers a min_delta of 1e-4 on train mse, but achieved delta was ~6.5e-7 — far below the registered threshold — while nmse moved only from 0.095917 to 0.095768 (a negligible change, so the improvement claim in C3 is itself weak). Hence R05 first (ground each diagnostic observation in a verifiable source-location change and the failure expected to vanish), R02 second (in D-P plan_length was 21 and 15 while executed_actions was 7 in both runs, so plan length is not a proxy for what executed; the earliest observed failure is the first_failed_action at index 7), R07 third (forecast thresholds in both cases were missed by orders of magnitude or flatly contradicted, indicating thresholds were not proportionate to the evidence — note R07's wording is forecasting-oriented and is a weak fit here, but it is the only threshold-discipline rule available; R04 was retained in the parent policy and is dropped for room), and R08 fourth to preserve the working parts and keep the repair complete without extra machinery. Deliberately omitted R01: although D-P's diff shows action-string and parameter-order handling, the registered failure is a missing link precondition, not a type/format/argument-order error, so R01 is not the binding constraint. R06 is retained in spirit by my C4 verdict of unknown rather than a necessity claim.\n\nAuxiliary verdicts: C1 supported (D-P:source-diff shows different parent/child hashes and a visible diff). C2 unknown: no edit_contract exists, and the packet states source changes or execution failure alone cannot decide whether the specific intended repair was implemented. C3 contradicted: official nmse did not materially improve (0.0959173 -> 0.0957677) and the registered forecast is contradicted (actual_delta ~6.5e-07 vs min_delta 1e-4 on train mse); both registered metric facts are present, so the conjunction fails. C4 unknown: matched_interventions is empty in both cases, so necessity of the added v^2 structure is undecidable; a small or missed gain cannot establish it. I am not claiming these four rules are optimal, nor that applying them to any candidate would improve outcomes; both supplied cases are researcher-seen development data with contradicted forecasts and unverified rationales."
+      },
+      "applicability_certified": false,
+      "sdk_top_level_null_fields": [],
+      "omitted_auxiliary_defaults": [],
+      "freeze_sha256": "113ed203e636ec8f2a3b618efb3004a067ed6ce60c636643e6260f5689665c30"
+    },
+    {
+      "pair_id": "p2",
+      "condition": "checked",
+      "session_id": "p2-checked",
+      "requested": true,
+      "accepted": true,
+      "frozen": true,
+      "disposition": "available",
+      "request_id": "request-0005",
+      "input_bytes": 42896,
+      "payload_sha256": "bce7fbeac00b2cbaddfba4ac6662680e447fa0c4b4c2569d9af40a47e1bff38a",
+      "response_sha256": "3df65e99c546b4f93a999756d9e88922d971961ed7468fa34dc008c8b3a01f32",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 11752,
+        "completion_tokens": 468,
+        "total_tokens": 12220
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "accepted",
+        "halted": false,
+        "attempted": true,
+        "policy_changed": true,
+        "no_op": false,
+        "policy_sha256": "56244eaace21e6cba4604fe22f4e4af425776cb1deb47cf7eaf808ad1dd6d668",
+        "all_checked_pass": false,
+        "passed_checks": 3,
+        "total_checks": 4,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with four inference evidence conditions."
+      },
+      "literal_submission": {
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Retaining the supplied proposal (R05, R02, R07, R08) over the parent policy (R03, R04, R06, R08). Unverified rationale: both cases show diagnostics that were not tied to a verifiable source-location change (R05), diagnoses anchored to plan length rather than the earliest observed failure (D-P: plan_length 21/15 while executed_actions 7, first_failed_action at index 7 missing the link precondition), and registered improvement thresholds far larger than the evidence justified (D-S: min_delta 1e-4 vs actual 6.5e-7). R08 keeps repairs complete without extra machinery. R01 was omitted because the registered D-P failure is a missing precondition, not a type/format/argument-order issue. Auxiliary verdicts follow the contract: C1 supported from source bytes; C2 unknown since no predeclared executable edit contract exists; C3 contradicted because official train nmse moved only 0.0959173 -> 0.0957677 while the registered forecast on train mse is contradicted; C4 unknown since matched_interventions is empty in both cases. This is archived reasoning only and asserts nothing about optimality or about future repair outcomes; evidence is researcher-seen development data.",
+        "rule_1": "R05",
+        "rule_2": "R02",
+        "rule_3": "R07",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown"
+      },
+      "literal_structural_status": "valid",
+      "schema_length_issues": [],
+      "event_counts": {
+        "actions": 1,
+        "observations": 1,
+        "agent_errors": 0
+      },
+      "tool_call_id": "call_01a1596294b271de887bf49c",
+      "llm_response_id": "chatcmpl-0161fde9-137c-4877-b470-248a7e59d66e",
+      "selected_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R05",
+          "R02",
+          "R07",
+          "R08"
+        ]
+      },
+      "no_op": false,
+      "checks": {
+        "version": "inference-evidence-checks-v0.1",
+        "structural_status": "valid",
+        "assessments": [
+          {
+            "claim_id": "C1",
+            "case_id": "D-P",
+            "proposition": "The parent and child source bytes differ.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Exact source-byte comparison only; not repair correctness.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "source_bytes_changed": true,
+              "ast_equal": false
+            },
+            "reason": "Source hashes decide byte identity only.",
+            "claimed_verdict": "supported",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C2",
+            "case_id": "D-P",
+            "proposition": "The specific repair intended in the historical rationale was not implemented.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Requires a predeclared executable edit contract to judge the specific repair; source changes or execution failure alone cannot decide this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "predeclared_executable_edit_contract"
+            ],
+            "details": {
+              "source_bytes_changed": true
+            },
+            "reason": "A source diff does not decide whether the specific intended repair was implemented.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C3",
+            "case_id": "D-S",
+            "proposition": "Official training NMSE improved, but the registered forecast missed its target.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "A conjunction of official NMSE change and the forecast on its own registered metric; MSE and NMSE are not interchangeable.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_scope": "train",
+              "forecast_status": "contradicted",
+              "forecast_actual_delta": 6.527051946320929e-07,
+              "forecast_min_delta": 0.0001
+            },
+            "reason": "Compare official NMSE and the independently registered forecast on its original metric.",
+            "claimed_verdict": "contradicted",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "overclaim",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C4",
+            "case_id": "D-S",
+            "proposition": "The added structure is unnecessary for the current performance.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "Requires a matched intervention on the target structure; small gain, missed forecast, or failure to prove necessity cannot establish this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "matched_structure_intervention"
+            ],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_status": "contradicted"
+            },
+            "reason": "Neither a missed forecast nor the size of observed gain identifies structure necessity.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          }
+        ],
+        "auxiliary_status": "well_formed",
+        "notes_status": "unverified",
+        "passed_checks": 3,
+        "total_checks": 4,
+        "all_checked_pass": false,
+        "applicability_certified": false,
+        "open_text_certified": false,
+        "scope": "Four frozen evidence-contract propositions, not a general semantic or causal oracle."
+      },
+      "submission": {
+        "rule_1": "R05",
+        "rule_2": "R02",
+        "rule_3": "R07",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown",
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Retaining the supplied proposal (R05, R02, R07, R08) over the parent policy (R03, R04, R06, R08). Unverified rationale: both cases show diagnostics that were not tied to a verifiable source-location change (R05), diagnoses anchored to plan length rather than the earliest observed failure (D-P: plan_length 21/15 while executed_actions 7, first_failed_action at index 7 missing the link precondition), and registered improvement thresholds far larger than the evidence justified (D-S: min_delta 1e-4 vs actual 6.5e-7). R08 keeps repairs complete without extra machinery. R01 was omitted because the registered D-P failure is a missing precondition, not a type/format/argument-order issue. Auxiliary verdicts follow the contract: C1 supported from source bytes; C2 unknown since no predeclared executable edit contract exists; C3 contradicted because official train nmse moved only 0.0959173 -> 0.0957677 while the registered forecast on train mse is contradicted; C4 unknown since matched_interventions is empty in both cases. This is archived reasoning only and asserts nothing about optimality or about future repair outcomes; evidence is researcher-seen development data."
+      },
+      "applicability_certified": false,
+      "sdk_top_level_null_fields": [],
+      "omitted_auxiliary_defaults": [],
+      "freeze_sha256": "19b4a8d1eab6d1674e60d61f7337e1c85d2c7066e3f49e5ec63b60ac03096051"
+    },
+    {
+      "pair_id": "p2",
+      "condition": "self",
+      "session_id": "p2-self",
+      "requested": true,
+      "accepted": true,
+      "frozen": true,
+      "disposition": "available",
+      "request_id": "request-0006",
+      "input_bytes": 39426,
+      "payload_sha256": "2a10774e8894a8c6f904502a14d1a14e9c53bf688e8826096adbc7b79fe93dd1",
+      "response_sha256": "c914570a1596bae4a2ae7705858aa0c40b6f64d2feefd9735454cc6e195a88a8",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 11053,
+        "completion_tokens": 618,
+        "total_tokens": 11671
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "accepted",
+        "halted": false,
+        "attempted": true,
+        "policy_changed": true,
+        "no_op": false,
+        "policy_sha256": "56244eaace21e6cba4604fe22f4e4af425776cb1deb47cf7eaf808ad1dd6d668",
+        "all_checked_pass": false,
+        "passed_checks": 3,
+        "total_checks": 4,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with four inference evidence conditions."
+      },
+      "literal_submission": {
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Selection rationale (archived, unverified). Retained proposal rule order: R05, R02, R07, R08. R05 first to ground each diagnostic observation in a verifiable source-location change tied to the failure expected to disappear (D-P:source-diff shows a real source change but outcome stayed 0/10, contradicting the rationale's claim that the first invalid walk would vanish). R02 second because in D-P plan_length (21, 15) and executed_actions (7) are not comparable, and the earliest observed failure is first_failed_action at index 7 — plan length is not a proxy for executed actions. R07 third because forecast thresholds in both cases were missed by orders of magnitude (D-S actual_delta ~6.5e-7 vs min_delta 1e-4; D-P forecast contradicted). R08 fourth to preserve correct behavior and avoid unrelated complexity. Deliberately omitted R01 (D-P failure is a missing link precondition, not a type/format/argument-order error) and R03/R04/R06 (parent policy used them; dropped for room — R06's caution against declaring necessity is preserved via C4=unknown). Auxiliary verdicts: C1 supported (D-P:source-diff shows differing parent/child hashes and a visible diff). C2 unknown (no edit_contract exists; source changes alone cannot decide whether the specific intended repair was implemented). C3 contradicted (D-S official nmse moved 0.0959173 -> 0.0957677, a negligible change; registered forecast actual_delta ~6.5e-7 vs min_delta 1e-4 on train mse — both registered metric facts are present, so the conjunction fails). C4 unknown (matched_interventions empty in both cases; necessity of the added v^2 structure is undecidable). I am not claiming these four rules are optimal or that applying them to any candidate would improve outcomes; both cases are researcher-seen development data with contradicted forecasts and unverified rationales.",
+        "rule_1": "R05",
+        "rule_2": "R02",
+        "rule_3": "R07",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown"
+      },
+      "literal_structural_status": "valid",
+      "schema_length_issues": [],
+      "event_counts": {
+        "actions": 1,
+        "observations": 1,
+        "agent_errors": 0
+      },
+      "tool_call_id": "call_01a159629a9f77729ec0f492",
+      "llm_response_id": "chatcmpl-00e38f2c-a320-48d7-a70b-2e6c1614711c",
+      "selected_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R05",
+          "R02",
+          "R07",
+          "R08"
+        ]
+      },
+      "no_op": false,
+      "checks": {
+        "version": "inference-evidence-checks-v0.1",
+        "structural_status": "valid",
+        "assessments": [
+          {
+            "claim_id": "C1",
+            "case_id": "D-P",
+            "proposition": "The parent and child source bytes differ.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Exact source-byte comparison only; not repair correctness.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "source_bytes_changed": true,
+              "ast_equal": false
+            },
+            "reason": "Source hashes decide byte identity only.",
+            "claimed_verdict": "supported",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C2",
+            "case_id": "D-P",
+            "proposition": "The specific repair intended in the historical rationale was not implemented.",
+            "necessary_available_evidence": [
+              "D-P:source-diff"
+            ],
+            "scope": "Requires a predeclared executable edit contract to judge the specific repair; source changes or execution failure alone cannot decide this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "predeclared_executable_edit_contract"
+            ],
+            "details": {
+              "source_bytes_changed": true
+            },
+            "reason": "A source diff does not decide whether the specific intended repair was implemented.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-P:source-diff"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C3",
+            "case_id": "D-S",
+            "proposition": "Official training NMSE improved, but the registered forecast missed its target.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "A conjunction of official NMSE change and the forecast on its own registered metric; MSE and NMSE are not interchangeable.",
+            "expected_verdict": "supported",
+            "missing_evidence": [],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_scope": "train",
+              "forecast_status": "contradicted",
+              "forecast_actual_delta": 6.527051946320929e-07,
+              "forecast_min_delta": 0.0001
+            },
+            "reason": "Compare official NMSE and the independently registered forecast on its original metric.",
+            "claimed_verdict": "contradicted",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "overclaim",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          },
+          {
+            "claim_id": "C4",
+            "case_id": "D-S",
+            "proposition": "The added structure is unnecessary for the current performance.",
+            "necessary_available_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "scope": "Requires a matched intervention on the target structure; small gain, missed forecast, or failure to prove necessity cannot establish this proposition.",
+            "expected_verdict": "unknown",
+            "missing_evidence": [
+              "matched_structure_intervention"
+            ],
+            "details": {
+              "official_nmse_gain": 0.00014959156295742126,
+              "forecast_metric": "mse",
+              "forecast_status": "contradicted"
+            },
+            "reason": "Neither a missed forecast nor the size of observed gain identifies structure necessity.",
+            "claimed_verdict": "unknown",
+            "provided_evidence": [
+              "D-S:metrics",
+              "D-S:forecast"
+            ],
+            "status": "correct",
+            "verdict_format_valid": true,
+            "evidence_error": null
+          }
+        ],
+        "auxiliary_status": "well_formed",
+        "notes_status": "unverified",
+        "passed_checks": 3,
+        "total_checks": 4,
+        "all_checked_pass": false,
+        "applicability_certified": false,
+        "open_text_certified": false,
+        "scope": "Four frozen evidence-contract propositions, not a general semantic or causal oracle."
+      },
+      "submission": {
+        "rule_1": "R05",
+        "rule_2": "R02",
+        "rule_3": "R07",
+        "rule_4": "R08",
+        "verdict_1": "supported",
+        "verdict_2": "unknown",
+        "verdict_3": "contradicted",
+        "verdict_4": "unknown",
+        "evidence_1": "D-P:source-diff",
+        "evidence_2": "D-P:source-diff",
+        "evidence_3": "D-S:metrics,D-S:forecast",
+        "evidence_4": "D-S:metrics,D-S:forecast",
+        "notes": "Selection rationale (archived, unverified). Retained proposal rule order: R05, R02, R07, R08. R05 first to ground each diagnostic observation in a verifiable source-location change tied to the failure expected to disappear (D-P:source-diff shows a real source change but outcome stayed 0/10, contradicting the rationale's claim that the first invalid walk would vanish). R02 second because in D-P plan_length (21, 15) and executed_actions (7) are not comparable, and the earliest observed failure is first_failed_action at index 7 — plan length is not a proxy for executed actions. R07 third because forecast thresholds in both cases were missed by orders of magnitude (D-S actual_delta ~6.5e-7 vs min_delta 1e-4; D-P forecast contradicted). R08 fourth to preserve correct behavior and avoid unrelated complexity. Deliberately omitted R01 (D-P failure is a missing link precondition, not a type/format/argument-order error) and R03/R04/R06 (parent policy used them; dropped for room — R06's caution against declaring necessity is preserved via C4=unknown). Auxiliary verdicts: C1 supported (D-P:source-diff shows differing parent/child hashes and a visible diff). C2 unknown (no edit_contract exists; source changes alone cannot decide whether the specific intended repair was implemented). C3 contradicted (D-S official nmse moved 0.0959173 -> 0.0957677, a negligible change; registered forecast actual_delta ~6.5e-7 vs min_delta 1e-4 on train mse — both registered metric facts are present, so the conjunction fails). C4 unknown (matched_interventions empty in both cases; necessity of the added v^2 structure is undecidable). I am not claiming these four rules are optimal or that applying them to any candidate would improve outcomes; both cases are researcher-seen development data with contradicted forecasts and unverified rationales."
+      },
+      "applicability_certified": false,
+      "sdk_top_level_null_fields": [],
+      "omitted_auxiliary_defaults": [],
+      "freeze_sha256": "aff3e7c5de111940781d44436965b7abf290c2f93e8d41bfd85669e7499a3120"
+    }
+  ],
+  "review_pairs": [
+    {
+      "pair_id": "p1",
+      "assigned_sessions": [
+        "p1-self",
+        "p1-checked"
+      ],
+      "requested_sessions": [
+        "p1-self",
+        "p1-checked"
+      ],
+      "both_requested": true,
+      "exact_common_request_equality": true,
+      "removed_packet_fields": [
+        "inference_feedback"
+      ],
+      "common_request_sha256": "b55ec8e216891c47914aa0b8b5fb8baef26eba238ef7ec47d1593b80c8a86278",
+      "common_request_bytes": 36868,
+      "both_policies_frozen": true,
+      "policies_identical": false,
+      "self_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R03",
+          "R04",
+          "R06",
+          "R08"
+        ]
+      },
+      "checked_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R02",
+          "R05",
+          "R04",
+          "R07"
+        ]
+      }
+    },
+    {
+      "pair_id": "p2",
+      "assigned_sessions": [
+        "p2-checked",
+        "p2-self"
+      ],
+      "requested_sessions": [
+        "p2-checked",
+        "p2-self"
+      ],
+      "both_requested": true,
+      "exact_common_request_equality": true,
+      "removed_packet_fields": [
+        "inference_feedback"
+      ],
+      "common_request_sha256": "d0ab821d4413a02f0911be666f18ee085363115f30f2d7d342154576b717551f",
+      "common_request_bytes": 39398,
+      "both_policies_frozen": true,
+      "policies_identical": true,
+      "self_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R05",
+          "R02",
+          "R07",
+          "R08"
+        ]
+      },
+      "checked_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R05",
+          "R02",
+          "R07",
+          "R08"
+        ]
+      }
+    }
+  ],
+  "actors": [
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-P-A002",
+      "state_id": "P-A002",
+      "condition": "self",
+      "family": "planning",
+      "session_id": "p1-P-A002-self",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "child_score": 0.0,
+      "improvement": 0.0,
+      "submitted_and_improved": false,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "0cc324c26a6d6f1161c2ab292de6c3db3dfcaa859c69ee2500623593a7307770",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_e41f41c1a24dc902",
+            "claim_op": "eq",
+            "claim_value_json": "[[\"tightened\",\"nut1\"],[\"tightened\",\"nut2\"],[\"tightened\",\"nut3\"]]",
+            "prediction_id": "e_6b6c8a628086743f",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 7.0
+          },
+          "claim_result": {
+            "status": "schema_invalid",
+            "reason": "claim_schema_invalid"
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-P-A002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "direction": "increase",
+            "min_delta": 7.0
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0,
+            "tolerance": 7.01e-08,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-P-A002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "before": 0.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 7.0,
+            "child_reference": {
+              "session_id": "20261020-inference-policy-v01:p1-P-A002",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "6c4a5f637b25a4a56deb67468cb1fd018b01a5ff42ca56f495a7427c91e8f7dd",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "after": 0.0
+          }
+        }
+      ],
+      "baseline_score": 0.0,
+      "baseline_source_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0007",
+      "input_bytes": 34518,
+      "payload_sha256": "5709564d462cc28268c740bd912dad3e7a3e62df172ace6313fd0bd6f8a366ee",
+      "response_sha256": "0fbf165dc706f5eb6c9f3521676c77fe1aac554f9a7f4ab3b12aba427d25241e",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9407,
+        "completion_tokens": 1449,
+        "total_tokens": 10856
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-S-poly5",
+      "state_id": "S-poly5",
+      "condition": "checked",
+      "family": "symbolic",
+      "session_id": "p1-S-poly5-checked",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "child_score": 0.0923413716534127,
+      "improvement": 0.0014209280166925797,
+      "submitted_and_improved": true,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "46117dd2b0894ec05a8ec80820ed2ea92ec81a614118d6528a1ad682a512e689",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_5a70fc2d8b1d6ead",
+            "claim_op": "lt",
+            "claim_value_json": "0.020226424138122107",
+            "prediction_id": "e_1ca4dafbb4c2f6e0",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.005
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.020226424138122107,
+            "tolerance": 3.022642413812211e-10,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "rmse"
+            },
+            "op": "lt",
+            "expected": 0.020226424138122107
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.09376229967010528,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.005
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0014209280166925797,
+            "tolerance": 1.5e-10,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "before": 0.09376229967010528,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.005,
+            "child_reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "after": 0.0923413716534127
+          }
+        }
+      ],
+      "baseline_score": 0.09376229967010528,
+      "baseline_source_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0008",
+      "input_bytes": 22248,
+      "payload_sha256": "4e5adf13a1190491942f8c4b180017213b17a4fd3e57da1a6026e8104e34d4ac",
+      "response_sha256": "f7077a92b2e58b3cae2406a1dc8fc10f2f37d09cc439bfd8806bcdcbc47a2d33",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 5971,
+        "completion_tokens": 827,
+        "total_tokens": 6798
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-P-A002",
+      "state_id": "P-A002",
+      "condition": "checked",
+      "family": "planning",
+      "session_id": "p1-P-A002-checked",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "child_score": 0.0,
+      "improvement": 0.0,
+      "submitted_and_improved": false,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "0cc324c26a6d6f1161c2ab292de6c3db3dfcaa859c69ee2500623593a7307770",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_6b6c8a628086743f",
+            "claim_op": "gt",
+            "claim_value_json": "1.0",
+            "prediction_id": "e_6b6c8a628086743f",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 1.0
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.0,
+            "tolerance": 1.01e-08,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-P-A002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "op": "gt",
+            "expected": 1.0
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-P-A002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "direction": "increase",
+            "min_delta": 1.0
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0,
+            "tolerance": 1.01e-08,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-P-A002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "before": 0.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 1.0,
+            "child_reference": {
+              "session_id": "20261020-inference-policy-v01:p1-P-A002",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "development_successes"
+            },
+            "after": 0.0
+          }
+        }
+      ],
+      "baseline_score": 0.0,
+      "baseline_source_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0009",
+      "input_bytes": 34586,
+      "payload_sha256": "0d41d0a857574d5402d1d3e897ae6c11a6f8710ca091354012b8f89e1e9b0c7d",
+      "response_sha256": "656f99d428c1e003a3e1e83aaf7393b6d1291627ff0a7af7b40af993745a9bbf",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9412,
+        "completion_tokens": 1750,
+        "total_tokens": 11162
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-S-poly5",
+      "state_id": "S-poly5",
+      "condition": "self",
+      "family": "symbolic",
+      "session_id": "p1-S-poly5-self",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "child_score": 0.09224903410100932,
+      "improvement": 0.0015132655690959645,
+      "submitted_and_improved": true,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "46117dd2b0894ec05a8ec80820ed2ea92ec81a614118d6528a1ad682a512e689",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_1ca4dafbb4c2f6e0",
+            "claim_op": "lt",
+            "claim_value_json": "0.09",
+            "prediction_id": "e_1ca4dafbb4c2f6e0",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.005
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.09376229967010528,
+            "tolerance": 1.0376229967010529e-09,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "op": "lt",
+            "expected": 0.09
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.09376229967010528,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.005
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 0.0015132655690959645,
+            "tolerance": 1.5e-10,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "before": 0.09376229967010528,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.005,
+            "child_reference": {
+              "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "after": 0.09224903410100932
+          }
+        }
+      ],
+      "baseline_score": 0.09376229967010528,
+      "baseline_source_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0010",
+      "input_bytes": 22180,
+      "payload_sha256": "b6c1e61aff9929b3e1b82de5aca1300597cc598c8e94d28d9728e325a16cd3ef",
+      "response_sha256": "7669c48aa3d32c788e236af6b987921f89741af0c701bdf0471bcacc34179744",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 5963,
+        "completion_tokens": 949,
+        "total_tokens": 6912
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-S-odd4",
+      "state_id": "S-odd4",
+      "condition": "self",
+      "family": "symbolic",
+      "session_id": "p2-S-odd4-self",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "child_score": 0.09171468125487472,
+      "improvement": 9.002399268544237e-05,
+      "submitted_and_improved": true,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "e8b4d6bb435cc04e190384962bd3cbb498c86f9d295c247efdc91bc5090e3c79",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_0af0936ddaabfe96",
+            "claim_op": "lt",
+            "claim_value_json": "0.0285",
+            "prediction_id": "e_2bb006622eaf191a",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 3e-05
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.029564664082667107,
+            "tolerance": 3.9564664082667107e-10,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "bin.v.3.rmse"
+            },
+            "op": "lt",
+            "expected": 0.0285
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.00040056676206938317,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "mse"
+            },
+            "direction": "decrease",
+            "min_delta": 3e-05
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 3.927970702734913e-07,
+            "tolerance": 1.003e-10,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "mse"
+            },
+            "before": 0.00040056676206938317,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 3e-05,
+            "child_reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "89aab8fa550a2dab8ff12d8af922c94e4680d94459e38f98e250ab507f9a27f8",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "mse"
+            },
+            "after": 0.0004001739649991097
+          }
+        }
+      ],
+      "baseline_score": 0.09180470524756017,
+      "baseline_source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0011",
+      "input_bytes": 20524,
+      "payload_sha256": "4a3ad64e88020dc0f4ca6fd9a59d030ba2a259e16c5b90605d1e773cd0b92af2",
+      "response_sha256": "b604c9da8248d5e0405c14da3ca5dac538f42b71899706675117512940e69b77",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 5482,
+        "completion_tokens": 498,
+        "total_tokens": 5980
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-P-H002",
+      "state_id": "P-H002",
+      "condition": "checked",
+      "family": "planning",
+      "session_id": "p2-P-H002-checked",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "child_score": 0.0,
+      "improvement": 0.0,
+      "submitted_and_improved": false,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "055a9e1051f50dca08cd28209920b5d12ca26749d8eaa6e5233c993b65d89e9d",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_852cb2e5027e3414",
+            "claim_op": "gt",
+            "claim_value_json": "0.0",
+            "prediction_id": "e_c00012a709e3faa0",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 5.0
+          },
+          "claim_result": {
+            "status": "contradicted",
+            "reason": "comparison_contradicted",
+            "actual": 0.0,
+            "tolerance": 1e-10,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-P-H002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+              "task_id": "planning_batch",
+              "version": "evidence-v0.1",
+              "scope": "development_summary",
+              "key": "total_successes"
+            },
+            "op": "gt",
+            "expected": 0.0
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.0,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-P-H002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+              "task_id": "spannerlearning/seed0/problem0",
+              "version": "evidence-v0.1",
+              "scope": "public_prompt",
+              "key": "plan_length"
+            },
+            "direction": "increase",
+            "min_delta": 5.0
+          },
+          "prediction_result": {
+            "status": "supported",
+            "reason": "prediction_supported",
+            "actual": 11.0,
+            "tolerance": 1.101e-07,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-P-H002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+              "task_id": "spannerlearning/seed0/problem0",
+              "version": "evidence-v0.1",
+              "scope": "public_prompt",
+              "key": "plan_length"
+            },
+            "before": 0.0,
+            "direction": "increase",
+            "op": "ge",
+            "expected": 5.0,
+            "child_reference": {
+              "session_id": "20261020-inference-policy-v01:p2-P-H002",
+              "candidate_id": "planning-001",
+              "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+              "task_id": "spannerlearning/seed0/problem0",
+              "version": "evidence-v0.1",
+              "scope": "public_prompt",
+              "key": "plan_length"
+            },
+            "after": 11.0
+          }
+        }
+      ],
+      "baseline_score": 0.0,
+      "baseline_source_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0012",
+      "input_bytes": 36395,
+      "payload_sha256": "947baf6b94ddb7faeeb0e3619d7572a2c27a8d13e61b8db7e6b727d82043021f",
+      "response_sha256": "71bf2aad341a5723c943ee7ee7e7f4b219be51f9ffc80a07ce037ba55b3c7a2e",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9879,
+        "completion_tokens": 1287,
+        "total_tokens": 11166
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-S-odd4",
+      "state_id": "S-odd4",
+      "condition": "checked",
+      "family": "symbolic",
+      "session_id": "p2-S-odd4-checked",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 1,
+      "archived_task_result_records": 1,
+      "child_score": 0.09180398722781567,
+      "improvement": 7.180197444944802e-07,
+      "submitted_and_improved": true,
+      "audits": [
+        {
+          "candidate_id": "symbolic-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "e8b4d6bb435cc04e190384962bd3cbb498c86f9d295c247efdc91bc5090e3c79",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_ac8f730138575c85",
+            "claim_op": "lt",
+            "claim_value_json": "0.095",
+            "prediction_id": "e_ac8f730138575c85",
+            "prediction_direction": "decrease",
+            "prediction_min_delta": 0.003
+          },
+          "claim_result": {
+            "status": "supported",
+            "reason": "comparison_supported",
+            "actual": 0.09180470524756017,
+            "tolerance": 1.05e-09,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "op": "lt",
+            "expected": 0.095
+          },
+          "registration": {
+            "status": "supported",
+            "reason": "prediction_registered",
+            "before": 0.09180470524756017,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "direction": "decrease",
+            "min_delta": 0.003
+          },
+          "prediction_result": {
+            "status": "contradicted",
+            "reason": "prediction_contradicted",
+            "actual": 7.180197444944802e-07,
+            "tolerance": 1.3000000000000002e-10,
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-000",
+              "candidate_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "before": 0.09180470524756017,
+            "direction": "decrease",
+            "op": "ge",
+            "expected": 0.003,
+            "child_reference": {
+              "session_id": "20261020-inference-policy-v01:p2-S-odd4",
+              "candidate_id": "symbolic-001",
+              "candidate_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+              "task_id": "oscillator1",
+              "version": "evidence-v0.1",
+              "scope": "train",
+              "key": "nmse"
+            },
+            "after": 0.09180398722781567
+          }
+        }
+      ],
+      "baseline_score": 0.09180470524756017,
+      "baseline_source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0013",
+      "input_bytes": 20524,
+      "payload_sha256": "4a3ad64e88020dc0f4ca6fd9a59d030ba2a259e16c5b90605d1e773cd0b92af2",
+      "response_sha256": "cbdecf88afd7f793483d5010f69f1b11afcde787a53fa471911a20b4bdaff46e",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 5482,
+        "completion_tokens": 418,
+        "total_tokens": 5900
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-P-H002",
+      "state_id": "P-H002",
+      "condition": "self",
+      "family": "planning",
+      "session_id": "p2-P-H002-self",
+      "request_count": 1,
+      "generated_candidate_records": 1,
+      "new_task_result_records": 10,
+      "archived_task_result_records": 10,
+      "child_score": 10.0,
+      "improvement": 10.0,
+      "submitted_and_improved": true,
+      "audits": [
+        {
+          "candidate_id": "planning-001",
+          "registry_file": "evidence-registry-000.json",
+          "registry_sha256": "055a9e1051f50dca08cd28209920b5d12ca26749d8eaa6e5233c993b65d89e9d",
+          "raw_response_declaration_exact": true,
+          "expansion_and_predicates_recomputed": true,
+          "declaration": {
+            "claim_id": "e_02d7107c8b3d85ab",
+            "claim_op": "gt",
+            "claim_value_json": "\"0\"",
+            "prediction_id": "e_120afcd80ced0828",
+            "prediction_direction": "increase",
+            "prediction_min_delta": 2.0
+          },
+          "claim_result": {
+            "status": "schema_invalid",
+            "reason": "claim_schema_invalid"
+          },
+          "registration": {
+            "status": "unavailable",
+            "reason": "key_missing",
+            "reference": {
+              "session_id": "20261020-inference-policy-v01:p2-P-H002",
+              "candidate_id": "planning-000",
+              "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+              "task_id": "spannerlearning/seed0/problem0",
+              "version": "evidence-v0.1",
+              "scope": "public_prompt",
+              "key": "action.tighten_nut.effects.negative"
+            },
+            "direction": "increase",
+            "min_delta": 2.0
+          },
+          "prediction_result": {
+            "status": "schema_invalid",
+            "reason": "registration_schema_invalid"
+          }
+        }
+      ],
+      "baseline_score": 0.0,
+      "baseline_source_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "request_id": "request-0014",
+      "input_bytes": 36395,
+      "payload_sha256": "947baf6b94ddb7faeeb0e3619d7572a2c27a8d13e61b8db7e6b727d82043021f",
+      "response_sha256": "f5cb57f24ca339ea2e9eab891ff2c5a9c5a59514199a81c4d00b75d755dcd358",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9866,
+        "completion_tokens": 2621,
+        "total_tokens": 12487
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "response_kind": "submit_candidate_tool",
+      "policy_available": true
+    }
+  ],
+  "actor_pairs": [
+    {
+      "pair_id": "p1-P-A002",
+      "assigned_sessions": [
+        "p1-P-A002-self",
+        "p1-P-A002-checked"
+      ],
+      "requested_sessions": [
+        "p1-P-A002-self",
+        "p1-P-A002-checked"
+      ],
+      "both_requested": true,
+      "exact_common_request_equality": true,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": "19cd88ec7312124f606ff933a1291d99c29d46b821878f17edf06f71dd4fd902",
+      "common_request_bytes": 33920
+    },
+    {
+      "pair_id": "p1-S-poly5",
+      "assigned_sessions": [
+        "p1-S-poly5-checked",
+        "p1-S-poly5-self"
+      ],
+      "requested_sessions": [
+        "p1-S-poly5-checked",
+        "p1-S-poly5-self"
+      ],
+      "both_requested": true,
+      "exact_common_request_equality": true,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": "385d9b7a976143402756ee4546cfbeb6edfbc5fc1a55a32fe62fe1ec75d8b496",
+      "common_request_bytes": 21582
+    },
+    {
+      "pair_id": "p2-P-H002",
+      "assigned_sessions": [
+        "p2-P-H002-checked",
+        "p2-P-H002-self"
+      ],
+      "requested_sessions": [
+        "p2-P-H002-checked",
+        "p2-P-H002-self"
+      ],
+      "both_requested": true,
+      "exact_common_request_equality": true,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": "f5017f1b2a14085539baf5d5ee099591ef8ec1b35690f2ca20a2a4089c2a063b",
+      "common_request_bytes": 35749
+    },
+    {
+      "pair_id": "p2-S-odd4",
+      "assigned_sessions": [
+        "p2-S-odd4-self",
+        "p2-S-odd4-checked"
+      ],
+      "requested_sessions": [
+        "p2-S-odd4-self",
+        "p2-S-odd4-checked"
+      ],
+      "both_requested": true,
+      "exact_common_request_equality": true,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": "ce46501b57c6b9cf2f14af92e2767434d6826b2f9614a207a1073e5ddbc36095",
+      "common_request_bytes": 19878
+    }
+  ],
+  "counts": {
+    "requests": 14,
+    "assigned_update_slots": 6,
+    "assigned_actor_slots": 8,
+    "update_requests": 6,
+    "frozen_updates": 6,
+    "missing_update_policies": 0,
+    "skipped_dependency_updates": 0,
+    "actors_without_policy": 0,
+    "evaluation_requests": 8,
+    "generated_candidate_records": 8,
+    "new_task_result_records": 44,
+    "unique_new_evaluator_run_ids": 44,
+    "archived_task_result_records": 44,
+    "unique_archived_evaluator_run_ids": 22,
+    "claim_statuses": {
+      "schema_invalid": 2,
+      "contradicted": 5,
+      "supported": 1
+    },
+    "prediction_statuses": {
+      "contradicted": 6,
+      "supported": 1,
+      "schema_invalid": 1
+    },
+    "registration_statuses": {
+      "supported": 7,
+      "unavailable": 1
+    }
+  },
+  "costs": {
+    "all": {
+      "requests": 14,
+      "known_prompt_tokens": 126609,
+      "known_completion_tokens": 13617,
+      "known_total_tokens": 140226,
+      "known_estimated_cost_cny": 0.3802617,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 140226,
+      "actual_estimated_cost_cny": 0.3802617,
+      "reserved_tokens": 631056,
+      "reserved_cost_cny": 1.6864848,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "update_proposal": {
+      "requests": 2,
+      "known_prompt_tokens": 20621,
+      "known_completion_tokens": 1413,
+      "known_total_tokens": 22034,
+      "known_estimated_cost_cny": 0.0551733,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 22034,
+      "actual_estimated_cost_cny": 0.0551733,
+      "reserved_tokens": 96646,
+      "reserved_cost_cny": 0.2545662,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "update_self": {
+      "requests": 2,
+      "known_prompt_tokens": 21559,
+      "known_completion_tokens": 1252,
+      "known_total_tokens": 22811,
+      "known_estimated_cost_cny": 0.0557907,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 22811,
+      "actual_estimated_cost_cny": 0.0557907,
+      "reserved_tokens": 100898,
+      "reserved_cost_cny": 0.2634954,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "update_checked": {
+      "requests": 2,
+      "known_prompt_tokens": 22967,
+      "known_completion_tokens": 1153,
+      "known_total_tokens": 24120,
+      "known_estimated_cost_cny": 0.0579159,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 24120,
+      "actual_estimated_cost_cny": 0.0579159,
+      "reserved_tokens": 107838,
+      "reserved_cost_cny": 0.2780694,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "actor_self": {
+      "requests": 4,
+      "known_prompt_tokens": 30718,
+      "known_completion_tokens": 5517,
+      "known_total_tokens": 36235,
+      "known_estimated_cost_cny": 0.1108506,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 36235,
+      "actual_estimated_cost_cny": 0.1108506,
+      "reserved_tokens": 162769,
+      "reserved_cost_cny": 0.4450341,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "actor_checked": {
+      "requests": 4,
+      "known_prompt_tokens": 30744,
+      "known_completion_tokens": 4282,
+      "known_total_tokens": 35026,
+      "known_estimated_cost_cny": 0.1005312,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 35026,
+      "actual_estimated_cost_cny": 0.1005312,
+      "reserved_tokens": 162905,
+      "reserved_cost_cny": 0.4453197,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    }
+  },
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "scope": "Two learned policy pairs and four researcher-seen development states; no independent-task or significance claim.",
+  "request_comparison_scope": "Saved SDK pre-transport envelopes, not independently captured HTTP.",
+  "registration_timing_independently_proven": false,
+  "verification": {
+    "settlement": {
+      "request_count": 14,
+      "reserved_count": 0,
+      "failed_count": 0,
+      "usage_unknown_count": 0,
+      "halted": false,
+      "halt_reasons": [],
+      "recovery": null
+    },
+    "source_provenance_files_verified": 84,
+    "request_order_verified": true,
+    "accepted_policy_calls_match_sdk_normalized_arguments": true,
+    "accepted_policy_checks_recomputed": 6,
+    "unaccepted_requested_updates_not_scored": 0,
+    "evaluator_id_sets_disjoint": true,
+    "completed_all_assigned_requests": true,
+    "accepted_policies_do_not_certify_applicability": true,
+    "full_actor_packet_reconstructed_from_executor": false,
+    "actor_pair_equality_observed": true,
+    "review_pair_equality_observed": true
+  },
+  "run_id": "20261020-inference-policy-v01",
+  "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+  "reported_run_status": "attempts_completed",
+  "stop_reason": null,
+  "inference_assessments": [
+    {
+      "session_id": "p1-proposal",
+      "condition": "proposal",
+      "passed_checks": 3,
+      "total_checks": 4,
+      "notes_status": "unverified",
+      "assessments": [
+        {
+          "claim_id": "C1",
+          "claimed_verdict": "supported",
+          "expected_verdict": "supported",
+          "status": "correct",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C2",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "predeclared_executable_edit_contract"
+          ],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C3",
+          "claimed_verdict": "contradicted",
+          "expected_verdict": "supported",
+          "status": "overclaim",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C4",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "matched_structure_intervention"
+          ],
+          "evidence_error": null
+        }
+      ]
+    },
+    {
+      "session_id": "p1-self",
+      "condition": "self",
+      "passed_checks": 3,
+      "total_checks": 4,
+      "notes_status": "unverified",
+      "assessments": [
+        {
+          "claim_id": "C1",
+          "claimed_verdict": "supported",
+          "expected_verdict": "supported",
+          "status": "correct",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C2",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "predeclared_executable_edit_contract"
+          ],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C3",
+          "claimed_verdict": "contradicted",
+          "expected_verdict": "supported",
+          "status": "overclaim",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C4",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "matched_structure_intervention"
+          ],
+          "evidence_error": null
+        }
+      ]
+    },
+    {
+      "session_id": "p1-checked",
+      "condition": "checked",
+      "passed_checks": 4,
+      "total_checks": 4,
+      "notes_status": "unverified",
+      "assessments": [
+        {
+          "claim_id": "C1",
+          "claimed_verdict": "supported",
+          "expected_verdict": "supported",
+          "status": "correct",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C2",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "predeclared_executable_edit_contract"
+          ],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C3",
+          "claimed_verdict": "supported",
+          "expected_verdict": "supported",
+          "status": "correct",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C4",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "matched_structure_intervention"
+          ],
+          "evidence_error": null
+        }
+      ]
+    },
+    {
+      "session_id": "p2-proposal",
+      "condition": "proposal",
+      "passed_checks": 3,
+      "total_checks": 4,
+      "notes_status": "unverified",
+      "assessments": [
+        {
+          "claim_id": "C1",
+          "claimed_verdict": "supported",
+          "expected_verdict": "supported",
+          "status": "correct",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C2",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "predeclared_executable_edit_contract"
+          ],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C3",
+          "claimed_verdict": "contradicted",
+          "expected_verdict": "supported",
+          "status": "overclaim",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C4",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "matched_structure_intervention"
+          ],
+          "evidence_error": null
+        }
+      ]
+    },
+    {
+      "session_id": "p2-checked",
+      "condition": "checked",
+      "passed_checks": 3,
+      "total_checks": 4,
+      "notes_status": "unverified",
+      "assessments": [
+        {
+          "claim_id": "C1",
+          "claimed_verdict": "supported",
+          "expected_verdict": "supported",
+          "status": "correct",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C2",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "predeclared_executable_edit_contract"
+          ],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C3",
+          "claimed_verdict": "contradicted",
+          "expected_verdict": "supported",
+          "status": "overclaim",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C4",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "matched_structure_intervention"
+          ],
+          "evidence_error": null
+        }
+      ]
+    },
+    {
+      "session_id": "p2-self",
+      "condition": "self",
+      "passed_checks": 3,
+      "total_checks": 4,
+      "notes_status": "unverified",
+      "assessments": [
+        {
+          "claim_id": "C1",
+          "claimed_verdict": "supported",
+          "expected_verdict": "supported",
+          "status": "correct",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C2",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "predeclared_executable_edit_contract"
+          ],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C3",
+          "claimed_verdict": "contradicted",
+          "expected_verdict": "supported",
+          "status": "overclaim",
+          "missing_evidence": [],
+          "evidence_error": null
+        },
+        {
+          "claim_id": "C4",
+          "claimed_verdict": "unknown",
+          "expected_verdict": "unknown",
+          "status": "correct",
+          "missing_evidence": [
+            "matched_structure_intervention"
+          ],
+          "evidence_error": null
+        }
+      ]
+    }
+  ],
+  "run_file_count": 230,
+  "run_files_unchanged": true,
+  "run_tree_before_sha256": "199e2b584e2121fd3121f4abaad952295ce6763ca8707c59f24113949172c06d",
+  "run_tree_after_sha256": "199e2b584e2121fd3121f4abaad952295ce6763ca8707c59f24113949172c06d",
+  "input_file_sha256": {
+    "base-config.json": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+    "budget-ledger.json": "22340a0cc0ac87ead9fe095ff1b74b043c7e803bffaae1965afc283c898e5e3a",
+    "config.json": "6890217fb754b11fbe627a0628224480747b84b1d07f7f71d70e838e27dd0a8d",
+    "evaluation-started.json": "b31eb44da92d95ecd7eeffbab3e40ea887b08828a53e196132421e531742e4ca",
+    "p1-checked/attempt.json": "d5170cab26f1bc51a8c464e72ce5d246cdd146b927fe37621c96ecde1cef28d7",
+    "p1-checked/checks.json": "d0339368d9ea65486c792354450b5442b4b80e0961caa0e550b9372e18c81c3a",
+    "p1-checked/context.json": "c13b10363a3b7ec80aedc4371e3827fbea817cf2eb0011d540729a7dcdba2be6",
+    "p1-checked/events.jsonl": "78b6973c75d500b1c8ae05f20b58bc1e0b771617d48de9ff7f85cac60a0925ed",
+    "p1-checked/freeze.json": "aeb0c1f27e4c76d83591fdefe8c8d26cc673a6636e6348987370b8641be3eb09",
+    "p1-checked/policy.json": "324dccac7b3d3b5ca74c4198465e80b83dc4e43e589b72a60facf428824058dc",
+    "p1-checked/requests/input-audit-0001.json": "a205744d845cd23341a1db174192b2520871588acf2a2dd44dac3e5a6c6950a7",
+    "p1-checked/requests/packet-0001.json": "ea1bcbe746e5b4d8d6f769c204ee3f6c5a2552b2493cd16e81dac21f335601b0",
+    "p1-checked/requests/request-0003.request.json": "24dc9e6c48ae91bafa0f4fe9a9c1916db43b53f8a8bf8f3371ad340996326802",
+    "p1-checked/requests/request-0003.response.json": "8f6dec584a87b4ef535d463913424e474074ba1d3e77ce4c8e4c68598b16180a",
+    "p1-checked/session-summary.json": "e863bde84ef4570172ba20faf0eae2db20016c13e71da84560967d4c37dfc46f",
+    "p1-checked/submission.json": "b29dbe29099e1c84697c612cb556d17327188f44626fbc1b16e82fe3066fb9b1",
+    "p1-checked/task-packet.json": "ea1bcbe746e5b4d8d6f769c204ee3f6c5a2552b2493cd16e81dac21f335601b0",
+    "p1-P-A002-checked/audits.json": "36ede14029001845ecd22fdbbaad049b7b08960ac8047be544108a947a157e82",
+    "p1-P-A002-checked/candidates/planning-000.py": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+    "p1-P-A002-checked/candidates/planning-001.py": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+    "p1-P-A002-checked/candidates.json": "d50d8bf494c609ca9b2cee55522ccb76d1d583a934d443a804e61e93ddeb4262",
+    "p1-P-A002-checked/diagnostics.json": "256133915f73dbbfb176ec56dcb1c4aa8440f0ff2b69f9c09301734111644e56",
+    "p1-P-A002-checked/events.jsonl": "32ca06e9156a2665b68768c9024c87190b8b8c1f9e88f0cedce73e1ac5c93f86",
+    "p1-P-A002-checked/evidence-registry-000.json": "cbdbff4c51985461ff5cfc1e28c3697442a11975cfdd45108071bbfad3bc4dea",
+    "p1-P-A002-checked/evidence-registry-001.json": "1acb892136c1da2cc6e536ca9ce809b92d465d8e9cee52ab6d1da6127d9d7fe5",
+    "p1-P-A002-checked/evidence-registry.json": "1acb892136c1da2cc6e536ca9ce809b92d465d8e9cee52ab6d1da6127d9d7fe5",
+    "p1-P-A002-checked/evidence.json": "d5edb25a6973e2296bbe3798be423a3932d1db27d95bb30d2bc311cbe58b952f",
+    "p1-P-A002-checked/repair-state-provenance.json": "d9f1e420b4eca992d045e43ab162c3a3a56f5f1d447300bdf467965abca447e5",
+    "p1-P-A002-checked/requests/input-audit-0001.json": "9afb1a3992231ae256eec57610d186cef969f8f7cba1e435d045117a5ed617cb",
+    "p1-P-A002-checked/requests/packet-0001.json": "3ef11834274774eb108137d8fbca3a930256a8179580722ea58e747aa57f359b",
+    "p1-P-A002-checked/requests/request-0009.request.json": "68cc0d7143f49ddee2796c6d7eb6f2299fa2fb3a6415a9ec472379555cbb63f1",
+    "p1-P-A002-checked/requests/request-0009.response.json": "656f99d428c1e003a3e1e83aaf7393b6d1291627ff0a7af7b40af993745a9bbf",
+    "p1-P-A002-checked/session-summary.json": "5e06d672e78d3606d5d7c976fc9c04fbcf4f603795b349be562e4c35ca5252af",
+    "p1-P-A002-checked/summary.json": "1e90cc7946e133a7c20b7cbb7475419d808167219c4da77e2f8aa20356149290",
+    "p1-P-A002-checked/task-prompt.json": "3ef11834274774eb108137d8fbca3a930256a8179580722ea58e747aa57f359b",
+    "p1-P-A002-self/audits.json": "98a5c3b2ed7513c6f5b3214e980b1a89f9089a30fcde8158c5b037f8fcd4b26e",
+    "p1-P-A002-self/candidates/planning-000.py": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+    "p1-P-A002-self/candidates/planning-001.py": "6c4a5f637b25a4a56deb67468cb1fd018b01a5ff42ca56f495a7427c91e8f7dd",
+    "p1-P-A002-self/candidates.json": "ed452d2f5c2bcfe7f94c68058af6aff4efe8595ae21adb289a49b19655f39688",
+    "p1-P-A002-self/diagnostics.json": "e411b392d8dc33773f2c1042c291ebff42bcfe052eb64c34f9a607039e4cab7b",
+    "p1-P-A002-self/events.jsonl": "b8003086034d5e55b498af9b5dd8c1e51f4e9caaad3aed835aee17ef34830f58",
+    "p1-P-A002-self/evidence-registry-000.json": "cbdbff4c51985461ff5cfc1e28c3697442a11975cfdd45108071bbfad3bc4dea",
+    "p1-P-A002-self/evidence-registry-001.json": "76e843306ee2bb7902bb6020834c3dfc8592fbc8b5f7a97057b08d4994aea4fd",
+    "p1-P-A002-self/evidence-registry.json": "76e843306ee2bb7902bb6020834c3dfc8592fbc8b5f7a97057b08d4994aea4fd",
+    "p1-P-A002-self/evidence.json": "c8a9ea442167e359fe7149df653a8ca955896b44e63fcf35a0a258b7ea0fcfdf",
+    "p1-P-A002-self/repair-state-provenance.json": "d9f1e420b4eca992d045e43ab162c3a3a56f5f1d447300bdf467965abca447e5",
+    "p1-P-A002-self/requests/input-audit-0001.json": "35d8786ffb6e8bee934343f9f243b547058fdd0415fd71f2e5bd6be8796de277",
+    "p1-P-A002-self/requests/packet-0001.json": "b557b77f70b6489f6d95c717f7e35112ed7708e18193bdded2070d96cb96b54a",
+    "p1-P-A002-self/requests/request-0007.request.json": "b2cf3d25bf62c507a80b1ba3b22eba254a7845a39724a946f1cb0877ffb7d1dc",
+    "p1-P-A002-self/requests/request-0007.response.json": "0fbf165dc706f5eb6c9f3521676c77fe1aac554f9a7f4ab3b12aba427d25241e",
+    "p1-P-A002-self/session-summary.json": "26be70783266a6b38216674fe2c12b2e9b841968335fc597683b1e5bf937a24e",
+    "p1-P-A002-self/summary.json": "ad830d6fca578af90569866451c64f4338191fc52087146a9cd36474551dfff1",
+    "p1-P-A002-self/task-prompt.json": "b557b77f70b6489f6d95c717f7e35112ed7708e18193bdded2070d96cb96b54a",
+    "p1-proposal/attempt.json": "41c6bb3d13c4d7a5e9aa2f834e4165af0918cc6c23597c563c63d181783c0d30",
+    "p1-proposal/checks.json": "341d05373fa5c1bcfe4b98e2bae57d907cecb71858165429dda126db1d9f58e9",
+    "p1-proposal/context.json": "527a5c4040b4adfce7e5e4c92b291406a25b778edaf674f2b4f9e518c3c96196",
+    "p1-proposal/events.jsonl": "0dcec6bc4bd8d5e53f05b88d68559fb85a7fc443c8c7263bcb1c65b8ce62a69e",
+    "p1-proposal/freeze.json": "e3e669ca81ccbab885edd2baf063971659de95f6f4323057ac0a415ebcfdd934",
+    "p1-proposal/policy.json": "25e1c61cff1b4763a7c29b57a8ccf428c84664db2493f4413fc7b5aeb776caad",
+    "p1-proposal/requests/input-audit-0001.json": "4af715380fc9b2ec69ed6799fd622a094e90d4b9a58b8d9029059471dcfae0a1",
+    "p1-proposal/requests/packet-0001.json": "230ee42178734e887c79627c7ba47f7674b46a3be12ae4c85bdbd938a37f621f",
+    "p1-proposal/requests/request-0001.request.json": "78edcdb8192457dfd516b5350fe5ad428c4f3201d9206c7df8bb6cab555c699c",
+    "p1-proposal/requests/request-0001.response.json": "6089f89504d16dcfe7182e24170e02793f592328b49bfd6902b8c89d52c7b5ac",
+    "p1-proposal/session-summary.json": "830563cb6d9845a4c2d8913e1b08024eaed369f7fbf9d807ae532cd1ab91ff41",
+    "p1-proposal/submission.json": "3734e9c68523ff59daed163526a2fb66fa5fbd7379eb04d815b02145abd65d0f",
+    "p1-proposal/task-packet.json": "230ee42178734e887c79627c7ba47f7674b46a3be12ae4c85bdbd938a37f621f",
+    "p1-S-poly5-checked/audits.json": "47ee774603d5845806979e8e737f6d603594d34518369da72ee931bd17f30a37",
+    "p1-S-poly5-checked/candidates/symbolic-000.py": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+    "p1-S-poly5-checked/candidates/symbolic-001.py": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+    "p1-S-poly5-checked/candidates.json": "2df3efec6130a5d155bbf192729373a4741a22d7e91c30ab9b6c002beee27514",
+    "p1-S-poly5-checked/diagnostics.json": "2e5cdcae3b5849bc058b217d5bfd0d84bc15023f0d3a0032ecb35cbccb2c314e",
+    "p1-S-poly5-checked/events.jsonl": "580ed6d12c5a39c395b4209256c4bfa79210c375cfd529ab533e10a7a8bf287d",
+    "p1-S-poly5-checked/evidence-registry-000.json": "2f776e3c54dc02508e3652613993bdaad7186b93b57b0861c4643fdf36545acb",
+    "p1-S-poly5-checked/evidence-registry-001.json": "7a44eda5ff8d3ca45cebb1f4a984687b12270313775eb6164afec4ea7537a9fe",
+    "p1-S-poly5-checked/evidence-registry.json": "7a44eda5ff8d3ca45cebb1f4a984687b12270313775eb6164afec4ea7537a9fe",
+    "p1-S-poly5-checked/evidence.json": "f23df07e029a32089ca926b5bc0d15bf55d5c2eceacdbf5ddc80cff32d49f451",
+    "p1-S-poly5-checked/repair-state-provenance.json": "83bbe0bc04bd362e0c1cb60fb4066a8dfa38ca1163b6a3a5226f62f1ecd46dba",
+    "p1-S-poly5-checked/requests/input-audit-0001.json": "9272c7bb74b81dd2f0ee83cf738fc8b4938ea58149cd9e20797c8da0feb0f726",
+    "p1-S-poly5-checked/requests/packet-0001.json": "4081dbde2ed7d6c7bb5da06874ceb1501ae2370755941e13325a6ae97e377a7e",
+    "p1-S-poly5-checked/requests/request-0008.request.json": "76b5f5a0f8fff16461f94673c24c61a4f96d0aaedefa2ea5149bcb88066f82ac",
+    "p1-S-poly5-checked/requests/request-0008.response.json": "f7077a92b2e58b3cae2406a1dc8fc10f2f37d09cc439bfd8806bcdcbc47a2d33",
+    "p1-S-poly5-checked/session-summary.json": "04c3e27f09493a99eeabad20b8de73063fef35273e492513253b67c49a91898c",
+    "p1-S-poly5-checked/summary.json": "db8b2c93d444120c3556177d3f49bbffb54d8a46376212d367632dd78df7a002",
+    "p1-S-poly5-checked/task-prompt.json": "4081dbde2ed7d6c7bb5da06874ceb1501ae2370755941e13325a6ae97e377a7e",
+    "p1-S-poly5-self/audits.json": "43f992f1264d32ffeac7f3783b76002f246c6f794121bad3a1c5e46d3e60fc9b",
+    "p1-S-poly5-self/candidates/symbolic-000.py": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+    "p1-S-poly5-self/candidates/symbolic-001.py": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+    "p1-S-poly5-self/candidates.json": "eef5454ff0a2ff32e65397ccfde7d3008fa36d2d44759c4a33ad77d76a2cd792",
+    "p1-S-poly5-self/diagnostics.json": "1fd47746712a921964e1cf4ef9571817ee87fa135c45711fcfb9d35be89c729d",
+    "p1-S-poly5-self/events.jsonl": "b49c65225efac2a65ca31874bb27b0e19c12349958be79b49de54e35dd37fc53",
+    "p1-S-poly5-self/evidence-registry-000.json": "2f776e3c54dc02508e3652613993bdaad7186b93b57b0861c4643fdf36545acb",
+    "p1-S-poly5-self/evidence-registry-001.json": "8b3897560a73f9e206f832cf2ceb2db3ab2ddaeb0254e37e3f2cd9ff024cbcfe",
+    "p1-S-poly5-self/evidence-registry.json": "8b3897560a73f9e206f832cf2ceb2db3ab2ddaeb0254e37e3f2cd9ff024cbcfe",
+    "p1-S-poly5-self/evidence.json": "aa9f284214c4f412c8fa5cc54738c8437cb7aa6e5614809d7307bdc26a4a99b4",
+    "p1-S-poly5-self/repair-state-provenance.json": "83bbe0bc04bd362e0c1cb60fb4066a8dfa38ca1163b6a3a5226f62f1ecd46dba",
+    "p1-S-poly5-self/requests/input-audit-0001.json": "e8585fab5844dcd47dbd670ce8be9bb991595b6d4ee9a998668312d961ff960d",
+    "p1-S-poly5-self/requests/packet-0001.json": "4f1f597dcae48e50cc584fa48d4200e6cc1859e0c7ab202218128c6a857c730a",
+    "p1-S-poly5-self/requests/request-0010.request.json": "bd9d27a07558e18a42572f20ee5e909a508e769bcbd3c09d4abb23a7e57beff9",
+    "p1-S-poly5-self/requests/request-0010.response.json": "7669c48aa3d32c788e236af6b987921f89741af0c701bdf0471bcacc34179744",
+    "p1-S-poly5-self/session-summary.json": "d509957f81b2498143c8a8d4914bf85910450ee27e65ce1a3adb962706df18f4",
+    "p1-S-poly5-self/summary.json": "35ddb8200124c463d7d05a1c7ea288666fd437efe23a7af32f8c4d5bd72a4598",
+    "p1-S-poly5-self/task-prompt.json": "4f1f597dcae48e50cc584fa48d4200e6cc1859e0c7ab202218128c6a857c730a",
+    "p1-self/attempt.json": "47cb5711167d07c79ea0effadc14bbd1e8d8c3ae5da9862a41dafcf30c45fd1c",
+    "p1-self/checks.json": "341d05373fa5c1bcfe4b98e2bae57d907cecb71858165429dda126db1d9f58e9",
+    "p1-self/context.json": "f08ef199d2e54d1667e588bee396aeab7550f35da2ee3d0604408e4e1cbdf4e6",
+    "p1-self/events.jsonl": "dc01e963880bd47255bdc52738df03b2ebce8d460786fc4f278a819f59342530",
+    "p1-self/freeze.json": "cc5ff4b719fa140302402fa194025e35c2f3008ce86bcf139bc0c59da72f10ff",
+    "p1-self/policy.json": "25e1c61cff1b4763a7c29b57a8ccf428c84664db2493f4413fc7b5aeb776caad",
+    "p1-self/requests/input-audit-0001.json": "16b921b1233fc67726d43784458d956d2d9e75de9c60c983492c553a569450c9",
+    "p1-self/requests/packet-0001.json": "4be9523602469a344b1b712a60e31e78baf43fd13f35d8e2dbb5e74441abdcf0",
+    "p1-self/requests/request-0002.request.json": "1bc9a8872b81f5e15e53b9b4b0944330b405817769a3aa25f2a56c7a5e661936",
+    "p1-self/requests/request-0002.response.json": "e05c4b85626081340b5994bc41a2c8e20c84368b0daab142afce8d9983b32fc5",
+    "p1-self/session-summary.json": "8abcb847cfa38cab3c588e132d41c5c7e376240c2c1a3739bb030fb9f2359b09",
+    "p1-self/submission.json": "4e81f2f1b566d85b931275c7fbce9f289b5436da41be629601f227fbd6a33bc8",
+    "p1-self/task-packet.json": "4be9523602469a344b1b712a60e31e78baf43fd13f35d8e2dbb5e74441abdcf0",
+    "p2-checked/attempt.json": "8cec4bd0b0ced60056634fbe0902894a1c9b12772f6119f7e26072301b7be295",
+    "p2-checked/checks.json": "341d05373fa5c1bcfe4b98e2bae57d907cecb71858165429dda126db1d9f58e9",
+    "p2-checked/context.json": "6e12a24263a0829c3a9330d7229904acb3825f3b3b8a87594f8563857b3e09df",
+    "p2-checked/events.jsonl": "fafd39059f8f67b4d6be5f8cfd2d1571205b4e87b0f1cc1331cf57ff3d7af059",
+    "p2-checked/freeze.json": "19b4a8d1eab6d1674e60d61f7337e1c85d2c7066e3f49e5ec63b60ac03096051",
+    "p2-checked/policy.json": "486d06c0beebf1b8c29a8a67112e310c28b8921ce280ab3227106502f6fdaefb",
+    "p2-checked/requests/input-audit-0001.json": "754b41867f909057841a004bca3a61fecf483c397b76afebf9c312b23ea44dc6",
+    "p2-checked/requests/packet-0001.json": "4b45f53a0601fe0407e013d448dd2049dd83afc85f3c026e8551f12cd43388cf",
+    "p2-checked/requests/request-0005.request.json": "a5c7b729fce2fb3182263be54c5d0ce3ac592ce8fb801e60a19a932f2cfc9b7b",
+    "p2-checked/requests/request-0005.response.json": "3df65e99c546b4f93a999756d9e88922d971961ed7468fa34dc008c8b3a01f32",
+    "p2-checked/session-summary.json": "c1afa27268b2050f9c9d0169355fce4ecab1f232a09dad3f605970b28eaf7885",
+    "p2-checked/submission.json": "61df7a2715bf48db0433177e62c58c70ba2bffc5ebff7a548238c59a1f63e740",
+    "p2-checked/task-packet.json": "4b45f53a0601fe0407e013d448dd2049dd83afc85f3c026e8551f12cd43388cf",
+    "p2-P-H002-checked/audits.json": "f0ae02ecf7dcaec9be38d80060e97878dc078accbbaf90f488433ada930d8864",
+    "p2-P-H002-checked/candidates/planning-000.py": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+    "p2-P-H002-checked/candidates/planning-001.py": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+    "p2-P-H002-checked/candidates.json": "e60f723bd8f4a63b535ee68f91a8382331931510857ac7ee675c4b7d388ab07d",
+    "p2-P-H002-checked/diagnostics.json": "89e51893aa25e4cfb80973881a91ce99b596055cce80147b18d30d196a4063be",
+    "p2-P-H002-checked/events.jsonl": "acb210505b0aed2e73a177e5f5a5dcf63d02afc8f9a63f2dcac9bc9c7a217030",
+    "p2-P-H002-checked/evidence-registry-000.json": "f9a4b2c780ef2a1743a5e7fea1aa396abad9b6bb52bc4d8d5e11e56eacc83ebf",
+    "p2-P-H002-checked/evidence-registry-001.json": "78aa0089a61c08c9e4ec5a8e65b91e08d096d8965d2aa3fd18fdb54a45871691",
+    "p2-P-H002-checked/evidence-registry.json": "78aa0089a61c08c9e4ec5a8e65b91e08d096d8965d2aa3fd18fdb54a45871691",
+    "p2-P-H002-checked/evidence.json": "9d3c1cc3d8055b737de7b1ad5c61391cfb38170fd080936a1986a64149539e42",
+    "p2-P-H002-checked/repair-state-provenance.json": "b06503e8436f23ac8c9fe6ce0e297cdee06471aceeaa48e9ba38dea3ebfd4c6e",
+    "p2-P-H002-checked/requests/input-audit-0001.json": "ffc9b70943d8931e0a334a6f4d3bf83783c097e0ffa129fc8bb9613744c51778",
+    "p2-P-H002-checked/requests/packet-0001.json": "d632ffe4d9d389d053614e11d151d3c5f4b679e127b37d717718bcd3ad57df48",
+    "p2-P-H002-checked/requests/request-0012.request.json": "0d575fdee525e4da6ef2f92bd6b24ace38d9f4d74c69b5a7e301b3b05a13d3e7",
+    "p2-P-H002-checked/requests/request-0012.response.json": "71bf2aad341a5723c943ee7ee7e7f4b219be51f9ffc80a07ce037ba55b3c7a2e",
+    "p2-P-H002-checked/session-summary.json": "f4539ed4b53b96cb4a5d1ee8203989b03251b5e25c100c443ce71d5fe7c9fe4f",
+    "p2-P-H002-checked/summary.json": "0d58a81caba5a110e2f5efbeaf987828bcd6e1b1d3df083e1edce00ecad91905",
+    "p2-P-H002-checked/task-prompt.json": "d632ffe4d9d389d053614e11d151d3c5f4b679e127b37d717718bcd3ad57df48",
+    "p2-P-H002-self/audits.json": "b9c04b672a8c65fe479c50b9ca1106b18ed0406dc47696f0b9bf612dcd510150",
+    "p2-P-H002-self/candidates/planning-000.py": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+    "p2-P-H002-self/candidates/planning-001.py": "22be60362fe59ac66a11403b97bd9cf0a93b0c9e7c3b2bbeb9b306aafc71948e",
+    "p2-P-H002-self/candidates.json": "d3d5af2c4489104adec31d6a4364ef3f519e9a6efd14b215c687f90c73effa29",
+    "p2-P-H002-self/diagnostics.json": "820eb1592e9f891ef518eb178132c0ed8cd14b164cf6eb47c8b7f40e2c4798c9",
+    "p2-P-H002-self/events.jsonl": "afa4384fc64b1762a7bdd6bb2a6c5d25c089578a1ca9023dcc59392979bf42ad",
+    "p2-P-H002-self/evidence-registry-000.json": "f9a4b2c780ef2a1743a5e7fea1aa396abad9b6bb52bc4d8d5e11e56eacc83ebf",
+    "p2-P-H002-self/evidence-registry-001.json": "a044298b7cda6f4496222b7ab8d4ab6e9db4971aedf9e47a869d8245bd9974a1",
+    "p2-P-H002-self/evidence-registry.json": "a044298b7cda6f4496222b7ab8d4ab6e9db4971aedf9e47a869d8245bd9974a1",
+    "p2-P-H002-self/evidence.json": "a2c502ae2659890afd648ad4df2fdd2e37fcb31873c3ffed927d2e7250d1baff",
+    "p2-P-H002-self/repair-state-provenance.json": "b06503e8436f23ac8c9fe6ce0e297cdee06471aceeaa48e9ba38dea3ebfd4c6e",
+    "p2-P-H002-self/requests/input-audit-0001.json": "13d363c7e51f07acda174446a7a3bf324b7c3251b2166f28002ac586951fa4e2",
+    "p2-P-H002-self/requests/packet-0001.json": "d632ffe4d9d389d053614e11d151d3c5f4b679e127b37d717718bcd3ad57df48",
+    "p2-P-H002-self/requests/request-0014.request.json": "0d575fdee525e4da6ef2f92bd6b24ace38d9f4d74c69b5a7e301b3b05a13d3e7",
+    "p2-P-H002-self/requests/request-0014.response.json": "f5cb57f24ca339ea2e9eab891ff2c5a9c5a59514199a81c4d00b75d755dcd358",
+    "p2-P-H002-self/session-summary.json": "974ec63d6240dddf83cbe1f5ac842754358bdc295170cc3e1f60279ca90d990c",
+    "p2-P-H002-self/summary.json": "20fd28cb02ddf9e0472edb72af3373e359f893b9af401923c82ec09d05edc999",
+    "p2-P-H002-self/task-prompt.json": "d632ffe4d9d389d053614e11d151d3c5f4b679e127b37d717718bcd3ad57df48",
+    "p2-proposal/attempt.json": "13e9a2e6540f8ae261254fc27ddb32d92638ddcfee5381152cb3f1f30c4df2e7",
+    "p2-proposal/checks.json": "341d05373fa5c1bcfe4b98e2bae57d907cecb71858165429dda126db1d9f58e9",
+    "p2-proposal/context.json": "7c84b6d324a7970a1c4cad8622dac34c85ad4897af4362244c54d461b849adf2",
+    "p2-proposal/events.jsonl": "0dd4034cae4d79fa2532d897245eaa1655858f79b5332ee3e96af9aa9bed69db",
+    "p2-proposal/freeze.json": "113ed203e636ec8f2a3b618efb3004a067ed6ce60c636643e6260f5689665c30",
+    "p2-proposal/policy.json": "486d06c0beebf1b8c29a8a67112e310c28b8921ce280ab3227106502f6fdaefb",
+    "p2-proposal/requests/input-audit-0001.json": "7d224c6314cb44843ebf599e714273766ff88577d48336e1cba60d7472ab6a6c",
+    "p2-proposal/requests/packet-0001.json": "4fcbb883054c2d5c967e26904aea196c541819cdcd4683b0eece5e0820cb5cef",
+    "p2-proposal/requests/request-0004.request.json": "85bc736a59f9c52eae56517ca9975cba6ba9c5e6a59c056e10c7cb84b27dfae3",
+    "p2-proposal/requests/request-0004.response.json": "ef0627ce57d7480150883151a3260b6ed1d8f5238f6b835c998e10aa3a839b20",
+    "p2-proposal/session-summary.json": "ed117aae12c2816428b02d4d69308a94a29d88eee286ef58032478a292fc9e9b",
+    "p2-proposal/submission.json": "5dc7ba58b007acb744ac787ea670f4331c65acd2fac8323b02604757790d2de5",
+    "p2-proposal/task-packet.json": "4fcbb883054c2d5c967e26904aea196c541819cdcd4683b0eece5e0820cb5cef",
+    "p2-S-odd4-checked/audits.json": "c9d1bbdecefd1fcb87d32532dceb931687931dc8123abb91b94a660c178e2eaa",
+    "p2-S-odd4-checked/candidates/symbolic-000.py": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+    "p2-S-odd4-checked/candidates/symbolic-001.py": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "p2-S-odd4-checked/candidates.json": "a58cd416b649db6962e919a9d41f7df8917a436370bb04976957e4cd80c8b43c",
+    "p2-S-odd4-checked/diagnostics.json": "86627aa2c09ef051ec1eb4a644e32fe17e3560342748b4abc180a72568c29ef2",
+    "p2-S-odd4-checked/events.jsonl": "96c4960a526754201e70ec7047a774391e9f7375c1d1930b29e09cd87baa8797",
+    "p2-S-odd4-checked/evidence-registry-000.json": "041b4f7b387ed96c6060fb55831103aad6665ce4e6331ffdc1e61f8bb232647c",
+    "p2-S-odd4-checked/evidence-registry-001.json": "1b015213aa8f75a3fb46b257fde82b6e8e2e3b2e608224609e5701a4968bc0ed",
+    "p2-S-odd4-checked/evidence-registry.json": "1b015213aa8f75a3fb46b257fde82b6e8e2e3b2e608224609e5701a4968bc0ed",
+    "p2-S-odd4-checked/evidence.json": "b84f34182a0c14c7b03e1574338392528133e95762f9d7a3b18a5204096558d4",
+    "p2-S-odd4-checked/repair-state-provenance.json": "a389905a5da8fd12633433513a0c49d79c9b54b68e8b8121c83d4f91cf9156d3",
+    "p2-S-odd4-checked/requests/input-audit-0001.json": "39e73e5d5faee397a36a4266bf7afc76dc6cd677e7180e601106aba8a637d367",
+    "p2-S-odd4-checked/requests/packet-0001.json": "69b04b2d98e55c2125c95232fa7c6ac45de5307b49432a18db95a496c7f2e034",
+    "p2-S-odd4-checked/requests/request-0013.request.json": "65543c9c776e03b638a6ec335ff2c538127027794bf198f2e2cfd5050f31b9de",
+    "p2-S-odd4-checked/requests/request-0013.response.json": "cbdecf88afd7f793483d5010f69f1b11afcde787a53fa471911a20b4bdaff46e",
+    "p2-S-odd4-checked/session-summary.json": "cd6fa7c31c455a7e4485dd3e11a3a285707ff48425e209c65a2dce0fc83c3d66",
+    "p2-S-odd4-checked/summary.json": "42d8390bd883a459656f41220c6a48f3fcdc316cf0aa3c36a62e640f415a5b16",
+    "p2-S-odd4-checked/task-prompt.json": "69b04b2d98e55c2125c95232fa7c6ac45de5307b49432a18db95a496c7f2e034",
+    "p2-S-odd4-self/audits.json": "1f6e897570604365ffbd6467c088c8e64b9a92d86a47ec5f5819dde01bdd0be5",
+    "p2-S-odd4-self/candidates/symbolic-000.py": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+    "p2-S-odd4-self/candidates/symbolic-001.py": "89aab8fa550a2dab8ff12d8af922c94e4680d94459e38f98e250ab507f9a27f8",
+    "p2-S-odd4-self/candidates.json": "a6f153348f1f97262e729809c0300e8c5fab6d34f528b833fbba9bdf49d1cca6",
+    "p2-S-odd4-self/diagnostics.json": "5d0b1ee836c66c8a0af3889efbb0a6c456f47e1d4f09bbe6110dc0790b95d268",
+    "p2-S-odd4-self/events.jsonl": "a5f0abf07770d305e5ab0b45373710d1b46917c787fe115098824fadcdded827",
+    "p2-S-odd4-self/evidence-registry-000.json": "041b4f7b387ed96c6060fb55831103aad6665ce4e6331ffdc1e61f8bb232647c",
+    "p2-S-odd4-self/evidence-registry-001.json": "70c7a5918f2a5f9d43f6f243c856c018f8f6db0a79e05fcef1e9f0c936467b62",
+    "p2-S-odd4-self/evidence-registry.json": "70c7a5918f2a5f9d43f6f243c856c018f8f6db0a79e05fcef1e9f0c936467b62",
+    "p2-S-odd4-self/evidence.json": "3c4dd5fa82967e7733e04396c46b4e479b18141e404390feb98bd77ed7070728",
+    "p2-S-odd4-self/repair-state-provenance.json": "a389905a5da8fd12633433513a0c49d79c9b54b68e8b8121c83d4f91cf9156d3",
+    "p2-S-odd4-self/requests/input-audit-0001.json": "c359a58ff8efa9e4a6ffda521b97b4b38476e9583fd4340d7c2d4bc7f5de8372",
+    "p2-S-odd4-self/requests/packet-0001.json": "69b04b2d98e55c2125c95232fa7c6ac45de5307b49432a18db95a496c7f2e034",
+    "p2-S-odd4-self/requests/request-0011.request.json": "65543c9c776e03b638a6ec335ff2c538127027794bf198f2e2cfd5050f31b9de",
+    "p2-S-odd4-self/requests/request-0011.response.json": "b604c9da8248d5e0405c14da3ca5dac538f42b71899706675117512940e69b77",
+    "p2-S-odd4-self/session-summary.json": "51c7465cab6fa32277e6e1b135c747a7e1a66457bbcda6a2f8a2b2dc9098a83b",
+    "p2-S-odd4-self/summary.json": "e9a89c60277b5b8b9495b29378d509714fbd76ad723443e3d6af1f8ef991cbbd",
+    "p2-S-odd4-self/task-prompt.json": "69b04b2d98e55c2125c95232fa7c6ac45de5307b49432a18db95a496c7f2e034",
+    "p2-self/attempt.json": "e2ec7773c3da7d478de32fa24da65a43c6ca7a918bb6238ad47bdfc5ea56c46d",
+    "p2-self/checks.json": "341d05373fa5c1bcfe4b98e2bae57d907cecb71858165429dda126db1d9f58e9",
+    "p2-self/context.json": "4a1cd4062a3218e3c3b0e5a1c16162052a1842d8dc13ef568d330514d62e7568",
+    "p2-self/events.jsonl": "262dbf8adab2c8df1825b151688503db581bb635e280a278ec70f2399ed8277e",
+    "p2-self/freeze.json": "aff3e7c5de111940781d44436965b7abf290c2f93e8d41bfd85669e7499a3120",
+    "p2-self/policy.json": "486d06c0beebf1b8c29a8a67112e310c28b8921ce280ab3227106502f6fdaefb",
+    "p2-self/requests/input-audit-0001.json": "204d77cd7f8c5a1d3e8f8e09e99d6a9cdee7be15b6129472de477212690bc0b0",
+    "p2-self/requests/packet-0001.json": "09438440295c9765317970738cb413a1720461c330ee8941484c7b4e85efda0a",
+    "p2-self/requests/request-0006.request.json": "217b9c66fe7c23d233432dd2cac915e4560e5bc86b029209b101c3f8d4eb98d2",
+    "p2-self/requests/request-0006.response.json": "c914570a1596bae4a2ae7705858aa0c40b6f64d2feefd9735454cc6e195a88a8",
+    "p2-self/session-summary.json": "c6e0b2e5e994fd48f297b284a567d21d5ed6f3a58235437fdbb52defdb119555",
+    "p2-self/submission.json": "0b3ce21c25ebbeeac85436ae6fc86dbc3483db0a777328cc2e902098342a65bb",
+    "p2-self/task-packet.json": "09438440295c9765317970738cb413a1720461c330ee8941484c7b4e85efda0a",
+    "state-provenance.json": "8d3ab085b97101f1f7c44a50795ee1742e94a5fc1dd7f35f43184d4f24d81dc7",
+    "summary.json": "e436bc0114086591ebae0d794f07f67e3c9f24e2ae4ef6be49a9c380b24166b9",
+    "update-bundle.json": "4bf06cc78d99208e8e187a91d323bcf706ae1e977ac4ef1b7d4d53ade9787f9f",
+    "update-phase-freeze.json": "cfcd62ab64b364169fe632fad4fa959a7a084cf26ee87ca8cac26df1f98ba3a7"
+  },
+  "analysis_script_sha256": "570d7be3f2369469c8a8bcd3a188376e1b527400f277262e839e0c07937ff8b5"
+}

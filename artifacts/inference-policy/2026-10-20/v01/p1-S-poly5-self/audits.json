@@ -1,0 +1,114 @@
+[
+  {
+    "candidate_id": "symbolic-001",
+    "compact_declaration": {
+      "claim_id": "e_1ca4dafbb4c2f6e0",
+      "claim_op": "lt",
+      "claim_value_json": "0.09",
+      "prediction_id": "e_1ca4dafbb4c2f6e0",
+      "prediction_direction": "decrease",
+      "prediction_min_delta": 0.005
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "46117dd2b0894ec05a8ec80820ed2ea92ec81a614118d6528a1ad682a512e689"
+    },
+    "claim_expansion": {
+      "status": "resolved",
+      "value": {
+        "kind": "scalar",
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "op": "lt",
+        "value": 0.09
+      }
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "direction": "decrease",
+        "min_delta": 0.005
+      }
+    },
+    "claim_results": [
+      {
+        "status": "contradicted",
+        "reason": "comparison_contradicted",
+        "actual": 0.09376229967010528,
+        "tolerance": 1.0376229967010529e-09,
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1",
+          "scope": "train",
+          "key": "nmse"
+        },
+        "op": "lt",
+        "expected": 0.09
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.09376229967010528,
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "direction": "decrease",
+      "min_delta": 0.005
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.0015132655690959645,
+      "tolerance": 1.5e-10,
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "before": 0.09376229967010528,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.005,
+      "child_reference": {
+        "session_id": "20261020-inference-policy-v01:p1-S-poly5",
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "after": 0.09224903410100932
+    }
+  }
+]

@@ -1,0 +1,2050 @@
+{
+  "version": "evidence-ids-v0.1",
+  "session_id": "20261020-inference-policy-v01:p2-P-H002",
+  "entries": {
+    "e_02d7107c8b3d85ab": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_039e5280883e6638": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_063c59a4e626335c": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_0bef1375d5e8ccf2": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_120afcd80ced0828": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_15710a0e33b561e9": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_1af7362e84c13e40": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_1ba067ed53fb10a5": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_33a53ed4410374b1": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_34b217e8b01c6005": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_3894e8a2a560cc37": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_3a317a7c54f25ad2": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_3f0174164cfaf6b1": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_44082716c98e3f6b": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_48e26bd5db3b5f6f": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_4afb07a2550be58b": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_total"
+      },
+      "kind": "scalar",
+      "value": 2.0
+    },
+    "e_56862d24cf2c9c7c": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_57180657f4b1eef5": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_57296e3cd9c2b86a": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_5c18c8d10b18fa51": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 11.0
+    },
+    "e_61fc1fff662b5f24": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_64461c875e7347d7": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_total"
+      },
+      "kind": "scalar",
+      "value": 8.0
+    },
+    "e_6725450593fe550c": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_6910a823acce44dd": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_6a0ed8122b8637d4": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_6a33a8b303835b8f": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_6a33bff4accced36": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_6b89cc1761c6e788": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "executed_actions"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_6c2baf977f0335f9": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_70c8144371716315": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_72ea74c45bfd2f30": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_7513146701085f10": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_7a4b3eb570bdd148": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_82541f0fbd106f57": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_852cb2e5027e3414": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_87df0094b00266da": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_88ab9c58b5c489d2": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_8a3bd674eddd3862": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_8e536181d5866dab": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_90356cbfc79bb686": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_917024f34661fea1": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_9263093d82ef6e34": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "loose",
+          "$3"
+        ],
+        [
+          "useable",
+          "$1"
+        ]
+      ]
+    },
+    "e_9367e77d66e0953d": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_97f2251f938620b6": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_98c06a647a19c2b3": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_9bb255d66c608dda": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_9c8c463f74800376": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_9e9da950fc363a9d": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "prompt_total"
+      },
+      "kind": "scalar",
+      "value": 2.0
+    },
+    "e_9fdd58bf23396ce1": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_a1918c013f6927a9": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_a480ca4653f44a64": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_a8b383de02bbc063": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_a9307dc7f509bb9f": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "kind": "scalar",
+      "value": 10.0
+    },
+    "e_a946680f9860e60e": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_a9f7444b526b2883": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_aa242fdc80d46360": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_total"
+      },
+      "kind": "scalar",
+      "value": 8.0
+    },
+    "e_ac29808c8c2eda7b": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_ae9bd0ca005b029d": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_b14df4dcdc7cc32b": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_b600112148c1eb01": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_b9615dda9c91178e": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_b9a69610f4604057": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_bf284ee74aa25d8a": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_tasks"
+      },
+      "kind": "scalar",
+      "value": 10.0
+    },
+    "e_c00012a709e3faa0": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 0.0
+    },
+    "e_c49497aff92252c3": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "location"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_c5b5917481742bc1": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_c89640c57b4e4c17": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "kind": "scalar",
+      "value": 11.0
+    },
+    "e_cf0d79168ce252bc": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "$3"
+        ]
+      ]
+    },
+    "e_d058bcbfa8bae72e": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_d16a1d15efc9bb8c": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_d2b4b9134edfd9eb": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_d4578c06f97e64d2": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_d46daecc5062e04f": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_d6a0c552364aa140": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ],
+        [
+          "$3",
+          "nut"
+        ]
+      ]
+    },
+    "e_da449b002f200eb4": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_e0fcee592c3fa30b": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_e348fdae33549183": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.negative"
+      },
+      "kind": "fact",
+      "value": []
+    },
+    "e_e45823b25a080635": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_e4f1998a2b1bb788": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "init"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ]
+    },
+    "e_e57843b106260979": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_e589b95de30b2ece": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    },
+    "e_ef133907f22f8c25": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "link",
+          "$0",
+          "$1"
+        ]
+      ]
+    },
+    "e_f095ddf84b6a9869": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$1",
+          "$0"
+        ]
+      ]
+    },
+    "e_f2e7fd70dfe1fc41": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "goal"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ]
+    },
+    "e_f31fc79e2f9cfe2b": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.preconditions.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ],
+        [
+          "at",
+          "$3",
+          "$0"
+        ],
+        [
+          "carrying",
+          "$2",
+          "$1"
+        ],
+        [
+          "useable",
+          "$1"
+        ],
+        [
+          "loose",
+          "$3"
+        ]
+      ]
+    },
+    "e_f91a596d70adfafa": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.positive"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$1"
+        ]
+      ]
+    },
+    "e_f96103b12703fefb": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem1",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.pickup_spanner.parameters"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "$0",
+          "location"
+        ],
+        [
+          "$1",
+          "spanner"
+        ],
+        [
+          "$2",
+          "man"
+        ]
+      ]
+    },
+    "e_ffdc9b546209152d": {
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.walk.effects.negative"
+      },
+      "kind": "fact",
+      "value": [
+        [
+          "at",
+          "$2",
+          "$0"
+        ]
+      ]
+    }
+  }
+}

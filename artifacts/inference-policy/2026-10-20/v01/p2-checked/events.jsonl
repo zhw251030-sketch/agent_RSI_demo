@@ -1,0 +1,5 @@
+{"type": "SystemPromptEvent", "source": "agent"}
+{"type": "MessageEvent", "source": "user"}
+{"type": "ActionEvent", "source": "agent", "tool_name": "submit_policy", "tool_call_id": "call_01a1596294b271de887bf49c", "llm_response_id": "chatcmpl-0161fde9-137c-4877-b470-248a7e59d66e"}
+{"type": "ObservationEvent", "source": "environment", "tool_name": "submit_policy", "tool_call_id": "call_01a1596294b271de887bf49c"}
+{"type": "ConversationErrorEvent", "source": "environment", "code": "MaxIterationsReached"}

@@ -1,0 +1,114 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "compact_declaration": {
+      "claim_id": "e_852cb2e5027e3414",
+      "claim_op": "gt",
+      "claim_value_json": "0.0",
+      "prediction_id": "e_c00012a709e3faa0",
+      "prediction_direction": "increase",
+      "prediction_min_delta": 5.0
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "055a9e1051f50dca08cd28209920b5d12ca26749d8eaa6e5233c993b65d89e9d"
+    },
+    "claim_expansion": {
+      "status": "resolved",
+      "value": {
+        "kind": "scalar",
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p2-P-H002",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "total_successes"
+        },
+        "op": "gt",
+        "value": 0.0
+      }
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p2-P-H002",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1",
+          "scope": "public_prompt",
+          "key": "plan_length"
+        },
+        "direction": "increase",
+        "min_delta": 5.0
+      }
+    },
+    "claim_results": [
+      {
+        "status": "contradicted",
+        "reason": "comparison_contradicted",
+        "actual": 0.0,
+        "tolerance": 1e-10,
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p2-P-H002",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "total_successes"
+        },
+        "op": "gt",
+        "expected": 0.0
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0,
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "direction": "increase",
+      "min_delta": 5.0
+    },
+    "prediction_result": {
+      "status": "supported",
+      "reason": "prediction_supported",
+      "actual": 11.0,
+      "tolerance": 1.101e-07,
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "before": 0.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 5.0,
+      "child_reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "plan_length"
+      },
+      "after": 11.0
+    }
+  }
+]

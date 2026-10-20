@@ -1,0 +1,27 @@
+{
+  "archive_run": "20261020-diagnostic-comparison-v01",
+  "archive_session": "planning_A",
+  "archived_candidate_id": "planning-002",
+  "archive_runtime_commit": "c36af55d4b20cb624f1cdb49cb5010990ce1d599",
+  "lineage": "Separate A information history from U-P and old E-P/B003; common empty-plan root. A001 was already seen; later successful A003 is excluded.",
+  "source_files": [
+    {
+      "path": "artifacts/diagnostic-comparison/2026-10-20/planning_A/planning-002.py",
+      "sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4"
+    },
+    {
+      "path": "artifacts/diagnostic-comparison/2026-10-20/planning_A/trajectory.json",
+      "sha256": "69af92d6002375c3eaff36bbfebbada71c8b8fdaf9b04e8662b318ce6c098cb3"
+    },
+    {
+      "path": "artifacts/diagnostic-comparison/2026-10-20/planning_A/diagnostics.json",
+      "sha256": "f87360a0eeac9bf74d6ac203ae50af9456d1cd8229fe9986432553b6170ebe4c"
+    }
+  ],
+  "candidate_executions_during_load": 0,
+  "record_index": 2,
+  "record_assembly": "Original record and own diagnostics.",
+  "seed_policy": "Forced archived state; no later answers or complete history supplied.",
+  "source_role": "Researcher-seen development state, not an independent or held-out task.",
+  "inference_round_scope": "No exact source overlap with D-P/D-S. B002 was removed because D-P parent B003 had observed its history; shared task data and common ancestors remain."
+}

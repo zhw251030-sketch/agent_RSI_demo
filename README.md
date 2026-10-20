@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已实现策略前提检查并完成一次真实试跑，但本轮对照在第2次请求停止。** 初稿11/11窄前提检查通过；自行复查因一条解释280字符超过240上限未被接受，检查组及下游评价尚未运行。不能据此比较两组效果。发现事实引用准确仍可伴随无证据推断，见[最新说明](docs/operations/grounded-policy.md)和[逐条分析](docs/analysis/2026-10-20-grounded-policy-analysis.md)。实跑前448项不同测试通过，27份原记录完整保留。
+**已完成推断证据检查的完整开发对照：14次真实请求、8个新候选，尚未观察到稳定任务收益。** 检查反馈纠正了一组固定命题标签，另一组未纠正；相同策略的两次规划生成仍出现10/10与0/10差异，不能归因于反馈。见[最新完整说明](docs/operations/inference-policy.md)、[解释边界](docs/analysis/2026-10-20-inference-policy-analysis.md)和[230份完整原记录](artifacts/inference-policy/2026-10-20/v01/README.md)。实跑前525项不同测试通过。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -13,9 +13,9 @@
 | 研究路线 | 已选择形式规划与符号发现一起推进；基础 LLM 权重固定 |
 | 规划任务 | Spanner 的 400 问题与域文件已下载到服务器，完整性检查和固定 prompt 的 VAL 验收通过；seed0 的2提示/8开发已运行，30封存题未评分 |
 | 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，oscillator1/train已开发运行，独立评价协议待冻结 |
-| 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，已完成首次更新；最新前提复查尝试停在1个初稿 |
+| 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，已完成首次更新；最新两初稿各做self/checked复查并冻结，四状态后续评价完成 |
 | 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前448项不同测试通过 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前525项不同测试通过 |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
@@ -46,8 +46,11 @@
 20. [上一轮：策略更新、三条件结果与操作说明](docs/operations/policy-transfer.md)
 21. [本轮为什么这样设计](docs/analysis/2026-10-20-policy-method-rationale.md) · [结果与更新理由核查](docs/analysis/2026-10-20-policy-transfer-analysis.md) · [全部证据](artifacts/policy-transfer/2026-10-20/v01/README.md)
 
-22. [最新：策略前提检查、停止原因与下一步](docs/operations/grounded-policy.md)
+22. [上一轮：策略前提检查、停止原因与下一步](docs/operations/grounded-policy.md)
 23. [事实与推断逐条审查](docs/analysis/2026-10-20-grounded-policy-analysis.md) · [完整停止轮](artifacts/grounded-policy/2026-10-20/v01-stopped/README.md)
+
+24. [最新：推断证据检查的完整对照与结果](docs/operations/inference-policy.md)
+25. [固定命题、解释与机制边界](docs/analysis/2026-10-20-inference-policy-analysis.md) · [8候选逐条审查](docs/analysis/2026-10-20-inference-candidate-analysis.md) · [机器审计](docs/analysis/2026-10-20-inference-policy-audit.json)
 
 ## 仓库边界
 

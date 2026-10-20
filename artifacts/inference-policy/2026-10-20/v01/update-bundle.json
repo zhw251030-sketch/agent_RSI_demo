@@ -1,0 +1,557 @@
+{
+  "version": "inference-cases-v0.1",
+  "cases": [
+    {
+      "case_id": "D-P",
+      "family": "planning",
+      "source_sha256": {
+        "parent": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "child": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa"
+      },
+      "source_diff": "--- parent.py\n+++ child.py\n@@ -1,60 +1,83 @@\n-\"\"\"Planner for the spanner domain.\n+\"\"\"Planner for the spanner domain (strict STRIPS, directed links).\n \n-Every loose goal nut consumes one `useable` spanner (tighten_nut deletes\n-useable), so each nut needs its own trip: fetch a useable spanner, carry it to\n-the nut, tighten.  Movement uses BFS over the link graph; we traverse a link\n-edge in either direction because otherwise the nut location is often a dead end\n-and the remaining nuts could never be reached.\n+Repairs vs the archived artifact:\n+  * Every emitted action is applied to an explicit simulated state with the\n+    exact preconditions/effects of the domain (walk: at man start, link start end;\n+    pickup_spanner: at man l, at spanner l; tighten_nut: at man l, at nut l,\n+    carrying man s, useable s, loose n).  Nothing is emitted without checking\n+    the simulated preconditions first, so no action can be invalid.\n+  * Tightening does NOT consume the spanner: the domain deletes `useable ?s`\n+    but never adds it, so a spanner is single-use.  We therefore re-verify\n+    `useable` after each tightening in the simulator, and prefer spanners that\n+    are still useable.\n+  * Links are honoured as directed, but we also allow the *reverse* of a link\n+    pair only when the reverse link is absent? No: reverse links are never\n+    assumed.  Reachability is computed on the directed link graph.  Because the\n+    nut location can be a sink, each nut trip is planned from the man's current\n+    position, and if no directed route to a useable spanner exists we try the\n+    reverse-direction route as a last resort only if it is genuinely a link.\n+  * The returned plan is validated action-by-action against the simulator; on\n+    any inconsistency we drop the tail so we never emit an illegal step.\n \"\"\"\n+\n+MAX_ACTIONS = 1000\n \n \n def get_plan(objects, init, goal):\n+    obj_set = set(objects)\n     types = {}\n-    for name, t in objects:\n-        types.setdefault(t, set()).add(name)\n-    men = sorted(types.get(\"man\", set()))\n-    nuts = sorted(types.get(\"nut\", set()))\n-    spanners = sorted(types.get(\"spanner\", set()))\n-    locs = sorted(types.get(\"location\", set()))\n+    for name, t in sorted(obj_set):\n+        types.setdefault(name, []).append(t)\n+\n+    def of_type(t):\n+        return sorted(n for n, ts in types.items() if t in ts)\n+\n+    men = of_type(\"man\")\n+    nuts = of_type(\"nut\")\n+    spanners = of_type(\"spanner\")\n+    locs = of_type(\"location\")\n \n     state = set(tuple(f) for f in init)\n     goal = set(tuple(g) for g in goal)\n+    locset = set(locs)\n \n-    # undirected adjacency over link facts (never invents location pairs)\n-    adj = dict((l, set()) for l in locs)\n-    for f in sorted(state):\n-        if f[0] == \"link\" and f[1] in adj and f[2] in adj:\n-            adj[f[1]].add(f[2])\n-            adj[f[2]].add(f[1])\n+    # directed adjacency from link facts only\n+    out = dict((l, set()) for l in locs)\n+    links = set()\n+    for f in state:\n+        if len(f) == 3 and f[0] == \"link\" and f[1] in locset and f[2] in locset:\n+            links.add((f[1], f[2]))\n+            out[f[1]].add(f[2])\n \n     plan = []\n \n-    def man_at():\n-        for m in men:\n-            for l in locs:\n-                if (\"at\", m, l) in state:\n-                    return (m, l)\n-        return (None, None)\n-\n-    def locate(obj):\n-        for l in locs:\n-            if (\"at\", obj, l) in state:\n+    def man_at(m):\n+        for l in sorted(locs):\n+            if (\"at\", m, l) in state:\n                 return l\n         return None\n \n-    def path(src, dst):\n+    def locate(o):\n+        for l in sorted(locs):\n+            if (\"at\", o, l) in state:\n+                return l\n+        return None\n+\n+    def bfs(src, dst):\n+        if src is None or dst is None:\n+            return None\n         if src == dst:\n             return [src]\n         prev = {src: None}\n-        q = [src]\n-        while q:\n-            nq = []\n-            for u in q:\n-                for v in sorted(adj[u]):\n+        frontier = [src]\n+        while frontier:\n+            nxt = []\n+            for u in frontier:\n+                for v in sorted(out.get(u, ())):\n                     if v not in prev:\n                         prev[v] = u\n-                        nq.append(v)\n-            q = nq\n+                        nxt.append(v)\n+            frontier = nxt\n         if dst not in prev:\n             return None\n         p = []\n@@ -65,65 +88,107 @@\n         p.reverse()\n         return p\n \n-    def walk(m, p):\n+    def emit_walk(m, p):\n         for i in range(len(p) - 1):\n-            plan.append(\"(walk %s %s %s)\" % (p[i], p[i + 1], m))\n-            state.discard((\"at\", m, p[i]))\n-            state.add((\"at\", m, p[i + 1]))\n+            a, b = p[i], p[i + 1]\n+            if (\"at\", m, a) not in state or (a, b) not in links:\n+                return False\n+            plan.append(\"(walk %s %s %s)\" % (a, b, m))\n+            state.discard((\"at\", m, a))\n+            state.add((\"at\", m, b))\n+        return True\n \n-    def pending():\n+    def emit_pickup(l, s, m):\n+        if (\"at\", m, l) not in state or (\"at\", s, l) not in state:\n+            return False\n+        plan.append(\"(pickup_spanner %s %s %s)\" % (l, s, m))\n+        state.discard((\"at\", s, l))\n+        state.add((\"carrying\", m, s))\n+        return True\n+\n+    def emit_tighten(l, s, m, n):\n+        if not ((\"at\", m, l) in state and (\"at\", n, l) in state\n+                and (\"carrying\", m, s) in state and (\"useable\", s) in state\n+                and (\"loose\", n) in state):\n+            return False\n+        plan.append(\"(tighten_nut %s %s %s %s)\" % (l, s, m, n))\n+        state.discard((\"loose\", n))\n+        state.discard((\"useable\", s))\n+        state.add((\"tightened\", n))\n+        return True\n+\n+    def goal_nuts():\n         res = []\n         for g in sorted(goal):\n-            if g and g[0] == \"tightened\" and len(g) == 2 and g[1] in nuts:\n+            if len(g) == 2 and g[0] == \"tightened\" and g[1] in nuts:\n                 if (\"tightened\", g[1]) not in state and (\"loose\", g[1]) in state:\n                     res.append(g[1])\n         return res\n \n-    def free_spanners():\n-        out = []\n+    def usable_spanners():\n+        res = []\n         for s in spanners:\n             if (\"useable\", s) in state:\n-                sl = locate(s)\n-                if sl is not None:\n-                    out.append((s, sl))\n-        return out\n+                l = locate(s)\n+                if l is not None:\n+                    res.append((s, l))\n+        return res\n \n-    while len(plan) < 1000:\n-        todo = pending()\n+    def drop_carried_spanners():\n+        for m in men:\n+            for s in spanners:\n+                if (\"carrying\", m, s) in state:\n+                    # cannot put a spanner down in this domain: stay carrying\n+                    pass\n+\n+    while len(plan) < MAX_ACTIONS:\n+        todo = goal_nuts()\n         if not todo:\n             break\n-        m, ml = man_at()\n-        if m is None:\n+        man = men[0] if men else None\n+        if man is None:\n             break\n+        ml = man_at(man)\n+        if ml is None:\n+            break\n+        # spanners already carried by the man are usable candidates at ml\n+        held = [s for s in spanners if (\"carrying\", man, s) in state\n+                and (\"useable\", s) in state]\n         best = None\n         for n in todo:\n             nl = locate(n)\n             if nl is None:\n                 continue\n-            pn = path(ml, nl)\n+            pn = bfs(ml, nl)\n             if pn is None:\n                 continue\n-            for (s, sl) in free_spanners():\n-                ps = path(ml, sl)\n-                if ps is None:\n-                    continue\n-                pn2 = path(sl, nl)\n-                if pn2 is None:\n-                    continue\n-                cost = len(ps) + len(pn2)\n+            cands = list(held)\n+            cands.extend(usable_spanners())\n+            for (s, sl) in sorted(set(cands)):\n+                if sl == ml:\n+                    cost = len(pn)\n+                else:\n+                    ps = bfs(ml, sl)\n+                    ps2 = bfs(sl, nl)\n+                    if ps is None or ps2 is None:\n+                        continue\n+                    cost = len(ps) + len(ps2)\n                 if best is None or cost < best[0]:\n-                    best = (cost, n, nl, s, sl, ps, pn2)\n+                    best = (cost, n, nl, s, sl)\n         if best is None:\n             break\n-        _, n, nl, s, sl, ps, pn2 = best\n-        walk(m, ps)\n-        plan.append(\"(pickup_spanner %s %s %s)\" % (sl, s, m))\n-        state.discard((\"at\", s, sl))\n-        state.add((\"carrying\", m, s))\n-        walk(m, pn2)\n-        plan.append(\"(tighten_nut %s %s %s %s)\" % (nl, s, m, n))\n-        state.discard((\"loose\", n))\n-        state.discard((\"useable\", s))\n-        state.add((\"tightened\", n))\n+        _, n, nl, s, sl = best\n+        if sl != ml:\n+            ps = bfs(ml, sl)\n+            if not emit_walk(man, ps):\n+                break\n+        if (\"carrying\", man, s) not in state:\n+            if not emit_pickup(sl, s, man):\n+                break\n+        pn = bfs(man_at(man), nl)\n+        if pn is None or not emit_walk(man, pn):\n+            break\n+        if not emit_tighten(nl, s, man, n):\n+            break\n \n-    return plan[:1000]\n+    return plan[:MAX_ACTIONS]\n",
+      "ast_equal": false,
+      "parent_n_params": 3,
+      "child_n_params": 3,
+      "parent_metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      },
+      "child_metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      },
+      "historical_rationale": "The starting artifact silently produced invalid plans (0/10, plan_semantics on every task). Two concrete defects, both observable in the supplied facts: (1) it built an undirected adjacency and emitted (walk a b man) pairs for which no (link a b) fact exists -- walk's precondition requires the directed link, so the first such walk is already illegal; (2) it never checked preconditions before emitting pickup_spanner/tighten_nut, and its internal simulation ignored that tighten_nut deletes useable, so a carried spanner could be reused. This revision keeps directed BFS over link facts only (R03: no environment rewrite, no reverse-link assumption), and gates every emitted action through a real precondition check plus post-state update mirroring the declared effects, so any illegal step truncates the plan instead of being emitted (R08, complete valid repair). Action strings and parameter order follow the documented signatures (R01). Prediction is a hypothesis about the first failure disappearing (R02/R05): the earliest invalid walk should no longer appear; I am not claiming held-out generalization, and the remaining 8 development tasks are unverified.",
+      "forecast": {
+        "metric_key": "development_successes",
+        "scope": "development_summary",
+        "status": "contradicted",
+        "direction": "increase",
+        "min_delta": 1.0,
+        "before": 0.0,
+        "after": 0.0,
+        "actual_delta": 0.0
+      },
+      "diagnostics_before": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "scope": "public_prompt",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 7,
+            "first_failed_action": {
+              "action": "(walk gate location4 bob)",
+              "index": 7
+            },
+            "missing_preconditions": [
+              [
+                "link",
+                "gate",
+                "location4"
+              ]
+            ],
+            "missing_preconditions_truncated": false,
+            "plan_length": 21,
+            "status": "precondition_failure",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "scope": "public_prompt",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 7,
+            "first_failed_action": {
+              "action": "(walk gate location4 bob)",
+              "index": 7
+            },
+            "missing_preconditions": [
+              [
+                "link",
+                "gate",
+                "location4"
+              ]
+            ],
+            "missing_preconditions_truncated": false,
+            "plan_length": 15,
+            "status": "precondition_failure",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ],
+      "diagnostics_after": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "scope": "public_prompt",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 7,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 7,
+            "status": "goal_unsatisfied",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "scope": "public_prompt",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 7,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 7,
+            "status": "goal_unsatisfied",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ],
+      "provenance": {
+        "archive_run": "20261020-policy-transfer-v01",
+        "archive_session": "EP-r1-fixed",
+        "archive_runtime_commit": "154bc39aa64d680ade8b3ddfedbecd296f0b4e81",
+        "source_files": [
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/EP-r1-fixed/candidates/planning-000.py",
+            "sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/EP-r1-fixed/candidates/planning-001.py",
+            "sha256": "b47b7183020a42d814f64258886df6add8834e199299cf81bcc9c9d63acb5dfa"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/EP-r1-fixed/trajectory.json",
+            "sha256": "04943c3e27f7fced9a842e6db61789200e651a1b6cf956e16f5304fce10e004d"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/EP-r1-fixed/diagnostics.json",
+            "sha256": "511a923b28f53078a70fd625ee7f3264d12006181ec8daa88c1b79adc03ba6e3"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/EP-r1-fixed/evidence.json",
+            "sha256": "70303551929d3f8e26057c5991651ef1eaa1b8f38dad6c14c5d4d7ac38ce44ce"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/EP-r1-fixed/audits.json",
+            "sha256": "cb00f3bab8322a4c913b3f0e8075d3d6e95f7b1a6a7cb3521fb3746b59ac4a6d"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/EP-r1-fixed/repair-state-provenance.json",
+            "sha256": "61f50c991c37fe382670a44c8aa79b073d6de4ac76ebe8837314ad2f9ca53914"
+          }
+        ],
+        "parent_candidate_id": "planning-000",
+        "child_candidate_id": "planning-001",
+        "parent_archive": {
+          "archive_run": "20261020-diagnostic-comparison-v01",
+          "archive_session": "planning_B",
+          "archived_candidate_id": "planning-003",
+          "archive_runtime_commit": "c36af55d4b20cb624f1cdb49cb5010990ce1d599",
+          "source_files": [
+            {
+              "path": "artifacts/diagnostic-comparison/2026-10-20/planning_B/planning-003.py",
+              "sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897"
+            },
+            {
+              "path": "artifacts/diagnostic-comparison/2026-10-20/planning_B/trajectory.json",
+              "sha256": "9332bab3dde3e2877be410caa2511de3111a80508921a9ef646d86dba3234586"
+            },
+            {
+              "path": "artifacts/diagnostic-comparison/2026-10-20/planning_B/diagnostics.json",
+              "sha256": "ba61d5f1e8f80ebd7dace31a6a45090d79c70a282f8e05202ec78afa2732a3d4"
+            }
+          ],
+          "candidate_executions_during_load": 0,
+          "seed_policy": "Forced archived child; no historical trajectory or later answer is exposed.",
+          "source_role": "Researcher-seen development state; withheld from policy updater, not held-out data."
+        },
+        "selection_rule": "Most recent complete archived round: policy-transfer-v01; fixed arm with neither experience injection nor policy update; smallest repeat index; first complete parent-child transition in each task family. Chosen now from researcher-seen development archives, not preregistered before those outcomes and not an outcome-filtered independent sample.",
+        "historical_claim_statuses": [
+          "unavailable"
+        ],
+        "candidate_executions_during_load": 0,
+        "evidence_limits": "Source diff/AST establish changes, not specific repair fulfillment. Historical rationale is untrusted. No formal edit contract or matched intervention exists. All evidence is researcher-seen development data; no independent-task inference."
+      },
+      "available_evidence": [
+        "D-P:source-diff",
+        "D-P:metrics",
+        "D-P:forecast",
+        "D-P:diagnostics"
+      ],
+      "edit_contract": null,
+      "matched_interventions": []
+    },
+    {
+      "case_id": "D-S",
+      "family": "symbolic",
+      "source_sha256": {
+        "parent": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "child": "7cc7bbf448e5bd9e3d1edad2dbf4a8942577eb8ccc146192208dbf98196b7a19"
+      },
+      "source_diff": "--- parent.py\n+++ child.py\n@@ -2,6 +2,6 @@\n \n \n def equation(x, v, params):\n-    # Damped oscillator + constant offset (captures bias and linear terms)\n-    p0, p1, p2 = params[0], params[1], params[2]\n-    return -p0 * x - p1 * v + p2\n+    # Damped oscillator + constant offset + small nonlinear v^2 term\n+    p0, p1, p2, p3 = params[0], params[1], params[2], params[3]\n+    return -p0 * x - p1 * v - p3 * v * v + p2\n",
+      "ast_equal": false,
+      "parent_n_params": 3,
+      "child_n_params": 4,
+      "parent_metrics": {
+        "mse": 0.0004185108784986807,
+        "nmse": 0.09591726394116994
+      },
+      "child_metrics": {
+        "mse": 0.0004178581733040486,
+        "nmse": 0.09576767237821251
+      },
+      "historical_rationale": "Diagnostic observations from symbolic-000 (train scope, oscillator1): standardized_bias ≈ 2.08e-16 and bias ≈ 1.37e-17 — the constant p2 already removed the global offset. x-bin mean residuals are small (±0.001) and x-bin RMSEs are ~0.017–0.023, fairly uniform. v-bin RMSE, however, shows a clear ordering: bin.v.0=0.0124, bin.v.1=0.0189, bin.v.2=0.0119, bin.v.3=0.0319 — the high-velocity bin has the worst RMSE, ~2.5x the low-velocity bins. Mean residual in v.bin.3 is +0.00038 but bin.v.1 mean residual is +0.0037 and bin.v.0 is -0.0016, suggesting a velocity-dependent (not purely velocity-linear) residual pattern. Hypothesis: there is a small quadratic-in-velocity term (e.g., a v^2 damping/quadratic drag contribution) that the linear -p1*v form cannot capture. Adding -p3*v*v should reduce RMSE especially in the high-|v| bin. Prediction: train MSE should decrease (child mse < parent mse) by at least 0.0001 because the v-bin.3 RMSE dominates and a v^2 term specifically targets that region. Change: extend the existing -p0*x - p1*v + p2 structure by appending -p3*v*v, keeping the previously-correct terms intact (R03, R08). n_params becomes 4.",
+      "forecast": {
+        "metric_key": "mse",
+        "scope": "train",
+        "status": "contradicted",
+        "direction": "decrease",
+        "min_delta": 0.0001,
+        "before": 0.0004185108784986807,
+        "after": 0.0004178581733040486,
+        "actual_delta": 6.527051946320929e-07
+      },
+      "diagnostics_before": [
+        {
+          "task_id": "oscillator1",
+          "scope": "train",
+          "residuals": {
+            "bias": 1.3737282805568623e-17,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": 0.0007989547611293052,
+                    "rmse": 0.017042503648496878,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": -0.001055799511525288,
+                    "rmse": 0.022951704782400873,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": 0.0008655643638566236,
+                    "rmse": 0.017819656014041334,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": -0.0006087196134605861,
+                    "rmse": 0.023222310188877653,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0016254212065535292,
+                    "rmse": 0.012421511940592843,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.0037080214966618927,
+                    "rmse": 0.018933888479408106,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.0024586815873297663,
+                    "rmse": 0.01190174464282926,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.0003760812972214578,
+                    "rmse": 0.03193126832135946,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020457538427158844,
+            "scope": "train",
+            "standardized_bias": 2.079676835165034e-16,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          }
+        }
+      ],
+      "diagnostics_after": [
+        {
+          "task_id": "oscillator1",
+          "scope": "train",
+          "residuals": {
+            "bias": 1.1761133381229626e-18,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": 0.0014608141787590145,
+                    "rmse": 0.016934902781367556,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": -0.0012915905411158414,
+                    "rmse": 0.022900089469485654,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.0001489789737109813,
+                    "rmse": 0.017801286612444327,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": -2.0244663932187258e-05,
+                    "rmse": 0.023309694511790293,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.002371905872981384,
+                    "rmse": 0.012521587667001564,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.0038964971483784585,
+                    "rmse": 0.01885993873758049,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.001514842820729061,
+                    "rmse": 0.011741165548782071,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": -9.748454668009079e-06,
+                    "rmse": 0.03195450324890989,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020441579520772083,
+            "scope": "train",
+            "standardized_bias": 1.7805090711472054e-17,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          }
+        }
+      ],
+      "provenance": {
+        "archive_run": "20261020-policy-transfer-v01",
+        "archive_session": "ES-r1-fixed",
+        "archive_runtime_commit": "154bc39aa64d680ade8b3ddfedbecd296f0b4e81",
+        "source_files": [
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/ES-r1-fixed/candidates/symbolic-000.py",
+            "sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/ES-r1-fixed/candidates/symbolic-001.py",
+            "sha256": "7cc7bbf448e5bd9e3d1edad2dbf4a8942577eb8ccc146192208dbf98196b7a19"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/ES-r1-fixed/trajectory.json",
+            "sha256": "3aa0b0d83b291500deb4daf0b127a631eb249a2e572c2a4a5768a9ab3b09d9db"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/ES-r1-fixed/diagnostics.json",
+            "sha256": "54b94d987aa3183cfb7f4d6fb6735e5e7fd836fcda540993422bd86a3d5c7a9c"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/ES-r1-fixed/evidence.json",
+            "sha256": "5da063709b44f09e703871fa767edb71f41c391303f029300e478500f549180a"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/ES-r1-fixed/audits.json",
+            "sha256": "4d97c00c3a91ffdbd714220dfabf399229e460a8b06af7d9af4fd9b89e9fd926"
+          },
+          {
+            "path": "artifacts/policy-transfer/2026-10-20/v01/ES-r1-fixed/repair-state-provenance.json",
+            "sha256": "51246ed1be4ea93fa8b86b4b9f7ae22eb8e3607fe726c954a873964c8387e2a3"
+          }
+        ],
+        "parent_candidate_id": "symbolic-000",
+        "child_candidate_id": "symbolic-001",
+        "parent_archive": {
+          "archive_run": "20261020-diagnostic-comparison-v01",
+          "archive_session": "symbolic_C",
+          "archived_candidate_id": "symbolic-002",
+          "archive_runtime_commit": "c36af55d4b20cb624f1cdb49cb5010990ce1d599",
+          "source_files": [
+            {
+              "path": "artifacts/diagnostic-comparison/2026-10-20/symbolic_C/symbolic-002.py",
+              "sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47"
+            },
+            {
+              "path": "artifacts/diagnostic-comparison/2026-10-20/symbolic_C/trajectory.json",
+              "sha256": "c4456ca7ee96b47a21b608fd5eb5966f56208cb0cabebeed4d1138ffe6d99655"
+            },
+            {
+              "path": "artifacts/diagnostic-comparison/2026-10-20/symbolic_C/diagnostics.json",
+              "sha256": "ed13f0508d597e73383cf204b4c084554b675310bb0d94bdd1a705758a71af58"
+            }
+          ],
+          "candidate_executions_during_load": 0,
+          "seed_policy": "Forced archived child; no historical trajectory or later answer is exposed.",
+          "source_role": "Researcher-seen development state; withheld from policy updater, not held-out data."
+        },
+        "selection_rule": "Most recent complete archived round: policy-transfer-v01; fixed arm with neither experience injection nor policy update; smallest repeat index; first complete parent-child transition in each task family. Chosen now from researcher-seen development archives, not preregistered before those outcomes and not an outcome-filtered independent sample.",
+        "historical_claim_statuses": [
+          "contradicted"
+        ],
+        "candidate_executions_during_load": 0,
+        "evidence_limits": "Source diff/AST establish changes, not specific repair fulfillment. Historical rationale is untrusted. No formal edit contract or matched intervention exists. All evidence is researcher-seen development data; no independent-task inference."
+      },
+      "available_evidence": [
+        "D-S:source-diff",
+        "D-S:metrics",
+        "D-S:forecast",
+        "D-S:diagnostics"
+      ],
+      "edit_contract": null,
+      "matched_interventions": []
+    }
+  ]
+}

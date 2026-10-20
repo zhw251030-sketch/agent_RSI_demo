@@ -1,0 +1,39 @@
+{
+  "pair_id": "p2",
+  "condition": "proposal",
+  "session_id": "p2-proposal",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_policy"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "status": "accepted",
+    "halted": false,
+    "attempted": true,
+    "policy_changed": true,
+    "no_op": false,
+    "policy_sha256": "56244eaace21e6cba4604fe22f4e4af425776cb1deb47cf7eaf808ad1dd6d668",
+    "all_checked_pass": false,
+    "passed_checks": 3,
+    "total_checks": 4,
+    "candidate_executions": 0,
+    "applicability_certified": false,
+    "scope": "Finite rule selection with four inference evidence conditions."
+  },
+  "disposition": "available",
+  "policy_available": true,
+  "selected_policy": {
+    "version": "revision-policy-v0.1",
+    "rule_ids": [
+      "R05",
+      "R02",
+      "R07",
+      "R08"
+    ]
+  },
+  "request_id": "request-0004"
+}

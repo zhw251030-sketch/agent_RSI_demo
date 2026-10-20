@@ -1,0 +1,340 @@
+[
+  {
+    "candidate_id": "symbolic-000",
+    "parent_id": null,
+    "source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+    "origin": "archived_model_proposed_initial",
+    "n_params": 4,
+    "rationale": "The position-cubic (Duffing) addition only marginally reduced NMSE (0.0969 -> 0.0951), implying the residual is dominated by the velocity channel. Adding a quadratic-in-velocity damping term -c2*v*abs(v), the canonical form for aerodynamic-like drag, as a fourth parameter.",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.00040056676206938317,
+      "nmse": 0.09180470524756017
+    },
+    "results": [
+      {
+        "schema_version": "0.1",
+        "run_id": "d6c079a6fc3341b6ae87b1d59b61c754",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "symbolic-003",
+        "candidate_hash": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+        "parent_id": "symbolic-003",
+        "strategy_version": "human-diagnostic-probe-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.21113,
+            "stdout_bytes": 160,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.207482,
+            "stdout_bytes": 205088,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            0.1875533297732359,
+            -0.08442478023335931,
+            -0.11179792723155013,
+            0.41831700230271585
+          ],
+          "n_params": 4,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 12,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.00040056676206938317,
+          "nmse": 0.09180470524756017
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "oscillator1",
+          "candidate_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+          "scope": "train",
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 7.09433339998773e-05,
+            "rmse": 0.020014164036236518,
+            "standardized_bias": 0.0010740057580318101,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0002492909790075412,
+                    "rmse": 0.013811196227049634
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.001646756169577094,
+                    "rmse": 0.021579218693382064
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0017186496935296803,
+                    "rmse": 0.016963163763114564
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0006049578389596366,
+                    "rmse": 0.02565358265007852
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.001466467254609956,
+                    "rmse": 0.015514841963619495
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0019535561333515862,
+                    "rmse": 0.01909397260004946
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0005248167909438093,
+                    "rmse": 0.011086368889273812
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.00032150124820168807,
+                    "rmse": 0.029564664082667107
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "elapsed_seconds": 0.501383
+      }
+    ],
+    "metric_split": "train",
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-000",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    k = params[0]\n    c = params[1]\n    d = params[2]\n    c2 = params[3]\n    return -k * x - c * v - d * x ** 3 - c2 * v * np.abs(v)\n",
+      "instruction": "Revise this explicit archived starting candidate once."
+    }
+  },
+  {
+    "candidate_id": "symbolic-001",
+    "parent_id": "symbolic-000",
+    "source_sha256": "89aab8fa550a2dab8ff12d8af922c94e4680d94459e38f98e250ab507f9a27f8",
+    "origin": "model_proposed",
+    "n_params": 4,
+    "rationale": "Per R05: the incumbent's largest single diagnostic is the top velocity bin, where mean_residual is +0.00032 yet rmse is 0.0296 (e_0af0936ddaabfe96), far above the overall rmse 0.0200 (e_8f4e10778151f945); the corresponding x bin rmse (e_e307602087445f0b) is also the largest x bin. That pattern indicates the velocity-dependent restoring term -c2*v*|v| over-predicts damping magnitude at large |v| (v*|v| grows quadratically while the channel stays within roughly [-0.175, 0.282]). Replacing the quadratic drag with a saturating -c2*v*exp(-|v|) keeps the same odd-in-v sign structure and the same four parameters, so the structure, interface, and n_params contract are preserved (R08), while changing only the source location that governs the high-velocity mismatch. R07: I forecast an absolute mse decrease of at least 3e-5 from the parent 0.00040057, a modest threshold consistent with a single-term reshaping rather than a wholesale restructuring.",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "89aab8fa550a2dab8ff12d8af922c94e4680d94459e38f98e250ab507f9a27f8",
+        "run_id": "fdcab60003394edc8e05077534c1d379",
+        "metrics": {
+          "mse": 0.0004001739649991097,
+          "nmse": 0.09171468125487472
+        },
+        "diagnostics": {
+          "candidate_sha256": "89aab8fa550a2dab8ff12d8af922c94e4680d94459e38f98e250ab507f9a27f8",
+          "residuals": {
+            "bias": 6.359426246226756e-05,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.00025803590501146897,
+                    "rmse": 0.013693962069165466,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0016061094512883811,
+                    "rmse": 0.021600573316245687,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.0016532513072606816,
+                    "rmse": 0.016912059948583715,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0005595548108328399,
+                    "rmse": 0.025701531540935484,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0013906749615471773,
+                    "rmse": 0.015500518760348575,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.0018197418972643264,
+                    "rmse": 0.019086456335864258,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.00047226552692237534,
+                    "rmse": 0.011068968968107542,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.00029757564105429646,
+                    "rmse": 0.029556976988162034,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.02000434865220834,
+            "scope": "train",
+            "standardized_bias": 0.0009627487208647353,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004001739649991097,
+      "nmse": 0.09171468125487472
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-001",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    k = params[0]\n    c = params[1]\n    d = params[2]\n    c2 = params[3]\n    return -k * x - c * v - d * x ** 3 - c2 * v * np.exp(-np.abs(v))",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  }
+]

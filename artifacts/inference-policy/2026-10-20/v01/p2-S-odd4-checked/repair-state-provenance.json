@@ -1,0 +1,32 @@
+{
+  "archive_run": "20261020-minimax-v01-recovery",
+  "archive_session": "symbolic",
+  "archived_candidate_id": "symbolic-003",
+  "archive_runtime_commit": "49b4b9f6d967360b264cd93f52c326a7814bb595",
+  "lineage": "Original pilot history, separate from U-S/v02 and old E-S/C002. Shares the constant root and linear/cubic mathematical ancestors with S-poly5; not an independent task. Formula: x,v,x^3,v*abs(v).",
+  "source_files": [
+    {
+      "path": "artifacts/pilot/2026-10-20/symbolic-003.py",
+      "sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e"
+    },
+    {
+      "path": "docs/environment/2026-10-20-agent-pilot-verification.json",
+      "sha256": "a4df3771754340b7a4872a5e8aaa07bcc45c6d5da777bbf8f0e53b5f012a6453"
+    },
+    {
+      "path": "artifacts/grounded-policy-inputs/2026-10-20/pilot-symbolic-003-feedback.json",
+      "sha256": "ed849fd17ccafa807637be37d3617afe926d26efb1da88471777786260ff4fda"
+    }
+  ],
+  "candidate_executions_during_load": 0,
+  "record_pointer": "/session_outcomes/1/trajectory/3",
+  "original_evaluator_run_ids": [
+    "a8019bf73a40470f9d61dd196b2e0821"
+  ],
+  "diagnostic_replay_run": "20261020-diagnostic-probe-v01",
+  "diagnostic_replay_evaluator_run_id": "d6c079a6fc3341b6ae87b1d59b61c754",
+  "record_assembly": "Original model identity and rationale plus later unchanged-source replay results and diagnostics; original and replay scores agree.",
+  "seed_policy": "Forced archived state; no later answers or complete history supplied.",
+  "source_role": "Researcher-seen development state, not an independent or held-out task.",
+  "inference_round_scope": "No exact source overlap with D-P/D-S. B002 was removed because D-P parent B003 had observed its history; shared task data and common ancestors remain."
+}

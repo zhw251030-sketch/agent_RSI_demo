@@ -1,0 +1,118 @@
+{
+  "version": "inference-evidence-checks-v0.1",
+  "structural_status": "valid",
+  "assessments": [
+    {
+      "claim_id": "C1",
+      "case_id": "D-P",
+      "proposition": "The parent and child source bytes differ.",
+      "necessary_available_evidence": [
+        "D-P:source-diff"
+      ],
+      "scope": "Exact source-byte comparison only; not repair correctness.",
+      "expected_verdict": "supported",
+      "missing_evidence": [],
+      "details": {
+        "source_bytes_changed": true,
+        "ast_equal": false
+      },
+      "reason": "Source hashes decide byte identity only.",
+      "claimed_verdict": "supported",
+      "provided_evidence": [
+        "D-P:source-diff"
+      ],
+      "status": "correct",
+      "verdict_format_valid": true,
+      "evidence_error": null
+    },
+    {
+      "claim_id": "C2",
+      "case_id": "D-P",
+      "proposition": "The specific repair intended in the historical rationale was not implemented.",
+      "necessary_available_evidence": [
+        "D-P:source-diff"
+      ],
+      "scope": "Requires a predeclared executable edit contract to judge the specific repair; source changes or execution failure alone cannot decide this proposition.",
+      "expected_verdict": "unknown",
+      "missing_evidence": [
+        "predeclared_executable_edit_contract"
+      ],
+      "details": {
+        "source_bytes_changed": true
+      },
+      "reason": "A source diff does not decide whether the specific intended repair was implemented.",
+      "claimed_verdict": "unknown",
+      "provided_evidence": [
+        "D-P:source-diff"
+      ],
+      "status": "correct",
+      "verdict_format_valid": true,
+      "evidence_error": null
+    },
+    {
+      "claim_id": "C3",
+      "case_id": "D-S",
+      "proposition": "Official training NMSE improved, but the registered forecast missed its target.",
+      "necessary_available_evidence": [
+        "D-S:metrics",
+        "D-S:forecast"
+      ],
+      "scope": "A conjunction of official NMSE change and the forecast on its own registered metric; MSE and NMSE are not interchangeable.",
+      "expected_verdict": "supported",
+      "missing_evidence": [],
+      "details": {
+        "official_nmse_gain": 0.00014959156295742126,
+        "forecast_metric": "mse",
+        "forecast_scope": "train",
+        "forecast_status": "contradicted",
+        "forecast_actual_delta": 6.527051946320929e-07,
+        "forecast_min_delta": 0.0001
+      },
+      "reason": "Compare official NMSE and the independently registered forecast on its original metric.",
+      "claimed_verdict": "supported",
+      "provided_evidence": [
+        "D-S:metrics",
+        "D-S:forecast"
+      ],
+      "status": "correct",
+      "verdict_format_valid": true,
+      "evidence_error": null
+    },
+    {
+      "claim_id": "C4",
+      "case_id": "D-S",
+      "proposition": "The added structure is unnecessary for the current performance.",
+      "necessary_available_evidence": [
+        "D-S:metrics",
+        "D-S:forecast"
+      ],
+      "scope": "Requires a matched intervention on the target structure; small gain, missed forecast, or failure to prove necessity cannot establish this proposition.",
+      "expected_verdict": "unknown",
+      "missing_evidence": [
+        "matched_structure_intervention"
+      ],
+      "details": {
+        "official_nmse_gain": 0.00014959156295742126,
+        "forecast_metric": "mse",
+        "forecast_status": "contradicted"
+      },
+      "reason": "Neither a missed forecast nor the size of observed gain identifies structure necessity.",
+      "claimed_verdict": "unknown",
+      "provided_evidence": [
+        "D-S:metrics",
+        "D-S:forecast"
+      ],
+      "status": "correct",
+      "verdict_format_valid": true,
+      "evidence_error": null
+    }
+  ],
+  "auxiliary_status": "well_formed",
+  "notes_status": "unverified",
+  "passed_checks": 4,
+  "total_checks": 4,
+  "all_checked_pass": true,
+  "applicability_certified": false,
+  "open_text_certified": false,
+  "scope": "Four frozen evidence-contract propositions, not a general semantic or causal oracle."
+}

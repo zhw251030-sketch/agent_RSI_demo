@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-20",
+  "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+  "run_id": "20261020-inference-policy-v01",
+  "run_status": "attempts_completed",
+  "preflight_distinct_tests": 525,
+  "preflight_task_tests": 453,
+  "preflight_sdk_tests": 72,
+  "offline_prepare_model_calls": 0,
+  "postrun_local_tests_passed": 12,
+  "postrun_server": {
+    "version": "inference-postrun-server-verification-v0.1",
+    "stage": "/home/hanwen/Project/project/agent_RSI_demo/tmp/inference-postaudit-sjmw2nou",
+    "python": "/usr/bin/python3",
+    "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+    "tested_files_sha256": {
+      "scripts/analyze_inference_policy.py": "570d7be3f2369469c8a8bcd3a188376e1b527400f277262e839e0c07937ff8b5",
+      "tests/test_inference_analysis.py": "e0328563057a098beaf6877843d142e3565db20d357938d61d57adc4f9b165e2"
+    },
+    "test_exit_code": 0,
+    "test_output": "test_archived_run_recomputes_calls_checks_costs_and_development_results (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_auxiliary_sdk_normalization_preserves_strings_and_nested_null (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_comparison_cannot_remove_proposal_or_other_evidence (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_complete_assignment_and_known_missing_review_are_distinguished (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_completed_run_cannot_call_skipped_dependency (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_config_and_assignment_bind_new_planning_state (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_costs_count_actual_requests_without_imputing_missing_policy (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_dispatch_cannot_hide_unrequested_available_slot (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_dispatch_rejects_duplicate_reordered_or_unknown_session (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_matched_review_removes_exactly_feedback (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_output_must_be_new_and_outside_immutable_run (test_inference_analysis.InferenceAuditorTests) ... ok\ntest_resealed_inference_check_tamper_is_rejected_semantically (test_inference_analysis.InferenceAuditorTests) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.431s\n\nOK\n",
+    "raw_audit_exit_code": 0,
+    "raw_audit_status": "verified",
+    "raw_audit_counts": {
+      "requests": 14,
+      "assigned_update_slots": 6,
+      "assigned_actor_slots": 8,
+      "update_requests": 6,
+      "frozen_updates": 6,
+      "missing_update_policies": 0,
+      "skipped_dependency_updates": 0,
+      "actors_without_policy": 0,
+      "evaluation_requests": 8,
+      "generated_candidate_records": 8,
+      "new_task_result_records": 44,
+      "unique_new_evaluator_run_ids": 44,
+      "archived_task_result_records": 44,
+      "unique_archived_evaluator_run_ids": 22,
+      "claim_statuses": {
+        "schema_invalid": 2,
+        "contradicted": 5,
+        "supported": 1
+      },
+      "prediction_statuses": {
+        "contradicted": 6,
+        "supported": 1,
+        "schema_invalid": 1
+      },
+      "registration_statuses": {
+        "supported": 7,
+        "unavailable": 1
+      }
+    },
+    "raw_audit_costs": {
+      "all": {
+        "requests": 14,
+        "known_prompt_tokens": 126609,
+        "known_completion_tokens": 13617,
+        "known_total_tokens": 140226,
+        "known_estimated_cost_cny": 0.3802617,
+        "unknown_usage_requests": 0,
+        "actual_total_tokens": 140226,
+        "actual_estimated_cost_cny": 0.3802617,
+        "reserved_tokens": 631056,
+        "reserved_cost_cny": 1.6864848,
+        "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+      },
+      "update_proposal": {
+        "requests": 2,
+        "known_prompt_tokens": 20621,
+        "known_completion_tokens": 1413,
+        "known_total_tokens": 22034,
+        "known_estimated_cost_cny": 0.0551733,
+        "unknown_usage_requests": 0,
+        "actual_total_tokens": 22034,
+        "actual_estimated_cost_cny": 0.0551733,
+        "reserved_tokens": 96646,
+        "reserved_cost_cny": 0.2545662,
+        "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+      },
+      "update_self": {
+        "requests": 2,
+        "known_prompt_tokens": 21559,
+        "known_completion_tokens": 1252,
+        "known_total_tokens": 22811,
+        "known_estimated_cost_cny": 0.0557907,
+        "unknown_usage_requests": 0,
+        "actual_total_tokens": 22811,
+        "actual_estimated_cost_cny": 0.0557907,
+        "reserved_tokens": 100898,
+        "reserved_cost_cny": 0.2634954,
+        "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+      },
+      "update_checked": {
+        "requests": 2,
+        "known_prompt_tokens": 22967,
+        "known_completion_tokens": 1153,
+        "known_total_tokens": 24120,
+        "known_estimated_cost_cny": 0.0579159,
+        "unknown_usage_requests": 0,
+        "actual_total_tokens": 24120,
+        "actual_estimated_cost_cny": 0.0579159,
+        "reserved_tokens": 107838,
+        "reserved_cost_cny": 0.2780694,
+        "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+      },
+      "actor_self": {
+        "requests": 4,
+        "known_prompt_tokens": 30718,
+        "known_completion_tokens": 5517,
+        "known_total_tokens": 36235,
+        "known_estimated_cost_cny": 0.1108506,
+        "unknown_usage_requests": 0,
+        "actual_total_tokens": 36235,
+        "actual_estimated_cost_cny": 0.1108506,
+        "reserved_tokens": 162769,
+        "reserved_cost_cny": 0.4450341,
+        "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+      },
+      "actor_checked": {
+        "requests": 4,
+        "known_prompt_tokens": 30744,
+        "known_completion_tokens": 4282,
+        "known_total_tokens": 35026,
+        "known_estimated_cost_cny": 0.1005312,
+        "unknown_usage_requests": 0,
+        "actual_total_tokens": 35026,
+        "actual_estimated_cost_cny": 0.1005312,
+        "reserved_tokens": 162905,
+        "reserved_cost_cny": 0.4453197,
+        "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+      }
+    },
+    "raw_audit_json_sha256": "0016de0143d3503d0dc4ddc994e7c0af5c5a1ceb33c4330642cbc7952bbd6269",
+    "raw_run_file_count": 230,
+    "raw_run_files_unchanged": true,
+    "raw_run_before_sha256": "199e2b584e2121fd3121f4abaad952295ce6763ca8707c59f24113949172c06d",
+    "raw_run_after_sha256": "199e2b584e2121fd3121f4abaad952295ce6763ca8707c59f24113949172c06d",
+    "raw_audit_verified_unchanged": true,
+    "git_access": "Isolated stage .git symlink points to existing project for read-only commit/blob access.",
+    "new_model_calls": 0,
+    "new_candidate_executions": 0,
+    "previous_stage_setup_failure": "The first isolated stage omitted docs/environment/2026-10-20-agent-pilot-verification.json required by S-odd4. The failed record is preserved as inference-postrun-server-verification-attempt1.json. This retry includes docs without changing runtime code or evidence.",
+    "status": "passed"
+  },
+  "negative_mutation_cases": 12,
+  "negative_mutations_rejected": 12,
+  "audit_status": "verified",
+  "raw_archive_files": 230,
+  "raw_archive_files_byte_identical": true,
+  "raw_tree_sha256": "199e2b584e2121fd3121f4abaad952295ce6763ca8707c59f24113949172c06d",
+  "counts": {
+    "requests": 14,
+    "assigned_update_slots": 6,
+    "assigned_actor_slots": 8,
+    "update_requests": 6,
+    "frozen_updates": 6,
+    "missing_update_policies": 0,
+    "skipped_dependency_updates": 0,
+    "actors_without_policy": 0,
+    "evaluation_requests": 8,
+    "generated_candidate_records": 8,
+    "new_task_result_records": 44,
+    "unique_new_evaluator_run_ids": 44,
+    "archived_task_result_records": 44,
+    "unique_archived_evaluator_run_ids": 22,
+    "claim_statuses": {
+      "schema_invalid": 2,
+      "contradicted": 5,
+      "supported": 1
+    },
+    "prediction_statuses": {
+      "contradicted": 6,
+      "supported": 1,
+      "schema_invalid": 1
+    },
+    "registration_statuses": {
+      "supported": 7,
+      "unavailable": 1
+    }
+  },
+  "costs": {
+    "requests": 14,
+    "known_prompt_tokens": 126609,
+    "known_completion_tokens": 13617,
+    "known_total_tokens": 140226,
+    "known_estimated_cost_cny": 0.3802617,
+    "unknown_usage_requests": 0,
+    "actual_total_tokens": 140226,
+    "actual_estimated_cost_cny": 0.3802617,
+    "reserved_tokens": 631056,
+    "reserved_cost_cny": 1.6864848,
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  },
+  "baseline_reexecutions": 0,
+  "sealed_test_evaluations": 0,
+  "postrun_model_calls": 0,
+  "postrun_candidate_executions": 0,
+  "identical_policy_full_request_comparisons": [
+    {
+      "state_id": "P-H002",
+      "complete_request_json_equal": true,
+      "saved_files_byte_identical": true,
+      "files": [
+        "p2-P-H002-self/requests/request-0014.request.json",
+        "p2-P-H002-checked/requests/request-0012.request.json"
+      ]
+    },
+    {
+      "state_id": "S-odd4",
+      "complete_request_json_equal": true,
+      "saved_files_byte_identical": true,
+      "files": [
+        "p2-S-odd4-self/requests/request-0011.request.json",
+        "p2-S-odd4-checked/requests/request-0013.request.json"
+      ]
+    }
+  ],
+  "cumulative_research_requests": 77,
+  "cumulative_known_tokens": 690339,
+  "cumulative_known_estimated_cost_cny": 2.0304711,
+  "cumulative_reserved_cost_cny": 8.6591736,
+  "cumulative_unknown_usage_requests": 1,
+  "limitations": [
+    "Two proposal draws from one researcher-seen experience bundle; no independent learning-task repeats",
+    "C2/C4 contracts already explicitly disclosed in both arms; initial declarations correct",
+    "Correct fixed declarations do not certify free notes, selected rules or downstream edits",
+    "p2 arms have identical policies and complete saved requests; outcome differences cannot be attributed to feedback",
+    "All quality scores are development/training scores, not held-out generalization",
+    "Configured cost estimates exclude seven connection/debug calls, Canvas and other processes; provider invoices not reconciled"
+  ]
+}

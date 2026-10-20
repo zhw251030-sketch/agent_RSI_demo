@@ -1,0 +1,115 @@
+{
+  "P-A002": {
+    "archive_run": "20261020-diagnostic-comparison-v01",
+    "archive_session": "planning_A",
+    "archived_candidate_id": "planning-002",
+    "archive_runtime_commit": "c36af55d4b20cb624f1cdb49cb5010990ce1d599",
+    "lineage": "Separate A information history from U-P and old E-P/B003; common empty-plan root. A001 was already seen; later successful A003 is excluded.",
+    "source_files": [
+      {
+        "path": "artifacts/diagnostic-comparison/2026-10-20/planning_A/planning-002.py",
+        "sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4"
+      },
+      {
+        "path": "artifacts/diagnostic-comparison/2026-10-20/planning_A/trajectory.json",
+        "sha256": "69af92d6002375c3eaff36bbfebbada71c8b8fdaf9b04e8662b318ce6c098cb3"
+      },
+      {
+        "path": "artifacts/diagnostic-comparison/2026-10-20/planning_A/diagnostics.json",
+        "sha256": "f87360a0eeac9bf74d6ac203ae50af9456d1cd8229fe9986432553b6170ebe4c"
+      }
+    ],
+    "candidate_executions_during_load": 0,
+    "record_index": 2,
+    "record_assembly": "Original record and own diagnostics.",
+    "seed_policy": "Forced archived state; no later answers or complete history supplied.",
+    "source_role": "Researcher-seen development state, not an independent or held-out task.",
+    "inference_round_scope": "No exact source overlap with D-P/D-S. B002 was removed because D-P parent B003 had observed its history; shared task data and common ancestors remain."
+  },
+  "P-H002": {
+    "archive_run": "20261020-checked-feedback-v01",
+    "archive_session": "planning_hidden",
+    "archived_candidate_id": "planning-002",
+    "archive_runtime_commit": "c4d4f60f852208494e214bd226882e532172c799",
+    "lineage": "Separate v01 hidden history from D-P/B003 and D-S/C002. Its declared parent is the empty program; the rejected earlier H001 and feedback also informed H002. Same Spanner development instances, not an independent task.",
+    "source_files": [
+      {
+        "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/planning_hidden/candidates/planning-002.py",
+        "sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3"
+      },
+      {
+        "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/planning_hidden/trajectory.json",
+        "sha256": "b1468be8a1ea03666409e588ca8feb6e8cd108b7c207b78c5d8f8324d1f02a67"
+      },
+      {
+        "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/planning_hidden/diagnostics.json",
+        "sha256": "3276bcde9c2c39a4fda3fac59963b9960d02d9e46ede8b903de723a970167556"
+      }
+    ],
+    "candidate_executions_during_load": 0,
+    "record_index": 2,
+    "record_assembly": "Original record and own diagnostics.",
+    "seed_policy": "Forced archived state; no later answers or complete history supplied.",
+    "source_role": "Researcher-seen development state, not an independent or held-out task.",
+    "inference_round_scope": "No exact source overlap with D-P/D-S. B002 was removed because D-P parent B003 had observed its history; shared task data and common ancestors remain."
+  },
+  "S-poly5": {
+    "archive_run": "20261020-checked-feedback-v01",
+    "archive_session": "symbolic_checked",
+    "archived_candidate_id": "symbolic-003",
+    "archive_runtime_commit": "c4d4f60f852208494e214bd226882e532172c799",
+    "lineage": "Distinct v01 history from U-S/v02 and old E-S/C002; shared constant root and mathematically equivalent linear ancestor. Formula: x,v,x^3,v^2,x^5.",
+    "source_files": [
+      {
+        "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/symbolic_checked/candidates/symbolic-003.py",
+        "sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0"
+      },
+      {
+        "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/symbolic_checked/trajectory.json",
+        "sha256": "b51c4f03cf38f13cc1213fb45c453605cd7a654751a66c6f8a00fc10df0a545e"
+      },
+      {
+        "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/symbolic_checked/diagnostics.json",
+        "sha256": "8da0748c75ca6bfe08c92e77d76409efd5c4abc10bbea8db951d0eba2c2a10d0"
+      }
+    ],
+    "candidate_executions_during_load": 0,
+    "record_index": 3,
+    "record_assembly": "Original record and own diagnostics.",
+    "seed_policy": "Forced archived state; no later answers or complete history supplied.",
+    "source_role": "Researcher-seen development state, not an independent or held-out task.",
+    "inference_round_scope": "No exact source overlap with D-P/D-S. B002 was removed because D-P parent B003 had observed its history; shared task data and common ancestors remain."
+  },
+  "S-odd4": {
+    "archive_run": "20261020-minimax-v01-recovery",
+    "archive_session": "symbolic",
+    "archived_candidate_id": "symbolic-003",
+    "archive_runtime_commit": "49b4b9f6d967360b264cd93f52c326a7814bb595",
+    "lineage": "Original pilot history, separate from U-S/v02 and old E-S/C002. Shares the constant root and linear/cubic mathematical ancestors with S-poly5; not an independent task. Formula: x,v,x^3,v*abs(v).",
+    "source_files": [
+      {
+        "path": "artifacts/pilot/2026-10-20/symbolic-003.py",
+        "sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e"
+      },
+      {
+        "path": "docs/environment/2026-10-20-agent-pilot-verification.json",
+        "sha256": "a4df3771754340b7a4872a5e8aaa07bcc45c6d5da777bbf8f0e53b5f012a6453"
+      },
+      {
+        "path": "artifacts/grounded-policy-inputs/2026-10-20/pilot-symbolic-003-feedback.json",
+        "sha256": "ed849fd17ccafa807637be37d3617afe926d26efb1da88471777786260ff4fda"
+      }
+    ],
+    "candidate_executions_during_load": 0,
+    "record_pointer": "/session_outcomes/1/trajectory/3",
+    "original_evaluator_run_ids": [
+      "a8019bf73a40470f9d61dd196b2e0821"
+    ],
+    "diagnostic_replay_run": "20261020-diagnostic-probe-v01",
+    "diagnostic_replay_evaluator_run_id": "d6c079a6fc3341b6ae87b1d59b61c754",
+    "record_assembly": "Original model identity and rationale plus later unchanged-source replay results and diagnostics; original and replay scores agree.",
+    "seed_policy": "Forced archived state; no later answers or complete history supplied.",
+    "source_role": "Researcher-seen development state, not an independent or held-out task.",
+    "inference_round_scope": "No exact source overlap with D-P/D-S. B002 was removed because D-P parent B003 had observed its history; shared task data and common ancestors remain."
+  }
+}

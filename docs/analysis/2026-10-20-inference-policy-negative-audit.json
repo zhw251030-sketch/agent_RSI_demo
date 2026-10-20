@@ -1,0 +1,98 @@
+{
+  "version": "inference-negative-audit-v0.1",
+  "status": "passed",
+  "cases": [
+    {
+      "case": "configuration_selection_gate",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Frozen protocol identity changed",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "invalid_runtime_commit",
+      "rejected": true,
+      "error_type": "CalledProcessError",
+      "reason": null,
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "summary_cost_changed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Budget summary known_estimated_cost_cny differs from ledger",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "ledger_reserved_state",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Reported reserved_count differs from actual ledger settlement state",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "reported_policy_availability_changed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Reported update availability differs from immutable slot",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "semantic_check_changed_all_hashes_resealed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Saved policy or checks disagree with the submission",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "policy_changed_all_hashes_resealed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Saved policy or checks disagree with the submission",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "phase_slot_removed_and_anchor_recomputed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Update phase freeze anchor changed",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "actor_request_evidence_injected",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Saved state packet differs from actual request",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "candidate_source_changed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Candidate source digest differs",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "child_metrics_changed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Symbolic score disagrees with the successful train result",
+      "modified_copy_unchanged_by_auditor": true
+    },
+    {
+      "case": "reported_endpoint_changed",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Reported actor endpoint differs from records",
+      "modified_copy_unchanged_by_auditor": true
+    }
+  ],
+  "case_count": 12,
+  "rejected_count": 12,
+  "original_run_files_unchanged": true,
+  "original_run_file_count": 230,
+  "original_tree_sha256": "199e2b584e2121fd3121f4abaad952295ce6763ca8707c59f24113949172c06d",
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "driver_script_sha256": "1981b7f415ea9fbd7987ac71ddfce9d1292366de58bebce06328ba608dd054da"
+}

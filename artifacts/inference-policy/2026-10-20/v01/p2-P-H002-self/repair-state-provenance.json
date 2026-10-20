@@ -1,0 +1,27 @@
+{
+  "archive_run": "20261020-checked-feedback-v01",
+  "archive_session": "planning_hidden",
+  "archived_candidate_id": "planning-002",
+  "archive_runtime_commit": "c4d4f60f852208494e214bd226882e532172c799",
+  "lineage": "Separate v01 hidden history from D-P/B003 and D-S/C002. Its declared parent is the empty program; the rejected earlier H001 and feedback also informed H002. Same Spanner development instances, not an independent task.",
+  "source_files": [
+    {
+      "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/planning_hidden/candidates/planning-002.py",
+      "sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3"
+    },
+    {
+      "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/planning_hidden/trajectory.json",
+      "sha256": "b1468be8a1ea03666409e588ca8feb6e8cd108b7c207b78c5d8f8324d1f02a67"
+    },
+    {
+      "path": "artifacts/checked-feedback/2026-10-20/v01-stopped/planning_hidden/diagnostics.json",
+      "sha256": "3276bcde9c2c39a4fda3fac59963b9960d02d9e46ede8b903de723a970167556"
+    }
+  ],
+  "candidate_executions_during_load": 0,
+  "record_index": 2,
+  "record_assembly": "Original record and own diagnostics.",
+  "seed_policy": "Forced archived state; no later answers or complete history supplied.",
+  "source_role": "Researcher-seen development state, not an independent or held-out task.",
+  "inference_round_scope": "No exact source overlap with D-P/D-S. B002 was removed because D-P parent B003 had observed its history; shared task data and common ancestors remain."
+}

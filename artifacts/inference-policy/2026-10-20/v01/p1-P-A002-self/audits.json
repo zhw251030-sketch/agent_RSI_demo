@@ -1,0 +1,88 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "compact_declaration": {
+      "claim_id": "e_e41f41c1a24dc902",
+      "claim_op": "eq",
+      "claim_value_json": "[[\"tightened\",\"nut1\"],[\"tightened\",\"nut2\"],[\"tightened\",\"nut3\"]]",
+      "prediction_id": "e_6b6c8a628086743f",
+      "prediction_direction": "increase",
+      "prediction_min_delta": 7.0
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "0cc324c26a6d6f1161c2ab292de6c3db3dfcaa859c69ee2500623593a7307770"
+    },
+    "claim_expansion": {
+      "status": "schema_invalid",
+      "reason": "claim_schema_invalid"
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p1-P-A002",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1",
+          "scope": "development_summary",
+          "key": "development_successes"
+        },
+        "direction": "increase",
+        "min_delta": 7.0
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0,
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p1-P-A002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "direction": "increase",
+      "min_delta": 7.0
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.0,
+      "tolerance": 7.01e-08,
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p1-P-A002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "before": 0.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 7.0,
+      "child_reference": {
+        "session_id": "20261020-inference-policy-v01:p1-P-A002",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "6c4a5f637b25a4a56deb67468cb1fd018b01a5ff42ca56f495a7427c91e8f7dd",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "development_successes"
+      },
+      "after": 0.0
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "rule_1": "R03",
+  "rule_2": "R04",
+  "rule_3": "R06",
+  "rule_4": "R08",
+  "verdict_1": "supported",
+  "verdict_2": "unknown",
+  "verdict_3": "contradicted",
+  "verdict_4": "unknown",
+  "evidence_1": "D-P:source-diff",
+  "evidence_2": "D-P:source-diff",
+  "evidence_3": "D-S:metrics,D-S:forecast",
+  "evidence_4": "D-S:metrics,D-S:forecast",
+  "notes": "Rule choices rest on supplied updates only: D-P diff evidences directed-link preservation and emit_* precondition scaffolding (R03, R08); D-S metrics+forecast evidence the MSE/NMSE non-substitution (R04) and frame the v^2 addition as a marginal hypothesis contradicted by a sub-threshold delta (R06). C2 stays unknown because edit_contract is null; C4 stays unknown because matched_interventions is empty — neither edit-contract nor ablation evidence was supplied."
+}

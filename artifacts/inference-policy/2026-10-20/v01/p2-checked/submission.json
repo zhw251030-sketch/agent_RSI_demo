@@ -1,0 +1,15 @@
+{
+  "rule_1": "R05",
+  "rule_2": "R02",
+  "rule_3": "R07",
+  "rule_4": "R08",
+  "verdict_1": "supported",
+  "verdict_2": "unknown",
+  "verdict_3": "contradicted",
+  "verdict_4": "unknown",
+  "evidence_1": "D-P:source-diff",
+  "evidence_2": "D-P:source-diff",
+  "evidence_3": "D-S:metrics,D-S:forecast",
+  "evidence_4": "D-S:metrics,D-S:forecast",
+  "notes": "Retaining the supplied proposal (R05, R02, R07, R08) over the parent policy (R03, R04, R06, R08). Unverified rationale: both cases show diagnostics that were not tied to a verifiable source-location change (R05), diagnoses anchored to plan length rather than the earliest observed failure (D-P: plan_length 21/15 while executed_actions 7, first_failed_action at index 7 missing the link precondition), and registered improvement thresholds far larger than the evidence justified (D-S: min_delta 1e-4 vs actual 6.5e-7). R08 keeps repairs complete without extra machinery. R01 was omitted because the registered D-P failure is a missing precondition, not a type/format/argument-order issue. Auxiliary verdicts follow the contract: C1 supported from source bytes; C2 unknown since no predeclared executable edit contract exists; C3 contradicted because official train nmse moved only 0.0959173 -> 0.0957677 while the registered forecast on train mse is contradicted; C4 unknown since matched_interventions is empty in both cases. This is archived reasoning only and asserts nothing about optimality or about future repair outcomes; evidence is researcher-seen development data."
+}

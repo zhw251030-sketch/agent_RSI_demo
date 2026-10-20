@@ -1,0 +1,15 @@
+{
+  "rule_1": "R03",
+  "rule_2": "R04",
+  "rule_3": "R06",
+  "rule_4": "R08",
+  "verdict_1": "supported",
+  "verdict_2": "unknown",
+  "verdict_3": "contradicted",
+  "verdict_4": "unknown",
+  "evidence_1": "D-P:source-diff",
+  "evidence_2": "D-P:source-diff",
+  "evidence_3": "D-S:metrics,D-S:forecast",
+  "evidence_4": "D-S:metrics,D-S:forecast",
+  "notes": "Policy selection rationale (archived, unverified): D-P source diff shows directed-link fix vs undirected adjacency and addition of precondition-checked emit_* helpers (R03: environment not rewritten; R08: complete valid repair). D-S shows NMSE improvement but MSE forecast missed (R04: MSE/NMSE not interchangeable; R06: v^2 addition is a marginal hypothesis contradicted by tiny gain). C2 unknown because edit_contract is null. C4 unknown because matched_interventions is empty."
+}

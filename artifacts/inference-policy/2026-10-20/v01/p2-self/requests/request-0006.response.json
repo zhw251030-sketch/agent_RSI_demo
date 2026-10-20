@@ -1,0 +1,45 @@
+{
+  "response_id": "chatcmpl-00e38f2c-a320-48d7-a70b-2e6c1614711c",
+  "usage": {
+    "prompt_tokens": 11053,
+    "completion_tokens": 618,
+    "total_tokens": 11671
+  },
+  "usage_details": {
+    "prompt_tokens_details": {
+      "cached_tokens": 128,
+      "text_tokens": 10925,
+      "cache_write_tokens": 0,
+      "cache_creation_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 618
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 128
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"evidence_1\": \"D-P:source-diff\", \"evidence_2\": \"D-P:source-diff\", \"evidence_3\": \"D-S:metrics,D-S:forecast\", \"evidence_4\": \"D-S:metrics,D-S:forecast\", \"notes\": \"Selection rationale (archived, unverified). Retained proposal rule order: R05, R02, R07, R08. R05 first to ground each diagnostic observation in a verifiable source-location change tied to the failure expected to disappear (D-P:source-diff shows a real source change but outcome stayed 0/10, contradicting the rationale's claim that the first invalid walk would vanish). R02 second because in D-P plan_length (21, 15) and executed_actions (7) are not comparable, and the earliest observed failure is first_failed_action at index 7 \\u2014 plan length is not a proxy for executed actions. R07 third because forecast thresholds in both cases were missed by orders of magnitude (D-S actual_delta ~6.5e-7 vs min_delta 1e-4; D-P forecast contradicted). R08 fourth to preserve correct behavior and avoid unrelated complexity. Deliberately omitted R01 (D-P failure is a missing link precondition, not a type/format/argument-order error) and R03/R04/R06 (parent policy used them; dropped for room \\u2014 R06's caution against declaring necessity is preserved via C4=unknown). Auxiliary verdicts: C1 supported (D-P:source-diff shows differing parent/child hashes and a visible diff). C2 unknown (no edit_contract exists; source changes alone cannot decide whether the specific intended repair was implemented). C3 contradicted (D-S official nmse moved 0.0959173 -> 0.0957677, a negligible change; registered forecast actual_delta ~6.5e-7 vs min_delta 1e-4 on train mse \\u2014 both registered metric facts are present, so the conjunction fails). C4 unknown (matched_interventions empty in both cases; necessity of the added v^2 structure is undecidable). I am not claiming these four rules are optimal or that applying them to any candidate would improve outcomes; both cases are researcher-seen development data with contradicted forecasts and unverified rationales.\", \"rule_1\": \"R05\", \"rule_2\": \"R02\", \"rule_3\": \"R07\", \"rule_4\": \"R08\", \"verdict_1\": \"supported\", \"verdict_2\": \"unknown\", \"verdict_3\": \"contradicted\", \"verdict_4\": \"unknown\"}",
+              "name": "submit_policy"
+            },
+            "id": "call_01a159629a9f77729ec0f492",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

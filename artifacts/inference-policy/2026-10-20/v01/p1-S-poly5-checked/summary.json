@@ -1,0 +1,623 @@
+{
+  "family": "symbolic",
+  "session_id": "symbolic",
+  "strategy_version": "finite-rule-policy-transfer-v0.1",
+  "strategy_updated": false,
+  "generated_candidates": 1,
+  "tool_rejections": 0,
+  "halted": false,
+  "executions": 1,
+  "baseline": {
+    "candidate_id": "symbolic-000",
+    "parent_id": null,
+    "source_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+    "origin": "archived_model_proposed_initial",
+    "n_params": 5,
+    "rationale": "The two prior submissions were rejected by schema validation, not executed, because each claim's `reference` omitted the required `key` field (it was placed at the claim level instead of inside reference). This submission fixes that: every reference now carries the full evidence binding plus `key`, and only bindings present in the packet are used (symbolic-002 evidence: candidate_sha256 142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a, scope train, session 20261020-checked-feedback-v01:symbolic_checked, task oscillator1, version evidence-v0.1).\n\nModel change rationale: the incumbent a = c1*x + c2*v + c3*x^3 scores train NMSE 0.0951 / MSE 4.15e-4, and bias^2/MSE is only 0.0084, so the remaining error is overwhelmingly residual variance rather than a missing offset. Per-bin RMSE still grows toward the extreme |v| bin (0.0304) and the extreme |x| bins (~0.023), consistent with a restoring force that stiffens at larger amplitude. I therefore add one quintic stiffness term c5*x^5 and one quadratic velocity term c4*v^2, keeping the x-restoring part odd-symmetric (a physically standard correction for amplitude-dependent stiffness) while the v^2 term captures the non-monotonic v-residual pattern.\n\nPrediction: NMSE decreases by at least 0.005. This is a training-fit prediction only; it does not establish held-out accuracy or the true equation, and the claim below is likewise only a statement about the supplied development evidence, not about physical necessity.",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+        "run_id": "9b071583136e486abd57dd91bdd0bc60",
+        "metrics": {
+          "mse": 0.0004091082334152086,
+          "nmse": 0.09376229967010528
+        },
+        "diagnostics": {
+          "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+          "residuals": {
+            "bias": 7.607474647981979e-05,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.00037938977847907054,
+                    "rmse": 0.01632634139418286,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0015575525883172812,
+                    "rmse": 0.022715925949967554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.001272668001390612,
+                    "rmse": 0.017517564722122087,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0003988041774716805,
+                    "rmse": 0.0233881411143186,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0024624002593808436,
+                    "rmse": 0.015575367332108903,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.004207036308650126,
+                    "rmse": 0.019339388156186195,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.001487710904844435,
+                    "rmse": 0.011602312563049944,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 4.7373841494431484e-05,
+                    "rmse": 0.02975256753734655,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020226424138122107,
+            "scope": "train",
+            "standardized_bias": 0.0011516898227573846,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004091082334152086,
+      "nmse": 0.09376229967010528
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-000",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force + linear/quadratic damping:\n    #   a = c1*x + c3*x^3 + c5*x^5 + c2*v + c4*v^2\n    # Incumbent (linear + cubic) reaches train NMSE 0.0951, bias^2/MSE\n    # only 0.0084 -> residual error is variance, not offset. Adding a\n    # quintic stiffness term and a mild quadratic-in-v term to capture the\n    # higher-|v| and higher-|x| growth seen in the binned RMSE.\n    c1 = params[0]\n    c2 = params[1]\n    c3 = params[2]\n    c4 = params[3]\n    c5 = params[4]\n    return c1 * x + c2 * v + c3 * x ** 3 + c4 * v ** 2 + c5 * x ** 5",
+      "instruction": "Revise this explicit archived starting candidate once."
+    }
+  },
+  "first": {
+    "candidate_id": "symbolic-001",
+    "parent_id": "symbolic-000",
+    "source_sha256": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+    "origin": "model_proposed",
+    "n_params": 5,
+    "rationale": "Single revision of the incumbent equation. The incumbent's velocity nonlinearity was c4*v**2, which is even in v and therefore contributes a constant-signed force for all rows with a given |v|; the observed per-bin v mean residuals alternate sign (-0.00246, +0.00421, -0.00149, +0.00005) and overall bias^2/MSE is only 1.4e-05, so the dominant error is residual variance, not offset. I keep n_params=5 and keep the restoring part odd (c1*x + c3*x^3 + c5*x^5), replacing only the velocity term with an odd-in-v cubic damping c4*v*|v|*|v|, which supplies extra force magnitude at high |v| where the highest-|v| bin RMSE is largest (0.0298). This preserves all existing correct structure and changes exactly one term at one source location. Prediction: NMSE decreases by at least 0.005 (train fit only).",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+        "run_id": "688568f57117461394be5a9a4aa49440",
+        "metrics": {
+          "mse": 0.0004029083710743255,
+          "nmse": 0.0923413716534127
+        },
+        "diagnostics": {
+          "candidate_sha256": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+          "residuals": {
+            "bias": 0.00018020273839780887,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.00018944331316473825,
+                    "rmse": 0.014469885731904443,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0018832473577885696,
+                    "rmse": 0.02153525849370203,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.0018698796258507346,
+                    "rmse": 0.017198416096973507,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0008968865348181386,
+                    "rmse": 0.02535158804824123,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0017297863040096402,
+                    "rmse": 0.015618481769610776,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.002701550864340796,
+                    "rmse": 0.019094927473002704,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.0007712239344435103,
+                    "rmse": 0.011235829692366174,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.0005202703277035898,
+                    "rmse": 0.029611423259184064,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020072577589196797,
+            "scope": "train",
+            "standardized_bias": 0.002728075602602514,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004029083710743255,
+      "nmse": 0.0923413716534127
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-001",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force (linear + cubic + quintic stiffness) plus\n    # an odd-in-velocity cubic damping term:\n    #   a = c1*x + c3*x^3 + c5*x^5 + c2*v + c4*v*|v|*|v|\n    #\n    # Observed train diagnostics for the incumbent (which used c4*v^2):\n    # overall bias ~ 7.6e-05 and bias^2/MSE ~ 1.4e-05, so the error is\n    # dominated by residual variance, not by a missing constant offset.\n    # Per-bin mean residuals over the v bins alternate in sign\n    # (-0.00246, +0.00421, -0.00149, +0.00005) rather than following a\n    # monotone trend, which is a marginal association only; the physically\n    # motivated response to a pattern like this is to keep the velocity\n    # dependence odd (so no spurious constant force term is introduced) while\n    # allowing its magnitude to grow faster than linear at large |v|.\n    # The highest-|v| bin also carries the largest RMSE (0.0298), consistent\n    # with a restoring/damping law that stiffens at higher speed.\n    #\n    # This is a training-fit hypothesis only; it does not establish held-out\n    # accuracy or the true underlying equation.\n    c1 = params[0]  # linear stiffness\n    c2 = params[1]  # linear damping\n    c3 = params[2]  # cubic stiffness\n    c4 = params[3]  # cubic (odd) velocity damping\n    c5 = params[4]  # quintic stiffness\n    return c1 * x + c2 * v + c3 * x ** 3 + c5 * x ** 5 + c4 * v * np.abs(v) * np.abs(v)",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  },
+  "last": {
+    "candidate_id": "symbolic-001",
+    "parent_id": "symbolic-000",
+    "source_sha256": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+    "origin": "model_proposed",
+    "n_params": 5,
+    "rationale": "Single revision of the incumbent equation. The incumbent's velocity nonlinearity was c4*v**2, which is even in v and therefore contributes a constant-signed force for all rows with a given |v|; the observed per-bin v mean residuals alternate sign (-0.00246, +0.00421, -0.00149, +0.00005) and overall bias^2/MSE is only 1.4e-05, so the dominant error is residual variance, not offset. I keep n_params=5 and keep the restoring part odd (c1*x + c3*x^3 + c5*x^5), replacing only the velocity term with an odd-in-v cubic damping c4*v*|v|*|v|, which supplies extra force magnitude at high |v| where the highest-|v| bin RMSE is largest (0.0298). This preserves all existing correct structure and changes exactly one term at one source location. Prediction: NMSE decreases by at least 0.005 (train fit only).",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+        "run_id": "688568f57117461394be5a9a4aa49440",
+        "metrics": {
+          "mse": 0.0004029083710743255,
+          "nmse": 0.0923413716534127
+        },
+        "diagnostics": {
+          "candidate_sha256": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+          "residuals": {
+            "bias": 0.00018020273839780887,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.00018944331316473825,
+                    "rmse": 0.014469885731904443,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0018832473577885696,
+                    "rmse": 0.02153525849370203,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.0018698796258507346,
+                    "rmse": 0.017198416096973507,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0008968865348181386,
+                    "rmse": 0.02535158804824123,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0017297863040096402,
+                    "rmse": 0.015618481769610776,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.002701550864340796,
+                    "rmse": 0.019094927473002704,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.0007712239344435103,
+                    "rmse": 0.011235829692366174,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.0005202703277035898,
+                    "rmse": 0.029611423259184064,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020072577589196797,
+            "scope": "train",
+            "standardized_bias": 0.002728075602602514,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004029083710743255,
+      "nmse": 0.0923413716534127
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-001",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force (linear + cubic + quintic stiffness) plus\n    # an odd-in-velocity cubic damping term:\n    #   a = c1*x + c3*x^3 + c5*x^5 + c2*v + c4*v*|v|*|v|\n    #\n    # Observed train diagnostics for the incumbent (which used c4*v^2):\n    # overall bias ~ 7.6e-05 and bias^2/MSE ~ 1.4e-05, so the error is\n    # dominated by residual variance, not by a missing constant offset.\n    # Per-bin mean residuals over the v bins alternate in sign\n    # (-0.00246, +0.00421, -0.00149, +0.00005) rather than following a\n    # monotone trend, which is a marginal association only; the physically\n    # motivated response to a pattern like this is to keep the velocity\n    # dependence odd (so no spurious constant force term is introduced) while\n    # allowing its magnitude to grow faster than linear at large |v|.\n    # The highest-|v| bin also carries the largest RMSE (0.0298), consistent\n    # with a restoring/damping law that stiffens at higher speed.\n    #\n    # This is a training-fit hypothesis only; it does not establish held-out\n    # accuracy or the true underlying equation.\n    c1 = params[0]  # linear stiffness\n    c2 = params[1]  # linear damping\n    c3 = params[2]  # cubic stiffness\n    c4 = params[3]  # cubic (odd) velocity damping\n    c5 = params[4]  # quintic stiffness\n    return c1 * x + c2 * v + c3 * x ** 3 + c5 * x ** 5 + c4 * v * np.abs(v) * np.abs(v)",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  },
+  "best": {
+    "candidate_id": "symbolic-001",
+    "parent_id": "symbolic-000",
+    "source_sha256": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+    "origin": "model_proposed",
+    "n_params": 5,
+    "rationale": "Single revision of the incumbent equation. The incumbent's velocity nonlinearity was c4*v**2, which is even in v and therefore contributes a constant-signed force for all rows with a given |v|; the observed per-bin v mean residuals alternate sign (-0.00246, +0.00421, -0.00149, +0.00005) and overall bias^2/MSE is only 1.4e-05, so the dominant error is residual variance, not offset. I keep n_params=5 and keep the restoring part odd (c1*x + c3*x^3 + c5*x^5), replacing only the velocity term with an odd-in-v cubic damping c4*v*|v|*|v|, which supplies extra force magnitude at high |v| where the highest-|v| bin RMSE is largest (0.0298). This preserves all existing correct structure and changes exactly one term at one source location. Prediction: NMSE decreases by at least 0.005 (train fit only).",
+    "strategy_version": "finite-rule-policy-transfer-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+        "run_id": "688568f57117461394be5a9a4aa49440",
+        "metrics": {
+          "mse": 0.0004029083710743255,
+          "nmse": 0.0923413716534127
+        },
+        "diagnostics": {
+          "candidate_sha256": "d5370e817978006f76a507515fb50a58e45b0072d82a76fc2b6d926940da2c2e",
+          "residuals": {
+            "bias": 0.00018020273839780887,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.00018944331316473825,
+                    "rmse": 0.014469885731904443,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0018832473577885696,
+                    "rmse": 0.02153525849370203,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.0018698796258507346,
+                    "rmse": 0.017198416096973507,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0008968865348181386,
+                    "rmse": 0.02535158804824123,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0017297863040096402,
+                    "rmse": 0.015618481769610776,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.002701550864340796,
+                    "rmse": 0.019094927473002704,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.0007712239344435103,
+                    "rmse": 0.011235829692366174,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.0005202703277035898,
+                    "rmse": 0.029611423259184064,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020072577589196797,
+            "scope": "train",
+            "standardized_bias": 0.002728075602602514,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004029083710743255,
+      "nmse": 0.0923413716534127
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-001",
+      "incumbent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force (linear + cubic + quintic stiffness) plus\n    # an odd-in-velocity cubic damping term:\n    #   a = c1*x + c3*x^3 + c5*x^5 + c2*v + c4*v*|v|*|v|\n    #\n    # Observed train diagnostics for the incumbent (which used c4*v^2):\n    # overall bias ~ 7.6e-05 and bias^2/MSE ~ 1.4e-05, so the error is\n    # dominated by residual variance, not by a missing constant offset.\n    # Per-bin mean residuals over the v bins alternate in sign\n    # (-0.00246, +0.00421, -0.00149, +0.00005) rather than following a\n    # monotone trend, which is a marginal association only; the physically\n    # motivated response to a pattern like this is to keep the velocity\n    # dependence odd (so no spurious constant force term is introduced) while\n    # allowing its magnitude to grow faster than linear at large |v|.\n    # The highest-|v| bin also carries the largest RMSE (0.0298), consistent\n    # with a restoring/damping law that stiffens at higher speed.\n    #\n    # This is a training-fit hypothesis only; it does not establish held-out\n    # accuracy or the true underlying equation.\n    c1 = params[0]  # linear stiffness\n    c2 = params[1]  # linear damping\n    c3 = params[2]  # cubic stiffness\n    c4 = params[3]  # cubic (odd) velocity damping\n    c5 = params[4]  # quintic stiffness\n    return c1 * x + c2 * v + c3 * x ** 3 + c5 * x ** 5 + c4 * v * np.abs(v) * np.abs(v)",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  },
+  "selection_rule": "lowest_finite_train_nmse_then_earlier",
+  "sealed_tasks_executed": 0,
+  "scope": "One development repair with an externally frozen rule selection; the actor cannot update policy, weights, or evaluation data.",
+  "diagnostics_computed": true,
+  "diagnostics_visible": true,
+  "condition": "hidden",
+  "checks_visible": false,
+  "check_gates_execution": false,
+  "check_changes_selection": false,
+  "archived_task_records": 1,
+  "baseline_reexecuted": false,
+  "max_generated_candidates": 1,
+  "policy": {
+    "version": "revision-policy-v0.1",
+    "rule_ids": [
+      "R02",
+      "R05",
+      "R04",
+      "R07"
+    ]
+  }
+}

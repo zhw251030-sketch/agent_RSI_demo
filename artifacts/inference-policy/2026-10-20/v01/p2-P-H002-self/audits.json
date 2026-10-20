@@ -1,0 +1,62 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "compact_declaration": {
+      "claim_id": "e_02d7107c8b3d85ab",
+      "claim_op": "gt",
+      "claim_value_json": "\"0\"",
+      "prediction_id": "e_120afcd80ced0828",
+      "prediction_direction": "increase",
+      "prediction_min_delta": 2.0
+    },
+    "registry": {
+      "file": "evidence-registry-000.json",
+      "sha256": "055a9e1051f50dca08cd28209920b5d12ca26749d8eaa6e5233c993b65d89e9d"
+    },
+    "claim_expansion": {
+      "status": "schema_invalid",
+      "reason": "claim_schema_invalid"
+    },
+    "prediction_expansion": {
+      "status": "resolved",
+      "value": {
+        "reference": {
+          "session_id": "20261020-inference-policy-v01:p2-P-H002",
+          "candidate_id": "planning-000",
+          "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1",
+          "scope": "public_prompt",
+          "key": "action.tighten_nut.effects.negative"
+        },
+        "direction": "increase",
+        "min_delta": 2.0
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "unavailable",
+      "reason": "key_missing",
+      "reference": {
+        "session_id": "20261020-inference-policy-v01:p2-P-H002",
+        "candidate_id": "planning-000",
+        "candidate_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "task_id": "spannerlearning/seed0/problem0",
+        "version": "evidence-v0.1",
+        "scope": "public_prompt",
+        "key": "action.tighten_nut.effects.negative"
+      },
+      "direction": "increase",
+      "min_delta": 2.0
+    },
+    "prediction_result": {
+      "status": "schema_invalid",
+      "reason": "registration_schema_invalid"
+    }
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "pair_id": "p1",
+  "condition": "checked",
+  "session_id": "p1-checked",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_policy"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "status": "accepted",
+    "halted": false,
+    "attempted": true,
+    "policy_changed": true,
+    "no_op": false,
+    "policy_sha256": "cdf1f14c0b937d647e757d1244614114dc43e47d7f25e9c4e76484d0e9345801",
+    "all_checked_pass": true,
+    "passed_checks": 4,
+    "total_checks": 4,
+    "candidate_executions": 0,
+    "applicability_certified": false,
+    "scope": "Finite rule selection with four inference evidence conditions."
+  },
+  "disposition": "available",
+  "policy_available": true,
+  "selected_policy": {
+    "version": "revision-policy-v0.1",
+    "rule_ids": [
+      "R02",
+      "R05",
+      "R04",
+      "R07"
+    ]
+  },
+  "request_id": "request-0003"
+}

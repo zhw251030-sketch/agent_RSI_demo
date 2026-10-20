@@ -1,0 +1,1910 @@
+{
+  "planning-000": [
+    {
+      "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 0,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 0,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem0",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 3666,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 0,
+            "container_length_min": 0,
+            "exception_events": 0,
+            "first_line": 6,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 1,
+            "container_length_max": 1,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 11,
+            "name": "<listcomp>",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 16,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 17,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 54,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 44,
+            "name": "state_key",
+            "none_return_events": 0,
+            "return_events": 54,
+            "return_types": {
+              "tuple": 54
+            }
+          },
+          {
+            "call_events": 53,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 48,
+            "name": "apply",
+            "none_return_events": 0,
+            "return_events": 53,
+            "return_types": {
+              "tuple": 53
+            }
+          },
+          {
+            "call_events": 54,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 67,
+            "name": "goal_satisfied",
+            "none_return_events": 0,
+            "return_events": 54,
+            "return_types": {
+              "bool": 54
+            }
+          },
+          {
+            "call_events": 117,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 54,
+            "first_line": 68,
+            "name": "<genexpr>",
+            "none_return_events": 54,
+            "return_events": 117,
+            "return_types": {
+              "bool": 63,
+              "none": 54
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 7
+          },
+          {
+            "hits": 1,
+            "line": 8
+          },
+          {
+            "hits": 1,
+            "line": 9
+          },
+          {
+            "hits": 15,
+            "line": 11
+          },
+          {
+            "hits": 1,
+            "line": 12
+          },
+          {
+            "hits": 1,
+            "line": 14
+          },
+          {
+            "hits": 15,
+            "line": 16
+          },
+          {
+            "hits": 15,
+            "line": 17
+          },
+          {
+            "hits": 1,
+            "line": 19
+          },
+          {
+            "hits": 19,
+            "line": 20
+          },
+          {
+            "hits": 18,
+            "line": 21
+          },
+          {
+            "hits": 5,
+            "line": 22
+          },
+          {
+            "hits": 1,
+            "line": 25
+          },
+          {
+            "hits": 1,
+            "line": 26
+          },
+          {
+            "hits": 1,
+            "line": 27
+          },
+          {
+            "hits": 1,
+            "line": 28
+          },
+          {
+            "hits": 1,
+            "line": 29
+          },
+          {
+            "hits": 19,
+            "line": 30
+          },
+          {
+            "hits": 18,
+            "line": 31
+          },
+          {
+            "hits": 7,
+            "line": 32
+          },
+          {
+            "hits": 7,
+            "line": 33
+          },
+          {
+            "hits": 1,
+            "line": 34
+          },
+          {
+            "hits": 6,
+            "line": 35
+          },
+          {
+            "hits": 3,
+            "line": 36
+          },
+          {
+            "hits": 3,
+            "line": 37
+          },
+          {
+            "hits": 3,
+            "line": 38
+          },
+          {
+            "hits": 11,
+            "line": 39
+          },
+          {
+            "hits": 3,
+            "line": 40
+          },
+          {
+            "hits": 8,
+            "line": 41
+          },
+          {
+            "hits": 3,
+            "line": 42
+          },
+          {
+            "hits": 1,
+            "line": 44
+          },
+          {
+            "hits": 108,
+            "line": 45
+          },
+          {
+            "hits": 54,
+            "line": 46
+          },
+          {
+            "hits": 1,
+            "line": 48
+          },
+          {
+            "hits": 53,
+            "line": 49
+          },
+          {
+            "hits": 53,
+            "line": 50
+          },
+          {
+            "hits": 53,
+            "line": 51
+          },
+          {
+            "hits": 53,
+            "line": 52
+          },
+          {
+            "hits": 53,
+            "line": 53
+          },
+          {
+            "hits": 53,
+            "line": 54
+          },
+          {
+            "hits": 17,
+            "line": 55
+          },
+          {
+            "hits": 36,
+            "line": 56
+          },
+          {
+            "hits": 9,
+            "line": 57
+          },
+          {
+            "hits": 9,
+            "line": 58
+          },
+          {
+            "hits": 9,
+            "line": 59
+          },
+          {
+            "hits": 27,
+            "line": 60
+          },
+          {
+            "hits": 27,
+            "line": 61
+          },
+          {
+            "hits": 27,
+            "line": 62
+          },
+          {
+            "hits": 27,
+            "line": 63
+          },
+          {
+            "hits": 27,
+            "line": 64
+          },
+          {
+            "hits": 53,
+            "line": 65
+          },
+          {
+            "hits": 1,
+            "line": 67
+          },
+          {
+            "hits": 117,
+            "line": 68
+          },
+          {
+            "hits": 1,
+            "line": 70
+          },
+          {
+            "hits": 1,
+            "line": 71
+          },
+          {
+            "hits": 1,
+            "line": 75
+          },
+          {
+            "hits": 1,
+            "line": 76
+          },
+          {
+            "hits": 55,
+            "line": 78
+          },
+          {
+            "hits": 54,
+            "line": 79
+          },
+          {
+            "hits": 54,
+            "line": 80
+          },
+          {
+            "hits": 324,
+            "line": 83
+          },
+          {
+            "hits": 270,
+            "line": 84
+          },
+          {
+            "hits": 17,
+            "line": 85
+          },
+          {
+            "hits": 216,
+            "line": 87
+          },
+          {
+            "hits": 162,
+            "line": 88
+          },
+          {
+            "hits": 9,
+            "line": 89
+          },
+          {
+            "hits": 54,
+            "line": 91
+          },
+          {
+            "hits": 84,
+            "line": 92
+          },
+          {
+            "hits": 63,
+            "line": 93
+          },
+          {
+            "hits": 27,
+            "line": 94
+          },
+          {
+            "hits": 107,
+            "line": 96
+          },
+          {
+            "hits": 106,
+            "line": 97
+          },
+          {
+            "hits": 53,
+            "line": 98
+          },
+          {
+            "hits": 53,
+            "line": 100
+          },
+          {
+            "hits": 53,
+            "line": 101
+          },
+          {
+            "hits": 53,
+            "line": 103
+          },
+          {
+            "hits": 53,
+            "line": 104
+          },
+          {
+            "hits": 53,
+            "line": 106
+          },
+          {
+            "hits": 53,
+            "line": 107
+          },
+          {
+            "hits": 1,
+            "line": 109
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem0:plan_replay",
+        "spannerlearning/seed0/problem0:trace"
+      ]
+    },
+    {
+      "candidate_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 0,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 0,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem1",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 3536,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 0,
+            "container_length_min": 0,
+            "exception_events": 0,
+            "first_line": 6,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 1,
+            "container_length_max": 1,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 11,
+            "name": "<listcomp>",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 16,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 17,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 52,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 44,
+            "name": "state_key",
+            "none_return_events": 0,
+            "return_events": 52,
+            "return_types": {
+              "tuple": 52
+            }
+          },
+          {
+            "call_events": 51,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 48,
+            "name": "apply",
+            "none_return_events": 0,
+            "return_events": 51,
+            "return_types": {
+              "tuple": 51
+            }
+          },
+          {
+            "call_events": 52,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 67,
+            "name": "goal_satisfied",
+            "none_return_events": 0,
+            "return_events": 52,
+            "return_types": {
+              "bool": 52
+            }
+          },
+          {
+            "call_events": 113,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 52,
+            "first_line": 68,
+            "name": "<genexpr>",
+            "none_return_events": 52,
+            "return_events": 113,
+            "return_types": {
+              "bool": 61,
+              "none": 52
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 7
+          },
+          {
+            "hits": 1,
+            "line": 8
+          },
+          {
+            "hits": 1,
+            "line": 9
+          },
+          {
+            "hits": 15,
+            "line": 11
+          },
+          {
+            "hits": 1,
+            "line": 12
+          },
+          {
+            "hits": 1,
+            "line": 14
+          },
+          {
+            "hits": 15,
+            "line": 16
+          },
+          {
+            "hits": 15,
+            "line": 17
+          },
+          {
+            "hits": 1,
+            "line": 19
+          },
+          {
+            "hits": 19,
+            "line": 20
+          },
+          {
+            "hits": 18,
+            "line": 21
+          },
+          {
+            "hits": 5,
+            "line": 22
+          },
+          {
+            "hits": 1,
+            "line": 25
+          },
+          {
+            "hits": 1,
+            "line": 26
+          },
+          {
+            "hits": 1,
+            "line": 27
+          },
+          {
+            "hits": 1,
+            "line": 28
+          },
+          {
+            "hits": 1,
+            "line": 29
+          },
+          {
+            "hits": 19,
+            "line": 30
+          },
+          {
+            "hits": 18,
+            "line": 31
+          },
+          {
+            "hits": 7,
+            "line": 32
+          },
+          {
+            "hits": 7,
+            "line": 33
+          },
+          {
+            "hits": 1,
+            "line": 34
+          },
+          {
+            "hits": 6,
+            "line": 35
+          },
+          {
+            "hits": 3,
+            "line": 36
+          },
+          {
+            "hits": 3,
+            "line": 37
+          },
+          {
+            "hits": 3,
+            "line": 38
+          },
+          {
+            "hits": 11,
+            "line": 39
+          },
+          {
+            "hits": 3,
+            "line": 40
+          },
+          {
+            "hits": 8,
+            "line": 41
+          },
+          {
+            "hits": 3,
+            "line": 42
+          },
+          {
+            "hits": 1,
+            "line": 44
+          },
+          {
+            "hits": 104,
+            "line": 45
+          },
+          {
+            "hits": 52,
+            "line": 46
+          },
+          {
+            "hits": 1,
+            "line": 48
+          },
+          {
+            "hits": 51,
+            "line": 49
+          },
+          {
+            "hits": 51,
+            "line": 50
+          },
+          {
+            "hits": 51,
+            "line": 51
+          },
+          {
+            "hits": 51,
+            "line": 52
+          },
+          {
+            "hits": 51,
+            "line": 53
+          },
+          {
+            "hits": 51,
+            "line": 54
+          },
+          {
+            "hits": 15,
+            "line": 55
+          },
+          {
+            "hits": 36,
+            "line": 56
+          },
+          {
+            "hits": 9,
+            "line": 57
+          },
+          {
+            "hits": 9,
+            "line": 58
+          },
+          {
+            "hits": 9,
+            "line": 59
+          },
+          {
+            "hits": 27,
+            "line": 60
+          },
+          {
+            "hits": 27,
+            "line": 61
+          },
+          {
+            "hits": 27,
+            "line": 62
+          },
+          {
+            "hits": 27,
+            "line": 63
+          },
+          {
+            "hits": 27,
+            "line": 64
+          },
+          {
+            "hits": 51,
+            "line": 65
+          },
+          {
+            "hits": 1,
+            "line": 67
+          },
+          {
+            "hits": 113,
+            "line": 68
+          },
+          {
+            "hits": 1,
+            "line": 70
+          },
+          {
+            "hits": 1,
+            "line": 71
+          },
+          {
+            "hits": 1,
+            "line": 75
+          },
+          {
+            "hits": 1,
+            "line": 76
+          },
+          {
+            "hits": 53,
+            "line": 78
+          },
+          {
+            "hits": 52,
+            "line": 79
+          },
+          {
+            "hits": 52,
+            "line": 80
+          },
+          {
+            "hits": 312,
+            "line": 83
+          },
+          {
+            "hits": 260,
+            "line": 84
+          },
+          {
+            "hits": 15,
+            "line": 85
+          },
+          {
+            "hits": 208,
+            "line": 87
+          },
+          {
+            "hits": 156,
+            "line": 88
+          },
+          {
+            "hits": 9,
+            "line": 89
+          },
+          {
+            "hits": 52,
+            "line": 91
+          },
+          {
+            "hits": 76,
+            "line": 92
+          },
+          {
+            "hits": 57,
+            "line": 93
+          },
+          {
+            "hits": 27,
+            "line": 94
+          },
+          {
+            "hits": 103,
+            "line": 96
+          },
+          {
+            "hits": 102,
+            "line": 97
+          },
+          {
+            "hits": 51,
+            "line": 98
+          },
+          {
+            "hits": 51,
+            "line": 100
+          },
+          {
+            "hits": 51,
+            "line": 101
+          },
+          {
+            "hits": 51,
+            "line": 103
+          },
+          {
+            "hits": 51,
+            "line": 104
+          },
+          {
+            "hits": 51,
+            "line": 106
+          },
+          {
+            "hits": 51,
+            "line": 107
+          },
+          {
+            "hits": 1,
+            "line": 109
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem1:plan_replay",
+        "spannerlearning/seed0/problem1:trace"
+      ]
+    }
+  ],
+  "planning-001": [
+    {
+      "candidate_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 0,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 0,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem0",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 3669,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 0,
+            "container_length_min": 0,
+            "exception_events": 0,
+            "first_line": 6,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 1,
+            "container_length_max": 1,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 11,
+            "name": "<listcomp>",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 16,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 17,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 54,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 47,
+            "name": "state_key",
+            "none_return_events": 0,
+            "return_events": 54,
+            "return_types": {
+              "tuple": 54
+            }
+          },
+          {
+            "call_events": 53,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 53,
+            "name": "apply",
+            "none_return_events": 0,
+            "return_events": 53,
+            "return_types": {
+              "tuple": 53
+            }
+          },
+          {
+            "call_events": 54,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 70,
+            "name": "goal_satisfied",
+            "none_return_events": 0,
+            "return_events": 54,
+            "return_types": {
+              "bool": 54
+            }
+          },
+          {
+            "call_events": 117,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 54,
+            "first_line": 71,
+            "name": "<genexpr>",
+            "none_return_events": 54,
+            "return_events": 117,
+            "return_types": {
+              "bool": 63,
+              "none": 54
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 7
+          },
+          {
+            "hits": 1,
+            "line": 8
+          },
+          {
+            "hits": 1,
+            "line": 9
+          },
+          {
+            "hits": 15,
+            "line": 11
+          },
+          {
+            "hits": 1,
+            "line": 12
+          },
+          {
+            "hits": 1,
+            "line": 14
+          },
+          {
+            "hits": 15,
+            "line": 16
+          },
+          {
+            "hits": 15,
+            "line": 17
+          },
+          {
+            "hits": 1,
+            "line": 19
+          },
+          {
+            "hits": 19,
+            "line": 20
+          },
+          {
+            "hits": 18,
+            "line": 21
+          },
+          {
+            "hits": 5,
+            "line": 22
+          },
+          {
+            "hits": 1,
+            "line": 25
+          },
+          {
+            "hits": 1,
+            "line": 26
+          },
+          {
+            "hits": 1,
+            "line": 27
+          },
+          {
+            "hits": 1,
+            "line": 28
+          },
+          {
+            "hits": 1,
+            "line": 29
+          },
+          {
+            "hits": 19,
+            "line": 30
+          },
+          {
+            "hits": 18,
+            "line": 31
+          },
+          {
+            "hits": 7,
+            "line": 32
+          },
+          {
+            "hits": 7,
+            "line": 33
+          },
+          {
+            "hits": 1,
+            "line": 34
+          },
+          {
+            "hits": 6,
+            "line": 35
+          },
+          {
+            "hits": 3,
+            "line": 36
+          },
+          {
+            "hits": 3,
+            "line": 37
+          },
+          {
+            "hits": 3,
+            "line": 38
+          },
+          {
+            "hits": 11,
+            "line": 39
+          },
+          {
+            "hits": 3,
+            "line": 40
+          },
+          {
+            "hits": 8,
+            "line": 41
+          },
+          {
+            "hits": 3,
+            "line": 42
+          },
+          {
+            "hits": 1,
+            "line": 44
+          },
+          {
+            "hits": 1,
+            "line": 47
+          },
+          {
+            "hits": 108,
+            "line": 48
+          },
+          {
+            "hits": 54,
+            "line": 49
+          },
+          {
+            "hits": 54,
+            "line": 50
+          },
+          {
+            "hits": 54,
+            "line": 51
+          },
+          {
+            "hits": 1,
+            "line": 53
+          },
+          {
+            "hits": 53,
+            "line": 54
+          },
+          {
+            "hits": 53,
+            "line": 55
+          },
+          {
+            "hits": 53,
+            "line": 56
+          },
+          {
+            "hits": 53,
+            "line": 57
+          },
+          {
+            "hits": 17,
+            "line": 58
+          },
+          {
+            "hits": 36,
+            "line": 59
+          },
+          {
+            "hits": 9,
+            "line": 60
+          },
+          {
+            "hits": 9,
+            "line": 61
+          },
+          {
+            "hits": 9,
+            "line": 62
+          },
+          {
+            "hits": 27,
+            "line": 63
+          },
+          {
+            "hits": 27,
+            "line": 64
+          },
+          {
+            "hits": 27,
+            "line": 65
+          },
+          {
+            "hits": 27,
+            "line": 66
+          },
+          {
+            "hits": 27,
+            "line": 67
+          },
+          {
+            "hits": 53,
+            "line": 68
+          },
+          {
+            "hits": 1,
+            "line": 70
+          },
+          {
+            "hits": 117,
+            "line": 71
+          },
+          {
+            "hits": 1,
+            "line": 73
+          },
+          {
+            "hits": 1,
+            "line": 76
+          },
+          {
+            "hits": 1,
+            "line": 77
+          },
+          {
+            "hits": 1,
+            "line": 78
+          },
+          {
+            "hits": 55,
+            "line": 80
+          },
+          {
+            "hits": 54,
+            "line": 81
+          },
+          {
+            "hits": 54,
+            "line": 82
+          },
+          {
+            "hits": 324,
+            "line": 85
+          },
+          {
+            "hits": 270,
+            "line": 86
+          },
+          {
+            "hits": 17,
+            "line": 87
+          },
+          {
+            "hits": 216,
+            "line": 89
+          },
+          {
+            "hits": 162,
+            "line": 90
+          },
+          {
+            "hits": 9,
+            "line": 91
+          },
+          {
+            "hits": 54,
+            "line": 93
+          },
+          {
+            "hits": 84,
+            "line": 94
+          },
+          {
+            "hits": 63,
+            "line": 95
+          },
+          {
+            "hits": 27,
+            "line": 96
+          },
+          {
+            "hits": 107,
+            "line": 98
+          },
+          {
+            "hits": 106,
+            "line": 99
+          },
+          {
+            "hits": 53,
+            "line": 100
+          },
+          {
+            "hits": 53,
+            "line": 102
+          },
+          {
+            "hits": 53,
+            "line": 103
+          },
+          {
+            "hits": 53,
+            "line": 105
+          },
+          {
+            "hits": 53,
+            "line": 106
+          },
+          {
+            "hits": 53,
+            "line": 108
+          },
+          {
+            "hits": 53,
+            "line": 109
+          },
+          {
+            "hits": 1,
+            "line": 111
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem0:plan_replay",
+        "spannerlearning/seed0/problem0:trace"
+      ]
+    },
+    {
+      "candidate_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "plan_replay": {
+        "error_kind": null,
+        "executed_actions": 0,
+        "first_failed_action": null,
+        "missing_preconditions": [],
+        "missing_preconditions_truncated": false,
+        "plan_length": 0,
+        "status": "goal_unsatisfied",
+        "unsatisfied_goals": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ],
+        "unsatisfied_goals_truncated": false
+      },
+      "scope": "public_prompt",
+      "task_id": "spannerlearning/seed0/problem1",
+      "trace": {
+        "event_limit": 20000,
+        "events_seen": 3539,
+        "functions": [
+          {
+            "call_events": 1,
+            "container_length_max": 0,
+            "container_length_min": 0,
+            "exception_events": 0,
+            "first_line": 6,
+            "name": "get_plan",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 1,
+            "container_length_max": 1,
+            "container_length_min": 1,
+            "exception_events": 0,
+            "first_line": 11,
+            "name": "<listcomp>",
+            "none_return_events": 0,
+            "return_events": 1,
+            "return_types": {
+              "list": 1
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 16,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 4,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 17,
+            "name": "<genexpr>",
+            "none_return_events": 1,
+            "return_events": 4,
+            "return_types": {
+              "none": 1,
+              "str": 3
+            }
+          },
+          {
+            "call_events": 52,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 47,
+            "name": "state_key",
+            "none_return_events": 0,
+            "return_events": 52,
+            "return_types": {
+              "tuple": 52
+            }
+          },
+          {
+            "call_events": 51,
+            "container_length_max": 5,
+            "container_length_min": 5,
+            "exception_events": 0,
+            "first_line": 53,
+            "name": "apply",
+            "none_return_events": 0,
+            "return_events": 51,
+            "return_types": {
+              "tuple": 51
+            }
+          },
+          {
+            "call_events": 52,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 0,
+            "first_line": 70,
+            "name": "goal_satisfied",
+            "none_return_events": 0,
+            "return_events": 52,
+            "return_types": {
+              "bool": 52
+            }
+          },
+          {
+            "call_events": 113,
+            "container_length_max": null,
+            "container_length_min": null,
+            "exception_events": 52,
+            "first_line": 71,
+            "name": "<genexpr>",
+            "none_return_events": 52,
+            "return_events": 113,
+            "return_types": {
+              "bool": 61,
+              "none": 52
+            }
+          }
+        ],
+        "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+        "interrupted": false,
+        "lines": [
+          {
+            "hits": 1,
+            "line": 7
+          },
+          {
+            "hits": 1,
+            "line": 8
+          },
+          {
+            "hits": 1,
+            "line": 9
+          },
+          {
+            "hits": 15,
+            "line": 11
+          },
+          {
+            "hits": 1,
+            "line": 12
+          },
+          {
+            "hits": 1,
+            "line": 14
+          },
+          {
+            "hits": 15,
+            "line": 16
+          },
+          {
+            "hits": 15,
+            "line": 17
+          },
+          {
+            "hits": 1,
+            "line": 19
+          },
+          {
+            "hits": 19,
+            "line": 20
+          },
+          {
+            "hits": 18,
+            "line": 21
+          },
+          {
+            "hits": 5,
+            "line": 22
+          },
+          {
+            "hits": 1,
+            "line": 25
+          },
+          {
+            "hits": 1,
+            "line": 26
+          },
+          {
+            "hits": 1,
+            "line": 27
+          },
+          {
+            "hits": 1,
+            "line": 28
+          },
+          {
+            "hits": 1,
+            "line": 29
+          },
+          {
+            "hits": 19,
+            "line": 30
+          },
+          {
+            "hits": 18,
+            "line": 31
+          },
+          {
+            "hits": 7,
+            "line": 32
+          },
+          {
+            "hits": 7,
+            "line": 33
+          },
+          {
+            "hits": 1,
+            "line": 34
+          },
+          {
+            "hits": 6,
+            "line": 35
+          },
+          {
+            "hits": 3,
+            "line": 36
+          },
+          {
+            "hits": 3,
+            "line": 37
+          },
+          {
+            "hits": 3,
+            "line": 38
+          },
+          {
+            "hits": 11,
+            "line": 39
+          },
+          {
+            "hits": 3,
+            "line": 40
+          },
+          {
+            "hits": 8,
+            "line": 41
+          },
+          {
+            "hits": 3,
+            "line": 42
+          },
+          {
+            "hits": 1,
+            "line": 44
+          },
+          {
+            "hits": 1,
+            "line": 47
+          },
+          {
+            "hits": 104,
+            "line": 48
+          },
+          {
+            "hits": 52,
+            "line": 49
+          },
+          {
+            "hits": 52,
+            "line": 50
+          },
+          {
+            "hits": 52,
+            "line": 51
+          },
+          {
+            "hits": 1,
+            "line": 53
+          },
+          {
+            "hits": 51,
+            "line": 54
+          },
+          {
+            "hits": 51,
+            "line": 55
+          },
+          {
+            "hits": 51,
+            "line": 56
+          },
+          {
+            "hits": 51,
+            "line": 57
+          },
+          {
+            "hits": 15,
+            "line": 58
+          },
+          {
+            "hits": 36,
+            "line": 59
+          },
+          {
+            "hits": 9,
+            "line": 60
+          },
+          {
+            "hits": 9,
+            "line": 61
+          },
+          {
+            "hits": 9,
+            "line": 62
+          },
+          {
+            "hits": 27,
+            "line": 63
+          },
+          {
+            "hits": 27,
+            "line": 64
+          },
+          {
+            "hits": 27,
+            "line": 65
+          },
+          {
+            "hits": 27,
+            "line": 66
+          },
+          {
+            "hits": 27,
+            "line": 67
+          },
+          {
+            "hits": 51,
+            "line": 68
+          },
+          {
+            "hits": 1,
+            "line": 70
+          },
+          {
+            "hits": 113,
+            "line": 71
+          },
+          {
+            "hits": 1,
+            "line": 73
+          },
+          {
+            "hits": 1,
+            "line": 76
+          },
+          {
+            "hits": 1,
+            "line": 77
+          },
+          {
+            "hits": 1,
+            "line": 78
+          },
+          {
+            "hits": 53,
+            "line": 80
+          },
+          {
+            "hits": 52,
+            "line": 81
+          },
+          {
+            "hits": 52,
+            "line": 82
+          },
+          {
+            "hits": 312,
+            "line": 85
+          },
+          {
+            "hits": 260,
+            "line": 86
+          },
+          {
+            "hits": 15,
+            "line": 87
+          },
+          {
+            "hits": 208,
+            "line": 89
+          },
+          {
+            "hits": 156,
+            "line": 90
+          },
+          {
+            "hits": 9,
+            "line": 91
+          },
+          {
+            "hits": 52,
+            "line": 93
+          },
+          {
+            "hits": 76,
+            "line": 94
+          },
+          {
+            "hits": 57,
+            "line": 95
+          },
+          {
+            "hits": 27,
+            "line": 96
+          },
+          {
+            "hits": 103,
+            "line": 98
+          },
+          {
+            "hits": 102,
+            "line": 99
+          },
+          {
+            "hits": 51,
+            "line": 100
+          },
+          {
+            "hits": 51,
+            "line": 102
+          },
+          {
+            "hits": 51,
+            "line": 103
+          },
+          {
+            "hits": 51,
+            "line": 105
+          },
+          {
+            "hits": 51,
+            "line": 106
+          },
+          {
+            "hits": 51,
+            "line": 108
+          },
+          {
+            "hits": 51,
+            "line": 109
+          },
+          {
+            "hits": 1,
+            "line": 111
+          }
+        ],
+        "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+        "provenance": "candidate_process_trace_not_trusted_score",
+        "truncated": false
+      },
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "spannerlearning/seed0/problem1:plan_replay",
+        "spannerlearning/seed0/problem1:trace"
+      ]
+    }
+  ]
+}
