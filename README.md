@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已完成两阶段真实Agent开发对照：10次模型请求、6个新候选。** 规划有效配对两臂均8/8开发+2/2公开；两个符号checked分支避免self的删项退化，但存在“测试干预被当成最终编辑”的混淆，未证明稳定方法优势。一个登记结构拒绝、两条分支未启动，原样保留。见[最新完整说明](docs/operations/two-stage.md)、[结果与边界](docs/analysis/2026-10-21-two-stage-results.md)、[157份原始记录](artifacts/two-stage/2026-10-21/v01/README.md)。实跑前701项不同服务器测试通过。
+**已完成16请求、16候选的冻结证据回放开发对照。** S-x5检查组两次删去低收益项，5→4参数且NMSE仅增加7.18e-7；规划格式检查组一次10/10、一次未修复。S-v3两臂均保留，P-empty两臂均失败，尚无稳定机制优势。见[最新完整说明](docs/operations/decision-replay.md)、[逐例结果](docs/analysis/2026-10-21-decision-replay-results.md)、[303份原始记录](artifacts/decision-replay/2026-10-21/v01/README.md)。实跑前759项不同服务器测试通过。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -15,7 +15,7 @@
 | 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，oscillator1/train已开发运行，独立评价协议待冻结 |
 | 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，已完成首次更新；最新两初稿各做self/checked复查并冻结，四状态后续评价完成 |
 | 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前701项不同服务器测试通过 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，最新实跑前759项不同服务器测试通过 |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
@@ -52,7 +52,10 @@
 24. [上一轮：推断证据检查的完整对照与结果](docs/operations/inference-policy.md)
 25. [固定命题、解释与机制边界](docs/analysis/2026-10-20-inference-policy-analysis.md) · [8候选逐条审查](docs/analysis/2026-10-20-inference-candidate-analysis.md) · [机器审计](docs/analysis/2026-10-20-inference-policy-audit.json)
 
-26. [最新：可执行干预校准与编辑验证](docs/operations/intervention-probes.md) · [结果分析](docs/analysis/2026-10-21-intervention-results.md) · [核验](docs/environment/2026-10-21-intervention-verification.json)
+26. [此前：可执行干预校准与编辑验证](docs/operations/intervention-probes.md) · [结果分析](docs/analysis/2026-10-21-intervention-results.md) · [核验](docs/environment/2026-10-21-intervention-verification.json)
+
+27. [两阶段登记—检查—修订及混淆分析](docs/operations/two-stage.md)
+28. [最新：冻结证据回放决策](docs/operations/decision-replay.md) · [结果](docs/analysis/2026-10-21-decision-replay-results.md) · [核验](docs/environment/2026-10-21-decision-replay-verification.json)
 
 ## 仓库边界
 

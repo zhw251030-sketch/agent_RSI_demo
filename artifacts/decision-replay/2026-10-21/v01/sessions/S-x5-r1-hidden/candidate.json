@@ -1,0 +1,225 @@
+{
+  "candidate_id": "symbolic-001",
+  "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+  "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+  "n_params": 5,
+  "rationale": "Decision: keep the starting artifact unchanged.\n\nEvidence: historical train NMSE is 0.09180 for the 5-parameter formula (k, c, d, c2, d2). No probe feedback was returned (probe_feedback is null) and historical_observations is empty, so there is no archived diagnostic result indicating that any term is dispensable or that a better structure exists. Under the decision contract, absence of a diagnostic observation is not evidence of success for any modification.\n\nWhy not revise: Any edit here would be an unguided structural guess. The objective requires a train NMSE decrease greater than 1e-5 to count as meaningful improvement; adding terms to a Duffing-plus-damping-plus-quintic model without diagnostic guidance risks overfitting the 10000 training rows with no expected generalization claim, and would add parameters while possibly not moving NMSE. Similarly, deleting the quintic term (remove_param_index 4 in the registered probe) has no supporting measurement here — the probe verdict is unknown, so neither simplification nor retention can be certified.\n\nUncertainty: The current 0.0918 NMSE leaves plausible room for improvement, but I cannot identify which structural change would help from the information available, and I cannot verify any candidate before host evaluation. Submitting the original with n_params=5 is legal and preserves the known best-measured configuration.\n\nPrediction (unverified, auxiliary only): the unchanged candidate should reproduce approximately the historical train NMSE ~0.0918 for oscillator1.",
+  "auxiliary": {
+    "decision": "keep_original",
+    "forecast": {
+      "nmse": 0.09180398722781569
+    },
+    "notes": "No probe_feedback or historical_observations provided; no basis for a structural edit. Duplicate-fit determinism assumed when reproducing historical metric.",
+    "probe_verdict_expected": "unknown"
+  },
+  "source_file": "candidate.py",
+  "results": [
+    {
+      "candidate_hash": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "candidate_id": "symbolic-001",
+      "diagnostics": {
+        "candidate_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "residuals": {
+          "bias": 7.422000601366525e-05,
+          "binning_method": "linear_quantile",
+          "inputs": [
+            {
+              "bins": [
+                {
+                  "count": 2500,
+                  "lower": -0.5728219032885896,
+                  "mean_residual": -0.00023826826484560378,
+                  "rmse": 0.013814511461738734,
+                  "upper": -0.46038220456877554,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.46038220456877554,
+                  "mean_residual": 0.0016353239465025729,
+                  "rmse": 0.021579007504591654,
+                  "upper": -0.22761842703089324,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.22761842703089324,
+                  "mean_residual": -0.0017273291041812854,
+                  "rmse": 0.01695804351723196,
+                  "upper": 0.28635886598470794,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": 0.28635886598470794,
+                  "mean_residual": 0.0006271534465789773,
+                  "rmse": 0.025655116155273203,
+                  "upper": 0.5275126203368584,
+                  "upper_inclusive": true
+                }
+              ],
+              "boundaries": [
+                -0.5728219032885896,
+                -0.46038220456877554,
+                -0.22761842703089324,
+                0.28635886598470794,
+                0.5275126203368584
+              ],
+              "name": "x"
+            },
+            {
+              "bins": [
+                {
+                  "count": 2500,
+                  "lower": -0.17542969970098574,
+                  "mean_residual": -0.0014655893832921675,
+                  "rmse": 0.015551755746377688,
+                  "upper": -0.13719210123484957,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.13719210123484957,
+                  "mean_residual": 0.0019501968750964714,
+                  "rmse": 0.01906274458315923,
+                  "upper": -0.04814716714891003,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.04814716714891003,
+                  "mean_residual": -0.0005061747055151089,
+                  "rmse": 0.011098089827017375,
+                  "upper": 0.09524424826668271,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": 0.09524424826668271,
+                  "mean_residual": 0.0003184472377654661,
+                  "rmse": 0.029560811576076908,
+                  "upper": 0.282136353640072,
+                  "upper_inclusive": true
+                }
+              ],
+              "boundaries": [
+                -0.17542969970098574,
+                -0.13719210123484957,
+                -0.04814716714891003,
+                0.09524424826668271,
+                0.282136353640072
+              ],
+              "name": "v"
+            }
+          ],
+          "n": 10000,
+          "residual_definition": "prediction - target",
+          "rmse": 0.02001408576904418,
+          "scope": "train",
+          "standardized_bias": 0.0011236110473743723,
+          "standardized_bias_definition": "bias / population_std(target)",
+          "standardized_bias_reason": null,
+          "status": "ok"
+        },
+        "scope": "train",
+        "task_id": "oscillator1",
+        "version": "diagnostics-v0.1"
+      },
+      "elapsed_seconds": 0.67498,
+      "executions": [
+        {
+          "elapsed_seconds": 0.222496,
+          "phase": "fit",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 181
+        },
+        {
+          "elapsed_seconds": 0.209772,
+          "phase": "predict",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 205086
+        }
+      ],
+      "family": "symbolic",
+      "feedback_role": "development_only",
+      "fitting": {
+        "candidate_calls": 21,
+        "converged": true,
+        "max_nfev": 100,
+        "n_params": 5,
+        "nfev": 5,
+        "params": [
+          0.18826767613343184,
+          -0.08444560567969996,
+          -0.12034880397483333,
+          0.4184073771863192,
+          0.021661410323328873
+        ],
+        "split": "train"
+      },
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "metric_scope": "Training fit only; not a held-out or generalization result.",
+      "metric_split": "train",
+      "metrics": {
+        "mse": 0.0004005636291706567,
+        "nmse": 0.09180398722781567
+      },
+      "model_calls": 0,
+      "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "run_id": "41e70a47b1c64fcfb81e87c8e835cd38",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "decision-replay-v0.1",
+      "task_id": "oscillator1"
+    }
+  ],
+  "evaluation_files": [
+    "evaluations/evaluation-00.json"
+  ],
+  "status": "evaluated",
+  "edit": {
+    "kind": "unchanged",
+    "source_changed": false,
+    "parameter_delta": 0,
+    "semantic_equivalence_proven": false
+  },
+  "score": {
+    "complete": true,
+    "family": "symbolic",
+    "acceptable_simplification": false,
+    "achieved_improvement": false,
+    "metric_split": "train",
+    "nmse": 0.09180398722781567,
+    "baseline_nmse": 0.09180398722781567,
+    "delta_nmse": 0.0,
+    "n_params": 5,
+    "baseline_n_params": 5,
+    "parameter_delta": 0,
+    "epsilon": 1e-05,
+    "tolerance": 1e-10,
+    "meaningful_improvement": false,
+    "degraded": false,
+    "parameter_increase_without_meaningful_gain": false,
+    "numerical_improvement": false,
+    "numerical_degradation": false,
+    "minimum_meaningful_gain": 1e-05,
+    "maximum_simplification_loss": 1e-05,
+    "degradation_threshold": 1e-05,
+    "complexity_proxy": "independent_parameter_count_only"
+  },
+  "forecast": {
+    "status": "evaluated",
+    "metric": "nmse",
+    "predicted": 0.09180398722781569,
+    "observed": 0.09180398722781567,
+    "absolute_error": 1.3877787807814457e-17
+  }
+}

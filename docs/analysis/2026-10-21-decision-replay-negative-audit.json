@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "mutation": "input_source",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Frozen phase files changed"
+    },
+    {
+      "mutation": "input_anchor",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Frozen input anchor changed"
+    },
+    {
+      "mutation": "configuration",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Frozen configuration changed"
+    },
+    {
+      "mutation": "slot_order",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Fixed actor order"
+    },
+    {
+      "mutation": "actual_request",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Actual request bytes/digest"
+    },
+    {
+      "mutation": "response_usage",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Received usage differs from ledger"
+    },
+    {
+      "mutation": "candidate_source",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Candidate is not SDK-submitted source"
+    },
+    {
+      "mutation": "sdk_submission",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "SDK normalized submission mismatch"
+    },
+    {
+      "mutation": "score",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Candidate summary"
+    },
+    {
+      "mutation": "execution_event",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Execution per-event counts"
+    },
+    {
+      "mutation": "budget_usage",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Usage token total"
+    },
+    {
+      "mutation": "evaluation_metric",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Evaluation record differs"
+    }
+  ],
+  "original_unchanged": true,
+  "model_calls": 0,
+  "candidate_executions": 0,
+  "elapsed_seconds": 13.063
+}

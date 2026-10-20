@@ -1,0 +1,986 @@
+{
+  "status": "passed",
+  "runtime_commit": "ede8fc7a729b94e6573eba19954691c9c8edb219",
+  "model_requests": 16,
+  "candidate_submissions": 16,
+  "missing_submissions": 0,
+  "known_tokens": 80641,
+  "known_estimated_cost_cny": 0.3155376,
+  "reserved_cost_cny": 1.2936378,
+  "executions": {
+    "sandbox_calls": 96,
+    "new_candidate_executions": 88,
+    "host_validations": 80,
+    "val_calls": 50,
+    "fit_calls": 8,
+    "predict_calls": 8
+  },
+  "matched_request_pairs": 8,
+  "matched_four_request_groups": 4,
+  "cases": {
+    "P-format": {
+      "family": "planning",
+      "probe": {
+        "case_id": "P-format",
+        "family": "planning",
+        "observations": [
+          {
+            "intervention": {
+              "error_kind": null,
+              "plan_length": 11,
+              "status": "success"
+            },
+            "original": {
+              "error_kind": "operator_syntax",
+              "first_invalid_action": 0,
+              "plan_length": 11,
+              "status": "invalid_output"
+            },
+            "reason": "edge_normalization_sufficient_on_this_plan",
+            "status": "completed",
+            "task_id": "spannerlearning/seed0/problem0",
+            "verdict": "supported"
+          },
+          {
+            "intervention": {
+              "error_kind": null,
+              "plan_length": 11,
+              "status": "success"
+            },
+            "original": {
+              "error_kind": "operator_syntax",
+              "first_invalid_action": 0,
+              "plan_length": 11,
+              "status": "invalid_output"
+            },
+            "reason": "edge_normalization_sufficient_on_this_plan",
+            "status": "completed",
+            "task_id": "spannerlearning/seed0/problem1",
+            "verdict": "supported"
+          }
+        ],
+        "probe_id": "planning_whitespace",
+        "scope": "two_public_prompt_instances_only",
+        "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "target_id": "public_pair",
+        "version": "two-stage-probe-feedback-v0.1"
+      },
+      "repeats": {
+        "1": {
+          "hidden": {
+            "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": false,
+              "development_successes": 0,
+              "development_total": 8,
+              "prompt_successes": 0,
+              "prompt_total": 2,
+              "total_successes": 0,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 0,
+              "prompt_delta": 0,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": false,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "schema_invalid",
+              "metric": "development_successes",
+              "predicted": null,
+              "observed": null,
+              "absolute_error": null
+            },
+            "rationale": "Decision: keep the starting artifact unchanged (verbatim resubmission of the bound source).\n\nReasoning: the only evidence in the packet about the failure mode is an unverified probe contract whose feedback field is null — probe_feedback is absent, so the whitespace-normalization hypothesis is neither supported nor contradicted. No diagnostic observation says the emitted action strings are syntactically rejected; on inspection _fmt already emits canonical \"(name arg1 arg2 ...)\" with single spaces and no edge whitespace, so there is no positive evidence of a formatting defect to fix. The 0/8 development record is equally consistent with many causes (state-space blow-up under naive BFS on these instances, VAL/STRIPS-replay mismatch, or the empty-plan-on-frontier-exhaustion path), and the whitespace probe targets only the two public instances, not the eight development instances that dominate the objective.\n\nAdding a term or parameter now would be an unevidenced change: the contract explicitly notes that evidence against deleting something does not license an addition, and nothing here licenses adding logic either. A speculative rewrite of a 0-parameter artifact risks introducing new failure modes (type/parameter-order errors, incorrect goal detection, non-deterministic ordering) without any measurement to justify it, and I have only one submission.\n\nUncertainty I cannot resolve: the actual rejection cause is unknown; I have no access to the evaluator's syntax or VAL output, so I cannot tell whether formatting, plan validity, or search completeness is at fault. Whatever the evaluator reports for this candidate is unknown to me now; I make no claim of success.",
+            "auxiliary": {
+              "confidence": "low",
+              "decision": "keep",
+              "probe_verdict_expected": "unknown"
+            }
+          },
+          "checked": {
+            "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": false,
+              "development_successes": 0,
+              "development_total": 8,
+              "prompt_successes": 0,
+              "prompt_total": 2,
+              "total_successes": 0,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 0,
+              "prompt_delta": 0,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": false,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "schema_invalid",
+              "metric": "development_successes",
+              "predicted": null,
+              "observed": null,
+              "absolute_error": null
+            },
+            "rationale": "Decision: keep the original artifact unchanged.\n\nEvidence summary:\n- Historical metrics: 0/8 development, 0/2 prompt successes.\n- Archived probe (planning_whitespace) on the two public prompt instances reported verdict \"supported\" for both: the same SHA source produces a valid 11-action plan once ASCII edge whitespace is normalized, while the un-normalized output fails with operator_syntax at action index 0.\n- Plan length is identical (11) in original and normalized arms, indicating the action enumeration itself is correct; only outer whitespace handling triggers the syntax failure when the host concatenates action strings.\n- No evidence that any code revision improves outcomes over the existing source under the same evaluator. Per the decision contract, evidence against deleting a term does not justify adding one, and an unknown diagnostic result is not a success claim.\n\nUncertainty: I am relying on a single two-instance probe plus historical metrics; behavior on the six remaining development instances is not directly verified. The action grounding logic (directed link usage, carrying/useable intersection, sorted spanner iteration) appears consistent with the schema, but heavy development instance coverage remains unverified by this evidence. If a future diagnostic identifies a grounding bug on a non-public instance, a targeted revision would be warranted then. For this submission window, the safest legal choice is to keep the source as-is and let the host's edge-normalization do its job.\n\nAuxiliary forecast kept minimal and unverified per contract.",
+            "auxiliary": {
+              "forecast": {
+                "development_successes": "2"
+              },
+              "scope": "single develop-time decision; no held-out or universal claim"
+            }
+          }
+        },
+        "2": {
+          "checked": {
+            "source_sha256": "caffcc6edd2ae1e83996c1ff2de8c76e7d0e3bcd0dc97d1e7796e8c0b3f318b0",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": true,
+              "development_successes": 8,
+              "development_total": 8,
+              "prompt_successes": 2,
+              "prompt_total": 2,
+              "total_successes": 10,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 8,
+              "prompt_delta": 2,
+              "meaningful_improvement": true,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": true,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "other_change",
+              "source_changed": true,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "schema_invalid",
+              "metric": "development_successes",
+              "predicted": null,
+              "observed": null,
+              "absolute_error": null
+            },
+            "rationale": "The probe observed that on both public instances the BFS planner produced a correct 11-action plan that failed only with `operator_syntax` at action 0. After trimming ASCII whitespace at the inside payload edges (the single space inserted between \"(\" and the operator name, and the single space inserted between the last parameter and \")\"), the plan validated as legal and reached the goal. The probe verdict \"supported\" on both instances strongly indicates that the planner's grounding and BFS logic are correct and that the sole defect lies in the `_fmt` helper inserting an extra leading and trailing space inside each action token. I therefore removed the two redundant inner spaces from `_fmt`, producing canonical parenthesized strings like \"(walk location1 location2 bob)\" instead of \"( walk location1 location2 bob )\". This is a strict simplification: no new terms, parameters, actions, parentheses, or structure are introduced; only redundant whitespace is removed. Operators, arguments, order, count and case are preserved exactly. I did not modify the BFS, grounding, or effect logic. I do not claim this succeeds on the six unseen development instances; the evidence is bounded to the two public probe instances. n_params remains 0.",
+            "auxiliary": {
+              "forecast": {
+                "development_successes": "2"
+              }
+            }
+          },
+          "hidden": {
+            "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": false,
+              "development_successes": 0,
+              "development_total": 8,
+              "prompt_successes": 0,
+              "prompt_total": 2,
+              "total_successes": 0,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 0,
+              "prompt_delta": 0,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": false,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "development_successes",
+              "predicted": 0,
+              "observed": 0,
+              "absolute_error": 0
+            },
+            "rationale": "Keep the starting artifact unchanged. The bound diagnostic (planning_whitespace on public_pair) returned null, so there is zero archived evidence for or against the normalization hypothesis; unknown is not support. Historical metrics are uniformly zero (0/8 dev, 0/2 prompt, 0/10 total) with no archived observations, so I cannot attribute failures to any specific cause. Manual review of the source against the declared domain shows the grounding and BFS logic appears semantically faithful (directed link respected, useable consumed on tighten_nut, loose checked, schema parameter order). The only thing that looks superficially suspicious is _fmt emitting edge padding inside the parentheses, but that is a hypothesis about the host syntax checker, not a verified observation, and editing on a hunch risks disturbing correct logic. Since keeping the original is explicitly legal and evidence against one change does not license another, I resubmit the original source verbatim with no claimed improvement. Uncertainty: if the evaluator's syntax check is whitespace-strict, removing the edge spaces in _fmt would likely fix every instance; if the real defect is semantic (search depth, seen-set handling, or state-space blowup on larger spanner instances), formatting changes nothing and I would need failure output before revising.",
+            "auxiliary": {
+              "decision": "keep",
+              "forecast": {
+                "development_successes": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "P-empty": {
+      "family": "planning",
+      "probe": {
+        "case_id": "P-empty",
+        "family": "planning",
+        "observations": [
+          {
+            "intervention": {
+              "error_kind": "plan_semantics",
+              "plan_length": 0,
+              "status": "task_failure"
+            },
+            "original": {
+              "error_kind": "plan_semantics",
+              "plan_length": 0,
+              "status": "task_failure"
+            },
+            "reason": "edge_normalization_insufficient_on_this_plan",
+            "status": "completed",
+            "task_id": "spannerlearning/seed0/problem0",
+            "verdict": "contradicted"
+          },
+          {
+            "intervention": {
+              "error_kind": "plan_semantics",
+              "plan_length": 0,
+              "status": "task_failure"
+            },
+            "original": {
+              "error_kind": "plan_semantics",
+              "plan_length": 0,
+              "status": "task_failure"
+            },
+            "reason": "edge_normalization_insufficient_on_this_plan",
+            "status": "completed",
+            "task_id": "spannerlearning/seed0/problem1",
+            "verdict": "contradicted"
+          }
+        ],
+        "probe_id": "planning_whitespace",
+        "scope": "two_public_prompt_instances_only",
+        "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "target_id": "public_pair",
+        "version": "two-stage-probe-feedback-v0.1"
+      },
+      "repeats": {
+        "1": {
+          "checked": {
+            "source_sha256": "502af39877c370217c136a6e47297943c5daa1d1774693da1e8900e562cd587d",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": false,
+              "development_successes": 0,
+              "development_total": 8,
+              "prompt_successes": 0,
+              "prompt_total": 2,
+              "total_successes": 0,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 0,
+              "prompt_delta": 0,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": false,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "other_change",
+              "source_changed": true,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "schema_invalid",
+              "metric": "development_successes",
+              "predicted": null,
+              "observed": null,
+              "absolute_error": null
+            },
+            "rationale": "The archived probe shows plan_length 0 in BOTH arms on both public instances, so the whitespace-normalization hypothesis is structurally inapplicable: get_plan returns an empty list, not a",
+            "auxiliary": {}
+          },
+          "hidden": {
+            "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": false,
+              "development_successes": 0,
+              "development_total": 8,
+              "prompt_successes": 0,
+              "prompt_total": 2,
+              "total_successes": 0,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 0,
+              "prompt_delta": 0,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": false,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "other_change",
+              "source_changed": true,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "development_successes",
+              "predicted": 0,
+              "observed": 0,
+              "absolute_error": 0
+            },
+            "rationale": "No archived diagnostic feedback was supplied (probe_feedback is null, historical_observations empty), so there is no evidence for any specific defect — in particular nothing indicating a whitespace-parsing failure that the whitespace-normalization probe targets. That probe is a temporary intervention against a *generated plan*, and its hypothesis (leading/trailing ASCII whitespace inside the plan payload) is not confirmed: _fmt() in the current source already emits strings with no leading or trailing whitespace, exactly single spaces between tokens, and parentheses directly around the payload, so there is nothing for the normalization contract to repair. Given zero successes in 8 development attempts, blind speculative edits risk regression; the disciplined choice is to submit the unchanged starting artifact (a legal decision) rather than invent a change with no supporting observation. My confidence that any untested edit would help is low, and I do not claim this candidate succeeds — its success count is unverified until evaluation. Uncertainty: the unchanged planner may still fail all 8 development instances (e.g., it ignores `goal` entirely and treats all nuts loose as the goal, drops spanner carrying state edge cases, and never drops spanners, which is legal but may be suboptimal); without evaluator feedback I cannot tell whether a targeted fix (e.g., respecting the actual `goal` set) is the real blocker, so I avoid that unverified edit.",
+            "auxiliary": {
+              "decision": "keep_original_unchanged",
+              "forecast": {
+                "development_successes": 0
+              },
+              "notes": "Whitespace-normalization probe appears inapplicable: current _fmt output has no edge whitespace inside parentheses, so probe verdict would be unknown (not supported).",
+              "probe_verdict_expectation": "unknown"
+            }
+          }
+        },
+        "2": {
+          "hidden": {
+            "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": false,
+              "development_successes": 0,
+              "development_total": 8,
+              "prompt_successes": 0,
+              "prompt_total": 2,
+              "total_successes": 0,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 0,
+              "prompt_delta": 0,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": false,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "other_change",
+              "source_changed": true,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "development_successes",
+              "predicted": 0,
+              "observed": 0,
+              "absolute_error": 0
+            },
+            "rationale": "Decision: keep the starting artifact unchanged (legal option). Rationale: there is zero archived diagnostic evidence (probe_feedback is null, historical_observations empty) and the case id is \"P-empty\", so I have no observation supporting any specific modification. The only registered probe is whitespace normalization of generated plan text; the current _fmt() already emits clean, tightly parenthesized strings with single ASCII spaces and no edge whitespace, so that probe contract appears inapplicable to this source — a verdict of \"unknown\" rather than \"supported\". I also see plausible latent weaknesses (goal_satisfied ignores the actual goal set and returns [] immediately when all nuts start non-loose; pickup does not guard pre-existing carried state; empty plan returned when no men/man_loc), but with 0/8 development successes and no observations I cannot distinguish which matters, and speculative edits risk making the artifact worse without evidence. Submitting the original complete source verbatim. Uncertainty: high; no claim of improvement or success is made.",
+            "auxiliary": {
+              "decision": "keep",
+              "forecast": {
+                "development_successes": 0
+              },
+              "probe_forecast": {
+                "public_pair": "unknown"
+              }
+            }
+          },
+          "checked": {
+            "source_sha256": "240307d3f26f42655e6f633fab8927f413a21c1a02ad6864e280cf9a15d22c04",
+            "score": {
+              "complete": true,
+              "family": "planning",
+              "acceptable_simplification": null,
+              "achieved_improvement": false,
+              "development_successes": 0,
+              "development_total": 8,
+              "prompt_successes": 0,
+              "prompt_total": 2,
+              "total_successes": 0,
+              "total_tasks": 10,
+              "baseline_development_successes": 0,
+              "baseline_prompt_successes": 0,
+              "development_delta": 0,
+              "prompt_delta": 0,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": null,
+              "numerical_improvement": false,
+              "numerical_degradation": false
+            },
+            "edit": {
+              "kind": "other_change",
+              "source_changed": true,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "development_successes",
+              "predicted": 5,
+              "observed": 0,
+              "absolute_error": 5
+            },
+            "rationale": "The archived probe shows both public instances fail with plan_length 0 and plan_semantics, and whitespace normalization did not help, so the fault is semantic. Reviewing the source: (1) ground argument order is wrong in a way no normalization fixes; (2) there is no drop action, yet tighten_nut's STRIPS effect removes useable and the man keeps carrying, making goals unreachable after one nut; (3) tightened facts in init are ignored, so pre-tightened nuts count as needing work. The candidate fixes all three: exact PDDL parameter order, adds drop, reads initial tightened, uses BFS over the full lifted model with directed links. Uncertainty: this is static reasoning only; I have not executed it, and the evaluator may impose syntax checks I cannot see. BFS over the full state space may blow up on larger hidden instances (no heuristic or pruning), which is a real risk I cannot verify. n_params stays 3 since the domain model is unchanged.",
+            "auxiliary": {
+              "decision": "revise",
+              "forecast": {
+                "development_successes": 5
+              },
+              "probe_hypothesis": "contradicted result explained by argument-order and missing-drop bugs, not edge whitespace"
+            }
+          }
+        }
+      }
+    },
+    "S-v3": {
+      "family": "symbolic",
+      "probe": {
+        "case_id": "S-v3",
+        "delta_nmse": 0.0015132655690959645,
+        "epsilon": 1e-05,
+        "family": "symbolic",
+        "observations": [
+          {
+            "n_params": 6,
+            "nmse": 0.09224903410100932,
+            "status": "success",
+            "variant": "original"
+          },
+          {
+            "n_params": 6,
+            "nmse": 0.09224903410100932,
+            "status": "success",
+            "variant": "canonical_full"
+          },
+          {
+            "n_params": 5,
+            "nmse": 0.09376229967010528,
+            "status": "success",
+            "variant": "removed"
+          }
+        ],
+        "probe_id": "symbolic_term_removal",
+        "reason": "removal_loss_exceeds_threshold",
+        "scope": "oscillator1/train_fixed_refit",
+        "sham_delta_nmse": 0.0,
+        "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "status": "completed",
+        "target_id": "param5",
+        "tolerance": 1e-10,
+        "verdict": "supported",
+        "version": "two-stage-probe-feedback-v0.1"
+      },
+      "repeats": {
+        "1": {
+          "checked": {
+            "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": false,
+              "achieved_improvement": false,
+              "metric_split": "train",
+              "nmse": 0.09224903410100932,
+              "baseline_nmse": 0.09224903410100932,
+              "delta_nmse": 0.0,
+              "n_params": 6,
+              "baseline_n_params": 6,
+              "parameter_delta": 0,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": false,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "nmse",
+              "predicted": 0.09224903410100932,
+              "observed": 0.09224903410100932,
+              "absolute_error": 0.0
+            },
+            "rationale": "Decision: keep the starting artifact unchanged.\n\nThe archived probe (removal of param5, i.e. the c6*v^3 term) returned delta_nmse = +1.51e-3, verdict \"supported\": removing that term significantly worsens train NMSE. This is evidence that the sixth term is useful and should not be deleted — but per the decision contract it provides no argument for adding yet another term. The packet supplies no candidate structural edit (no registered planned edit, no proposed alternative basis term), so I have no evidence-backed basis for any specific addition to this expression. Inventing a seventh term (e.g. x^2*v, v^4, or x^6) would be an unverified speculation whose gain is unknown and would add an independent parameter that the recorded simplification criterion penalizes without demonstrated benefit.\n\nThe existing artifact already contains one added term beyond the 5-term parent, and the probe demonstrates that term earns its place by a margin far exceeding epsilon=1e-5. Its historical train NMSE (0.09225) reflects only variance-limited residual on train, not any claim about held-out or physical behavior.\n\nUncertainty: the probe was a removal test only, so I cannot confirm whether a different additional shape would improve NMSE by more than 1e-5; the honest statement is that I lack the evidence to justify a change. Submission below is byte-identical to the given source, with n_params=6. I make no claim about this candidate's evaluation outcome.",
+            "auxiliary": {
+              "decision": "keep",
+              "edit_made": false,
+              "forecast": {
+                "nmse": 0.09224903410100932
+              },
+              "probe_interpretation": "Removal of param5 (c6*v^3) increased oscillator1 train NMSE by 1.513e-3 (> epsilon=1e-5), supporting that the sixth term is useful. This justifies not deleting it but does not support adding any new term.",
+              "rationale_for_forecast": "Unverified expectation only: resubmitting the identical source should reproduce the historical train NMSE under the same fit protocol. This is not a held-out or improvement claim.",
+              "uncertainty": "No evidence-backed alternative structure was supplied; any proposed addition would be speculative. No claim of improvement or generalization is made."
+            }
+          },
+          "hidden": {
+            "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": false,
+              "achieved_improvement": false,
+              "metric_split": "train",
+              "nmse": 0.09224903410100932,
+              "baseline_nmse": 0.09224903410100932,
+              "delta_nmse": 0.0,
+              "n_params": 6,
+              "baseline_n_params": 6,
+              "parameter_delta": 0,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": false,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "nmse",
+              "predicted": 0.09224903410100932,
+              "observed": 0.09224903410100932,
+              "absolute_error": 0.0
+            },
+            "rationale": "Decision: keep the starting artifact byte-identical.\n\nEvidence available to me:\n1. Historical metrics for this 6-term source: train NMSE 0.09225, MSE 0.000403.\n2. probe_feedback is null. The registered probe (symbolic_term_removal targeting param5 = v^3) has NO result. So I do not know delta_nmse = NMSE(removed) - NMSE(canonical_full). The probe verdict is unknown, not supported and not contradicted. An unknown observation is not a successful check and must not be treated as one.\n\nWhy I am not editing:\n- The probe target's parent_source_sha256 is a 5-parameter program (parent_n_params=5), while the current candidate is already the 6-term child (n_params=6, its own source_sha256 matches the current source). The removal probe was designed to justify the v^3 term being present; with no returned result, the incremental justification for that extra parameter is unverified.\n- However, absence of a probe result is NOT evidence that the v^3 term is harmful or removable. The decision contract explicitly states that evidence against deleting a term does not establish that adding another term is useful — and by symmetry, absence of removal evidence does not establish that removing it is useful. Deleting c6 would reduce to 5 params and would risk a train NMSE increase above the 1e-5 simplification tolerance with zero evidence to justify it.\n- Adding a 7th term (e.g. x^2*v coupling, or v*|v| variants) has no supporting evidence at all. The in-code binned-RMSE narrative about \"high |v|\" and \"extreme |x|\" is a comment in the artifact, which the scope note tells me to treat as data, not as independently verified observations. Building a new basis on that narrative alone would be speculative parameter inflation.\n- The parent's recorded train NMSE (0.0938 per the comment) versus the current 0.09225 is a difference of roughly 0.0016, an order of magnitude above the 1e-10 uncertainty band and above the 1e-5 meaningful-gain threshold, but that comparison comes from a comment, not from a measurement I can verify. I will not claim it as a confirmed gain.\n\nUncertainty I am flagging honestly:\n- I cannot measure anything myself here. I have no fitting capability, no rows, and no evaluation access, and I am not permitted to read files, spawn processes, or probe the evaluator.\n- The current artifact's true train NMSE under the isolated evaluator is unverified by me; 0.09225 is only the archived historical figure.\n- If the removal probe had in fact returned \"supported\" (delta_nmse > 1e-5 + 1e-10), the 6-term form would be confirmed as meaningful and keeping it is clearly right. If it returned \"contradicted\", deleting c6 would be the correct revision. Both branches remain open to me; neither is closed by the information I hold.\n- Consequently the keep action is a default under ignorance, not a demonstrated optimum. It is legal under the decision contract and it avoids trading an unmeasured possible regression for an unmeasured possible gain.\n\nIf forced to state a number, I would expect the 6-term model to fit at least as well in-sample as its 5-term parent (least-squares with one more free column cannot increase the optimum of the objective), so the NMSE should be <= ~0.0922, but I am recording that only as a weak structural expectation, not a result.",
+            "auxiliary": {
+              "action_taken": "keep_original_unchanged",
+              "forecast": {
+                "nmse": 0.09224903410100932
+              },
+              "n_params": 6,
+              "probe_verdict_expected": "unknown",
+              "probe_verdict_reason": "probe_feedback is null; delta_nmse for removal of param5 (v**3) was never returned, so the removal claim is neither supported nor contradicted.",
+              "scope_note": "Development-only state. No held-out, physical-necessity, optimality or generalization conclusion is claimed or implied.",
+              "simplification_considered": {
+                "expected_delta_nmse": "unknown",
+                "remove_param_index": 5,
+                "status": "not_submitted_no_supporting_evidence",
+                "would_n_params": 5
+              }
+            }
+          }
+        },
+        "2": {
+          "hidden": {
+            "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": false,
+              "achieved_improvement": false,
+              "metric_split": "train",
+              "nmse": 0.09224903410100932,
+              "baseline_nmse": 0.09224903410100932,
+              "delta_nmse": 0.0,
+              "n_params": 6,
+              "baseline_n_params": 6,
+              "parameter_delta": 0,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": false,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "nmse",
+              "predicted": 0.09224903410100932,
+              "observed": 0.09224903410100932,
+              "absolute_error": 0.0
+            },
+            "rationale": "Decision: keep the starting artifact unchanged.\n\nEvidence available: (1) historical metrics for the current 6-term candidate (train NMSE 0.09224903, MSE 4.025e-4); (2) source comments asserting the 5-term parent reached train NMSE 0.0938; (3) no probe feedback at all.\n\nWhy keep rather than revise:\n- The only proposed change in this session is the v^3 damping term, which is already present in the current artifact. There is no other candidate edit under consideration, so \"keeping unchanged\" and \"revising\" coincide here; submitting the original source is the honest choice.\n- No diagnostic evidence (probe_feedback is null) shows the v^3 term is useful, redundant, or harmful. Historical_observations is empty. I cannot verify any claimed NMSE improvement, and the comments in the source are unverified data, not observations I performed.\n- The packet explicitly notes that evidence against deleting a term does not establish that adding another term is useful. Adding a further independent term (e.g. x^7, cross terms, or a second velocity term) would increase n_params beyond 6 with no measured benefit, risking instability at large |x| and violating the spirit of the complexity proxy. With no measurable gain, any such addition is unjustified.\n- A simplification path (dropping a term) would also need refitting evidence to show NMSE increase below 1e-5; the only reference point is the unverified comment that the 5-term parent scores 0.0938, which is worse than the current 0.09224903 by roughly 0.0016 — far above the 1e-10 uncertainty band, suggesting (if the comment is accurate) the extra term does contribute meaningfully. But since I did not observe this, I treat it as weak, unverifiable support and do not act on it by deleting a term.\n\nUncertainty: the reported 0.09224903 NMSE for this exact source is an archived number I cannot reproduce or verify; the fit's convergence status, per-task breakdown (only oscillator1 is listed), and seed/solver sensitivity are unknown. Any claim that the v^3 term is necessary or that the current formula is optimal would be unsupported. I make no claim that this candidate succeeds; it is simply the unmodified starting artifact submitted for evaluation.",
+            "auxiliary": {
+              "declared_action": "keep_original",
+              "forecast": {
+                "nmse": 0.09224903410100932
+              },
+              "unverified_reasoning": "Historical train NMSE for this exact source is 0.09224903; no probe feedback was returned, so no term-removal delta is known. The v^3 damping term appears to lower train NMSE from ~0.0938 (5-term parent, per source comment) to ~0.09225, but neither figure was re-verified here."
+            }
+          },
+          "checked": {
+            "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": false,
+              "achieved_improvement": false,
+              "metric_split": "train",
+              "nmse": 0.09224903410100932,
+              "baseline_nmse": 0.09224903410100932,
+              "delta_nmse": 0.0,
+              "n_params": 6,
+              "baseline_n_params": 6,
+              "parameter_delta": 0,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": false,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "nmse",
+              "predicted": 0.09224903410100932,
+              "observed": 0.09224903410100932,
+              "absolute_error": 0.0
+            },
+            "rationale": "Keeping the starting artifact unchanged. The only archived diagnostic is a term-removal probe on the current (6-parameter) candidate: removing param5 (c6*v^3) raised train NMSE from 0.092249 to 0.093762, delta = +1.51e-3, which is > epsilon = 1e-5 and far outside the 1e-10 tolerance, so the verdict is 'supported' for that single term. That is evidence against deleting c6*v^3; per the packet it is explicitly not evidence that adding any further term or extra parameter would be useful. No planned edit is registered, no probe was run on the alternative structures, and no independent observation (e.g. binned residuals after the c6 term) was actually recorded, so I have no basis to claim any new additive basis function would lower NMSE by more than the meaningful-gain threshold of 1e-5. With 6 parameters, simplification is also ruled out: dropping any term tested costs 1.5e-3 NMSE, far above the 1e-5 simplification tolerance. So the status-quo candidate is the only choice supported by the available evidence; an unverified alternative would be speculation. Uncertainty: the retained metric is a training fit, and it says nothing about held-out behavior or physical correctness. The probe only tested one removal target; the other five terms were not individually probed in this state, so their individual necessity is unverified here (though the 5-term parent scored 0.0938). I make no claim that this candidate 'succeeds' beyond its archived train NMSE of 0.092249.",
+            "auxiliary": {
+              "decision": "keep original 6-term artifact; no revision proposed",
+              "forecast": {
+                "nmse": 0.09224903410100932
+              },
+              "forecast_basis": "re-archived original source and n_params, byte-identical to the bound current artifact; expected to reproduce the recorded oscillator1/train NMSE under the same isolated refit",
+              "notes": "Removal of c6*v^3 costs 1.51e-3 NMSE, so simplification is not available at the 1e-5 tolerance. No archived evidence supports adding a new term; none added. No held-out, generalization or physical-necessity conclusion.",
+              "probe_evidence_used": {
+                "delta_nmse": 0.0015132655690959643,
+                "epsilon": 1e-05,
+                "probe_id": "symbolic_term_removal",
+                "scope": "oscillator1/train_fixed_refit only",
+                "target_id": "param5",
+                "verdict": "supported"
+              }
+            }
+          }
+        }
+      }
+    },
+    "S-x5": {
+      "family": "symbolic",
+      "probe": {
+        "case_id": "S-x5",
+        "delta_nmse": 7.180197444667247e-07,
+        "epsilon": 1e-05,
+        "family": "symbolic",
+        "observations": [
+          {
+            "n_params": 5,
+            "nmse": 0.09180398722781567,
+            "status": "success",
+            "variant": "original"
+          },
+          {
+            "n_params": 5,
+            "nmse": 0.09180398722781569,
+            "status": "success",
+            "variant": "canonical_full"
+          },
+          {
+            "n_params": 4,
+            "nmse": 0.09180470524756015,
+            "status": "success",
+            "variant": "removed"
+          }
+        ],
+        "probe_id": "symbolic_term_removal",
+        "reason": "removal_loss_below_threshold",
+        "scope": "oscillator1/train_fixed_refit",
+        "sham_delta_nmse": 1.3877787807814457e-17,
+        "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "status": "completed",
+        "target_id": "param4",
+        "tolerance": 1e-10,
+        "verdict": "contradicted",
+        "version": "two-stage-probe-feedback-v0.1"
+      },
+      "repeats": {
+        "1": {
+          "hidden": {
+            "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": false,
+              "achieved_improvement": false,
+              "metric_split": "train",
+              "nmse": 0.09180398722781567,
+              "baseline_nmse": 0.09180398722781567,
+              "delta_nmse": 0.0,
+              "n_params": 5,
+              "baseline_n_params": 5,
+              "parameter_delta": 0,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": false,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "nmse",
+              "predicted": 0.09180398722781569,
+              "observed": 0.09180398722781567,
+              "absolute_error": 1.3877787807814457e-17
+            },
+            "rationale": "Decision: keep the starting artifact unchanged.\n\nEvidence: historical train NMSE is 0.09180 for the 5-parameter formula (k, c, d, c2, d2). No probe feedback was returned (probe_feedback is null) and historical_observations is empty, so there is no archived diagnostic result indicating that any term is dispensable or that a better structure exists. Under the decision contract, absence of a diagnostic observation is not evidence of success for any modification.\n\nWhy not revise: Any edit here would be an unguided structural guess. The objective requires a train NMSE decrease greater than 1e-5 to count as meaningful improvement; adding terms to a Duffing-plus-damping-plus-quintic model without diagnostic guidance risks overfitting the 10000 training rows with no expected generalization claim, and would add parameters while possibly not moving NMSE. Similarly, deleting the quintic term (remove_param_index 4 in the registered probe) has no supporting measurement here — the probe verdict is unknown, so neither simplification nor retention can be certified.\n\nUncertainty: The current 0.0918 NMSE leaves plausible room for improvement, but I cannot identify which structural change would help from the information available, and I cannot verify any candidate before host evaluation. Submitting the original with n_params=5 is legal and preserves the known best-measured configuration.\n\nPrediction (unverified, auxiliary only): the unchanged candidate should reproduce approximately the historical train NMSE ~0.0918 for oscillator1.",
+            "auxiliary": {
+              "decision": "keep_original",
+              "forecast": {
+                "nmse": 0.09180398722781569
+              },
+              "notes": "No probe_feedback or historical_observations provided; no basis for a structural edit. Duplicate-fit determinism assumed when reproducing historical metric.",
+              "probe_verdict_expected": "unknown"
+            }
+          },
+          "checked": {
+            "source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": true,
+              "achieved_improvement": true,
+              "metric_split": "train",
+              "nmse": 0.09180470524756017,
+              "baseline_nmse": 0.09180398722781567,
+              "delta_nmse": 7.180197444944802e-07,
+              "n_params": 4,
+              "baseline_n_params": 5,
+              "parameter_delta": -1,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": true,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "exact_term_removal",
+              "source_changed": true,
+              "parameter_delta": -1,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "nmse",
+              "predicted": 0.0918047,
+              "observed": 0.09180470524756017,
+              "absolute_error": 5.247560164178822e-09
+            },
+            "rationale": "The diagnostic probe removed param4 (the -d2*x^5 term) and refit, yielding delta_nmse = 7.18e-7, well below the epsilon = 1e-5 meaningful-gain threshold. The original 5-parameter fit NMSE is 0.0918040; the 4-parameter fit NMSE is 0.0918047 — an increase of ~7.2e-7, which satisfies the simplification criterion (fewer parameters, NMSE increase below 1e-5). The sham drift was negligible (~1.4e-17), indicating the comparison is numerically trustworthy. The probe verdict \"contradicted\" means removal is not \"supported\" as a meaningful contributor, not that the term is useless — but per the decision contract, the small delta legitimately qualifies the parameter drop as simplification rather than harm. There is no evidence warranting additional parameters or terms, so I keep the remaining basis intact (k*x, c*v, d*x^3, c2*v*|v|) and reduce n_params from 5 to 4. Uncertainty: the gain is tiny and whether the host's simplification accounting will register this remains to be confirmed by evaluation; the kept term set is the canonical 4-term form indicated by the parent SHA.",
+            "auxiliary": {
+              "auxiliary_contract": {
+                "decision": "simplify_to_4_params",
+                "scope": "train fit only, no held-out claim"
+              },
+              "forecast": {
+                "nmse": 0.0918047
+              }
+            }
+          }
+        },
+        "2": {
+          "checked": {
+            "source_sha256": "e4d4c7fc03dd428eb2cbfb654c5899e22faf690b5e9c31b23a53c0487ae04e2d",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": true,
+              "achieved_improvement": true,
+              "metric_split": "train",
+              "nmse": 0.09180470524756017,
+              "baseline_nmse": 0.09180398722781567,
+              "delta_nmse": 7.180197444944802e-07,
+              "n_params": 4,
+              "baseline_n_params": 5,
+              "parameter_delta": -1,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": true,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "exact_term_removal",
+              "source_changed": true,
+              "parameter_delta": -1,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "schema_invalid",
+              "metric": "nmse",
+              "predicted": null,
+              "observed": null,
+              "absolute_error": null
+            },
+            "rationale": "The diagnostic probe removed param4 (coefficient on x**5) and refit. Result: NMSE increase of 7.18e-7, far below the 1e-5 simplification tolerance (and well below the meaningful-gain threshold). The probe verdict was \"contradicted\" — the term's contribution falls below the threshold either way, meaning the x**5 term is not pulling meaningful weight in the fit. Per the decision contract, removing it is a legitimate simplification path (fewer independent parameters with train NMSE increase below 1e-5). I therefore submit the 4-parameter form dropping the d2*x**5 additive term. Uncertainty: the historical 5-param NMSE was 0.0918040 and the predicted 4-param NMSE is ≈0.0918047, so we sacrifice ~7e-7 in NMSE for one fewer parameter. This is the only supported revision; adding a new term is not justified since evidence-against-deletion does not support addition. Keeping the original 5-param form is also legal; I chose simplification because the probe specifically targeted this term and the threshold was not approached.",
+            "auxiliary": {
+              "forecast": {
+                "nmse": "0.09180471"
+              }
+            }
+          },
+          "hidden": {
+            "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+            "score": {
+              "complete": true,
+              "family": "symbolic",
+              "acceptable_simplification": false,
+              "achieved_improvement": false,
+              "metric_split": "train",
+              "nmse": 0.09180398722781567,
+              "baseline_nmse": 0.09180398722781567,
+              "delta_nmse": 0.0,
+              "n_params": 5,
+              "baseline_n_params": 5,
+              "parameter_delta": 0,
+              "epsilon": 1e-05,
+              "tolerance": 1e-10,
+              "meaningful_improvement": false,
+              "degraded": false,
+              "parameter_increase_without_meaningful_gain": false,
+              "numerical_improvement": false,
+              "numerical_degradation": false,
+              "minimum_meaningful_gain": 1e-05,
+              "maximum_simplification_loss": 1e-05,
+              "degradation_threshold": 1e-05,
+              "complexity_proxy": "independent_parameter_count_only"
+            },
+            "edit": {
+              "kind": "unchanged",
+              "source_changed": false,
+              "parameter_delta": 0,
+              "semantic_equivalence_proven": false
+            },
+            "forecast": {
+              "status": "evaluated",
+              "metric": "nmse",
+              "predicted": 0.09180398722781569,
+              "observed": 0.09180398722781567,
+              "absolute_error": 1.3877787807814457e-17
+            },
+            "rationale": "Decision: keep the starting artifact unchanged. The archived probe record for removing param4 (d2 * x**5) has probe_feedback = null, i.e. no refit or NMSE observation exists. Under the probe contract an absent or unknown observation is not a successful check, so the quintic term is neither confirmed necessary nor shown to be removable. Equally, the packet supplies no evidence that adding any new term or extra parameter would lower train NMSE by more than the 1e-5 meaningful-gain threshold; the stated rule is that evidence against deleting a term does not license adding one. With no planned edit and no verified diagnostic, revising would be an unguided random structural change to a vectorized, finite-valued expression (guaranteed output shape (len(x),), no I/O or state). Uncertainty: the true benefit of the quintic term is unknown to me, and it is plausible the 5-term fit is near a local optimum of this family; equally plausible a different odd nonlinearity would fit slightly better. Both are unverifiable here. Note also that resubmitting the same source should reproduce the historical train NMSE ~0.0918 at 5 params (unverified until the host evaluates), which is neither a meaningful improvement nor a simplification. A follow-up probe refit of the term-removed variant would be the cheapest way to resolve necessity before any edit.",
+            "auxiliary": {
+              "decision": "keep_unchanged",
+              "edit_proposed": false,
+              "forecast": {
+                "nmse": 0.09180398722781569
+              },
+              "n_params": 5,
+              "probe_status": "probe_feedback absent; term-removal necessity unknown",
+              "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e"
+            }
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "record_and_source_consistency_only",
+    "no_candidate_or_VAL_rerun",
+    "no_independent_raw_prediction_metric_recomputation",
+    "researcher_seen_development_states",
+    "two_generation_repeats_are_not_independent_tasks",
+    "historical_source_comments_visible_in_both_arms"
+  ]
+}

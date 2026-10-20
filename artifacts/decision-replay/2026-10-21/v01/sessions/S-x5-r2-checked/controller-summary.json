@@ -1,0 +1,240 @@
+{
+  "version": "decision-core-v0.1",
+  "case_id": "S-x5",
+  "family": "symbolic",
+  "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+  "probe_id": "symbolic_term_removal",
+  "target_id": "param4",
+  "attempts": 1,
+  "candidate": {
+    "candidate_id": "symbolic-001",
+    "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "source_sha256": "e4d4c7fc03dd428eb2cbfb654c5899e22faf690b5e9c31b23a53c0487ae04e2d",
+    "n_params": 4,
+    "rationale": "The diagnostic probe removed param4 (coefficient on x**5) and refit. Result: NMSE increase of 7.18e-7, far below the 1e-5 simplification tolerance (and well below the meaningful-gain threshold). The probe verdict was \"contradicted\" — the term's contribution falls below the threshold either way, meaning the x**5 term is not pulling meaningful weight in the fit. Per the decision contract, removing it is a legitimate simplification path (fewer independent parameters with train NMSE increase below 1e-5). I therefore submit the 4-parameter form dropping the d2*x**5 additive term. Uncertainty: the historical 5-param NMSE was 0.0918040 and the predicted 4-param NMSE is ≈0.0918047, so we sacrifice ~7e-7 in NMSE for one fewer parameter. This is the only supported revision; adding a new term is not justified since evidence-against-deletion does not support addition. Keeping the original 5-param form is also legal; I chose simplification because the probe specifically targeted this term and the threshold was not approached.",
+    "auxiliary": {
+      "forecast": {
+        "nmse": "0.09180471"
+      }
+    },
+    "source_file": "candidate.py",
+    "results": [
+      {
+        "candidate_hash": "e4d4c7fc03dd428eb2cbfb654c5899e22faf690b5e9c31b23a53c0487ae04e2d",
+        "candidate_id": "symbolic-001",
+        "diagnostics": {
+          "candidate_sha256": "e4d4c7fc03dd428eb2cbfb654c5899e22faf690b5e9c31b23a53c0487ae04e2d",
+          "residuals": {
+            "bias": 7.09433339998773e-05,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.0002492909790075412,
+                    "rmse": 0.013811196227049634,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.001646756169577094,
+                    "rmse": 0.021579218693382064,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.0017186496935296803,
+                    "rmse": 0.016963163763114564,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0006049578389596366,
+                    "rmse": 0.02565358265007852,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.001466467254609956,
+                    "rmse": 0.015514841963619495,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.0019535561333515862,
+                    "rmse": 0.01909397260004946,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.0005248167909438093,
+                    "rmse": 0.011086368889273812,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.00032150124820168807,
+                    "rmse": 0.029564664082667107,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020014164036236518,
+            "scope": "train",
+            "standardized_bias": 0.0010740057580318101,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1"
+        },
+        "elapsed_seconds": 0.543413,
+        "executions": [
+          {
+            "elapsed_seconds": 0.219459,
+            "phase": "fit",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 160
+          },
+          {
+            "elapsed_seconds": 0.21849,
+            "phase": "predict",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 205088
+          }
+        ],
+        "family": "symbolic",
+        "feedback_role": "development_only",
+        "fitting": {
+          "candidate_calls": 12,
+          "converged": true,
+          "max_nfev": 100,
+          "n_params": 4,
+          "nfev": 3,
+          "params": [
+            0.1875533297732359,
+            -0.08442478023335931,
+            -0.11179792723155013,
+            0.41831700230271585
+          ],
+          "split": "train"
+        },
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "metric_split": "train",
+        "metrics": {
+          "mse": 0.00040056676206938317,
+          "nmse": 0.09180470524756017
+        },
+        "model_calls": 0,
+        "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "run_id": "2f00d6f01b1546d9b603c863c9276daa",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "success",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "oscillator1"
+      }
+    ],
+    "evaluation_files": [
+      "evaluations/evaluation-00.json"
+    ],
+    "status": "evaluated",
+    "edit": {
+      "kind": "exact_term_removal",
+      "source_changed": true,
+      "parameter_delta": -1,
+      "semantic_equivalence_proven": false
+    },
+    "score": {
+      "complete": true,
+      "family": "symbolic",
+      "acceptable_simplification": true,
+      "achieved_improvement": true,
+      "metric_split": "train",
+      "nmse": 0.09180470524756017,
+      "baseline_nmse": 0.09180398722781567,
+      "delta_nmse": 7.180197444944802e-07,
+      "n_params": 4,
+      "baseline_n_params": 5,
+      "parameter_delta": -1,
+      "epsilon": 1e-05,
+      "tolerance": 1e-10,
+      "meaningful_improvement": false,
+      "degraded": false,
+      "parameter_increase_without_meaningful_gain": false,
+      "numerical_improvement": false,
+      "numerical_degradation": true,
+      "minimum_meaningful_gain": 1e-05,
+      "maximum_simplification_loss": 1e-05,
+      "degradation_threshold": 1e-05,
+      "complexity_proxy": "independent_parameter_count_only"
+    },
+    "forecast": {
+      "status": "schema_invalid",
+      "metric": "nmse",
+      "predicted": null,
+      "observed": null,
+      "absolute_error": null
+    }
+  },
+  "halted": false,
+  "infrastructure_error_type": null,
+  "counts": {
+    "candidate_evaluations": 1,
+    "sandbox_calls": 2,
+    "counts_complete": true
+  },
+  "generated_candidates": 1,
+  "model_calls_owned": 0,
+  "sealed_tasks_executed": 0
+}

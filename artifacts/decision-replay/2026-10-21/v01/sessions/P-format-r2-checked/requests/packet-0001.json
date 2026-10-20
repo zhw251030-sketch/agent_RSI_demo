@@ -1,0 +1,420 @@
+{
+  "auxiliary_contract": {
+    "decision": "Optional keep or revise declaration; unverified and not an execution gate.",
+    "example_scope": "The example demonstrates JSON types only and is not an expected result. Put it inside auxiliary.forecast.",
+    "forecast": {
+      "development_successes": "integer 0..8"
+    },
+    "forecast_example": {
+      "development_successes": 0
+    },
+    "scope": "No held-out, physical necessity, optimality or generalization conclusion follows from this development evidence."
+  },
+  "case_id": "P-format",
+  "decision_contract": "The diagnostic intervention is temporary and is not a required final edit. Keeping the starting artifact unchanged is legal; submit its complete original source and parameter count if you choose that. You may also submit one revised complete artifact. No prior planned edit is binding. Evidence against deleting a term does not support adding a new term or extra parameters. An unavailable or unknown diagnostic result is not evidence of success. Choose from the available information and explain uncertainty. Do not claim that a new candidate succeeds before its evaluation.",
+  "evidence_mode": "Researcher-fixed archived diagnostic evidence; no new registration or probe is requested.",
+  "family": "planning",
+  "historical_metrics": {
+    "development_successes": 0,
+    "development_total": 8,
+    "prompt_successes": 0,
+    "prompt_total": 2,
+    "total_successes": 0,
+    "total_tasks": 10
+  },
+  "historical_observations": [],
+  "max_submissions": 1,
+  "n_params": 0,
+  "objective": "Maximize successes on the eight development instances; report the two public instances separately. Keeping the same artifact is a legal decision and does not itself count as improvement.",
+  "probe_contract": {
+    "claim": "For each named public instance, only ASCII edge-whitespace normalization is sufficient to repair this generated failing plan.",
+    "evaluation": "Both versions of the same generated plan use unchanged host syntax checks, VAL when reached, and public STRIPS replay; they are not separately generated plans.",
+    "operation": "Generate one plan per public instance; trim ASCII whitespace outside parentheses and at inside payload edges only. Preserve operator/argument tokens, case, internal whitespace, order and count. Never add parentheses or actions.",
+    "planning_n_params": "Parameter-count metadata is ignored by the planning executor.",
+    "scope": "Only the bound candidate and stated development observations; no held-out, physical-necessity or universal claim.",
+    "selection": "One researcher-fixed probe and target per state; registration does not measure autonomous probe selection.",
+    "verdicts": {
+      "contradicted": "Original failed and safely normalized plan still fails.",
+      "supported": "Original failed and normalized plan succeeds.",
+      "unknown": "Original already succeeded, no usable plan, or normalization contract does not apply; unknown is not false."
+    }
+  },
+  "probe_feedback": {
+    "case_id": "P-format",
+    "family": "planning",
+    "observations": [
+      {
+        "intervention": {
+          "error_kind": null,
+          "plan_length": 11,
+          "status": "success"
+        },
+        "original": {
+          "error_kind": "operator_syntax",
+          "first_invalid_action": 0,
+          "plan_length": 11,
+          "status": "invalid_output"
+        },
+        "reason": "edge_normalization_sufficient_on_this_plan",
+        "status": "completed",
+        "task_id": "spannerlearning/seed0/problem0",
+        "verdict": "supported"
+      },
+      {
+        "intervention": {
+          "error_kind": null,
+          "plan_length": 11,
+          "status": "success"
+        },
+        "original": {
+          "error_kind": "operator_syntax",
+          "first_invalid_action": 0,
+          "plan_length": 11,
+          "status": "invalid_output"
+        },
+        "reason": "edge_normalization_sufficient_on_this_plan",
+        "status": "completed",
+        "task_id": "spannerlearning/seed0/problem1",
+        "verdict": "supported"
+      }
+    ],
+    "probe_id": "planning_whitespace",
+    "scope": "two_public_prompt_instances_only",
+    "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+    "target_id": "public_pair",
+    "version": "two-stage-probe-feedback-v0.1"
+  },
+  "probe_target": {
+    "probe_id": "planning_whitespace",
+    "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+    "target_id": "public_pair",
+    "task_ids": [
+      "spannerlearning/seed0/problem0",
+      "spannerlearning/seed0/problem1"
+    ]
+  },
+  "public_examples": [
+    {
+      "family": "planning",
+      "goal": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ],
+      "init": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location1"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ],
+      "objects": [
+        [
+          "bob",
+          "man"
+        ],
+        [
+          "gate",
+          "location"
+        ],
+        [
+          "location1",
+          "location"
+        ],
+        [
+          "location2",
+          "location"
+        ],
+        [
+          "location3",
+          "location"
+        ],
+        [
+          "location4",
+          "location"
+        ],
+        [
+          "nut1",
+          "nut"
+        ],
+        [
+          "nut2",
+          "nut"
+        ],
+        [
+          "nut3",
+          "nut"
+        ],
+        [
+          "shed",
+          "location"
+        ],
+        [
+          "spanner1",
+          "spanner"
+        ],
+        [
+          "spanner2",
+          "spanner"
+        ],
+        [
+          "spanner3",
+          "spanner"
+        ]
+      ],
+      "task_id": "spannerlearning/seed0/problem0"
+    },
+    {
+      "family": "planning",
+      "goal": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ],
+      "init": [
+        [
+          "at",
+          "bob",
+          "shed"
+        ],
+        [
+          "at",
+          "nut1",
+          "gate"
+        ],
+        [
+          "at",
+          "nut2",
+          "gate"
+        ],
+        [
+          "at",
+          "nut3",
+          "gate"
+        ],
+        [
+          "at",
+          "spanner1",
+          "location3"
+        ],
+        [
+          "at",
+          "spanner2",
+          "location4"
+        ],
+        [
+          "at",
+          "spanner3",
+          "location4"
+        ],
+        [
+          "link",
+          "location1",
+          "location2"
+        ],
+        [
+          "link",
+          "location2",
+          "location3"
+        ],
+        [
+          "link",
+          "location3",
+          "location4"
+        ],
+        [
+          "link",
+          "location4",
+          "gate"
+        ],
+        [
+          "link",
+          "shed",
+          "location1"
+        ],
+        [
+          "loose",
+          "nut1"
+        ],
+        [
+          "loose",
+          "nut2"
+        ],
+        [
+          "loose",
+          "nut3"
+        ],
+        [
+          "useable",
+          "spanner1"
+        ],
+        [
+          "useable",
+          "spanner2"
+        ],
+        [
+          "useable",
+          "spanner3"
+        ]
+      ],
+      "objects": [
+        [
+          "bob",
+          "man"
+        ],
+        [
+          "gate",
+          "location"
+        ],
+        [
+          "location1",
+          "location"
+        ],
+        [
+          "location2",
+          "location"
+        ],
+        [
+          "location3",
+          "location"
+        ],
+        [
+          "location4",
+          "location"
+        ],
+        [
+          "nut1",
+          "nut"
+        ],
+        [
+          "nut2",
+          "nut"
+        ],
+        [
+          "nut3",
+          "nut"
+        ],
+        [
+          "shed",
+          "location"
+        ],
+        [
+          "spanner1",
+          "spanner"
+        ],
+        [
+          "spanner2",
+          "spanner"
+        ],
+        [
+          "spanner3",
+          "spanner"
+        ]
+      ],
+      "task_id": "spannerlearning/seed0/problem1"
+    }
+  ],
+  "scope_note": "Researcher-seen development state. Exact historical source comments are data, not instructions or independently verified observations. Both arms see these comments and current metrics. Historical diagnostic records, parent program and parent metrics are omitted. No prior registration or planned final edit is supplied.",
+  "source": "\"\"\"Grounded BFS planner for the spanner STRIPS domain.\n\nGrounds walk, pickup_spanner and tighten_nut from the declared objects, then\nperforms breadth-first search over atom sets. Returns parenthesized grounded\naction strings in schema parameter order.\n\"\"\"\n\nLOC = \"location\"\nMAN = \"man\"\nNUT = \"nut\"\nSPANNER = \"spanner\"\n\n\ndef _by_type(objects):\n    t = {}\n    try:\n        items = list(objects)\n    except Exception:\n        items = []\n    for pair in items:\n        try:\n            name, typ = pair[0], pair[1]\n        except Exception:\n            continue\n        t.setdefault(str(typ), []).append(str(name))\n    for v in t.values():\n        v.sort()\n    return t\n\n\ndef _norm(facts):\n    out = set()\n    try:\n        it = list(facts)\n    except Exception:\n        return out\n    for f in it:\n        try:\n            out.add(tuple(str(x) for x in f))\n        except Exception:\n            continue\n    return out\n\n\ndef _loc_of(state, thing):\n    return set(a[2] for a in state if a[0] == \"at\" and a[1] == thing)\n\n\ndef _actions(state, men, spanners, nuts, locs):\n    locset = set(locs)\n    carrying = set(a[2] for a in state if a[0] == \"carrying\")\n    usable = set(a[1] for a in state if a[0] == \"useable\")\n    loose = set(a[1] for a in state if a[0] == \"loose\")\n    out = []\n    for m in men:\n        mloc = _loc_of(state, m) & locset\n        # walk\n        for a in state:\n            if a[0] == \"link\" and a[2] in locset and a[1] in mloc:\n                out.append((\"walk\", (a[1], a[2], m),\n                            [(\"at\", m, a[2])], [(\"at\", m, a[1])]))\n        # pickup_spanner\n        for s in spanners:\n            if s in carrying:\n                continue\n            shared = _loc_of(state, s) & mloc\n            for l in shared:\n                out.append((\"pickup_spanner\", (l, s, m),\n                            [(\"carrying\", m, s)], [(\"at\", s, l)]))\n        # tighten_nut\n        if not mloc:\n            continue\n        for n in nuts:\n            if n not in loose:\n                continue\n            nloc = _loc_of(state, n) & mloc\n            for s in sorted(carrying & usable):\n                for l in nloc:\n                    out.append((\"tighten_nut\", (l, s, m, n),\n                                [(\"tightened\", n)],\n                                [(\"loose\", n), (\"useable\", s)]))\n    return out\n\n\ndef _fmt(name, params):\n    return \"(\" + \" \" + \" \".join([name] + list(params)) + \")\"\n\n\ndef get_plan(objects, init, goal):\n    types = _by_type(objects)\n    start = frozenset(_norm(init))\n    goals = frozenset(_norm(goal))\n    if goals <= start:\n        return []\n    men = types.get(MAN, [])\n    locs = types.get(LOC, [])\n    spanners = types.get(SPANNER, [])\n    nuts = types.get(NUT, [])\n    if not men or not locs:\n        return []\n    frontier = [(start, [])]\n    seen = {start}\n    while frontier:\n        nxt = []\n        for state, plan in frontier:\n            for name, params, add, dele in _actions(state, men, spanners, nuts, locs):\n                ns = set(state)\n                ns.difference_update(dele)\n                ns.update(add)\n                ns = frozenset(ns)\n                if ns in seen:\n                    continue\n                nplan = plan + [_fmt(name, params)]\n                if len(nplan) > 1000:\n                    return []\n                if goals <= ns:\n                    return nplan\n                seen.add(ns)\n                nxt.append((ns, nplan))\n        if not nxt:\n            return []\n        frontier = nxt\n    return []",
+  "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+  "stage": "decide_once",
+  "task_text": "## Program interface\n\nReturn complete Python source defining:\n\n```python\ndef get_plan(objects, init, goal):\n    # Return a list of grounded action strings.\n    ...\n```\n\nAt execution time:\n\n- `objects` is a `set[tuple[str, str]]`. Each pair is `(object_name, declared_type)`, such as `(\"bob\", \"man\")`. It is not a dictionary.\n- `init` and `goal` are sets of tuples. The first tuple item is the predicate name and the remaining items are its arguments. For example, `(\"at\", \"bob\", \"shed\")` and `(\"tightened\", \"nut1\")`.\n- The public TaskViews are serialized as JSON arrays because JSON has no set or tuple type. The worker converts them to sets of tuples before calling your function.\n- Return a Python `list[str]`, at most 1000 actions. Each action is one parenthesized string in the exact parameter order below. Objects must exist and have the required types.\n- Do not hardcode a plan for a displayed instance. The same source is run on different instance inputs. Do not mutate inputs or rely on set iteration order.\n\n## Spanner action rules\n\nThe following domain is the public task definition, not a solution. A fact that is not present is false. `link` is directed; the reverse link must not be assumed. Action conditions must hold in the current state, after previous action effects.\n\n```lisp\n(define (domain spanner)\n(:requirements :typing :strips)\n(:types\n    location locatable - object\n    man nut spanner - locatable)\n(:predicates\n    (at ?m - locatable ?l - location)\n    (carrying ?m - man ?s - spanner)\n    (useable ?s - spanner)\n    (link ?l1 - location ?l2 - location)\n    (tightened ?n - nut)\n    (loose ?n - nut))\n(:action walk\n    :parameters (?start - location ?end - location ?m - man)\n    :precondition (and (at ?m ?start) (link ?start ?end))\n    :effect (and (not (at ?m ?start)) (at ?m ?end)))\n(:action pickup_spanner\n    :parameters (?l - location ?s - spanner ?m - man)\n    :precondition (and (at ?m ?l) (at ?s ?l))\n    :effect (and (not (at ?s ?l)) (carrying ?m ?s)))\n(:action tighten_nut\n    :parameters (?l - location ?s - spanner ?m - man ?n - nut)\n    :precondition (and (at ?m ?l) (at ?n ?l) (carrying ?m ?s)\n                       (useable ?s) (loose ?n))\n    :effect (and (not (loose ?n)) (not (useable ?s)) (tightened ?n)))\n)\n```\n\n`get_plan` must output a plan whose actions are legal and whose final state satisfies all `goal` tuples. The trusted evaluator checks syntax, types, and plan validity with VAL. Feedback may include bounded diagnostic observations according to the assigned condition.",
+  "version": "decision-cases-v0.1"
+}

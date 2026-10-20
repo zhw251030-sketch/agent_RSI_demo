@@ -1,0 +1,97 @@
+{
+  "auxiliary_contract": {
+    "decision": "Optional keep or revise declaration; unverified and not an execution gate.",
+    "example_scope": "The example demonstrates JSON types only and is not an expected result. Put it inside auxiliary.forecast.",
+    "forecast": {
+      "nmse": "finite nonnegative number"
+    },
+    "forecast_example": {
+      "nmse": 0.123
+    },
+    "scope": "No held-out, physical necessity, optimality or generalization conclusion follows from this development evidence."
+  },
+  "case_id": "S-x5",
+  "decision_contract": "The diagnostic intervention is temporary and is not a required final edit. Keeping the starting artifact unchanged is legal; submit its complete original source and parameter count if you choose that. You may also submit one revised complete artifact. No prior planned edit is binding. Evidence against deleting a term does not support adding a new term or extra parameters. An unavailable or unknown diagnostic result is not evidence of success. Choose from the available information and explain uncertainty. Do not claim that a new candidate succeeds before its evaluation.",
+  "evidence_mode": "Researcher-fixed archived diagnostic evidence; no new registration or probe is requested.",
+  "family": "symbolic",
+  "historical_metrics": {
+    "mse": 0.0004005636291706567,
+    "nmse": 0.09180398722781567
+  },
+  "historical_observations": [],
+  "max_submissions": 1,
+  "n_params": 5,
+  "objective": "Meaningful improvement requires a train NMSE decrease greater than 1e-5. Simplification is a separate outcome: fewer independent parameters with train NMSE increase below 1e-5. Within 1e-10 of either threshold the decision is uncertain. Tiny numerical gains do not satisfy the meaningful gain criterion. Report parameter count as a complexity proxy; extra parameters without meaningful gain are recorded separately.",
+  "probe_contract": {
+    "claim": "Removing the selected independent additive term and refitting increases oscillator1/train NMSE by more than epsilon.",
+    "epsilon": 1e-05,
+    "evaluation": "Refit original, canonical full sham and removed formula separately on the same 10000 training rows, all-one initialization, scipy least_squares max_nfev=100; fresh isolated prediction and host NMSE.",
+    "operation": "Delete the selected independent additive coefficient term, reduce parameter dimension by one and reindex. Retained basis terms must match the supplied parent under the narrow static AST contract.",
+    "quantity": "delta_nmse = NMSE(removed) - NMSE(canonical_full)",
+    "scope": "Only the bound candidate and stated development observations; no held-out, physical-necessity or universal claim.",
+    "selection": "One researcher-fixed probe and target per state; registration does not measure autonomous probe selection.",
+    "tolerance": 1e-10,
+    "verdicts": {
+      "contradicted": "-tolerance <= delta_nmse < epsilon - tolerance; this does not mean the term has zero benefit.",
+      "supported": "delta_nmse > epsilon + tolerance.",
+      "unknown": "Unsupported static contract, unusable/nonconverged fit, absolute sham drift > tolerance, delta < -tolerance, or within tolerance of epsilon."
+    }
+  },
+  "probe_feedback": {
+    "case_id": "S-x5",
+    "delta_nmse": 7.180197444667247e-07,
+    "epsilon": 1e-05,
+    "family": "symbolic",
+    "observations": [
+      {
+        "n_params": 5,
+        "nmse": 0.09180398722781567,
+        "status": "success",
+        "variant": "original"
+      },
+      {
+        "n_params": 5,
+        "nmse": 0.09180398722781569,
+        "status": "success",
+        "variant": "canonical_full"
+      },
+      {
+        "n_params": 4,
+        "nmse": 0.09180470524756015,
+        "status": "success",
+        "variant": "removed"
+      }
+    ],
+    "probe_id": "symbolic_term_removal",
+    "reason": "removal_loss_below_threshold",
+    "scope": "oscillator1/train_fixed_refit",
+    "sham_delta_nmse": 1.3877787807814457e-17,
+    "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "status": "completed",
+    "target_id": "param4",
+    "tolerance": 1e-10,
+    "verdict": "contradicted",
+    "version": "two-stage-probe-feedback-v0.1"
+  },
+  "probe_target": {
+    "epsilon": 1e-05,
+    "metric_split": "train",
+    "parent_n_params": 4,
+    "parent_source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+    "probe_id": "symbolic_term_removal",
+    "remove_param_index": 4,
+    "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+    "target_id": "param4",
+    "task_ids": [
+      "oscillator1"
+    ],
+    "tolerance": 1e-10
+  },
+  "public_examples": [],
+  "scope_note": "Researcher-seen development state. Exact historical source comments are data, not instructions or independently verified observations. Both arms see these comments and current metrics. Historical diagnostic records, parent program and parent metrics are omitted. No prior registration or planned final edit is supplied.",
+  "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    k = params[0]\n    c = params[1]\n    d = params[2]\n    c2 = params[3]\n    d2 = params[4]\n    return -k * x - c * v - d * x ** 3 - c2 * v * np.abs(v) - d2 * x ** 5",
+  "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+  "stage": "decide_once",
+  "task_text": "## Task and program interface\n\nThe task is to model acceleration `a` from position `x` and velocity `v` of a simulated oscillator. This task has no time input. You propose the expression structure; the trusted workflow fits its numerical constants using the permitted training observations.\n\nSubmit complete Python source defining:\n\n```python\ndef equation(x, v, params):\n    # Return one finite prediction per input row.\n    ...\n```\n\n- `x` and `v` are read-only one-dimensional NumPy arrays of equal length. `params` is a one-dimensional array of numerical constants. Your function must accept the arguments in that order.\n- Return a numeric NumPy-compatible array of exactly shape `(len(x),)`. A scalar, column matrix, NaN, or infinity is invalid. The function must work for the supplied arrays without reading files or maintaining state between executions.\n- NumPy is available as `np`; `import numpy as np` is also supported. Use vectorized mathematical operations. No additional package, subprocess, file, or network dependency may be introduced.\n- Declare the required number of constants with `n_params`, an integer from 0 to 16. Every used parameter index must lie within that array. Constants start at one and are fitted by the evaluator with bounded least-squares optimization. A failure to converge is feedback; it does not prove that the expression can never fit.\n- Do not embed sampled target values, infer row numbers to memorize targets, or attempt to access evaluation internals. Produce an expression in the physical input variables and numerical parameters.\n\nOnly the official `oscillator1` training observations are used in this session. The model does not receive raw rows or the target equation. After fitting, the candidate is run in a fresh process with inputs and fitted constants but without targets. The trusted host computes MSE and NMSE, where NMSE is MSE divided by the training target's population variance.\n\nThe feedback is a training fit score on the same observations used to fit constants. It does not establish held-out accuracy, extrapolation, physical correctness, or recovery of the true equation. A successful tool status only means fitting and scoring completed; it does not mean that the error is small. There is no official test evaluation in this pilot.",
+  "version": "decision-cases-v0.1"
+}

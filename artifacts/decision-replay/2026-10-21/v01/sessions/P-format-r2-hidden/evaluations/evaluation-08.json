@@ -1,0 +1,34 @@
+{
+  "candidate_hash": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+  "candidate_id": "planning-001",
+  "elapsed_seconds": 0.042639,
+  "error_kind": "operator_syntax",
+  "executions": [
+    {
+      "elapsed_seconds": 0.037806,
+      "phase": "plan",
+      "status": "completed",
+      "stderr_bytes": 0,
+      "stdout_bytes": 434
+    }
+  ],
+  "family": "planning",
+  "feedback_role": "development_only",
+  "first_invalid_action": 0,
+  "limits": {
+    "cpu_seconds": 10,
+    "max_output_bytes": 2000000,
+    "memory_mb": 2048,
+    "timeout_seconds": 20
+  },
+  "model_calls": 0,
+  "parent_id": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+  "plan_length": 11,
+  "public_diagnostic": "Action must be one parenthesized grounded operator.",
+  "run_id": "e91eeece3f554b7fa9139ecffa843ba8",
+  "schema_version": "0.1",
+  "sealed_tasks_executed": 0,
+  "status": "invalid_output",
+  "strategy_version": "decision-replay-v0.1",
+  "task_id": "spannerlearning/seed0/problem8"
+}

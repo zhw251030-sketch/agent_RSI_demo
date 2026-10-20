@@ -1,0 +1,1483 @@
+{
+  "version": "decision-core-v0.1",
+  "case_id": "P-empty",
+  "family": "planning",
+  "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+  "probe_id": "planning_whitespace",
+  "target_id": "public_pair",
+  "attempts": 1,
+  "candidate": {
+    "candidate_id": "planning-001",
+    "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+    "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+    "n_params": 3,
+    "rationale": "Decision: keep the starting artifact unchanged (legal option). Rationale: there is zero archived diagnostic evidence (probe_feedback is null, historical_observations empty) and the case id is \"P-empty\", so I have no observation supporting any specific modification. The only registered probe is whitespace normalization of generated plan text; the current _fmt() already emits clean, tightly parenthesized strings with single ASCII spaces and no edge whitespace, so that probe contract appears inapplicable to this source — a verdict of \"unknown\" rather than \"supported\". I also see plausible latent weaknesses (goal_satisfied ignores the actual goal set and returns [] immediately when all nuts start non-loose; pickup does not guard pre-existing carried state; empty plan returned when no men/man_loc), but with 0/8 development successes and no observations I cannot distinguish which matters, and speculative edits risk making the artifact worse without evidence. Submitting the original complete source verbatim. Uncertainty: high; no claim of improvement or success is made.",
+    "auxiliary": {
+      "decision": "keep",
+      "forecast": {
+        "development_successes": 0
+      },
+      "probe_forecast": {
+        "public_pair": "unknown"
+      }
+    },
+    "source_file": "candidate.py",
+    "results": [
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "diagnostics": {
+          "candidate_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 0,
+            "status": "goal_unsatisfied",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          },
+          "scope": "public_prompt",
+          "task_id": "spannerlearning/seed0/problem0",
+          "trace": {
+            "event_limit": 20000,
+            "events_seen": 3669,
+            "functions": [
+              {
+                "call_events": 1,
+                "container_length_max": 0,
+                "container_length_min": 0,
+                "exception_events": 0,
+                "first_line": 6,
+                "name": "get_plan",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "list": 1
+                }
+              },
+              {
+                "call_events": 1,
+                "container_length_max": 1,
+                "container_length_min": 1,
+                "exception_events": 0,
+                "first_line": 11,
+                "name": "<listcomp>",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "list": 1
+                }
+              },
+              {
+                "call_events": 4,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 16,
+                "name": "<genexpr>",
+                "none_return_events": 1,
+                "return_events": 4,
+                "return_types": {
+                  "none": 1,
+                  "str": 3
+                }
+              },
+              {
+                "call_events": 4,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 17,
+                "name": "<genexpr>",
+                "none_return_events": 1,
+                "return_events": 4,
+                "return_types": {
+                  "none": 1,
+                  "str": 3
+                }
+              },
+              {
+                "call_events": 54,
+                "container_length_max": 5,
+                "container_length_min": 5,
+                "exception_events": 0,
+                "first_line": 47,
+                "name": "state_key",
+                "none_return_events": 0,
+                "return_events": 54,
+                "return_types": {
+                  "tuple": 54
+                }
+              },
+              {
+                "call_events": 53,
+                "container_length_max": 5,
+                "container_length_min": 5,
+                "exception_events": 0,
+                "first_line": 53,
+                "name": "apply",
+                "none_return_events": 0,
+                "return_events": 53,
+                "return_types": {
+                  "tuple": 53
+                }
+              },
+              {
+                "call_events": 54,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 70,
+                "name": "goal_satisfied",
+                "none_return_events": 0,
+                "return_events": 54,
+                "return_types": {
+                  "bool": 54
+                }
+              },
+              {
+                "call_events": 117,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 54,
+                "first_line": 71,
+                "name": "<genexpr>",
+                "none_return_events": 54,
+                "return_events": 117,
+                "return_types": {
+                  "bool": 63,
+                  "none": 54
+                }
+              }
+            ],
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "interrupted": false,
+            "lines": [
+              {
+                "hits": 1,
+                "line": 7
+              },
+              {
+                "hits": 1,
+                "line": 8
+              },
+              {
+                "hits": 1,
+                "line": 9
+              },
+              {
+                "hits": 15,
+                "line": 11
+              },
+              {
+                "hits": 1,
+                "line": 12
+              },
+              {
+                "hits": 1,
+                "line": 14
+              },
+              {
+                "hits": 15,
+                "line": 16
+              },
+              {
+                "hits": 15,
+                "line": 17
+              },
+              {
+                "hits": 1,
+                "line": 19
+              },
+              {
+                "hits": 19,
+                "line": 20
+              },
+              {
+                "hits": 18,
+                "line": 21
+              },
+              {
+                "hits": 5,
+                "line": 22
+              },
+              {
+                "hits": 1,
+                "line": 25
+              },
+              {
+                "hits": 1,
+                "line": 26
+              },
+              {
+                "hits": 1,
+                "line": 27
+              },
+              {
+                "hits": 1,
+                "line": 28
+              },
+              {
+                "hits": 1,
+                "line": 29
+              },
+              {
+                "hits": 19,
+                "line": 30
+              },
+              {
+                "hits": 18,
+                "line": 31
+              },
+              {
+                "hits": 7,
+                "line": 32
+              },
+              {
+                "hits": 7,
+                "line": 33
+              },
+              {
+                "hits": 1,
+                "line": 34
+              },
+              {
+                "hits": 6,
+                "line": 35
+              },
+              {
+                "hits": 3,
+                "line": 36
+              },
+              {
+                "hits": 3,
+                "line": 37
+              },
+              {
+                "hits": 3,
+                "line": 38
+              },
+              {
+                "hits": 11,
+                "line": 39
+              },
+              {
+                "hits": 3,
+                "line": 40
+              },
+              {
+                "hits": 8,
+                "line": 41
+              },
+              {
+                "hits": 3,
+                "line": 42
+              },
+              {
+                "hits": 1,
+                "line": 44
+              },
+              {
+                "hits": 1,
+                "line": 47
+              },
+              {
+                "hits": 108,
+                "line": 48
+              },
+              {
+                "hits": 54,
+                "line": 49
+              },
+              {
+                "hits": 54,
+                "line": 50
+              },
+              {
+                "hits": 54,
+                "line": 51
+              },
+              {
+                "hits": 1,
+                "line": 53
+              },
+              {
+                "hits": 53,
+                "line": 54
+              },
+              {
+                "hits": 53,
+                "line": 55
+              },
+              {
+                "hits": 53,
+                "line": 56
+              },
+              {
+                "hits": 53,
+                "line": 57
+              },
+              {
+                "hits": 17,
+                "line": 58
+              },
+              {
+                "hits": 36,
+                "line": 59
+              },
+              {
+                "hits": 9,
+                "line": 60
+              },
+              {
+                "hits": 9,
+                "line": 61
+              },
+              {
+                "hits": 9,
+                "line": 62
+              },
+              {
+                "hits": 27,
+                "line": 63
+              },
+              {
+                "hits": 27,
+                "line": 64
+              },
+              {
+                "hits": 27,
+                "line": 65
+              },
+              {
+                "hits": 27,
+                "line": 66
+              },
+              {
+                "hits": 27,
+                "line": 67
+              },
+              {
+                "hits": 53,
+                "line": 68
+              },
+              {
+                "hits": 1,
+                "line": 70
+              },
+              {
+                "hits": 117,
+                "line": 71
+              },
+              {
+                "hits": 1,
+                "line": 73
+              },
+              {
+                "hits": 1,
+                "line": 76
+              },
+              {
+                "hits": 1,
+                "line": 77
+              },
+              {
+                "hits": 1,
+                "line": 78
+              },
+              {
+                "hits": 55,
+                "line": 80
+              },
+              {
+                "hits": 54,
+                "line": 81
+              },
+              {
+                "hits": 54,
+                "line": 82
+              },
+              {
+                "hits": 324,
+                "line": 85
+              },
+              {
+                "hits": 270,
+                "line": 86
+              },
+              {
+                "hits": 17,
+                "line": 87
+              },
+              {
+                "hits": 216,
+                "line": 89
+              },
+              {
+                "hits": 162,
+                "line": 90
+              },
+              {
+                "hits": 9,
+                "line": 91
+              },
+              {
+                "hits": 54,
+                "line": 93
+              },
+              {
+                "hits": 84,
+                "line": 94
+              },
+              {
+                "hits": 63,
+                "line": 95
+              },
+              {
+                "hits": 27,
+                "line": 96
+              },
+              {
+                "hits": 107,
+                "line": 98
+              },
+              {
+                "hits": 106,
+                "line": 99
+              },
+              {
+                "hits": 53,
+                "line": 100
+              },
+              {
+                "hits": 53,
+                "line": 102
+              },
+              {
+                "hits": 53,
+                "line": 103
+              },
+              {
+                "hits": 53,
+                "line": 105
+              },
+              {
+                "hits": 53,
+                "line": 106
+              },
+              {
+                "hits": 53,
+                "line": 108
+              },
+              {
+                "hits": 53,
+                "line": 109
+              },
+              {
+                "hits": 1,
+                "line": 111
+              }
+            ],
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "truncated": false
+          },
+          "version": "diagnostics-v0.1"
+        },
+        "elapsed_seconds": 0.062193,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.042768,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 3929
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "cde2487beadb4362b725d9f4858fad0a",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem0",
+        "validator": {
+          "elapsed_seconds": 0.004887,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "a3e479f7a008596cf68b0ed4fa094d8d43cfef692a8c6023ef2e9816e8221fd0"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "diagnostics": {
+          "candidate_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 0,
+            "status": "goal_unsatisfied",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          },
+          "scope": "public_prompt",
+          "task_id": "spannerlearning/seed0/problem1",
+          "trace": {
+            "event_limit": 20000,
+            "events_seen": 3539,
+            "functions": [
+              {
+                "call_events": 1,
+                "container_length_max": 0,
+                "container_length_min": 0,
+                "exception_events": 0,
+                "first_line": 6,
+                "name": "get_plan",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "list": 1
+                }
+              },
+              {
+                "call_events": 1,
+                "container_length_max": 1,
+                "container_length_min": 1,
+                "exception_events": 0,
+                "first_line": 11,
+                "name": "<listcomp>",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "list": 1
+                }
+              },
+              {
+                "call_events": 4,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 16,
+                "name": "<genexpr>",
+                "none_return_events": 1,
+                "return_events": 4,
+                "return_types": {
+                  "none": 1,
+                  "str": 3
+                }
+              },
+              {
+                "call_events": 4,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 17,
+                "name": "<genexpr>",
+                "none_return_events": 1,
+                "return_events": 4,
+                "return_types": {
+                  "none": 1,
+                  "str": 3
+                }
+              },
+              {
+                "call_events": 52,
+                "container_length_max": 5,
+                "container_length_min": 5,
+                "exception_events": 0,
+                "first_line": 47,
+                "name": "state_key",
+                "none_return_events": 0,
+                "return_events": 52,
+                "return_types": {
+                  "tuple": 52
+                }
+              },
+              {
+                "call_events": 51,
+                "container_length_max": 5,
+                "container_length_min": 5,
+                "exception_events": 0,
+                "first_line": 53,
+                "name": "apply",
+                "none_return_events": 0,
+                "return_events": 51,
+                "return_types": {
+                  "tuple": 51
+                }
+              },
+              {
+                "call_events": 52,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 0,
+                "first_line": 70,
+                "name": "goal_satisfied",
+                "none_return_events": 0,
+                "return_events": 52,
+                "return_types": {
+                  "bool": 52
+                }
+              },
+              {
+                "call_events": 113,
+                "container_length_max": null,
+                "container_length_min": null,
+                "exception_events": 52,
+                "first_line": 71,
+                "name": "<genexpr>",
+                "none_return_events": 52,
+                "return_events": 113,
+                "return_types": {
+                  "bool": 61,
+                  "none": 52
+                }
+              }
+            ],
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "interrupted": false,
+            "lines": [
+              {
+                "hits": 1,
+                "line": 7
+              },
+              {
+                "hits": 1,
+                "line": 8
+              },
+              {
+                "hits": 1,
+                "line": 9
+              },
+              {
+                "hits": 15,
+                "line": 11
+              },
+              {
+                "hits": 1,
+                "line": 12
+              },
+              {
+                "hits": 1,
+                "line": 14
+              },
+              {
+                "hits": 15,
+                "line": 16
+              },
+              {
+                "hits": 15,
+                "line": 17
+              },
+              {
+                "hits": 1,
+                "line": 19
+              },
+              {
+                "hits": 19,
+                "line": 20
+              },
+              {
+                "hits": 18,
+                "line": 21
+              },
+              {
+                "hits": 5,
+                "line": 22
+              },
+              {
+                "hits": 1,
+                "line": 25
+              },
+              {
+                "hits": 1,
+                "line": 26
+              },
+              {
+                "hits": 1,
+                "line": 27
+              },
+              {
+                "hits": 1,
+                "line": 28
+              },
+              {
+                "hits": 1,
+                "line": 29
+              },
+              {
+                "hits": 19,
+                "line": 30
+              },
+              {
+                "hits": 18,
+                "line": 31
+              },
+              {
+                "hits": 7,
+                "line": 32
+              },
+              {
+                "hits": 7,
+                "line": 33
+              },
+              {
+                "hits": 1,
+                "line": 34
+              },
+              {
+                "hits": 6,
+                "line": 35
+              },
+              {
+                "hits": 3,
+                "line": 36
+              },
+              {
+                "hits": 3,
+                "line": 37
+              },
+              {
+                "hits": 3,
+                "line": 38
+              },
+              {
+                "hits": 11,
+                "line": 39
+              },
+              {
+                "hits": 3,
+                "line": 40
+              },
+              {
+                "hits": 8,
+                "line": 41
+              },
+              {
+                "hits": 3,
+                "line": 42
+              },
+              {
+                "hits": 1,
+                "line": 44
+              },
+              {
+                "hits": 1,
+                "line": 47
+              },
+              {
+                "hits": 104,
+                "line": 48
+              },
+              {
+                "hits": 52,
+                "line": 49
+              },
+              {
+                "hits": 52,
+                "line": 50
+              },
+              {
+                "hits": 52,
+                "line": 51
+              },
+              {
+                "hits": 1,
+                "line": 53
+              },
+              {
+                "hits": 51,
+                "line": 54
+              },
+              {
+                "hits": 51,
+                "line": 55
+              },
+              {
+                "hits": 51,
+                "line": 56
+              },
+              {
+                "hits": 51,
+                "line": 57
+              },
+              {
+                "hits": 15,
+                "line": 58
+              },
+              {
+                "hits": 36,
+                "line": 59
+              },
+              {
+                "hits": 9,
+                "line": 60
+              },
+              {
+                "hits": 9,
+                "line": 61
+              },
+              {
+                "hits": 9,
+                "line": 62
+              },
+              {
+                "hits": 27,
+                "line": 63
+              },
+              {
+                "hits": 27,
+                "line": 64
+              },
+              {
+                "hits": 27,
+                "line": 65
+              },
+              {
+                "hits": 27,
+                "line": 66
+              },
+              {
+                "hits": 27,
+                "line": 67
+              },
+              {
+                "hits": 51,
+                "line": 68
+              },
+              {
+                "hits": 1,
+                "line": 70
+              },
+              {
+                "hits": 113,
+                "line": 71
+              },
+              {
+                "hits": 1,
+                "line": 73
+              },
+              {
+                "hits": 1,
+                "line": 76
+              },
+              {
+                "hits": 1,
+                "line": 77
+              },
+              {
+                "hits": 1,
+                "line": 78
+              },
+              {
+                "hits": 53,
+                "line": 80
+              },
+              {
+                "hits": 52,
+                "line": 81
+              },
+              {
+                "hits": 52,
+                "line": 82
+              },
+              {
+                "hits": 312,
+                "line": 85
+              },
+              {
+                "hits": 260,
+                "line": 86
+              },
+              {
+                "hits": 15,
+                "line": 87
+              },
+              {
+                "hits": 208,
+                "line": 89
+              },
+              {
+                "hits": 156,
+                "line": 90
+              },
+              {
+                "hits": 9,
+                "line": 91
+              },
+              {
+                "hits": 52,
+                "line": 93
+              },
+              {
+                "hits": 76,
+                "line": 94
+              },
+              {
+                "hits": 57,
+                "line": 95
+              },
+              {
+                "hits": 27,
+                "line": 96
+              },
+              {
+                "hits": 103,
+                "line": 98
+              },
+              {
+                "hits": 102,
+                "line": 99
+              },
+              {
+                "hits": 51,
+                "line": 100
+              },
+              {
+                "hits": 51,
+                "line": 102
+              },
+              {
+                "hits": 51,
+                "line": 103
+              },
+              {
+                "hits": 51,
+                "line": 105
+              },
+              {
+                "hits": 51,
+                "line": 106
+              },
+              {
+                "hits": 51,
+                "line": 108
+              },
+              {
+                "hits": 51,
+                "line": 109
+              },
+              {
+                "hits": 1,
+                "line": 111
+              }
+            ],
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "truncated": false
+          },
+          "version": "diagnostics-v0.1"
+        },
+        "elapsed_seconds": 0.057186,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.04162,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 3929
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "a8da64dd7b9f4efda4039599481300ae",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem1",
+        "validator": {
+          "elapsed_seconds": 0.004223,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "b38e9a4e738ee3c069596c3c4ce694c5a088fb0a2caf100401808a0771499a4f"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.049866,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.038438,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "26cc2d97365048f6ab96370f4725d752",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem2",
+        "validator": {
+          "elapsed_seconds": 0.003821,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "cd805e11966e0ece1830a4b857c00fe6b4a8154c9b3acbe2fafaa3eb3cf462cc"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.047472,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.036572,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "0262e0881fce45bb911cdb6a4bb0e6fa",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem3",
+        "validator": {
+          "elapsed_seconds": 0.003439,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "a75ddc26fc270b1e0bfaf13aefe447880a3ca1f883aab13f3465bb2c51fd5508"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.05341,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.041645,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "4467a9a6de0446229dceeae4fded18b7",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem4",
+        "validator": {
+          "elapsed_seconds": 0.004046,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "68c3cadef79535bd077459e2e6cc7cb570d6317966a9996c820554bafc1d3f80"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.053637,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.041353,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "0c74a5d8d2344c47af35c413945afff0",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem5",
+        "validator": {
+          "elapsed_seconds": 0.004246,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "c4e675b0674248b4efbff1c639d70bef3a5367fc292b580a077d2dfda7b0d9e0"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.047053,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.03633,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "02c5374d1b0c453b8ca13b70f758b07f",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem6",
+        "validator": {
+          "elapsed_seconds": 0.003514,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "f38ef3b9c6cd8612866b29d12e4a82096b7e246c170f377545453d8ac86440df"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.047924,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.036645,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "370b86913ddc4597a03a67767bd07ce9",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem7",
+        "validator": {
+          "elapsed_seconds": 0.003616,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 702,
+          "stdout_sha256": "a7d70a31b4be45f2ec2f109d49705e8aed0e08d924fdf313f6c5909a96c362ff"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.048492,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.037641,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "1ffbd5e5940b41e68faabd518df135f1",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem8",
+        "validator": {
+          "elapsed_seconds": 0.003938,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "5b3a1cde5519a3c4bea3d57a3ae042093dc6ef77beff2f27d73780db7c290362"
+        }
+      },
+      {
+        "candidate_hash": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "candidate_id": "planning-001",
+        "elapsed_seconds": 0.049661,
+        "error_kind": "plan_semantics",
+        "executions": [
+          {
+            "elapsed_seconds": 0.037548,
+            "phase": "plan",
+            "status": "completed",
+            "stderr_bytes": 0,
+            "stdout_bytes": 26
+          }
+        ],
+        "family": "planning",
+        "feedback_role": "development_only",
+        "limits": {
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000,
+          "memory_mb": 2048,
+          "timeout_seconds": 20
+        },
+        "model_calls": 0,
+        "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "plan_length": 0,
+        "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+        "run_id": "556e9628a6ca4b83b3416bdb6f92925d",
+        "schema_version": "0.1",
+        "sealed_tasks_executed": 0,
+        "status": "task_failure",
+        "strategy_version": "decision-replay-v0.1",
+        "task_id": "spannerlearning/seed0/problem9",
+        "validator": {
+          "elapsed_seconds": 0.003639,
+          "plan_length": 0,
+          "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "reason": "semantic_failure_marker",
+          "returncode": 1,
+          "status": "invalid",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 663,
+          "stdout_sha256": "30f04a22cdf7b01e4b61b706748909c65532201b5a663e477cf90cdfe56d3b66"
+        }
+      }
+    ],
+    "evaluation_files": [
+      "evaluations/evaluation-00.json",
+      "evaluations/evaluation-01.json",
+      "evaluations/evaluation-02.json",
+      "evaluations/evaluation-03.json",
+      "evaluations/evaluation-04.json",
+      "evaluations/evaluation-05.json",
+      "evaluations/evaluation-06.json",
+      "evaluations/evaluation-07.json",
+      "evaluations/evaluation-08.json",
+      "evaluations/evaluation-09.json"
+    ],
+    "status": "evaluated",
+    "edit": {
+      "kind": "other_change",
+      "source_changed": true,
+      "parameter_delta": 0,
+      "semantic_equivalence_proven": false
+    },
+    "score": {
+      "complete": true,
+      "family": "planning",
+      "acceptable_simplification": null,
+      "achieved_improvement": false,
+      "development_successes": 0,
+      "development_total": 8,
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "total_successes": 0,
+      "total_tasks": 10,
+      "baseline_development_successes": 0,
+      "baseline_prompt_successes": 0,
+      "development_delta": 0,
+      "prompt_delta": 0,
+      "meaningful_improvement": false,
+      "degraded": false,
+      "parameter_increase_without_meaningful_gain": null,
+      "numerical_improvement": false,
+      "numerical_degradation": false
+    },
+    "forecast": {
+      "status": "evaluated",
+      "metric": "development_successes",
+      "predicted": 0,
+      "observed": 0,
+      "absolute_error": 0
+    }
+  },
+  "halted": false,
+  "infrastructure_error_type": null,
+  "counts": {
+    "candidate_evaluations": 10,
+    "sandbox_calls": 10,
+    "counts_complete": true
+  },
+  "generated_candidates": 1,
+  "model_calls_owned": 0,
+  "sealed_tasks_executed": 0
+}

@@ -5,9 +5,11 @@
 **技术：**Python标准库、OpenHands SDK 1.55.1、MiniMax-M3、原任务运行时。
 **协议：**[冻结协议](../protocols/2026-10-21-decision-replay-v0.1.md)。已有继续实现和API/Git同步授权。
 
-1. [ ] `rsi_eval/decision_cases.py`与测试：加载四个原校准案例及其真实检查，哈希校验后投影；不含旧计划编辑或父源码。
-2. [ ] `rsi_eval/decision_core.py`、`decision_agent.py`与测试：共同提示、原样合法、实用阈值和源码提交；空响应、边界、异常、SDK dispatch和真实请求封装验证。
-3. [ ] `scripts/run_decision_replay.py`、`analyze_decision_replay.py`与测试：16固定槽位、来源/代码/输入冻结、预算、完整请求配对和只读审计；验证篡改拒绝。
-4. [ ] 离线prepare、服务器测试和独立复核；提交并同步干净运行版本，才启动新轮。
-5. [ ] 完整记录所有预定槽位或停止原因，下载/逐字节归档/审计；不能补样。
-6. [ ] 用中文结合文件解释正负结果与研究边界，更新项目及上级摘要，提交推送并核验三处一致。
+1. [x] `rsi_eval/decision_cases.py`与测试：加载四个原校准案例及其真实检查，哈希校验后投影；不含旧计划编辑或父源码。
+2. [x] `rsi_eval/decision_core.py`、`decision_agent.py`与测试：共同提示、原样合法、实用阈值和源码提交；空响应、边界、异常、SDK dispatch和真实请求封装验证。
+3. [x] `scripts/run_decision_replay.py`、`analyze_decision_replay.py`与测试：16固定槽位、来源/代码/输入冻结、预算、完整请求配对和只读审计；验证篡改拒绝。
+4. [x] 离线prepare、服务器测试和独立复核；提交并同步干净运行版本，才启动新轮。
+5. [x] 完整记录所有预定槽位或停止原因，下载/逐字节归档/审计；不能补样。
+6. [x] 用中文结合文件解释正负结果与研究边界，更新项目及上级摘要，提交推送并核验三处一致。
+
+实际16请求、16候选、88任务评价；未补样。服务器759项不同测试通过。结果及同步凭据分别见结果报告与父工作区docs_文档。

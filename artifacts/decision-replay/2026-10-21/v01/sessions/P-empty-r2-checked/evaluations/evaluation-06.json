@@ -1,0 +1,45 @@
+{
+  "candidate_hash": "240307d3f26f42655e6f633fab8927f413a21c1a02ad6864e280cf9a15d22c04",
+  "candidate_id": "planning-001",
+  "elapsed_seconds": 0.050549,
+  "error_kind": "plan_semantics",
+  "executions": [
+    {
+      "elapsed_seconds": 0.038551,
+      "phase": "plan",
+      "status": "completed",
+      "stderr_bytes": 0,
+      "stdout_bytes": 26
+    }
+  ],
+  "family": "planning",
+  "feedback_role": "development_only",
+  "limits": {
+    "cpu_seconds": 10,
+    "max_output_bytes": 2000000,
+    "memory_mb": 2048,
+    "timeout_seconds": 20
+  },
+  "model_calls": 0,
+  "parent_id": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+  "plan_length": 0,
+  "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+  "run_id": "540f95837ebe429b8e1047fe7b1f3b0c",
+  "schema_version": "0.1",
+  "sealed_tasks_executed": 0,
+  "status": "task_failure",
+  "strategy_version": "decision-replay-v0.1",
+  "task_id": "spannerlearning/seed0/problem6",
+  "validator": {
+    "elapsed_seconds": 0.003806,
+    "plan_length": 0,
+    "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reason": "semantic_failure_marker",
+    "returncode": 1,
+    "status": "invalid",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 663,
+    "stdout_sha256": "96155e1ad5acf0ece1692b164944b271eff901309bf0166033c783f011611393"
+  }
+}

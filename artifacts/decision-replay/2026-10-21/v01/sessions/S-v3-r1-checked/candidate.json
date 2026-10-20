@@ -1,0 +1,228 @@
+{
+  "candidate_id": "symbolic-001",
+  "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+  "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+  "n_params": 6,
+  "rationale": "Decision: keep the starting artifact unchanged.\n\nThe archived probe (removal of param5, i.e. the c6*v^3 term) returned delta_nmse = +1.51e-3, verdict \"supported\": removing that term significantly worsens train NMSE. This is evidence that the sixth term is useful and should not be deleted — but per the decision contract it provides no argument for adding yet another term. The packet supplies no candidate structural edit (no registered planned edit, no proposed alternative basis term), so I have no evidence-backed basis for any specific addition to this expression. Inventing a seventh term (e.g. x^2*v, v^4, or x^6) would be an unverified speculation whose gain is unknown and would add an independent parameter that the recorded simplification criterion penalizes without demonstrated benefit.\n\nThe existing artifact already contains one added term beyond the 5-term parent, and the probe demonstrates that term earns its place by a margin far exceeding epsilon=1e-5. Its historical train NMSE (0.09225) reflects only variance-limited residual on train, not any claim about held-out or physical behavior.\n\nUncertainty: the probe was a removal test only, so I cannot confirm whether a different additional shape would improve NMSE by more than 1e-5; the honest statement is that I lack the evidence to justify a change. Submission below is byte-identical to the given source, with n_params=6. I make no claim about this candidate's evaluation outcome.",
+  "auxiliary": {
+    "decision": "keep",
+    "edit_made": false,
+    "forecast": {
+      "nmse": 0.09224903410100932
+    },
+    "probe_interpretation": "Removal of param5 (c6*v^3) increased oscillator1 train NMSE by 1.513e-3 (> epsilon=1e-5), supporting that the sixth term is useful. This justifies not deleting it but does not support adding any new term.",
+    "rationale_for_forecast": "Unverified expectation only: resubmitting the identical source should reproduce the historical train NMSE under the same fit protocol. This is not a held-out or improvement claim.",
+    "uncertainty": "No evidence-backed alternative structure was supplied; any proposed addition would be speculative. No claim of improvement or generalization is made."
+  },
+  "source_file": "candidate.py",
+  "results": [
+    {
+      "candidate_hash": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "candidate_id": "symbolic-001",
+      "diagnostics": {
+        "candidate_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "residuals": {
+          "bias": 0.0005639422257550756,
+          "binning_method": "linear_quantile",
+          "inputs": [
+            {
+              "bins": [
+                {
+                  "count": 2500,
+                  "lower": -0.5728219032885896,
+                  "mean_residual": -0.00010075549392167965,
+                  "rmse": 0.014068987506896398,
+                  "upper": -0.46038220456877554,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.46038220456877554,
+                  "mean_residual": 0.0023055852889629835,
+                  "rmse": 0.021302196439631594,
+                  "upper": -0.22761842703089324,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.22761842703089324,
+                  "mean_residual": -0.001244520940597262,
+                  "rmse": 0.01710364227334989,
+                  "upper": 0.28635886598470794,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": 0.28635886598470794,
+                  "mean_residual": 0.0012954600485762604,
+                  "rmse": 0.025802468018268614,
+                  "upper": 0.5275126203368584,
+                  "upper_inclusive": true
+                }
+              ],
+              "boundaries": [
+                -0.5728219032885896,
+                -0.46038220456877554,
+                -0.22761842703089324,
+                0.28635886598470794,
+                0.5275126203368584
+              ],
+              "name": "x"
+            },
+            {
+              "bins": [
+                {
+                  "count": 2500,
+                  "lower": -0.17542969970098574,
+                  "mean_residual": -0.0009246785624518135,
+                  "rmse": 0.015511890004455398,
+                  "upper": -0.13719210123484957,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.13719210123484957,
+                  "mean_residual": 0.0025958348830276293,
+                  "rmse": 0.019024272190527772,
+                  "upper": -0.04814716714891003,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": -0.04814716714891003,
+                  "mean_residual": -0.000591271229214222,
+                  "rmse": 0.01120289431233866,
+                  "upper": 0.09524424826668271,
+                  "upper_inclusive": false
+                },
+                {
+                  "count": 2500,
+                  "lower": 0.09524424826668271,
+                  "mean_residual": 0.0011758838116587083,
+                  "rmse": 0.02969807085666196,
+                  "upper": 0.282136353640072,
+                  "upper_inclusive": true
+                }
+              ],
+              "boundaries": [
+                -0.17542969970098574,
+                -0.13719210123484957,
+                -0.04814716714891003,
+                0.09524424826668271,
+                0.282136353640072
+              ],
+              "name": "v"
+            }
+          ],
+          "n": 10000,
+          "residual_definition": "prediction - target",
+          "rmse": 0.02006253920538447,
+          "scope": "train",
+          "standardized_bias": 0.00853747862567713,
+          "standardized_bias_definition": "bias / population_std(target)",
+          "standardized_bias_reason": null,
+          "status": "ok"
+        },
+        "scope": "train",
+        "task_id": "oscillator1",
+        "version": "diagnostics-v0.1"
+      },
+      "elapsed_seconds": 0.544797,
+      "executions": [
+        {
+          "elapsed_seconds": 0.223977,
+          "phase": "fit",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 199
+        },
+        {
+          "elapsed_seconds": 0.215787,
+          "phase": "predict",
+          "status": "completed",
+          "stderr_bytes": 0,
+          "stdout_bytes": 205137
+        }
+      ],
+      "family": "symbolic",
+      "feedback_role": "development_only",
+      "fitting": {
+        "candidate_calls": 22,
+        "converged": true,
+        "max_nfev": 100,
+        "n_params": 6,
+        "nfev": 3,
+        "params": [
+          -0.1889737534984609,
+          0.051999724279486376,
+          0.1302351139835668,
+          0.03815854563408658,
+          -0.0450471228219963,
+          -1.2337184211451242
+        ],
+        "split": "train"
+      },
+      "limits": {
+        "cpu_seconds": 10,
+        "max_output_bytes": 2000000,
+        "memory_mb": 2048,
+        "timeout_seconds": 20
+      },
+      "metric_scope": "Training fit only; not a held-out or generalization result.",
+      "metric_split": "train",
+      "metrics": {
+        "mse": 0.00040250547936758897,
+        "nmse": 0.09224903410100932
+      },
+      "model_calls": 0,
+      "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "run_id": "9845a48f13dd43358ee0279b12b33b5b",
+      "schema_version": "0.1",
+      "sealed_tasks_executed": 0,
+      "status": "success",
+      "strategy_version": "decision-replay-v0.1",
+      "task_id": "oscillator1"
+    }
+  ],
+  "evaluation_files": [
+    "evaluations/evaluation-00.json"
+  ],
+  "status": "evaluated",
+  "edit": {
+    "kind": "unchanged",
+    "source_changed": false,
+    "parameter_delta": 0,
+    "semantic_equivalence_proven": false
+  },
+  "score": {
+    "complete": true,
+    "family": "symbolic",
+    "acceptable_simplification": false,
+    "achieved_improvement": false,
+    "metric_split": "train",
+    "nmse": 0.09224903410100932,
+    "baseline_nmse": 0.09224903410100932,
+    "delta_nmse": 0.0,
+    "n_params": 6,
+    "baseline_n_params": 6,
+    "parameter_delta": 0,
+    "epsilon": 1e-05,
+    "tolerance": 1e-10,
+    "meaningful_improvement": false,
+    "degraded": false,
+    "parameter_increase_without_meaningful_gain": false,
+    "numerical_improvement": false,
+    "numerical_degradation": false,
+    "minimum_meaningful_gain": 1e-05,
+    "maximum_simplification_loss": 1e-05,
+    "degradation_threshold": 1e-05,
+    "complexity_proxy": "independent_parameter_count_only"
+  },
+  "forecast": {
+    "status": "evaluated",
+    "metric": "nmse",
+    "predicted": 0.09224903410100932,
+    "observed": 0.09224903410100932,
+    "absolute_error": 0.0
+  }
+}
