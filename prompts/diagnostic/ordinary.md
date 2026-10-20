@@ -1,0 +1,5 @@
+Read the current selected candidate and the measured development feedback. Choose one coherent revision that could improve its result while preserving behavior already known to work. Submit the complete source with a brief rationale and the correct number of symbolic parameters. A rationale is an explanation or hypothesis, not a replacement for measured results.
+
+Wait for the returned evaluation before making another revision. Use the selected incumbent source in the feedback as the next starting point; the controller keeps the best development score and retains the earlier candidate on exact ties. You may inspect the history of rejected candidates, but do not silently treat a rejected candidate as the selected parent.
+
+There are at most three generated candidates and four model requests, including any finish response. Submit one candidate per response. Finish early if the planning batch is solved. Report observed development results and remaining uncertainty; do not claim generalization or an improved strategy from this single session.

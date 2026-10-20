@@ -113,6 +113,14 @@ class PilotController:
         _write(self.output_dir / 'rejections.json', self.rejections)
         return entry
 
+    def _evaluate_task(self, task_id, source, n_params, candidate_id, parent):
+        return evaluate_candidate(self.family, task_id, source, root=self.root,
+            n_params=n_params, candidate_id=candidate_id, parent_id=parent,
+            strategy_version=self.strategy_version)
+
+    def _visible_feedback(self, raw, task_id):
+        return _feedback(raw, task_id)
+
     def _evaluate(self, source, n_params, rationale, initial=False):
         index = len(self.records)
         candidate_id = f'{self.family}-{index:03d}'
@@ -130,13 +138,11 @@ class PilotController:
         _write(self.output_dir / 'candidates.json', self.records)
         for task_id in self.task_ids:
             try:
-                raw = evaluate_candidate(self.family, task_id, source, root=self.root,
-                    n_params=n_params, candidate_id=candidate_id, parent_id=parent,
-                    strategy_version=self.strategy_version)
+                raw = self._evaluate_task(task_id, source, n_params, candidate_id, parent)
             except Exception as exc:
                 raw = {'status': 'infrastructure_error', 'error_kind': 'controller_exception',
                        'exception_type': type(exc).__name__}
-            feedback = _feedback(raw, task_id)
+            feedback = self._visible_feedback(raw, task_id)
             record['results'].append(feedback)
             _write(self.output_dir / 'candidates.json', self.records)
             if feedback['status'] in ('infrastructure_error', 'invalid_request'):

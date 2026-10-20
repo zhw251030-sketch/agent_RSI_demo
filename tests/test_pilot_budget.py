@@ -28,6 +28,109 @@ class PilotBudgetTests(unittest.TestCase):
             other.reserve('planning', {}, 10)
         self.assertEqual(other.summary()['request_count'], 4)
 
+    def test_six_explicit_sessions_share_24_request_budget_and_individual_caps(self):
+        sessions = ['planning_A', 'symbolic_C', 'planning_B',
+                    'symbolic_A', 'planning_C', 'symbolic_B']
+        ledger = BudgetLedger(self.path, session_ids=sessions, max_requests=24)
+        for session in sessions:
+            for _ in range(4):
+                ledger.reserve(session, {}, 10)
+            with self.assertRaises(BudgetExceeded):
+                ledger.reserve(session, {}, 10)
+        summary = ledger.summary()
+        self.assertEqual(summary['request_count'], 24)
+        self.assertEqual(summary['session_counts'], {
+            'planning_A': 4, 'symbolic_C': 4, 'planning_B': 4,
+            'symbolic_A': 4, 'planning_C': 4, 'symbolic_B': 4,
+        })
+        self.assertEqual(summary['reserved_tokens'], 196896)
+        self.assertAlmostEqual(summary['reserved_cost_cny'], 0.4149936)
+
+        shared = BudgetLedger(Path(self.temp.name) / 'shared.json',
+                              session_ids=sessions, max_requests=2)
+        shared.reserve('planning_A', {}, 10)
+        shared.reserve('symbolic_C', {}, 10)
+        with self.assertRaises(BudgetExceeded):
+            shared.reserve('planning_B', {}, 10)
+        self.assertEqual(shared.summary()['request_count'], 2)
+
+    def test_custom_session_allowlist_rejects_unknown_sessions_without_mutation(self):
+        sessions = ['planning_A', 'symbolic_C']
+        ledger = BudgetLedger(self.path, session_ids=sessions)
+        original = self.path.read_bytes()
+        sessions.append('new_session')
+        for session in ('planning', 'symbolic', 'new_session', 'planning_B', True):
+            with self.subTest(session=session):
+                with self.assertRaises(ValueError):
+                    ledger.reserve(session, {}, 10)
+        self.assertEqual(self.path.read_bytes(), original)
+        self.assertEqual(ledger.summary()['session_counts'], {
+            'planning_A': 0, 'symbolic_C': 0,
+        })
+
+    def test_invalid_session_allowlists_are_rejected_before_creating_a_ledger(self):
+        invalid_lists = [
+            [], ['planning_A', 'planning_A'], True, False, 'planning_A',
+            ('planning_A',), {'planning_A'}, {'session': 'planning_A'},
+            [True], [1], [None], [''], ['1planning'], ['planning A'],
+            ['planning/A'], ['planning.A'], ['planning\n'], ['规划'],
+            ['A' * 65], [f'session_{index}' for index in range(17)],
+        ]
+        for sessions in invalid_lists:
+            with self.subTest(sessions=sessions):
+                with self.assertRaises(ValueError):
+                    BudgetLedger(self.path, session_ids=sessions)
+                self.assertFalse(self.path.exists())
+
+    def test_session_allowlist_accepts_boundary_lengths_and_ascii_identifiers(self):
+        sessions = ['A', 'Z' * 64, 'a_0-Z'] + [f'session_{index}' for index in range(13)]
+        ledger = BudgetLedger(self.path, session_ids=sessions, max_requests=16)
+        for session in sessions:
+            ledger.reserve(session, {}, 10)
+        self.assertEqual(ledger.summary()['request_count'], 16)
+        self.assertEqual(ledger.summary()['session_counts']['Z' * 64], 1)
+
+    def test_custom_session_allowlist_is_persisted_and_reopen_must_match(self):
+        sessions = ['planning_A', 'symbolic_C']
+        ledger = BudgetLedger(self.path, session_ids=sessions)
+        request_id = ledger.reserve('planning_A', {}, 10)
+        ledger.settle(request_id, {'prompt_tokens': 2, 'completion_tokens': 3,
+                                   'total_tokens': 5})
+        state = json.loads(self.path.read_text(encoding='utf-8'))
+        self.assertEqual(state['config']['session_ids'], sessions)
+        reopened = BudgetLedger(self.path, session_ids=list(sessions))
+        self.assertEqual(reopened.summary()['actual_tokens'], 5)
+        for different in (None, ['planning_A'], ['planning_A', 'symbolic_B'],
+                          ['symbolic_C', 'planning_A']):
+            with self.subTest(sessions=different):
+                with self.assertRaises(ValueError):
+                    BudgetLedger(self.path, session_ids=different)
+        self.assertEqual(reopened.summary()['request_count'], 1)
+
+    def test_legacy_ledger_config_reopens_without_a_session_ids_field(self):
+        legacy_config = {
+            'max_requests': 8, 'max_requests_per_session': 4,
+            'max_output_tokens': 4096, 'max_input_bytes': 98304,
+            'max_reserved_tokens': 800000, 'max_cost_cny': 5.0,
+            'input_cny_per_million': 2.1, 'output_cny_per_million': 8.4,
+        }
+        self.path.write_text(json.dumps({
+            'version': 1, 'config': legacy_config, 'requests': [],
+            'halted': False, 'halt_reasons': [],
+        }), encoding='utf-8')
+        original = self.path.read_bytes()
+        ledger = BudgetLedger(self.path)
+        self.assertEqual(self.path.read_bytes(), original)
+        self.assertEqual(ledger.summary()['config'], legacy_config)
+        ledger.reserve('planning', {}, 10)
+        reopened = BudgetLedger(self.path, session_ids=None)
+        reopened.reserve('symbolic', {}, 10)
+        self.assertEqual(reopened.summary()['session_counts'], {'planning': 1, 'symbolic': 1})
+        self.assertEqual(json.loads(self.path.read_text(encoding='utf-8'))['config'],
+                         legacy_config)
+        with self.assertRaises(ValueError):
+            BudgetLedger(self.path, session_ids=['planning', 'symbolic'])
+
     def test_failed_or_unknown_call_keeps_reservation_and_is_not_zero_usage(self):
         ledger = BudgetLedger(self.path, max_requests=1)
         request_id = ledger.reserve('planning', {}, 10)

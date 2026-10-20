@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1",
+  "purpose": "Exploratory diagnostic-information versus evidence-aware fixed-prompt comparison; no final method ranking or strategy self-update.",
+  "base_config": "configs/pilots/development-v0.1.json",
+  "diagnostics_version": "diagnostics-v0.1",
+  "protocol": "docs/protocols/2026-10-20-diagnostic-comparison.md",
+  "policy_files": {
+    "A": "prompts/diagnostic/ordinary.md",
+    "B": "prompts/diagnostic/ordinary.md",
+    "C": "prompts/diagnostic/evidence.md"
+  },
+  "order": [
+    {"family": "planning", "arm": "A", "session_id": "planning_A"},
+    {"family": "symbolic", "arm": "C", "session_id": "symbolic_C"},
+    {"family": "planning", "arm": "B", "session_id": "planning_B"},
+    {"family": "symbolic", "arm": "A", "session_id": "symbolic_A"},
+    {"family": "planning", "arm": "C", "session_id": "planning_C"},
+    {"family": "symbolic", "arm": "B", "session_id": "symbolic_B"}
+  ],
+  "budgets": {
+    "max_requests": 24,
+    "max_requests_per_session": 4,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 3000000,
+    "max_cost_cny": 10.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  },
+  "data_scope": "Previously used development tasks only; planning prompt diagnostics, oscillator1 train residuals; no sealed evaluation.",
+  "claims": {
+    "strategy_updates_enabled": false,
+    "automatic_causal_verification": false,
+    "independent_method_repetitions": 0,
+    "sessions_per_arm_per_family": 1
+  }
+}

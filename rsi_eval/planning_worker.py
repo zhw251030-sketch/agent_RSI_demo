@@ -1,4 +1,5 @@
 """Candidate-side planning worker; invoke only inside the controller sandbox."""
+from .planning_trace import CandidateTrace
 
 
 def prepare_runtime():
@@ -12,25 +13,34 @@ def run(source, request):
     it with untrusted source outside the sandbox bootstrap. It returns no score.
     """
     scope = {"__name__": "candidate"}
+    trace = CandidateTrace() if request.get('diagnostic_trace') is True else None
+
+    def with_trace(result):
+        if trace is not None:
+            result['diagnostic_trace'] = trace.snapshot()
+        return result
     try:
         exec(compile(source, "candidate.py", "exec"), scope)
         function = scope.get("get_plan")
         if not callable(function):
             return {"status": "candidate_error", "error_kind": "missing_get_plan"}
-        plan = function(
-            {tuple(pair) for pair in request["objects"]},
-            {tuple(atom) for atom in request["init"]},
-            {tuple(atom) for atom in request["goal"]},
-        )
+        arguments = [{tuple(pair) for pair in request['objects']},
+                     {tuple(atom) for atom in request['init']},
+                     {tuple(atom) for atom in request['goal']}]
+        if trace is None:
+            plan = function(*arguments)
+        else:
+            with trace:
+                plan = function(*arguments)
         # Preserve bounded, JSON-safe malformed output for trusted host checks.
         # Never serialize custom objects: their repr/properties may execute code.
         if type(plan) is not list:
-            return {"status": "ok", "plan": None}
+            return with_trace({"status": "ok", "plan": None})
         if len(plan) > 1000:
-            return {"status": "candidate_error", "error_kind": "plan_too_long"}
+            return with_trace({"status": "candidate_error", "error_kind": "plan_too_long"})
         if any(type(action) is not str or len(action) > 4096 for action in plan):
-            return {"status": "candidate_error", "error_kind": "invalid_plan_items"}
-        return {"status": "ok", "plan": plan}
+            return with_trace({"status": "candidate_error", "error_kind": "invalid_plan_items"})
+        return with_trace({"status": "ok", "plan": plan})
     except MemoryError:
         # The outer bootstrap owns resource-limit classification.
         raise
@@ -41,5 +51,5 @@ def run(source, request):
             if traceback.tb_frame.f_code.co_filename == "candidate.py":
                 candidate_line = traceback.tb_lineno
             traceback = traceback.tb_next
-        return {"status": "candidate_error", "error_kind": "python_exception",
-                "exception_type": type(exc).__name__, "candidate_line": candidate_line}
+        return with_trace({"status": "candidate_error", "error_kind": "python_exception",
+                           "exception_type": type(exc).__name__, "candidate_line": candidate_line})

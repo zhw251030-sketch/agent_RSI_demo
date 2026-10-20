@@ -32,7 +32,8 @@ class BudgetLedger:
     def __init__(self, path, *, max_requests=8, max_requests_per_session=4,
                  max_output_tokens=4096, max_input_bytes=98304,
                  max_reserved_tokens=800000, max_cost_cny=5,
-                 input_cny_per_million=2.1, output_cny_per_million=8.4):
+                 input_cny_per_million=2.1, output_cny_per_million=8.4,
+                 session_ids=None):
         self.path = Path(path).resolve()
         self.config = {
             'max_requests': max_requests,
@@ -49,6 +50,17 @@ class BudgetLedger:
             if type(value) not in (int, float) or not math.isfinite(value) or value <= 0:
                 raise ValueError('cost limits and prices must be finite and positive')
             self.config[key] = float(value)
+        self.session_ids = ('planning', 'symbolic')
+        if session_ids is not None:
+            if (not isinstance(session_ids, list) or not 1 <= len(session_ids) <= 16
+                    or any(not isinstance(s, str)
+                           or re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,63}', s) is None
+                           for s in session_ids)
+                    or len(set(session_ids)) != len(session_ids)):
+                raise ValueError('session_ids must be a list of 1 to 16 unique ASCII identifiers')
+            self.session_ids = tuple(session_ids)
+            # Omit this field for the legacy default so existing ledgers reopen.
+            self.config['session_ids'] = list(self.session_ids)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self._locked():
             if self.path.exists():
@@ -108,8 +120,8 @@ class BudgetLedger:
                 + Decimal(output_tokens) * Decimal(str(self.config['output_cny_per_million']))) / 1000000
 
     def reserve(self, session_id, request_payload, output_tokens):
-        if session_id not in ('planning', 'symbolic'):
-            raise ValueError('session_id must be planning or symbolic')
+        if session_id not in self.session_ids:
+            raise ValueError('session_id must be in the configured session allowlist')
         if type(output_tokens) is not int or output_tokens <= 0:
             raise ValueError('output_tokens must be a positive integer')
         if output_tokens > self.config['max_output_tokens']:
@@ -232,7 +244,7 @@ class BudgetLedger:
         return {
             'config': dict(self.config), 'request_count': len(requests),
             'session_counts': {s: sum(r['session_id'] == s for r in requests)
-                               for s in ('planning', 'symbolic')},
+                               for s in self.session_ids},
             'reserved_count': sum(r['status'] == 'reserved' for r in requests),
             'failed_count': sum(r['status'] == 'failed' for r in requests),
             'reserved_input_tokens': input_reserved,
