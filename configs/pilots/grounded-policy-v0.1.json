@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.1",
+  "base_config": "configs/pilots/development-v0.1.json",
+  "protocol": "docs/protocols/2026-10-20-grounded-policy-v0.1.md",
+  "policy_file": "prompts/policy-transfer/actor.md",
+  "update_order": [
+    {
+      "pair_id": "p1",
+      "condition": "proposal",
+      "session_id": "p1-proposal"
+    },
+    {
+      "pair_id": "p1",
+      "condition": "self",
+      "session_id": "p1-self"
+    },
+    {
+      "pair_id": "p1",
+      "condition": "checked",
+      "session_id": "p1-checked"
+    },
+    {
+      "pair_id": "p2",
+      "condition": "proposal",
+      "session_id": "p2-proposal"
+    },
+    {
+      "pair_id": "p2",
+      "condition": "checked",
+      "session_id": "p2-checked"
+    },
+    {
+      "pair_id": "p2",
+      "condition": "self",
+      "session_id": "p2-self"
+    }
+  ],
+  "evaluation_order": [
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-P-A002",
+      "state_id": "P-A002",
+      "condition": "self",
+      "family": "planning",
+      "session_id": "p1-P-A002-self"
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-S-poly5",
+      "state_id": "S-poly5",
+      "condition": "checked",
+      "family": "symbolic",
+      "session_id": "p1-S-poly5-checked"
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-P-A002",
+      "state_id": "P-A002",
+      "condition": "checked",
+      "family": "planning",
+      "session_id": "p1-P-A002-checked"
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-S-poly5",
+      "state_id": "S-poly5",
+      "condition": "self",
+      "family": "symbolic",
+      "session_id": "p1-S-poly5-self"
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-S-odd4",
+      "state_id": "S-odd4",
+      "condition": "self",
+      "family": "symbolic",
+      "session_id": "p2-S-odd4-self"
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-P-B002",
+      "state_id": "P-B002",
+      "condition": "checked",
+      "family": "planning",
+      "session_id": "p2-P-B002-checked"
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-S-odd4",
+      "state_id": "S-odd4",
+      "condition": "checked",
+      "family": "symbolic",
+      "session_id": "p2-S-odd4-checked"
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-P-B002",
+      "state_id": "P-B002",
+      "condition": "self",
+      "family": "planning",
+      "session_id": "p2-P-B002-self"
+    }
+  ],
+  "max_iterations": 1,
+  "max_generated_candidates": 1,
+  "automatic_recovery": false,
+  "baseline_reexecution": false,
+  "checks_gate_execution": false,
+  "checks_change_selection": false,
+  "missing_candidate_score": null,
+  "budgets": {
+    "max_requests": 14,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 1900000,
+    "max_cost_cny": 5,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  }
+}
