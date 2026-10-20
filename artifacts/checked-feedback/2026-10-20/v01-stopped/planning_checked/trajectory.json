@@ -1,0 +1,239 @@
+[
+  {
+    "candidate_id": "planning-000",
+    "parent_id": null,
+    "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+    "origin": "hand_authored_initial",
+    "n_params": 0,
+    "rationale": "Fixed weak starting candidate.",
+    "strategy_version": "checked-feedback-v0.1",
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "3a496aa56ca041beb2a4587cbe36ebe2",
+        "plan_length": 0,
+        "diagnostics": {
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 0,
+            "status": "goal_unsatisfied",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          },
+          "scope": "public_prompt",
+          "task_id": "spannerlearning/seed0/problem0",
+          "trace": {
+            "event_limit": 20000,
+            "events_seen": 3,
+            "functions": [
+              {
+                "call_events": 1,
+                "container_length_max": 0,
+                "container_length_min": 0,
+                "exception_events": 0,
+                "first_line": 4,
+                "name": "get_plan",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "list": 1
+                }
+              }
+            ],
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "interrupted": false,
+            "lines": [
+              {
+                "hits": 1,
+                "line": 5
+              }
+            ],
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "truncated": false
+          },
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "spannerlearning/seed0/problem0:plan_replay",
+            "spannerlearning/seed0/problem0:trace"
+          ]
+        }
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "76a8d609594245d5b15bc38f6ebd09cc",
+        "plan_length": 0,
+        "diagnostics": {
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "plan_replay": {
+            "error_kind": null,
+            "executed_actions": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "plan_length": 0,
+            "status": "goal_unsatisfied",
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          },
+          "scope": "public_prompt",
+          "task_id": "spannerlearning/seed0/problem1",
+          "trace": {
+            "event_limit": 20000,
+            "events_seen": 3,
+            "functions": [
+              {
+                "call_events": 1,
+                "container_length_max": 0,
+                "container_length_min": 0,
+                "exception_events": 0,
+                "first_line": 4,
+                "name": "get_plan",
+                "none_return_events": 0,
+                "return_events": 1,
+                "return_types": {
+                  "list": 1
+                }
+              }
+            ],
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "interrupted": false,
+            "lines": [
+              {
+                "hits": 1,
+                "line": 5
+              }
+            ],
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "truncated": false
+          },
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "spannerlearning/seed0/problem1:plan_replay",
+            "spannerlearning/seed0/problem1:trace"
+          ]
+        }
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "c7b22543877e49ce9abb53599b7fb235",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "6c8af9f636f34effa865e5d67359b947",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "5939861b860a44728d097a207e6c02a1",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "aa98427018624e62a80c2103576eb0bd",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "819951d905714f99b5c50490ff39868e",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "d799d832b9d54d52850d8c7738e9d625",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "a15bb658591846ac9159387182c25934",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "b2519f6b15614b8c85bba431eb2eab8e",
+        "plan_length": 0
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 3,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  }
+]

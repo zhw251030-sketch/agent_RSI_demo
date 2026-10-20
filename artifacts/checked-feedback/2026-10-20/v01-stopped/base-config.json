@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "pilot_id": "development-v0.1",
+  "protocol": "docs/protocols/2026-10-20-agent-pilot.md",
+  "purpose": "Bounded development-only Agent wiring and feedback-revision pilot; no held-out or RSI mechanism claim.",
+  "strategy_version": "fixed-revision-v0.1",
+  "strategy_updates_enabled": false,
+  "model_configuration": "configs/models/minimax-m3.json",
+  "tool_name": "submit_candidate",
+  "sessions_independent": true,
+  "sessions": [
+    {
+      "session_id": "planning",
+      "family": "planning",
+      "source_manifest": "configs/tasks/planning-spanner-v0.1.json",
+      "prompt_task_ids": [
+        "spannerlearning/seed0/problem0",
+        "spannerlearning/seed0/problem1"
+      ],
+      "development_task_ids": [
+        "spannerlearning/seed0/problem2",
+        "spannerlearning/seed0/problem3",
+        "spannerlearning/seed0/problem4",
+        "spannerlearning/seed0/problem5",
+        "spannerlearning/seed0/problem6",
+        "spannerlearning/seed0/problem7",
+        "spannerlearning/seed0/problem8",
+        "spannerlearning/seed0/problem9"
+      ],
+      "prompt_input_policy": "Trusted runner calls prepare_task for the two prompt IDs only and appends their sorted JSON TaskViews; no development-instance contents are appended to the model prompt.",
+      "evaluation_policy": "Evaluate the initial artifact and each submitted candidate on all two prompt and eight development tasks in this fixed order, using the same candidate source.",
+      "selection_rule": "Maximize development successes, then prompt successes; exact ties retain the earlier candidate, including the initial artifact. Candidates with infrastructure errors are not assigned a valid selection score.",
+      "early_finish_policy": "The Agent may finish earlier; all ten successes is a natural stopping point. No additional hidden evaluation follows.",
+      "prompt_file": "prompts/pilot/planning.md",
+      "initial_candidate": "fixtures/planning/empty_plan.py",
+      "initial_candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+      "initial_n_params": 0,
+      "initial_candidate_role": "Deliberately unsuccessful fixed starting artifact, not a strategy or reference solution.",
+      "strategy_version": "fixed-revision-v0.1",
+      "max_generated_candidates": 3,
+      "task_ids": [
+        "spannerlearning/seed0/problem0",
+        "spannerlearning/seed0/problem1",
+        "spannerlearning/seed0/problem2",
+        "spannerlearning/seed0/problem3",
+        "spannerlearning/seed0/problem4",
+        "spannerlearning/seed0/problem5",
+        "spannerlearning/seed0/problem6",
+        "spannerlearning/seed0/problem7",
+        "spannerlearning/seed0/problem8",
+        "spannerlearning/seed0/problem9"
+      ]
+    },
+    {
+      "session_id": "symbolic",
+      "family": "symbolic",
+      "source_manifest": "configs/tasks/downloads-v0.1.json",
+      "metric_split": "train",
+      "training_source_sha256": "a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7",
+      "parameter_bounds": {
+        "minimum_count": 0,
+        "maximum_count": 16
+      },
+      "evaluation_policy": "Fit constants and compute MSE/NMSE on the same official train observations, with fresh-process prediction and host scoring. This is training development feedback.",
+      "selection_rule": "Minimize finite train NMSE among successful candidates; exact ties retain the earlier candidate, including the initial artifact. Invalid or failed candidates cannot replace the incumbent.",
+      "early_finish_policy": "The Agent may finish earlier but cannot claim discovery or generalization from train error. No test_id/test_ood request is authorized.",
+      "prompt_file": "prompts/pilot/symbolic.md",
+      "initial_candidate": "fixtures/symbolic/constant.py",
+      "initial_candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+      "initial_n_params": 1,
+      "initial_candidate_role": "Fixed constant-expression starting artifact, not a strategy or reference equation.",
+      "strategy_version": "fixed-revision-v0.1",
+      "max_generated_candidates": 3,
+      "task_ids": [
+        "oscillator1"
+      ],
+      "prompt_task_ids": []
+    }
+  ],
+  "reporting": {
+    "preserve_all_candidates": true,
+    "report_artifact_positions": [
+      "initial",
+      "first_generated",
+      "last_generated",
+      "best_development"
+    ],
+    "missing_generated_position": "null",
+    "candidate_parent": "current selected incumbent immediately before submission",
+    "model_explanations_are_validated_evidence": false,
+    "held_out_evaluation_calls": 0,
+    "claim_boundary": "Operational pilot of a fixed revision prompt; two task sessions are not two independent repetitions of a method comparison."
+  },
+  "budgets": {
+    "max_requests": 8,
+    "max_requests_per_session": 4,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 800000,
+    "max_cost_cny": 5.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  },
+  "budget_notes": {
+    "project_budget_cny": 300.0,
+    "max_source_utf8_bytes": 65536,
+    "reservation_note": "Enforce request/context/output caps and conservative token/cost reservation before sending. Record measured provider usage separately. No unmetered automatic retry."
+  }
+}

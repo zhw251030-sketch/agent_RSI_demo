@@ -20,7 +20,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CONFIG = ROOT / "configs/pilots/checked-feedback-v0.1.json"
+DEFAULT_CONFIG = ROOT / "configs/pilots/checked-feedback-v0.2.json"
 sys.path.insert(0, str(ROOT))
 os.environ["OPENHANDS_SUPPRESS_BANNER"] = "1"
 os.environ["LITELLM_LOCAL_MODEL_COST_MAP"] = "True"
@@ -33,11 +33,11 @@ POLICY_FILE = "prompts/checked/policy.md"
 
 def validate_config(config):
     """Reject changes to the four conditions or expansion of authorized budgets."""
-    if not isinstance(config, dict) or config.get("schema_version") != "0.1":
+    if not isinstance(config, dict) or config.get("schema_version") != "0.2":
         raise ValueError("Unsupported comparison schema")
     if (config.get("base_config") != "configs/pilots/development-v0.1.json"
             or config.get("policy_file") != POLICY_FILE
-            or config.get("protocol") != "docs/protocols/2026-10-20-checked-feedback.md"
+            or config.get("protocol") != "docs/protocols/2026-10-20-checked-feedback-v0.2.md"
             or type(config.get("source_limit_bytes")) is not int or config["source_limit_bytes"] != 16384
             or any(config.get(key) is not False for key in ("strategy_updated", "checks_gate_execution",
                         "checks_change_selection", "automatic_recovery"))):
@@ -60,7 +60,7 @@ def validate_config(config):
         value = budgets[key]
         if type(value) not in (int, float) or not math.isfinite(value) or value <= 0:
             raise ValueError("Comparison cost limits and prices must be finite and positive")
-    if (budgets["max_cost_cny"] > 10 or budgets["input_cny_per_million"] < 2.1
+    if (budgets["max_cost_cny"] > 9 or budgets["input_cny_per_million"] < 2.1
             or budgets["output_cny_per_million"] < 8.4):
         raise ValueError("Comparison cost cap or conservative price is invalid")
     return copy.deepcopy(expected), dict(budgets)
@@ -72,7 +72,7 @@ def source_provenance():
     for relative in ("rsi_eval", "scripts", "prompts", "configs", "fixtures"):
         paths.extend(path for path in (ROOT / relative).rglob("*") if path.is_file()
                      and path.suffix in {".py", ".json", ".md", ".txt"})
-    protocol = ROOT / "docs/protocols/2026-10-20-checked-feedback.md"
+    protocol = ROOT / "docs/protocols/2026-10-20-checked-feedback-v0.2.md"
     if protocol.is_file():
         paths.append(protocol)
     hashes = {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()

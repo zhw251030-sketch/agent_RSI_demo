@@ -42,7 +42,7 @@ class CheckedController(DiagnosticController):
         self.evidence_session = session_id
         self.audits = []
         super().__init__(root, session_config, output_dir, arm='B', policy_text=policy_text)
-        self.strategy_version = 'checked-feedback-v0.1'
+        self.strategy_version = 'checked-feedback-v0.2'
         self.public_facts = {task: public_contract_facts(task, self.root) for task in self.prompt_ids}
         self.public_examples = [planning.prepare_task(task, self.root) for task in self.prompt_ids]
 

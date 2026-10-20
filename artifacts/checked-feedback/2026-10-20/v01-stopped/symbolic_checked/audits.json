@@ -1,0 +1,182 @@
+[
+  {
+    "candidate_id": "symbolic-001",
+    "claims": [
+      {
+        "kind": "scalar",
+        "op": "eq",
+        "reference": {
+          "binding": {
+            "candidate_id": "symbolic-000",
+            "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+            "scope": "train",
+            "session_id": "20261020-checked-feedback-v01:symbolic_checked",
+            "task_id": "oscillator1",
+            "version": "evidence-v0.1"
+          },
+          "key": "nmse"
+        },
+        "value": 1
+      }
+    ],
+    "prediction": {
+      "direction": "decrease",
+      "min_delta": 0.01,
+      "reference": {
+        "binding": {
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v01:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "key": "nmse"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "schema_invalid",
+      "reason": "prediction_schema_invalid"
+    },
+    "prediction_result": {
+      "status": "schema_invalid",
+      "reason": "registration_schema_invalid"
+    }
+  },
+  {
+    "candidate_id": "symbolic-002",
+    "claims": [
+      {
+        "kind": "scalar",
+        "op": "lt",
+        "reference": {
+          "binding": {
+            "candidate_id": "symbolic-001",
+            "candidate_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244"
+          },
+          "key": "mse"
+        },
+        "value": 0.0003
+      },
+      {
+        "kind": "fact",
+        "op": "contains",
+        "reference": {
+          "binding": {
+            "candidate_id": "symbolic-001",
+            "candidate_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244"
+          },
+          "key": "atoms"
+        },
+        "value": [
+          "$2"
+        ]
+      }
+    ],
+    "prediction": {
+      "direction": "decrease",
+      "min_delta": 0.01,
+      "reference": {
+        "binding": {
+          "candidate_id": "symbolic-001",
+          "candidate_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244"
+        },
+        "key": "nmse"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      },
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "schema_invalid",
+      "reason": "prediction_schema_invalid"
+    },
+    "prediction_result": {
+      "status": "schema_invalid",
+      "reason": "registration_schema_invalid"
+    }
+  },
+  {
+    "candidate_id": "symbolic-003",
+    "claims": [
+      {
+        "kind": "scalar",
+        "op": "lt",
+        "reference": {
+          "binding": {
+            "candidate_id": "symbolic-002",
+            "candidate_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+            "scope": "train",
+            "session_id": "20261020-checked-feedback-v01:symbolic_checked",
+            "task_id": "oscillator1",
+            "version": "evidence-v0.1"
+          },
+          "key": "nmse"
+        },
+        "value": 0.1
+      },
+      {
+        "kind": "scalar",
+        "op": "gt",
+        "reference": {
+          "binding": {
+            "candidate_id": "symbolic-002",
+            "candidate_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+            "scope": "train",
+            "session_id": "20261020-checked-feedback-v01:symbolic_checked",
+            "task_id": "oscillator1",
+            "version": "evidence-v0.1"
+          },
+          "key": "bin.v.3.rmse"
+        },
+        "value": 0.025
+      }
+    ],
+    "prediction": {
+      "direction": "decrease",
+      "min_delta": 0.005,
+      "reference": {
+        "binding": {
+          "candidate_id": "symbolic-002",
+          "candidate_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v01:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "key": "nmse"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      },
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "schema_invalid",
+      "reason": "prediction_schema_invalid"
+    },
+    "prediction_result": {
+      "status": "schema_invalid",
+      "reason": "registration_schema_invalid"
+    }
+  }
+]

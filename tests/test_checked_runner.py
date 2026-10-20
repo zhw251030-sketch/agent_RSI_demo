@@ -22,7 +22,7 @@ ORDER = [
 
 
 def comparison_config():
-    return json.loads((PROJECT/'configs/pilots/checked-feedback-v0.1.json').read_text(encoding='utf-8'))
+    return json.loads((PROJECT/'configs/pilots/checked-feedback-v0.2.json').read_text(encoding='utf-8'))
 
 
 class CheckedRunnerTests(unittest.TestCase):
@@ -35,7 +35,7 @@ class CheckedRunnerTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.config = comparison_config()
-        self.config_path = self.root / "configs/pilots/checked-feedback-v0.1.json"
+        self.config_path = self.root / "configs/pilots/checked-feedback-v0.2.json"
         self.config_path.parent.mkdir(parents=True)
         self.config_path.write_text(json.dumps(self.config), encoding="utf-8")
         base = json.loads((PROJECT / "configs/pilots/development-v0.1.json").read_text(encoding="utf-8"))
@@ -161,7 +161,7 @@ class CheckedRunnerTests(unittest.TestCase):
     def test_budget_expansion_nonfinite_numbers_and_wrong_policy_are_rejected(self):
         changes = [("max_requests", 17), ("max_requests_per_session", 5),
                    ("max_output_tokens", 4097), ("max_input_bytes", 98305),
-                   ("max_reserved_tokens", 3000001), ("max_cost_cny", 10.01),
+                   ("max_reserved_tokens", 3000001), ("max_cost_cny", 9.01),
                    ("max_cost_cny", float("nan")), ("input_cny_per_million", float("inf")),
                    ("input_cny_per_million", 2), ("output_cny_per_million", 8),
                    ("max_requests", True), ("max_requests", 0)]

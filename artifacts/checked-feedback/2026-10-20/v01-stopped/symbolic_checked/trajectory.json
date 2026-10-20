@@ -1,0 +1,590 @@
+[
+  {
+    "candidate_id": "symbolic-000",
+    "parent_id": null,
+    "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+    "origin": "hand_authored_initial",
+    "n_params": 1,
+    "rationale": "Fixed weak starting candidate.",
+    "strategy_version": "checked-feedback-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "run_id": "85d6107a565645d4b6e60247d97b4224",
+        "metrics": {
+          "mse": 0.004363248713551409,
+          "nmse": 1.0
+        },
+        "diagnostics": {
+          "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "residuals": {
+            "bias": -4.546296252061508e-16,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.06688509421341791,
+                    "rmse": 0.06901540577553798,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": -0.04430449985004466,
+                    "rmse": 0.051236641459888814,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": 0.02267531358025426,
+                    "rmse": 0.040545563668472465,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.08851428048320649,
+                    "rmse": 0.09176454902935077,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": 0.007140525151149406,
+                    "rmse": 0.02545836209938581,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": -0.0034562169493030748,
+                    "rmse": 0.05125629518705401,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.014355017255863715,
+                    "rmse": 0.08300896349701445,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.010670709054015565,
+                    "rmse": 0.08536492743668853,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.06605489167012091,
+            "scope": "train",
+            "standardized_bias": -6.882603448607225e-15,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.004363248713551409,
+      "nmse": 1.0
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 3,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  },
+  {
+    "candidate_id": "symbolic-001",
+    "parent_id": "symbolic-000",
+    "source_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+    "origin": "model_proposed",
+    "n_params": 2,
+    "rationale": "The incumbent is a constant predictor (n_params=1, returns fixed value), giving nmse=1.0. The task is to model acceleration from position and velocity of an oscillator. A linear spring-damper model (a = c1*x + c2*v) is the physically standard form for acceleration in a damped harmonic oscillator. This should capture the dominant relationship. Training residuals will guide whether nonlinear terms are needed next.",
+    "strategy_version": "checked-feedback-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+        "run_id": "244b0efa42d14e708501b6f7450cb76c",
+        "metrics": {
+          "mse": 0.0004229742450282299,
+          "nmse": 0.09694020964575169
+        },
+        "diagnostics": {
+          "candidate_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+          "residuals": {
+            "bias": 0.002040885783723853,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": 0.002270788091066765,
+                    "rmse": 0.017119305311459783,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0006004179439446756,
+                    "rmse": 0.02284072824787925,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": 0.003097484366620963,
+                    "rmse": 0.0181852066370288,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.002194852733263008,
+                    "rmse": 0.023375751505374947,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": 0.00038433028228914063,
+                    "rmse": 0.012012400549177737,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.005627055117392109,
+                    "rmse": 0.018851500528436597,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.0005000076015659311,
+                    "rmse": 0.011738877297187382,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.0026521653367800936,
+                    "rmse": 0.03247181702318131,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.0205663376668825,
+            "scope": "train",
+            "standardized_bias": 0.030896815241421727,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004229742450282299,
+      "nmse": 0.09694020964575169
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 2,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-001",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  },
+  {
+    "candidate_id": "symbolic-002",
+    "parent_id": "symbolic-001",
+    "source_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+    "origin": "model_proposed",
+    "n_params": 3,
+    "rationale": "Linear incumbent explains ~90% of variance (NMSE 0.0969). Residuals show negligible bias but non-trivial variance (RMSE 0.0206, bias^2/MSE=0.0098), indicating a missing structural term rather than an offset correction. The largest per-bin RMSE appears in the high-|v| region, with mild non-monotonic pattern in v-residuals. A cubic stiffness term (Duffing oscillator extension) is the canonical physical next step for a nonlinear oscillator and adds only one parameter. It is monotone in x and preserves odd symmetry, which is appropriate for a restoring force.\n\nPredicted NMSE: drop of at least 0.04 (from 0.0969 to below 0.057) if cubic stiffness is structurally relevant, or smaller if the nonlinearity is in v instead. Risk: if the true nonlinearity is quadratic damping or v^2-based, NMSE may not improve much. That would redirect the next attempt to a v|v| or v^2 term.\n\nThis is an incremental structural extension based on physical priors and residual diagnostics; it is not a claim that the oscillator is necessarily Duffing or that training-fit improvement implies held-out improvement.",
+    "strategy_version": "checked-feedback-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+        "run_id": "b08c83e74c9a4abc951af2e7d18f1be0",
+        "metrics": {
+          "mse": 0.00041475150179916005,
+          "nmse": 0.09505566357265445
+        },
+        "diagnostics": {
+          "candidate_sha256": "142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a",
+          "residuals": {
+            "bias": 0.0018707364848146375,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.0001698596490003805,
+                    "rmse": 0.016598895025595525,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.003272160337158197,
+                    "rmse": 0.02297437822045832,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": 0.002600142579657272,
+                    "rmse": 0.017785863736270124,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0017805026714434614,
+                    "rmse": 0.023223343593549616,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": 0.0006675839038619369,
+                    "rmse": 0.014977540588052876,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.005537907169220296,
+                    "rmse": 0.019362875665421584,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.001471666460640116,
+                    "rmse": 0.011726594772819413,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 0.0027491213268164335,
+                    "rmse": 0.03036849199630067,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020365448725701087,
+            "scope": "train",
+            "standardized_bias": 0.028320937897485667,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.00041475150179916005,
+      "nmse": 0.09505566357265445
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 2,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-002",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  },
+  {
+    "candidate_id": "symbolic-003",
+    "parent_id": "symbolic-002",
+    "source_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+    "origin": "model_proposed",
+    "n_params": 5,
+    "rationale": "The two prior submissions were rejected by schema validation, not executed, because each claim's `reference` omitted the required `key` field (it was placed at the claim level instead of inside reference). This submission fixes that: every reference now carries the full evidence binding plus `key`, and only bindings present in the packet are used (symbolic-002 evidence: candidate_sha256 142a3a7907068c8fbab47b5330a5f863189e237d765c46cbb568cbce705cb77a, scope train, session 20261020-checked-feedback-v01:symbolic_checked, task oscillator1, version evidence-v0.1).\n\nModel change rationale: the incumbent a = c1*x + c2*v + c3*x^3 scores train NMSE 0.0951 / MSE 4.15e-4, and bias^2/MSE is only 0.0084, so the remaining error is overwhelmingly residual variance rather than a missing offset. Per-bin RMSE still grows toward the extreme |v| bin (0.0304) and the extreme |x| bins (~0.023), consistent with a restoring force that stiffens at larger amplitude. I therefore add one quintic stiffness term c5*x^5 and one quadratic velocity term c4*v^2, keeping the x-restoring part odd-symmetric (a physically standard correction for amplitude-dependent stiffness) while the v^2 term captures the non-monotonic v-residual pattern.\n\nPrediction: NMSE decreases by at least 0.005. This is a training-fit prediction only; it does not establish held-out accuracy or the true equation, and the claim below is likewise only a statement about the supplied development evidence, not about physical necessity.",
+    "strategy_version": "checked-feedback-v0.1",
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+        "run_id": "9b071583136e486abd57dd91bdd0bc60",
+        "metrics": {
+          "mse": 0.0004091082334152086,
+          "nmse": 0.09376229967010528
+        },
+        "diagnostics": {
+          "candidate_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+          "residuals": {
+            "bias": 7.607474647981979e-05,
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.5728219032885896,
+                    "mean_residual": -0.00037938977847907054,
+                    "rmse": 0.01632634139418286,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.46038220456877554,
+                    "mean_residual": 0.0015575525883172812,
+                    "rmse": 0.022715925949967554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.22761842703089324,
+                    "mean_residual": -0.001272668001390612,
+                    "rmse": 0.017517564722122087,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.28635886598470794,
+                    "mean_residual": 0.0003988041774716805,
+                    "rmse": 0.0233881411143186,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "name": "x"
+              },
+              {
+                "bins": [
+                  {
+                    "count": 2500,
+                    "lower": -0.17542969970098574,
+                    "mean_residual": -0.0024624002593808436,
+                    "rmse": 0.015575367332108903,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.13719210123484957,
+                    "mean_residual": 0.004207036308650126,
+                    "rmse": 0.019339388156186195,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": -0.04814716714891003,
+                    "mean_residual": -0.001487710904844435,
+                    "rmse": 0.011602312563049944,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false
+                  },
+                  {
+                    "count": 2500,
+                    "lower": 0.09524424826668271,
+                    "mean_residual": 4.7373841494431484e-05,
+                    "rmse": 0.02975256753734655,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true
+                  }
+                ],
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "name": "v"
+              }
+            ],
+            "n": 10000,
+            "residual_definition": "prediction - target",
+            "rmse": 0.020226424138122107,
+            "scope": "train",
+            "standardized_bias": 0.0011516898227573846,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "standardized_bias_reason": null,
+            "status": "ok"
+          },
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "diagnostics-v0.1",
+          "evidence_ids": [
+            "oscillator1:residuals"
+          ]
+        }
+      }
+    ],
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004091082334152086,
+      "nmse": 0.09376229967010528
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 3,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-003",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    }
+  }
+]

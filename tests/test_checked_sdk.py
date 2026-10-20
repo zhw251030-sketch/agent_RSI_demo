@@ -14,6 +14,7 @@ except ModuleNotFoundError:
     SDK_PRESENT = False
 
 if SDK_PRESENT:
+    from jsonschema import Draft202012Validator
     from litellm.types.utils import ModelResponse
     from pydantic import ValidationError
     from rsi_eval.checked_agent import CheckedCandidateAction, StatePacketLLM, checked_candidate_tool
@@ -92,13 +93,21 @@ class CheckedSDKTests(unittest.TestCase):
         snapshot = controller.evidence_for(selected)[0]
         key = 'nmse' if controller.family == 'symbolic' else 'total_successes'
         ref = {**snapshot['binding'], 'key': key}
-        return ([{'kind': 'scalar', 'reference': ref, 'op': 'ge', 'value': 100.0}],
+        claims = [{'kind': 'scalar', 'reference': ref, 'op': 'ge', 'value': 100.0}]
+        if controller.family == 'planning':
+            public = controller.evidence_for(selected)[1]
+            claims.append({'kind': 'fact', 'reference': {**public['binding'],
+                'key': 'action.move.preconditions.positive'}, 'op': 'contains',
+                'value': ['edge', '$1', '$0']})
+        return (claims,
                 {'reference': ref, 'direction': 'decrease', 'min_delta': 0.5})
 
     @staticmethod
     def response(index, arguments=None):
         message = {'role': 'assistant', 'content': 'REVISION_REASON'}
         if arguments is not None:
+            arguments = {'summary': 'Evaluate the proposed candidate on permitted development observations.',
+                         'security_risk': 'LOW', **arguments}
             message['tool_calls'] = [{'id': 'call-' + str(index), 'type': 'function',
                 'function': {'name': 'submit_candidate', 'arguments': json.dumps(arguments)}}]
         return ModelResponse(id='response-' + str(index), model='minimax-m3', choices=[{
@@ -130,9 +139,14 @@ class CheckedSDKTests(unittest.TestCase):
                         if index == 4:
                             return self.response(index)
                         claims, prediction = self.hypothesis(controller)
-                        return self.response(index, {'source': self.source(index),
+                        response = self.response(index, {'source': self.source(index),
                             'n_params': 0 if family == 'planning' else 1,
                             'rationale': 'REVISION_REASON', 'claims': claims, 'prediction': prediction})
+                        schema = next(t['function']['parameters'] for t in kwargs['tools']
+                                      if t['function']['name'] == 'submit_candidate')
+                        Draft202012Validator(schema).validate(json.loads(
+                            response.choices[0].message.tool_calls[0].function.arguments))
+                        return response
 
                     with patch('rsi_eval.diagnostic_controller.evaluate_candidate', side_effect=self.evaluate), \
                             patch('openhands.sdk.llm.llm.litellm_completion', side_effect=transport), \
@@ -157,12 +171,32 @@ class CheckedSDKTests(unittest.TestCase):
                         audit = json.loads((requests / f'input-audit-{index:04d}.json').read_text())
                         packet = json.loads((requests / f'packet-{index:04d}.json').read_text())
                         packets.append(packet)
+                        self.assertNotIn('last_tool_validation', packet)
                         # No accumulated assistant/tool/user messages reach the provider.
                         self.assertEqual([m['role'] for m in request['messages']], ['system', 'user'])
                         self.assertEqual(json.loads(request['messages'][-1]['content']), packet)
                         self.assertEqual(call['messages'], request['messages'])
                         self.assertEqual({t['function']['name'] for t in request['tools']},
                                          {'finish', 'submit_candidate'})
+                        schema = next(t['function']['parameters'] for t in request['tools']
+                                      if t['function']['name'] == 'submit_candidate')
+                        self.assertIn('summary', schema['properties'])
+                        self.assertIn('security_risk', schema['properties'])
+                        claim_schema = schema['properties']['claims']['items']
+                        prediction_schema = schema['properties']['prediction']
+                        expected_reference = {'session_id', 'candidate_id', 'candidate_sha256',
+                                              'task_id', 'version', 'scope', 'key'}
+                        for structured in (claim_schema, prediction_schema):
+                            reference = structured['properties']['reference']
+                            self.assertEqual(set(reference['required']), expected_reference)
+                            self.assertEqual(set(reference['properties']), expected_reference)
+                            self.assertFalse(reference['additionalProperties'])
+                        self.assertEqual(set(claim_schema['properties']['kind']['enum']), {'scalar', 'fact'})
+                        self.assertEqual(set(claim_schema['properties']['op']['enum']),
+                                         {'eq', 'lt', 'le', 'gt', 'ge', 'contains', 'not_contains'})
+                        self.assertEqual(claim_schema['properties']['value']['anyOf'],
+                                         [{'type': 'number'}, {'type': 'array', 'items': {'type': 'string'}}])
+                        self.assertEqual(prediction_schema['properties']['min_delta']['minimum'], 0)
                         self.assertEqual(call['max_retries'], 0)
                         encoded = json.dumps(request, ensure_ascii=False, sort_keys=True,
                                              separators=(',', ':'), allow_nan=False).encode('utf-8')
@@ -172,6 +206,8 @@ class CheckedSDKTests(unittest.TestCase):
                         self.assertTrue(audit['request_reserved'])
                         self.assertTrue(audit['network_dispatch_attempted'])
                         self.assertTrue(audit['transport_called'])
+                        if index < 4:
+                            self.assertEqual(audit['response_tool_validation'], {'status': 'valid_submission'})
                         self.assertLessEqual(len(encoded), 98304)
                         if condition == 'hidden':
                             self.assertNotIn('audits', packet)
@@ -330,6 +366,53 @@ class CheckedSDKTests(unittest.TestCase):
         self.assertEqual(len(accepted.claims[0]['pad']), 2005)
         with self.assertRaises(ValidationError):
             CheckedCandidateAction(**prefix, claims=[{'pad': 'x' * 2006}])
+
+    def test_schema_observer_agrees_with_sdk_envelope_and_argument_repairs(self):
+        cases = [
+            ('unknown_extra', {'unadvertised_argument': True}, False),
+            # SDK 1.55.1 replaces invalid summaries and ignores risk metadata when
+            # no security analyzer is installed. These must not become false rejections.
+            ('invalid_envelope_ignored', {'summary': 17, 'security_risk': 'NOT_A_RISK'}, True),
+            ('null_envelope', {'summary': None, 'security_risk': None}, True),
+            ('chunked_source', {'source': ['# chunk', 'ed source\n']}, True),
+            ('encoded_collections', None, True),
+            ('semantic_schema_feedback', {'claims': [{'kind': 'unrecognized'}],
+                                           'prediction': {'direction': 'unrecognized'}}, True),
+        ]
+        for name, changes, executes in cases:
+            with self.subTest(case=name):
+                controller = self.controller('symbolic', 'hidden', name)
+                llm, ledger, output, session_id = self.llm(controller)
+                dispatched = []
+
+                def transport(**kwargs):
+                    dispatched.append(copy.deepcopy(kwargs))
+                    if len(dispatched) == 2:
+                        return self.response(2)
+                    claims, prediction = self.hypothesis(controller)
+                    arguments = {'source': '# boundary candidate\n', 'n_params': 1,
+                                 'rationale': 'boundary test', 'claims': claims, 'prediction': prediction}
+                    arguments.update(changes if changes is not None else {
+                        'claims': json.dumps(claims), 'prediction': json.dumps(prediction)})
+                    return self.response(1, arguments)
+
+                with patch('rsi_eval.diagnostic_controller.evaluate_candidate', side_effect=self.evaluate), \
+                        patch('openhands.sdk.llm.llm.litellm_completion', side_effect=transport):
+                    controller.baseline()
+                    report = run_session(controller, llm, session_id, output,
+                                         tool_factory=checked_candidate_tool)
+                self.assertEqual(report['status'], 'completed', report)
+                self.assertEqual(ledger.summary()['request_count'], 2)
+                self.assertEqual(len(controller.records), 2 if executes else 1)
+                audit = json.loads((output / 'requests/input-audit-0001.json').read_text(encoding='utf-8'))
+                packet = json.loads((output / 'requests/packet-0002.json').read_text(encoding='utf-8'))
+                if executes:
+                    self.assertEqual(audit['response_tool_validation'], {'status': 'valid_submission'})
+                    self.assertNotIn('last_tool_validation', packet)
+                else:
+                    self.assertEqual(audit['response_tool_validation'],
+                                     {'status': 'invalid_request', 'error_kind': 'submission_schema'})
+                    self.assertEqual(packet['last_tool_validation'], audit['response_tool_validation'])
 
     def test_action_rejects_coercion_oversize_and_extra_capabilities(self):
         base = {'source': 'pass', 'n_params': 0, 'rationale': '', 'claims': [{}], 'prediction': {}}

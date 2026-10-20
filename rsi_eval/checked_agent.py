@@ -4,12 +4,16 @@ The controller owns checks, evaluations and selection. This module enforces
 only bounded submission structure and pre-transport accounting. It performs
 no claim-semantic gate and never persists provider error text or credentials.
 """
+import copy
 import hashlib
 import json
 from pathlib import Path
 from typing import ClassVar
 
 from openhands.sdk import Action, Tool, ToolDefinition
+from openhands.sdk.agent.utils import (
+    fix_malformed_tool_arguments, normalize_tool_call, parse_tool_call_arguments,
+)
 from openhands.sdk.tool import ToolExecutor, register_tool
 from pydantic import Field, PrivateAttr, StrictInt, StrictStr, field_validator, model_validator
 
@@ -29,13 +33,54 @@ _BUDGET_REASONS = {
     'cumulative reserved cost cap exceeded': 'reserved_cost_cap_exceeded',
 }
 
+# Advertise the full evidence contract without changing runtime validation:
+# list[dict]/dict still let the trusted core return schema_invalid feedback.
+_REFERENCE_SCHEMA = {
+    'type': 'object', 'additionalProperties': False,
+    'properties': {key: {'type': 'string'} for key in (
+        'session_id', 'candidate_id', 'candidate_sha256', 'task_id', 'version', 'scope', 'key')},
+    'required': ['session_id', 'candidate_id', 'candidate_sha256', 'task_id', 'version', 'scope', 'key'],
+    'description': 'Flat evidence reference: copy every binding field and add key; do not nest binding.',
+}
+_CLAIM_SCHEMA = {
+    'type': 'object', 'additionalProperties': False,
+    'properties': {
+        'kind': {'type': 'string', 'enum': ['scalar', 'fact']},
+        'reference': _REFERENCE_SCHEMA,
+        'op': {'type': 'string', 'enum': ['eq', 'lt', 'le', 'gt', 'ge', 'contains', 'not_contains']},
+        'value': {'anyOf': [{'type': 'number'}, {'type': 'array', 'items': {'type': 'string'}}]},
+    },
+    'required': ['kind', 'reference', 'op', 'value'],
+}
+_PREDICTION_SCHEMA = {
+    'type': 'object', 'additionalProperties': False,
+    'properties': {
+        'reference': _REFERENCE_SCHEMA,
+        'direction': {'type': 'string', 'enum': ['decrease', 'increase']},
+        'min_delta': {'type': 'number', 'minimum': 0},
+    },
+    'required': ['reference', 'direction', 'min_delta'],
+}
+
 
 class CheckedCandidateAction(Action):
     source: StrictStr = Field(min_length=1, max_length=16384)
     n_params: StrictInt = Field(default=3, ge=0, le=16)
     rationale: StrictStr = Field(default='', max_length=2000)
-    claims: list[dict] = Field(min_length=1, max_length=2)
-    prediction: dict
+    claims: list[dict] = Field(min_length=1, max_length=2,
+                              json_schema_extra={'items': _CLAIM_SCHEMA})
+    prediction: dict = Field(json_schema_extra=_PREDICTION_SCHEMA)
+
+    @classmethod
+    def to_mcp_schema(cls):
+        schema = super().to_mcp_schema()
+        # SDK 1.55.1's generic MCP simplifier discards additionalProperties
+        # and numeric bounds and keeps only the first anyOf branch. Restore
+        # these two explicitly authored declarations after that conversion;
+        # do not alter the runtime list[dict]/dict validation contract.
+        schema['properties']['claims']['items'] = copy.deepcopy(_CLAIM_SCHEMA)
+        schema['properties']['prediction'].update(copy.deepcopy(_PREDICTION_SCHEMA))
+        return schema
 
     @field_validator('source')
     @classmethod
@@ -131,7 +176,18 @@ class StatePacketLLM(BoundedPilotLLM):
         if not calls or calls[0].function.name != 'submit_candidate':
             return
         try:
-            arguments = json.loads(calls[0].function.arguments)
+            # Mirror installed SDK 1.55.1 Agent._get_action_event, including
+            # its JSON/collection repairs. This pilot fixes security_analyzer
+            # to None: the SDK then pops and ignores security_risk regardless
+            # of value, and pops summary with a fallback for invalid summaries.
+            # Neither is part of CheckedCandidateAction. Unknown other fields
+            # remain subject to its extra-forbidden validation.
+            arguments = parse_tool_call_arguments(calls[0].function.arguments)
+            _, arguments = normalize_tool_call('submit_candidate', arguments,
+                                               ('submit_candidate', 'finish'))
+            arguments = fix_malformed_tool_arguments(arguments, CheckedCandidateAction)
+            arguments.pop('security_risk', None)
+            arguments.pop('summary', None)
             CheckedCandidateAction.model_validate(arguments)
         except (ValueError, TypeError, OverflowError, RecursionError):
             self._last_submission_schema_error = 'submission_schema'

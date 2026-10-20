@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.2",
+  "base_config": "configs/pilots/development-v0.1.json",
+  "policy_file": "prompts/checked/policy.md",
+  "protocol": "docs/protocols/2026-10-20-checked-feedback-v0.2.md",
+  "order": [
+    {
+      "family": "planning",
+      "condition": "hidden",
+      "session_id": "planning_hidden"
+    },
+    {
+      "family": "symbolic",
+      "condition": "checked",
+      "session_id": "symbolic_checked"
+    },
+    {
+      "family": "planning",
+      "condition": "checked",
+      "session_id": "planning_checked"
+    },
+    {
+      "family": "symbolic",
+      "condition": "hidden",
+      "session_id": "symbolic_hidden"
+    }
+  ],
+  "budgets": {
+    "max_requests": 16,
+    "max_requests_per_session": 4,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 3000000,
+    "max_cost_cny": 9.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  },
+  "source_limit_bytes": 16384,
+  "strategy_updated": false,
+  "checks_gate_execution": false,
+  "checks_change_selection": false,
+  "automatic_recovery": false
+}

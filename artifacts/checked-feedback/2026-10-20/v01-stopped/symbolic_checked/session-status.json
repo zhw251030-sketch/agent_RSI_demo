@@ -1,0 +1,56 @@
+{
+  "family": "symbolic",
+  "condition": "checked",
+  "session_id": "symbolic_checked",
+  "status": "completed",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.FINISHED",
+  "generated_candidates": 3,
+  "executions": 4,
+  "halted": false,
+  "strategy_updated": false,
+  "checks_visible": true,
+  "check_gates_execution": false,
+  "check_changes_selection": false,
+  "candidate_positions": {
+    "baseline": {
+      "candidate_id": "symbolic-000",
+      "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+      "metrics": {
+        "mse": 0.004363248713551409,
+        "nmse": 1.0
+      }
+    },
+    "first": {
+      "candidate_id": "symbolic-001",
+      "source_sha256": "54c1704a9bf5d055b5a95f2916e2cc043bf676a5be15c77aa7b389a40ce9e244",
+      "metrics": {
+        "mse": 0.0004229742450282299,
+        "nmse": 0.09694020964575169
+      }
+    },
+    "last": {
+      "candidate_id": "symbolic-003",
+      "source_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+      "metrics": {
+        "mse": 0.0004091082334152086,
+        "nmse": 0.09376229967010528
+      }
+    },
+    "best": {
+      "candidate_id": "symbolic-003",
+      "source_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+      "metrics": {
+        "mse": 0.0004091082334152086,
+        "nmse": 0.09376229967010528
+      }
+    }
+  },
+  "audited_candidates": 3,
+  "audited_claims": 5
+}

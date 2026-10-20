@@ -1,0 +1,124 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "claims": [
+      {
+        "kind": "fact",
+        "op": "contains",
+        "reference": {
+          "binding": {
+            "candidate_id": "planning-000",
+            "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+            "scope": "public_prompt",
+            "session_id": "20261020-checked-feedback-v01:planning_hidden",
+            "task_id": "spannerlearning/seed0/problem0",
+            "version": "evidence-v0.1"
+          },
+          "key": "plan_replay"
+        },
+        "value": [
+          "tightened",
+          "nut1"
+        ]
+      }
+    ],
+    "prediction": {
+      "direction": "increase",
+      "reference": {
+        "binding": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "scope": "development_summary",
+          "session_id": "20261020-checked-feedback-v01:planning_hidden",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1"
+        },
+        "key": "total_successes"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "schema_invalid",
+      "reason": "prediction_schema_invalid"
+    },
+    "prediction_result": {
+      "status": "schema_invalid",
+      "reason": "registration_schema_invalid"
+    }
+  },
+  {
+    "candidate_id": "planning-002",
+    "claims": [
+      {
+        "kind": "scalar",
+        "op": "eq",
+        "reference": {
+          "binding": {
+            "candidate_id": "planning-001",
+            "candidate_sha256": "621a2912e1ac0669b614da3597aade5e0ae65042d56561567d2bfa411ebcdf76",
+            "scope": "public_prompt",
+            "session_id": "20261020-checked-feedback-v01:planning_hidden",
+            "task_id": "spannerlearning/seed0/problem0",
+            "version": "evidence-v0.1"
+          },
+          "key": "plan_length"
+        },
+        "value": 0
+      },
+      {
+        "kind": "fact",
+        "op": "eq",
+        "reference": {
+          "binding": {
+            "candidate_id": "planning-001",
+            "candidate_sha256": "621a2912e1ac0669b614da3597aade5e0ae65042d56561567d2bfa411ebcdf76",
+            "scope": "development_summary",
+            "session_id": "20261020-checked-feedback-v01:planning_hidden",
+            "task_id": "planning_batch",
+            "version": "evidence-v0.1"
+          },
+          "key": "total_successes"
+        },
+        "value": 0
+      }
+    ],
+    "prediction": {
+      "direction": "increase",
+      "min_delta": 1,
+      "reference": {
+        "binding": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "scope": "development_summary",
+          "session_id": "20261020-checked-feedback-v01:planning_hidden",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1"
+        },
+        "key": "total_successes"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      },
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "schema_invalid",
+      "reason": "prediction_schema_invalid"
+    },
+    "prediction_result": {
+      "status": "schema_invalid",
+      "reason": "registration_schema_invalid"
+    }
+  }
+]
