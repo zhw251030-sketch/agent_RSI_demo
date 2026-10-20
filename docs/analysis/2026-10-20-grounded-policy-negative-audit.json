@@ -1,0 +1,71 @@
+{
+  "version": "grounded-policy-negative-audit-v0.1",
+  "cases": [
+    {
+      "case": "request_model",
+      "rejected": true,
+      "reason": "Request, ledger, and input audit disagree on exact payload",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "request_tool",
+      "rejected": true,
+      "reason": "Request, ledger, and input audit disagree on exact payload",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "response_usage",
+      "rejected": true,
+      "reason": "Saved response usage differs from ledger",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "fact_checks",
+      "rejected": true,
+      "reason": "Saved policy or facts differ from recomputation",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "freeze_request",
+      "rejected": true,
+      "reason": "Grounded policy freeze integrity mismatch",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "literal_response",
+      "rejected": true,
+      "reason": "Saved submission differs from exact model call arguments",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "dispatch_order",
+      "rejected": true,
+      "reason": "Dispatch differs from frozen prefix",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "complete_overclaim",
+      "rejected": true,
+      "reason": "Completed run is missing assigned requests",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "known_cost",
+      "rejected": true,
+      "reason": "Actual usage or configured cost estimate is inconsistent",
+      "mutated_copy_unchanged": true
+    },
+    {
+      "case": "event_call_identity",
+      "rejected": true,
+      "reason": "SDK events do not bind exact saved tool call and response IDs",
+      "mutated_copy_unchanged": true
+    }
+  ],
+  "case_count": 10,
+  "all_rejected": true,
+  "original_run_files_unchanged": true,
+  "original_run_tree_sha256": "3c36c2eb40caace3f0f6e13a5086e10a4382e8342570e70f3d4cb4a483a61208",
+  "new_model_calls": 0,
+  "new_candidate_executions": 0
+}

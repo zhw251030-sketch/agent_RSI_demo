@@ -72,11 +72,13 @@ def validate_config(config):
 
 
 def settled_request(state,session):
-    if state.get('halted') or any(r.get('status')!='settled' or r.get('usage_state')!='known'
+    # A later actor may have a known-usage contract failure. That does not
+    # invalidate an earlier settled update; pending/unknown requests still block.
+    if state.get('halted') or any(r.get('status') not in ('settled','failed') or r.get('usage_state')!='known'
                                 for r in state.get('requests',[])):
         raise ValueError('Unknown or unsettled usage blocks another phase')
     rows=[r for r in state.get('requests',[]) if r['session_id']==session]
-    if len(rows)!=1 or type(rows[0].get('usage')) is not dict:
+    if len(rows)!=1 or rows[0].get('status')!='settled' or type(rows[0].get('usage')) is not dict:
         raise ValueError('Exactly one known request is required per session')
     return rows[0]['request_id']
 

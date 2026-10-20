@@ -1,0 +1,804 @@
+{
+  "version": "grounded-policy-analysis-v0.1",
+  "status": "verified_partial",
+  "updates": [
+    {
+      "pair_id": "p1",
+      "condition": "proposal",
+      "session_id": "p1-proposal",
+      "requested": true,
+      "accepted": true,
+      "frozen": true,
+      "request_id": "request-0001",
+      "input_bytes": 33254,
+      "payload_sha256": "0f002b82903da229932095cd1cef74378736fe769a89a426a5eeaeccf479e6d5",
+      "response_sha256": "883fb32a743e0a1f64f2f8216fc7dbcf67d6f4370a3c86708170e07fb4c08b8c",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9005,
+        "completion_tokens": 821,
+        "total_tokens": 9826
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "valid_submission"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "accepted",
+        "halted": false,
+        "attempted": true,
+        "policy_changed": true,
+        "no_op": false,
+        "policy_sha256": "43360714b3ad3ce2408e98f64383279d35c19ae312713b56207e95e9f2f21b43",
+        "all_checked_pass": true,
+        "passed_checks": 11,
+        "total_checks": 11,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with factual premise checks, not applicability validation."
+      },
+      "literal_submission": {
+        "edit_1": "Reorder the repair procedure so diagnosis starts from the first observed failure (executed_actions=0, invalid_output) rather than from emitted plan_length or search depth claims.",
+        "edit_2": "Add a pre-diagnosis check of emitted action token types, required textual format, and parameter ordering against the domain's action signatures.",
+        "edit_3": "Require each repair to name the exact source location changed and the observed failure expected to disappear, and confirm the submitted source contains that edit.",
+        "edit_4": "Keep the existing goal and metric definitions untouched and limit the change to the single defective component, avoiding added terms or refactors.",
+        "fact_1_id": "P.after.p0.plan_length",
+        "fact_1_scope": "planning/U-P/after/public_prompt/spannerlearning/seed0/problem0/plan_length",
+        "fact_1_value": "11",
+        "fact_2_id": "S.prediction.actual",
+        "fact_2_scope": "symbolic/U-S/prediction/nmse/actual",
+        "fact_2_value": "0.0005035923590065439",
+        "hypothesis_1": "Repair proposals are being judged on emitted plan_length (1 to 11) while the replay still reports executed_actions=0 and invalid_output at index 0, so progress was never executed.",
+        "hypothesis_2": "The persistent operator_syntax/invalid_output signature is a formatting or argument-order defect in the emitted action text rather than a search-reachability defect.",
+        "hypothesis_3": "Each candidate names a specific internal component to change, and the discrepancy between emitted length and zero executed actions indicates that component was not actually replaced in the submitted source.",
+        "hypothesis_4": "Retaining the previously correct task rules and metric definitions while making one complete targeted fix is sufficient; added structure (for example an extra regression term) is unnecessary complexity.",
+        "parent_1": false,
+        "parent_2": false,
+        "parent_3": false,
+        "parent_4": true,
+        "quote_1": "Prioritize the earliest failure actually observed during execution; do not equate proposed plan length with executed actions.",
+        "quote_2": "Check the input and output types, required format, and parameter order before diagnosing a search failure.",
+        "quote_3": "Connect a diagnostic observation to the source location to change and the failure expected to disappear; verify that the submitted source includes that change.",
+        "quote_4": "Preserve correct behavior while making a complete valid repair, and avoid unrelated complexity.",
+        "rule_1": "R02",
+        "rule_2": "R01",
+        "rule_3": "R05",
+        "rule_4": "R08",
+        "support_1": "both",
+        "support_2": "F1",
+        "support_3": "F1",
+        "support_4": "both"
+      },
+      "literal_structural_status": "valid",
+      "schema_length_issues": [],
+      "event_counts": {
+        "actions": 1,
+        "observations": 1,
+        "agent_errors": 0
+      },
+      "tool_call_id": "call_01a159421810730d89c15055",
+      "llm_response_id": "chatcmpl-ffb903eb-77da-4689-8bd4-3a19141a1c10",
+      "selected_policy": {
+        "version": "revision-policy-v0.1",
+        "rule_ids": [
+          "R02",
+          "R01",
+          "R05",
+          "R08"
+        ]
+      },
+      "no_op": false,
+      "checks": {
+        "version": "grounded-premise-checks-v0.1",
+        "structural_status": "valid",
+        "parent_membership": [
+          {
+            "slot": 1,
+            "rule_id": "R02",
+            "claimed": false,
+            "actual": false,
+            "status": "supported"
+          },
+          {
+            "slot": 2,
+            "rule_id": "R01",
+            "claimed": false,
+            "actual": false,
+            "status": "supported"
+          },
+          {
+            "slot": 3,
+            "rule_id": "R05",
+            "claimed": false,
+            "actual": false,
+            "status": "supported"
+          },
+          {
+            "slot": 4,
+            "rule_id": "R08",
+            "claimed": true,
+            "actual": true,
+            "status": "supported"
+          }
+        ],
+        "rule_quotes": [
+          {
+            "slot": 1,
+            "rule_id": "R02",
+            "status": "supported",
+            "reason": "exact_full_catalog_text_comparison"
+          },
+          {
+            "slot": 2,
+            "rule_id": "R01",
+            "status": "supported",
+            "reason": "exact_full_catalog_text_comparison"
+          },
+          {
+            "slot": 3,
+            "rule_id": "R05",
+            "status": "supported",
+            "reason": "exact_full_catalog_text_comparison"
+          },
+          {
+            "slot": 4,
+            "rule_id": "R08",
+            "status": "supported",
+            "reason": "exact_full_catalog_text_comparison"
+          }
+        ],
+        "facts": [
+          {
+            "slot": 1,
+            "fact_id": "P.after.p0.plan_length",
+            "status": "supported",
+            "checks": {
+              "id": "supported",
+              "type": "supported",
+              "value": "supported",
+              "scope": "supported"
+            },
+            "reason": "exact_scalar_type_value_and_scope_comparison",
+            "actual_value": 11,
+            "actual_scope": "planning/U-P/after/public_prompt/spannerlearning/seed0/problem0/plan_length",
+            "actual_type": "number",
+            "source_pointer": "/cases/0/observations_after/0/plan_replay/plan_length"
+          },
+          {
+            "slot": 2,
+            "fact_id": "S.prediction.actual",
+            "status": "supported",
+            "checks": {
+              "id": "supported",
+              "type": "supported",
+              "value": "supported",
+              "scope": "supported"
+            },
+            "reason": "exact_scalar_type_value_and_scope_comparison",
+            "actual_value": 0.0005035923590065439,
+            "actual_scope": "symbolic/U-S/prediction/nmse/actual",
+            "actual_type": "number",
+            "source_pointer": "/cases/1/prediction_result/actual"
+          }
+        ],
+        "coverage": {
+          "status": "supported",
+          "required_families": [
+            "planning",
+            "symbolic"
+          ],
+          "observed_families": [
+            "planning",
+            "symbolic"
+          ],
+          "definition": "Task families of resolved fact IDs; correctness is checked separately."
+        },
+        "unverified": [
+          {
+            "slot": 1,
+            "rule_id": "R02",
+            "status": "not_checked",
+            "fields": [
+              "support_1",
+              "hypothesis_1",
+              "edit_1"
+            ],
+            "reason": "Factual checks do not certify applicability or anticipated edits."
+          },
+          {
+            "slot": 2,
+            "rule_id": "R01",
+            "status": "not_checked",
+            "fields": [
+              "support_2",
+              "hypothesis_2",
+              "edit_2"
+            ],
+            "reason": "Factual checks do not certify applicability or anticipated edits."
+          },
+          {
+            "slot": 3,
+            "rule_id": "R05",
+            "status": "not_checked",
+            "fields": [
+              "support_3",
+              "hypothesis_3",
+              "edit_3"
+            ],
+            "reason": "Factual checks do not certify applicability or anticipated edits."
+          },
+          {
+            "slot": 4,
+            "rule_id": "R08",
+            "status": "not_checked",
+            "fields": [
+              "support_4",
+              "hypothesis_4",
+              "edit_4"
+            ],
+            "reason": "Factual checks do not certify applicability or anticipated edits."
+          }
+        ],
+        "passed_checks": 11,
+        "total_checks": 11,
+        "all_checked_pass": true,
+        "applicability_certified": false
+      },
+      "submission": {
+        "rule_1": "R02",
+        "rule_2": "R01",
+        "rule_3": "R05",
+        "rule_4": "R08",
+        "parent_1": false,
+        "parent_2": false,
+        "parent_3": false,
+        "parent_4": true,
+        "quote_1": "Prioritize the earliest failure actually observed during execution; do not equate proposed plan length with executed actions.",
+        "quote_2": "Check the input and output types, required format, and parameter order before diagnosing a search failure.",
+        "quote_3": "Connect a diagnostic observation to the source location to change and the failure expected to disappear; verify that the submitted source includes that change.",
+        "quote_4": "Preserve correct behavior while making a complete valid repair, and avoid unrelated complexity.",
+        "fact_1_id": "P.after.p0.plan_length",
+        "fact_1_value": "11",
+        "fact_1_scope": "planning/U-P/after/public_prompt/spannerlearning/seed0/problem0/plan_length",
+        "fact_2_id": "S.prediction.actual",
+        "fact_2_value": "0.0005035923590065439",
+        "fact_2_scope": "symbolic/U-S/prediction/nmse/actual",
+        "support_1": "both",
+        "support_2": "F1",
+        "support_3": "F1",
+        "support_4": "both",
+        "hypothesis_1": "Repair proposals are being judged on emitted plan_length (1 to 11) while the replay still reports executed_actions=0 and invalid_output at index 0, so progress was never executed.",
+        "hypothesis_2": "The persistent operator_syntax/invalid_output signature is a formatting or argument-order defect in the emitted action text rather than a search-reachability defect.",
+        "hypothesis_3": "Each candidate names a specific internal component to change, and the discrepancy between emitted length and zero executed actions indicates that component was not actually replaced in the submitted source.",
+        "hypothesis_4": "Retaining the previously correct task rules and metric definitions while making one complete targeted fix is sufficient; added structure (for example an extra regression term) is unnecessary complexity.",
+        "edit_1": "Reorder the repair procedure so diagnosis starts from the first observed failure (executed_actions=0, invalid_output) rather than from emitted plan_length or search depth claims.",
+        "edit_2": "Add a pre-diagnosis check of emitted action token types, required textual format, and parameter ordering against the domain's action signatures.",
+        "edit_3": "Require each repair to name the exact source location changed and the observed failure expected to disappear, and confirm the submitted source contains that edit.",
+        "edit_4": "Keep the existing goal and metric definitions untouched and limit the change to the single defective component, avoiding added terms or refactors."
+      },
+      "applicability_certified": false,
+      "freeze_sha256": "499d074a2ed0b7d0d4fee572ed03025d579ca4ed975859a959dc3652cee78073"
+    },
+    {
+      "pair_id": "p1",
+      "condition": "self",
+      "session_id": "p1-self",
+      "requested": true,
+      "accepted": false,
+      "frozen": false,
+      "request_id": "request-0002",
+      "input_bytes": 35902,
+      "payload_sha256": "8b2054cda252463d32ad2b5e9fedddf887dbc6a257937d6576e4ec73faf7e458",
+      "response_sha256": "54ec43174bebd7af559ce47b7032f808c3fdfa8e3bfcaee6fd77948df0eded62",
+      "usage_state": "known",
+      "usage": {
+        "prompt_tokens": 9550,
+        "completion_tokens": 1174,
+        "total_tokens": 10724
+      },
+      "settlement_status": "settled",
+      "transport_error_type": null,
+      "response_tool_validation": {
+        "status": "invalid_request",
+        "error_kind": "grounded_policy_submission_schema"
+      },
+      "sdk_status": "stopped",
+      "sdk_conversation_status": "ConversationExecutionStatus.ERROR",
+      "saved_controller_summary": {
+        "status": "ready",
+        "halted": false,
+        "attempted": false,
+        "policy_changed": false,
+        "no_op": null,
+        "policy_sha256": null,
+        "all_checked_pass": null,
+        "passed_checks": null,
+        "total_checks": null,
+        "candidate_executions": 0,
+        "applicability_certified": false,
+        "scope": "Finite rule selection with factual premise checks, not applicability validation."
+      },
+      "literal_submission": {
+        "edit_1": "Anchor any planning-repair evaluation on first_failed_action.index, executed_actions, and status rather than on emitted plan_length.",
+        "edit_2": "Before diagnosing search reachability, validate emitted action tokens against the domain's action signatures and required textual format.",
+        "edit_3": "Require each candidate to cite a specific source location, the failure expected to disappear, and verification that the submitted source actually contains that edit.",
+        "edit_4": "Limit edits to a single complete targeted fix that preserves existing correct behavior; avoid adding extra regression terms or refactors.",
+        "fact_1_id": "P.after.p0.plan_length",
+        "fact_1_scope": "planning/U-P/after/public_prompt/spannerlearning/seed0/problem0/plan_length",
+        "fact_1_value": "11",
+        "fact_2_id": "S.prediction.actual",
+        "fact_2_scope": "symbolic/U-S/prediction/nmse/actual",
+        "fact_2_value": "0.0005035923590065439",
+        "hypothesis_1": "The planning repair emitted plan_length=11 while executed_actions stayed at 0 with status=invalid_output at first_failed_action.index=0, so equating emitted length with execution masked the actual earliest failure.",
+        "hypothesis_2": "The persistent operator_syntax/invalid_output signature in the planning case indicates the emitted action tokens violate required format or parameter ordering, which should be checked before deeper search diagnosis.",
+        "hypothesis_3": "The planning case shows a discrepancy between candidate claims (longer plan) and observed behavior (no executed actions), so future repairs should name the exact source location and confirm the submitted source contains the change that should remove the earliest observed failure.",
+        "hypothesis_4": "The symbolic case added a velocity-amplitude damping term that produced only a 0.0005 NMSE decrease versus the 0.002 expected, suggesting the extra term is unrelated complexity rather than a targeted fix to the correct residual structure.",
+        "parent_1": false,
+        "parent_2": false,
+        "parent_3": false,
+        "parent_4": true,
+        "quote_1": "Prioritize the earliest failure actually observed during execution; do not equate proposed plan length with executed actions.",
+        "quote_2": "Check the input and output types, required format, and parameter order before diagnosing a search failure.",
+        "quote_3": "Connect a diagnostic observation to the source location to change and the failure expected to disappear; verify that the submitted source includes that change.",
+        "quote_4": "Preserve correct behavior while making a complete valid repair, and avoid unrelated complexity.",
+        "rule_1": "R02",
+        "rule_2": "R01",
+        "rule_3": "R05",
+        "rule_4": "R08",
+        "support_1": "both",
+        "support_2": "F1",
+        "support_3": "F1",
+        "support_4": "both"
+      },
+      "literal_structural_status": "invalid",
+      "schema_length_issues": [
+        {
+          "field": "hypothesis_3",
+          "actual_characters": 280,
+          "maximum_characters": 240,
+          "source": "exact_dispatched_tool_schema",
+          "status": "exceeds_maxLength"
+        }
+      ],
+      "event_counts": {
+        "actions": 1,
+        "observations": 0,
+        "agent_errors": 1
+      },
+      "tool_call_id": "call_01a159422bd178a1a827bba0",
+      "llm_response_id": "chatcmpl-6a8cced3-e0cc-40e6-b88f-16ce839d83b6",
+      "outcome": "no_accepted_policy",
+      "factual_checks_available": false,
+      "fixed_factual_obligations": 11,
+      "controller_attempt_record_exists": false
+    },
+    {
+      "pair_id": "p1",
+      "condition": "checked",
+      "session_id": "p1-checked",
+      "requested": false,
+      "accepted": false,
+      "frozen": false
+    },
+    {
+      "pair_id": "p2",
+      "condition": "proposal",
+      "session_id": "p2-proposal",
+      "requested": false,
+      "accepted": false,
+      "frozen": false
+    },
+    {
+      "pair_id": "p2",
+      "condition": "checked",
+      "session_id": "p2-checked",
+      "requested": false,
+      "accepted": false,
+      "frozen": false
+    },
+    {
+      "pair_id": "p2",
+      "condition": "self",
+      "session_id": "p2-self",
+      "requested": false,
+      "accepted": false,
+      "frozen": false
+    }
+  ],
+  "review_pairs": [
+    {
+      "pair_id": "p1",
+      "assigned_sessions": [
+        "p1-self",
+        "p1-checked"
+      ],
+      "requested_sessions": [
+        "p1-self"
+      ],
+      "both_requested": false,
+      "exact_common_request_equality": false,
+      "removed_packet_fields": [
+        "premise_feedback"
+      ],
+      "common_request_sha256": "09c9aac9f97a1b7c6c2acfbb33ede8bf6235ff8eb6b62a23f201d2c7d91086f1",
+      "common_request_bytes": 35876,
+      "both_policies_frozen": false,
+      "policies_identical": null,
+      "self_policy": null,
+      "checked_policy": null
+    },
+    {
+      "pair_id": "p2",
+      "assigned_sessions": [
+        "p2-checked",
+        "p2-self"
+      ],
+      "requested_sessions": [],
+      "both_requested": false,
+      "exact_common_request_equality": false,
+      "removed_packet_fields": [
+        "premise_feedback"
+      ],
+      "common_request_sha256": null,
+      "common_request_bytes": null,
+      "both_policies_frozen": false,
+      "policies_identical": null,
+      "self_policy": null,
+      "checked_policy": null
+    }
+  ],
+  "actors": [
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-P-A002",
+      "state_id": "P-A002",
+      "condition": "self",
+      "family": "planning",
+      "session_id": "p1-P-A002-self",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-S-poly5",
+      "state_id": "S-poly5",
+      "condition": "checked",
+      "family": "symbolic",
+      "session_id": "p1-S-poly5-checked",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-P-A002",
+      "state_id": "P-A002",
+      "condition": "checked",
+      "family": "planning",
+      "session_id": "p1-P-A002-checked",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    },
+    {
+      "policy_pair": "p1",
+      "pair_id": "p1-S-poly5",
+      "state_id": "S-poly5",
+      "condition": "self",
+      "family": "symbolic",
+      "session_id": "p1-S-poly5-self",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-S-odd4",
+      "state_id": "S-odd4",
+      "condition": "self",
+      "family": "symbolic",
+      "session_id": "p2-S-odd4-self",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-P-B002",
+      "state_id": "P-B002",
+      "condition": "checked",
+      "family": "planning",
+      "session_id": "p2-P-B002-checked",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-S-odd4",
+      "state_id": "S-odd4",
+      "condition": "checked",
+      "family": "symbolic",
+      "session_id": "p2-S-odd4-checked",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    },
+    {
+      "policy_pair": "p2",
+      "pair_id": "p2-P-B002",
+      "state_id": "P-B002",
+      "condition": "self",
+      "family": "planning",
+      "session_id": "p2-P-B002-self",
+      "request_count": 0,
+      "generated_candidate_records": 0,
+      "new_task_result_records": 0,
+      "archived_task_result_records": 0,
+      "child_score": null,
+      "improvement": null,
+      "submitted_and_improved": false,
+      "audits": []
+    }
+  ],
+  "actor_pairs": [
+    {
+      "pair_id": "p1-P-A002",
+      "assigned_sessions": [
+        "p1-P-A002-self",
+        "p1-P-A002-checked"
+      ],
+      "requested_sessions": [],
+      "both_requested": false,
+      "exact_common_request_equality": false,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": null,
+      "common_request_bytes": null
+    },
+    {
+      "pair_id": "p1-S-poly5",
+      "assigned_sessions": [
+        "p1-S-poly5-checked",
+        "p1-S-poly5-self"
+      ],
+      "requested_sessions": [],
+      "both_requested": false,
+      "exact_common_request_equality": false,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": null,
+      "common_request_bytes": null
+    },
+    {
+      "pair_id": "p2-P-B002",
+      "assigned_sessions": [
+        "p2-P-B002-checked",
+        "p2-P-B002-self"
+      ],
+      "requested_sessions": [],
+      "both_requested": false,
+      "exact_common_request_equality": false,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": null,
+      "common_request_bytes": null
+    },
+    {
+      "pair_id": "p2-S-odd4",
+      "assigned_sessions": [
+        "p2-S-odd4-self",
+        "p2-S-odd4-checked"
+      ],
+      "requested_sessions": [],
+      "both_requested": false,
+      "exact_common_request_equality": false,
+      "removed_packet_fields": [
+        "repair_policy"
+      ],
+      "common_request_sha256": null,
+      "common_request_bytes": null
+    }
+  ],
+  "counts": {
+    "requests": 2,
+    "update_requests": 2,
+    "frozen_updates": 1,
+    "evaluation_requests": 0,
+    "generated_candidate_records": 0,
+    "new_task_result_records": 0,
+    "unique_new_evaluator_run_ids": 0,
+    "archived_task_result_records": 0,
+    "unique_archived_evaluator_run_ids": 0,
+    "claim_statuses": {},
+    "prediction_statuses": {},
+    "registration_statuses": {}
+  },
+  "costs": {
+    "all": {
+      "requests": 2,
+      "known_prompt_tokens": 18555,
+      "known_completion_tokens": 1995,
+      "known_total_tokens": 20550,
+      "known_estimated_cost_cny": 0.0557235,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 20550,
+      "actual_estimated_cost_cny": 0.0557235,
+      "reserved_tokens": 93732,
+      "reserved_cost_cny": 0.2484468,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "update_proposal": {
+      "requests": 1,
+      "known_prompt_tokens": 9005,
+      "known_completion_tokens": 821,
+      "known_total_tokens": 9826,
+      "known_estimated_cost_cny": 0.0258069,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 9826,
+      "actual_estimated_cost_cny": 0.0258069,
+      "reserved_tokens": 45542,
+      "reserved_cost_cny": 0.121443,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "update_self": {
+      "requests": 1,
+      "known_prompt_tokens": 9550,
+      "known_completion_tokens": 1174,
+      "known_total_tokens": 10724,
+      "known_estimated_cost_cny": 0.0299166,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 10724,
+      "actual_estimated_cost_cny": 0.0299166,
+      "reserved_tokens": 48190,
+      "reserved_cost_cny": 0.1270038,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "update_checked": {
+      "requests": 0,
+      "known_prompt_tokens": 0,
+      "known_completion_tokens": 0,
+      "known_total_tokens": 0,
+      "known_estimated_cost_cny": 0.0,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 0,
+      "actual_estimated_cost_cny": 0.0,
+      "reserved_tokens": 0,
+      "reserved_cost_cny": 0.0,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "actor_self": {
+      "requests": 0,
+      "known_prompt_tokens": 0,
+      "known_completion_tokens": 0,
+      "known_total_tokens": 0,
+      "known_estimated_cost_cny": 0.0,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 0,
+      "actual_estimated_cost_cny": 0.0,
+      "reserved_tokens": 0,
+      "reserved_cost_cny": 0.0,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "actor_checked": {
+      "requests": 0,
+      "known_prompt_tokens": 0,
+      "known_completion_tokens": 0,
+      "known_total_tokens": 0,
+      "known_estimated_cost_cny": 0.0,
+      "unknown_usage_requests": 0,
+      "actual_total_tokens": 0,
+      "actual_estimated_cost_cny": 0.0,
+      "reserved_tokens": 0,
+      "reserved_cost_cny": 0.0,
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    }
+  },
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "scope": "Two learned policy pairs and four researcher-seen development states; no independent-task or significance claim.",
+  "request_comparison_scope": "Saved SDK pre-transport envelopes, not independently captured HTTP.",
+  "registration_timing_independently_proven": false,
+  "verification": {
+    "settlement": {
+      "request_count": 2,
+      "reserved_count": 0,
+      "failed_count": 0,
+      "usage_unknown_count": 0,
+      "halted": false,
+      "halt_reasons": [],
+      "recovery": null
+    },
+    "source_provenance_files_verified": 78,
+    "request_order_verified": true,
+    "accepted_policy_calls_match_saved_arguments": true,
+    "accepted_policy_checks_recomputed": 1,
+    "unaccepted_requested_updates_not_scored": 1,
+    "evaluator_id_sets_disjoint": true,
+    "completed_all_assigned_requests": false,
+    "accepted_policies_do_not_certify_applicability": true,
+    "full_actor_packet_reconstructed_from_executor": false,
+    "actor_pair_equality_observed": false,
+    "review_pair_equality_observed": false
+  },
+  "run_id": "20261020-grounded-policy-v01",
+  "runtime_commit": "b88f3e333c23704df98dd9c493a2ba86ec0c8f33",
+  "reported_run_status": "update_not_frozen",
+  "stop_reason": "update_missing_or_error",
+  "run_file_count": 27,
+  "run_files_unchanged": true,
+  "run_tree_before_sha256": "3c36c2eb40caace3f0f6e13a5086e10a4382e8342570e70f3d4cb4a483a61208",
+  "run_tree_after_sha256": "3c36c2eb40caace3f0f6e13a5086e10a4382e8342570e70f3d4cb4a483a61208",
+  "input_file_sha256": {
+    "base-config.json": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+    "budget-ledger.json": "fdab3d2211c6ea0043fdef9baaa04000621a889885d5edf55f254d9ccbd5979e",
+    "config.json": "ba0729f7200ac838307c6dddd40a499b36245e05bf058eaec0f8a0c29d11e8a0",
+    "p1-proposal/attempt.json": "50776c90a74e6c74685393f38fd2ef683304e5a0ef11a094054e5593991ec5f7",
+    "p1-proposal/checks.json": "b00251d7409645bb1ab5d3c5860413b143775f9e75f02b0e9fdeb3d3c35afd24",
+    "p1-proposal/context.json": "8c00af5c10b185520acf8d19ba0fb27c4d8077d1d028542749560102353d9b00",
+    "p1-proposal/events.jsonl": "7d00ac8130607f974605f11ed13fdd18cf12a9d513cfbc1ea32dd999d9433e0d",
+    "p1-proposal/freeze.json": "499d074a2ed0b7d0d4fee572ed03025d579ca4ed975859a959dc3652cee78073",
+    "p1-proposal/policy.json": "0c4d66b233b3c6bcf4c7cd468ebda3e933db113d40e14999c7340606f3b3158c",
+    "p1-proposal/requests/input-audit-0001.json": "94cc9be35b4e9c0c6a13a8449746371f7cde4505634fa8ccd273e80a56fa8591",
+    "p1-proposal/requests/packet-0001.json": "286607bf2f53401e2759180b48c0b724a6ac6a636333d59f033d335afa7d5a60",
+    "p1-proposal/requests/request-0001.request.json": "36acc26ae835613dba20bf869404bcd7e8aa3ccce765682b3eaa1a5e2d1380fc",
+    "p1-proposal/requests/request-0001.response.json": "883fb32a743e0a1f64f2f8216fc7dbcf67d6f4370a3c86708170e07fb4c08b8c",
+    "p1-proposal/session-summary.json": "ffa1f4ad0f8df48b83860e12818e233496528ef3ace730ce5a03c13d73c68cfa",
+    "p1-proposal/submission.json": "6812d0b0b3341de97241d77233a66a559b1eb031780044ae9a9582d239e24242",
+    "p1-proposal/task-packet.json": "286607bf2f53401e2759180b48c0b724a6ac6a636333d59f033d335afa7d5a60",
+    "p1-self/context.json": "589094e3fe85c06f2209acb1caeed280ab1e9a4e19963a80266eb038c9fbf139",
+    "p1-self/events.jsonl": "68013afb2269ff60ac78ee0b0675431f7ac37b7d44e781921113ff79b0fc0f5a",
+    "p1-self/requests/input-audit-0001.json": "b415ef73a909e0ff55dad3869f859b3f2e6af92c2eb9ce1962f3ebcfeb077bf3",
+    "p1-self/requests/packet-0001.json": "84212393b3c3bddceb554b3451f4f1bf72dc732bced343cc52d10a39adf2a024",
+    "p1-self/requests/request-0002.request.json": "ce55e08cc356319e62d055eabcef466010585b7c53434cf21146c964e685f3af",
+    "p1-self/requests/request-0002.response.json": "54ec43174bebd7af559ce47b7032f808c3fdfa8e3bfcaee6fd77948df0eded62",
+    "p1-self/session-summary.json": "36deb96bffb2f2aac52e188afa55e031e2da063362696a2ca281ff2e69143af3",
+    "p1-self/task-packet.json": "84212393b3c3bddceb554b3451f4f1bf72dc732bced343cc52d10a39adf2a024",
+    "state-provenance.json": "45efa96d313923a142a89384129c365793cbf1321563c8952ae02c8397f23e1b",
+    "summary.json": "989b941e6c8973050d4583c887352ce10376dc0e93e65819f9af66bdbd0f314d",
+    "update-bundle.json": "1e86429e849abd6d9dd6c1ee00944371cedf3dd9bf973fc1e98bbd57ec52b09e"
+  },
+  "analysis_script_sha256": "a3bfbbaa7bd9cde8dbaa7e27dafcffd97036f3cb1777d9a6fc12aa717f2fc7b8"
+}

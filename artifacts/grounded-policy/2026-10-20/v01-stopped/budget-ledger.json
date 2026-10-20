@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "config": {
+    "max_requests": 14,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 1900000,
+    "max_cost_cny": 5.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4,
+    "session_ids": [
+      "p1-proposal",
+      "p1-self",
+      "p1-checked",
+      "p2-proposal",
+      "p2-checked",
+      "p2-self",
+      "p1-P-A002-self",
+      "p1-S-poly5-checked",
+      "p1-P-A002-checked",
+      "p1-S-poly5-self",
+      "p2-S-odd4-self",
+      "p2-P-B002-checked",
+      "p2-S-odd4-checked",
+      "p2-P-B002-self"
+    ]
+  },
+  "requests": [
+    {
+      "request_id": "request-0001",
+      "session_id": "p1-proposal",
+      "input_bytes": 33254,
+      "payload_sha256": "0f002b82903da229932095cd1cef74378736fe769a89a426a5eeaeccf479e6d5",
+      "input_token_reservation": 41446,
+      "output_token_reservation": 4096,
+      "reserved_cost_cny": 0.121443,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 9005,
+        "completion_tokens": 821,
+        "total_tokens": 9826
+      },
+      "usage_state": "known",
+      "usage_sha256": "6f28d99150d536d8ba1aa1ebfc09222853854cad216c4e903675bfb7d6ae144a",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0258069
+    },
+    {
+      "request_id": "request-0002",
+      "session_id": "p1-self",
+      "input_bytes": 35902,
+      "payload_sha256": "8b2054cda252463d32ad2b5e9fedddf887dbc6a257937d6576e4ec73faf7e458",
+      "input_token_reservation": 44094,
+      "output_token_reservation": 4096,
+      "reserved_cost_cny": 0.1270038,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 9550,
+        "completion_tokens": 1174,
+        "total_tokens": 10724
+      },
+      "usage_state": "known",
+      "usage_sha256": "6b309144f2fa4e7bbccdd32dbf2ddcc3de13412545e18ad6caeef0a8f4335467",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0299166
+    }
+  ],
+  "halted": false,
+  "halt_reasons": []
+}

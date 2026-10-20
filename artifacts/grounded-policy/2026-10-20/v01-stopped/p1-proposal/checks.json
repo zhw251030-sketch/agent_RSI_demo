@@ -1,0 +1,156 @@
+{
+  "version": "grounded-premise-checks-v0.1",
+  "structural_status": "valid",
+  "parent_membership": [
+    {
+      "slot": 1,
+      "rule_id": "R02",
+      "claimed": false,
+      "actual": false,
+      "status": "supported"
+    },
+    {
+      "slot": 2,
+      "rule_id": "R01",
+      "claimed": false,
+      "actual": false,
+      "status": "supported"
+    },
+    {
+      "slot": 3,
+      "rule_id": "R05",
+      "claimed": false,
+      "actual": false,
+      "status": "supported"
+    },
+    {
+      "slot": 4,
+      "rule_id": "R08",
+      "claimed": true,
+      "actual": true,
+      "status": "supported"
+    }
+  ],
+  "rule_quotes": [
+    {
+      "slot": 1,
+      "rule_id": "R02",
+      "status": "supported",
+      "reason": "exact_full_catalog_text_comparison"
+    },
+    {
+      "slot": 2,
+      "rule_id": "R01",
+      "status": "supported",
+      "reason": "exact_full_catalog_text_comparison"
+    },
+    {
+      "slot": 3,
+      "rule_id": "R05",
+      "status": "supported",
+      "reason": "exact_full_catalog_text_comparison"
+    },
+    {
+      "slot": 4,
+      "rule_id": "R08",
+      "status": "supported",
+      "reason": "exact_full_catalog_text_comparison"
+    }
+  ],
+  "facts": [
+    {
+      "slot": 1,
+      "fact_id": "P.after.p0.plan_length",
+      "status": "supported",
+      "checks": {
+        "id": "supported",
+        "type": "supported",
+        "value": "supported",
+        "scope": "supported"
+      },
+      "reason": "exact_scalar_type_value_and_scope_comparison",
+      "actual_value": 11,
+      "actual_scope": "planning/U-P/after/public_prompt/spannerlearning/seed0/problem0/plan_length",
+      "actual_type": "number",
+      "source_pointer": "/cases/0/observations_after/0/plan_replay/plan_length"
+    },
+    {
+      "slot": 2,
+      "fact_id": "S.prediction.actual",
+      "status": "supported",
+      "checks": {
+        "id": "supported",
+        "type": "supported",
+        "value": "supported",
+        "scope": "supported"
+      },
+      "reason": "exact_scalar_type_value_and_scope_comparison",
+      "actual_value": 0.0005035923590065439,
+      "actual_scope": "symbolic/U-S/prediction/nmse/actual",
+      "actual_type": "number",
+      "source_pointer": "/cases/1/prediction_result/actual"
+    }
+  ],
+  "coverage": {
+    "status": "supported",
+    "required_families": [
+      "planning",
+      "symbolic"
+    ],
+    "observed_families": [
+      "planning",
+      "symbolic"
+    ],
+    "definition": "Task families of resolved fact IDs; correctness is checked separately."
+  },
+  "unverified": [
+    {
+      "slot": 1,
+      "rule_id": "R02",
+      "status": "not_checked",
+      "fields": [
+        "support_1",
+        "hypothesis_1",
+        "edit_1"
+      ],
+      "reason": "Factual checks do not certify applicability or anticipated edits."
+    },
+    {
+      "slot": 2,
+      "rule_id": "R01",
+      "status": "not_checked",
+      "fields": [
+        "support_2",
+        "hypothesis_2",
+        "edit_2"
+      ],
+      "reason": "Factual checks do not certify applicability or anticipated edits."
+    },
+    {
+      "slot": 3,
+      "rule_id": "R05",
+      "status": "not_checked",
+      "fields": [
+        "support_3",
+        "hypothesis_3",
+        "edit_3"
+      ],
+      "reason": "Factual checks do not certify applicability or anticipated edits."
+    },
+    {
+      "slot": 4,
+      "rule_id": "R08",
+      "status": "not_checked",
+      "fields": [
+        "support_4",
+        "hypothesis_4",
+        "edit_4"
+      ],
+      "reason": "Factual checks do not certify applicability or anticipated edits."
+    }
+  ],
+  "passed_checks": 11,
+  "total_checks": 11,
+  "all_checked_pass": true,
+  "applicability_certified": false
+}

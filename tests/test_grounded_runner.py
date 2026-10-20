@@ -43,6 +43,16 @@ class GroundedRunnerTests(unittest.TestCase):
         b['proposal']['rule_1'] = 'R02'
         self.assertNotEqual(review_common(a),review_common(b))
 
+    def test_known_failed_actor_does_not_invalidate_frozen_update(self):
+        update={'request_id':'request-0001','session_id':'p1-proposal','status':'settled',
+                'usage_state':'known','usage':{'prompt_tokens':10}}
+        actor=dict(update,request_id='request-0007',session_id='p1-P-A002-self',status='failed')
+        state={'halted':False,'requests':[update,actor]}
+        self.assertEqual(settled_request(state,'p1-proposal'),'request-0001')
+        with self.assertRaises(ValueError): settled_request(state,'p1-P-A002-self')
+        actor['status']='reserved'
+        with self.assertRaises(ValueError): settled_request(state,'p1-proposal')
+
     def test_actor_pair_comparison_detects_memory_leak(self):
         class C:
             records = [{'source_sha256':'x','n_params':3}]

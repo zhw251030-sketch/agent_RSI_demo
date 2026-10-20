@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-20",
+  "runtime_commit": "b88f3e333c23704df98dd9c493a2ba86ec0c8f33",
+  "run_id": "20261020-grounded-policy-v01",
+  "run_status": "update_not_frozen",
+  "preflight_distinct_tests": 448,
+  "preflight_task_tests": 391,
+  "preflight_sdk_tests": 57,
+  "offline_prepare_model_calls": 0,
+  "postrun_local_tests_passed": 19,
+  "postrun_server": {
+    "stage": "/home/hanwen/Project/project/agent_RSI_demo/tmp/grounded-postrun-5qs4n7m4",
+    "checks": [
+      {
+        "name": "regression",
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 19 tests in 0.581s\n\nOK\n"
+      },
+      {
+        "name": "audit",
+        "exit_code": 0,
+        "output": "okens\": 45542,\n      \"reserved_cost_cny\": 0.121443,\n      \"cost_basis\": \"configured_uncached_prices_estimate_not_provider_invoice\"\n    },\n    \"update_self\": {\n      \"requests\": 1,\n      \"known_prompt_tokens\": 9550,\n      \"known_completion_tokens\": 1174,\n      \"known_total_tokens\": 10724,\n      \"known_estimated_cost_cny\": 0.0299166,\n      \"unknown_usage_requests\": 0,\n      \"actual_total_tokens\": 10724,\n      \"actual_estimated_cost_cny\": 0.0299166,\n      \"reserved_tokens\": 48190,\n      \"reserved_cost_cny\": 0.1270038,\n      \"cost_basis\": \"configured_uncached_prices_estimate_not_provider_invoice\"\n    },\n    \"update_checked\": {\n      \"requests\": 0,\n      \"known_prompt_tokens\": 0,\n      \"known_completion_tokens\": 0,\n      \"known_total_tokens\": 0,\n      \"known_estimated_cost_cny\": 0.0,\n      \"unknown_usage_requests\": 0,\n      \"actual_total_tokens\": 0,\n      \"actual_estimated_cost_cny\": 0.0,\n      \"reserved_tokens\": 0,\n      \"reserved_cost_cny\": 0.0,\n      \"cost_basis\": \"configured_uncached_prices_estimate_not_provider_invoice\"\n    },\n    \"actor_self\": {\n      \"requests\": 0,\n      \"known_prompt_tokens\": 0,\n      \"known_completion_tokens\": 0,\n      \"known_total_tokens\": 0,\n      \"known_estimated_cost_cny\": 0.0,\n      \"unknown_usage_requests\": 0,\n      \"actual_total_tokens\": 0,\n      \"actual_estimated_cost_cny\": 0.0,\n      \"reserved_tokens\": 0,\n      \"reserved_cost_cny\": 0.0,\n      \"cost_basis\": \"configured_uncached_prices_estimate_not_provider_invoice\"\n    },\n    \"actor_checked\": {\n      \"requests\": 0,\n      \"known_prompt_tokens\": 0,\n      \"known_completion_tokens\": 0,\n      \"known_total_tokens\": 0,\n      \"known_estimated_cost_cny\": 0.0,\n      \"unknown_usage_requests\": 0,\n      \"actual_total_tokens\": 0,\n      \"actual_estimated_cost_cny\": 0.0,\n      \"reserved_tokens\": 0,\n      \"reserved_cost_cny\": 0.0,\n      \"cost_basis\": \"configured_uncached_prices_estimate_not_provider_invoice\"\n    }\n  },\n  \"run_files_unchanged\": true,\n  \"error_type\": null,\n  \"verification_failure\": null\n}\n"
+      }
+    ],
+    "staging_note": "Read-only Git object access is bound to the project .git; nested snapshot initially had a path prefix, which was corrected before this final check.",
+    "source_sha256": {
+      "scripts/run_grounded_policy.py": "41549cb122bc0650165b67f550a949825b3cf3c821502770b3a52fe4743d311c",
+      "scripts/analyze_grounded_policy.py": "a3bfbbaa7bd9cde8dbaa7e27dafcffd97036f3cb1777d9a6fc12aa717f2fc7b8",
+      "tests/test_grounded_runner.py": "bbe8eab30a6d0c6f1434585d745699ca270cb87ef6430203913349a0c9be2cdf",
+      "tests/test_grounded_analysis.py": "aa2d9d616d3a7d982202493b7a94f4c035a7a52d76096cbdf8a944ce0f5d3f93"
+    }
+  },
+  "negative_audit_file": "docs/analysis/2026-10-20-grounded-policy-negative-audit.json",
+  "negative_mutation_cases": 10,
+  "audit_status": "verified_partial",
+  "raw_archive_files": 27,
+  "raw_archive_files_byte_identical": true,
+  "raw_tree_sha256": "3c36c2eb40caace3f0f6e13a5086e10a4382e8342570e70f3d4cb4a483a61208",
+  "requests": 2,
+  "planned_requests": 14,
+  "new_candidates": 0,
+  "new_task_executions": 0,
+  "baseline_reexecutions": 0,
+  "sealed_test_evaluations": 0,
+  "known_tokens": 20550,
+  "known_estimated_cost_cny": 0.0557235,
+  "reserved_cost_cny": 0.2484468,
+  "postrun_fix": "Known-usage failed actor records no longer invalidate earlier settled update freezes. One new regression passed; frozen v01 was not modified or resumed.",
+  "limitations": [
+    "No complete review pair or downstream evaluation",
+    "11/11 narrow checks do not certify hypothesis applicability",
+    "No provider invoice reconciliation; earlier unknown usage remains",
+    "Formal protocol and all saved responses retain original values"
+  ]
+}
