@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已完成16请求、16候选的冻结证据回放开发对照。** S-x5检查组两次删去低收益项，5→4参数且NMSE仅增加7.18e-7；规划格式检查组一次10/10、一次未修复。S-v3两臂均保留，P-empty两臂均失败，尚无稳定机制优势。见[最新完整说明](docs/operations/decision-replay.md)、[逐例结果](docs/analysis/2026-10-21-decision-replay-results.md)、[303份原始记录](artifacts/decision-replay/2026-10-21/v01/README.md)。实跑前759项不同服务器测试通过。
+**最新已完成16份历史提交的编辑一致性离线检查。** 14条人工提取的窄编辑谓词支持、2条未知；明确逐字保持声明有1条仅因末尾换行不符。部署假设与编辑落实分开核对，本轮零模型/零候选执行，34项测试双端全通过、报告字节一致。见[本轮完整说明](docs/operations/edit-consistency.md)、[逐例结果](docs/analysis/2026-10-21-edit-consistency-results.md)与[核验](docs/environment/2026-10-21-edit-consistency-verification.json)。不认证完整解释或机制有效性。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -55,7 +55,9 @@
 26. [此前：可执行干预校准与编辑验证](docs/operations/intervention-probes.md) · [结果分析](docs/analysis/2026-10-21-intervention-results.md) · [核验](docs/environment/2026-10-21-intervention-verification.json)
 
 27. [两阶段登记—检查—修订及混淆分析](docs/operations/two-stage.md)
-28. [最新：冻结证据回放决策](docs/operations/decision-replay.md) · [结果](docs/analysis/2026-10-21-decision-replay-results.md) · [核验](docs/environment/2026-10-21-decision-replay-verification.json)
+28. [此前：冻结证据回放决策](docs/operations/decision-replay.md) · [结果](docs/analysis/2026-10-21-decision-replay-results.md) · [核验](docs/environment/2026-10-21-decision-replay-verification.json)
+
+29. [最新：编辑声明一致性检查](docs/operations/edit-consistency.md) · [原文标注](configs/analysis/edit-consistency-v0.1.json) · [机器报告](docs/analysis/2026-10-21-edit-consistency-report.json)
 
 ## 仓库边界
 

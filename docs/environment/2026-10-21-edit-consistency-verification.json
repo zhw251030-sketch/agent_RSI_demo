@@ -1,0 +1,75 @@
+{
+  "version": "edit-consistency-verification-v0.1",
+  "implementation_commit": "4dd4d49372b20931667e43e7c4fe9afd46204935",
+  "report_sha256": "195cf1c31602f88ad967e77b2750100a5cd955a7fdd5e880e7e0388e6f215716",
+  "local_server_report_bytes_equal": true,
+  "new_activity": {
+    "model_calls": 0,
+    "candidate_executions": 0,
+    "task_evaluations": 0,
+    "probe_executions": 0,
+    "strategy_updates": 0,
+    "model_weight_updates": 0
+  },
+  "historical_archive": {
+    "path": "artifacts/decision-replay/2026-10-21/v01",
+    "manifest_sha256": "0b32ada07fbc53761ba85a11dd521595a80d4befeebb138cad2d434eb35dc705",
+    "raw_file_count": 303,
+    "raw_tree_sha256": "065029305dd3434661889d3f508f56b94af3c89f7d790c1630cc489ff1166dd5",
+    "runtime_commit": "ede8fc7a729b94e6573eba19954691c9c8edb219",
+    "binding_audit_status": "passed"
+  },
+  "source_files_sha256": {
+    "configs/analysis/edit-consistency-v0.1.json": "ddcd36f7e9ce15f0ea720419a19e045de51dd9de538227b8bf87b73f8e74f422",
+    "docs/protocols/2026-10-21-edit-consistency-v0.1.md": "079ce1899fd6a0e313b393bf0d6e6fdd02e11b6e2b31511650f606d4b66ac874",
+    "rsi_eval/edit_consistency.py": "99da47589cf8996da8bf70596b637974f4f18003a73822626d94dd29d23681c5",
+    "scripts/analyze_edit_consistency.py": "b67558424be8791fcf99d0737054e1118ef70953e538e3014626fac52e5a2685",
+    "tests/test_edit_consistency.py": "19bf62b27154dea3d024f722b1457375fd5276480f6a97b976cc8afb7ee74a9e",
+    "tests/test_edit_consistency_audit.py": "d7a0f3cb95b1e3173cd2bc1cbf36b67706be32d7049531ea1a0ab9b9740fa4e5"
+  },
+  "tests": {
+    "local": {
+      "python": "3.12.14",
+      "platform": "win32",
+      "tests_run": 34,
+      "passed": 34,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 4.063,
+      "output": "..................................\n----------------------------------------------------------------------\nRan 34 tests in 4.056s\n\nOK\n"
+    },
+    "server": {
+      "python": "3.10.12",
+      "platform": "linux",
+      "tests_run": 34,
+      "passed": 34,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 1.383,
+      "output": "..................................\n----------------------------------------------------------------------\nRan 34 tests in 1.383s\n\nOK\n"
+    }
+  },
+  "review": {
+    "reviewed_by": "independent_collaboration_agents",
+    "resolved_issue": "Original auxiliary quotes rejected by rationale-only locator; registered field traversal fixed and retested.",
+    "unresolved_high_or_medium_findings": 0,
+    "limitations": [
+      "Known-entrypoint mock assertions are not a full process sandbox proof.",
+      "AST projection ignores TypeIgnore position; it does not preserve type-checker suppression attachment. No historical candidate uses TypeIgnore."
+    ]
+  },
+  "cost": {
+    "new_model_requests": 0,
+    "new_known_tokens": 0,
+    "new_estimated_cost_cny": 0,
+    "project_research_requests": 103,
+    "project_known_tokens": 820401,
+    "project_known_estimated_cost_cny": 2.5144056,
+    "project_reserved_cost_cny": 10.7783256,
+    "earliest_unknown_usage_retained": true
+  },
+  "distinct_tests": 34,
+  "historical_runtime_and_raw_archives_unchanged_from": "cb644ce46952d79b72590e5f87ffce05d61b5525"
+}

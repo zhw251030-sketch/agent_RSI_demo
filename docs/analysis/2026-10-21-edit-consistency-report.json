@@ -1,0 +1,1637 @@
+{
+  "version": "edit-consistency-offline-v0.1",
+  "status": "completed",
+  "annotation_origin": "manual_retrospective_review",
+  "source_files_sha256": {
+    "configs/analysis/edit-consistency-v0.1.json": "ddcd36f7e9ce15f0ea720419a19e045de51dd9de538227b8bf87b73f8e74f422",
+    "docs/protocols/2026-10-21-edit-consistency-v0.1.md": "079ce1899fd6a0e313b393bf0d6e6fdd02e11b6e2b31511650f606d4b66ac874",
+    "rsi_eval/edit_consistency.py": "99da47589cf8996da8bf70596b637974f4f18003a73822626d94dd29d23681c5",
+    "scripts/analyze_edit_consistency.py": "b67558424be8791fcf99d0737054e1118ef70953e538e3014626fac52e5a2685",
+    "tests/test_edit_consistency.py": "19bf62b27154dea3d024f722b1457375fd5276480f6a97b976cc8afb7ee74a9e",
+    "tests/test_edit_consistency_audit.py": "d7a0f3cb95b1e3173cd2bc1cbf36b67706be32d7049531ea1a0ab9b9740fa4e5"
+  },
+  "historical_archive": {
+    "path": "artifacts/decision-replay/2026-10-21/v01",
+    "manifest_sha256": "0b32ada07fbc53761ba85a11dd521595a80d4befeebb138cad2d434eb35dc705",
+    "raw_file_count": 303,
+    "raw_tree_sha256": "065029305dd3434661889d3f508f56b94af3c89f7d790c1630cc489ff1166dd5",
+    "runtime_commit": "ede8fc7a729b94e6573eba19954691c9c8edb219",
+    "binding_audit_status": "passed"
+  },
+  "new_activity": {
+    "model_calls": 0,
+    "candidate_executions": 0,
+    "task_evaluations": 0,
+    "probe_executions": 0,
+    "strategy_updates": 0,
+    "model_weight_updates": 0
+  },
+  "main_claim_counts": {
+    "supported": 14,
+    "unknown": 2
+  },
+  "explicit_bytes_claim_counts": {
+    "supported": 5,
+    "contradicted": 1
+  },
+  "rows": [
+    {
+      "session_id": "P-format-r1-hidden",
+      "case_id": "P-format",
+      "condition": "hidden",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "after_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "before_n_params": 0,
+        "after_n_params": 0,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "contradicted",
+            "reason": "candidate_ast_differs_from_exact_formatter_patch"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-hidden/candidate.json",
+          "file_sha256": "02ca13a535f88f977090fe4be298e7f842ed7dc2232a8e00f22c9ca7572cb9df",
+          "json_pointer": "/rationale",
+          "quote": "Decision: keep the starting artifact unchanged (verbatim resubmission of the bound source).",
+          "start_character": 0,
+          "end_character_exclusive": 91
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": {
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_assumptions": [],
+      "unvalidated_statements": [
+        {
+          "kind": "source_format_description",
+          "evidence": {
+            "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-hidden/candidate.json",
+            "file_sha256": "02ca13a535f88f977090fe4be298e7f842ed7dc2232a8e00f22c9ca7572cb9df",
+            "json_pointer": "/rationale",
+            "quote": "on inspection _fmt already emits canonical \"(name arg1 arg2 ...)\" with single spaces and no edge whitespace",
+            "start_character": 416,
+            "end_character_exclusive": 523
+          },
+          "review_note": "Keep matches source; this separate formatting description is contradicted by the literal opening-parenthesis space. Do not certify full rationale."
+        }
+      ],
+      "archived_outcome": {
+        "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": false,
+          "development_successes": 0,
+          "development_total": 8,
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "total_successes": 0,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 0,
+          "prompt_delta": 0,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": false,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-hidden/candidate.json",
+        "error_kinds": {
+          "operator_syntax": 10
+        },
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "P-format-r1-checked",
+      "case_id": "P-format",
+      "condition": "checked",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "after_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "before_n_params": 0,
+        "after_n_params": 0,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "contradicted",
+            "reason": "candidate_ast_differs_from_exact_formatter_patch"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-checked/candidate.json",
+          "file_sha256": "b50738a11e6408463667ba7e249f0bae434f87095b9e41733e2933369a841ca9",
+          "json_pointer": "/rationale",
+          "quote": "Decision: keep the original artifact unchanged.",
+          "start_character": 0,
+          "end_character_exclusive": 47
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [
+        {
+          "evidence": {
+            "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-checked/candidate.json",
+            "file_sha256": "b50738a11e6408463667ba7e249f0bae434f87095b9e41733e2933369a841ca9",
+            "json_pointer": "/rationale",
+            "quote": "keep the source as-is and let the host's edge-normalization do its job.",
+            "start_character": 1443,
+            "end_character_exclusive": 1514
+          },
+          "verdict": {
+            "status": "contradicted",
+            "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+            "basis": "manually_audited_hash_pinned_runtime_contract",
+            "scope": "This runtime only; not a general proof about execution hosts."
+          }
+        }
+      ],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": false,
+          "development_successes": 0,
+          "development_total": 8,
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "total_successes": 0,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 0,
+          "prompt_delta": 0,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": false,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-checked/candidate.json",
+        "error_kinds": {
+          "operator_syntax": 10
+        },
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-v3-r1-checked",
+      "case_id": "S-v3",
+      "condition": "checked",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "after_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "before_n_params": 6,
+        "after_n_params": 6,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "contradicted",
+            "reason": "original_formula_and_parameter_count_retained"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r1-checked/candidate.json",
+          "file_sha256": "73e7e3974b4d38a3f50e0f098beeb8095f80fc490c5c69114ad40004c3d246d6",
+          "json_pointer": "/rationale",
+          "quote": "Submission below is byte-identical to the given source, with n_params=6.",
+          "start_character": 1325,
+          "end_character_exclusive": 1397
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": {
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": false,
+          "achieved_improvement": false,
+          "metric_split": "train",
+          "nmse": 0.09224903410100932,
+          "baseline_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "n_params": 6,
+          "baseline_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": false,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r1-checked/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-v3-r1-hidden",
+      "case_id": "S-v3",
+      "condition": "hidden",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "after_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "before_n_params": 6,
+        "after_n_params": 6,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "contradicted",
+            "reason": "original_formula_and_parameter_count_retained"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r1-hidden/candidate.json",
+          "file_sha256": "682e12a8c409497d27545bdcb4b826f42eb3b3b6e9f2fc08968e927b184a6ba0",
+          "json_pointer": "/rationale",
+          "quote": "Decision: keep the starting artifact byte-identical.",
+          "start_character": 0,
+          "end_character_exclusive": 52
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": {
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": false,
+          "achieved_improvement": false,
+          "metric_split": "train",
+          "nmse": 0.09224903410100932,
+          "baseline_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "n_params": 6,
+          "baseline_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": false,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r1-hidden/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "P-empty-r1-checked",
+      "case_id": "P-empty",
+      "condition": "checked",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "after_sha256": "502af39877c370217c136a6e47297943c5daa1d1774693da1e8900e562cd587d",
+        "before_n_params": 3,
+        "after_n_params": 3,
+        "parameter_count_same": true,
+        "relation": "unsupported_or_general_change",
+        "relations": {
+          "keep_bytes": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "keep_ast": {
+            "status": "contradicted",
+            "reason": "whole_ast_changed"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "original_formatter_outside_exact_contract"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "not_stated",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r1-checked/candidate.json",
+          "file_sha256": "4c9a8321da24b3f76a2f4ad44295d4b29253a8f2e9553ec5a1fafc7cb63d401e",
+          "json_pointer": "/rationale",
+          "quote": "The archived probe shows plan_length 0 in BOTH arms on both public instances, so the whitespace-normalization hypothesis is structurally inapplicable: get_plan returns an empty list, not a",
+          "start_character": 0,
+          "end_character_exclusive": 188
+        },
+        "verdict": {
+          "status": "unknown",
+          "reason": "unsupported_claim"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "502af39877c370217c136a6e47297943c5daa1d1774693da1e8900e562cd587d",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": false,
+          "development_successes": 0,
+          "development_total": 8,
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "total_successes": 0,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 0,
+          "prompt_delta": 0,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": false,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "other_change",
+          "source_changed": true,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r1-checked/candidate.json",
+        "error_kinds": {
+          "plan_semantics": 10
+        },
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "P-empty-r1-hidden",
+      "case_id": "P-empty",
+      "condition": "hidden",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "after_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "before_n_params": 3,
+        "after_n_params": 3,
+        "parameter_count_same": true,
+        "relation": "ast_same",
+        "relations": {
+          "keep_bytes": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "original_formatter_outside_exact_contract"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r1-hidden/candidate.json",
+          "file_sha256": "1f4517aedaf8844ef27d1d0a5b58ef5ea4c74eba00dace496cbd89e865e1d85b",
+          "json_pointer": "/rationale",
+          "quote": "the disciplined choice is to submit the unchanged starting artifact (a legal decision) rather than invent a change with no supporting observation.",
+          "start_character": 752,
+          "end_character_exclusive": 898
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": false,
+          "development_successes": 0,
+          "development_total": 8,
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "total_successes": 0,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 0,
+          "prompt_delta": 0,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": false,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "other_change",
+          "source_changed": true,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r1-hidden/candidate.json",
+        "error_kinds": {
+          "plan_semantics": 10
+        },
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-x5-r1-hidden",
+      "case_id": "S-x5",
+      "condition": "hidden",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "after_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "before_n_params": 5,
+        "after_n_params": 5,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "contradicted",
+            "reason": "original_formula_and_parameter_count_retained"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r1-hidden/candidate.json",
+          "file_sha256": "f14960371795c6766a04bd068a6deb8d5f6a377f38938bbb162707f25b1cf1ea",
+          "json_pointer": "/rationale",
+          "quote": "Decision: keep the starting artifact unchanged.",
+          "start_character": 0,
+          "end_character_exclusive": 47
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": false,
+          "achieved_improvement": false,
+          "metric_split": "train",
+          "nmse": 0.09180398722781567,
+          "baseline_nmse": 0.09180398722781567,
+          "delta_nmse": 0.0,
+          "n_params": 5,
+          "baseline_n_params": 5,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": false,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r1-hidden/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-x5-r1-checked",
+      "case_id": "S-x5",
+      "condition": "checked",
+      "repeat": 1,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "after_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+        "before_n_params": 5,
+        "after_n_params": 4,
+        "parameter_count_same": false,
+        "relation": "remove_selected_term",
+        "relations": {
+          "keep_bytes": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "keep_ast": {
+            "status": "contradicted",
+            "reason": "whole_ast_changed"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "supported",
+            "reason": "restricted_signature_and_bound_parent_ast"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "remove_selected_term",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r1-checked/candidate.json",
+          "file_sha256": "0bc61a8d3befc9eef4e17a4c9d29e6356081e859b9fa8494e14b392bb8fefba7",
+          "json_pointer": "/rationale",
+          "quote": "I keep the remaining basis intact (k*x, c*v, d*x^3, c2*v*|v|) and reduce n_params from 5 to 4.",
+          "start_character": 771,
+          "end_character_exclusive": 865
+        },
+        "target": {
+          "parameter_index": 4,
+          "basis": "x**5",
+          "original_n_params": 5,
+          "result_n_params": 4
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "restricted_signature_and_bound_parent_ast"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": true,
+          "achieved_improvement": true,
+          "metric_split": "train",
+          "nmse": 0.09180470524756017,
+          "baseline_nmse": 0.09180398722781567,
+          "delta_nmse": 7.180197444944802e-07,
+          "n_params": 4,
+          "baseline_n_params": 5,
+          "parameter_delta": -1,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": true,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "exact_term_removal",
+          "source_changed": true,
+          "parameter_delta": -1,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r1-checked/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "P-format-r2-checked",
+      "case_id": "P-format",
+      "condition": "checked",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "after_sha256": "caffcc6edd2ae1e83996c1ff2de8c76e7d0e3bcd0dc97d1e7796e8c0b3f318b0",
+        "before_n_params": 0,
+        "after_n_params": 0,
+        "parameter_count_same": true,
+        "relation": "exact_format_patch_up_to_ast",
+        "relations": {
+          "keep_bytes": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "keep_ast": {
+            "status": "contradicted",
+            "reason": "whole_ast_changed"
+          },
+          "apply_format_patch": {
+            "status": "supported",
+            "reason": "whole_ast_equals_exact_formatter_patch"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "apply_format_patch",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-checked/candidate.json",
+          "file_sha256": "1e69cae41fbcad75f50494307565263294939a0080d07e78177946a92375ada7",
+          "json_pointer": "/rationale",
+          "quote": "I therefore removed the two redundant inner spaces from `_fmt`, producing canonical parenthesized strings like \"(walk location1 location2 bob)\" instead of \"( walk location1 location2 bob )\".",
+          "start_character": 636,
+          "end_character_exclusive": 826
+        },
+        "target": {
+          "function": "_fmt",
+          "allowed_transform": "ascii_inner_edge_whitespace_only",
+          "outside_target_ast_unchanged": true
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_equals_exact_formatter_patch"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [
+        {
+          "kind": "two_inner_spaces_removed",
+          "evidence": {
+            "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-checked/candidate.json",
+            "file_sha256": "1e69cae41fbcad75f50494307565263294939a0080d07e78177946a92375ada7",
+            "json_pointer": "/rationale",
+            "quote": "I therefore removed the two redundant inner spaces from `_fmt`",
+            "start_character": 636,
+            "end_character_exclusive": 698
+          },
+          "review_note": "Narrow format-only succeeds; literal claim of two sides is not correct: only the leading inner space existed/was removed."
+        },
+        {
+          "kind": "logic_unchanged",
+          "evidence": {
+            "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-checked/candidate.json",
+            "file_sha256": "1e69cae41fbcad75f50494307565263294939a0080d07e78177946a92375ada7",
+            "json_pointer": "/rationale",
+            "quote": "I did not modify the BFS, grounding, or effect logic.",
+            "start_character": 1042,
+            "end_character_exclusive": 1095
+          },
+          "review_note": "Outside-_fmt AST equality supports a narrow structural statement; it does not prove BFS correctness for arbitrary tasks."
+        }
+      ],
+      "archived_outcome": {
+        "source_sha256": "caffcc6edd2ae1e83996c1ff2de8c76e7d0e3bcd0dc97d1e7796e8c0b3f318b0",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": true,
+          "development_successes": 8,
+          "development_total": 8,
+          "prompt_successes": 2,
+          "prompt_total": 2,
+          "total_successes": 10,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 8,
+          "prompt_delta": 2,
+          "meaningful_improvement": true,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": true,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "other_change",
+          "source_changed": true,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-checked/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "P-format-r2-hidden",
+      "case_id": "P-format",
+      "condition": "hidden",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "after_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "before_n_params": 0,
+        "after_n_params": 0,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "contradicted",
+            "reason": "candidate_ast_differs_from_exact_formatter_patch"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-hidden/candidate.json",
+          "file_sha256": "385b724b03e0cba86548af9bb66c6ca30426819c873f8d7c258481d0d27e2130",
+          "json_pointer": "/rationale",
+          "quote": "I resubmit the original source verbatim with no claimed improvement.",
+          "start_character": 940,
+          "end_character_exclusive": 1008
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": {
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": false,
+          "development_successes": 0,
+          "development_total": 8,
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "total_successes": 0,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 0,
+          "prompt_delta": 0,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": false,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-hidden/candidate.json",
+        "error_kinds": {
+          "operator_syntax": 10
+        },
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-v3-r2-hidden",
+      "case_id": "S-v3",
+      "condition": "hidden",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "after_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "before_n_params": 6,
+        "after_n_params": 6,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "contradicted",
+            "reason": "original_formula_and_parameter_count_retained"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r2-hidden/candidate.json",
+          "file_sha256": "87422f1b27ac55eab23b27a98da127a60836abda2f2a21941fd1a53e69649277",
+          "json_pointer": "/rationale",
+          "quote": "Decision: keep the starting artifact unchanged.",
+          "start_character": 0,
+          "end_character_exclusive": 47
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": false,
+          "achieved_improvement": false,
+          "metric_split": "train",
+          "nmse": 0.09224903410100932,
+          "baseline_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "n_params": 6,
+          "baseline_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": false,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r2-hidden/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-v3-r2-checked",
+      "case_id": "S-v3",
+      "condition": "checked",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "after_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "before_n_params": 6,
+        "after_n_params": 6,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "contradicted",
+            "reason": "original_formula_and_parameter_count_retained"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r2-checked/candidate.json",
+          "file_sha256": "94a2e8d3447e388942493dac394c567b29b4810a64f1c88292ab4347837ee065",
+          "json_pointer": "/auxiliary/forecast_basis",
+          "quote": "re-archived original source and n_params, byte-identical to the bound current artifact; expected to reproduce the recorded oscillator1/train NMSE under the same isolated refit",
+          "start_character": 0,
+          "end_character_exclusive": 175
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": {
+        "status": "supported",
+        "reason": "source_bytes_and_parameter_metadata_identical"
+      },
+      "deployment_assumptions": [],
+      "unvalidated_statements": [
+        {
+          "kind": "all_simplification_unavailable",
+          "evidence": {
+            "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r2-checked/candidate.json",
+            "file_sha256": "94a2e8d3447e388942493dac394c567b29b4810a64f1c88292ab4347837ee065",
+            "json_pointer": "/auxiliary/notes",
+            "quote": "Removal of c6*v^3 costs 1.51e-3 NMSE, so simplification is not available at the 1e-5 tolerance.",
+            "start_character": 0,
+            "end_character_exclusive": 95
+          },
+          "review_note": "Evidence covers only tested target param5 on train under one refit; no inference about deleting other terms or all possible simplifications."
+        }
+      ],
+      "archived_outcome": {
+        "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": false,
+          "achieved_improvement": false,
+          "metric_split": "train",
+          "nmse": 0.09224903410100932,
+          "baseline_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "n_params": 6,
+          "baseline_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": false,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r2-checked/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "P-empty-r2-hidden",
+      "case_id": "P-empty",
+      "condition": "hidden",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "after_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "before_n_params": 3,
+        "after_n_params": 3,
+        "parameter_count_same": true,
+        "relation": "ast_same",
+        "relations": {
+          "keep_bytes": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "original_formatter_outside_exact_contract"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-hidden/candidate.json",
+          "file_sha256": "e3fc0a3614f8f99ea286afde4ea70e5658e0e54c63e07e449e7ca24fee537535",
+          "json_pointer": "/rationale",
+          "quote": "Submitting the original complete source verbatim.",
+          "start_character": 967,
+          "end_character_exclusive": 1016
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": {
+        "status": "contradicted",
+        "reason": "source_bytes_changed"
+      },
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": false,
+          "development_successes": 0,
+          "development_total": 8,
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "total_successes": 0,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 0,
+          "prompt_delta": 0,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": false,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "other_change",
+          "source_changed": true,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-hidden/candidate.json",
+        "error_kinds": {
+          "plan_semantics": 10
+        },
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "P-empty-r2-checked",
+      "case_id": "P-empty",
+      "condition": "checked",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "planning",
+        "before_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+        "after_sha256": "240307d3f26f42655e6f633fab8927f413a21c1a02ad6864e280cf9a15d22c04",
+        "before_n_params": 3,
+        "after_n_params": 3,
+        "parameter_count_same": true,
+        "relation": "unsupported_or_general_change",
+        "relations": {
+          "keep_bytes": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "keep_ast": {
+            "status": "contradicted",
+            "reason": "whole_ast_changed"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "original_formatter_outside_exact_contract"
+          },
+          "remove_selected_term": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "outside_supported_contract",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-checked/candidate.json",
+          "file_sha256": "eda4f349be6b91673891bd6ef98ec59a862daf50b1609e8a858b053f0aa799e1",
+          "json_pointer": "/rationale",
+          "quote": "The candidate fixes all three: exact PDDL parameter order, adds drop, reads initial tightened, uses BFS over the full lifted model with directed links.",
+          "start_character": 481,
+          "end_character_exclusive": 632
+        },
+        "verdict": {
+          "status": "unknown",
+          "reason": "unsupported_claim"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [
+        {
+          "kind": "causal_missing_drop",
+          "evidence": {
+            "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-checked/candidate.json",
+            "file_sha256": "eda4f349be6b91673891bd6ef98ec59a862daf50b1609e8a858b053f0aa799e1",
+            "json_pointer": "/auxiliary/probe_hypothesis",
+            "quote": "contradicted result explained by argument-order and missing-drop bugs, not edge whitespace",
+            "start_character": 0,
+            "end_character_exclusive": 90
+          },
+          "review_note": "The failed whitespace intervention cannot establish either cause. No supplied drop action exists; source change cannot certify a semantic fix."
+        },
+        {
+          "kind": "domain_unchanged",
+          "evidence": {
+            "file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-checked/candidate.json",
+            "file_sha256": "eda4f349be6b91673891bd6ef98ec59a862daf50b1609e8a858b053f0aa799e1",
+            "json_pointer": "/rationale",
+            "quote": "n_params stays 3 since the domain model is unchanged.",
+            "start_character": 892,
+            "end_character_exclusive": 945
+          },
+          "review_note": "n_params is unused planning metadata; unchanged n_params cannot certify unchanged domain semantics. Candidate introduces drop."
+        }
+      ],
+      "archived_outcome": {
+        "source_sha256": "240307d3f26f42655e6f633fab8927f413a21c1a02ad6864e280cf9a15d22c04",
+        "score": {
+          "complete": true,
+          "family": "planning",
+          "acceptable_simplification": null,
+          "achieved_improvement": false,
+          "development_successes": 0,
+          "development_total": 8,
+          "prompt_successes": 0,
+          "prompt_total": 2,
+          "total_successes": 0,
+          "total_tasks": 10,
+          "baseline_development_successes": 0,
+          "baseline_prompt_successes": 0,
+          "development_delta": 0,
+          "prompt_delta": 0,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": null,
+          "numerical_improvement": false,
+          "numerical_degradation": false
+        },
+        "old_edit_label_unchanged": {
+          "kind": "other_change",
+          "source_changed": true,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-checked/candidate.json",
+        "error_kinds": {
+          "plan_semantics": 10
+        },
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-x5-r2-checked",
+      "case_id": "S-x5",
+      "condition": "checked",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "after_sha256": "e4d4c7fc03dd428eb2cbfb654c5899e22faf690b5e9c31b23a53c0487ae04e2d",
+        "before_n_params": 5,
+        "after_n_params": 4,
+        "parameter_count_same": false,
+        "relation": "remove_selected_term",
+        "relations": {
+          "keep_bytes": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "keep_ast": {
+            "status": "contradicted",
+            "reason": "whole_ast_changed"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "supported",
+            "reason": "restricted_signature_and_bound_parent_ast"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "remove_selected_term",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r2-checked/candidate.json",
+          "file_sha256": "9a8b8d22ed85889bd30be776987e79f3eb46923081f574ffa181727e7eb2e447",
+          "json_pointer": "/rationale",
+          "quote": "I therefore submit the 4-parameter form dropping the d2*x**5 additive term.",
+          "start_character": 506,
+          "end_character_exclusive": 581
+        },
+        "target": {
+          "parameter_index": 4,
+          "basis": "x**5",
+          "original_n_params": 5,
+          "result_n_params": 4
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "restricted_signature_and_bound_parent_ast"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "e4d4c7fc03dd428eb2cbfb654c5899e22faf690b5e9c31b23a53c0487ae04e2d",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": true,
+          "achieved_improvement": true,
+          "metric_split": "train",
+          "nmse": 0.09180470524756017,
+          "baseline_nmse": 0.09180398722781567,
+          "delta_nmse": 7.180197444944802e-07,
+          "n_params": 4,
+          "baseline_n_params": 5,
+          "parameter_delta": -1,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": true,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "exact_term_removal",
+          "source_changed": true,
+          "parameter_delta": -1,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r2-checked/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    },
+    {
+      "session_id": "S-x5-r2-hidden",
+      "case_id": "S-x5",
+      "condition": "hidden",
+      "repeat": 2,
+      "annotation_origin": "manual_retrospective_review",
+      "inspection": {
+        "version": "edit-consistency-v0.1",
+        "family": "symbolic",
+        "before_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "after_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "before_n_params": 5,
+        "after_n_params": 5,
+        "parameter_count_same": true,
+        "relation": "byte_identical",
+        "relations": {
+          "keep_bytes": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "keep_ast": {
+            "status": "supported",
+            "reason": "whole_ast_and_parameter_metadata_identical"
+          },
+          "apply_format_patch": {
+            "status": "unknown",
+            "reason": "claim_not_applicable_to_family"
+          },
+          "remove_selected_term": {
+            "status": "contradicted",
+            "reason": "original_formula_and_parameter_count_retained"
+          }
+        },
+        "semantic_equivalence_proven": false,
+        "candidate_executions": 0,
+        "ast_scope": "Locations/comments and empty type_params ignored; type comments and docstrings retained."
+      },
+      "main_claim": {
+        "kind": "keep_ast",
+        "evidence": {
+          "file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r2-hidden/candidate.json",
+          "file_sha256": "ae0552f4d0cef0c34ceed538f22980ef697bf8a98a98af052bcde623a36cb171",
+          "json_pointer": "/rationale",
+          "quote": "Decision: keep the starting artifact unchanged.",
+          "start_character": 0,
+          "end_character_exclusive": 47
+        },
+        "verdict": {
+          "status": "supported",
+          "reason": "whole_ast_and_parameter_metadata_identical"
+        }
+      },
+      "explicit_bytes_claim": null,
+      "deployment_assumptions": [],
+      "unvalidated_statements": [],
+      "archived_outcome": {
+        "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+        "score": {
+          "complete": true,
+          "family": "symbolic",
+          "acceptable_simplification": false,
+          "achieved_improvement": false,
+          "metric_split": "train",
+          "nmse": 0.09180398722781567,
+          "baseline_nmse": 0.09180398722781567,
+          "delta_nmse": 0.0,
+          "n_params": 5,
+          "baseline_n_params": 5,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "degraded": false,
+          "parameter_increase_without_meaningful_gain": false,
+          "numerical_improvement": false,
+          "numerical_degradation": false,
+          "minimum_meaningful_gain": 1e-05,
+          "maximum_simplification_loss": 1e-05,
+          "degradation_threshold": 1e-05,
+          "complexity_proxy": "independent_parameter_count_only"
+        },
+        "old_edit_label_unchanged": {
+          "kind": "unchanged",
+          "source_changed": false,
+          "parameter_delta": 0,
+          "semantic_equivalence_proven": false
+        },
+        "record_file": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r2-hidden/candidate.json",
+        "error_kinds": {},
+        "provenance": "copied_from_hash_pinned_records;bindings_reaudited;not_reexecuted"
+      }
+    }
+  ],
+  "limitations": [
+    "retrospective_annotations_not_model_structured_claims",
+    "hand_selected_development_cases_not_independent_evaluation",
+    "supported_narrow_edit_does_not_certify_full_rationale_or_utility",
+    "AST_identity_not_general_semantic_equivalence",
+    "no_new_candidate_execution_or_raw_prediction_metric_recomputation",
+    "no_learned_policy_update_or_generalization_claim"
+  ]
+}
