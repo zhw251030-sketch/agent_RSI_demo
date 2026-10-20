@@ -1,0 +1,38 @@
+[
+  {
+    "candidate_id": "symbolic-000",
+    "parent_id": null,
+    "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+    "origin": "hand_authored_initial",
+    "n_params": 1,
+    "rationale": "Fixed weak starting candidate.",
+    "strategy_version": "diagnostic-B-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.004363248713551409,
+      "nmse": 1.0
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 3,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "run_id": "a6bec5f548604632a6804494bb9d5409",
+        "metrics": {
+          "mse": 0.004363248713551409,
+          "nmse": 1.0
+        }
+      }
+    ]
+  }
+]

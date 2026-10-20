@@ -1,0 +1,3131 @@
+{
+  "schema_version": "0.1",
+  "run_id": "20261020-diagnostic-probe-v01",
+  "status": "completed",
+  "scope": "Human-authored offline diagnostic replay on the existing development tasks; not an Agent improvement, strategy comparison, or generalization result.",
+  "started_at_utc": "2026-10-20T04:15:10.191426+00:00",
+  "model_calls": 0,
+  "sealed_tasks_executed": 0,
+  "strategy_updated": false,
+  "evaluation_counts": {
+    "planning": 70,
+    "symbolic": 3
+  },
+  "execution_counts": {
+    "planning": 70,
+    "symbolic": 6
+  },
+  "infrastructure_error_count": 0,
+  "diagnostic_error_count": 0,
+  "sanity_passed": true,
+  "planning": [
+    {
+      "candidate_id": "planning-002-original",
+      "variant": "original",
+      "derivative": "unchanged_model_candidate",
+      "source_sha256": "0e78844ff86947136a96ab63bbfff709de8605fe59c7bdeed26145256b62ea78",
+      "successes": 0,
+      "evaluation_count": 10,
+      "outcome_counts": {
+        "task_failure:plan_semantics": 10
+      },
+      "feedback_files": [
+        "feedback/001.json",
+        "feedback/002.json",
+        "feedback/003.json",
+        "feedback/004.json",
+        "feedback/005.json",
+        "feedback/006.json",
+        "feedback/007.json",
+        "feedback/008.json",
+        "feedback/009.json",
+        "feedback/010.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 184,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_location",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links_from",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 29,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 30,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 32,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 42,
+                "name": "successors",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 184,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_location",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links_from",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 29,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 30,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 32,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 42,
+                "name": "successors",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "planning-002-at_only",
+      "variant": "at_only",
+      "derivative": "human_authored_diagnostic_intervention",
+      "source_sha256": "e7ad377df65ec391ad216510bc86a5b2e4ebd00e21555979fc5a935f8d70ebbd",
+      "successes": 0,
+      "evaluation_count": 10,
+      "outcome_counts": {
+        "task_failure:plan_semantics": 10
+      },
+      "feedback_files": [
+        "feedback/011.json",
+        "feedback/012.json",
+        "feedback/013.json",
+        "feedback/014.json",
+        "feedback/015.json",
+        "feedback/016.json",
+        "feedback/017.json",
+        "feedback/018.json",
+        "feedback/019.json",
+        "feedback/020.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 2860,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_location",
+                "call_events": 23,
+                "return_events": 23,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 23
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carried_spanner",
+                "call_events": 23,
+                "return_events": 23,
+                "none_return_events": 23,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 23
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links_from",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 29,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 30,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 32,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 42,
+                "name": "successors",
+                "call_events": 23,
+                "return_events": 23,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 23
+                },
+                "container_length_min": 0,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 88,
+                "name": "<genexpr>",
+                "call_events": 44,
+                "return_events": 44,
+                "none_return_events": 22,
+                "exception_events": 22,
+                "return_types": {
+                  "bool": 22,
+                  "none": 22
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 2614,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_location",
+                "call_events": 21,
+                "return_events": 21,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 21
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carried_spanner",
+                "call_events": 21,
+                "return_events": 21,
+                "none_return_events": 21,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 21
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links_from",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 29,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 30,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 32,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 42,
+                "name": "successors",
+                "call_events": 21,
+                "return_events": 21,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 21
+                },
+                "container_length_min": 0,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 88,
+                "name": "<genexpr>",
+                "call_events": 40,
+                "return_events": 40,
+                "none_return_events": 20,
+                "exception_events": 20,
+                "return_types": {
+                  "bool": 20,
+                  "none": 20
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "planning-002-at_and_carrying",
+      "variant": "at_and_carrying",
+      "derivative": "human_authored_diagnostic_intervention",
+      "source_sha256": "6d9b0857fef2d1185681aab2268c233f8eed02cd66d30d5d91095adb84b11207",
+      "successes": 0,
+      "evaluation_count": 10,
+      "outcome_counts": {
+        "task_failure:plan_semantics": 10
+      },
+      "feedback_files": [
+        "feedback/021.json",
+        "feedback/022.json",
+        "feedback/023.json",
+        "feedback/024.json",
+        "feedback/025.json",
+        "feedback/026.json",
+        "feedback/027.json",
+        "feedback/028.json",
+        "feedback/029.json",
+        "feedback/030.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 4516,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_location",
+                "call_events": 44,
+                "return_events": 44,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 44
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carried_spanner",
+                "call_events": 44,
+                "return_events": 44,
+                "none_return_events": 6,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 6,
+                  "str": 38
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links_from",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 29,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 30,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 32,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 42,
+                "name": "successors",
+                "call_events": 44,
+                "return_events": 44,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 44
+                },
+                "container_length_min": 0,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 88,
+                "name": "<genexpr>",
+                "call_events": 93,
+                "return_events": 93,
+                "none_return_events": 43,
+                "exception_events": 43,
+                "return_types": {
+                  "bool": 50,
+                  "none": 43
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 4478,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_location",
+                "call_events": 42,
+                "return_events": 42,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 42
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carried_spanner",
+                "call_events": 42,
+                "return_events": 42,
+                "none_return_events": 6,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 6,
+                  "str": 36
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links_from",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 29,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 30,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 32,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 42,
+                "name": "successors",
+                "call_events": 42,
+                "return_events": 42,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 42
+                },
+                "container_length_min": 0,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 88,
+                "name": "<genexpr>",
+                "call_events": 89,
+                "return_events": 89,
+                "none_return_events": 41,
+                "exception_events": 41,
+                "return_types": {
+                  "bool": 48,
+                  "none": 41
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "planning-003-original",
+      "variant": "original",
+      "derivative": "unchanged_model_candidate",
+      "source_sha256": "14256dd1c5566584839bef13f8749e07544bb411350c25607624991bc40d703b",
+      "successes": 0,
+      "evaluation_count": 10,
+      "outcome_counts": {
+        "task_failure:plan_semantics": 10
+      },
+      "feedback_files": [
+        "feedback/031.json",
+        "feedback/032.json",
+        "feedback/033.json",
+        "feedback/034.json",
+        "feedback/035.json",
+        "feedback/036.json",
+        "feedback/037.json",
+        "feedback/038.json",
+        "feedback/039.json",
+        "feedback/040.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 236,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_at",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 28,
+                "name": "_bfs_route",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 48,
+                "name": "_construct",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 50,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 54,
+                "name": "<listcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 139,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 142,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 214,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_at",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 28,
+                "name": "_bfs_route",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 48,
+                "name": "_construct",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 50,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 54,
+                "name": "<listcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 139,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 142,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "planning-003-at_only",
+      "variant": "at_only",
+      "derivative": "human_authored_diagnostic_intervention",
+      "source_sha256": "f5506c95519d3b7e614201e83274c394e3818727ff33b1b74586cae938a94725",
+      "successes": 0,
+      "evaluation_count": 10,
+      "outcome_counts": {
+        "task_failure:plan_semantics": 10
+      },
+      "feedback_files": [
+        "feedback/041.json",
+        "feedback/042.json",
+        "feedback/043.json",
+        "feedback/044.json",
+        "feedback/045.json",
+        "feedback/046.json",
+        "feedback/047.json",
+        "feedback/048.json",
+        "feedback/049.json",
+        "feedback/050.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 507,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_at",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carrying",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 28,
+                "name": "_bfs_route",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 3,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1,
+                  "none": 3
+                },
+                "container_length_min": 6,
+                "container_length_max": 6
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 13,
+                "return_events": 13,
+                "none_return_events": 8,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 5,
+                  "none": 8
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 48,
+                "name": "_construct",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 50,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 54,
+                "name": "<listcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 63,
+                "name": "do_walk",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 139,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 142,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 501,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_at",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carrying",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 28,
+                "name": "_bfs_route",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 3,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1,
+                  "none": 3
+                },
+                "container_length_min": 6,
+                "container_length_max": 6
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 13,
+                "return_events": 13,
+                "none_return_events": 8,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 5,
+                  "none": 8
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 48,
+                "name": "_construct",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 50,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 54,
+                "name": "<listcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 63,
+                "name": "do_walk",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 139,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 142,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "planning-003-at_and_carrying",
+      "variant": "at_and_carrying",
+      "derivative": "human_authored_diagnostic_intervention",
+      "source_sha256": "e71c7c354514c70615b366668be477abec52fc8da7dd940b84e0a5abf415d33d",
+      "successes": 0,
+      "evaluation_count": 10,
+      "outcome_counts": {
+        "task_failure:plan_semantics": 10
+      },
+      "feedback_files": [
+        "feedback/051.json",
+        "feedback/052.json",
+        "feedback/053.json",
+        "feedback/054.json",
+        "feedback/055.json",
+        "feedback/056.json",
+        "feedback/057.json",
+        "feedback/058.json",
+        "feedback/059.json",
+        "feedback/060.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 533,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_at",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carrying",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 28,
+                "name": "_bfs_route",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 3,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1,
+                  "none": 3
+                },
+                "container_length_min": 6,
+                "container_length_max": 6
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 13,
+                "return_events": 13,
+                "none_return_events": 8,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 5,
+                  "none": 8
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 48,
+                "name": "_construct",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 50,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 54,
+                "name": "<listcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 63,
+                "name": "do_walk",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 139,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 142,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "task_failure",
+          "error_kind": "plan_semantics",
+          "plan_length": 0,
+          "trace": {
+            "events_seen": 503,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 6,
+                "name": "_man_at",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 13,
+                "name": "_carrying",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 20,
+                "name": "_links",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 5,
+                "container_length_max": 5
+              },
+              {
+                "first_line": 28,
+                "name": "_bfs_route",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 3,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1,
+                  "none": 3
+                },
+                "container_length_min": 6,
+                "container_length_max": 6
+              },
+              {
+                "first_line": 37,
+                "name": "<genexpr>",
+                "call_events": 13,
+                "return_events": 13,
+                "none_return_events": 8,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 5,
+                  "none": 8
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 48,
+                "name": "_construct",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 50,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 4,
+                "return_events": 4,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 3,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 54,
+                "name": "<listcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 63,
+                "name": "do_walk",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 139,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 0,
+                "container_length_max": 0
+              },
+              {
+                "first_line": 142,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 1,
+                "return_types": {
+                  "bool": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "goal_unsatisfied",
+            "error_kind": null,
+            "executed_actions": 0,
+            "plan_length": 0,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "planning-sanity",
+      "variant": "sanity",
+      "derivative": "existing_hand_authored_sanity_fixture",
+      "source_sha256": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+      "successes": 10,
+      "evaluation_count": 10,
+      "outcome_counts": {
+        "success:none": 10
+      },
+      "feedback_files": [
+        "feedback/061.json",
+        "feedback/062.json",
+        "feedback/063.json",
+        "feedback/064.json",
+        "feedback/065.json",
+        "feedback/066.json",
+        "feedback/067.json",
+        "feedback/068.json",
+        "feedback/069.json",
+        "feedback/070.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "status": "success",
+          "error_kind": null,
+          "plan_length": 11,
+          "trace": {
+            "events_seen": 396,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 8,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 11,
+                "container_length_max": 11
+              },
+              {
+                "first_line": 10,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 14,
+                "name": "<dictcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "dict": 1
+                },
+                "container_length_min": 7,
+                "container_length_max": 7
+              },
+              {
+                "first_line": 19,
+                "name": "<setcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 20,
+                "name": "<setcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 21,
+                "name": "<setcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 22,
+                "name": "<genexpr>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 28,
+                "name": "<genexpr>",
+                "call_events": 9,
+                "return_events": 9,
+                "none_return_events": 6,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 6,
+                  "str": 3
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 9,
+                "return_events": 9,
+                "none_return_events": 6,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 6,
+                  "str": 3
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "valid",
+            "error_kind": null,
+            "executed_actions": 11,
+            "plan_length": 11,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "status": "success",
+          "error_kind": null,
+          "plan_length": 11,
+          "trace": {
+            "events_seen": 396,
+            "event_limit": 20000,
+            "truncated": false,
+            "interrupted": false,
+            "functions": [
+              {
+                "first_line": 8,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 1
+                },
+                "container_length_min": 11,
+                "container_length_max": 11
+              },
+              {
+                "first_line": 10,
+                "name": "<genexpr>",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 1,
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 14,
+                "name": "<dictcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "dict": 1
+                },
+                "container_length_min": 7,
+                "container_length_max": 7
+              },
+              {
+                "first_line": 19,
+                "name": "<setcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 20,
+                "name": "<setcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 21,
+                "name": "<setcomp>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 1
+                },
+                "container_length_min": 3,
+                "container_length_max": 3
+              },
+              {
+                "first_line": 22,
+                "name": "<genexpr>",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 1,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 1
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 28,
+                "name": "<genexpr>",
+                "call_events": 9,
+                "return_events": 9,
+                "none_return_events": 6,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 6,
+                  "str": 3
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 31,
+                "name": "<genexpr>",
+                "call_events": 9,
+                "return_events": 9,
+                "none_return_events": 6,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 6,
+                  "str": 3
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ],
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events."
+          },
+          "plan_replay": {
+            "status": "valid",
+            "error_kind": null,
+            "executed_actions": 11,
+            "plan_length": 11,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [],
+            "unsatisfied_goals_truncated": false
+          }
+        }
+      ]
+    }
+  ],
+  "symbolic": [
+    {
+      "candidate_id": "symbolic-001",
+      "variant": "original",
+      "derivative": "unchanged_model_candidate",
+      "source_sha256": "78591b5b201f15ee390a724bdb1b0302712bc88ff62a9479bbbe898dd4bd3018",
+      "successes": 1,
+      "evaluation_count": 1,
+      "outcome_counts": {
+        "success:none": 1
+      },
+      "feedback_files": [
+        "feedback/071.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "oscillator1",
+          "status": "success",
+          "metrics": {
+            "mse": 0.0004229742450282299,
+            "nmse": 0.09694020964575169
+          },
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 0.0020408857836708154,
+            "rmse": 0.0205663376668825,
+            "standardized_bias": 0.0308968152406188,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.002270788090687187,
+                    "rmse": 0.017119305311573352
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0006004179437609601,
+                    "rmse": 0.022840728248238063
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0030974843666447447,
+                    "rmse": 0.018185206636798568
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0021948527335903687,
+                    "rmse": 0.023375751505120283
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.00038433028266662183,
+                    "rmse": 0.012012400549019135
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0056270551175326994,
+                    "rmse": 0.01885150052818661
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0005000076017423044,
+                    "rmse": 0.011738877297286938
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0026521653362262445,
+                    "rmse": 0.03247181702334912
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "symbolic-002",
+      "variant": "original",
+      "derivative": "unchanged_model_candidate",
+      "source_sha256": "c0389afc4e793d01812c7b84e5604a415cd77fd5f2b95f249e6ab097646feebf",
+      "successes": 1,
+      "evaluation_count": 1,
+      "outcome_counts": {
+        "success:none": 1
+      },
+      "feedback_files": [
+        "feedback/072.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "oscillator1",
+          "status": "success",
+          "metrics": {
+            "mse": 0.0004147515017991601,
+            "nmse": 0.09505566357265446
+          },
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 0.0018707365395215223,
+            "rmse": 0.020365448725701087,
+            "standardized_bias": 0.02832093872568905,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.00016985937428413996,
+                    "rmse": 0.0165988950523588
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.003272160509720331,
+                    "rmse": 0.022974378298315855
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.002600142567659741,
+                    "rmse": 0.01778586368594469
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0017805024549901569,
+                    "rmse": 0.023223343535940005
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0006675839887700215,
+                    "rmse": 0.014977540677472695
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.005537907279870191,
+                    "rmse": 0.019362875886039854
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0014716663741925528,
+                    "rmse": 0.011726594674294686
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0027491212636384286,
+                    "rmse": 0.03036849184957842
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "symbolic-003",
+      "variant": "original",
+      "derivative": "unchanged_model_candidate",
+      "source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+      "successes": 1,
+      "evaluation_count": 1,
+      "outcome_counts": {
+        "success:none": 1
+      },
+      "feedback_files": [
+        "feedback/073.json"
+      ],
+      "diagnostic_issues": [],
+      "observations": [
+        {
+          "task_id": "oscillator1",
+          "status": "success",
+          "metrics": {
+            "mse": 0.00040056676206938317,
+            "nmse": 0.09180470524756017
+          },
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 7.09433339998773e-05,
+            "rmse": 0.020014164036236518,
+            "standardized_bias": 0.0010740057580318101,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0002492909790075412,
+                    "rmse": 0.013811196227049634
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.001646756169577094,
+                    "rmse": 0.021579218693382064
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0017186496935296803,
+                    "rmse": 0.016963163763114564
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0006049578389596366,
+                    "rmse": 0.02565358265007852
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.001466467254609956,
+                    "rmse": 0.015514841963619495
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0019535561333515862,
+                    "rmse": 0.01909397260004946
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0005248167909438093,
+                    "rmse": 0.011086368889273812
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.00032150124820168807,
+                    "rmse": 0.029564664082667107
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary_file": "/home/hanwen/Project/project/agent_RSI_demo/runs/diagnostic-checks/20261020-diagnostic-probe-v01/summary.json",
+  "original_sources_unchanged": true,
+  "finished_at_utc": "2026-10-20T04:15:15.592959+00:00"
+}

@@ -1,0 +1,13 @@
+--- planning-003.py
++++ planning-003-at_only.py
+@@ -5,8 +5,8 @@
+ 
+ def _man_at(state, man):
+     for f in state:
+-        if len(f) == 3 and f[0] == "at" and f[2] == man:
+-            return f[1]
++        if len(f) == 3 and f[0] == "at" and f[1] == man:
++            return f[2]
+     return None
+ 
+ 

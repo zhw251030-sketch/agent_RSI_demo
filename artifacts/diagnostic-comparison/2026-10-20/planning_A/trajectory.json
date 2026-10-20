@@ -1,0 +1,428 @@
+[
+  {
+    "candidate_id": "planning-000",
+    "parent_id": null,
+    "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+    "origin": "hand_authored_initial",
+    "n_params": 0,
+    "rationale": "Fixed weak starting candidate.",
+    "strategy_version": "diagnostic-A-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 3,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "5d7639e6e36b49f698b7a3d276b810c5",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "f4d8480948e7423683e8e04dbc778e98",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "876620385dda41c4ad41f6e429c4ccab",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "b9f1f1cfa7d24efd83b15893ff542eb1",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "f70dcdef3e7a45f5b119574562151628",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "39b8839a89ec4be197f6be6e43c20d9b",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "f77adacea4fc4183a5b27888bec78969",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "a76345fc8e424af5839de6f9c6f5e0ee",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "525c53efdc7f4dd2b1456c4eae88ebac",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "641fa8e0e2b945c2a735e05b76f265e1",
+        "plan_length": 0
+      }
+    ]
+  },
+  {
+    "candidate_id": "planning-001",
+    "parent_id": "planning-000",
+    "source_sha256": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+    "origin": "model_proposed",
+    "n_params": 4,
+    "rationale": "Implement a correct BFS planner: encode state as frozenset of facts, generate applicable walk/pickup/tighten actions using directed links, and return a grounded plan when the goal is reached. Each spanner can only tighten one nut, so the planner naturally handles the loss of useable.",
+    "strategy_version": "diagnostic-A-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 2,
+    "selection": {
+      "accepted": false,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "a36f312430cb405daa2a5e66e4097e02",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "47f2b9585e9243518aa4065317aafdcf",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "10a0940d816b4d19ae57ab1b24ea9ea0",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "120c530e6ca1442584622be8c1b77624",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "8607fbab062446fb938322db464e2148",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "dca95c58d3c14d5ea4731e06ce63ba77",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "387eb91ad2f54a6c9b4e2fbfa1568c6e",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "6e32688498ff402eb0d0b901529e32cb",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "43a3479702164cd481582540ef121177",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "run_id": "2bb938e51e534c5795d679fa626e421a",
+        "plan_length": 0
+      }
+    ]
+  },
+  {
+    "candidate_id": "planning-002",
+    "parent_id": "planning-000",
+    "source_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+    "origin": "model_proposed",
+    "n_params": 3,
+    "rationale": "Refactor with explicit state tuple (man_loc, spanner_locs dict, nut_states dict, carrying) for fast hashing and faster BFS. Include better diagnostic early-exit and ensure action format is correct.",
+    "strategy_version": "diagnostic-A-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 2,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": false,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "44f181a7752045baa584f1d300a32462",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "94b0f1dd01ee4cd0849c856d3b0b555c",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "7bc789207d9b4ee2bd3dd2bccf5df575",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "1242f74359f540789e18c75a49fa18d9",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "e66b15da95b6423f8b392fc2407c246b",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "5f7650fd3fe34fdeb83b8d2af9bf94e7",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "8771a61d86464e5b9b9e6885bc2c3506",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "da10886500cf410d8c74fbc65660fb52",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "d6e63dd4dfc44ad389e74cde0e11d182",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "run_id": "27b52801205a4695bc35247dd09d49a3",
+        "plan_length": 0
+      }
+    ]
+  },
+  {
+    "candidate_id": "planning-003",
+    "parent_id": "planning-000",
+    "source_sha256": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+    "origin": "model_proposed",
+    "n_params": 3,
+    "rationale": "Fix bug: man can carry multiple spanners simultaneously (PDDL carrying doesn't preclude multiple). Track carried as a frozenset.",
+    "strategy_version": "diagnostic-A-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 2,
+      "prompt_total": 2,
+      "development_successes": 8,
+      "development_total": 8,
+      "total_successes": 10,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 3,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "planning-003",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "9e1887d22dc441058cfe49516b8e64d8",
+        "plan_length": 11
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "52257f8b40a641a285141f0b2dbbbef0",
+        "plan_length": 11
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "c82163efe92449a283f14ecfd1d26b72",
+        "plan_length": 10
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "5854ed5cd541429ca8fb170ae1d7e915",
+        "plan_length": 10
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "1bf1e077cda848d5bba12338619992c1",
+        "plan_length": 12
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "f6c69ef723884b9eb324c9f1f6fed197",
+        "plan_length": 12
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "ba01dd506b7945f8b17bfa32b7e9d95f",
+        "plan_length": 11
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "74b2389c4f1e4930bbc87c8b16a4fb64",
+        "plan_length": 13
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "aacc02c04d254842ab40026a4497fec6",
+        "plan_length": 11
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "success",
+        "candidate_hash": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "run_id": "94a4000877dc4489a20d22d662841f0e",
+        "plan_length": 10
+      }
+    ]
+  }
+]

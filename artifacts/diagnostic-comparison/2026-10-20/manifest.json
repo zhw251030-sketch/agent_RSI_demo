@@ -1,0 +1,85 @@
+{
+  "run_id": "20261020-diagnostic-comparison-v01",
+  "code_commit": "c36af55d4b20cb624f1cdb49cb5010990ce1d599",
+  "scope": "Exploratory development; incomplete A/B/C comparison. Model rationales are unverified claims, not established findings.",
+  "sessions": [
+    {
+      "session_id": "planning_A",
+      "status": "completed",
+      "files": {
+        "planning_A/diagnostics.json": "f87360a0eeac9bf74d6ac203ae50af9456d1cd8229fe9986432553b6170ebe4c",
+        "planning_A/planning-000.py": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "planning_A/planning-001.py": "f5902f8babcb5875dde0b061887f4f43aa18376adfa7579793573daec013b119",
+        "planning_A/planning-002.py": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "planning_A/planning-003.py": "b395a1a5218a7fad3eb2c1929071b40c269de05ad212f0ab4019f2c5f2300749",
+        "planning_A/trajectory.json": "69af92d6002375c3eaff36bbfebbada71c8b8fdaf9b04e8662b318ce6c098cb3",
+        "planning_A/final-response.json": "9bb8a4122c402ef9b598352912eb933a515a7b2abb420b41f70a0b6f56a38a47"
+      },
+      "raw_candidates_sha256": "648884ee3f5f9d2f9d159d0dbf4243a8aac592c238a6063665710d7950c628dc",
+      "raw_diagnostics_sha256": "f87360a0eeac9bf74d6ac203ae50af9456d1cd8229fe9986432553b6170ebe4c"
+    },
+    {
+      "session_id": "symbolic_C",
+      "status": "completed",
+      "files": {
+        "symbolic_C/diagnostics.json": "ed13f0508d597e73383cf204b4c084554b675310bb0d94bdd1a705758a71af58",
+        "symbolic_C/symbolic-000.py": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "symbolic_C/symbolic-001.py": "b63783454fc99628c46c733da8e1f2b7b7d056bb0a3f3cad4ba444327f3305dd",
+        "symbolic_C/symbolic-002.py": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "symbolic_C/symbolic-003.py": "2be96c82dc3e7f816a4a2d94db3398215f8f399627b8edfd15e8be4f2e335c5a",
+        "symbolic_C/trajectory.json": "c4456ca7ee96b47a21b608fd5eb5966f56208cb0cabebeed4d1138ffe6d99655",
+        "symbolic_C/final-response.json": "cae7711e3fcfe9e16e88886bd65cdcf428d83c3144738cd9f85d85fb081e1533"
+      },
+      "raw_candidates_sha256": "44671d7daa0018474e0ab964cb31b96ca6d3917d3e25c182268e723214f697e7",
+      "raw_diagnostics_sha256": "ed13f0508d597e73383cf204b4c084554b675310bb0d94bdd1a705758a71af58"
+    },
+    {
+      "session_id": "planning_B",
+      "status": "error",
+      "files": {
+        "planning_B/diagnostics.json": "ba61d5f1e8f80ebd7dace31a6a45090d79c70a282f8e05202ec78afa2732a3d4",
+        "planning_B/planning-000.py": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "planning_B/planning-001.py": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "planning_B/planning-002.py": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "planning_B/planning-003.py": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "planning_B/trajectory.json": "9332bab3dde3e2877be410caa2511de3111a80508921a9ef646d86dba3234586"
+      },
+      "raw_candidates_sha256": "cbe9522996c73f2a06aadc85c52d4b2ab75bca67d8a38ff64af80bef517240a3",
+      "raw_diagnostics_sha256": "ba61d5f1e8f80ebd7dace31a6a45090d79c70a282f8e05202ec78afa2732a3d4"
+    },
+    {
+      "session_id": "symbolic_A",
+      "status": "not_started_after_stop",
+      "files": {
+        "symbolic_A/diagnostics.json": "8837852f0f20bc497d5d8b7d55cb114e32223571ac1f4c6d750fe99f2db70fb6",
+        "symbolic_A/symbolic-000.py": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "symbolic_A/trajectory.json": "e0b2f786771a471ec9db2e9a3e68bc469b12f288ae37d0920039fb428bd45d80"
+      },
+      "raw_candidates_sha256": "38e708ccdeecc63c586a3cf656d22954d1cb8ee180d4241f2db970560df9d6f0",
+      "raw_diagnostics_sha256": "8837852f0f20bc497d5d8b7d55cb114e32223571ac1f4c6d750fe99f2db70fb6"
+    },
+    {
+      "session_id": "planning_C",
+      "status": "not_started_after_stop",
+      "files": {
+        "planning_C/diagnostics.json": "0170ef8cfbe1642e77cb82b445eec5181998d2431846aa702639f4dde58eabfa",
+        "planning_C/planning-000.py": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "planning_C/trajectory.json": "f4b4daccf825cb3106ec481693f824149cbf673d4378eabbb9119b32a67a4f09"
+      },
+      "raw_candidates_sha256": "a32b86c78dd0326169ebaf74b7f5037ff5eb36ce9a48f6b6c81d3ad0d66383ba",
+      "raw_diagnostics_sha256": "0170ef8cfbe1642e77cb82b445eec5181998d2431846aa702639f4dde58eabfa"
+    },
+    {
+      "session_id": "symbolic_B",
+      "status": "not_started_after_stop",
+      "files": {
+        "symbolic_B/diagnostics.json": "8837852f0f20bc497d5d8b7d55cb114e32223571ac1f4c6d750fe99f2db70fb6",
+        "symbolic_B/symbolic-000.py": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "symbolic_B/trajectory.json": "3e431fb749ee4039e4939a5e145596a08a1096e5e16697192703a7f3c8ede039"
+      },
+      "raw_candidates_sha256": "bbbf078cadba8c5b25d3677000fef7913b030f581215e073f77a28c40350077e",
+      "raw_diagnostics_sha256": "8837852f0f20bc497d5d8b7d55cb114e32223571ac1f4c6d750fe99f2db70fb6"
+    }
+  ],
+  "offline_reconstruction_script_sha256": "f31acbd04aaf0d3f8958f0b6cf93723696b1d82bf29ef3ad28107dd48f612a91"
+}

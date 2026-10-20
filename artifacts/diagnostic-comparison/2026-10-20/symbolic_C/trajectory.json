@@ -1,0 +1,146 @@
+[
+  {
+    "candidate_id": "symbolic-000",
+    "parent_id": null,
+    "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+    "origin": "hand_authored_initial",
+    "n_params": 1,
+    "rationale": "Fixed weak starting candidate.",
+    "strategy_version": "diagnostic-C-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.004363248713551409,
+      "nmse": 1.0
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 3,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "run_id": "1d52608f21b1449ab04538f99b711335",
+        "metrics": {
+          "mse": 0.004363248713551409,
+          "nmse": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "candidate_id": "symbolic-001",
+    "parent_id": "symbolic-000",
+    "source_sha256": "b63783454fc99628c46c733da8e1f2b7b7d056bb0a3f3cad4ba444327f3305dd",
+    "origin": "model_proposed",
+    "n_params": 2,
+    "rationale": "Observation: starting candidate returns a constant (NMSE=1.0). x-binned mean residuals vary monotonically from -0.067 to +0.089 across the x range, while v-binned residuals are near zero and symmetric. This systematic x-dependence is the signature of an unmodeled linear restoring force. Hypothesis: acceleration in this simulated oscillator is dominated by a Hooke-style term in x, possibly with a smaller damping term in v. Prediction: replacing the constant with -p0*x + p1*v should drop NMSE well below 1.0 by capturing the dominant x-driven variance. Check: evidence_insufficient for the exact coefficients, supported vs. the constant baseline because residuals clearly correlate with x. Evidence: oscillator1:residuals, x-bin mean residuals. Change: 2-parameter linear form -p0*x - p1*v, the canonical damped oscillator ansatz.",
+    "strategy_version": "diagnostic-C-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004229742450282299,
+      "nmse": 0.09694020964575169
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 2,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-001",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "b63783454fc99628c46c733da8e1f2b7b7d056bb0a3f3cad4ba444327f3305dd",
+        "run_id": "f88c7417a8da4fa595c923eda46b8081",
+        "metrics": {
+          "mse": 0.0004229742450282299,
+          "nmse": 0.09694020964575169
+        }
+      }
+    ]
+  },
+  {
+    "candidate_id": "symbolic-002",
+    "parent_id": "symbolic-001",
+    "source_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+    "origin": "model_proposed",
+    "n_params": 3,
+    "rationale": "Observation: NMSE dropped 1.0→0.097 with -p0*x - p1*v. New standardized_bias = 0.0309 (non-zero), and x-bin mean residuals are now uniformly ~0.002 across all four bins — a constant offset, not an x-dependent term. v-bin RMSE is highest (0.0324) in the high-velocity bin, but the dominant remaining error is the constant offset. Hypothesis: the true acceleration has a constant offset (e.g., gravity, equilibrium shift, or driving bias) added to the linear Hooke restoration. Prediction: adding a constant p2 should drive the bias to ~0 and drop NMSE further by eliminating the systematic shift. Check: supported by uniform ~0.002 mean residuals across x bins. Evidence: oscillator1:residuals standardized_bias and x-bin mean residuals. Change: add constant term +p2 to the 2-parameter linear form.",
+    "strategy_version": "diagnostic-C-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004185108784986807,
+      "nmse": 0.09591726394116994
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 2,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-002",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+        "run_id": "e63f0890ecb549d19fdd7b549af28fc9",
+        "metrics": {
+          "mse": 0.0004185108784986807,
+          "nmse": 0.09591726394116994
+        }
+      }
+    ]
+  },
+  {
+    "candidate_id": "symbolic-003",
+    "parent_id": "symbolic-002",
+    "source_sha256": "2be96c82dc3e7f816a4a2d94db3398215f8f399627b8edfd15e8be4f2e335c5a",
+    "origin": "model_proposed",
+    "n_params": 4,
+    "rationale": "Observation: NMSE 0.0969→0.0959 (bias now 1e-17, x-bin residuals random). The highest-velocity v-bin has RMSE 0.0319, roughly 2.6× the other v-bins (0.012-0.019). This non-uniform residual spread across v is the signature of an unmodeled nonlinear-in-v term — the linear-damping model systematically under-explains variation at high |v|. Hypothesis: a quadratic air-drag / Duffing-style term in v contributes to acceleration, and the small-v residuals look noise-like while large-v residuals carry the missing signal. Prediction: adding p3*v**2 should reduce NMSE by capturing the high-velocity tail of the residual distribution. Check: evidence_insufficient for the exact power (v^2 vs v|v|), but supported as a class since nonlinear-in-v terms are required to explain the v-bin RMSE pattern. Evidence: oscillator1:residuals v-bin RMSE distribution. Change: 4-parameter form with quadratic velocity term.",
+    "strategy_version": "diagnostic-C-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Training fit only; not generalization or equation recovery.",
+    "status": "evaluated",
+    "metrics": {
+      "mse": 0.0004178581733040486,
+      "nmse": 0.09576767237821251
+    },
+    "metric_split": "train",
+    "generated_candidates_used": 3,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "symbolic-003",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "oscillator1",
+        "status": "success",
+        "candidate_hash": "2be96c82dc3e7f816a4a2d94db3398215f8f399627b8edfd15e8be4f2e335c5a",
+        "run_id": "b361ac2e71cc45d68f4a300fe4b07241",
+        "metrics": {
+          "mse": 0.0004178581733040486,
+          "nmse": 0.09576767237821251
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,454 @@
+{
+  "symbolic-000": [
+    {
+      "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+      "residuals": {
+        "bias": -4.546296252061508e-16,
+        "binning_method": "linear_quantile",
+        "inputs": [
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.5728219032885896,
+                "mean_residual": -0.06688509421341791,
+                "rmse": 0.06901540577553798,
+                "upper": -0.46038220456877554,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.46038220456877554,
+                "mean_residual": -0.04430449985004466,
+                "rmse": 0.051236641459888814,
+                "upper": -0.22761842703089324,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.22761842703089324,
+                "mean_residual": 0.02267531358025426,
+                "rmse": 0.040545563668472465,
+                "upper": 0.28635886598470794,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.28635886598470794,
+                "mean_residual": 0.08851428048320649,
+                "rmse": 0.09176454902935077,
+                "upper": 0.5275126203368584,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.5728219032885896,
+              -0.46038220456877554,
+              -0.22761842703089324,
+              0.28635886598470794,
+              0.5275126203368584
+            ],
+            "name": "x"
+          },
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.17542969970098574,
+                "mean_residual": 0.007140525151149406,
+                "rmse": 0.02545836209938581,
+                "upper": -0.13719210123484957,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.13719210123484957,
+                "mean_residual": -0.0034562169493030748,
+                "rmse": 0.05125629518705401,
+                "upper": -0.04814716714891003,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.04814716714891003,
+                "mean_residual": -0.014355017255863715,
+                "rmse": 0.08300896349701445,
+                "upper": 0.09524424826668271,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.09524424826668271,
+                "mean_residual": 0.010670709054015565,
+                "rmse": 0.08536492743668853,
+                "upper": 0.282136353640072,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.17542969970098574,
+              -0.13719210123484957,
+              -0.04814716714891003,
+              0.09524424826668271,
+              0.282136353640072
+            ],
+            "name": "v"
+          }
+        ],
+        "n": 10000,
+        "residual_definition": "prediction - target",
+        "rmse": 0.06605489167012091,
+        "scope": "train",
+        "standardized_bias": -6.882603448607225e-15,
+        "standardized_bias_definition": "bias / population_std(target)",
+        "standardized_bias_reason": null,
+        "status": "ok"
+      },
+      "scope": "train",
+      "task_id": "oscillator1",
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "oscillator1:residuals"
+      ]
+    }
+  ],
+  "symbolic-001": [
+    {
+      "candidate_sha256": "b63783454fc99628c46c733da8e1f2b7b7d056bb0a3f3cad4ba444327f3305dd",
+      "residuals": {
+        "bias": 0.0020408857836708154,
+        "binning_method": "linear_quantile",
+        "inputs": [
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.5728219032885896,
+                "mean_residual": 0.002270788090687187,
+                "rmse": 0.017119305311573352,
+                "upper": -0.46038220456877554,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.46038220456877554,
+                "mean_residual": 0.0006004179437609601,
+                "rmse": 0.022840728248238063,
+                "upper": -0.22761842703089324,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.22761842703089324,
+                "mean_residual": 0.0030974843666447447,
+                "rmse": 0.018185206636798568,
+                "upper": 0.28635886598470794,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.28635886598470794,
+                "mean_residual": 0.0021948527335903687,
+                "rmse": 0.023375751505120283,
+                "upper": 0.5275126203368584,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.5728219032885896,
+              -0.46038220456877554,
+              -0.22761842703089324,
+              0.28635886598470794,
+              0.5275126203368584
+            ],
+            "name": "x"
+          },
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.17542969970098574,
+                "mean_residual": 0.00038433028266662183,
+                "rmse": 0.012012400549019135,
+                "upper": -0.13719210123484957,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.13719210123484957,
+                "mean_residual": 0.0056270551175326994,
+                "rmse": 0.01885150052818661,
+                "upper": -0.04814716714891003,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.04814716714891003,
+                "mean_residual": -0.0005000076017423044,
+                "rmse": 0.011738877297286938,
+                "upper": 0.09524424826668271,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.09524424826668271,
+                "mean_residual": 0.0026521653362262445,
+                "rmse": 0.03247181702334912,
+                "upper": 0.282136353640072,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.17542969970098574,
+              -0.13719210123484957,
+              -0.04814716714891003,
+              0.09524424826668271,
+              0.282136353640072
+            ],
+            "name": "v"
+          }
+        ],
+        "n": 10000,
+        "residual_definition": "prediction - target",
+        "rmse": 0.0205663376668825,
+        "scope": "train",
+        "standardized_bias": 0.0308968152406188,
+        "standardized_bias_definition": "bias / population_std(target)",
+        "standardized_bias_reason": null,
+        "status": "ok"
+      },
+      "scope": "train",
+      "task_id": "oscillator1",
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "oscillator1:residuals"
+      ]
+    }
+  ],
+  "symbolic-002": [
+    {
+      "candidate_sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47",
+      "residuals": {
+        "bias": 1.3737282805568623e-17,
+        "binning_method": "linear_quantile",
+        "inputs": [
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.5728219032885896,
+                "mean_residual": 0.0007989547611293052,
+                "rmse": 0.017042503648496878,
+                "upper": -0.46038220456877554,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.46038220456877554,
+                "mean_residual": -0.001055799511525288,
+                "rmse": 0.022951704782400873,
+                "upper": -0.22761842703089324,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.22761842703089324,
+                "mean_residual": 0.0008655643638566236,
+                "rmse": 0.017819656014041334,
+                "upper": 0.28635886598470794,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.28635886598470794,
+                "mean_residual": -0.0006087196134605861,
+                "rmse": 0.023222310188877653,
+                "upper": 0.5275126203368584,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.5728219032885896,
+              -0.46038220456877554,
+              -0.22761842703089324,
+              0.28635886598470794,
+              0.5275126203368584
+            ],
+            "name": "x"
+          },
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.17542969970098574,
+                "mean_residual": -0.0016254212065535292,
+                "rmse": 0.012421511940592843,
+                "upper": -0.13719210123484957,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.13719210123484957,
+                "mean_residual": 0.0037080214966618927,
+                "rmse": 0.018933888479408106,
+                "upper": -0.04814716714891003,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.04814716714891003,
+                "mean_residual": -0.0024586815873297663,
+                "rmse": 0.01190174464282926,
+                "upper": 0.09524424826668271,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.09524424826668271,
+                "mean_residual": 0.0003760812972214578,
+                "rmse": 0.03193126832135946,
+                "upper": 0.282136353640072,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.17542969970098574,
+              -0.13719210123484957,
+              -0.04814716714891003,
+              0.09524424826668271,
+              0.282136353640072
+            ],
+            "name": "v"
+          }
+        ],
+        "n": 10000,
+        "residual_definition": "prediction - target",
+        "rmse": 0.020457538427158844,
+        "scope": "train",
+        "standardized_bias": 2.079676835165034e-16,
+        "standardized_bias_definition": "bias / population_std(target)",
+        "standardized_bias_reason": null,
+        "status": "ok"
+      },
+      "scope": "train",
+      "task_id": "oscillator1",
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "oscillator1:residuals"
+      ]
+    }
+  ],
+  "symbolic-003": [
+    {
+      "candidate_sha256": "2be96c82dc3e7f816a4a2d94db3398215f8f399627b8edfd15e8be4f2e335c5a",
+      "residuals": {
+        "bias": 1.1761133381229626e-18,
+        "binning_method": "linear_quantile",
+        "inputs": [
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.5728219032885896,
+                "mean_residual": 0.0014608141787590145,
+                "rmse": 0.016934902781367556,
+                "upper": -0.46038220456877554,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.46038220456877554,
+                "mean_residual": -0.0012915905411158414,
+                "rmse": 0.022900089469485654,
+                "upper": -0.22761842703089324,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.22761842703089324,
+                "mean_residual": -0.0001489789737109813,
+                "rmse": 0.017801286612444327,
+                "upper": 0.28635886598470794,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.28635886598470794,
+                "mean_residual": -2.0244663932187258e-05,
+                "rmse": 0.023309694511790293,
+                "upper": 0.5275126203368584,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.5728219032885896,
+              -0.46038220456877554,
+              -0.22761842703089324,
+              0.28635886598470794,
+              0.5275126203368584
+            ],
+            "name": "x"
+          },
+          {
+            "bins": [
+              {
+                "count": 2500,
+                "lower": -0.17542969970098574,
+                "mean_residual": -0.002371905872981384,
+                "rmse": 0.012521587667001564,
+                "upper": -0.13719210123484957,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.13719210123484957,
+                "mean_residual": 0.0038964971483784585,
+                "rmse": 0.01885993873758049,
+                "upper": -0.04814716714891003,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": -0.04814716714891003,
+                "mean_residual": -0.001514842820729061,
+                "rmse": 0.011741165548782071,
+                "upper": 0.09524424826668271,
+                "upper_inclusive": false
+              },
+              {
+                "count": 2500,
+                "lower": 0.09524424826668271,
+                "mean_residual": -9.748454668009079e-06,
+                "rmse": 0.03195450324890989,
+                "upper": 0.282136353640072,
+                "upper_inclusive": true
+              }
+            ],
+            "boundaries": [
+              -0.17542969970098574,
+              -0.13719210123484957,
+              -0.04814716714891003,
+              0.09524424826668271,
+              0.282136353640072
+            ],
+            "name": "v"
+          }
+        ],
+        "n": 10000,
+        "residual_definition": "prediction - target",
+        "rmse": 0.020441579520772083,
+        "scope": "train",
+        "standardized_bias": 1.7805090711472054e-17,
+        "standardized_bias_definition": "bias / population_std(target)",
+        "standardized_bias_reason": null,
+        "status": "ok"
+      },
+      "scope": "train",
+      "task_id": "oscillator1",
+      "version": "diagnostics-v0.1",
+      "evidence_ids": [
+        "oscillator1:residuals"
+      ]
+    }
+  ]
+}

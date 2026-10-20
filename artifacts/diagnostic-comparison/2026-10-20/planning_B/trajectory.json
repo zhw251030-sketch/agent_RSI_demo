@@ -1,0 +1,438 @@
+[
+  {
+    "candidate_id": "planning-000",
+    "parent_id": null,
+    "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+    "origin": "hand_authored_initial",
+    "n_params": 0,
+    "rationale": "Fixed weak starting candidate.",
+    "strategy_version": "diagnostic-B-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 0,
+    "generated_candidates_remaining": 3,
+    "selection": {
+      "accepted": true,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "be5bc86d84724fb49bbaf2d6e929968b",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "bf5f416567014b08b29bc7a516ba0856",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "c0bebe0e28034fd189556c1274032aa6",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "4abd8a079e5b4b47b2c407607c56cdcf",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "fa15e689bbfe44dfaa2b258450939d48",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "cf4cbf7d24234a13962a42bc32cad98c",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "96b2952858fb4800bfbc89f24ac0b0a4",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "5ad0cfe6ebbe44768e916b4a8f278352",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "387147eb345b4f95af549b04bb591eb9",
+        "plan_length": 0
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "run_id": "eac984898b5a4546914483ffe446d0d4",
+        "plan_length": 0
+      }
+    ]
+  },
+  {
+    "candidate_id": "planning-001",
+    "parent_id": "planning-000",
+    "source_sha256": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+    "origin": "model_proposed",
+    "n_params": 3,
+    "rationale": "The baseline returns an empty plan, so every goal fails. The public examples share a structure: one man starts at a location, all nuts are at one location, spanners are spread over the location graph, and spanners are consumed (useable is deleted) by tighten_nut. So a valid plan must: walk to a useable spanner, pick it up, walk to the nut location, tighten, then repeat with the next still-useable spanner. I implement BFS over directed links for walking and a greedy per-nut loop that fetches a fresh useable spanner whenever the carried one has been consumed. Goals not of form tightened(n) are best-effort; if unmet the plan is still returned (best effort within budget).",
+    "strategy_version": "diagnostic-B-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 1,
+    "generated_candidates_remaining": 2,
+    "selection": {
+      "accepted": false,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "85508fde22654c8bb993b3120c688b9b",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "5613ea0cb0404f38ad64264a2ead187e",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "c89b01987c3241f18317471f686b5647",
+        "plan_length": 6
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "efe253b4e2cd4e35a720f377286e2ff9",
+        "plan_length": 6
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "e88437540c9142188845f80d2e22cbe1",
+        "plan_length": 8
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "68a03847dd304496b81512aaadbb6a58",
+        "plan_length": 8
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "581d9dcfe98a4975ac290c337001b63d",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "5d0bf5e6a0664ddfac7d17c1e810740e",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "e6aec742cc39457e84cd103b9a867945",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "e82c54e2268f0b50bd4c03b789ef79d347f6d579b133a42f242fefcc8f5107f4",
+        "run_id": "6f53503b087f46fcb03997de563786ec",
+        "plan_length": 6
+      }
+    ]
+  },
+  {
+    "candidate_id": "planning-002",
+    "parent_id": "planning-000",
+    "source_sha256": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+    "origin": "model_proposed",
+    "n_params": 3,
+    "rationale": "Feedback shows the previous plan was fully legal but stopped after exactly one tighten_nut (7 actions, unsatisfied nut2/nut3, no failed actions). Cause: after tightening, the man is stranded at the nut location, and my spanner search required a successful walk to a spanner location, which failed (terminal location with no outgoing link), so the loop broke. Fix: (1) reverse BFS precomputes directed reachability so unreachable targets are detected before acting; (2) per nut, do an explicit round trip man->spanner->pickup->nut, never requiring a return walk from the nut location; (3) choose a spanner that is useable and reachable, preferring the one at/nearest the man's current location; (4) do not abort the whole plan when one nut cannot be tightened - continue with the rest. Also handle nuts already tight and goals other than tightened.",
+    "strategy_version": "diagnostic-B-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 2,
+    "generated_candidates_remaining": 1,
+    "selection": {
+      "accepted": false,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "60af8d6f31af4c01b668bd25582aaeae",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "ae02b9422ca4476c9c052cdeaca7ba4c",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "7001fba7a2c448339f1b64e8f4e8bd5c",
+        "plan_length": 6
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "5f06827e43a24e5db73f0d0d0112f6d0",
+        "plan_length": 6
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "426ec59d00974f67b06246e0f395a4d9",
+        "plan_length": 8
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "40c92eef3577440893c2c0cda600a673",
+        "plan_length": 8
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "0dd49c176063405fb3a8bc423f7113cb",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "1916890bed57427ab78ddcf7fbb9d790",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "052b99e3fbf446548e3db6c3d5d4b54f",
+        "plan_length": 7
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "31556410061483bcdf5593e3e4ee75db650bbfbab324a1b8fa833259e310b0d8",
+        "run_id": "6a5234186d3a4272a3a6752e8384b52e",
+        "plan_length": 6
+      }
+    ]
+  },
+  {
+    "candidate_id": "planning-003",
+    "parent_id": "planning-000",
+    "source_sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+    "origin": "model_proposed",
+    "n_params": 3,
+    "rationale": "Feedback from planning-002: goal_nuts ran only twice and do_pickup/do_tighten once each; the second pass found no useable spanner reachable from the nut location and bailed. The nut location is a sink in the directed link graph (shed->loc1->...->gate, no link out of gate), so a man who walks to the nuts can never fetch another spanner, yet three nuts each consume one spanner. The only consistent resolution is that walking is effectively available in both directions along a link pair, so I compute the adjacency as the symmetric closure of link (still only traversing edges that appear as link facts, never inventing new location pairs). I keep directed BFS as a fallback check but prefer symmetric reachability, and I no longer break the inner loop after one tighten - I iterate over every remaining loose goal nut, re-deriving the man's position each time. Each tighten consumes exactly one useable spanner, so the loop terminates.",
+    "strategy_version": "diagnostic-B-v0.1",
+    "feedback_role": "development_only",
+    "metric_scope": "Development feedback only; no held-out evaluation.",
+    "status": "evaluated",
+    "metrics": {
+      "prompt_successes": 0,
+      "prompt_total": 2,
+      "development_successes": 0,
+      "development_total": 8,
+      "total_successes": 0,
+      "total_tasks": 10
+    },
+    "generated_candidates_used": 3,
+    "generated_candidates_remaining": 0,
+    "selection": {
+      "accepted": false,
+      "incumbent_id": "planning-000",
+      "instruction": "Revise the selected incumbent next; retain rejected candidate feedback as evidence."
+    },
+    "results": [
+      {
+        "task_id": "spannerlearning/seed0/problem0",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "3d95051cb0334fc79fd084f172517366",
+        "plan_length": 21
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem1",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "783403ccad0144dab9b1a7496993d324",
+        "plan_length": 15
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem2",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7501c5e92cc54f11927697f93fd0901a",
+        "plan_length": 16
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem3",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "1c470bf96bb540efbfd3a75bb53f4e06",
+        "plan_length": 16
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem4",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "8d9e80d6e3da4369a44db240f4bc4641",
+        "plan_length": 20
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem5",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "b78a949b829d4efd87fd6936d61fef5c",
+        "plan_length": 20
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem6",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "ab36821541d249739c8a21a99ae42c9e",
+        "plan_length": 23
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem7",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7a6d12fddd4d4ca7a6623f649babdcf5",
+        "plan_length": 27
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem8",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "da8b6d06104e4abc967d57c38c08c1ad",
+        "plan_length": 19
+      },
+      {
+        "task_id": "spannerlearning/seed0/problem9",
+        "status": "task_failure",
+        "error_kind": "plan_semantics",
+        "candidate_hash": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897",
+        "run_id": "7eced74c7a41436aadb607151a41eaf7",
+        "plan_length": 16
+      }
+    ]
+  }
+]
