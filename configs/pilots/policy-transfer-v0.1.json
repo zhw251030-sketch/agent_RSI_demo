@@ -1,0 +1,249 @@
+{
+  "schema_version": "0.1",
+  "base_config": "configs/pilots/development-v0.1.json",
+  "policy_file": "prompts/policy-transfer/actor.md",
+  "update_prompt": "prompts/policy-transfer/update.md",
+  "protocol": "docs/protocols/2026-10-20-policy-transfer-v0.1.md",
+  "purpose": "One fixed-weight policy selection from two archived failed forecasts, followed by three-arm cross-state development evaluation; no held-out or independent-task claim.",
+  "cases": [
+    {
+      "case_id": "U-P",
+      "role": "update",
+      "family": "planning",
+      "archive_session": "P1-r1-checked",
+      "archived_candidate_id": "planning-001",
+      "archive_run": "20261020-paired-repair-v01",
+      "archive_runtime_commit": "5bb61dba33033e9dbd215efeca28b232ec844f8c",
+      "files": {
+        "parent_source": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/P1-r1-checked/candidates/planning-000.py",
+          "sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c"
+        },
+        "source": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/P1-r1-checked/candidates/planning-001.py",
+          "sha256": "fedb9ca63857eb42d30dc6fe9b963abe58cb70dc8136331b36eafef03c645429"
+        },
+        "trajectory": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/P1-r1-checked/trajectory.json",
+          "sha256": "8c713770ed871409e9bc707d0aae7d4db099ff700ce451dfa68fcfe19b3d2725"
+        },
+        "diagnostics": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/P1-r1-checked/diagnostics.json",
+          "sha256": "9e43fc87ea1a168c8fe567067d5ee7c19b906e1550f6a784c78001e4aedb0f2a"
+        },
+        "evidence": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/P1-r1-checked/evidence.json",
+          "sha256": "85c655a2b5c542147bacc5d2698cebd8ff21fe9be8ec4aae5352dbd12e6ee86d"
+        },
+        "audits": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/P1-r1-checked/audits.json",
+          "sha256": "26d4c0dc6c7492c2460de759e9c24c8459f2b90b2d1577041a01cad6eab18cee"
+        }
+      }
+    },
+    {
+      "case_id": "U-S",
+      "role": "update",
+      "family": "symbolic",
+      "archive_session": "S1-r1-checked",
+      "archived_candidate_id": "symbolic-001",
+      "archive_run": "20261020-paired-repair-v01",
+      "archive_runtime_commit": "5bb61dba33033e9dbd215efeca28b232ec844f8c",
+      "files": {
+        "parent_source": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/S1-r1-checked/candidates/symbolic-000.py",
+          "sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d"
+        },
+        "source": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/S1-r1-checked/candidates/symbolic-001.py",
+          "sha256": "c73538e1966a3c452c44920fc5d8dd3cca71d345a868b2e48f7356a52532b3a0"
+        },
+        "trajectory": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/S1-r1-checked/trajectory.json",
+          "sha256": "f75242bb7ff961072b93cebe578b694ef1377411c7ed534ab032843a03be8507"
+        },
+        "diagnostics": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/S1-r1-checked/diagnostics.json",
+          "sha256": "4219c22a721d6077df49a0cc0ab85e3fc066fc5d0127ede6e98f50e21c8697a3"
+        },
+        "evidence": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/S1-r1-checked/evidence.json",
+          "sha256": "c86b53a035398e97ddd1f3ad4da0df181b5dbc60796ed0a6a0664f9649ffbe6e"
+        },
+        "audits": {
+          "path": "artifacts/paired-repair/2026-10-20/v01/S1-r1-checked/audits.json",
+          "sha256": "e54ec1be6b4411ffc4146a5cae4befafa2769d0afb6ca11deb0c4e188294e9cf"
+        }
+      }
+    },
+    {
+      "case_id": "E-P",
+      "role": "evaluation",
+      "family": "planning",
+      "archive_session": "planning_B",
+      "archived_candidate_id": "planning-003",
+      "archive_run": "20261020-diagnostic-comparison-v01",
+      "archive_runtime_commit": "c36af55d4b20cb624f1cdb49cb5010990ce1d599",
+      "files": {
+        "source": {
+          "path": "artifacts/diagnostic-comparison/2026-10-20/planning_B/planning-003.py",
+          "sha256": "2f98dbb2b63144134a73cf1f9068f32df92b28779168b5859d9af537b2b0c897"
+        },
+        "trajectory": {
+          "path": "artifacts/diagnostic-comparison/2026-10-20/planning_B/trajectory.json",
+          "sha256": "9332bab3dde3e2877be410caa2511de3111a80508921a9ef646d86dba3234586"
+        },
+        "diagnostics": {
+          "path": "artifacts/diagnostic-comparison/2026-10-20/planning_B/diagnostics.json",
+          "sha256": "ba61d5f1e8f80ebd7dace31a6a45090d79c70a282f8e05202ec78afa2732a3d4"
+        }
+      }
+    },
+    {
+      "case_id": "E-S",
+      "role": "evaluation",
+      "family": "symbolic",
+      "archive_session": "symbolic_C",
+      "archived_candidate_id": "symbolic-002",
+      "archive_run": "20261020-diagnostic-comparison-v01",
+      "archive_runtime_commit": "c36af55d4b20cb624f1cdb49cb5010990ce1d599",
+      "files": {
+        "source": {
+          "path": "artifacts/diagnostic-comparison/2026-10-20/symbolic_C/symbolic-002.py",
+          "sha256": "eea9556fadca83705ce5d6551090fb34b5c7b5316e042998db4cfc723571ce47"
+        },
+        "trajectory": {
+          "path": "artifacts/diagnostic-comparison/2026-10-20/symbolic_C/trajectory.json",
+          "sha256": "c4456ca7ee96b47a21b608fd5eb5966f56208cb0cabebeed4d1138ffe6d99655"
+        },
+        "diagnostics": {
+          "path": "artifacts/diagnostic-comparison/2026-10-20/symbolic_C/diagnostics.json",
+          "sha256": "ed13f0508d597e73383cf204b4c084554b675310bb0d94bdd1a705758a71af58"
+        }
+      }
+    }
+  ],
+  "states": [
+    "E-P",
+    "E-S"
+  ],
+  "order": [
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "fixed",
+      "repeat": 1,
+      "pair_id": "EP-r1",
+      "session_id": "EP-r1-fixed"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "memory",
+      "repeat": 1,
+      "pair_id": "ES-r1",
+      "session_id": "ES-r1-memory"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "updated",
+      "repeat": 1,
+      "pair_id": "EP-r1",
+      "session_id": "EP-r1-updated"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "fixed",
+      "repeat": 1,
+      "pair_id": "ES-r1",
+      "session_id": "ES-r1-fixed"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "memory",
+      "repeat": 1,
+      "pair_id": "EP-r1",
+      "session_id": "EP-r1-memory"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "updated",
+      "repeat": 1,
+      "pair_id": "ES-r1",
+      "session_id": "ES-r1-updated"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "updated",
+      "repeat": 2,
+      "pair_id": "ES-r2",
+      "session_id": "ES-r2-updated"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "memory",
+      "repeat": 2,
+      "pair_id": "EP-r2",
+      "session_id": "EP-r2-memory"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "fixed",
+      "repeat": 2,
+      "pair_id": "ES-r2",
+      "session_id": "ES-r2-fixed"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "updated",
+      "repeat": 2,
+      "pair_id": "EP-r2",
+      "session_id": "EP-r2-updated"
+    },
+    {
+      "state_id": "E-S",
+      "family": "symbolic",
+      "condition": "memory",
+      "repeat": 2,
+      "pair_id": "ES-r2",
+      "session_id": "ES-r2-memory"
+    },
+    {
+      "state_id": "E-P",
+      "family": "planning",
+      "condition": "fixed",
+      "repeat": 2,
+      "pair_id": "EP-r2",
+      "session_id": "EP-r2-fixed"
+    }
+  ],
+  "max_generated_candidates": 1,
+  "max_iterations": 1,
+  "budgets": {
+    "max_requests": 13,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 4096,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 1800000,
+    "max_cost_cny": 5.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  },
+  "source_limit_bytes": 16384,
+  "policy_update_requests": 1,
+  "evaluation_requests": 12,
+  "automatic_recovery": false,
+  "baseline_reexecution": false,
+  "missing_candidate_score": null,
+  "checks_gate_execution": false,
+  "checks_change_selection": false,
+  "comparison": "All three arms share the same rule catalog, current source, diagnostics, task contract and evidence namespace. Only repair_policy and experience_memory differ. S1 is frozen before evaluation; fixed S0 and updated S1 have no experience memory; memory arm receives S0 and the same two update cards."
+}

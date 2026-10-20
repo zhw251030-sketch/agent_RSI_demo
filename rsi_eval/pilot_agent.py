@@ -45,6 +45,17 @@ These are development observations, not held-out results or proof of a new metho
 """
 
 
+POLICY_UPDATE_SYSTEM_PROMPT = """You are selecting a bounded external repair policy.
+Use only the supplied update examples and the fixed rule catalog. You have
+exactly one model request and may submit one policy with submit_policy.
+Choose four catalog rules in order and cite each rule's supplied update support.
+The free-text rationale is archived only; it is not the executable policy.
+Do not produce candidate source, formulas, plans, new rules, paths or commands.
+Do not read files, use network services, create processes, or evaluate tasks.
+Submitting a policy does not establish that it improves future repair results.
+"""
+
+
 def safe_error_metadata(error):
     """Read only status integers and a fixed code vocabulary, never HTTP bodies."""
     allowed_codes = {"internal_server_error", "api_error", "overloaded_error",
@@ -124,6 +135,9 @@ def candidate_tool(controller, session_id):
 
 class BoundedPilotLLM(LLM):
     """Reserve before every transport, including unexpected SDK retry paths."""
+    # Only trusted subclasses can select a different fixed business tool.
+    # This is not a model/configuration field and is never supplied in prompts.
+    _pilot_allowed_tools: ClassVar[frozenset[str]] = frozenset({'submit_candidate', 'finish'})
     _pilot_ledger: object = PrivateAttr(default=None)
     _pilot_session: str = PrivateAttr(default="")
     _pilot_output: Path | None = PrivateAttr(default=None)
@@ -185,10 +199,10 @@ class BoundedPilotLLM(LLM):
             write_json(response_path, response_record)
             calls = response.choices[0].message.tool_calls if len(response.choices) == 1 else None
             if (len(response.choices) != 1 or (calls and (len(calls) != 1
-                    or calls[0].function.name not in {"submit_candidate", "finish"}))):
+                    or calls[0].function.name not in self._pilot_allowed_tools))):
                 response_record["error_type"] = "PilotResponseContractError"
                 write_json(response_path, response_record)
-                raise PilotResponseContractError("One candidate submission or finish is allowed per response")
+                raise PilotResponseContractError("One authorized submission or finish is allowed per response")
             return response
         except Exception as error:
             error_type = type(error).__name__
@@ -220,15 +234,21 @@ It does not change Canvas or globally alter the installed SDK.
 
 
 def create_conversation(controller, llm, session_id, output_dir, callback=None, *, tool_factory=candidate_tool,
-                        max_iterations=4):
+                        max_iterations=4, purpose='candidate'):
     if type(max_iterations) is not int or not 1 <= max_iterations <= 4:
         raise ValueError("Controlled sessions allow one to four iterations")
+    if purpose not in ('candidate', 'policy') or (purpose == 'policy' and max_iterations != 1):
+        raise ValueError("Policy selection requires exactly one iteration and a known purpose")
+    expected_tools = {'submit_policy', 'finish'} if purpose == 'policy' else {'submit_candidate', 'finish'}
+    if getattr(llm, '_pilot_allowed_tools', None) != expected_tools:
+        raise ValueError("Conversation purpose and trusted LLM tool allowlist differ")
     if importlib.metadata.version("openhands-sdk") != "1.55.1":
         raise RuntimeError("Pilot lifecycle adapter requires OpenHands SDK 1.55.1")
     output_dir = Path(output_dir)
     agent = Agent(llm=llm, tools=[tool_factory(controller, session_id)],
                   include_default_tools=["FinishTool"],
-                  system_prompt=SINGLE_REVISION_SYSTEM_PROMPT if max_iterations == 1 else SYSTEM_PROMPT,
+                  system_prompt=(POLICY_UPDATE_SYSTEM_PROMPT if purpose == 'policy' else
+                                 SINGLE_REVISION_SYSTEM_PROMPT if max_iterations == 1 else SYSTEM_PROMPT),
                   agent_context=None, mcp_config={}, condenser=None, critic=None,
                   tool_concurrency_limit=1)
     conversation = ControlledPilotConversation(
@@ -241,7 +261,7 @@ def create_conversation(controller, llm, session_id, output_dir, callback=None, 
     with patch("openhands.sdk.agent.base.has_vision_profile_available", return_value=False):
         conversation.send_message(controller.task_prompt())
     actual_tools = set(conversation.agent.tools_map)
-    if actual_tools != {"submit_candidate", "finish"}:
+    if actual_tools != expected_tools:
         conversation.close()
         raise RuntimeError("Unexpected pilot tool set")
     if (conversation.agent.mcp_config or conversation.agent.agent_context is not None
@@ -252,7 +272,7 @@ def create_conversation(controller, llm, session_id, output_dir, callback=None, 
 
 
 def run_session(controller, llm, session_id, output_dir, *, tool_factory=candidate_tool,
-                max_iterations=4):
+                max_iterations=4, purpose='candidate'):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     events_path = output_dir / "events.jsonl"
@@ -276,7 +296,8 @@ def run_session(controller, llm, session_id, output_dir, *, tool_factory=candida
               "sdk_version": importlib.metadata.version("openhands-sdk")}
     try:
         conversation = create_conversation(controller, llm, session_id, output_dir, record,
-                                           tool_factory=tool_factory, max_iterations=max_iterations)
+                                           tool_factory=tool_factory, max_iterations=max_iterations,
+                                           purpose=purpose)
         result["tools"] = sorted(conversation.agent.tools_map)
         conversation.run()
         result["conversation_status"] = str(conversation.state.execution_status)
