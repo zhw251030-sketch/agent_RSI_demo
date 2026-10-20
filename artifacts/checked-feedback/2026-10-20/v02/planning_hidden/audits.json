@@ -1,0 +1,125 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "claims": [
+      {
+        "kind": "fact",
+        "op": "eq",
+        "reference": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "key": "action.tighten_nut.effects.negative",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_hidden",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "value": [
+          [
+            "loose",
+            "$3"
+          ],
+          [
+            "useable",
+            "$1"
+          ]
+        ]
+      },
+      {
+        "kind": "scalar",
+        "op": "eq",
+        "reference": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "key": "plan_length",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_hidden",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "value": 0
+      }
+    ],
+    "prediction": {
+      "direction": "increase",
+      "min_delta": 2,
+      "reference": {
+        "candidate_id": "planning-000",
+        "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_hidden",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      },
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": 0.0,
+        "tolerance": 1e-10,
+        "reference": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "key": "plan_length",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_hidden",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "op": "eq",
+        "expected": 0.0
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0,
+      "reference": {
+        "candidate_id": "planning-000",
+        "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_hidden",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      },
+      "direction": "increase",
+      "min_delta": 2.0
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.0,
+      "tolerance": 2.01e-08,
+      "reference": {
+        "candidate_id": "planning-000",
+        "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_hidden",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      },
+      "before": 0.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 2.0,
+      "child_reference": {
+        "session_id": "20261020-checked-feedback-v02:planning_hidden",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "after": 0.0
+    }
+  }
+]

@@ -17,7 +17,9 @@ from openhands.sdk.agent.utils import (
 from openhands.sdk.tool import ToolExecutor, register_tool
 from pydantic import Field, PrivateAttr, StrictInt, StrictStr, field_validator, model_validator
 
-from .pilot_agent import BoundedPilotLLM, SubmitCandidateObservation, run_session, write_json
+from .pilot_agent import (
+    BoundedPilotLLM, PilotResponseContractError, SubmitCandidateObservation, run_session, write_json,
+)
 from .pilot_budget import BudgetExceeded
 from .state_packet import MAX_PACKET_BYTES, payload_bytes, replace_messages, wire_payload
 
@@ -61,6 +63,10 @@ _PREDICTION_SCHEMA = {
     },
     'required': ['reference', 'direction', 'min_delta'],
 }
+
+
+class IncompleteToolResponseError(PilotResponseContractError):
+    """A recorded response announces tool calls but supplies no callable action."""
 
 
 class CheckedCandidateAction(Action):
@@ -256,6 +262,15 @@ class StatePacketLLM(BoundedPilotLLM):
             reserved_before = self._pilot_ledger.summary()['session_counts'][self._pilot_session]
             response = super()._transport_call(messages=replacement,
                 enable_streaming=enable_streaming, on_token=on_token, **kwargs)
+            # Post-v02 guard: the parent has already saved the received response
+            # and settled its usage. SDK 1.55.1 otherwise treats nonblank content
+            # without actual calls as a finished conversation, even when the
+            # provider finish_reason promises tool calls. Never infer an action
+            # from JSON-looking text, and leave that original record untouched.
+            choice = response.choices[0]
+            if choice.finish_reason == 'tool_calls' and not choice.message.tool_calls:
+                audit.update(status='error', reason='incomplete_tool_response')
+                raise IncompleteToolResponseError('Tool-call response contains no tool calls')
             self._observe_submission_schema(response)
             audit.update(status='completed')
             return response

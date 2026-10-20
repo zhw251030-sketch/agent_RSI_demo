@@ -1,0 +1,82 @@
+{
+  "family": "planning",
+  "condition": "checked",
+  "session_id": "planning_checked",
+  "status": "completed",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.FINISHED",
+  "generated_candidates": 2,
+  "executions": 30,
+  "halted": false,
+  "strategy_updated": false,
+  "checks_visible": true,
+  "check_gates_execution": false,
+  "check_changes_selection": false,
+  "candidate_positions": {
+    "baseline": {
+      "candidate_id": "planning-000",
+      "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+      "metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      }
+    },
+    "first": {
+      "candidate_id": "planning-001",
+      "source_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+      "metrics": {
+        "prompt_successes": 2,
+        "prompt_total": 2,
+        "development_successes": 8,
+        "development_total": 8,
+        "total_successes": 10,
+        "total_tasks": 10
+      }
+    },
+    "last": {
+      "candidate_id": "planning-002",
+      "source_sha256": "430b51f4265354dba8eb4740373783c7c2f2af00255fd0e8403a1131d11e6394",
+      "metrics": {
+        "prompt_successes": 2,
+        "prompt_total": 2,
+        "development_successes": 8,
+        "development_total": 8,
+        "total_successes": 10,
+        "total_tasks": 10
+      }
+    },
+    "best": {
+      "candidate_id": "planning-001",
+      "source_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+      "metrics": {
+        "prompt_successes": 2,
+        "prompt_total": 2,
+        "development_successes": 8,
+        "development_total": 8,
+        "total_successes": 10,
+        "total_tasks": 10
+      }
+    }
+  },
+  "audited_candidates": 2,
+  "audited_claims": 4,
+  "candidate_source_files": 3,
+  "task_execution_records": 30,
+  "event_type_counts": {
+    "SystemPromptEvent": 1,
+    "MessageEvent": 1,
+    "ActionEvent": 4,
+    "AgentErrorEvent": 1,
+    "ObservationEvent": 3
+  },
+  "archive_interpretation": "candidate_session_finished"
+}

@@ -1,0 +1,754 @@
+[
+  {
+    "condition": "planning_hidden",
+    "request_id": "request-0001",
+    "input_bytes": 24793,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "69ec2689d798357473514809fca2feb71b9b6f73c6adbf4100a8f7585e609fc5",
+    "raw_request_sha256": "2cbaa3aa01ca013606f737017e532e745ec9b8cbf72638269fb593c58a5eab00",
+    "packet_sha256": "fd45a9b90d866ca421ddaa8017067b88e259f9cbbbeba8806e76b05168ec86cf",
+    "provider_usage": {
+      "prompt_tokens": 6745,
+      "completion_tokens": 2282,
+      "total_tokens": 9027
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-2924a4e7-121a-41b7-9d85-b4be2f3ae532",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a157dfa15071168d28e9b2",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "AgentErrorEvent"
+    ],
+    "submitted_source_sha256": "50d1e98dc6491794b723488bd7b3e2452d418b0adfcaeb0a1b7d34059649a169",
+    "executed_candidate_ids": [],
+    "observer_tool_validation": {
+      "status": "invalid_request",
+      "error_kind": "submission_schema"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "planning-000",
+      "latest_candidate_id": "planning-000",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": null
+    },
+    "outcome": "sdk_action_error_no_candidate_record",
+    "content_sha256": "9e2f7403d13ceed809ae58284b2b2560c9d9a65597c56598bc8c9fb0d9a2e3b8"
+  },
+  {
+    "condition": "planning_hidden",
+    "request_id": "request-0002",
+    "input_bytes": 24888,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "c86a1072fb32e208d48ab7da185f5ab6396bf7570a15de3e50cde25decfc2d20",
+    "raw_request_sha256": "f25e8adf581488d085a0f55e3c4557f05ad045a8852dab4a09a6c3f05db658fd",
+    "packet_sha256": "c6810c09a82fcd8dcdac2f31980684f48478c8e8ea00ccbe37cd487b484b1fce",
+    "provider_usage": {
+      "prompt_tokens": 6760,
+      "completion_tokens": 1971,
+      "total_tokens": 8731
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-4e666916-57c9-4ca3-8bb1-6444d7f21f27",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_1OlYA6GzQaJAlNHvmvv3U2QM",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "AgentErrorEvent"
+    ],
+    "submitted_source_sha256": "50e726bd1daab49a9ba819256ff8f37ed1b941a4fe04b9b5484d9a6a244d5301",
+    "executed_candidate_ids": [],
+    "observer_tool_validation": {
+      "status": "invalid_request",
+      "error_kind": "submission_schema"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "planning-000",
+      "latest_candidate_id": "planning-000",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": {
+        "status": "invalid_request",
+        "error_kind": "submission_schema"
+      }
+    },
+    "outcome": "sdk_action_error_no_candidate_record",
+    "content_sha256": "4145e0181cb53c700a2f42127a9d0cc44078683e5fade6fe6c0914db10b33e6a"
+  },
+  {
+    "condition": "planning_hidden",
+    "request_id": "request-0003",
+    "input_bytes": 24888,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "c86a1072fb32e208d48ab7da185f5ab6396bf7570a15de3e50cde25decfc2d20",
+    "raw_request_sha256": "f25e8adf581488d085a0f55e3c4557f05ad045a8852dab4a09a6c3f05db658fd",
+    "packet_sha256": "c6810c09a82fcd8dcdac2f31980684f48478c8e8ea00ccbe37cd487b484b1fce",
+    "provider_usage": {
+      "prompt_tokens": 6760,
+      "completion_tokens": 2547,
+      "total_tokens": 9307
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-89111a33-06d7-4ac6-8090-0e0bb2425895",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_5qxxUjOxeQOcTZXENaJCgpXh",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "AgentErrorEvent"
+    ],
+    "submitted_source_sha256": "fe9774ad7f66b6356dabca2ec2e044e27e788b3326d5a6121637bbcfe31aec64",
+    "executed_candidate_ids": [],
+    "observer_tool_validation": {
+      "status": "invalid_request",
+      "error_kind": "submission_schema"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "planning-000",
+      "latest_candidate_id": "planning-000",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": {
+        "status": "invalid_request",
+        "error_kind": "submission_schema"
+      }
+    },
+    "outcome": "sdk_action_error_no_candidate_record",
+    "content_sha256": "5cbfa1b8153cd570dc8554a22847afcab95643410c26a3c6cfc68d55fe92741d"
+  },
+  {
+    "condition": "planning_hidden",
+    "request_id": "request-0004",
+    "input_bytes": 24888,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "c86a1072fb32e208d48ab7da185f5ab6396bf7570a15de3e50cde25decfc2d20",
+    "raw_request_sha256": "f25e8adf581488d085a0f55e3c4557f05ad045a8852dab4a09a6c3f05db658fd",
+    "packet_sha256": "c6810c09a82fcd8dcdac2f31980684f48478c8e8ea00ccbe37cd487b484b1fce",
+    "provider_usage": {
+      "prompt_tokens": 6773,
+      "completion_tokens": 2087,
+      "total_tokens": 8860
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-0a855218-12af-4183-82ee-99897cb294c3",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a157e11486770aa86cb4b1",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "ObservationEvent"
+    ],
+    "submitted_source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+    "executed_candidate_ids": [
+      "planning-001"
+    ],
+    "observer_tool_validation": {
+      "status": "valid_submission"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "planning-000",
+      "latest_candidate_id": "planning-000",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": {
+        "status": "invalid_request",
+        "error_kind": "submission_schema"
+      }
+    },
+    "outcome": "candidate_executed",
+    "content_sha256": "49fa74cbe0955f6ec2711ead44e18c3605114c0be179844cb1c7ff85a4984454"
+  },
+  {
+    "condition": "symbolic_checked",
+    "request_id": "request-0005",
+    "input_bytes": 17147,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "2fe1991c032ff8a79e218c9a8267d0f97359706ad77c4172f48c1afe0129782c",
+    "raw_request_sha256": "d7a4e120aecd181cd0f168042ff6795a958b950db0798c0d1b456a490f59e006",
+    "packet_sha256": "e70a1a8b0bf802bb4721b917ce29015d47f0ff67a81695a6d17497f3f7419f8a",
+    "provider_usage": {
+      "prompt_tokens": 4657,
+      "completion_tokens": 842,
+      "total_tokens": 5499
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-a63cd2a4-f6e8-4767-817d-cf1f10d4906f",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a157e143ee763e8cc575be",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "ObservationEvent"
+    ],
+    "submitted_source_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+    "executed_candidate_ids": [
+      "symbolic-001"
+    ],
+    "observer_tool_validation": {
+      "status": "valid_submission"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "symbolic-000",
+      "latest_candidate_id": "symbolic-000",
+      "history": [
+        {
+          "candidate_id": "symbolic-000",
+          "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "score": {
+            "mse": 0.004363248713551409,
+            "nmse": 1.0
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": null
+    },
+    "outcome": "candidate_executed",
+    "content_sha256": "a9be2880fa444cffbd057877c3f001fab661fc5dab42726c87dd9b7847049ae3"
+  },
+  {
+    "condition": "symbolic_checked",
+    "request_id": "request-0006",
+    "input_bytes": 19718,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "be913e389d0e601982671577ef32165d054c48823761663bfb7bee738e82fbc2",
+    "raw_request_sha256": "348f427c7a8e47e3ccba00a7bdbe3974f701b27e006ddc7c5a68958c414ee25d",
+    "packet_sha256": "489abaa09be89bc13490f909bde6f7093302c102332f5dcd86242630bb8a6999",
+    "provider_usage": {
+      "prompt_tokens": 5408,
+      "completion_tokens": 852,
+      "total_tokens": 6260
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-30e72131-3d77-4187-8dcb-4052e01756eb",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a157e17e6a763e81ba6e42",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "ObservationEvent"
+    ],
+    "submitted_source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+    "executed_candidate_ids": [
+      "symbolic-002"
+    ],
+    "observer_tool_validation": {
+      "status": "valid_submission"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "symbolic-001",
+      "latest_candidate_id": "symbolic-001",
+      "history": [
+        {
+          "candidate_id": "symbolic-000",
+          "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "score": {
+            "mse": 0.004363248713551409,
+            "nmse": 1.0
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "symbolic-001",
+          "source_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+          "score": {
+            "mse": 0.0004229742450282299,
+            "nmse": 0.09694020964575169
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 2,
+      "last_tool_validation": null
+    },
+    "outcome": "candidate_executed",
+    "content_sha256": "0186fde8fc9219cc313fcc31f96ee54ad4481d11a3c7f23766de06a6eab9123d"
+  },
+  {
+    "condition": "symbolic_checked",
+    "request_id": "request-0007",
+    "input_bytes": 21862,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "63d18977826f4eaaf41cefd46e7b7b1bceb31b3c898ebf6bc6a853e4895aceeb",
+    "raw_request_sha256": "047eb7c001553c4f0fd58b2d5b749264194697690c5728e4a0215234c978148d",
+    "packet_sha256": "404f7d6c886676b8a63bd73f564a877bf4d08fdc9efab92149bba3b56296bb2a",
+    "provider_usage": {
+      "prompt_tokens": 6019,
+      "completion_tokens": 1001,
+      "total_tokens": 7020
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-66d36bf4-9179-4e08-a449-aeda65ec162b",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a157e1bdc174e5b27cb133",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "ObservationEvent"
+    ],
+    "submitted_source_sha256": "e9f8d078fc17d67b910a97425f758901ca53361c706a300e2fa8622920730078",
+    "executed_candidate_ids": [
+      "symbolic-003"
+    ],
+    "observer_tool_validation": {
+      "status": "valid_submission"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "symbolic-002",
+      "latest_candidate_id": "symbolic-002",
+      "history": [
+        {
+          "candidate_id": "symbolic-000",
+          "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "score": {
+            "mse": 0.004363248713551409,
+            "nmse": 1.0
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "symbolic-001",
+          "source_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+          "score": {
+            "mse": 0.0004229742450282299,
+            "nmse": 0.09694020964575169
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "symbolic-002",
+          "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "score": {
+            "mse": 0.00042058301188823533,
+            "nmse": 0.09639217003192727
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 1,
+      "last_tool_validation": null
+    },
+    "outcome": "candidate_executed",
+    "content_sha256": "4c7d94bb9215d68de44392461a4ff848a254252ac256629ea2a24fda611fab0c"
+  },
+  {
+    "condition": "symbolic_checked",
+    "request_id": "request-0008",
+    "input_bytes": 23980,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "55fff27d944bada02f7ab1ae389924824567a2474eb99a8ff80269be651d2253",
+    "raw_request_sha256": "d9769e69328fcf8a5dcfd2d151b587f6e60aa18897d548bff3cd0a8c7390a460",
+    "packet_sha256": "cfab7b828d22ba4551e8acb9f866348becca16370c6952a1553fd7c9769621aa",
+    "provider_usage": {
+      "prompt_tokens": 6641,
+      "completion_tokens": 783,
+      "total_tokens": 7424
+    },
+    "provider_finish_reason": "stop",
+    "response_id": "chatcmpl-f8c6cf36-b3a6-492d-9740-6ccbbed78502",
+    "tool_call_count": 0,
+    "tool_name": null,
+    "tool_call_id": null,
+    "tool_call_event_types": [],
+    "submitted_source_sha256": null,
+    "executed_candidate_ids": [],
+    "observer_tool_validation": null,
+    "input_context": {
+      "incumbent_candidate_id": "symbolic-003",
+      "latest_candidate_id": "symbolic-003",
+      "history": [
+        {
+          "candidate_id": "symbolic-000",
+          "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "score": {
+            "mse": 0.004363248713551409,
+            "nmse": 1.0
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "symbolic-001",
+          "source_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+          "score": {
+            "mse": 0.0004229742450282299,
+            "nmse": 0.09694020964575169
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "symbolic-002",
+          "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "score": {
+            "mse": 0.00042058301188823533,
+            "nmse": 0.09639217003192727
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "symbolic-003",
+          "source_sha256": "e9f8d078fc17d67b910a97425f758901ca53361c706a300e2fa8622920730078",
+          "score": {
+            "mse": 0.00041475150179916005,
+            "nmse": 0.09505566357265445
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 0,
+      "last_tool_validation": null
+    },
+    "outcome": "assistant_message_without_tool_calls",
+    "content_sha256": "87d21ec23a7fae6413c0b2b7ab20deb94f2b48ab92549e897c9de2428c55b573"
+  },
+  {
+    "condition": "planning_checked",
+    "request_id": "request-0009",
+    "input_bytes": 24898,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "dac1c2fae1d894809098516773f749a9ba45a6a259143006f5ea1ebb2a667c02",
+    "raw_request_sha256": "9fd8891f2c5463ec307f02fc659c354ad8fae84bb5cfb8b296023d44fd8f6fdd",
+    "packet_sha256": "c9f2495c6481411360914c257440041a3caf781af97298e1e00085f4e0231ecd",
+    "provider_usage": {
+      "prompt_tokens": 6815,
+      "completion_tokens": 1990,
+      "total_tokens": 8805
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-f8ba5752-56dd-4c87-836d-3a6b8e8239b4",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a157e22364775b8e48dff2",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "AgentErrorEvent"
+    ],
+    "submitted_source_sha256": "a105ac8be3a3322c21476c2fecf65feabdb0e885d9fe6cd0732e837fa452724f",
+    "executed_candidate_ids": [],
+    "observer_tool_validation": {
+      "status": "invalid_request",
+      "error_kind": "submission_schema"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "planning-000",
+      "latest_candidate_id": "planning-000",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": null
+    },
+    "outcome": "sdk_action_error_no_candidate_record",
+    "content_sha256": "7d26792d388fa8fba55248d9d1d7f4ba17cbf9a836a424e69942a3eeeb34194f"
+  },
+  {
+    "condition": "planning_checked",
+    "request_id": "request-0010",
+    "input_bytes": 24993,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "aea16fa37a8665f7b04b8bc30c6233ab6f391fc55d300c45ba864a1ba0cffc10",
+    "raw_request_sha256": "c63d12a2323ae4a2eff3b85d6322f0d9dd091d91515dc45acbf64b90a355b3a5",
+    "packet_sha256": "37978efdd336a4c1f2fac297b121b0905bb67b0a6e9b604fcfc7e79480e9bc42",
+    "provider_usage": {
+      "prompt_tokens": 6843,
+      "completion_tokens": 1500,
+      "total_tokens": 8343
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-e5837961-0f8a-485a-aeb9-3cfe4fa9abca",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_01a157e25ee97678b9eeb39f",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "ObservationEvent"
+    ],
+    "submitted_source_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+    "executed_candidate_ids": [
+      "planning-001"
+    ],
+    "observer_tool_validation": {
+      "status": "valid_submission"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "planning-000",
+      "latest_candidate_id": "planning-000",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": {
+        "status": "invalid_request",
+        "error_kind": "submission_schema"
+      }
+    },
+    "outcome": "candidate_executed",
+    "content_sha256": "b1679b6dfe503f622284b7d28d4b63ad9efaaf7a11d201fee13fdf275d1cbd0b"
+  },
+  {
+    "condition": "planning_checked",
+    "request_id": "request-0011",
+    "input_bytes": 29959,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "e50c71abd317a6b62c59798b5b2e82b0985bca59544f15ba455dc4af0a63a309",
+    "raw_request_sha256": "d1b364381156fadf7510942dbab5be3724d71b8be88e7ce6e74ef0f5fa18aab0",
+    "packet_sha256": "5a334edf2dc13031da3cf5c246c64d7f6c5d4111118e7696f6adef3e0e1bd903",
+    "provider_usage": {
+      "prompt_tokens": 8219,
+      "completion_tokens": 2006,
+      "total_tokens": 10225
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-8b1930fe-2000-497d-8921-d5cbd8fded22",
+    "tool_call_count": 1,
+    "tool_name": "submit_candidate",
+    "tool_call_id": "call_fz2YE6d8T0yOl3TPiE58bc6H",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "ObservationEvent"
+    ],
+    "submitted_source_sha256": "430b51f4265354dba8eb4740373783c7c2f2af00255fd0e8403a1131d11e6394",
+    "executed_candidate_ids": [
+      "planning-002"
+    ],
+    "observer_tool_validation": {
+      "status": "valid_submission"
+    },
+    "input_context": {
+      "incumbent_candidate_id": "planning-001",
+      "latest_candidate_id": "planning-001",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "planning-001",
+          "source_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+          "score": {
+            "prompt_successes": 2,
+            "prompt_total": 2,
+            "development_successes": 8,
+            "development_total": 8,
+            "total_successes": 10,
+            "total_tasks": 10
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 2,
+      "last_tool_validation": null
+    },
+    "outcome": "candidate_executed",
+    "content_sha256": "a7156407a2cd7565ca4a55df08ed29e92505157293e3e1ff89360400a9767b14"
+  },
+  {
+    "condition": "planning_checked",
+    "request_id": "request-0012",
+    "input_bytes": 36996,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "6cb4d7e8da23862ccfeec570f384c9f74ef8098e2d8866a8f31acf010397b5bf",
+    "raw_request_sha256": "f39ac45b8af3c1c851ec8f011a2e752c07be0935fd232f9217981371adadc1c5",
+    "packet_sha256": "10091f002efdda69b096f7b6574e751733b4ca84dcb9c5194da1d0d9c93d98ef",
+    "provider_usage": {
+      "prompt_tokens": 10283,
+      "completion_tokens": 616,
+      "total_tokens": 10899
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-e533f045-5b70-483a-a57c-6cff11710328",
+    "tool_call_count": 1,
+    "tool_name": "finish",
+    "tool_call_id": "call_01a157e2d4427bf29b7e9e27",
+    "tool_call_event_types": [
+      "ActionEvent",
+      "ObservationEvent"
+    ],
+    "submitted_source_sha256": null,
+    "executed_candidate_ids": [],
+    "observer_tool_validation": null,
+    "input_context": {
+      "incumbent_candidate_id": "planning-001",
+      "latest_candidate_id": "planning-002",
+      "history": [
+        {
+          "candidate_id": "planning-000",
+          "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "score": {
+            "prompt_successes": 0,
+            "prompt_total": 2,
+            "development_successes": 0,
+            "development_total": 8,
+            "total_successes": 0,
+            "total_tasks": 10
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "planning-001",
+          "source_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+          "score": {
+            "prompt_successes": 2,
+            "prompt_total": 2,
+            "development_successes": 8,
+            "development_total": 8,
+            "total_successes": 10,
+            "total_tasks": 10
+          },
+          "accepted": true
+        },
+        {
+          "candidate_id": "planning-002",
+          "source_sha256": "430b51f4265354dba8eb4740373783c7c2f2af00255fd0e8403a1131d11e6394",
+          "score": {
+            "prompt_successes": 2,
+            "prompt_total": 2,
+            "development_successes": 8,
+            "development_total": 8,
+            "total_successes": 10,
+            "total_tasks": 10
+          },
+          "accepted": false
+        }
+      ],
+      "generated_candidates_remaining": 1,
+      "last_tool_validation": null
+    },
+    "outcome": "finish_tool_called",
+    "content_sha256": "a8de8c22490b0e712dbe31aaf4b9ba7542680510941fa73a60f2522b7d75465b"
+  },
+  {
+    "condition": "symbolic_hidden",
+    "request_id": "request-0013",
+    "input_bytes": 17044,
+    "input_cap_bytes": 98304,
+    "canonical_request_sha256": "a74eacb99a0a7ccb128bcf1414d80a4dc0064546f9ee4e18ecda828386ea0792",
+    "raw_request_sha256": "ef9098aef0e3efc5a786bae5ecbc085b464e95aea7cb4ff4d2f03fe9741241a3",
+    "packet_sha256": "7b6a7569cb90cc98d69316e0f95c562f3b23f068474c06384d51e02b582e46d3",
+    "provider_usage": {
+      "prompt_tokens": 4607,
+      "completion_tokens": 925,
+      "total_tokens": 5532
+    },
+    "provider_finish_reason": "tool_calls",
+    "response_id": "chatcmpl-95b6adf6-12e3-43f7-84d0-01697878607c",
+    "tool_call_count": 0,
+    "tool_name": null,
+    "tool_call_id": null,
+    "tool_call_event_types": [],
+    "submitted_source_sha256": null,
+    "executed_candidate_ids": [],
+    "observer_tool_validation": null,
+    "input_context": {
+      "incumbent_candidate_id": "symbolic-000",
+      "latest_candidate_id": "symbolic-000",
+      "history": [
+        {
+          "candidate_id": "symbolic-000",
+          "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "score": {
+            "mse": 0.004363248713551409,
+            "nmse": 1.0
+          },
+          "accepted": true
+        }
+      ],
+      "generated_candidates_remaining": 3,
+      "last_tool_validation": null
+    },
+    "outcome": "tool_calls_finish_reason_without_tool_calls",
+    "content_sha256": "dc9903ee7de700fa188ce5aafc0c30f0d93a563aed1f7325e442e5ff1e95c102"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "family": "planning",
+  "condition": "hidden",
+  "session_id": "planning_hidden",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "generated_candidates": 1,
+  "executions": 20,
+  "halted": false,
+  "strategy_updated": false,
+  "checks_visible": false,
+  "check_gates_execution": false,
+  "check_changes_selection": false,
+  "candidate_positions": {
+    "baseline": {
+      "candidate_id": "planning-000",
+      "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+      "metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      }
+    },
+    "first": {
+      "candidate_id": "planning-001",
+      "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+      "metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      }
+    },
+    "last": {
+      "candidate_id": "planning-001",
+      "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+      "metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      }
+    },
+    "best": {
+      "candidate_id": "planning-000",
+      "source_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+      "metrics": {
+        "prompt_successes": 0,
+        "prompt_total": 2,
+        "development_successes": 0,
+        "development_total": 8,
+        "total_successes": 0,
+        "total_tasks": 10
+      }
+    }
+  },
+  "audited_candidates": 1,
+  "audited_claims": 2,
+  "candidate_source_files": 2,
+  "task_execution_records": 20,
+  "event_type_counts": {
+    "SystemPromptEvent": 1,
+    "MessageEvent": 1,
+    "ActionEvent": 4,
+    "AgentErrorEvent": 3,
+    "ObservationEvent": 1,
+    "ConversationErrorEvent": 1
+  },
+  "archive_interpretation": "max_iterations_reached_after_one_executed_candidate"
+}

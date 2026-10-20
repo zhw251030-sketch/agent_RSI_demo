@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已完成诊断模块、168 项不同测试、旧候选离线干预和一次真实 A/B/C 开发对照尝试。规划 A 达到 10/10，规划 B 为 0/10；符号 C 最佳 train NMSE 0.09577。B 的第四次输入超预设上限 72 字节，后三组未启动，因此比较尚不完整，没有方法有效性或泛化结论。** 仓库名 RSI 不代表已实现策略自改写。
+**已实现全请求摘要、可执行主张检查和事前预测核验，并完成一轮停止记录与一轮四条件真实尝试。v0.2 共13次请求、6个实际执行的新候选：规划检查组10/10、隐藏组0/10，符号检查组train NMSE0.09506，符号隐藏组没有执行候选。比较仍不完整，规划满分又发生在收到检查反馈之前，不能据此声称机制有效或泛化。** 实际运行前247项不同测试通过；事后响应契约修复单独验证。仓库名RSI不代表已实现策略自改写。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -15,7 +15,7 @@
 | 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，正式协议待冻结 |
 | 更新对象 | 建议区分产物 P（程序/公式）与修订策略 S，重点检验策略对新搜索状态的作用 |
 | 方法参照 | GEPA 式策略优化为共同候选，llm-genplan、LLM-SR、LaSR 等为任务参照；最终规则未选定 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1 已安装；MiniMax-M3 连接已验证；受控真实会话已运行；168 项不同测试通过，调用/候选/数据范围受限 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1 已安装；MiniMax-M3 连接已验证；受控真实会话已运行；运行前247项不同测试通过，调用/候选/数据范围受限 |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
@@ -34,9 +34,12 @@
 9. [任务执行器、隔离与 OpenHands 工具使用说明](docs/operations/task-executors.md)
 10. [首轮真实 Agent 小试：操作、结果与限制](docs/operations/agent-pilot.md)
 11. [首轮全部候选源码与开发成绩](artifacts/pilot/2026-10-20/README.md)
-12. [最新诊断对照：操作、部分结果与下一步](docs/operations/diagnostic-comparison.md)
+12. [上一轮诊断对照：操作、部分结果与下一步](docs/operations/diagnostic-comparison.md)
 13. [诊断对照全部候选与反馈](artifacts/diagnostic-comparison/2026-10-20/README.md)
 14. [观测、理由与代码逐条核对](docs/analysis/2026-10-20-diagnostic-comparison-analysis.md)
+15. [最新：可执行检查的实现、真实结果与下一步](docs/operations/checked-feedback.md)
+16. [检查轮逐项证据与解释审查](docs/analysis/2026-10-20-checked-feedback-v02-analysis.md)
+17. [v0.1停止轮完整归档](artifacts/checked-feedback/2026-10-20/v01-stopped/README.md) · [v0.2修复轮完整归档](artifacts/checked-feedback/2026-10-20/v02/README.md)
 
 ## 仓库边界
 

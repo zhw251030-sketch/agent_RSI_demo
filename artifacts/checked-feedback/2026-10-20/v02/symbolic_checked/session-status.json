@@ -1,0 +1,65 @@
+{
+  "family": "symbolic",
+  "condition": "checked",
+  "session_id": "symbolic_checked",
+  "status": "completed",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.FINISHED",
+  "generated_candidates": 3,
+  "executions": 4,
+  "halted": false,
+  "strategy_updated": false,
+  "checks_visible": true,
+  "check_gates_execution": false,
+  "check_changes_selection": false,
+  "candidate_positions": {
+    "baseline": {
+      "candidate_id": "symbolic-000",
+      "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+      "metrics": {
+        "mse": 0.004363248713551409,
+        "nmse": 1.0
+      }
+    },
+    "first": {
+      "candidate_id": "symbolic-001",
+      "source_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+      "metrics": {
+        "mse": 0.0004229742450282299,
+        "nmse": 0.09694020964575169
+      }
+    },
+    "last": {
+      "candidate_id": "symbolic-003",
+      "source_sha256": "e9f8d078fc17d67b910a97425f758901ca53361c706a300e2fa8622920730078",
+      "metrics": {
+        "mse": 0.00041475150179916005,
+        "nmse": 0.09505566357265445
+      }
+    },
+    "best": {
+      "candidate_id": "symbolic-003",
+      "source_sha256": "e9f8d078fc17d67b910a97425f758901ca53361c706a300e2fa8622920730078",
+      "metrics": {
+        "mse": 0.00041475150179916005,
+        "nmse": 0.09505566357265445
+      }
+    }
+  },
+  "audited_candidates": 3,
+  "audited_claims": 6,
+  "candidate_source_files": 4,
+  "task_execution_records": 4,
+  "event_type_counts": {
+    "SystemPromptEvent": 1,
+    "MessageEvent": 2,
+    "ActionEvent": 3,
+    "ObservationEvent": 3
+  },
+  "archive_interpretation": "candidate_session_finished"
+}

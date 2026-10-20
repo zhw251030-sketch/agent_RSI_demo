@@ -1,0 +1,49 @@
+{
+  "family": "symbolic",
+  "condition": "hidden",
+  "session_id": "symbolic_hidden",
+  "status": "completed",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.FINISHED",
+  "generated_candidates": 0,
+  "executions": 1,
+  "halted": false,
+  "strategy_updated": false,
+  "checks_visible": false,
+  "check_gates_execution": false,
+  "check_changes_selection": false,
+  "candidate_positions": {
+    "baseline": {
+      "candidate_id": "symbolic-000",
+      "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+      "metrics": {
+        "mse": 0.004363248713551409,
+        "nmse": 1.0
+      }
+    },
+    "first": null,
+    "last": null,
+    "best": {
+      "candidate_id": "symbolic-000",
+      "source_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+      "metrics": {
+        "mse": 0.004363248713551409,
+        "nmse": 1.0
+      }
+    }
+  },
+  "audited_candidates": 0,
+  "audited_claims": 0,
+  "candidate_source_files": 1,
+  "task_execution_records": 1,
+  "event_type_counts": {
+    "SystemPromptEvent": 1,
+    "MessageEvent": 2
+  },
+  "archive_interpretation": "sdk_finished_without_tool_calls_or_generated_candidate"
+}

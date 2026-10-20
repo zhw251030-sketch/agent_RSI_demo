@@ -260,6 +260,86 @@ class CheckedSDKTests(unittest.TestCase):
         self.assertNotIn('stale secret', (output / 'requests/packet-0001.json').read_text())
         self.assertFalse(list((output / 'requests').glob('*.request.json')))
 
+    def test_incomplete_tool_response_stops_sdk_and_preserves_settled_usage(self):
+        # Projection of v02 symbolic_hidden/request-0013.response.json: retain
+        # the exact malformed-envelope fields and the beginning of its partial
+        # JSON content. Neither prose nor JSON-looking content is an action.
+        content = ('Let me submit a damped harmonic oscillator form.'
+            '{"security_risk":"LOW","summary":"Submit damped harmonic oscillator candidate",'
+            '"source":"import numpy as np\\n\\n\\ndef equation(x, v, params):\\n'
+            '    # Damped harmonic oscillator: a = -k*x - c*v\\n'
+            '    return -params[0] * x - params[1] * v\\n","n_params":2,')
+        usage = {'prompt_tokens': 4607, 'completion_tokens': 925, 'total_tokens': 5532}
+        for condition in ('hidden', 'checked'):
+            for empty_calls in (False, True):
+                with self.subTest(condition=condition, empty_calls=empty_calls):
+                    controller = self.controller('symbolic', condition, f'incomplete-{empty_calls}')
+                    llm, ledger, output, session_id = self.llm(controller)
+                    message = {'role': 'assistant', 'content': content}
+                    if empty_calls:
+                        message['tool_calls'] = []
+                    response = ModelResponse(id='recorded-v02-request-0013', model='minimax-m3',
+                        choices=[{'message': message, 'finish_reason': 'tool_calls'}], usage=usage)
+                    with patch('rsi_eval.diagnostic_controller.evaluate_candidate', side_effect=self.evaluate), \
+                            patch('openhands.sdk.llm.llm.litellm_completion', return_value=response) as network, \
+                            patch.object(controller, 'submit', side_effect=AssertionError('text is not a tool call')):
+                        controller.baseline()
+                        report = run_session(controller, llm, session_id, output,
+                                             tool_factory=checked_candidate_tool)
+                    self.assertEqual(report['status'], 'error', report)
+                    self.assertEqual(report['model_error_type'], 'ConversationRunError', report)
+                    self.assertEqual(report['cause_type'], 'IncompleteToolResponseError', report)
+                    self.assertEqual(network.call_count, 1)
+                    self.assertEqual(len(controller.records), 1)  # Baseline only; no repair or retry.
+                    self.assertEqual(ledger.summary()['known_total_tokens'], 5532)
+                    state = json.loads((output / 'budget-ledger.json').read_text(encoding='utf-8'))
+                    self.assertEqual(len(state['requests']), 1)
+                    self.assertEqual(state['requests'][0]['usage'], usage)
+                    self.assertEqual(state['requests'][0]['usage_state'], 'known')
+                    self.assertEqual(state['requests'][0]['status'], 'settled')
+                    self.assertIsNone(state['requests'][0]['error_type'])
+                    saved = json.loads((output / 'requests/request-0001.response.json').read_text(encoding='utf-8'))
+                    self.assertEqual(saved['choices'][0]['message']['content'], content)
+                    self.assertEqual(saved['choices'][0]['finish_reason'], 'tool_calls')
+                    self.assertEqual(saved['usage'], usage)
+                    self.assertNotIn('error_type', saved)  # Preserve the received response record.
+                    audit = json.loads((output / 'requests/input-audit-0001.json').read_text(encoding='utf-8'))
+                    self.assertEqual(audit['status'], 'error')
+                    self.assertEqual(audit['reason'], 'incomplete_tool_response')
+                    self.assertEqual(audit['error_type'], 'IncompleteToolResponseError')
+                    self.assertTrue(audit['request_reserved'])
+                    self.assertTrue(audit['transport_called'])
+                    self.assertTrue(audit['network_dispatch_attempted'])
+                    self.assertNotIn('response_tool_validation', audit)
+                    self.assertNotIn(content, json.dumps(audit))
+
+    def test_plain_stop_and_explicit_finish_remain_legitimate(self):
+        for explicit_finish in (False, True):
+            with self.subTest(explicit_finish=explicit_finish):
+                controller = self.controller('symbolic', 'hidden', f'legitimate-finish-{explicit_finish}')
+                llm, ledger, output, session_id = self.llm(controller)
+                response = self.response(1)
+                if explicit_finish:
+                    response = ModelResponse(id='explicit-finish', model='minimax-m3', choices=[{
+                        'message': {'role': 'assistant', 'content': 'No further revision.', 'tool_calls': [{
+                            'id': 'finish-call', 'type': 'function', 'function': {'name': 'finish',
+                                'arguments': json.dumps({'message': 'Finished without a revision.',
+                                    'summary': 'Finish the session.', 'security_risk': 'LOW'})}}]},
+                        'finish_reason': 'tool_calls'}],
+                        usage={'prompt_tokens': 100, 'completion_tokens': 20, 'total_tokens': 120})
+                with patch('rsi_eval.diagnostic_controller.evaluate_candidate', side_effect=self.evaluate), \
+                        patch('openhands.sdk.llm.llm.litellm_completion', return_value=response) as network:
+                    controller.baseline()
+                    report = run_session(controller, llm, session_id, output,
+                                         tool_factory=checked_candidate_tool)
+                self.assertEqual(report['status'], 'completed', report)
+                self.assertEqual(network.call_count, 1)
+                self.assertEqual(len(controller.records), 1)
+                self.assertEqual(ledger.summary()['known_total_tokens'], 120)
+                audit = json.loads((output / 'requests/input-audit-0001.json').read_text(encoding='utf-8'))
+                self.assertEqual(audit['status'], 'completed')
+                self.assertIsNone(audit['reason'])
+
     def test_packet_contract_failure_keeps_safe_denial_without_partial_payload(self):
         controller = self.controller('symbolic', 'hidden', 'packeterror')
         llm, ledger, output, _ = self.llm(controller)

@@ -1,0 +1,261 @@
+[
+  {
+    "candidate_id": "planning-001",
+    "claims": [
+      {
+        "kind": "fact",
+        "op": "eq",
+        "reference": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "key": "goal",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_checked",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "value": [
+          [
+            "tightened",
+            "nut1"
+          ],
+          [
+            "tightened",
+            "nut2"
+          ],
+          [
+            "tightened",
+            "nut3"
+          ]
+        ]
+      },
+      {
+        "kind": "scalar",
+        "op": "eq",
+        "reference": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "key": "plan_length",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_checked",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "value": 0
+      }
+    ],
+    "prediction": {
+      "direction": "increase",
+      "min_delta": 8,
+      "reference": {
+        "candidate_id": "planning-000",
+        "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "claim_schema_invalid"
+      },
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": 0.0,
+        "tolerance": 1e-10,
+        "reference": {
+          "candidate_id": "planning-000",
+          "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+          "key": "plan_length",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_checked",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "op": "eq",
+        "expected": 0.0
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.0,
+      "reference": {
+        "candidate_id": "planning-000",
+        "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      },
+      "direction": "increase",
+      "min_delta": 8.0
+    },
+    "prediction_result": {
+      "status": "supported",
+      "reason": "prediction_supported",
+      "actual": 10.0,
+      "tolerance": 1.0009999999999999e-07,
+      "reference": {
+        "candidate_id": "planning-000",
+        "candidate_sha256": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      },
+      "before": 0.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 8.0,
+      "child_reference": {
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "candidate_id": "planning-001",
+        "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "after": 10.0
+    }
+  },
+  {
+    "candidate_id": "planning-002",
+    "claims": [
+      {
+        "kind": "fact",
+        "op": "contains",
+        "reference": {
+          "candidate_id": "planning-001",
+          "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+          "key": "action.tighten_nut.effects.negative",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_checked",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "value": [
+          "useable",
+          "$1"
+        ]
+      },
+      {
+        "kind": "scalar",
+        "op": "eq",
+        "reference": {
+          "candidate_id": "planning-001",
+          "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+          "key": "total_successes",
+          "scope": "development_summary",
+          "session_id": "20261020-checked-feedback-v02:planning_checked",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1"
+        },
+        "value": 10
+      }
+    ],
+    "prediction": {
+      "direction": "increase",
+      "min_delta": 0,
+      "reference": {
+        "candidate_id": "planning-001",
+        "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "supported",
+        "reason": "fact_present",
+        "actual": true,
+        "reference": {
+          "candidate_id": "planning-001",
+          "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+          "key": "action.tighten_nut.effects.negative",
+          "scope": "public_prompt",
+          "session_id": "20261020-checked-feedback-v02:planning_checked",
+          "task_id": "spannerlearning/seed0/problem0",
+          "version": "evidence-v0.1"
+        },
+        "op": "contains",
+        "expected": [
+          "useable",
+          "$1"
+        ]
+      },
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": 10.0,
+        "tolerance": 1.0009999999999999e-07,
+        "reference": {
+          "candidate_id": "planning-001",
+          "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+          "key": "total_successes",
+          "scope": "development_summary",
+          "session_id": "20261020-checked-feedback-v02:planning_checked",
+          "task_id": "planning_batch",
+          "version": "evidence-v0.1"
+        },
+        "op": "eq",
+        "expected": 10.0
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 10.0,
+      "reference": {
+        "candidate_id": "planning-001",
+        "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      },
+      "direction": "increase",
+      "min_delta": 0.0
+    },
+    "prediction_result": {
+      "status": "supported",
+      "reason": "prediction_supported",
+      "actual": 0.0,
+      "tolerance": 1e-10,
+      "reference": {
+        "candidate_id": "planning-001",
+        "candidate_sha256": "7f89b5a74c6be4153913665687e536b6e74c7d06dc74785614153d55f7799442",
+        "key": "total_successes",
+        "scope": "development_summary",
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1"
+      },
+      "before": 10.0,
+      "direction": "increase",
+      "op": "ge",
+      "expected": 0.0,
+      "child_reference": {
+        "session_id": "20261020-checked-feedback-v02:planning_checked",
+        "candidate_id": "planning-002",
+        "candidate_sha256": "430b51f4265354dba8eb4740373783c7c2f2af00255fd0e8403a1131d11e6394",
+        "task_id": "planning_batch",
+        "version": "evidence-v0.1",
+        "scope": "development_summary",
+        "key": "total_successes"
+      },
+      "after": 10.0
+    }
+  }
+]

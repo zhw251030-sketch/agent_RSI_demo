@@ -1,0 +1,355 @@
+[
+  {
+    "candidate_id": "symbolic-001",
+    "claims": [
+      {
+        "kind": "scalar",
+        "op": "gt",
+        "reference": {
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "key": "bin.x.3.mean_residual",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "value": 0.05
+      },
+      {
+        "kind": "scalar",
+        "op": "lt",
+        "reference": {
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "key": "bin.x.0.mean_residual",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "value": -0.03
+      }
+    ],
+    "prediction": {
+      "direction": "decrease",
+      "min_delta": 0.3,
+      "reference": {
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": 0.08851428048320649,
+        "tolerance": 9.85142804832065e-10,
+        "reference": {
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "key": "bin.x.3.mean_residual",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "op": "gt",
+        "expected": 0.05
+      },
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": -0.06688509421341791,
+        "tolerance": 7.688509421341792e-10,
+        "reference": {
+          "candidate_id": "symbolic-000",
+          "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+          "key": "bin.x.0.mean_residual",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "op": "lt",
+        "expected": -0.03
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 1.0,
+      "reference": {
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      },
+      "direction": "decrease",
+      "min_delta": 0.3
+    },
+    "prediction_result": {
+      "status": "supported",
+      "reason": "prediction_supported",
+      "actual": 0.9030597903542483,
+      "tolerance": 9.130597903542482e-09,
+      "reference": {
+        "candidate_id": "symbolic-000",
+        "candidate_sha256": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      },
+      "before": 1.0,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.3,
+      "child_reference": {
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "after": 0.09694020964575169
+    }
+  },
+  {
+    "candidate_id": "symbolic-002",
+    "claims": [
+      {
+        "kind": "scalar",
+        "op": "gt",
+        "reference": {
+          "candidate_id": "symbolic-001",
+          "candidate_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+          "key": "bin.x.2.mean_residual",
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "value": 0.002
+      },
+      {
+        "kind": "scalar",
+        "op": "gt",
+        "reference": {
+          "candidate_id": "symbolic-001",
+          "candidate_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+          "key": "bin.v.3.rmse",
+          "scope": "train",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "value": 0.025
+      }
+    ],
+    "prediction": {
+      "direction": "decrease",
+      "min_delta": 0.005,
+      "reference": {
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      },
+      {
+        "status": "schema_invalid",
+        "reason": "reference_schema_invalid"
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.09694020964575169,
+      "reference": {
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      },
+      "direction": "decrease",
+      "min_delta": 0.005
+    },
+    "prediction_result": {
+      "status": "contradicted",
+      "reason": "prediction_contradicted",
+      "actual": 0.000548039613824422,
+      "tolerance": 1.5e-10,
+      "reference": {
+        "candidate_id": "symbolic-001",
+        "candidate_sha256": "67425f1861b3f22ba2c1d9ed518cb0742d4bbda7abdf9ac9c02ded0b0e0b776c",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      },
+      "before": 0.09694020964575169,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.005,
+      "child_reference": {
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "candidate_id": "symbolic-002",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "after": 0.09639217003192727
+    }
+  },
+  {
+    "candidate_id": "symbolic-003",
+    "claims": [
+      {
+        "kind": "scalar",
+        "op": "lt",
+        "reference": {
+          "candidate_id": "symbolic-002",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "key": "bin.x.3.mean_residual",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "value": 0.003
+      },
+      {
+        "kind": "scalar",
+        "op": "lt",
+        "reference": {
+          "candidate_id": "symbolic-002",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "key": "abs_bias",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "value": 0.005
+      }
+    ],
+    "prediction": {
+      "direction": "decrease",
+      "min_delta": 0.0005,
+      "reference": {
+        "candidate_id": "symbolic-002",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      }
+    },
+    "claim_results": [
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": -0.00016383279837285257,
+        "tolerance": 1.3000000000000002e-10,
+        "reference": {
+          "candidate_id": "symbolic-002",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "key": "bin.x.3.mean_residual",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "op": "lt",
+        "expected": 0.003
+      },
+      {
+        "status": "supported",
+        "reason": "comparison_supported",
+        "actual": 0.0007975487124018605,
+        "tolerance": 1.5e-10,
+        "reference": {
+          "candidate_id": "symbolic-002",
+          "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+          "key": "abs_bias",
+          "scope": "train",
+          "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+          "task_id": "oscillator1",
+          "version": "evidence-v0.1"
+        },
+        "op": "lt",
+        "expected": 0.005
+      }
+    ],
+    "registration": {
+      "status": "supported",
+      "reason": "prediction_registered",
+      "before": 0.09639217003192727,
+      "reference": {
+        "candidate_id": "symbolic-002",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      },
+      "direction": "decrease",
+      "min_delta": 0.0005
+    },
+    "prediction_result": {
+      "status": "supported",
+      "reason": "prediction_supported",
+      "actual": 0.0013365064592728154,
+      "tolerance": 1.1336506459272816e-10,
+      "reference": {
+        "candidate_id": "symbolic-002",
+        "candidate_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "key": "nmse",
+        "scope": "train",
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1"
+      },
+      "before": 0.09639217003192727,
+      "direction": "decrease",
+      "op": "ge",
+      "expected": 0.0005,
+      "child_reference": {
+        "session_id": "20261020-checked-feedback-v02:symbolic_checked",
+        "candidate_id": "symbolic-003",
+        "candidate_sha256": "e9f8d078fc17d67b910a97425f758901ca53361c706a300e2fa8622920730078",
+        "task_id": "oscillator1",
+        "version": "evidence-v0.1",
+        "scope": "train",
+        "key": "nmse"
+      },
+      "after": 0.09505566357265445
+    }
+  }
+]
