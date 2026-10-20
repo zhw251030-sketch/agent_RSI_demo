@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import importlib.util
+import inspect
 import json
 import unittest
 
@@ -226,6 +227,23 @@ class StatePacketTests(unittest.TestCase):
         payload['tools'][0]['function']['name'] = 'changed'
         self.assertEqual(messages[0]['content'], 'hello')
         self.assertEqual(tools[0]['function']['name'], 'submit_candidate')
+
+    def test_explicit_single_candidate_budget_preserves_remaining_count(self):
+        self.assertIn('max_candidates', inspect.signature(self.module.build_state_packet).parameters)
+        self.records[0]['generated_candidates_remaining'] = 1
+        self.assertEqual(self.build(max_candidates=1)['generated_candidates_remaining'], 1)
+        child = record(1, '# child')
+        child['generated_candidates_remaining'] = 0
+        self.records.append(child)
+        self.assertEqual(self.build(max_candidates=1)['generated_candidates_remaining'], 0)
+        with self.assertRaises(ValueError):
+            self.build()
+        for bad in [True, 0, 4, '1']:
+            with self.assertRaises(ValueError):
+                self.build(max_candidates=bad)
+        self.records.append(record(2, '# extra'))
+        with self.assertRaises(ValueError):
+            self.build(max_candidates=1)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,820 @@
+{
+  "date": "2026-10-20",
+  "scope": "prospective paired single-step development repair",
+  "task_tests_passed": 285,
+  "sdk_tests_passed": 36,
+  "distinct_tests_passed": 321,
+  "task_discovery": {
+    "run": 321,
+    "skipped_sdk_tests": 36,
+    "failed": 0
+  },
+  "checks": {
+    "stage": "/home/hanwen/Project/project/agent_RSI_demo/tmp/paired-final-v7kk_ymn",
+    "checks": [
+      {
+        "check": "task",
+        "exit_code": 0,
+        "tail": "----------------------------------------------------------------------\nRan 321 tests in 4.096s\n\nOK (skipped=36)\n"
+      },
+      {
+        "check": "sdk",
+        "exit_code": 0,
+        "tail": "20/26 14:42:31] ERROR    Agent reached maximum    local_conversation.py:2053\n                             iterations limit (4).                              \n[10/20/26 14:42:31] WARNING  No persistence_dir provided; falling   state.py:515\n                             back to InMemoryFileStore. EventLog                \n                             data will not persist across requests.             \n[10/20/26 14:42:31] INFO     Created new conversation               state.py:592\n                             0c0bcc4d-e5f1-49e7-8134-09d2d3ddc5cc               \n[10/20/26 14:42:31] INFO     Loaded 1 tools from spec                base.py:596\n[10/20/26 14:42:31] WARNING  No persistence_dir provided; falling   state.py:515\n                             back to InMemoryFileStore. EventLog                \n                             data will not persist across requests.             \n[10/20/26 14:42:31] INFO     Created new conversation               state.py:592\n                             d61140fd-8d24-49d8-93d6-67ec948e5320               \n[10/20/26 14:42:31] INFO     Loaded 1 tools from spec                base.py:596\n[10/20/26 14:42:31] WARNING  No persistence_dir provided; falling   state.py:515\n                             back to InMemoryFileStore. EventLog                \n                             data will not persist across requests.             \n[10/20/26 14:42:31] INFO     Created new conversation               state.py:592\n                             9d72a34a-10e0-45db-adf1-4a80131bdb09               \n[10/20/26 14:42:31] INFO     Loaded 1 tools from spec                base.py:596\n[10/20/26 14:42:31] WARNING  No persistence_dir provided; falling   state.py:515\n                             back to InMemoryFileStore. EventLog                \n                             data will not persist across requests.             \n[10/20/26 14:42:31] INFO     Created new conversation               state.py:592\n                             dbf93c04-5820-4c53-8ba5-03be72a0ec00               \n[10/20/26 14:42:31] INFO     Loaded 1 tools from spec                base.py:596\n----------------------------------------------------------------------\nRan 36 tests in 2.687s\n\nOK\n"
+      },
+      {
+        "check": "prepare",
+        "exit_code": 0,
+        "tail": "{\n  \"run_id\": \"preflight-final\",\n  \"status\": \"prepared\",\n  \"mode\": \"prepare_only\",\n  \"error_type\": null,\n  \"budget\": {\n    \"config\": {\n      \"max_requests\": 8,\n      \"max_requests_per_session\": 1,\n      \"max_output_tokens\": 4096,\n      \"max_input_bytes\": 98304,\n      \"max_reserved_tokens\": 1500000,\n      \"max_cost_cny\": 5.0,\n      \"input_cny_per_million\": 2.1,\n      \"output_cny_per_million\": 8.4,\n      \"session_ids\": [\n        \"P1-r1-hidden\",\n        \"S1-r1-checked\",\n        \"P1-r1-checked\",\n        \"S1-r1-hidden\",\n        \"S1-r2-hidden\",\n        \"P1-r2-checked\",\n        \"S1-r2-checked\",\n        \"P1-r2-hidden\"\n      ]\n    },\n    \"request_count\": 0,\n    \"session_counts\": {\n      \"P1-r1-hidden\": 0,\n      \"S1-r1-checked\": 0,\n      \"P1-r1-checked\": 0,\n      \"S1-r1-hidden\": 0,\n      \"S1-r2-hidden\": 0,\n      \"P1-r2-checked\": 0,\n      \"S1-r2-checked\": 0,\n      \"P1-r2-hidden\": 0\n    },\n    \"reserved_count\": 0,\n    \"failed_count\": 0,\n    \"reserved_input_tokens\": 0,\n    \"reserved_output_tokens\": 0,\n    \"reserved_tokens\": 0,\n    \"reserved_cost_cny\": 0.0,\n    \"usage_unknown_count\": 0,\n    \"known_prompt_tokens\": 0,\n    \"known_completion_tokens\": 0,\n    \"known_total_tokens\": 0,\n    \"known_estimated_cost_cny\": 0.0,\n    \"actual_tokens\": 0,\n    \"actual_estimated_cost_cny\": 0.0,\n    \"halted\": false,\n    \"halt_reasons\": [],\n    \"recovery\": null,\n    \"reservation_method\": \"compact_utf8_json_bytes_plus_8192\",\n    \"cost_basis\": \"configured_uncached_prices_estimate_not_provider_invoice\"\n  }\n}\n"
+      },
+      {
+        "check": "replay",
+        "exit_code": 0,
+        "tail": "{\n  \"status\": \"completed\",\n  \"legacy_outcome_counts\": {\n    \"schema_invalid\": 4,\n    \"valid_submission\": 6,\n    \"normal_assistant_message\": 1,\n    \"finish_tool\": 1,\n    \"incomplete_tool_response\": 1\n  },\n  \"synthetic_fixture_count\": 14,\n  \"archive_file_count\": 68,\n  \"archive_unchanged\": true,\n  \"network_connection_attempts\": 0,\n  \"new_model_calls\": 0,\n  \"new_candidate_executions\": 0,\n  \"error_type\": null,\n  \"contract_failure\": null\n}\n"
+      }
+    ]
+  },
+  "policy_only_final_correction": "frozen_history renamed to actual frozen_history_common; prepare-only repeated after correction",
+  "tested_source_sha256": {
+    "configs/models/minimax-m3.json": "d4fa1bae7741af63e7a0375660d39012a4bba3a40f43ceff41907818e464385d",
+    "configs/pilots/checked-feedback-v0.1.json": "7705fcfc4419c66e1d69e1f6be78cd23f12fe702c3e3a4ba1a4c9cf4a1fe14a0",
+    "configs/pilots/checked-feedback-v0.2.json": "5a5e4f14d71ad1d9dccea5f08865f0934639041d9282e89e387d3be98fb941ea",
+    "configs/pilots/development-v0.1.json": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+    "configs/pilots/diagnostic-comparison-v0.1.json": "d3e122a6026cc26a08f6d00842bd4ba784949423eb1df243af0026b9b67217fb",
+    "configs/pilots/paired-repair-v0.1.json": "8e71b254a275811677f9dd314b4e863bad2d43487ad71cb595fbef0cfe3af3b7",
+    "configs/tasks/downloads-v0.1.json": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8",
+    "configs/tasks/planning-spanner-v0.1.json": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+    "configs/tasks/symbolic-phys-osc-v0.1.json": "23a3ba2d218ab13cebb1992558af2c325f4f6b4f255203211833879254a16bac",
+    "docs/protocols/2026-10-20-agent-pilot.md": "bcf60e30926b2774f1203854e12d76e0d9933988b39fb0ad4fabcd26853f14a3",
+    "docs/protocols/2026-10-20-checked-feedback-v0.2.md": "3dd31dba05ad73ded8e64d2ab1cd183550452d8b322204cf2db7cad509f6dda8",
+    "docs/protocols/2026-10-20-checked-feedback.md": "66e8228bf73e849f03592f35e30974ed00658f9554ac9c873354d9e789af0928",
+    "docs/protocols/2026-10-20-diagnostic-comparison.md": "df7698eb34670e956920b94e2592a7f4abfa463a277d3be7b8408e49517d2b4c",
+    "docs/protocols/2026-10-20-paired-repair-v0.1.md": "a113d94d6b02c2b84ad4ce916ba05576077c9c095b65b239a655f9d77d1d4f03",
+    "docs/protocols/2026-10-20-planning-interface.md": "cb09ae8eafeeb7705d9c8ce09cfffbd6dab875830e0db1c840d54687f12e7b1e",
+    "docs/protocols/2026-10-20-shared-contract.md": "09c685cfc2cdf558aaa4d0408612ec75cb81a04e37de3bbcc33b21ff97fed54e",
+    "docs/protocols/2026-10-20-symbolic-interface.md": "d93dede41d0563749b0be054daedef88f7021ef3a5b3b812620a209477167d90",
+    "docs/protocols/2026-10-20-symbolic-public-data.md": "6dcdbd6feb28dd02301fd23696916b972ef3fd2ae85cce29254a29a6222bf0c3",
+    "fixtures/planning/collect_then_tighten.py": "1a8042aa6d82e918bce0ff824e75d65dadc20295c4ac223c57a4f651c74b9dac",
+    "fixtures/planning/empty_plan.py": "434720dbbbd25688d9efce90465c3f7486590af013dd03740991d7571cdc1022",
+    "fixtures/symbolic/constant.py": "1104d60fe19076f0c57737ed6a78cead9c26fcfbf750466a9a58d1fb92d52125",
+    "fixtures/symbolic/invalid_shape.py": "534c54b385824b206e6c9f93c33e00052038659db3474be8913df90b1947bc7f",
+    "fixtures/symbolic/linear.py": "9d9e327465ead2b20bb945abc888d3aa8d5cb2045ea7ba624b9f4f829f26a6c0",
+    "fixtures/symbolic/nan.py": "efcef021648c5605a2fd44400b54fb7957d1a6bf8b24ea02bfe0dc192e0d9aa7",
+    "prompts/checked/policy.md": "4e40f40cf6854ed3a3ce04a0e45c29761be2187f9c84573b84981957098a8310",
+    "prompts/diagnostic/evidence.md": "79ec430d1a079dbe6c56678e00124547de0c7b17377e718fbda368c7d2f2f798",
+    "prompts/diagnostic/ordinary.md": "a8520d6a01c5113382e4246cebe5a14f7e23b1dcf37fb0bf80df9697bddf7e10",
+    "prompts/paired/policy.md": "c0f011659fb18929c63d10032562492da38aee3d12b9bb4715d90998d2c59e65",
+    "prompts/pilot/planning.md": "f3011b08938fdae73cd6a8df7768685b08f682515b8544ad0623f914408024bc",
+    "prompts/pilot/symbolic.md": "5f6381a3285edda855b70fe9e466069bf4207a256bc8a98040181d7a5dec7d64",
+    "rsi_eval/__init__.py": "34dbd6e7bd04ecfe30cd28a01a30c83ae9dba715fe5af2cc701eadd10605de12",
+    "rsi_eval/checked_agent.py": "cb330f9965c4751b61a3012b3e37a2659d8835ba9e2b87b9b97a3bb44cdc454f",
+    "rsi_eval/checked_controller.py": "4ed37d182b2eb942157e38b7e1b40174c869c2406c3ebd0b2f43f18a4d1d1b06",
+    "rsi_eval/compact_agent.py": "aa412918f30d875b23f29d7388564116edd69c8e84c93fdb4d42f38ac6dce02f",
+    "rsi_eval/compact_controller.py": "fe3a569e64fc2c6dbf69d7c7ea3754a89cc62a01425b54b3a566cd8a7ec94d00",
+    "rsi_eval/diagnostic_controller.py": "81f29500c93af8331b92ccd28fbff6e136c4537fd6c4857b70004b95337f4521",
+    "rsi_eval/evidence_checks.py": "82c9ab42eaf966e16569363733104655abdabe92f3ae23e96ae3716b8fd715b5",
+    "rsi_eval/evidence_ids.py": "65ee8c174a346d41f27978acc0e8dece46b2f909c707683fb584a7524a3307c8",
+    "rsi_eval/executor.py": "7fae8f15dbbdf74858b527a09f13f0afb639b374eabbdcbff8c8bfe19deedfa1",
+    "rsi_eval/openhands_tool.py": "00612b5b7503bcd9016c9365897d45cbdac4f4e9ff21fcf1b82121cb3a24c29c",
+    "rsi_eval/pilot_agent.py": "c0f7a5de88badbe7c7077c9820ce2a6e74753c8f9611cf487f83c1d291cfbd7c",
+    "rsi_eval/pilot_budget.py": "b808b951ed6d1ddc62725c4c4b4c05db93c977c8e82e9b5cb405e36ac628f330",
+    "rsi_eval/pilot_controller.py": "718861605f050fba6cabe84adfcead53d689701c3a39f0e03c9b6139383a7c87",
+    "rsi_eval/planning.py": "15a382c3081f964e51e4818bdec3aebdc26a0b72e1cd02831fefd06319050ef6",
+    "rsi_eval/planning_diagnostics.py": "03ef4f361887d8d5bd4d3945e8f87852b00266b16a1358a7079f8822d0ffd8d7",
+    "rsi_eval/planning_trace.py": "b2c67ef8d2d774826cc7930357ca20642a87c3548a7135842a95d75014bd9023",
+    "rsi_eval/planning_worker.py": "457d059c0e1cb258d9bfa1e7051d0ed00cc5849931ea072e7ea43ec3261f4be9",
+    "rsi_eval/repair_states.py": "e6ac9a037ed2b0f62fff48792124835f67bf5ead93fb1614694c38ecf7dd00ba",
+    "rsi_eval/sandbox.py": "8fd1a4fb149c7632b4e9ce2af187c074633c800a4e8d427eb3b3467e4e77203e",
+    "rsi_eval/state_packet.py": "36341aad849c7d50184286b24a5b9566638149f599ac397138c3ae351986de8c",
+    "rsi_eval/symbolic.py": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58",
+    "rsi_eval/symbolic_diagnostics.py": "60e76a1f71440fd966cad6bcedb3c9b5cb943723e75767659b8c80c2a2357e29",
+    "rsi_eval/symbolic_worker.py": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca",
+    "rsi_eval/worker.py": "f451771c60d0f1cdebc597387ed7896d119ab274c05f3e7faae5cb9d22692e4a",
+    "scripts/canvas.py": "2b75eb3a3aaeb68c9f41feeda67184240c655d9091d248b69c173537623f14dd",
+    "scripts/check_diagnostic_observations.py": "80923dbb96c684528a23b7f71906cacd7719da0804e7ab6c565fcfae41a9dd76",
+    "scripts/check_minimax_connection.py": "93e505338416403fa98685e9f6aa3ac64afb269a40e16a35754964d6b352a15c",
+    "scripts/check_openhands_evaluator.py": "a1fd37b08a9f95da9ff2372f85484793b99d551077c52ea32f12f3af1968946a",
+    "scripts/check_openhands_offline.py": "f9576a4977e728834916f1680952a14ca503cd7dafb617ed1742f540ea09cdb5",
+    "scripts/check_planning_data.py": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547",
+    "scripts/check_symbolic_data.py": "81243ba1384a743120c6319b178a68091d6b99661f815b9c015cc6c3de80c5b0",
+    "scripts/check_task_executors.py": "21e6ed7ba3bd4af697c034be717c16725c9866cf7f067e51d53f3972d3183e99",
+    "scripts/configure_minimax.py": "30489303e66a2209d04754a51baa9e182eae9208497d7edcd19e387aae75fbe0",
+    "scripts/evaluate_candidate.py": "573301501ec13a5bb8f7a92d2474d31cfb723e0bc7137e76c0449b29c14075d1",
+    "scripts/prepare_task_sources.py": "3bf18c0cff5f19e97c07c24551ba5010ba2f9acbc348359fdee036b5554462d1",
+    "scripts/replay_checked_history.py": "497ebc41e4953c538dba55d559afae375792508d0330b5740340af9ff2e4adf6",
+    "scripts/replay_short_interface.py": "20ecb7d79665ca471d09f77562b0f1bf4a51aafc0ad548ff0e293c8da2795f14",
+    "scripts/run_agent_pilot.py": "9700eca3527b2caa20c59c09c5b2c4f228cc4e39355812b708978e55463e5a09",
+    "scripts/run_checked_feedback.py": "1179f6bf6c322a985165a9a1d56e01344d80fe6d4f9e2bb777ab4ca0bdf288b8",
+    "scripts/run_diagnostic_comparison.py": "579c622aa33bb769e6c24fc8db5f22be3458446cad88bd66ac83443893040b91",
+    "scripts/run_paired_repair.py": "56f04f1789f75f3b4d02cb7f7f480406b1ef1cbef57359ea2b171d6eb3be774a",
+    "tests/__init__.py": "827da4ed1cc1b29d67a8dff5c61cc6927db60dd92cb3f9e0674a82fd1582f722",
+    "tests/test_checked_controller.py": "4592ed7929ae4dd4279b6ab37a5daf17d3fb46852255658de6dc72c9d5b39052",
+    "tests/test_checked_runner.py": "bb6fbf5f2e25f6a5c9bba25c8e0ca7d1c762d7ec13389f9757f3850fca5330f9",
+    "tests/test_checked_sdk.py": "ebfd566b489a374e6feae986d16f4a2201ff7e90471db1e40aaac91eb1321f4c",
+    "tests/test_compact_controller.py": "97aae5b5ad346ce237a161c589f434e84999d770d7b203cc9d4ee6316141e820",
+    "tests/test_compact_sdk.py": "420bdb0be693900ea96d53270ab4019dbc33ddb630f1c2b0dad247b4aba4ed4b",
+    "tests/test_diagnostic_controller.py": "b83bf921d9f3d3638614cbc3453bf32b5852ad96d52fed0160faf4113fef7168",
+    "tests/test_diagnostic_probe.py": "a3f66521f0b333c360547b02e04e75a97fdb67fc54706d63af54edaa064a934f",
+    "tests/test_diagnostic_runner.py": "fcfb82bb4a452e69300276d1044cc8d388ae663721b0b1ca3b64cbfa28b9c55b",
+    "tests/test_diagnostic_sdk.py": "7e096f472fd0cac94b7d9a11c8e7c4583fc812111df73335f3369298f65c8df2",
+    "tests/test_evidence_checks.py": "59cea9ff24b0ac5a9a599fbf340542143b28b51356533e43dc0f0c162f8e2ed1",
+    "tests/test_evidence_ids.py": "f0beb30b5cf25ae5b0a680fcb288f99c90e3033a7d200272e017974ad2f761a9",
+    "tests/test_executor.py": "59abd5ce10e50ffbf1ecdf73711569c0d20c32b92d0e74f7c90e7671b7135570",
+    "tests/test_executor_diagnostics.py": "81948714bea2f7309525ce5fa7b90db5892c3a8657ebdf382ed47fc814e20248",
+    "tests/test_openhands_tool.py": "d2322923116a736aeabdf1c92ca15de52275f2edfc65493dc9b68f7e758229d8",
+    "tests/test_paired_runner.py": "c096e9c1113d91b4b4a0c158f5d4a541a5b7aaaa9e8c64a8aaf5ba0535d69187",
+    "tests/test_pilot_agent.py": "3a41cb2ff4f8f32d722060085bb98ad87e29001b9047ce22a7f21a84bceb4311",
+    "tests/test_pilot_budget.py": "62940739418c612f910376048642a31fd01f33398e895507d41bd0b4bb8225d3",
+    "tests/test_pilot_controller.py": "75562be4f1a656ffd56bf5c210fec03b6e7225f6d71a0c0cae40fa5f1f4ea1c3",
+    "tests/test_planning.py": "9e68e3094c32f5675de472ff5a8233002f366563bece9f427d2fdfa71148a129",
+    "tests/test_planning_diagnostics.py": "37fd0497050965f4b077ef954725f1f96689c64ff0946da31fbb54c622f273ed",
+    "tests/test_planning_trace.py": "a39dab64654d1e4a055ea11223f23f617500fb26e08dfa54838e3d544adeb25d",
+    "tests/test_repair_states.py": "9672900376f1fbb8864ed751405bcd9163708de7397731f71c255fb14f125c2e",
+    "tests/test_sandbox.py": "05e6b4bad691b89f6db8560844ef58e5541f13559495a99decb5d624faf6a894",
+    "tests/test_state_packet.py": "8a5a1716e331dd90259cf5b5ed35b598f6bb60e69e907a045a78c31951e11c42",
+    "tests/test_symbolic.py": "9632261f3d51976102c5e0b29e8db4f9c5b8220283f2586edf75f8f2441d90b5",
+    "tests/test_symbolic_diagnostics.py": "b54f8dbd3a6c95606254a8a86d879f21b583ab4f9f050b65b5e79d64c978cf1e"
+  },
+  "prepare_only": {
+    "status": "prepared",
+    "baseline_reexecutions": 0,
+    "budget": {
+      "config": {
+        "max_requests": 8,
+        "max_requests_per_session": 1,
+        "max_output_tokens": 4096,
+        "max_input_bytes": 98304,
+        "max_reserved_tokens": 1500000,
+        "max_cost_cny": 5.0,
+        "input_cny_per_million": 2.1,
+        "output_cny_per_million": 8.4,
+        "session_ids": [
+          "P1-r1-hidden",
+          "S1-r1-checked",
+          "P1-r1-checked",
+          "S1-r1-hidden",
+          "S1-r2-hidden",
+          "P1-r2-checked",
+          "S1-r2-checked",
+          "P1-r2-hidden"
+        ]
+      },
+      "request_count": 0,
+      "session_counts": {
+        "P1-r1-hidden": 0,
+        "S1-r1-checked": 0,
+        "P1-r1-checked": 0,
+        "S1-r1-hidden": 0,
+        "S1-r2-hidden": 0,
+        "P1-r2-checked": 0,
+        "S1-r2-checked": 0,
+        "P1-r2-hidden": 0
+      },
+      "reserved_count": 0,
+      "failed_count": 0,
+      "reserved_input_tokens": 0,
+      "reserved_output_tokens": 0,
+      "reserved_tokens": 0,
+      "reserved_cost_cny": 0.0,
+      "usage_unknown_count": 0,
+      "known_prompt_tokens": 0,
+      "known_completion_tokens": 0,
+      "known_total_tokens": 0,
+      "known_estimated_cost_cny": 0.0,
+      "actual_tokens": 0,
+      "actual_estimated_cost_cny": 0.0,
+      "halted": false,
+      "halt_reasons": [],
+      "recovery": null,
+      "reservation_method": "compact_utf8_json_bytes_plus_8192",
+      "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+    },
+    "pair_input_proofs": {
+      "P1-r1": {
+        "common_sha256": "9501f7a9908fec09707cbc5530362946fc7f2f3e8aa1161cc6e320ebc14c465e",
+        "common_bytes": 34472,
+        "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "n_params": 0
+      },
+      "S1-r1": {
+        "common_sha256": "2bf7decdad239bf7c2b94670063c8d347ac651942cc6952a45135f296b65f5a3",
+        "common_bytes": 17352,
+        "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "n_params": 3
+      },
+      "S1-r2": {
+        "common_sha256": "740af8c49c7b628045c73bb008c378fb825959c224ea2a071e27906f25ae44f7",
+        "common_bytes": 17352,
+        "source_sha256": "38d8b88b02d6e3d7577308ad36e74872f39216414544bd45fd8337198c843e4d",
+        "n_params": 3
+      },
+      "P1-r2": {
+        "common_sha256": "2c56c91e23fe52bb2fa98450e9207cfd86fe67e3858e6f3e778160a8ffa016cb",
+        "common_bytes": 34472,
+        "source_sha256": "afb7a5c0597d38b903bee13b10dc106b4ffddc776443769e4a975a997449512c",
+        "n_params": 0
+      }
+    }
+  },
+  "replay": {
+    "version": "offline-short-interface-v0.1",
+    "status": "completed",
+    "purpose": "Old-response fidelity and synthetic SDK boundary validation, not model/task performance.",
+    "new_model_calls": 0,
+    "new_candidate_executions": 0,
+    "old_annotations_repaired_or_translated": false,
+    "provider_compatibility_established": false,
+    "script_sha256": "20ecb7d79665ca471d09f77562b0f1bf4a51aafc0ad548ff0e293c8da2795f14",
+    "legacy_responses": [
+      {
+        "condition": "planning_hidden",
+        "request_id": "request-0001",
+        "response_sha256": "f052d7e56646e1dec34417ec1ed234afa1814d3895ff28bbf38df9e53425ad6c",
+        "matches_archived_outcome": true,
+        "outcome": "schema_invalid",
+        "error_type": "ValidationError",
+        "failures": [
+          {
+            "location": [
+              "item"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "key"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "op"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "scope"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "task_id"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "value"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "version"
+            ],
+            "type": "extra_forbidden"
+          }
+        ]
+      },
+      {
+        "condition": "planning_hidden",
+        "request_id": "request-0002",
+        "response_sha256": "54dfade7cdf319a440bf96144700a4ee1901d4283cc014c699c9db0b2d88e570",
+        "matches_archived_outcome": true,
+        "outcome": "schema_invalid",
+        "error_type": "ValidationError",
+        "failures": [
+          {
+            "location": [
+              "claims"
+            ],
+            "type": "too_long"
+          }
+        ]
+      },
+      {
+        "condition": "planning_hidden",
+        "request_id": "request-0003",
+        "response_sha256": "936976f47f0d41702df77a4803ecf3f825c295b593eaa6498a381c6e55ed7031",
+        "matches_archived_outcome": true,
+        "outcome": "schema_invalid",
+        "error_type": "ValidationError",
+        "failures": [
+          {
+            "location": [
+              "claims"
+            ],
+            "type": "too_long"
+          }
+        ]
+      },
+      {
+        "condition": "planning_hidden",
+        "request_id": "request-0004",
+        "response_sha256": "6866304058c5f219948833f4de2a8b20eb00479a527f80d55f54ea67fe7f5caa",
+        "matches_archived_outcome": true,
+        "outcome": "valid_submission"
+      },
+      {
+        "condition": "symbolic_checked",
+        "request_id": "request-0005",
+        "response_sha256": "ad8c8cfe13eea15537964fcb5238837bba1cb6b455f2af90d7ce33a647ae37b7",
+        "matches_archived_outcome": true,
+        "outcome": "valid_submission"
+      },
+      {
+        "condition": "symbolic_checked",
+        "request_id": "request-0006",
+        "response_sha256": "6e7faad2c82f06d4681aa2de7c452d45dd2740862e2c70d86ac64b87f0458061",
+        "matches_archived_outcome": true,
+        "outcome": "valid_submission"
+      },
+      {
+        "condition": "symbolic_checked",
+        "request_id": "request-0007",
+        "response_sha256": "0d2a825f16b42d0dad81a6fff335762cef65b5b5aebb287a283729efa3d6c050",
+        "matches_archived_outcome": true,
+        "outcome": "valid_submission"
+      },
+      {
+        "condition": "symbolic_checked",
+        "request_id": "request-0008",
+        "response_sha256": "452befc5627b7785bb175eef9eb9150b1d42395afa1374636e0c5390e3c6771a",
+        "matches_archived_outcome": true,
+        "outcome": "normal_assistant_message"
+      },
+      {
+        "condition": "planning_checked",
+        "request_id": "request-0009",
+        "response_sha256": "6c7ef8201508bec61db7cd15dcd9feadf59a0ce1520065d83fa7fd94d2d3d371",
+        "matches_archived_outcome": true,
+        "outcome": "schema_invalid",
+        "error_type": "ValidationError",
+        "failures": [
+          {
+            "location": [
+              "direction"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "item"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "key"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "min_delta"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "op"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "scope"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "task_id"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "value"
+            ],
+            "type": "extra_forbidden"
+          },
+          {
+            "location": [
+              "version"
+            ],
+            "type": "extra_forbidden"
+          }
+        ]
+      },
+      {
+        "condition": "planning_checked",
+        "request_id": "request-0010",
+        "response_sha256": "f1ccb3abfc98b3eedef99518c1d0feb0656dd52efcf9cfe69c9b8ba3dbc0a2dc",
+        "matches_archived_outcome": true,
+        "outcome": "valid_submission"
+      },
+      {
+        "condition": "planning_checked",
+        "request_id": "request-0011",
+        "response_sha256": "88f217817c8e677b731d0e65dacd8cd64245a869c4b806583811ae10cedd65f4",
+        "matches_archived_outcome": true,
+        "outcome": "valid_submission"
+      },
+      {
+        "condition": "planning_checked",
+        "request_id": "request-0012",
+        "response_sha256": "bad33447d788696484e9dc0f3c38247033c9c37464911aa108efbeeaef87e8b4",
+        "matches_archived_outcome": true,
+        "outcome": "finish_tool"
+      },
+      {
+        "condition": "symbolic_hidden",
+        "request_id": "request-0013",
+        "response_sha256": "6d66dcaa66194ceae3011b22017d7dba1e3ad1345cbab22177fff7c4916203af",
+        "matches_archived_outcome": true,
+        "outcome": "incomplete_tool_response"
+      }
+    ],
+    "synthetic_fixture_results": [
+      {
+        "name": "finite_scalar",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "ordered_fact",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "contains",
+          "claim_value_json": "[\"edge\",\"$0\",\"$1\"]",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "sdk_metadata",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1,
+          "summary": 17,
+          "security_risk": null
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "invalid_json_goes_to_controller",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "{bad",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "duplicate_object_goes_to_controller",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "{\"a\":1,\"a\":2}",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "bool_value_goes_to_controller",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "true",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "trailing_value_goes_to_controller",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "1 2",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "unknown_id_goes_to_controller",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "unknown_old_id",
+          "claim_op": "eq",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": true,
+        "action_accepts": true,
+        "advertised_schema_accepts": true
+      },
+      {
+        "name": "semantic_enum_goes_to_controller",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "unknown",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": false,
+        "action_accepts": true,
+        "advertised_schema_accepts": false
+      },
+      {
+        "name": "negative_prediction_goes_to_controller",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": -1
+        },
+        "expected_action_accepts": true,
+        "expected_advertised_schema_accepts": false,
+        "action_accepts": true,
+        "advertised_schema_accepts": false
+      },
+      {
+        "name": "old_nested_contract_rejected",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1,
+          "claims": [
+            {}
+          ],
+          "prediction": {}
+        },
+        "expected_action_accepts": false,
+        "expected_advertised_schema_accepts": false,
+        "action_accepts": false,
+        "advertised_schema_accepts": false
+      },
+      {
+        "name": "array_value_field_rejected",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": [
+            1
+          ],
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": false,
+        "expected_advertised_schema_accepts": false,
+        "action_accepts": false,
+        "advertised_schema_accepts": false
+      },
+      {
+        "name": "boolean_parameter_count_rejected",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": true,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1
+        },
+        "expected_action_accepts": false,
+        "expected_advertised_schema_accepts": false,
+        "action_accepts": false,
+        "advertised_schema_accepts": false
+      },
+      {
+        "name": "unknown_capability_rejected",
+        "origin": "synthetic_test_fixture_not_model",
+        "arguments": {
+          "source": "# synthetic boundary fixture; never executed\n",
+          "n_params": 0,
+          "rationale": "Synthetic SDK fixture, not generated by a model.",
+          "claim_id": "e_synthetic_fixture",
+          "claim_op": "eq",
+          "claim_value_json": "1.0",
+          "prediction_id": "e_synthetic_fixture",
+          "prediction_direction": "decrease",
+          "prediction_min_delta": 0.1,
+          "task_id": "sealed"
+        },
+        "expected_action_accepts": false,
+        "expected_advertised_schema_accepts": false,
+        "action_accepts": false,
+        "advertised_schema_accepts": false
+      }
+    ],
+    "sdk_version": "1.55.1",
+    "compact_action_schema": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Complete candidate Python source, at most 16384 UTF-8 bytes.",
+          "maxLength": 16384,
+          "minLength": 1,
+          "title": "Source"
+        },
+        "n_params": {
+          "type": "integer",
+          "maximum": 16,
+          "minimum": 0,
+          "title": "N Params"
+        },
+        "rationale": {
+          "type": "string",
+          "maxLength": 2000,
+          "title": "Rationale"
+        },
+        "claim_id": {
+          "type": "string",
+          "description": "Copy one exact current evidence catalog ID; do not construct or shorten it.",
+          "maxLength": 128,
+          "title": "Claim Id"
+        },
+        "claim_op": {
+          "type": "string",
+          "description": "Scalar comparison or exact ordered atom membership.",
+          "enum": [
+            "eq",
+            "lt",
+            "le",
+            "gt",
+            "ge",
+            "contains",
+            "not_contains"
+          ],
+          "maxLength": 32,
+          "title": "Claim Op"
+        },
+        "claim_value_json": {
+          "type": "string",
+          "description": "A JSON-encoded finite number for a scalar, such as \"1.0\", or a JSON-encoded ordered string array for a fact, such as \"[\\\"edge\\\",\\\"$0\\\",\\\"$1\\\"]\". No objects, booleans, null, NaN, Infinity, comments, or trailing content. At most 2048 UTF-8 bytes. This field itself is a string.",
+          "maxLength": 2048,
+          "title": "Claim Value Json"
+        },
+        "prediction_id": {
+          "type": "string",
+          "description": "Copy one current scalar evidence ID for the parent value to predict against.",
+          "maxLength": 128,
+          "title": "Prediction Id"
+        },
+        "prediction_direction": {
+          "type": "string",
+          "description": "Direction of the absolute child-versus-parent change.",
+          "enum": [
+            "increase",
+            "decrease"
+          ],
+          "maxLength": 32,
+          "title": "Prediction Direction"
+        },
+        "prediction_min_delta": {
+          "type": "number",
+          "description": "Nonnegative absolute minimum change; not a percentage.",
+          "minimum": 0,
+          "title": "Prediction Min Delta"
+        }
+      },
+      "required": [
+        "source",
+        "n_params",
+        "rationale",
+        "claim_id",
+        "claim_op",
+        "claim_value_json",
+        "prediction_id",
+        "prediction_direction",
+        "prediction_min_delta"
+      ],
+      "additionalProperties": false
+    },
+    "compact_action_schema_sha256": "bf923418874a419c80a8b563e8c73eb9798951cf53f892a46b87518805dc14bc",
+    "network_connection_attempts": 0,
+    "legacy_outcome_counts": {
+      "schema_invalid": 4,
+      "valid_submission": 6,
+      "normal_assistant_message": 1,
+      "finish_tool": 1,
+      "incomplete_tool_response": 1
+    },
+    "synthetic_fixture_count": 14,
+    "archive_file_count": 68,
+    "archive_unchanged": true,
+    "archive_tree_before_sha256": "3e38267b706cde430f875310dc369ef30d1250a36a6ed422c2f9ac78aaba98a9",
+    "archive_tree_after_sha256": "3e38267b706cde430f875310dc369ef30d1250a36a6ed422c2f9ac78aaba98a9"
+  },
+  "new_model_calls": 0,
+  "old_baseline_reexecutions": 0
+}

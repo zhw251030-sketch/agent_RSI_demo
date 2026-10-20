@@ -143,7 +143,8 @@ def _hash(value):
 
 def build_state_packet(*, session_id: str, task_text: str, public_examples: list,
                        records: list, evidence: list, audits: list,
-                       checks_visible: bool, max_source_bytes=MAX_SOURCE_BYTES) -> dict:
+                       checks_visible: bool, max_source_bytes=MAX_SOURCE_BYTES,
+                       max_candidates=3) -> dict:
     """Build one finite snapshot, failing closed if a visible bound is exceeded.
 
     Evidence is already scoped by the controller to latest + incumbent. Audits
@@ -153,11 +154,13 @@ def build_state_packet(*, session_id: str, task_text: str, public_examples: list
     """
     if type(checks_visible) is not bool:
         raise ValueError('checks_visible must be boolean')
+    if type(max_candidates) is not int or not 1 <= max_candidates <= 3:
+        raise ValueError('max_candidates outside bounded candidate contract')
     if type(max_source_bytes) is not int or not 1 <= max_source_bytes <= MAX_SOURCE_BYTES:
         raise ValueError('max_source_bytes outside bounded source contract')
     _text(session_id, 'session_id', max_chars=256, empty=False)
     _text(task_text, 'task_text', max_chars=32768, max_bytes=32768, empty=False)
-    _list(records, 'records', 4, minimum=1)
+    _list(records, 'records', max_candidates + 1, minimum=1)
     _list(public_examples, 'public_examples', 2)
     _list(evidence, 'evidence', 6)
 
@@ -210,8 +213,8 @@ def build_state_packet(*, session_id: str, task_text: str, public_examples: list
         rationale=_text(latest.get('rationale', ''), 'latest rationale'),
         results=[_feedback(value) for value in _list(latest.get('results', []), 'latest results', 10)],
         accepted=selection.get('accepted', len(records) == 1))
-    remaining = latest.get('generated_candidates_remaining', 4 - len(records))
-    if type(remaining) is not int or remaining != 4 - len(records):
+    remaining = latest.get('generated_candidates_remaining', max_candidates + 1 - len(records))
+    if type(remaining) is not int or remaining != max_candidates + 1 - len(records):
         raise ValueError('generated candidate budget disagrees with record count')
 
     packet = {'version': 'compact-state-v0.1', 'session_id': session_id,

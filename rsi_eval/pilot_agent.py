@@ -34,6 +34,17 @@ class PilotResponseContractError(RuntimeError):
     """A paid response is recorded but cannot dispatch its proposed actions."""
 
 
+SINGLE_REVISION_SYSTEM_PROMPT = """You are a research agent making one development revision.
+The task packet defines the only authorized task, current artifact, evidence,
+and submission interface. You have exactly one model request and at most one
+candidate submission. Use submit_candidate now with complete candidate source;
+do not spend the request on a final summary or a plan for later actions.
+Do not claim execution or improvement before external evaluation. Do not read
+files, use network services, create processes, or exploit the evaluator.
+These are development observations, not held-out results or proof of a new method.
+"""
+
+
 def safe_error_metadata(error):
     """Read only status integers and a fixed code vocabulary, never HTTP bodies."""
     allowed_codes = {"internal_server_error", "api_error", "overloaded_error",
@@ -208,17 +219,21 @@ It does not change Canvas or globally alter the installed SDK.
         return None
 
 
-def create_conversation(controller, llm, session_id, output_dir, callback=None, *, tool_factory=candidate_tool):
+def create_conversation(controller, llm, session_id, output_dir, callback=None, *, tool_factory=candidate_tool,
+                        max_iterations=4):
+    if type(max_iterations) is not int or not 1 <= max_iterations <= 4:
+        raise ValueError("Controlled sessions allow one to four iterations")
     if importlib.metadata.version("openhands-sdk") != "1.55.1":
         raise RuntimeError("Pilot lifecycle adapter requires OpenHands SDK 1.55.1")
     output_dir = Path(output_dir)
     agent = Agent(llm=llm, tools=[tool_factory(controller, session_id)],
-                  include_default_tools=["FinishTool"], system_prompt=SYSTEM_PROMPT,
+                  include_default_tools=["FinishTool"],
+                  system_prompt=SINGLE_REVISION_SYSTEM_PROMPT if max_iterations == 1 else SYSTEM_PROMPT,
                   agent_context=None, mcp_config={}, condenser=None, critic=None,
                   tool_concurrency_limit=1)
     conversation = ControlledPilotConversation(
         agent, workspace=output_dir / "workspace", persistence_dir=None,
-        callbacks=[callback] if callback else [], max_iteration_per_run=4,
+        callbacks=[callback] if callback else [], max_iteration_per_run=max_iterations,
         stuck_detection=False, visualizer=None, plugins=[], delete_on_close=False,
         profile_store_dir=output_dir / "empty-profiles")
     # SDK auto-adds a vision tool if any ambient saved vision profile exists.
@@ -236,7 +251,8 @@ def create_conversation(controller, llm, session_id, output_dir, callback=None, 
     return conversation
 
 
-def run_session(controller, llm, session_id, output_dir, *, tool_factory=candidate_tool):
+def run_session(controller, llm, session_id, output_dir, *, tool_factory=candidate_tool,
+                max_iterations=4):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     events_path = output_dir / "events.jsonl"
@@ -260,7 +276,7 @@ def run_session(controller, llm, session_id, output_dir, *, tool_factory=candida
               "sdk_version": importlib.metadata.version("openhands-sdk")}
     try:
         conversation = create_conversation(controller, llm, session_id, output_dir, record,
-                                           tool_factory=tool_factory)
+                                           tool_factory=tool_factory, max_iterations=max_iterations)
         result["tools"] = sorted(conversation.agent.tools_map)
         conversation.run()
         result["conversation_status"] = str(conversation.state.execution_status)
