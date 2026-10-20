@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1",
+  "run_id": "4d41db0b005f4d29a1d513b7407e2003",
+  "family": "planning",
+  "task_id": "spannerlearning/seed0/problem9",
+  "candidate_id": "researcher-format-intervention",
+  "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+  "parent_id": "p2-P-H002-checked",
+  "strategy_version": "intervention-probes-v0.1",
+  "feedback_role": "development_only",
+  "limits": {
+    "timeout_seconds": 20,
+    "memory_mb": 2048,
+    "cpu_seconds": 10,
+    "max_output_bytes": 2000000
+  },
+  "model_calls": 0,
+  "sealed_tasks_executed": 0,
+  "executions": [
+    {
+      "phase": "plan",
+      "status": "completed",
+      "elapsed_seconds": 0.041019,
+      "stdout_bytes": 390,
+      "stderr_bytes": 0
+    }
+  ],
+  "status": "success",
+  "error_kind": null,
+  "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+  "plan_length": 10,
+  "validator": {
+    "plan_length": 10,
+    "plan_sha256": "b426e4512c3ed04583e217b9021f3bd8536b859c9ce4bfd738538045568d85e3",
+    "status": "valid",
+    "reason": "plan_valid_marker",
+    "returncode": 0,
+    "stdout_sha256": "688d390f1b555698bd509ea08ef59b73f58027b9dccacc0863ad1e67631a0774",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 1900,
+    "stderr_bytes": 0,
+    "elapsed_seconds": 0.003477
+  },
+  "elapsed_seconds": 0.052666
+}

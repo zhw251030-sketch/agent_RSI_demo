@@ -1,0 +1,173 @@
+{
+  "version": "probe-cases-v0.1",
+  "planning": [
+    {
+      "id": "p2-P-H002-checked",
+      "family": "planning",
+      "source": "\"\"\"Grounded BFS planner for the spanner STRIPS domain.\n\nGrounds walk, pickup_spanner and tighten_nut from the declared objects, then\nperforms breadth-first search over atom sets. Returns parenthesized grounded\naction strings in schema parameter order.\n\"\"\"\n\nLOC = \"location\"\nMAN = \"man\"\nNUT = \"nut\"\nSPANNER = \"spanner\"\n\n\ndef _by_type(objects):\n    t = {}\n    try:\n        items = list(objects)\n    except Exception:\n        items = []\n    for pair in items:\n        try:\n            name, typ = pair[0], pair[1]\n        except Exception:\n            continue\n        t.setdefault(str(typ), []).append(str(name))\n    for v in t.values():\n        v.sort()\n    return t\n\n\ndef _norm(facts):\n    out = set()\n    try:\n        it = list(facts)\n    except Exception:\n        return out\n    for f in it:\n        try:\n            out.add(tuple(str(x) for x in f))\n        except Exception:\n            continue\n    return out\n\n\ndef _loc_of(state, thing):\n    return set(a[2] for a in state if a[0] == \"at\" and a[1] == thing)\n\n\ndef _actions(state, men, spanners, nuts, locs):\n    locset = set(locs)\n    carrying = set(a[2] for a in state if a[0] == \"carrying\")\n    usable = set(a[1] for a in state if a[0] == \"useable\")\n    loose = set(a[1] for a in state if a[0] == \"loose\")\n    out = []\n    for m in men:\n        mloc = _loc_of(state, m) & locset\n        # walk\n        for a in state:\n            if a[0] == \"link\" and a[2] in locset and a[1] in mloc:\n                out.append((\"walk\", (a[1], a[2], m),\n                            [(\"at\", m, a[2])], [(\"at\", m, a[1])]))\n        # pickup_spanner\n        for s in spanners:\n            if s in carrying:\n                continue\n            shared = _loc_of(state, s) & mloc\n            for l in shared:\n                out.append((\"pickup_spanner\", (l, s, m),\n                            [(\"carrying\", m, s)], [(\"at\", s, l)]))\n        # tighten_nut\n        if not mloc:\n            continue\n        for n in nuts:\n            if n not in loose:\n                continue\n            nloc = _loc_of(state, n) & mloc\n            for s in sorted(carrying & usable):\n                for l in nloc:\n                    out.append((\"tighten_nut\", (l, s, m, n),\n                                [(\"tightened\", n)],\n                                [(\"loose\", n), (\"useable\", s)]))\n    return out\n\n\ndef _fmt(name, params):\n    return \"(\" + \" \" + \" \".join([name] + list(params)) + \")\"\n\n\ndef get_plan(objects, init, goal):\n    types = _by_type(objects)\n    start = frozenset(_norm(init))\n    goals = frozenset(_norm(goal))\n    if goals <= start:\n        return []\n    men = types.get(MAN, [])\n    locs = types.get(LOC, [])\n    spanners = types.get(SPANNER, [])\n    nuts = types.get(NUT, [])\n    if not men or not locs:\n        return []\n    frontier = [(start, [])]\n    seen = {start}\n    while frontier:\n        nxt = []\n        for state, plan in frontier:\n            for name, params, add, dele in _actions(state, men, spanners, nuts, locs):\n                ns = set(state)\n                ns.difference_update(dele)\n                ns.update(add)\n                ns = frozenset(ns)\n                if ns in seen:\n                    continue\n                nplan = plan + [_fmt(name, params)]\n                if len(nplan) > 1000:\n                    return []\n                if goals <= ns:\n                    return nplan\n                seen.add(ns)\n                nxt.append((ns, nplan))\n        if not nxt:\n            return []\n        frontier = nxt\n    return []",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "source_path": "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-checked/candidates/planning-001.py",
+      "provenance": {
+        "archive_session": "p2-P-H002-checked",
+        "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+        "candidate_id": "planning-001",
+        "parent_candidate_id": "planning-000",
+        "candidates_path": "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-checked/candidates.json",
+        "candidates_sha256": "e60f723bd8f4a63b535ee68f91a8382331931510857ac7ee675c4b7d388ab07d",
+        "parent_source_path": "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-checked/candidates/planning-000.py",
+        "parent_source_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "selection_scope": "Researcher-seen development calibration; historical scores omitted."
+      },
+      "task_ids": [
+        "spannerlearning/seed0/problem0",
+        "spannerlearning/seed0/problem1"
+      ]
+    },
+    {
+      "id": "p1-P-A002-checked",
+      "family": "planning",
+      "source": "\"\"\"Greedy/BFS planner for spanner domain - v3.\"\"\"\n\nfrom collections import deque\n\n\ndef get_plan(objects, init, goal):\n    objects = list(objects)\n    init = set(init)\n    goal = set(goal)\n\n    men = [n for n, t in objects if t == \"man\"]\n    if not men:\n        return []\n    man = men[0]\n\n    spanners = sorted(n for n, t in objects if t == \"spanner\")\n    nuts = sorted(n for n, t in objects if t == \"nut\")\n\n    links = set()\n    for fact in init:\n        if fact[0] == \"link\":\n            links.add((fact[1], fact[2]))\n\n    # Initial state encoding.\n    spanner_locs = {}\n    spanner_usable = {}\n    nut_locs = {}\n    nut_loose = {}\n    man_loc = None\n    for fact in init:\n        if fact[0] == \"at\":\n            _, who, loc = fact\n            if who == man:\n                man_loc = loc\n            elif who in spanners:\n                spanner_locs[who] = loc\n            elif who in nuts:\n                nut_locs[who] = loc\n        elif fact[0] == \"useable\":\n            spanner_usable[fact[1]] = True\n        elif fact[0] == \"loose\":\n            nut_loose[fact[1]] = True\n\n    if man_loc is None:\n        return []\n\n    def state_key(man_loc, carried, sp_locs, sp_use, nu_loose):\n        return (man_loc, carried,\n                tuple(sorted(sp_locs.items())),\n                tuple(sorted(sp_use.items())),\n                tuple(sorted(nu_loose.items())))\n\n    def apply(mloc, carried, sp_locs, sp_use, nu_loose, action):\n        sp_locs = dict(sp_locs)\n        sp_use = dict(sp_use)\n        nu_loose = dict(nu_loose)\n        if action[0] == \"walk\":\n            mloc = action[2]\n        elif action[0] == \"pickup_spanner\":\n            s = action[2]\n            del sp_locs[s]\n            carried = s\n        elif action[0] == \"tighten_nut\":\n            n = action[4]\n            nu_loose[n] = False\n            sp_use[carried] = False\n            carried = None\n        return mloc, carried, sp_locs, sp_use, nu_loose\n\n    def goal_satisfied(nu_loose):\n        return all(not nu_loose.get(n, False) for n in nuts)\n\n    if goal_satisfied(nut_loose):\n        return []\n\n    initial = state_key(man_loc, None, spanner_locs, spanner_usable, nut_loose)\n    visited = {initial}\n    queue = deque([((man_loc, None, spanner_locs, spanner_usable, nut_loose), [])])\n\n    while queue:\n        (mloc, carried, sp_locs, sp_use, nu_loose), plan = queue.popleft()\n        actions = []\n\n        # Walk\n        for a, b in links:\n            if a == mloc:\n                actions.append((\"walk\", a, b, man))\n        # Pickup\n        for s in spanners:\n            if sp_locs.get(s) == mloc:\n                actions.append((\"pickup_spanner\", mloc, s, man))\n        # Tighten\n        if carried is not None and sp_use.get(carried, False):\n            for n in nuts:\n                if nu_loose.get(n, False) and nut_locs.get(n) == mloc:\n                    actions.append((\"tighten_nut\", mloc, carried, man, n))\n\n        for action in actions:\n            new_mloc, new_carried, new_sp_locs, new_sp_use, new_nu_loose = apply(\n                mloc, carried, sp_locs, sp_use, nu_loose, action\n            )\n            key = state_key(new_mloc, new_carried, new_sp_locs, new_sp_use, new_nu_loose)\n            if key in visited:\n                continue\n            new_plan = plan + [action]\n            if goal_satisfied(new_nu_loose):\n                return [_fmt(a) for a in new_plan]\n            visited.add(key)\n            queue.append(((new_mloc, new_carried, new_sp_locs, new_sp_use, new_nu_loose), new_plan))\n\n    return []\n\n\ndef _fmt(a):\n    if a[0] == \"walk\":\n        return f\"(walk {a[1]} {a[2]} {a[3]})\"\n    if a[0] == \"pickup_spanner\":\n        return f\"(pickup_spanner {a[1]} {a[2]} {a[3]})\"\n    if a[0] == \"tighten_nut\":\n        return f\"(tighten_nut {a[1]} {a[2]} {a[3]} {a[4]})\"\n    return str(a)\n",
+      "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "source_path": "artifacts/inference-policy/2026-10-20/v01/p1-P-A002-checked/candidates/planning-001.py",
+      "provenance": {
+        "archive_session": "p1-P-A002-checked",
+        "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+        "candidate_id": "planning-001",
+        "parent_candidate_id": "planning-000",
+        "candidates_path": "artifacts/inference-policy/2026-10-20/v01/p1-P-A002-checked/candidates.json",
+        "candidates_sha256": "d50d8bf494c609ca9b2cee55522ccb76d1d583a934d443a804e61e93ddeb4262",
+        "parent_source_path": "artifacts/inference-policy/2026-10-20/v01/p1-P-A002-checked/candidates/planning-000.py",
+        "parent_source_sha256": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+        "selection_scope": "Researcher-seen development calibration; historical scores omitted."
+      },
+      "task_ids": [
+        "spannerlearning/seed0/problem0",
+        "spannerlearning/seed0/problem1"
+      ]
+    },
+    {
+      "id": "p2-P-H002-self",
+      "family": "planning",
+      "source": "\"\"\"Grounded forward-search STRIPS planner for the spanner domain.\n\nGrounds the three action schemas directly from the supplied objects and the\ndeclared types, then performs breadth-first search over states with a visited\nset. Plans are returned as parenthesized strings in schema parameter order.\n\"\"\"\n\nLOC = \"location\"\nMAN = \"man\"\nNUT = \"nut\"\nSPANNER = \"spanner\"\n\n\ndef _by_type(objects):\n    t = {}\n    for pair in objects:\n        try:\n            name, typ = pair[0], pair[1]\n        except Exception:\n            continue\n        t.setdefault(str(typ), []).append(str(name))\n    for v in t.values():\n        v.sort()\n    return t\n\n\ndef _apply(state, add, dele):\n    nxt = set(state)\n    nxt.difference_update(dele)\n    nxt.update(add)\n    return nxt\n\n\ndef _walk_actions(state, men, locs):\n    out = []\n    locset = set(locs)\n    for m in men:\n        # (at m l) -> location is a[2]\n        here = [a[2] for a in state if a[0] == \"at\" and len(a) >= 3 and a[1] == m]\n        for h in here:\n            if h not in locset:\n                continue\n            for a in state:\n                if a[0] == \"link\" and len(a) >= 3 and a[1] == h and a[2] in locset:\n                    out.append((\"walk\", (h, a[2], m),\n                                [(\"at\", m, a[2])], [(\"at\", m, h)]))\n    return out\n\n\ndef _pickup_actions(state, men, spanners, locs):\n    out = []\n    locset = set(locs)\n    for m in men:\n        # (at m l) -> location is a[2]\n        mloc = [a[2] for a in state if a[0] == \"at\" and len(a) >= 3 and a[1] == m]\n        for s in spanners:\n            # (at s l) -> location is a[2]\n            sloc = [a[2] for a in state if a[0] == \"at\" and len(a) >= 3 and a[1] == s]\n            for s2 in sloc:\n                for l in mloc:\n                    if l == s2 and l in locset:\n                        out.append((\"pickup_spanner\", (l, s, m),\n                                    [(\"carrying\", m, s)], [(\"at\", s, l)]))\n    return out\n\n\ndef _tighten_actions(state, men, spanners, nuts, locs):\n    out = []\n    locset = set(locs)\n    carrying = set(a[2] for a in state if a[0] == \"carrying\" and len(a) >= 3)\n    usable = set(a[1] for a in state if a[0] == \"useable\" and len(a) >= 2)\n    loose = set(a[1] for a in state if a[0] == \"loose\" and len(a) >= 2)\n    for m in men:\n        # (at m l) -> location is a[2]\n        mloc = [a[2] for a in state if a[0] == \"at\" and len(a) >= 3 and a[1] == m]\n        for n in nuts:\n            if n not in loose:\n                continue\n            # (at n l) -> location is a[2]\n            nloc = [a[2] for a in state if a[0] == \"at\" and len(a) >= 3 and a[1] == n]\n            for l in mloc:\n                if l not in nloc or l not in locset:\n                    continue\n                for s in sorted(carrying & usable):\n                    out.append((\"tighten_nut\", (l, s, m, n),\n                                [(\"tightened\", n)],\n                                [(\"loose\", n), (\"useable\", s)]))\n    return out\n\n\ndef _actions(state, types):\n    return (_walk_actions(state, types.get(MAN, []), types.get(LOC, []))\n            + _pickup_actions(state, types.get(MAN, []), types.get(SPANNER, []), types.get(LOC, []))\n            + _tighten_actions(state, types.get(MAN, []), types.get(SPANNER, []),\n                              types.get(NUT, []), types.get(LOC, [])))\n\n\ndef _fmt(name, params):\n    return \"(\" + name + \" \" + \" \".join(params) + \")\"\n\n\ndef get_plan(objects, init, goal):\n    try:\n        types = _by_type(objects)\n        start = set(init)\n        goals = set(goal)\n        if not (goals - start):\n            return []\n        if not types.get(MAN) or not types.get(LOC):\n            return []\n        limit = 1000\n        from collections import deque\n        queue = deque([(frozenset(start), [])])\n        seen = {frozenset(start)}\n        while queue:\n            state, plan = queue.popleft()\n            for _name, params, add, dele in _actions(state, types):\n                ns = frozenset(_apply(state, add, dele))\n                if ns in seen:\n                    continue\n                nplan = plan + [_fmt(_name, params)]\n                if len(nplan) > limit:\n                    return []\n                if goals <= ns:\n                    return nplan\n                seen.add(ns)\n                queue.append((ns, nplan))\n        return []\n    except Exception:\n        return []\n",
+      "source_sha256": "22be60362fe59ac66a11403b97bd9cf0a93b0c9e7c3b2bbeb9b306aafc71948e",
+      "source_path": "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-self/candidates/planning-001.py",
+      "provenance": {
+        "archive_session": "p2-P-H002-self",
+        "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+        "candidate_id": "planning-001",
+        "parent_candidate_id": "planning-000",
+        "candidates_path": "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-self/candidates.json",
+        "candidates_sha256": "d3d5af2c4489104adec31d6a4364ef3f519e9a6efd14b215c687f90c73effa29",
+        "parent_source_path": "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-self/candidates/planning-000.py",
+        "parent_source_sha256": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+        "selection_scope": "Researcher-seen development calibration; historical scores omitted."
+      },
+      "task_ids": [
+        "spannerlearning/seed0/problem0",
+        "spannerlearning/seed0/problem1"
+      ]
+    }
+  ],
+  "symbolic": [
+    {
+      "id": "p1-S-poly5-self",
+      "family": "symbolic",
+      "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force (x, x^3, x^5) plus velocity-dependent\n    # damping (v, v^2, v^3):\n    #   a = c1*x + c2*v + c3*x^3 + c4*v^2 + c5*x^5 + c6*v^3\n    # The parent (5-term) version reaches train NMSE 0.0938 with\n    # bias^2/MSE ~ 1.4e-5, so the residual is almost pure variance.\n    # Binned RMSE is worst at high |v| (0.0298) and at the extreme |x| bins\n    # (~0.023), suggesting unmodeled amplitude-dependent behavior in both\n    # channels. Rather than adding more stiffness terms (which grow as\n    # x^7 for large amplitude and can be unstable), the cheapest remaining\n    # independent shape is a cubic-in-velocity term, which lets the damping\n    # change sign with velocity and can capture the non-monotonic\n    # v-residual pattern without touching the restoring part.\n    c1 = params[0]\n    c2 = params[1]\n    c3 = params[2]\n    c4 = params[3]\n    c5 = params[4]\n    c6 = params[5]\n    return c1 * x + c2 * v + c3 * x ** 3 + c4 * v ** 2 + c5 * x ** 5 + c6 * v ** 3",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "source_path": "artifacts/inference-policy/2026-10-20/v01/p1-S-poly5-self/candidates/symbolic-001.py",
+      "provenance": {
+        "archive_session": "p1-S-poly5-self",
+        "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+        "candidate_id": "symbolic-001",
+        "parent_candidate_id": "symbolic-000",
+        "candidates_path": "artifacts/inference-policy/2026-10-20/v01/p1-S-poly5-self/candidates.json",
+        "candidates_sha256": "eef5454ff0a2ff32e65397ccfde7d3008fa36d2d44759c4a33ad77d76a2cd792",
+        "parent_source_path": "artifacts/inference-policy/2026-10-20/v01/p1-S-poly5-self/candidates/symbolic-000.py",
+        "parent_source_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+        "selection_scope": "Researcher-seen development calibration; historical scores omitted."
+      },
+      "parent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force + linear/quadratic damping:\n    #   a = c1*x + c3*x^3 + c5*x^5 + c2*v + c4*v^2\n    # Incumbent (linear + cubic) reaches train NMSE 0.0951, bias^2/MSE\n    # only 0.0084 -> residual error is variance, not offset. Adding a\n    # quintic stiffness term and a mild quadratic-in-v term to capture the\n    # higher-|v| and higher-|x| growth seen in the binned RMSE.\n    c1 = params[0]\n    c2 = params[1]\n    c3 = params[2]\n    c4 = params[3]\n    c5 = params[4]\n    return c1 * x + c2 * v + c3 * x ** 3 + c4 * v ** 2 + c5 * x ** 5",
+      "parent_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+      "parent_path": "artifacts/inference-policy/2026-10-20/v01/p1-S-poly5-self/candidates/symbolic-000.py",
+      "n_params": 6,
+      "parent_n_params": 5,
+      "remove_param_index": 5,
+      "task_id": "oscillator1",
+      "scope": "train"
+    },
+    {
+      "id": "p2-S-odd4-checked",
+      "family": "symbolic",
+      "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    k = params[0]\n    c = params[1]\n    d = params[2]\n    c2 = params[3]\n    d2 = params[4]\n    return -k * x - c * v - d * x ** 3 - c2 * v * np.abs(v) - d2 * x ** 5",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_path": "artifacts/inference-policy/2026-10-20/v01/p2-S-odd4-checked/candidates/symbolic-001.py",
+      "provenance": {
+        "archive_session": "p2-S-odd4-checked",
+        "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+        "candidate_id": "symbolic-001",
+        "parent_candidate_id": "symbolic-000",
+        "candidates_path": "artifacts/inference-policy/2026-10-20/v01/p2-S-odd4-checked/candidates.json",
+        "candidates_sha256": "a58cd416b649db6962e919a9d41f7df8917a436370bb04976957e4cd80c8b43c",
+        "parent_source_path": "artifacts/inference-policy/2026-10-20/v01/p2-S-odd4-checked/candidates/symbolic-000.py",
+        "parent_source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+        "selection_scope": "Researcher-seen development calibration; historical scores omitted."
+      },
+      "parent_source": "import numpy as np\n\n\ndef equation(x, v, params):\n    k = params[0]\n    c = params[1]\n    d = params[2]\n    c2 = params[3]\n    return -k * x - c * v - d * x ** 3 - c2 * v * np.abs(v)\n",
+      "parent_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+      "parent_path": "artifacts/inference-policy/2026-10-20/v01/p2-S-odd4-checked/candidates/symbolic-000.py",
+      "n_params": 5,
+      "parent_n_params": 4,
+      "remove_param_index": 4,
+      "task_id": "oscillator1",
+      "scope": "train"
+    }
+  ],
+  "public_tasks": [
+    "spannerlearning/seed0/problem0",
+    "spannerlearning/seed0/problem1"
+  ],
+  "development_tasks": [
+    "spannerlearning/seed0/problem0",
+    "spannerlearning/seed0/problem1",
+    "spannerlearning/seed0/problem2",
+    "spannerlearning/seed0/problem3",
+    "spannerlearning/seed0/problem4",
+    "spannerlearning/seed0/problem5",
+    "spannerlearning/seed0/problem6",
+    "spannerlearning/seed0/problem7",
+    "spannerlearning/seed0/problem8",
+    "spannerlearning/seed0/problem9"
+  ],
+  "provenance": {
+    "archive_manifest_path": "artifacts/inference-policy/2026-10-20/v01/manifest.json",
+    "archive_manifest_sha256": "acdc6cee32c7379ec84592267cd052a12855d56f315fcdc953b3ded8edd897d2",
+    "runtime_commit": "568f833eebffb4505e87903029ace9eb5f9e0b78",
+    "planning_config_path": "configs/tasks/planning-spanner-v0.1.json",
+    "planning_config_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+    "base_config_path": "artifacts/inference-policy/2026-10-20/v01/base-config.json",
+    "base_config_sha256": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+    "source_files": {
+      "artifacts/inference-policy/2026-10-20/v01/manifest.json": "acdc6cee32c7379ec84592267cd052a12855d56f315fcdc953b3ded8edd897d2",
+      "artifacts/inference-policy/2026-10-20/v01/base-config.json": "8e2576f6a297f6d26180d6c438c40431fafa740739d04126145a0e979aeac2f3",
+      "configs/tasks/planning-spanner-v0.1.json": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+      "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-checked/candidates.json": "e60f723bd8f4a63b535ee68f91a8382331931510857ac7ee675c4b7d388ab07d",
+      "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-checked/candidates/planning-000.py": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+      "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-checked/candidates/planning-001.py": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "artifacts/inference-policy/2026-10-20/v01/p1-P-A002-checked/candidates.json": "d50d8bf494c609ca9b2cee55522ccb76d1d583a934d443a804e61e93ddeb4262",
+      "artifacts/inference-policy/2026-10-20/v01/p1-P-A002-checked/candidates/planning-000.py": "67372060d92e060efd36035c230fcea51d20ac484ee585ee52fda416127132f4",
+      "artifacts/inference-policy/2026-10-20/v01/p1-P-A002-checked/candidates/planning-001.py": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-self/candidates.json": "d3d5af2c4489104adec31d6a4364ef3f519e9a6efd14b215c687f90c73effa29",
+      "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-self/candidates/planning-000.py": "deb8420baf4bacc6de52068de9844363bb60edf7e9bc6cf5d4753d14c853aca3",
+      "artifacts/inference-policy/2026-10-20/v01/p2-P-H002-self/candidates/planning-001.py": "22be60362fe59ac66a11403b97bd9cf0a93b0c9e7c3b2bbeb9b306aafc71948e",
+      "artifacts/inference-policy/2026-10-20/v01/p1-S-poly5-self/candidates.json": "eef5454ff0a2ff32e65397ccfde7d3008fa36d2d44759c4a33ad77d76a2cd792",
+      "artifacts/inference-policy/2026-10-20/v01/p1-S-poly5-self/candidates/symbolic-000.py": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+      "artifacts/inference-policy/2026-10-20/v01/p1-S-poly5-self/candidates/symbolic-001.py": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "artifacts/inference-policy/2026-10-20/v01/p2-S-odd4-checked/candidates.json": "a58cd416b649db6962e919a9d41f7df8917a436370bb04976957e4cd80c8b43c",
+      "artifacts/inference-policy/2026-10-20/v01/p2-S-odd4-checked/candidates/symbolic-000.py": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+      "artifacts/inference-policy/2026-10-20/v01/p2-S-odd4-checked/candidates/symbolic-001.py": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e"
+    },
+    "candidate_executions": 0,
+    "model_calls": 0,
+    "sealed_data_reads": 0
+  }
+}

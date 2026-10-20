@@ -1,0 +1,137 @@
+{
+  "version": "planning-format-probe-v0.1",
+  "status": "completed",
+  "verdict": "contradicted",
+  "reason": "edge_normalization_insufficient_on_this_plan",
+  "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+  "task_id": "spannerlearning/seed0/problem1",
+  "task_binding": {
+    "pilot_role": "prompt",
+    "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+    "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+    "problem_sha256": "6bfc9e1215a82f90ee7c47b125e6095ef8d4b69f2af3bed9a911102c914b1e6f",
+    "request_sha256": "834f86423965d0f76e609742f374dc9067ac8a49f493a2077e6d7c882a7a723c"
+  },
+  "normalization": {
+    "status": "unchanged",
+    "reason": "already_normalized",
+    "original": [],
+    "normalized": [],
+    "changed_indices": [],
+    "token_preserved": true
+  },
+  "raw": {
+    "validation": {
+      "status": "task_failure",
+      "error_kind": "plan_semantics",
+      "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+      "plan_length": 0,
+      "validator": {
+        "plan_length": 0,
+        "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "invalid",
+        "reason": "semantic_failure_marker",
+        "returncode": 1,
+        "stdout_sha256": "c175a9c5fc8a610f1b004fd41b96ad62cb4d678e46fddc78f7509991b47786b6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 663,
+        "stderr_bytes": 0,
+        "elapsed_seconds": 0.002931
+      }
+    },
+    "replay": {
+      "status": "goal_unsatisfied",
+      "error_kind": null,
+      "executed_actions": 0,
+      "plan_length": 0,
+      "first_failed_action": null,
+      "missing_preconditions": [],
+      "missing_preconditions_truncated": false,
+      "unsatisfied_goals": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ],
+      "unsatisfied_goals_truncated": false
+    }
+  },
+  "normalized": {
+    "validation": {
+      "status": "task_failure",
+      "error_kind": "plan_semantics",
+      "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+      "plan_length": 0,
+      "validator": {
+        "plan_length": 0,
+        "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "invalid",
+        "reason": "semantic_failure_marker",
+        "returncode": 1,
+        "stdout_sha256": "ce848e5186b49c08a3641a80f57c0aeedbf73e4dd90ef1477eef17a6e118a7ed",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 663,
+        "stderr_bytes": 0,
+        "elapsed_seconds": 0.003983
+      }
+    },
+    "replay": {
+      "status": "goal_unsatisfied",
+      "error_kind": null,
+      "executed_actions": 0,
+      "plan_length": 0,
+      "first_failed_action": null,
+      "missing_preconditions": [],
+      "missing_preconditions_truncated": false,
+      "unsatisfied_goals": [
+        [
+          "tightened",
+          "nut1"
+        ],
+        [
+          "tightened",
+          "nut2"
+        ],
+        [
+          "tightened",
+          "nut3"
+        ]
+      ],
+      "unsatisfied_goals_truncated": false
+    }
+  },
+  "transport": {
+    "status": "completed",
+    "stdout_bytes": 26,
+    "stderr_bytes": 0,
+    "elapsed_seconds": 0.038404
+  },
+  "executions": {
+    "new_candidate_executions": 1,
+    "sandbox_calls": 1,
+    "host_validations": 2,
+    "diagnostic_replays": 2,
+    "val_calls": 2,
+    "val_count_complete": true
+  },
+  "model_calls": 0,
+  "changes_historical_scores": false,
+  "next_edit_scope": {
+    "action": "formatting_not_sufficient_check_semantics",
+    "scope": "spannerlearning/seed0/problem1",
+    "excludes": [
+      "physical_necessity",
+      "held_out_generalization",
+      "optimal_rule_selection",
+      "agent_autonomous_improvement"
+    ]
+  }
+}

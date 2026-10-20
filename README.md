@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已完成推断证据检查的完整开发对照：14次真实请求、8个新候选，尚未观察到稳定任务收益。** 检查反馈纠正了一组固定命题标签，另一组未纠正；相同策略的两次规划生成仍出现10/10与0/10差异，不能归因于反馈。见[最新完整说明](docs/operations/inference-policy.md)、[解释边界](docs/analysis/2026-10-20-inference-policy-analysis.md)和[230份完整原记录](artifacts/inference-policy/2026-10-20/v01/README.md)。实跑前525项不同测试通过。
+**已完成两类可执行干预的离线校准，0次新增模型调用。** 规划同plan格式检查在两个公开题均支持，限定源码修复后的新程序10/10；符号两次删项分别支持保留v³项和考虑简化x⁵项。共22次任务评价、28次sandbox调用，属于研究者干预校准，尚无Agent自主改进或独立泛化结论。见[最新完整说明](docs/operations/intervention-probes.md)、[逐项结果](docs/analysis/2026-10-21-intervention-results.md)和[31份原始证据](artifacts/intervention-probes/2026-10-21/v01/README.md)。运行前538项服务器任务测试通过，72项SDK测试跳过。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -49,8 +49,10 @@
 22. [上一轮：策略前提检查、停止原因与下一步](docs/operations/grounded-policy.md)
 23. [事实与推断逐条审查](docs/analysis/2026-10-20-grounded-policy-analysis.md) · [完整停止轮](artifacts/grounded-policy/2026-10-20/v01-stopped/README.md)
 
-24. [最新：推断证据检查的完整对照与结果](docs/operations/inference-policy.md)
+24. [上一轮：推断证据检查的完整对照与结果](docs/operations/inference-policy.md)
 25. [固定命题、解释与机制边界](docs/analysis/2026-10-20-inference-policy-analysis.md) · [8候选逐条审查](docs/analysis/2026-10-20-inference-candidate-analysis.md) · [机器审计](docs/analysis/2026-10-20-inference-policy-audit.json)
+
+26. [最新：可执行干预校准与编辑验证](docs/operations/intervention-probes.md) · [结果分析](docs/analysis/2026-10-21-intervention-results.md) · [核验](docs/environment/2026-10-21-intervention-verification.json)
 
 ## 仓库边界
 

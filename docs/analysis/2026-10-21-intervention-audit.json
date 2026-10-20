@@ -1,0 +1,29 @@
+{
+  "version": "intervention-record-audit-v0.1",
+  "status": "verified_complete",
+  "run_status": "completed",
+  "runtime_commit": "b1f4f81752fc9a162a030c4055a24f80f43733c4",
+  "counts": {
+    "sandbox_calls": 28,
+    "new_candidate_executions": 22,
+    "host_validations": 22,
+    "val_calls": 20,
+    "fit_calls": 6,
+    "predict_calls": 6
+  },
+  "counts_complete": true,
+  "budget": {
+    "maximum": 40,
+    "reserved": 28,
+    "actual": 28
+  },
+  "model_calls": 0,
+  "candidate_executions_by_auditor": 0,
+  "sealed_data_reads": 0,
+  "limitations": [
+    "Saved VAL and replay observations are trusted; neither is rerun.",
+    "NMSE differences are recomputed from saved scores, not raw predictions.",
+    "No task data, sealed data, candidate code or model is executed/read.",
+    "Git objects bind source identity, not authenticity of recorded observations."
+  ]
+}

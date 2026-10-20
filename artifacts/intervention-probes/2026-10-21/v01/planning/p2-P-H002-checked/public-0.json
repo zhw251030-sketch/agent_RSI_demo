@@ -1,0 +1,139 @@
+{
+  "version": "planning-format-probe-v0.1",
+  "status": "completed",
+  "verdict": "supported",
+  "reason": "edge_normalization_sufficient_on_this_plan",
+  "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+  "task_id": "spannerlearning/seed0/problem0",
+  "task_binding": {
+    "pilot_role": "prompt",
+    "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+    "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+    "problem_sha256": "9dd3f63454e646145a4a555cdd974d0c4fce27603274b06e82f137ffe489c944",
+    "request_sha256": "cfa3a0584dd1e4724b528d9ee158c44e8e961fa1505e088e7f38b8f052aac9ca"
+  },
+  "normalization": {
+    "status": "normalized",
+    "reason": "ascii_edge_whitespace_only",
+    "original": [
+      "( walk shed location1 bob)",
+      "( pickup_spanner location1 spanner3 bob)",
+      "( walk location1 location2 bob)",
+      "( walk location2 location3 bob)",
+      "( walk location3 location4 bob)",
+      "( pickup_spanner location4 spanner1 bob)",
+      "( pickup_spanner location4 spanner2 bob)",
+      "( walk location4 gate bob)",
+      "( tighten_nut gate spanner1 bob nut1)",
+      "( tighten_nut gate spanner2 bob nut2)",
+      "( tighten_nut gate spanner3 bob nut3)"
+    ],
+    "normalized": [
+      "(walk shed location1 bob)",
+      "(pickup_spanner location1 spanner3 bob)",
+      "(walk location1 location2 bob)",
+      "(walk location2 location3 bob)",
+      "(walk location3 location4 bob)",
+      "(pickup_spanner location4 spanner1 bob)",
+      "(pickup_spanner location4 spanner2 bob)",
+      "(walk location4 gate bob)",
+      "(tighten_nut gate spanner1 bob nut1)",
+      "(tighten_nut gate spanner2 bob nut2)",
+      "(tighten_nut gate spanner3 bob nut3)"
+    ],
+    "changed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "token_preserved": true
+  },
+  "raw": {
+    "validation": {
+      "status": "invalid_output",
+      "error_kind": "operator_syntax",
+      "public_diagnostic": "Action must be one parenthesized grounded operator.",
+      "plan_length": 11,
+      "first_invalid_action": 0
+    },
+    "replay": {
+      "status": "invalid_output",
+      "error_kind": "operator_syntax",
+      "executed_actions": 0,
+      "plan_length": 11,
+      "first_failed_action": {
+        "index": 0,
+        "action": null
+      },
+      "missing_preconditions": [],
+      "missing_preconditions_truncated": false,
+      "unsatisfied_goals": [],
+      "unsatisfied_goals_truncated": false
+    }
+  },
+  "normalized": {
+    "validation": {
+      "status": "success",
+      "error_kind": null,
+      "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+      "plan_length": 11,
+      "validator": {
+        "plan_length": 11,
+        "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+        "status": "valid",
+        "reason": "plan_valid_marker",
+        "returncode": 0,
+        "stdout_sha256": "0548884ebc3595296d025d6cfb2d3e260d656dfb73956b992162c097b4a98d0f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 2026,
+        "stderr_bytes": 0,
+        "elapsed_seconds": 0.004056
+      }
+    },
+    "replay": {
+      "status": "valid",
+      "error_kind": null,
+      "executed_actions": 11,
+      "plan_length": 11,
+      "first_failed_action": null,
+      "missing_preconditions": [],
+      "missing_preconditions_truncated": false,
+      "unsatisfied_goals": [],
+      "unsatisfied_goals_truncated": false
+    }
+  },
+  "transport": {
+    "status": "completed",
+    "stdout_bytes": 434,
+    "stderr_bytes": 0,
+    "elapsed_seconds": 0.038162
+  },
+  "executions": {
+    "new_candidate_executions": 1,
+    "sandbox_calls": 1,
+    "host_validations": 2,
+    "diagnostic_replays": 2,
+    "val_calls": 1,
+    "val_count_complete": true
+  },
+  "model_calls": 0,
+  "changes_historical_scores": false,
+  "next_edit_scope": {
+    "action": "consider_format_patch_under_AST_contract",
+    "scope": "spannerlearning/seed0/problem0",
+    "excludes": [
+      "physical_necessity",
+      "held_out_generalization",
+      "optimal_rule_selection",
+      "agent_autonomous_improvement"
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "version": "intervention-negative-audit-v0.1",
+  "recorded_at_utc": "2026-10-20T18:21:18.597400+00:00",
+  "scope": "Post-run source and saved-record consistency checks on disposable archive copies only.",
+  "archive": "artifacts/intervention-probes/2026-10-21/v01",
+  "archive_manifest_sha256": "b055bfddce4ccaf5ffbac13422e8d67e5a6d32875fda05cbc0bfcaf9ce867b7f",
+  "archive_runtime_commit": "b1f4f81752fc9a162a030c4055a24f80f43733c4",
+  "auditor_sha256": "f5e4d817c45155c24b6de2edd50e2069b5111abee2233a4c1560fb1511e8e0ab",
+  "regression_test_sha256": "52d0f55dfd354feab1414204b9e26f63036913a4e0703962e99aa5be63e01b93",
+  "positive_status": "verified_complete",
+  "negative_cases": [
+    {
+      "case": "planning_joint_label",
+      "mutation": "Change the planning verdict, reason and next scope in summary and sidecar together.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Planning verdict changed"
+    },
+    {
+      "case": "normalized_action_token",
+      "mutation": "Change an action token in the normalized plan in both records, preserving the original.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Normalization reconstruction mismatch"
+    },
+    {
+      "case": "patch_source",
+      "mutation": "Append an unrelated source change to the saved format patch.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Format patch source mismatch"
+    },
+    {
+      "case": "symbolic_delta",
+      "mutation": "Change the saved NMSE delta and its verdict/scope together without changing component scores.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Symbolic verdict changed"
+    },
+    {
+      "case": "symbolic_epsilon",
+      "mutation": "Change the probe engineering threshold in both records.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Symbolic probe identity/transformation"
+    },
+    {
+      "case": "symbolic_parent",
+      "mutation": "Change the executor parent binding in both records.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Executor identity or scope mismatch"
+    },
+    {
+      "case": "symbolic_hash",
+      "mutation": "Change the executor candidate hash in both records.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Executor identity or scope mismatch"
+    },
+    {
+      "case": "symbolic_dimension",
+      "mutation": "Change the fitted parameter dimension in both records.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Fit or diagnostic evidence inconsistent"
+    },
+    {
+      "case": "execution_counts",
+      "mutation": "Increase probe, summary and budget counts together while retaining execution phase lists.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Symbolic counts"
+    },
+    {
+      "case": "frozen_file_missing",
+      "mutation": "Remove one required module from the freeze hash map.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Incomplete or extra frozen runtime set"
+    },
+    {
+      "case": "frozen_git_hash",
+      "mutation": "Replace a frozen module hash with a digest inconsistent with its Git object.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Git object/hash mismatch: rsi_eval/planning_probe.py"
+    },
+    {
+      "case": "next_edit_scope",
+      "mutation": "Broaden a supported planning action scope in both records.",
+      "rejected": true,
+      "exception_type": "ValueError",
+      "reason": "Planning next scope"
+    }
+  ],
+  "rejected_count": 12,
+  "case_count": 12,
+  "regression_test_count": 21,
+  "regression_result": "21 passed",
+  "archive_unchanged": true,
+  "raw_file_count": 31,
+  "model_calls": 0,
+  "new_candidate_executions": 0,
+  "val_calls": 0,
+  "sealed_data_reads": 0,
+  "limitations": [
+    "These are twelve specified mutation classes, not a guarantee against all forged artifacts.",
+    "VAL and replay observations remain trusted saved inputs; they were not independently rerun.",
+    "The normalized-token test changes normalized actions while preserving the recorded original; fully forged matching original/normalized plans and validator outcomes are outside this test.",
+    "Symbolic deltas are recomputed from saved scores, not raw predictions or a fresh fit.",
+    "Git source hashes authenticate agreement with local Git objects, not the provenance or truth of arbitrary newly fabricated observations."
+  ]
+}

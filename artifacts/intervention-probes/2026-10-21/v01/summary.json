@@ -1,0 +1,3505 @@
+{
+  "version": "intervention-probes-v0.1",
+  "status": "completed",
+  "model_calls": 0,
+  "sealed_tasks_executed": 0,
+  "planning": [
+    {
+      "id": "p2-P-H002-checked",
+      "results": [
+        {
+          "version": "planning-format-probe-v0.1",
+          "status": "completed",
+          "verdict": "supported",
+          "reason": "edge_normalization_sufficient_on_this_plan",
+          "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+          "task_id": "spannerlearning/seed0/problem0",
+          "task_binding": {
+            "pilot_role": "prompt",
+            "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+            "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+            "problem_sha256": "9dd3f63454e646145a4a555cdd974d0c4fce27603274b06e82f137ffe489c944",
+            "request_sha256": "cfa3a0584dd1e4724b528d9ee158c44e8e961fa1505e088e7f38b8f052aac9ca"
+          },
+          "normalization": {
+            "status": "normalized",
+            "reason": "ascii_edge_whitespace_only",
+            "original": [
+              "( walk shed location1 bob)",
+              "( pickup_spanner location1 spanner3 bob)",
+              "( walk location1 location2 bob)",
+              "( walk location2 location3 bob)",
+              "( walk location3 location4 bob)",
+              "( pickup_spanner location4 spanner1 bob)",
+              "( pickup_spanner location4 spanner2 bob)",
+              "( walk location4 gate bob)",
+              "( tighten_nut gate spanner1 bob nut1)",
+              "( tighten_nut gate spanner2 bob nut2)",
+              "( tighten_nut gate spanner3 bob nut3)"
+            ],
+            "normalized": [
+              "(walk shed location1 bob)",
+              "(pickup_spanner location1 spanner3 bob)",
+              "(walk location1 location2 bob)",
+              "(walk location2 location3 bob)",
+              "(walk location3 location4 bob)",
+              "(pickup_spanner location4 spanner1 bob)",
+              "(pickup_spanner location4 spanner2 bob)",
+              "(walk location4 gate bob)",
+              "(tighten_nut gate spanner1 bob nut1)",
+              "(tighten_nut gate spanner2 bob nut2)",
+              "(tighten_nut gate spanner3 bob nut3)"
+            ],
+            "changed_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "token_preserved": true
+          },
+          "raw": {
+            "validation": {
+              "status": "invalid_output",
+              "error_kind": "operator_syntax",
+              "public_diagnostic": "Action must be one parenthesized grounded operator.",
+              "plan_length": 11,
+              "first_invalid_action": 0
+            },
+            "replay": {
+              "status": "invalid_output",
+              "error_kind": "operator_syntax",
+              "executed_actions": 0,
+              "plan_length": 11,
+              "first_failed_action": {
+                "index": 0,
+                "action": null
+              },
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "normalized": {
+            "validation": {
+              "status": "success",
+              "error_kind": null,
+              "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+              "plan_length": 11,
+              "validator": {
+                "plan_length": 11,
+                "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+                "status": "valid",
+                "reason": "plan_valid_marker",
+                "returncode": 0,
+                "stdout_sha256": "0548884ebc3595296d025d6cfb2d3e260d656dfb73956b992162c097b4a98d0f",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 2026,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.004056
+              }
+            },
+            "replay": {
+              "status": "valid",
+              "error_kind": null,
+              "executed_actions": 11,
+              "plan_length": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "transport": {
+            "status": "completed",
+            "stdout_bytes": 434,
+            "stderr_bytes": 0,
+            "elapsed_seconds": 0.038162
+          },
+          "executions": {
+            "new_candidate_executions": 1,
+            "sandbox_calls": 1,
+            "host_validations": 2,
+            "diagnostic_replays": 2,
+            "val_calls": 1,
+            "val_count_complete": true
+          },
+          "model_calls": 0,
+          "changes_historical_scores": false,
+          "next_edit_scope": {
+            "action": "consider_format_patch_under_AST_contract",
+            "scope": "spannerlearning/seed0/problem0",
+            "excludes": [
+              "physical_necessity",
+              "held_out_generalization",
+              "optimal_rule_selection",
+              "agent_autonomous_improvement"
+            ]
+          }
+        },
+        {
+          "version": "planning-format-probe-v0.1",
+          "status": "completed",
+          "verdict": "supported",
+          "reason": "edge_normalization_sufficient_on_this_plan",
+          "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+          "task_id": "spannerlearning/seed0/problem1",
+          "task_binding": {
+            "pilot_role": "prompt",
+            "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+            "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+            "problem_sha256": "6bfc9e1215a82f90ee7c47b125e6095ef8d4b69f2af3bed9a911102c914b1e6f",
+            "request_sha256": "834f86423965d0f76e609742f374dc9067ac8a49f493a2077e6d7c882a7a723c"
+          },
+          "normalization": {
+            "status": "normalized",
+            "reason": "ascii_edge_whitespace_only",
+            "original": [
+              "( walk shed location1 bob)",
+              "( walk location1 location2 bob)",
+              "( walk location2 location3 bob)",
+              "( pickup_spanner location3 spanner1 bob)",
+              "( walk location3 location4 bob)",
+              "( pickup_spanner location4 spanner2 bob)",
+              "( pickup_spanner location4 spanner3 bob)",
+              "( walk location4 gate bob)",
+              "( tighten_nut gate spanner1 bob nut1)",
+              "( tighten_nut gate spanner2 bob nut2)",
+              "( tighten_nut gate spanner3 bob nut3)"
+            ],
+            "normalized": [
+              "(walk shed location1 bob)",
+              "(walk location1 location2 bob)",
+              "(walk location2 location3 bob)",
+              "(pickup_spanner location3 spanner1 bob)",
+              "(walk location3 location4 bob)",
+              "(pickup_spanner location4 spanner2 bob)",
+              "(pickup_spanner location4 spanner3 bob)",
+              "(walk location4 gate bob)",
+              "(tighten_nut gate spanner1 bob nut1)",
+              "(tighten_nut gate spanner2 bob nut2)",
+              "(tighten_nut gate spanner3 bob nut3)"
+            ],
+            "changed_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "token_preserved": true
+          },
+          "raw": {
+            "validation": {
+              "status": "invalid_output",
+              "error_kind": "operator_syntax",
+              "public_diagnostic": "Action must be one parenthesized grounded operator.",
+              "plan_length": 11,
+              "first_invalid_action": 0
+            },
+            "replay": {
+              "status": "invalid_output",
+              "error_kind": "operator_syntax",
+              "executed_actions": 0,
+              "plan_length": 11,
+              "first_failed_action": {
+                "index": 0,
+                "action": null
+              },
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "normalized": {
+            "validation": {
+              "status": "success",
+              "error_kind": null,
+              "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+              "plan_length": 11,
+              "validator": {
+                "plan_length": 11,
+                "plan_sha256": "16d7ec48e6700629c34d9c4cb0c52e4d77c3b8328d897a2dbb804cc86465a76a",
+                "status": "valid",
+                "reason": "plan_valid_marker",
+                "returncode": 0,
+                "stdout_sha256": "71c1f036a79c4ccf0f05fbdeb385f19ccce7603a5dc3287cd54728e5071ac3f7",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 2026,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.003778
+              }
+            },
+            "replay": {
+              "status": "valid",
+              "error_kind": null,
+              "executed_actions": 11,
+              "plan_length": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "transport": {
+            "status": "completed",
+            "stdout_bytes": 434,
+            "stderr_bytes": 0,
+            "elapsed_seconds": 0.04149
+          },
+          "executions": {
+            "new_candidate_executions": 1,
+            "sandbox_calls": 1,
+            "host_validations": 2,
+            "diagnostic_replays": 2,
+            "val_calls": 1,
+            "val_count_complete": true
+          },
+          "model_calls": 0,
+          "changes_historical_scores": false,
+          "next_edit_scope": {
+            "action": "consider_format_patch_under_AST_contract",
+            "scope": "spannerlearning/seed0/problem1",
+            "excludes": [
+              "physical_necessity",
+              "held_out_generalization",
+              "optimal_rule_selection",
+              "agent_autonomous_improvement"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p1-P-A002-checked",
+      "results": [
+        {
+          "version": "planning-format-probe-v0.1",
+          "status": "completed",
+          "verdict": "contradicted",
+          "reason": "edge_normalization_insufficient_on_this_plan",
+          "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+          "task_id": "spannerlearning/seed0/problem0",
+          "task_binding": {
+            "pilot_role": "prompt",
+            "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+            "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+            "problem_sha256": "9dd3f63454e646145a4a555cdd974d0c4fce27603274b06e82f137ffe489c944",
+            "request_sha256": "cfa3a0584dd1e4724b528d9ee158c44e8e961fa1505e088e7f38b8f052aac9ca"
+          },
+          "normalization": {
+            "status": "unchanged",
+            "reason": "already_normalized",
+            "original": [],
+            "normalized": [],
+            "changed_indices": [],
+            "token_preserved": true
+          },
+          "raw": {
+            "validation": {
+              "status": "task_failure",
+              "error_kind": "plan_semantics",
+              "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+              "plan_length": 0,
+              "validator": {
+                "plan_length": 0,
+                "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "status": "invalid",
+                "reason": "semantic_failure_marker",
+                "returncode": 1,
+                "stdout_sha256": "75849eabbf8430ac066ad49765309fcd17af7c13526c2313f19001a728fe0c2e",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 663,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.003013
+              }
+            },
+            "replay": {
+              "status": "goal_unsatisfied",
+              "error_kind": null,
+              "executed_actions": 0,
+              "plan_length": 0,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [
+                [
+                  "tightened",
+                  "nut1"
+                ],
+                [
+                  "tightened",
+                  "nut2"
+                ],
+                [
+                  "tightened",
+                  "nut3"
+                ]
+              ],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "normalized": {
+            "validation": {
+              "status": "task_failure",
+              "error_kind": "plan_semantics",
+              "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+              "plan_length": 0,
+              "validator": {
+                "plan_length": 0,
+                "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "status": "invalid",
+                "reason": "semantic_failure_marker",
+                "returncode": 1,
+                "stdout_sha256": "9a11b4c51bda46340d8d82b7cffa0138a28b68f2596b4f05e2647dfb7d6bb230",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 663,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.003812
+              }
+            },
+            "replay": {
+              "status": "goal_unsatisfied",
+              "error_kind": null,
+              "executed_actions": 0,
+              "plan_length": 0,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [
+                [
+                  "tightened",
+                  "nut1"
+                ],
+                [
+                  "tightened",
+                  "nut2"
+                ],
+                [
+                  "tightened",
+                  "nut3"
+                ]
+              ],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "transport": {
+            "status": "completed",
+            "stdout_bytes": 26,
+            "stderr_bytes": 0,
+            "elapsed_seconds": 0.041476
+          },
+          "executions": {
+            "new_candidate_executions": 1,
+            "sandbox_calls": 1,
+            "host_validations": 2,
+            "diagnostic_replays": 2,
+            "val_calls": 2,
+            "val_count_complete": true
+          },
+          "model_calls": 0,
+          "changes_historical_scores": false,
+          "next_edit_scope": {
+            "action": "formatting_not_sufficient_check_semantics",
+            "scope": "spannerlearning/seed0/problem0",
+            "excludes": [
+              "physical_necessity",
+              "held_out_generalization",
+              "optimal_rule_selection",
+              "agent_autonomous_improvement"
+            ]
+          }
+        },
+        {
+          "version": "planning-format-probe-v0.1",
+          "status": "completed",
+          "verdict": "contradicted",
+          "reason": "edge_normalization_insufficient_on_this_plan",
+          "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+          "task_id": "spannerlearning/seed0/problem1",
+          "task_binding": {
+            "pilot_role": "prompt",
+            "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+            "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+            "problem_sha256": "6bfc9e1215a82f90ee7c47b125e6095ef8d4b69f2af3bed9a911102c914b1e6f",
+            "request_sha256": "834f86423965d0f76e609742f374dc9067ac8a49f493a2077e6d7c882a7a723c"
+          },
+          "normalization": {
+            "status": "unchanged",
+            "reason": "already_normalized",
+            "original": [],
+            "normalized": [],
+            "changed_indices": [],
+            "token_preserved": true
+          },
+          "raw": {
+            "validation": {
+              "status": "task_failure",
+              "error_kind": "plan_semantics",
+              "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+              "plan_length": 0,
+              "validator": {
+                "plan_length": 0,
+                "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "status": "invalid",
+                "reason": "semantic_failure_marker",
+                "returncode": 1,
+                "stdout_sha256": "c175a9c5fc8a610f1b004fd41b96ad62cb4d678e46fddc78f7509991b47786b6",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 663,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.002931
+              }
+            },
+            "replay": {
+              "status": "goal_unsatisfied",
+              "error_kind": null,
+              "executed_actions": 0,
+              "plan_length": 0,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [
+                [
+                  "tightened",
+                  "nut1"
+                ],
+                [
+                  "tightened",
+                  "nut2"
+                ],
+                [
+                  "tightened",
+                  "nut3"
+                ]
+              ],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "normalized": {
+            "validation": {
+              "status": "task_failure",
+              "error_kind": "plan_semantics",
+              "public_diagnostic": "VAL rejected the plan: an action precondition or final goal is unsatisfied.",
+              "plan_length": 0,
+              "validator": {
+                "plan_length": 0,
+                "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "status": "invalid",
+                "reason": "semantic_failure_marker",
+                "returncode": 1,
+                "stdout_sha256": "ce848e5186b49c08a3641a80f57c0aeedbf73e4dd90ef1477eef17a6e118a7ed",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 663,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.003983
+              }
+            },
+            "replay": {
+              "status": "goal_unsatisfied",
+              "error_kind": null,
+              "executed_actions": 0,
+              "plan_length": 0,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [
+                [
+                  "tightened",
+                  "nut1"
+                ],
+                [
+                  "tightened",
+                  "nut2"
+                ],
+                [
+                  "tightened",
+                  "nut3"
+                ]
+              ],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "transport": {
+            "status": "completed",
+            "stdout_bytes": 26,
+            "stderr_bytes": 0,
+            "elapsed_seconds": 0.038404
+          },
+          "executions": {
+            "new_candidate_executions": 1,
+            "sandbox_calls": 1,
+            "host_validations": 2,
+            "diagnostic_replays": 2,
+            "val_calls": 2,
+            "val_count_complete": true
+          },
+          "model_calls": 0,
+          "changes_historical_scores": false,
+          "next_edit_scope": {
+            "action": "formatting_not_sufficient_check_semantics",
+            "scope": "spannerlearning/seed0/problem1",
+            "excludes": [
+              "physical_necessity",
+              "held_out_generalization",
+              "optimal_rule_selection",
+              "agent_autonomous_improvement"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2-P-H002-self",
+      "results": [
+        {
+          "version": "planning-format-probe-v0.1",
+          "status": "completed",
+          "verdict": "unknown",
+          "reason": "original_already_valid_not_applicable",
+          "source_sha256": "22be60362fe59ac66a11403b97bd9cf0a93b0c9e7c3b2bbeb9b306aafc71948e",
+          "task_id": "spannerlearning/seed0/problem0",
+          "task_binding": {
+            "pilot_role": "prompt",
+            "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+            "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+            "problem_sha256": "9dd3f63454e646145a4a555cdd974d0c4fce27603274b06e82f137ffe489c944",
+            "request_sha256": "cfa3a0584dd1e4724b528d9ee158c44e8e961fa1505e088e7f38b8f052aac9ca"
+          },
+          "normalization": {
+            "status": "unchanged",
+            "reason": "already_normalized",
+            "original": [
+              "(walk shed location1 bob)",
+              "(pickup_spanner location1 spanner3 bob)",
+              "(walk location1 location2 bob)",
+              "(walk location2 location3 bob)",
+              "(walk location3 location4 bob)",
+              "(pickup_spanner location4 spanner1 bob)",
+              "(pickup_spanner location4 spanner2 bob)",
+              "(walk location4 gate bob)",
+              "(tighten_nut gate spanner1 bob nut1)",
+              "(tighten_nut gate spanner2 bob nut2)",
+              "(tighten_nut gate spanner3 bob nut3)"
+            ],
+            "normalized": [
+              "(walk shed location1 bob)",
+              "(pickup_spanner location1 spanner3 bob)",
+              "(walk location1 location2 bob)",
+              "(walk location2 location3 bob)",
+              "(walk location3 location4 bob)",
+              "(pickup_spanner location4 spanner1 bob)",
+              "(pickup_spanner location4 spanner2 bob)",
+              "(walk location4 gate bob)",
+              "(tighten_nut gate spanner1 bob nut1)",
+              "(tighten_nut gate spanner2 bob nut2)",
+              "(tighten_nut gate spanner3 bob nut3)"
+            ],
+            "changed_indices": [],
+            "token_preserved": true
+          },
+          "raw": {
+            "validation": {
+              "status": "success",
+              "error_kind": null,
+              "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+              "plan_length": 11,
+              "validator": {
+                "plan_length": 11,
+                "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+                "status": "valid",
+                "reason": "plan_valid_marker",
+                "returncode": 0,
+                "stdout_sha256": "28c91a0d0b353d85ea3c3faf419e6363ba4dd1b92f75470d059e1e49916efc0f",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 2026,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.003284
+              }
+            },
+            "replay": {
+              "status": "valid",
+              "error_kind": null,
+              "executed_actions": 11,
+              "plan_length": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "normalized": {
+            "validation": {
+              "status": "success",
+              "error_kind": null,
+              "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+              "plan_length": 11,
+              "validator": {
+                "plan_length": 11,
+                "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+                "status": "valid",
+                "reason": "plan_valid_marker",
+                "returncode": 0,
+                "stdout_sha256": "a880aa1a4ec15a19bd3846816dc68f539c58a535716541f5cf45ec52a5feaefc",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 2026,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.004464
+              }
+            },
+            "replay": {
+              "status": "valid",
+              "error_kind": null,
+              "executed_actions": 11,
+              "plan_length": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "transport": {
+            "status": "completed",
+            "stdout_bytes": 423,
+            "stderr_bytes": 0,
+            "elapsed_seconds": 0.042203
+          },
+          "executions": {
+            "new_candidate_executions": 1,
+            "sandbox_calls": 1,
+            "host_validations": 2,
+            "diagnostic_replays": 2,
+            "val_calls": 2,
+            "val_count_complete": true
+          },
+          "model_calls": 0,
+          "changes_historical_scores": false,
+          "next_edit_scope": {
+            "action": "no_repair_inference",
+            "scope": "spannerlearning/seed0/problem0",
+            "excludes": [
+              "physical_necessity",
+              "held_out_generalization",
+              "optimal_rule_selection",
+              "agent_autonomous_improvement"
+            ]
+          }
+        },
+        {
+          "version": "planning-format-probe-v0.1",
+          "status": "completed",
+          "verdict": "unknown",
+          "reason": "original_already_valid_not_applicable",
+          "source_sha256": "22be60362fe59ac66a11403b97bd9cf0a93b0c9e7c3b2bbeb9b306aafc71948e",
+          "task_id": "spannerlearning/seed0/problem1",
+          "task_binding": {
+            "pilot_role": "prompt",
+            "manifest_sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+            "domain_sha256": "3d2a9aec70875b9cbcfe09801b5968f16e611529378172ff4286d8dd37bcb02b",
+            "problem_sha256": "6bfc9e1215a82f90ee7c47b125e6095ef8d4b69f2af3bed9a911102c914b1e6f",
+            "request_sha256": "834f86423965d0f76e609742f374dc9067ac8a49f493a2077e6d7c882a7a723c"
+          },
+          "normalization": {
+            "status": "unchanged",
+            "reason": "already_normalized",
+            "original": [
+              "(walk shed location1 bob)",
+              "(walk location1 location2 bob)",
+              "(walk location2 location3 bob)",
+              "(pickup_spanner location3 spanner1 bob)",
+              "(walk location3 location4 bob)",
+              "(pickup_spanner location4 spanner2 bob)",
+              "(pickup_spanner location4 spanner3 bob)",
+              "(walk location4 gate bob)",
+              "(tighten_nut gate spanner1 bob nut1)",
+              "(tighten_nut gate spanner2 bob nut2)",
+              "(tighten_nut gate spanner3 bob nut3)"
+            ],
+            "normalized": [
+              "(walk shed location1 bob)",
+              "(walk location1 location2 bob)",
+              "(walk location2 location3 bob)",
+              "(pickup_spanner location3 spanner1 bob)",
+              "(walk location3 location4 bob)",
+              "(pickup_spanner location4 spanner2 bob)",
+              "(pickup_spanner location4 spanner3 bob)",
+              "(walk location4 gate bob)",
+              "(tighten_nut gate spanner1 bob nut1)",
+              "(tighten_nut gate spanner2 bob nut2)",
+              "(tighten_nut gate spanner3 bob nut3)"
+            ],
+            "changed_indices": [],
+            "token_preserved": true
+          },
+          "raw": {
+            "validation": {
+              "status": "success",
+              "error_kind": null,
+              "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+              "plan_length": 11,
+              "validator": {
+                "plan_length": 11,
+                "plan_sha256": "16d7ec48e6700629c34d9c4cb0c52e4d77c3b8328d897a2dbb804cc86465a76a",
+                "status": "valid",
+                "reason": "plan_valid_marker",
+                "returncode": 0,
+                "stdout_sha256": "29faa23b49edbac18ce6dda3188c5e5161990cc05b085e4944a1d7efa1b753e7",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 2026,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.003791
+              }
+            },
+            "replay": {
+              "status": "valid",
+              "error_kind": null,
+              "executed_actions": 11,
+              "plan_length": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "normalized": {
+            "validation": {
+              "status": "success",
+              "error_kind": null,
+              "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+              "plan_length": 11,
+              "validator": {
+                "plan_length": 11,
+                "plan_sha256": "16d7ec48e6700629c34d9c4cb0c52e4d77c3b8328d897a2dbb804cc86465a76a",
+                "status": "valid",
+                "reason": "plan_valid_marker",
+                "returncode": 0,
+                "stdout_sha256": "08689223eb2bbc76240d373a7b693ebcd83959601a3364d7fcd4464d74beab4f",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_bytes": 2026,
+                "stderr_bytes": 0,
+                "elapsed_seconds": 0.004579
+              }
+            },
+            "replay": {
+              "status": "valid",
+              "error_kind": null,
+              "executed_actions": 11,
+              "plan_length": 11,
+              "first_failed_action": null,
+              "missing_preconditions": [],
+              "missing_preconditions_truncated": false,
+              "unsatisfied_goals": [],
+              "unsatisfied_goals_truncated": false
+            }
+          },
+          "transport": {
+            "status": "completed",
+            "stdout_bytes": 423,
+            "stderr_bytes": 0,
+            "elapsed_seconds": 0.041288
+          },
+          "executions": {
+            "new_candidate_executions": 1,
+            "sandbox_calls": 1,
+            "host_validations": 2,
+            "diagnostic_replays": 2,
+            "val_calls": 2,
+            "val_count_complete": true
+          },
+          "model_calls": 0,
+          "changes_historical_scores": false,
+          "next_edit_scope": {
+            "action": "no_repair_inference",
+            "scope": "spannerlearning/seed0/problem1",
+            "excludes": [
+              "physical_necessity",
+              "held_out_generalization",
+              "optimal_rule_selection",
+              "agent_autonomous_improvement"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "symbolic": [
+    {
+      "id": "p1-S-poly5-self",
+      "result": {
+        "version": "matched-term-removal-v0.1",
+        "case_id": "p1-S-poly5-self",
+        "status": "completed",
+        "verdict": "supported",
+        "reason": "removal_loss_exceeds_threshold",
+        "claim": "Removing the selected additive term and refitting under the fixed protocol increases oscillator1 train NMSE by more than epsilon.",
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "transformation": {
+          "contract": "single-independent-additive-coefficient-v0.1",
+          "status": "ready",
+          "verdict": "unknown",
+          "reason": null,
+          "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+          "parent_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+          "n_params_before": 6,
+          "n_params_after": 5,
+          "remove_param_index": 5,
+          "mapping": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": null
+          },
+          "canonical_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5 + params[5] * v ** 3\n",
+          "removed_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5\n",
+          "canonical_sha256": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+          "removed_sha256": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+          "term_ast_sha256": "efebd78c14f843197655e5893473194c67fcae04ce05d771512310d0d9226ebc"
+        },
+        "variants": [
+          {
+            "name": "original",
+            "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force (x, x^3, x^5) plus velocity-dependent\n    # damping (v, v^2, v^3):\n    #   a = c1*x + c2*v + c3*x^3 + c4*v^2 + c5*x^5 + c6*v^3\n    # The parent (5-term) version reaches train NMSE 0.0938 with\n    # bias^2/MSE ~ 1.4e-5, so the residual is almost pure variance.\n    # Binned RMSE is worst at high |v| (0.0298) and at the extreme |x| bins\n    # (~0.023), suggesting unmodeled amplitude-dependent behavior in both\n    # channels. Rather than adding more stiffness terms (which grow as\n    # x^7 for large amplitude and can be unstable), the cheapest remaining\n    # independent shape is a cubic-in-velocity term, which lets the damping\n    # change sign with velocity and can capture the non-monotonic\n    # v-residual pattern without touching the restoring part.\n    c1 = params[0]\n    c2 = params[1]\n    c3 = params[2]\n    c4 = params[3]\n    c5 = params[4]\n    c6 = params[5]\n    return c1 * x + c2 * v + c3 * x ** 3 + c4 * v ** 2 + c5 * x ** 5 + c6 * v ** 3",
+            "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+            "n_params": 6,
+            "result": {
+              "schema_version": "0.1",
+              "run_id": "fe2572dea1ec46fb90bd3aaf41fabbbd",
+              "family": "symbolic",
+              "task_id": "oscillator1",
+              "candidate_id": "p1-S-poly5-self-original",
+              "candidate_hash": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+              "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+              "strategy_version": "matched-term-removal-v0.1",
+              "feedback_role": "development_only",
+              "limits": {
+                "timeout_seconds": 20,
+                "memory_mb": 2048,
+                "cpu_seconds": 10,
+                "max_output_bytes": 2000000
+              },
+              "model_calls": 0,
+              "sealed_tasks_executed": 0,
+              "executions": [
+                {
+                  "phase": "fit",
+                  "status": "completed",
+                  "elapsed_seconds": 0.222547,
+                  "stdout_bytes": 199,
+                  "stderr_bytes": 0
+                },
+                {
+                  "phase": "predict",
+                  "status": "completed",
+                  "elapsed_seconds": 0.208165,
+                  "stdout_bytes": 205137,
+                  "stderr_bytes": 0
+                }
+              ],
+              "fitting": {
+                "params": [
+                  -0.1889737534984609,
+                  0.051999724279486376,
+                  0.1302351139835668,
+                  0.03815854563408658,
+                  -0.0450471228219963,
+                  -1.2337184211451242
+                ],
+                "n_params": 6,
+                "nfev": 3,
+                "converged": true,
+                "candidate_calls": 22,
+                "split": "train",
+                "max_nfev": 100
+              },
+              "status": "success",
+              "metrics": {
+                "mse": 0.00040250547936758897,
+                "nmse": 0.09224903410100932
+              },
+              "metric_split": "train",
+              "metric_scope": "Training fit only; not a held-out or generalization result.",
+              "diagnostics": {
+                "version": "diagnostics-v0.1",
+                "task_id": "oscillator1",
+                "candidate_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+                "scope": "train",
+                "residuals": {
+                  "status": "ok",
+                  "scope": "train",
+                  "residual_definition": "prediction - target",
+                  "n": 10000,
+                  "bias": 0.0005639422257550756,
+                  "rmse": 0.02006253920538447,
+                  "standardized_bias": 0.00853747862567713,
+                  "standardized_bias_reason": null,
+                  "standardized_bias_definition": "bias / population_std(target)",
+                  "binning_method": "linear_quantile",
+                  "inputs": [
+                    {
+                      "name": "x",
+                      "boundaries": [
+                        -0.5728219032885896,
+                        -0.46038220456877554,
+                        -0.22761842703089324,
+                        0.28635886598470794,
+                        0.5275126203368584
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.5728219032885896,
+                          "upper": -0.46038220456877554,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.00010075549392167965,
+                          "rmse": 0.014068987506896398
+                        },
+                        {
+                          "lower": -0.46038220456877554,
+                          "upper": -0.22761842703089324,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0023055852889629835,
+                          "rmse": 0.021302196439631594
+                        },
+                        {
+                          "lower": -0.22761842703089324,
+                          "upper": 0.28635886598470794,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.001244520940597262,
+                          "rmse": 0.01710364227334989
+                        },
+                        {
+                          "lower": 0.28635886598470794,
+                          "upper": 0.5275126203368584,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0012954600485762604,
+                          "rmse": 0.025802468018268614
+                        }
+                      ]
+                    },
+                    {
+                      "name": "v",
+                      "boundaries": [
+                        -0.17542969970098574,
+                        -0.13719210123484957,
+                        -0.04814716714891003,
+                        0.09524424826668271,
+                        0.282136353640072
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.17542969970098574,
+                          "upper": -0.13719210123484957,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0009246785624518135,
+                          "rmse": 0.015511890004455398
+                        },
+                        {
+                          "lower": -0.13719210123484957,
+                          "upper": -0.04814716714891003,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0025958348830276293,
+                          "rmse": 0.019024272190527772
+                        },
+                        {
+                          "lower": -0.04814716714891003,
+                          "upper": 0.09524424826668271,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.000591271229214222,
+                          "rmse": 0.01120289431233866
+                        },
+                        {
+                          "lower": 0.09524424826668271,
+                          "upper": 0.282136353640072,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0011758838116587083,
+                          "rmse": 0.02969807085666196
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "elapsed_seconds": 0.513449
+            }
+          },
+          {
+            "name": "canonical_full",
+            "source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5 + params[5] * v ** 3\n",
+            "source_sha256": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+            "n_params": 6,
+            "result": {
+              "schema_version": "0.1",
+              "run_id": "05a2b6ed0be34297bfb2c69c965a0608",
+              "family": "symbolic",
+              "task_id": "oscillator1",
+              "candidate_id": "p1-S-poly5-self-canonical_full",
+              "candidate_hash": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+              "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+              "strategy_version": "matched-term-removal-v0.1",
+              "feedback_role": "development_only",
+              "limits": {
+                "timeout_seconds": 20,
+                "memory_mb": 2048,
+                "cpu_seconds": 10,
+                "max_output_bytes": 2000000
+              },
+              "model_calls": 0,
+              "sealed_tasks_executed": 0,
+              "executions": [
+                {
+                  "phase": "fit",
+                  "status": "completed",
+                  "elapsed_seconds": 0.222329,
+                  "stdout_bytes": 199,
+                  "stderr_bytes": 0
+                },
+                {
+                  "phase": "predict",
+                  "status": "completed",
+                  "elapsed_seconds": 0.219055,
+                  "stdout_bytes": 205137,
+                  "stderr_bytes": 0
+                }
+              ],
+              "fitting": {
+                "params": [
+                  -0.1889737534984609,
+                  0.051999724279486376,
+                  0.1302351139835668,
+                  0.03815854563408658,
+                  -0.0450471228219963,
+                  -1.2337184211451242
+                ],
+                "n_params": 6,
+                "nfev": 3,
+                "converged": true,
+                "candidate_calls": 22,
+                "split": "train",
+                "max_nfev": 100
+              },
+              "status": "success",
+              "metrics": {
+                "mse": 0.00040250547936758897,
+                "nmse": 0.09224903410100932
+              },
+              "metric_split": "train",
+              "metric_scope": "Training fit only; not a held-out or generalization result.",
+              "diagnostics": {
+                "version": "diagnostics-v0.1",
+                "task_id": "oscillator1",
+                "candidate_sha256": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+                "scope": "train",
+                "residuals": {
+                  "status": "ok",
+                  "scope": "train",
+                  "residual_definition": "prediction - target",
+                  "n": 10000,
+                  "bias": 0.0005639422257550756,
+                  "rmse": 0.02006253920538447,
+                  "standardized_bias": 0.00853747862567713,
+                  "standardized_bias_reason": null,
+                  "standardized_bias_definition": "bias / population_std(target)",
+                  "binning_method": "linear_quantile",
+                  "inputs": [
+                    {
+                      "name": "x",
+                      "boundaries": [
+                        -0.5728219032885896,
+                        -0.46038220456877554,
+                        -0.22761842703089324,
+                        0.28635886598470794,
+                        0.5275126203368584
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.5728219032885896,
+                          "upper": -0.46038220456877554,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.00010075549392167965,
+                          "rmse": 0.014068987506896398
+                        },
+                        {
+                          "lower": -0.46038220456877554,
+                          "upper": -0.22761842703089324,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0023055852889629835,
+                          "rmse": 0.021302196439631594
+                        },
+                        {
+                          "lower": -0.22761842703089324,
+                          "upper": 0.28635886598470794,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.001244520940597262,
+                          "rmse": 0.01710364227334989
+                        },
+                        {
+                          "lower": 0.28635886598470794,
+                          "upper": 0.5275126203368584,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0012954600485762604,
+                          "rmse": 0.025802468018268614
+                        }
+                      ]
+                    },
+                    {
+                      "name": "v",
+                      "boundaries": [
+                        -0.17542969970098574,
+                        -0.13719210123484957,
+                        -0.04814716714891003,
+                        0.09524424826668271,
+                        0.282136353640072
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.17542969970098574,
+                          "upper": -0.13719210123484957,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0009246785624518135,
+                          "rmse": 0.015511890004455398
+                        },
+                        {
+                          "lower": -0.13719210123484957,
+                          "upper": -0.04814716714891003,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0025958348830276293,
+                          "rmse": 0.019024272190527772
+                        },
+                        {
+                          "lower": -0.04814716714891003,
+                          "upper": 0.09524424826668271,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.000591271229214222,
+                          "rmse": 0.01120289431233866
+                        },
+                        {
+                          "lower": 0.09524424826668271,
+                          "upper": 0.282136353640072,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0011758838116587083,
+                          "rmse": 0.02969807085666196
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "elapsed_seconds": 0.527367
+            }
+          },
+          {
+            "name": "removed",
+            "source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5\n",
+            "source_sha256": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+            "n_params": 5,
+            "result": {
+              "schema_version": "0.1",
+              "run_id": "0c4ba6e909754282830f3cc45b33abf6",
+              "family": "symbolic",
+              "task_id": "oscillator1",
+              "candidate_id": "p1-S-poly5-self-removed",
+              "candidate_hash": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+              "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+              "strategy_version": "matched-term-removal-v0.1",
+              "feedback_role": "development_only",
+              "limits": {
+                "timeout_seconds": 20,
+                "memory_mb": 2048,
+                "cpu_seconds": 10,
+                "max_output_bytes": 2000000
+              },
+              "model_calls": 0,
+              "sealed_tasks_executed": 0,
+              "executions": [
+                {
+                  "phase": "fit",
+                  "status": "completed",
+                  "elapsed_seconds": 0.213108,
+                  "stdout_bytes": 183,
+                  "stderr_bytes": 0
+                },
+                {
+                  "phase": "predict",
+                  "status": "completed",
+                  "elapsed_seconds": 0.211541,
+                  "stdout_bytes": 205073,
+                  "stderr_bytes": 0
+                }
+              ],
+              "fitting": {
+                "params": [
+                  -0.18575447552294821,
+                  0.008629417939309665,
+                  0.10395068529957835,
+                  -0.0855405563978218,
+                  0.0025007987684781963
+                ],
+                "n_params": 5,
+                "nfev": 3,
+                "converged": true,
+                "candidate_calls": 19,
+                "split": "train",
+                "max_nfev": 100
+              },
+              "status": "success",
+              "metrics": {
+                "mse": 0.0004091082334152086,
+                "nmse": 0.09376229967010528
+              },
+              "metric_split": "train",
+              "metric_scope": "Training fit only; not a held-out or generalization result.",
+              "diagnostics": {
+                "version": "diagnostics-v0.1",
+                "task_id": "oscillator1",
+                "candidate_sha256": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+                "scope": "train",
+                "residuals": {
+                  "status": "ok",
+                  "scope": "train",
+                  "residual_definition": "prediction - target",
+                  "n": 10000,
+                  "bias": 7.607474647981979e-05,
+                  "rmse": 0.020226424138122107,
+                  "standardized_bias": 0.0011516898227573846,
+                  "standardized_bias_reason": null,
+                  "standardized_bias_definition": "bias / population_std(target)",
+                  "binning_method": "linear_quantile",
+                  "inputs": [
+                    {
+                      "name": "x",
+                      "boundaries": [
+                        -0.5728219032885896,
+                        -0.46038220456877554,
+                        -0.22761842703089324,
+                        0.28635886598470794,
+                        0.5275126203368584
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.5728219032885896,
+                          "upper": -0.46038220456877554,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.00037938977847907054,
+                          "rmse": 0.01632634139418286
+                        },
+                        {
+                          "lower": -0.46038220456877554,
+                          "upper": -0.22761842703089324,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0015575525883172812,
+                          "rmse": 0.022715925949967554
+                        },
+                        {
+                          "lower": -0.22761842703089324,
+                          "upper": 0.28635886598470794,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.001272668001390612,
+                          "rmse": 0.017517564722122087
+                        },
+                        {
+                          "lower": 0.28635886598470794,
+                          "upper": 0.5275126203368584,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0003988041774716805,
+                          "rmse": 0.0233881411143186
+                        }
+                      ]
+                    },
+                    {
+                      "name": "v",
+                      "boundaries": [
+                        -0.17542969970098574,
+                        -0.13719210123484957,
+                        -0.04814716714891003,
+                        0.09524424826668271,
+                        0.282136353640072
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.17542969970098574,
+                          "upper": -0.13719210123484957,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0024624002593808436,
+                          "rmse": 0.015575367332108903
+                        },
+                        {
+                          "lower": -0.13719210123484957,
+                          "upper": -0.04814716714891003,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.004207036308650126,
+                          "rmse": 0.019339388156186195
+                        },
+                        {
+                          "lower": -0.04814716714891003,
+                          "upper": 0.09524424826668271,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.001487710904844435,
+                          "rmse": 0.011602312563049944
+                        },
+                        {
+                          "lower": 0.09524424826668271,
+                          "upper": 0.282136353640072,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 4.7373841494431484e-05,
+                          "rmse": 0.02975256753734655
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "elapsed_seconds": 0.504246
+            }
+          }
+        ],
+        "dataset_identity": {
+          "task": "oscillator1",
+          "split": "train",
+          "rows": 10000,
+          "input_names": [
+            "x",
+            "v"
+          ],
+          "manifest_sha256": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8",
+          "data_sha256": "a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7"
+        },
+        "delta_nmse": 0.0015132655690959645,
+        "sham_delta_nmse": 0.0,
+        "candidate_evaluations": 3,
+        "sandbox_executions": 6,
+        "executions": {
+          "sandbox_calls": 6,
+          "new_candidate_executions": 3,
+          "fit_calls": 3,
+          "predict_calls": 3
+        },
+        "execution_accounting_complete": true,
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "infrastructure_stopped": false,
+        "next_edit_scope": {
+          "action": "retain_selected_term_under_fixed_train_protocol",
+          "scope": "oscillator1/train",
+          "excludes": [
+            "physical_necessity",
+            "held_out_generalization",
+            "optimal_rule_selection",
+            "agent_autonomous_improvement"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p2-S-odd4-checked",
+      "result": {
+        "version": "matched-term-removal-v0.1",
+        "case_id": "p2-S-odd4-checked",
+        "status": "completed",
+        "verdict": "contradicted",
+        "reason": "removal_loss_below_threshold",
+        "claim": "Removing the selected additive term and refitting under the fixed protocol increases oscillator1 train NMSE by more than epsilon.",
+        "epsilon": 1e-05,
+        "tolerance": 1e-10,
+        "transformation": {
+          "contract": "single-independent-additive-coefficient-v0.1",
+          "status": "ready",
+          "verdict": "unknown",
+          "reason": null,
+          "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+          "parent_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+          "n_params_before": 5,
+          "n_params_after": 4,
+          "remove_param_index": 4,
+          "mapping": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": null
+          },
+          "canonical_source": "import numpy as np\n\ndef equation(x, v, params):\n    return -(params[0] * x) + -(params[1] * v) + -(params[2] * x ** 3) + -(params[3] * (v * np.abs(v))) + -(params[4] * x ** 5)\n",
+          "removed_source": "import numpy as np\n\ndef equation(x, v, params):\n    return -(params[0] * x) + -(params[1] * v) + -(params[2] * x ** 3) + -(params[3] * (v * np.abs(v)))\n",
+          "canonical_sha256": "51b867e6348d533b3a051a8a3061269c7b0af5b1636fed4ebe0fbe3acd9ed0cb",
+          "removed_sha256": "19f4a297560964a648b52182f1970ca914b806544ae63a535b077383651e459e",
+          "term_ast_sha256": "e06e5272925b3eecb90457ab6acfa33088eed05f627ad8447087a8ecb4005c9b"
+        },
+        "variants": [
+          {
+            "name": "original",
+            "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    k = params[0]\n    c = params[1]\n    d = params[2]\n    c2 = params[3]\n    d2 = params[4]\n    return -k * x - c * v - d * x ** 3 - c2 * v * np.abs(v) - d2 * x ** 5",
+            "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+            "n_params": 5,
+            "result": {
+              "schema_version": "0.1",
+              "run_id": "5f81a36b1c434144a9b6dfd4a0402a99",
+              "family": "symbolic",
+              "task_id": "oscillator1",
+              "candidate_id": "p2-S-odd4-checked-original",
+              "candidate_hash": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+              "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+              "strategy_version": "matched-term-removal-v0.1",
+              "feedback_role": "development_only",
+              "limits": {
+                "timeout_seconds": 20,
+                "memory_mb": 2048,
+                "cpu_seconds": 10,
+                "max_output_bytes": 2000000
+              },
+              "model_calls": 0,
+              "sealed_tasks_executed": 0,
+              "executions": [
+                {
+                  "phase": "fit",
+                  "status": "completed",
+                  "elapsed_seconds": 0.215597,
+                  "stdout_bytes": 181,
+                  "stderr_bytes": 0
+                },
+                {
+                  "phase": "predict",
+                  "status": "completed",
+                  "elapsed_seconds": 0.215303,
+                  "stdout_bytes": 205086,
+                  "stderr_bytes": 0
+                }
+              ],
+              "fitting": {
+                "params": [
+                  0.18826767613343184,
+                  -0.08444560567969996,
+                  -0.12034880397483333,
+                  0.4184073771863192,
+                  0.021661410323328873
+                ],
+                "n_params": 5,
+                "nfev": 5,
+                "converged": true,
+                "candidate_calls": 21,
+                "split": "train",
+                "max_nfev": 100
+              },
+              "status": "success",
+              "metrics": {
+                "mse": 0.0004005636291706567,
+                "nmse": 0.09180398722781567
+              },
+              "metric_split": "train",
+              "metric_scope": "Training fit only; not a held-out or generalization result.",
+              "diagnostics": {
+                "version": "diagnostics-v0.1",
+                "task_id": "oscillator1",
+                "candidate_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+                "scope": "train",
+                "residuals": {
+                  "status": "ok",
+                  "scope": "train",
+                  "residual_definition": "prediction - target",
+                  "n": 10000,
+                  "bias": 7.422000601366525e-05,
+                  "rmse": 0.02001408576904418,
+                  "standardized_bias": 0.0011236110473743723,
+                  "standardized_bias_reason": null,
+                  "standardized_bias_definition": "bias / population_std(target)",
+                  "binning_method": "linear_quantile",
+                  "inputs": [
+                    {
+                      "name": "x",
+                      "boundaries": [
+                        -0.5728219032885896,
+                        -0.46038220456877554,
+                        -0.22761842703089324,
+                        0.28635886598470794,
+                        0.5275126203368584
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.5728219032885896,
+                          "upper": -0.46038220456877554,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.00023826826484560378,
+                          "rmse": 0.013814511461738734
+                        },
+                        {
+                          "lower": -0.46038220456877554,
+                          "upper": -0.22761842703089324,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0016353239465025729,
+                          "rmse": 0.021579007504591654
+                        },
+                        {
+                          "lower": -0.22761842703089324,
+                          "upper": 0.28635886598470794,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0017273291041812854,
+                          "rmse": 0.01695804351723196
+                        },
+                        {
+                          "lower": 0.28635886598470794,
+                          "upper": 0.5275126203368584,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0006271534465789773,
+                          "rmse": 0.025655116155273203
+                        }
+                      ]
+                    },
+                    {
+                      "name": "v",
+                      "boundaries": [
+                        -0.17542969970098574,
+                        -0.13719210123484957,
+                        -0.04814716714891003,
+                        0.09524424826668271,
+                        0.282136353640072
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.17542969970098574,
+                          "upper": -0.13719210123484957,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0014655893832921675,
+                          "rmse": 0.015551755746377688
+                        },
+                        {
+                          "lower": -0.13719210123484957,
+                          "upper": -0.04814716714891003,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0019501968750964714,
+                          "rmse": 0.01906274458315923
+                        },
+                        {
+                          "lower": -0.04814716714891003,
+                          "upper": 0.09524424826668271,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0005061747055151089,
+                          "rmse": 0.011098089827017375
+                        },
+                        {
+                          "lower": 0.09524424826668271,
+                          "upper": 0.282136353640072,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0003184472377654661,
+                          "rmse": 0.029560811576076908
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "elapsed_seconds": 0.510146
+            }
+          },
+          {
+            "name": "canonical_full",
+            "source": "import numpy as np\n\ndef equation(x, v, params):\n    return -(params[0] * x) + -(params[1] * v) + -(params[2] * x ** 3) + -(params[3] * (v * np.abs(v))) + -(params[4] * x ** 5)\n",
+            "source_sha256": "51b867e6348d533b3a051a8a3061269c7b0af5b1636fed4ebe0fbe3acd9ed0cb",
+            "n_params": 5,
+            "result": {
+              "schema_version": "0.1",
+              "run_id": "b037e37da7c0494b9b87bff16872e0fc",
+              "family": "symbolic",
+              "task_id": "oscillator1",
+              "candidate_id": "p2-S-odd4-checked-canonical_full",
+              "candidate_hash": "51b867e6348d533b3a051a8a3061269c7b0af5b1636fed4ebe0fbe3acd9ed0cb",
+              "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+              "strategy_version": "matched-term-removal-v0.1",
+              "feedback_role": "development_only",
+              "limits": {
+                "timeout_seconds": 20,
+                "memory_mb": 2048,
+                "cpu_seconds": 10,
+                "max_output_bytes": 2000000
+              },
+              "model_calls": 0,
+              "sealed_tasks_executed": 0,
+              "executions": [
+                {
+                  "phase": "fit",
+                  "status": "completed",
+                  "elapsed_seconds": 0.22391,
+                  "stdout_bytes": 180,
+                  "stderr_bytes": 0
+                },
+                {
+                  "phase": "predict",
+                  "status": "completed",
+                  "elapsed_seconds": 0.216004,
+                  "stdout_bytes": 205192,
+                  "stderr_bytes": 0
+                }
+              ],
+              "fitting": {
+                "params": [
+                  0.18826767627788543,
+                  -0.08444560509279508,
+                  -0.12034880470823484,
+                  0.4184073761998922,
+                  0.02166141644728692
+                ],
+                "n_params": 5,
+                "nfev": 6,
+                "converged": true,
+                "candidate_calls": 17,
+                "split": "train",
+                "max_nfev": 100
+              },
+              "status": "success",
+              "metrics": {
+                "mse": 0.00040056362917065676,
+                "nmse": 0.09180398722781569
+              },
+              "metric_split": "train",
+              "metric_scope": "Training fit only; not a held-out or generalization result.",
+              "diagnostics": {
+                "version": "diagnostics-v0.1",
+                "task_id": "oscillator1",
+                "candidate_sha256": "51b867e6348d533b3a051a8a3061269c7b0af5b1636fed4ebe0fbe3acd9ed0cb",
+                "scope": "train",
+                "residuals": {
+                  "status": "ok",
+                  "scope": "train",
+                  "residual_definition": "prediction - target",
+                  "n": 10000,
+                  "bias": 7.422004962814634e-05,
+                  "rmse": 0.02001408576904418,
+                  "standardized_bias": 0.0011236117076506968,
+                  "standardized_bias_reason": null,
+                  "standardized_bias_definition": "bias / population_std(target)",
+                  "binning_method": "linear_quantile",
+                  "inputs": [
+                    {
+                      "name": "x",
+                      "boundaries": [
+                        -0.5728219032885896,
+                        -0.46038220456877554,
+                        -0.22761842703089324,
+                        0.28635886598470794,
+                        0.5275126203368584
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.5728219032885896,
+                          "upper": -0.46038220456877554,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.00023826805575050705,
+                          "rmse": 0.013814511495813465
+                        },
+                        {
+                          "lower": -0.46038220456877554,
+                          "upper": -0.22761842703089324,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0016353240320209114,
+                          "rmse": 0.021579007568375805
+                        },
+                        {
+                          "lower": -0.22761842703089324,
+                          "upper": 0.28635886598470794,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0017273290982248225,
+                          "rmse": 0.01695804348570633
+                        },
+                        {
+                          "lower": 0.28635886598470794,
+                          "upper": 0.5275126203368584,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0006271533204670034,
+                          "rmse": 0.025655116104113373
+                        }
+                      ]
+                    },
+                    {
+                      "name": "v",
+                      "boundaries": [
+                        -0.17542969970098574,
+                        -0.13719210123484957,
+                        -0.04814716714891003,
+                        0.09524424826668271,
+                        0.282136353640072
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.17542969970098574,
+                          "upper": -0.13719210123484957,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0014655893071640808,
+                          "rmse": 0.015551755769159396
+                        },
+                        {
+                          "lower": -0.13719210123484957,
+                          "upper": -0.04814716714891003,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0019501969668440301,
+                          "rmse": 0.01906274470118012
+                        },
+                        {
+                          "lower": -0.04814716714891003,
+                          "upper": 0.09524424826668271,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0005061746376651151,
+                          "rmse": 0.011098089763087236
+                        },
+                        {
+                          "lower": 0.09524424826668271,
+                          "upper": 0.282136353640072,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.00031844717649775106,
+                          "rmse": 0.029560811511985457
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "elapsed_seconds": 0.524617
+            }
+          },
+          {
+            "name": "removed",
+            "source": "import numpy as np\n\ndef equation(x, v, params):\n    return -(params[0] * x) + -(params[1] * v) + -(params[2] * x ** 3) + -(params[3] * (v * np.abs(v)))\n",
+            "source_sha256": "19f4a297560964a648b52182f1970ca914b806544ae63a535b077383651e459e",
+            "n_params": 4,
+            "result": {
+              "schema_version": "0.1",
+              "run_id": "2e376e645c67413fab258fbe4102024b",
+              "family": "symbolic",
+              "task_id": "oscillator1",
+              "candidate_id": "p2-S-odd4-checked-removed",
+              "candidate_hash": "19f4a297560964a648b52182f1970ca914b806544ae63a535b077383651e459e",
+              "parent_id": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+              "strategy_version": "matched-term-removal-v0.1",
+              "feedback_role": "development_only",
+              "limits": {
+                "timeout_seconds": 20,
+                "memory_mb": 2048,
+                "cpu_seconds": 10,
+                "max_output_bytes": 2000000
+              },
+              "model_calls": 0,
+              "sealed_tasks_executed": 0,
+              "executions": [
+                {
+                  "phase": "fit",
+                  "status": "completed",
+                  "elapsed_seconds": 0.221449,
+                  "stdout_bytes": 161,
+                  "stderr_bytes": 0
+                },
+                {
+                  "phase": "predict",
+                  "status": "completed",
+                  "elapsed_seconds": 0.22209,
+                  "stdout_bytes": 205126,
+                  "stderr_bytes": 0
+                }
+              ],
+              "fitting": {
+                "params": [
+                  0.18755332962129337,
+                  -0.08442478081158655,
+                  -0.11179792858205952,
+                  0.41831700346929734
+                ],
+                "n_params": 4,
+                "nfev": 3,
+                "converged": true,
+                "candidate_calls": 16,
+                "split": "train",
+                "max_nfev": 100
+              },
+              "status": "success",
+              "metrics": {
+                "mse": 0.0004005667620693831,
+                "nmse": 0.09180470524756015
+              },
+              "metric_split": "train",
+              "metric_scope": "Training fit only; not a held-out or generalization result.",
+              "diagnostics": {
+                "version": "diagnostics-v0.1",
+                "task_id": "oscillator1",
+                "candidate_sha256": "19f4a297560964a648b52182f1970ca914b806544ae63a535b077383651e459e",
+                "scope": "train",
+                "residuals": {
+                  "status": "ok",
+                  "scope": "train",
+                  "residual_definition": "prediction - target",
+                  "n": 10000,
+                  "bias": 7.094327784646609e-05,
+                  "rmse": 0.020014164036236515,
+                  "standardized_bias": 0.0010740049079295726,
+                  "standardized_bias_reason": null,
+                  "standardized_bias_definition": "bias / population_std(target)",
+                  "binning_method": "linear_quantile",
+                  "inputs": [
+                    {
+                      "name": "x",
+                      "boundaries": [
+                        -0.5728219032885896,
+                        -0.46038220456877554,
+                        -0.22761842703089324,
+                        0.28635886598470794,
+                        0.5275126203368584
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.5728219032885896,
+                          "upper": -0.46038220456877554,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0002492912465520026,
+                          "rmse": 0.013811196197644704
+                        },
+                        {
+                          "lower": -0.46038220456877554,
+                          "upper": -0.22761842703089324,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0016467560227625589,
+                          "rmse": 0.021579218631065558
+                        },
+                        {
+                          "lower": -0.22761842703089324,
+                          "upper": 0.28635886598470794,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0017186496974386542,
+                          "rmse": 0.016963163792284373
+                        },
+                        {
+                          "lower": 0.28635886598470794,
+                          "upper": 0.5275126203368584,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0006049580326139623,
+                          "rmse": 0.02565358269904035
+                        }
+                      ]
+                    },
+                    {
+                      "name": "v",
+                      "boundaries": [
+                        -0.17542969970098574,
+                        -0.13719210123484957,
+                        -0.04814716714891003,
+                        0.09524424826668271,
+                        0.282136353640072
+                      ],
+                      "bins": [
+                        {
+                          "lower": -0.17542969970098574,
+                          "upper": -0.13719210123484957,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0014664673323047928,
+                          "rmse": 0.015514841911061414
+                        },
+                        {
+                          "lower": -0.13719210123484957,
+                          "upper": -0.04814716714891003,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": 0.0019535560238000847,
+                          "rmse": 0.019093972413973884
+                        },
+                        {
+                          "lower": -0.04814716714891003,
+                          "upper": 0.09524424826668271,
+                          "upper_inclusive": false,
+                          "count": 2500,
+                          "mean_residual": -0.0005248168741793869,
+                          "rmse": 0.01108636898231806
+                        },
+                        {
+                          "lower": 0.09524424826668271,
+                          "upper": 0.282136353640072,
+                          "upper_inclusive": true,
+                          "count": 2500,
+                          "mean_residual": 0.0003215012940699593,
+                          "rmse": 0.029564664195532563
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "elapsed_seconds": 0.529539
+            }
+          }
+        ],
+        "dataset_identity": {
+          "task": "oscillator1",
+          "split": "train",
+          "rows": 10000,
+          "input_names": [
+            "x",
+            "v"
+          ],
+          "manifest_sha256": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8",
+          "data_sha256": "a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7"
+        },
+        "delta_nmse": 7.180197444667247e-07,
+        "sham_delta_nmse": 1.3877787807814457e-17,
+        "candidate_evaluations": 3,
+        "sandbox_executions": 6,
+        "executions": {
+          "sandbox_calls": 6,
+          "new_candidate_executions": 3,
+          "fit_calls": 3,
+          "predict_calls": 3
+        },
+        "execution_accounting_complete": true,
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "infrastructure_stopped": false,
+        "next_edit_scope": {
+          "action": "consider_evaluated_term_removal",
+          "scope": "oscillator1/train",
+          "excludes": [
+            "physical_necessity",
+            "held_out_generalization",
+            "optimal_rule_selection",
+            "agent_autonomous_improvement"
+          ]
+        }
+      }
+    }
+  ],
+  "format_patch": {
+    "status": "completed",
+    "source_case": "p2-P-H002-checked",
+    "patch": {
+      "status": "accepted",
+      "reason": "exact_formatter_return_replaced",
+      "source": "\"\"\"Grounded BFS planner for the spanner STRIPS domain.\n\nGrounds walk, pickup_spanner and tighten_nut from the declared objects, then\nperforms breadth-first search over atom sets. Returns parenthesized grounded\naction strings in schema parameter order.\n\"\"\"\n\nLOC = \"location\"\nMAN = \"man\"\nNUT = \"nut\"\nSPANNER = \"spanner\"\n\n\ndef _by_type(objects):\n    t = {}\n    try:\n        items = list(objects)\n    except Exception:\n        items = []\n    for pair in items:\n        try:\n            name, typ = pair[0], pair[1]\n        except Exception:\n            continue\n        t.setdefault(str(typ), []).append(str(name))\n    for v in t.values():\n        v.sort()\n    return t\n\n\ndef _norm(facts):\n    out = set()\n    try:\n        it = list(facts)\n    except Exception:\n        return out\n    for f in it:\n        try:\n            out.add(tuple(str(x) for x in f))\n        except Exception:\n            continue\n    return out\n\n\ndef _loc_of(state, thing):\n    return set(a[2] for a in state if a[0] == \"at\" and a[1] == thing)\n\n\ndef _actions(state, men, spanners, nuts, locs):\n    locset = set(locs)\n    carrying = set(a[2] for a in state if a[0] == \"carrying\")\n    usable = set(a[1] for a in state if a[0] == \"useable\")\n    loose = set(a[1] for a in state if a[0] == \"loose\")\n    out = []\n    for m in men:\n        mloc = _loc_of(state, m) & locset\n        # walk\n        for a in state:\n            if a[0] == \"link\" and a[2] in locset and a[1] in mloc:\n                out.append((\"walk\", (a[1], a[2], m),\n                            [(\"at\", m, a[2])], [(\"at\", m, a[1])]))\n        # pickup_spanner\n        for s in spanners:\n            if s in carrying:\n                continue\n            shared = _loc_of(state, s) & mloc\n            for l in shared:\n                out.append((\"pickup_spanner\", (l, s, m),\n                            [(\"carrying\", m, s)], [(\"at\", s, l)]))\n        # tighten_nut\n        if not mloc:\n            continue\n        for n in nuts:\n            if n not in loose:\n                continue\n            nloc = _loc_of(state, n) & mloc\n            for s in sorted(carrying & usable):\n                for l in nloc:\n                    out.append((\"tighten_nut\", (l, s, m, n),\n                                [(\"tightened\", n)],\n                                [(\"loose\", n), (\"useable\", s)]))\n    return out\n\n\ndef _fmt(name, params):\n    return \"(\" + \" \".join([name] + list(params)) + \")\"\n\n\ndef get_plan(objects, init, goal):\n    types = _by_type(objects)\n    start = frozenset(_norm(init))\n    goals = frozenset(_norm(goal))\n    if goals <= start:\n        return []\n    men = types.get(MAN, [])\n    locs = types.get(LOC, [])\n    spanners = types.get(SPANNER, [])\n    nuts = types.get(NUT, [])\n    if not men or not locs:\n        return []\n    frontier = [(start, [])]\n    seen = {start}\n    while frontier:\n        nxt = []\n        for state, plan in frontier:\n            for name, params, add, dele in _actions(state, men, spanners, nuts, locs):\n                ns = set(state)\n                ns.difference_update(dele)\n                ns.update(add)\n                ns = frozenset(ns)\n                if ns in seen:\n                    continue\n                nplan = plan + [_fmt(name, params)]\n                if len(nplan) > 1000:\n                    return []\n                if goals <= ns:\n                    return nplan\n                seen.add(ns)\n                nxt.append((ns, nplan))\n        if not nxt:\n            return []\n        frontier = nxt\n    return []",
+      "source_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+      "original_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "contract": {
+        "function": "_fmt",
+        "other_ast_unchanged": true,
+        "ast_projection_version": "python310-empty-type-params-v0.1",
+        "other_ast_sha256": "65bbff87402ab9175d0a17d7d5ba914676ba9536b91af70d9763a9c6fb567956",
+        "original_return_ast_sha256": "abbd331fa1752b1de06e760c561f7bf1730c32429dc6c40d588a4abfa2f54cb6",
+        "patched_return_ast_sha256": "adbeceef6203caadd34b74637ff138f179812979ca1e1790f5ea9d4a205dd699",
+        "original_byte_span": [
+          2358,
+          2414
+        ],
+        "researcher_defined": true
+      }
+    },
+    "results": [
+      {
+        "schema_version": "0.1",
+        "run_id": "b85950ff3970429cbf80b17830a4a118",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem0",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.056851,
+            "stdout_bytes": 4877,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "2420785bd0a5414db8f015f4c2a05ab1f9146511abe1e6c43ed1c11469b67cf6",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "e0c621bacceac2b1fc8908755c6a6e59d10ea9d93c647cb587999b4493372a62",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003739
+        },
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "spannerlearning/seed0/problem0",
+          "candidate_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+          "scope": "public_prompt",
+          "trace": {
+            "events_seen": 20000,
+            "event_limit": 20000,
+            "truncated": true,
+            "interrupted": false,
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "lines": [
+              {
+                "line": 15,
+                "hits": 1
+              },
+              {
+                "line": 16,
+                "hits": 1
+              },
+              {
+                "line": 17,
+                "hits": 1
+              },
+              {
+                "line": 20,
+                "hits": 14
+              },
+              {
+                "line": 21,
+                "hits": 13
+              },
+              {
+                "line": 22,
+                "hits": 13
+              },
+              {
+                "line": 25,
+                "hits": 13
+              },
+              {
+                "line": 26,
+                "hits": 5
+              },
+              {
+                "line": 27,
+                "hits": 4
+              },
+              {
+                "line": 28,
+                "hits": 1
+              },
+              {
+                "line": 32,
+                "hits": 2
+              },
+              {
+                "line": 33,
+                "hits": 2
+              },
+              {
+                "line": 34,
+                "hits": 2
+              },
+              {
+                "line": 37,
+                "hits": 23
+              },
+              {
+                "line": 38,
+                "hits": 21
+              },
+              {
+                "line": 39,
+                "hits": 96
+              },
+              {
+                "line": 42,
+                "hits": 2
+              },
+              {
+                "line": 46,
+                "hits": 5776
+              },
+              {
+                "line": 50,
+                "hits": 66
+              },
+              {
+                "line": 51,
+                "hits": 1270
+              },
+              {
+                "line": 52,
+                "hits": 1270
+              },
+              {
+                "line": 53,
+                "hits": 1270
+              },
+              {
+                "line": 54,
+                "hits": 66
+              },
+              {
+                "line": 55,
+                "hits": 131
+              },
+              {
+                "line": 56,
+                "hits": 66
+              },
+              {
+                "line": 58,
+                "hits": 1204
+              },
+              {
+                "line": 59,
+                "hits": 1138
+              },
+              {
+                "line": 60,
+                "hits": 30
+              },
+              {
+                "line": 61,
+                "hits": 15
+              },
+              {
+                "line": 63,
+                "hits": 262
+              },
+              {
+                "line": 64,
+                "hits": 196
+              },
+              {
+                "line": 65,
+                "hits": 111
+              },
+              {
+                "line": 66,
+                "hits": 85
+              },
+              {
+                "line": 67,
+                "hits": 94
+              },
+              {
+                "line": 68,
+                "hits": 18
+              },
+              {
+                "line": 69,
+                "hits": 9
+              },
+              {
+                "line": 71,
+                "hits": 65
+              },
+              {
+                "line": 73,
+                "hits": 260
+              },
+              {
+                "line": 74,
+                "hits": 195
+              },
+              {
+                "line": 75,
+                "hits": 48
+              },
+              {
+                "line": 76,
+                "hits": 147
+              },
+              {
+                "line": 77,
+                "hits": 300
+              },
+              {
+                "line": 78,
+                "hits": 261
+              },
+              {
+                "line": 79,
+                "hits": 216
+              },
+              {
+                "line": 80,
+                "hits": 108
+              },
+              {
+                "line": 81,
+                "hits": 108
+              },
+              {
+                "line": 82,
+                "hits": 65
+              },
+              {
+                "line": 86,
+                "hits": 76
+              },
+              {
+                "line": 90,
+                "hits": 1
+              },
+              {
+                "line": 91,
+                "hits": 1
+              },
+              {
+                "line": 92,
+                "hits": 1
+              },
+              {
+                "line": 93,
+                "hits": 1
+              },
+              {
+                "line": 95,
+                "hits": 1
+              },
+              {
+                "line": 96,
+                "hits": 1
+              },
+              {
+                "line": 97,
+                "hits": 1
+              },
+              {
+                "line": 98,
+                "hits": 1
+              },
+              {
+                "line": 99,
+                "hits": 1
+              },
+              {
+                "line": 101,
+                "hits": 1
+              },
+              {
+                "line": 102,
+                "hits": 1
+              },
+              {
+                "line": 103,
+                "hits": 10
+              },
+              {
+                "line": 104,
+                "hits": 10
+              },
+              {
+                "line": 105,
+                "hits": 75
+              },
+              {
+                "line": 106,
+                "hits": 198
+              },
+              {
+                "line": 107,
+                "hits": 132
+              },
+              {
+                "line": 108,
+                "hits": 132
+              },
+              {
+                "line": 109,
+                "hits": 132
+              },
+              {
+                "line": 110,
+                "hits": 132
+              },
+              {
+                "line": 111,
+                "hits": 132
+              },
+              {
+                "line": 112,
+                "hits": 56
+              },
+              {
+                "line": 113,
+                "hits": 76
+              },
+              {
+                "line": 114,
+                "hits": 76
+              },
+              {
+                "line": 116,
+                "hits": 76
+              },
+              {
+                "line": 118,
+                "hits": 76
+              },
+              {
+                "line": 119,
+                "hits": 76
+              },
+              {
+                "line": 120,
+                "hits": 9
+              },
+              {
+                "line": 122,
+                "hits": 9
+              }
+            ],
+            "functions": [
+              {
+                "first_line": 14,
+                "name": "_by_type",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "dict": 1
+                },
+                "container_length_min": 4,
+                "container_length_max": 4
+              },
+              {
+                "first_line": 31,
+                "name": "_norm",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 2
+                },
+                "container_length_min": 3,
+                "container_length_max": 18
+              },
+              {
+                "first_line": 39,
+                "name": "<genexpr>",
+                "call_events": 75,
+                "return_events": 75,
+                "none_return_events": 21,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 54,
+                  "none": 21
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 45,
+                "name": "_loc_of",
+                "call_events": 298,
+                "return_events": 298,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 298
+                },
+                "container_length_min": 1,
+                "container_length_max": 1
+              },
+              {
+                "first_line": 46,
+                "name": "<genexpr>",
+                "call_events": 596,
+                "return_events": 596,
+                "none_return_events": 298,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 298,
+                  "none": 298
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "_actions",
+                "call_events": 66,
+                "return_events": 65,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 65
+                },
+                "container_length_min": 0,
+                "container_length_max": 9
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 179,
+                "return_events": 179,
+                "none_return_events": 66,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 66,
+                  "str": 113
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 52,
+                "name": "<genexpr>",
+                "call_events": 214,
+                "return_events": 214,
+                "none_return_events": 66,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 148,
+                  "none": 66
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 53,
+                "name": "<genexpr>",
+                "call_events": 214,
+                "return_events": 214,
+                "none_return_events": 66,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 148,
+                  "none": 66
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 85,
+                "name": "_fmt",
+                "call_events": 76,
+                "return_events": 76,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 76
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 89,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 0,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {},
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ]
+          },
+          "plan_replay": {
+            "status": "valid",
+            "error_kind": null,
+            "executed_actions": 11,
+            "plan_length": 11,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        "elapsed_seconds": 0.071006
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "bb08e9b0f58c48379a8bbeb0db208bdb",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem1",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.059179,
+            "stdout_bytes": 4901,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "16d7ec48e6700629c34d9c4cb0c52e4d77c3b8328d897a2dbb804cc86465a76a",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "523611878a61cbd8de1067989a3079377e10354841106ddb1fb17a208352e645",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003297
+        },
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "spannerlearning/seed0/problem1",
+          "candidate_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+          "scope": "public_prompt",
+          "trace": {
+            "events_seen": 20000,
+            "event_limit": 20000,
+            "truncated": true,
+            "interrupted": false,
+            "provenance": "candidate_process_trace_not_trusted_score",
+            "interpretation_limits": "Only the get_plan call phase is traced. Call/return events include generator or coroutine suspension/resumption. Interrupted checks hook mismatch at exit only; candidate code can suppress or forge observations. Missing hits do not prove nonexecution.",
+            "none_return_caveat": "None return events can follow exceptions; inspect exception_events.",
+            "lines": [
+              {
+                "line": 15,
+                "hits": 1
+              },
+              {
+                "line": 16,
+                "hits": 1
+              },
+              {
+                "line": 17,
+                "hits": 1
+              },
+              {
+                "line": 20,
+                "hits": 14
+              },
+              {
+                "line": 21,
+                "hits": 13
+              },
+              {
+                "line": 22,
+                "hits": 13
+              },
+              {
+                "line": 25,
+                "hits": 13
+              },
+              {
+                "line": 26,
+                "hits": 5
+              },
+              {
+                "line": 27,
+                "hits": 4
+              },
+              {
+                "line": 28,
+                "hits": 1
+              },
+              {
+                "line": 32,
+                "hits": 2
+              },
+              {
+                "line": 33,
+                "hits": 2
+              },
+              {
+                "line": 34,
+                "hits": 2
+              },
+              {
+                "line": 37,
+                "hits": 23
+              },
+              {
+                "line": 38,
+                "hits": 21
+              },
+              {
+                "line": 39,
+                "hits": 96
+              },
+              {
+                "line": 42,
+                "hits": 2
+              },
+              {
+                "line": 46,
+                "hits": 5698
+              },
+              {
+                "line": 50,
+                "hits": 67
+              },
+              {
+                "line": 51,
+                "hits": 1284
+              },
+              {
+                "line": 52,
+                "hits": 1284
+              },
+              {
+                "line": 53,
+                "hits": 1284
+              },
+              {
+                "line": 54,
+                "hits": 67
+              },
+              {
+                "line": 55,
+                "hits": 134
+              },
+              {
+                "line": 56,
+                "hits": 67
+              },
+              {
+                "line": 58,
+                "hits": 1217
+              },
+              {
+                "line": 59,
+                "hits": 1150
+              },
+              {
+                "line": 60,
+                "hits": 26
+              },
+              {
+                "line": 61,
+                "hits": 13
+              },
+              {
+                "line": 63,
+                "hits": 268
+              },
+              {
+                "line": 64,
+                "hits": 201
+              },
+              {
+                "line": 65,
+                "hits": 118
+              },
+              {
+                "line": 66,
+                "hits": 83
+              },
+              {
+                "line": 67,
+                "hits": 92
+              },
+              {
+                "line": 68,
+                "hits": 18
+              },
+              {
+                "line": 69,
+                "hits": 9
+              },
+              {
+                "line": 71,
+                "hits": 67
+              },
+              {
+                "line": 73,
+                "hits": 268
+              },
+              {
+                "line": 74,
+                "hits": 201
+              },
+              {
+                "line": 75,
+                "hits": 56
+              },
+              {
+                "line": 76,
+                "hits": 145
+              },
+              {
+                "line": 77,
+                "hits": 293
+              },
+              {
+                "line": 78,
+                "hits": 257
+              },
+              {
+                "line": 79,
+                "hits": 218
+              },
+              {
+                "line": 80,
+                "hits": 109
+              },
+              {
+                "line": 81,
+                "hits": 109
+              },
+              {
+                "line": 82,
+                "hits": 67
+              },
+              {
+                "line": 86,
+                "hits": 75
+              },
+              {
+                "line": 90,
+                "hits": 1
+              },
+              {
+                "line": 91,
+                "hits": 1
+              },
+              {
+                "line": 92,
+                "hits": 1
+              },
+              {
+                "line": 93,
+                "hits": 1
+              },
+              {
+                "line": 95,
+                "hits": 1
+              },
+              {
+                "line": 96,
+                "hits": 1
+              },
+              {
+                "line": 97,
+                "hits": 1
+              },
+              {
+                "line": 98,
+                "hits": 1
+              },
+              {
+                "line": 99,
+                "hits": 1
+              },
+              {
+                "line": 101,
+                "hits": 1
+              },
+              {
+                "line": 102,
+                "hits": 1
+              },
+              {
+                "line": 103,
+                "hits": 11
+              },
+              {
+                "line": 104,
+                "hits": 11
+              },
+              {
+                "line": 105,
+                "hits": 77
+              },
+              {
+                "line": 106,
+                "hits": 197
+              },
+              {
+                "line": 107,
+                "hits": 131
+              },
+              {
+                "line": 108,
+                "hits": 131
+              },
+              {
+                "line": 109,
+                "hits": 131
+              },
+              {
+                "line": 110,
+                "hits": 131
+              },
+              {
+                "line": 111,
+                "hits": 131
+              },
+              {
+                "line": 112,
+                "hits": 56
+              },
+              {
+                "line": 113,
+                "hits": 75
+              },
+              {
+                "line": 114,
+                "hits": 75
+              },
+              {
+                "line": 116,
+                "hits": 75
+              },
+              {
+                "line": 117,
+                "hits": 1
+              },
+              {
+                "line": 118,
+                "hits": 74
+              },
+              {
+                "line": 119,
+                "hits": 74
+              },
+              {
+                "line": 120,
+                "hits": 10
+              },
+              {
+                "line": 122,
+                "hits": 10
+              }
+            ],
+            "functions": [
+              {
+                "first_line": 14,
+                "name": "_by_type",
+                "call_events": 1,
+                "return_events": 1,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "dict": 1
+                },
+                "container_length_min": 4,
+                "container_length_max": 4
+              },
+              {
+                "first_line": 31,
+                "name": "_norm",
+                "call_events": 2,
+                "return_events": 2,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 2
+                },
+                "container_length_min": 3,
+                "container_length_max": 18
+              },
+              {
+                "first_line": 39,
+                "name": "<genexpr>",
+                "call_events": 75,
+                "return_events": 75,
+                "none_return_events": 21,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 54,
+                  "none": 21
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 45,
+                "name": "_loc_of",
+                "call_events": 295,
+                "return_events": 295,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "set": 295
+                },
+                "container_length_min": 1,
+                "container_length_max": 1
+              },
+              {
+                "first_line": 46,
+                "name": "<genexpr>",
+                "call_events": 590,
+                "return_events": 590,
+                "none_return_events": 295,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 295,
+                  "none": 295
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 49,
+                "name": "_actions",
+                "call_events": 67,
+                "return_events": 67,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "list": 67
+                },
+                "container_length_min": 0,
+                "container_length_max": 9
+              },
+              {
+                "first_line": 51,
+                "name": "<genexpr>",
+                "call_events": 185,
+                "return_events": 185,
+                "none_return_events": 67,
+                "exception_events": 0,
+                "return_types": {
+                  "none": 67,
+                  "str": 118
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 52,
+                "name": "<genexpr>",
+                "call_events": 212,
+                "return_events": 212,
+                "none_return_events": 67,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 145,
+                  "none": 67
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 53,
+                "name": "<genexpr>",
+                "call_events": 212,
+                "return_events": 212,
+                "none_return_events": 67,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 145,
+                  "none": 67
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 85,
+                "name": "_fmt",
+                "call_events": 75,
+                "return_events": 75,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {
+                  "str": 75
+                },
+                "container_length_min": null,
+                "container_length_max": null
+              },
+              {
+                "first_line": 89,
+                "name": "get_plan",
+                "call_events": 1,
+                "return_events": 0,
+                "none_return_events": 0,
+                "exception_events": 0,
+                "return_types": {},
+                "container_length_min": null,
+                "container_length_max": null
+              }
+            ]
+          },
+          "plan_replay": {
+            "status": "valid",
+            "error_kind": null,
+            "executed_actions": 11,
+            "plan_length": 11,
+            "first_failed_action": null,
+            "missing_preconditions": [],
+            "missing_preconditions_truncated": false,
+            "unsatisfied_goals": [],
+            "unsatisfied_goals_truncated": false
+          }
+        },
+        "elapsed_seconds": 0.073038
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "5c9fd45be5454c6080a9a1a74f3ba0a7",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem2",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.043674,
+            "stdout_bytes": 390,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 10,
+        "validator": {
+          "plan_length": 10,
+          "plan_sha256": "5bcfc4db83ec3ea30ea53360d000ad877378ee21fe5deac3409c137ca49c4d35",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "e6089e7ed34ad37d9e39cb765beb8858bf828e8d5f48ae203a9afc66301bb695",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1900,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003395
+        },
+        "elapsed_seconds": 0.054218
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "9c9a085ef69b4f479919ed63aeac9db6",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem3",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.044229,
+            "stdout_bytes": 390,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 10,
+        "validator": {
+          "plan_length": 10,
+          "plan_sha256": "43df46c5b097b7be42d3b7cdcbf6ae74078a1f0fff544e2440213926cacde8dd",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "dd55351932a17a976f5ee7085c5eaaf8253ec13bf0f78845fed365c829dc0045",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1900,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.00424
+        },
+        "elapsed_seconds": 0.056252
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "6165343acc0d4fb7af3ecf507749ebc2",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem4",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.039772,
+            "stdout_bytes": 456,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 12,
+        "validator": {
+          "plan_length": 12,
+          "plan_sha256": "0ce2e1bcb3e240adb1320feae42fbf04364414d1ed0d2d7b8b479126be290c61",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "e367ee4eccb52953df6d17d6f34de37b048a3605873de58f1506d7d08ed4a017",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2152,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003653
+        },
+        "elapsed_seconds": 0.051777
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "1c5088299dba4468bb9aedc86f55332e",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem5",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.041878,
+            "stdout_bytes": 456,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 12,
+        "validator": {
+          "plan_length": 12,
+          "plan_sha256": "59932793ebd4d3756f456bd11cb6c3f93fca1315309d9edaf17455b5b34d3659",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "341ac48b6f44186ffabdf0dbf472c3d3321c1889885dc9e03f03e3c0385dafb2",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2152,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003443
+        },
+        "elapsed_seconds": 0.053761
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "5eb2237d79324d4189ec5cea69d51e45",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem6",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.039978,
+            "stdout_bytes": 423,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "062a399314c3cfb430dc0a0e0022408a7a94b14258ee00f15c02e016fb0a7ef1",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "a0dc3c14807b7260e9a68c63b4665f608d709c1a197b89a2e31537d1ed0a0dc2",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003296
+        },
+        "elapsed_seconds": 0.050934
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "008c724085504de4ae1909c26827c33b",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem7",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.045465,
+            "stdout_bytes": 504,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 13,
+        "validator": {
+          "plan_length": 13,
+          "plan_sha256": "05a9d5b0782e5c3e2df17f9baff5b069641bf72b1037e9459fd586edd0bf9778",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "febef60c3071ff776cfc7301730409d57ea15a9514bdd3d3d5c0a66f7968cf6b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2323,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003628
+        },
+        "elapsed_seconds": 0.056454
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "e39dcb0de7374dacb447dbe5a13e4d4c",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem8",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.042342,
+            "stdout_bytes": 423,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 11,
+        "validator": {
+          "plan_length": 11,
+          "plan_sha256": "4622ecbec1e281d44483226e038666a6bd554f3715c8196433ba667431e4c24f",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "3f2d6fc5ca1e59cf873bd864e1cec9de98278d054f29456c006e17c930eb5b83",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 2026,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003819
+        },
+        "elapsed_seconds": 0.053853
+      },
+      {
+        "schema_version": "0.1",
+        "run_id": "4d41db0b005f4d29a1d513b7407e2003",
+        "family": "planning",
+        "task_id": "spannerlearning/seed0/problem9",
+        "candidate_id": "researcher-format-intervention",
+        "candidate_hash": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+        "parent_id": "p2-P-H002-checked",
+        "strategy_version": "intervention-probes-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "plan",
+            "status": "completed",
+            "elapsed_seconds": 0.041019,
+            "stdout_bytes": 390,
+            "stderr_bytes": 0
+          }
+        ],
+        "status": "success",
+        "error_kind": null,
+        "public_diagnostic": "VAL verified that every action is valid and the goal is reached.",
+        "plan_length": 10,
+        "validator": {
+          "plan_length": 10,
+          "plan_sha256": "b426e4512c3ed04583e217b9021f3bd8536b859c9ce4bfd738538045568d85e3",
+          "status": "valid",
+          "reason": "plan_valid_marker",
+          "returncode": 0,
+          "stdout_sha256": "688d390f1b555698bd509ea08ef59b73f58027b9dccacc0863ad1e67631a0774",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1900,
+          "stderr_bytes": 0,
+          "elapsed_seconds": 0.003477
+        },
+        "elapsed_seconds": 0.052666
+      }
+    ]
+  },
+  "unsupported_fixture": {
+    "origin": "researcher_synthetic_not_benchmark",
+    "source": "def equation(x, v, params):\n    return params[0]*params[1]*x + params[2]*v\n",
+    "parent_source": "def equation(x, v, params):\n    return params[0]*x + params[1]*v\n",
+    "result": {
+      "contract": "single-independent-additive-coefficient-v0.1",
+      "status": "unknown",
+      "verdict": "unknown",
+      "reason": "term_requires_one_independent_coefficient",
+      "source_sha256": "2ef5d9e8d4fbcd20e1829fc19d0476bda08f4d49fa3e8383f4c29eb07d15b940",
+      "parent_sha256": "7d16fba98062fb5b814c288f7989f44f7e807379223e307558b180728b131035",
+      "n_params_before": 3,
+      "n_params_after": null,
+      "remove_param_index": 2,
+      "mapping": null,
+      "canonical_source": null,
+      "removed_source": null,
+      "canonical_sha256": null,
+      "removed_sha256": null,
+      "term_ast_sha256": null
+    },
+    "sandbox_calls": 0
+  },
+  "counts": {
+    "sandbox_calls": 28,
+    "new_candidate_executions": 22,
+    "host_validations": 22,
+    "val_calls": 20,
+    "fit_calls": 6,
+    "predict_calls": 6
+  },
+  "counts_complete": true,
+  "errors": [],
+  "budget": {
+    "maximum": 40,
+    "reserved": 28,
+    "actual": 28
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "origin": "researcher_synthetic_not_benchmark",
+  "source": "def equation(x, v, params):\n    return params[0]*params[1]*x + params[2]*v\n",
+  "parent_source": "def equation(x, v, params):\n    return params[0]*x + params[1]*v\n",
+  "result": {
+    "contract": "single-independent-additive-coefficient-v0.1",
+    "status": "unknown",
+    "verdict": "unknown",
+    "reason": "term_requires_one_independent_coefficient",
+    "source_sha256": "2ef5d9e8d4fbcd20e1829fc19d0476bda08f4d49fa3e8383f4c29eb07d15b940",
+    "parent_sha256": "7d16fba98062fb5b814c288f7989f44f7e807379223e307558b180728b131035",
+    "n_params_before": 3,
+    "n_params_after": null,
+    "remove_param_index": 2,
+    "mapping": null,
+    "canonical_source": null,
+    "removed_source": null,
+    "canonical_sha256": null,
+    "removed_sha256": null,
+    "term_ast_sha256": null
+  },
+  "sandbox_calls": 0
+}

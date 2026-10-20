@@ -1,0 +1,589 @@
+{
+  "version": "matched-term-removal-v0.1",
+  "case_id": "p1-S-poly5-self",
+  "status": "completed",
+  "verdict": "supported",
+  "reason": "removal_loss_exceeds_threshold",
+  "claim": "Removing the selected additive term and refitting under the fixed protocol increases oscillator1 train NMSE by more than epsilon.",
+  "epsilon": 1e-05,
+  "tolerance": 1e-10,
+  "transformation": {
+    "contract": "single-independent-additive-coefficient-v0.1",
+    "status": "ready",
+    "verdict": "unknown",
+    "reason": null,
+    "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+    "parent_sha256": "a4eca8e167987cb3dece02024c8d281eafb2bef179da7f82e55dfb9fa4900dd0",
+    "n_params_before": 6,
+    "n_params_after": 5,
+    "remove_param_index": 5,
+    "mapping": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": null
+    },
+    "canonical_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5 + params[5] * v ** 3\n",
+    "removed_source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5\n",
+    "canonical_sha256": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+    "removed_sha256": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+    "term_ast_sha256": "efebd78c14f843197655e5893473194c67fcae04ce05d771512310d0d9226ebc"
+  },
+  "variants": [
+    {
+      "name": "original",
+      "source": "import numpy as np\n\n\ndef equation(x, v, params):\n    # Odd-symmetric restoring force (x, x^3, x^5) plus velocity-dependent\n    # damping (v, v^2, v^3):\n    #   a = c1*x + c2*v + c3*x^3 + c4*v^2 + c5*x^5 + c6*v^3\n    # The parent (5-term) version reaches train NMSE 0.0938 with\n    # bias^2/MSE ~ 1.4e-5, so the residual is almost pure variance.\n    # Binned RMSE is worst at high |v| (0.0298) and at the extreme |x| bins\n    # (~0.023), suggesting unmodeled amplitude-dependent behavior in both\n    # channels. Rather than adding more stiffness terms (which grow as\n    # x^7 for large amplitude and can be unstable), the cheapest remaining\n    # independent shape is a cubic-in-velocity term, which lets the damping\n    # change sign with velocity and can capture the non-monotonic\n    # v-residual pattern without touching the restoring part.\n    c1 = params[0]\n    c2 = params[1]\n    c3 = params[2]\n    c4 = params[3]\n    c5 = params[4]\n    c6 = params[5]\n    return c1 * x + c2 * v + c3 * x ** 3 + c4 * v ** 2 + c5 * x ** 5 + c6 * v ** 3",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "n_params": 6,
+      "result": {
+        "schema_version": "0.1",
+        "run_id": "fe2572dea1ec46fb90bd3aaf41fabbbd",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "p1-S-poly5-self-original",
+        "candidate_hash": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "strategy_version": "matched-term-removal-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.222547,
+            "stdout_bytes": 199,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.208165,
+            "stdout_bytes": 205137,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.1889737534984609,
+            0.051999724279486376,
+            0.1302351139835668,
+            0.03815854563408658,
+            -0.0450471228219963,
+            -1.2337184211451242
+          ],
+          "n_params": 6,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 22,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.00040250547936758897,
+          "nmse": 0.09224903410100932
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "oscillator1",
+          "candidate_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+          "scope": "train",
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 0.0005639422257550756,
+            "rmse": 0.02006253920538447,
+            "standardized_bias": 0.00853747862567713,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.00010075549392167965,
+                    "rmse": 0.014068987506896398
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0023055852889629835,
+                    "rmse": 0.021302196439631594
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.001244520940597262,
+                    "rmse": 0.01710364227334989
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0012954600485762604,
+                    "rmse": 0.025802468018268614
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0009246785624518135,
+                    "rmse": 0.015511890004455398
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0025958348830276293,
+                    "rmse": 0.019024272190527772
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.000591271229214222,
+                    "rmse": 0.01120289431233866
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0011758838116587083,
+                    "rmse": 0.02969807085666196
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "elapsed_seconds": 0.513449
+      }
+    },
+    {
+      "name": "canonical_full",
+      "source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5 + params[5] * v ** 3\n",
+      "source_sha256": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+      "n_params": 6,
+      "result": {
+        "schema_version": "0.1",
+        "run_id": "05a2b6ed0be34297bfb2c69c965a0608",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "p1-S-poly5-self-canonical_full",
+        "candidate_hash": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+        "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "strategy_version": "matched-term-removal-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.222329,
+            "stdout_bytes": 199,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.219055,
+            "stdout_bytes": 205137,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.1889737534984609,
+            0.051999724279486376,
+            0.1302351139835668,
+            0.03815854563408658,
+            -0.0450471228219963,
+            -1.2337184211451242
+          ],
+          "n_params": 6,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 22,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.00040250547936758897,
+          "nmse": 0.09224903410100932
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "oscillator1",
+          "candidate_sha256": "1e4b7b8cd77365904f07a136fb351bbd121e6ac653afda2f16b349b5c095b32f",
+          "scope": "train",
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 0.0005639422257550756,
+            "rmse": 0.02006253920538447,
+            "standardized_bias": 0.00853747862567713,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.00010075549392167965,
+                    "rmse": 0.014068987506896398
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0023055852889629835,
+                    "rmse": 0.021302196439631594
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.001244520940597262,
+                    "rmse": 0.01710364227334989
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0012954600485762604,
+                    "rmse": 0.025802468018268614
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0009246785624518135,
+                    "rmse": 0.015511890004455398
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0025958348830276293,
+                    "rmse": 0.019024272190527772
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.000591271229214222,
+                    "rmse": 0.01120289431233866
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0011758838116587083,
+                    "rmse": 0.02969807085666196
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "elapsed_seconds": 0.527367
+      }
+    },
+    {
+      "name": "removed",
+      "source": "import numpy as np\n\ndef equation(x, v, params):\n    return params[0] * x + params[1] * v + params[2] * x ** 3 + params[3] * v ** 2 + params[4] * x ** 5\n",
+      "source_sha256": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+      "n_params": 5,
+      "result": {
+        "schema_version": "0.1",
+        "run_id": "0c4ba6e909754282830f3cc45b33abf6",
+        "family": "symbolic",
+        "task_id": "oscillator1",
+        "candidate_id": "p1-S-poly5-self-removed",
+        "candidate_hash": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+        "parent_id": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+        "strategy_version": "matched-term-removal-v0.1",
+        "feedback_role": "development_only",
+        "limits": {
+          "timeout_seconds": 20,
+          "memory_mb": 2048,
+          "cpu_seconds": 10,
+          "max_output_bytes": 2000000
+        },
+        "model_calls": 0,
+        "sealed_tasks_executed": 0,
+        "executions": [
+          {
+            "phase": "fit",
+            "status": "completed",
+            "elapsed_seconds": 0.213108,
+            "stdout_bytes": 183,
+            "stderr_bytes": 0
+          },
+          {
+            "phase": "predict",
+            "status": "completed",
+            "elapsed_seconds": 0.211541,
+            "stdout_bytes": 205073,
+            "stderr_bytes": 0
+          }
+        ],
+        "fitting": {
+          "params": [
+            -0.18575447552294821,
+            0.008629417939309665,
+            0.10395068529957835,
+            -0.0855405563978218,
+            0.0025007987684781963
+          ],
+          "n_params": 5,
+          "nfev": 3,
+          "converged": true,
+          "candidate_calls": 19,
+          "split": "train",
+          "max_nfev": 100
+        },
+        "status": "success",
+        "metrics": {
+          "mse": 0.0004091082334152086,
+          "nmse": 0.09376229967010528
+        },
+        "metric_split": "train",
+        "metric_scope": "Training fit only; not a held-out or generalization result.",
+        "diagnostics": {
+          "version": "diagnostics-v0.1",
+          "task_id": "oscillator1",
+          "candidate_sha256": "cfda63872efb8ca1401f9c58dd096ef051f9d7abbb66af7ca2e65688076feb66",
+          "scope": "train",
+          "residuals": {
+            "status": "ok",
+            "scope": "train",
+            "residual_definition": "prediction - target",
+            "n": 10000,
+            "bias": 7.607474647981979e-05,
+            "rmse": 0.020226424138122107,
+            "standardized_bias": 0.0011516898227573846,
+            "standardized_bias_reason": null,
+            "standardized_bias_definition": "bias / population_std(target)",
+            "binning_method": "linear_quantile",
+            "inputs": [
+              {
+                "name": "x",
+                "boundaries": [
+                  -0.5728219032885896,
+                  -0.46038220456877554,
+                  -0.22761842703089324,
+                  0.28635886598470794,
+                  0.5275126203368584
+                ],
+                "bins": [
+                  {
+                    "lower": -0.5728219032885896,
+                    "upper": -0.46038220456877554,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.00037938977847907054,
+                    "rmse": 0.01632634139418286
+                  },
+                  {
+                    "lower": -0.46038220456877554,
+                    "upper": -0.22761842703089324,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.0015575525883172812,
+                    "rmse": 0.022715925949967554
+                  },
+                  {
+                    "lower": -0.22761842703089324,
+                    "upper": 0.28635886598470794,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.001272668001390612,
+                    "rmse": 0.017517564722122087
+                  },
+                  {
+                    "lower": 0.28635886598470794,
+                    "upper": 0.5275126203368584,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 0.0003988041774716805,
+                    "rmse": 0.0233881411143186
+                  }
+                ]
+              },
+              {
+                "name": "v",
+                "boundaries": [
+                  -0.17542969970098574,
+                  -0.13719210123484957,
+                  -0.04814716714891003,
+                  0.09524424826668271,
+                  0.282136353640072
+                ],
+                "bins": [
+                  {
+                    "lower": -0.17542969970098574,
+                    "upper": -0.13719210123484957,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.0024624002593808436,
+                    "rmse": 0.015575367332108903
+                  },
+                  {
+                    "lower": -0.13719210123484957,
+                    "upper": -0.04814716714891003,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": 0.004207036308650126,
+                    "rmse": 0.019339388156186195
+                  },
+                  {
+                    "lower": -0.04814716714891003,
+                    "upper": 0.09524424826668271,
+                    "upper_inclusive": false,
+                    "count": 2500,
+                    "mean_residual": -0.001487710904844435,
+                    "rmse": 0.011602312563049944
+                  },
+                  {
+                    "lower": 0.09524424826668271,
+                    "upper": 0.282136353640072,
+                    "upper_inclusive": true,
+                    "count": 2500,
+                    "mean_residual": 4.7373841494431484e-05,
+                    "rmse": 0.02975256753734655
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "elapsed_seconds": 0.504246
+      }
+    }
+  ],
+  "dataset_identity": {
+    "task": "oscillator1",
+    "split": "train",
+    "rows": 10000,
+    "input_names": [
+      "x",
+      "v"
+    ],
+    "manifest_sha256": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8",
+    "data_sha256": "a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7"
+  },
+  "delta_nmse": 0.0015132655690959645,
+  "sham_delta_nmse": 0.0,
+  "candidate_evaluations": 3,
+  "sandbox_executions": 6,
+  "executions": {
+    "sandbox_calls": 6,
+    "new_candidate_executions": 3,
+    "fit_calls": 3,
+    "predict_calls": 3
+  },
+  "execution_accounting_complete": true,
+  "model_calls": 0,
+  "sealed_tasks_executed": 0,
+  "infrastructure_stopped": false,
+  "next_edit_scope": {
+    "action": "retain_selected_term_under_fixed_train_protocol",
+    "scope": "oscillator1/train",
+    "excludes": [
+      "physical_necessity",
+      "held_out_generalization",
+      "optimal_rule_selection",
+      "agent_autonomous_improvement"
+    ]
+  }
+}
