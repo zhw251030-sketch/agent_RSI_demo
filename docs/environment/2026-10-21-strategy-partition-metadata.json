@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "version": "strategy-partition-v0.1",
+  "mode": "metadata_only",
+  "execution_authorized": false,
+  "manifest_sha256": "97cee9039853b812a5d301f788e486983a7412d2deb597fe1dda77a8b75bdbf5",
+  "sources": [
+    {
+      "path": "configs/tasks/planning-spanner-v0.1.json",
+      "sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010"
+    },
+    {
+      "path": "configs/tasks/downloads-v0.1.json",
+      "sha256": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8"
+    }
+  ],
+  "planning_counts": {
+    "learning": 10,
+    "selection": 19,
+    "duplicate_excluded": 8,
+    "evaluation": 63,
+    "sealed": 300
+  },
+  "symbolic_equation_counts": {
+    "learning": 1,
+    "selection": 1,
+    "evaluation": 2
+  },
+  "sealed_symbolic_files": 8,
+  "data_verification": {
+    "planning_train_files": 0,
+    "symbolic_train_files": 0,
+    "normalized_duplicate_groups": null,
+    "sealed_files_opened": 0,
+    "symbolic_values_decoded": false
+  },
+  "model_requests": 0,
+  "candidate_executions": 0,
+  "strategy_updates": 0,
+  "sealed_tasks_executed": 0,
+  "limitations": {
+    "existing_evaluator_permissions_changed": false,
+    "new_program_states_generated": false,
+    "semantic_or_graph_isomorphism_deduplication": false,
+    "independent_domains": 1,
+    "symbolic_equation_tasks": 4,
+    "row_level_independence_claimed": false,
+    "new_state_generation_and_execution_protocol": "not_frozen",
+    "evaluation_train_nmse": "Within-task fitting; not held-out prediction generalization.",
+    "exposure_evidence_date": "2026-10-21",
+    "exposure_evidence_scope": "Archived research records and executor_feedback task identities; absence of discovered candidate execution is not universal proof of non-exposure."
+  }
+}

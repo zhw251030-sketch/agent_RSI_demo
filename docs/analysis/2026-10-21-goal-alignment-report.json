@@ -1,0 +1,1693 @@
+{
+  "version": "goal-alignment-replay-v0.1",
+  "mode": "retrospective_all_submissions_no_counterfactual_strategy_claim",
+  "status": "passed",
+  "implementation_files_sha256": {
+    "configs/analysis/goal-alignment-v0.1.json": "d1ad6f3f1dc10ad4d10af8e6a4759a5a980307ddbd477559f39e7f4c3af41911",
+    "rsi_eval/goal_alignment.py": "fb55be9cc7208c91806c70515371827d4b9473a87f7d450c89ec9de9f57df82e",
+    "scripts/analyze_goal_alignment.py": "87d2e2ed1d59068ad3ade9d0adc33d8d7bdf4c36a9d2dce9493dda8638796aa4",
+    "docs/protocols/2026-10-21-goal-alignment-v0.1.md": "0ae8a904b735740caf05fc68af995ae059a047c323ee23d73ff93e24091f6a85"
+  },
+  "archives": [
+    {
+      "path": "artifacts/decision-replay/2026-10-21/v01",
+      "manifest_sha256": "0b32ada07fbc53761ba85a11dd521595a80d4befeebb138cad2d434eb35dc705",
+      "raw_file_count": 303,
+      "raw_tree_sha256": "065029305dd3434661889d3f508f56b94af3c89f7d790c1630cc489ff1166dd5",
+      "id": "decision-replay-v01",
+      "historical_runtime_commit": "ede8fc7a729b94e6573eba19954691c9c8edb219",
+      "historical_audit_status": "passed",
+      "submissions": 16
+    },
+    {
+      "path": "artifacts/edit-commitment/2026-10-21/v01",
+      "manifest_sha256": "273ce6d00bc53eb35f5aa0749969a371821996c777aa20a592e1ce4d947b3ab9",
+      "raw_file_count": 217,
+      "raw_tree_sha256": "88f518db634e050c4f51a616d66845ff3bd3849c845c3f9f02e4b4f8c0fd147d",
+      "id": "edit-commitment-v01",
+      "historical_runtime_commit": "6d6e36851479bae6d5a0e0276fb448a537cfa970",
+      "historical_audit_status": "passed",
+      "submissions": 8
+    }
+  ],
+  "historical_submissions": 24,
+  "historical_case_count": 4,
+  "distinct_final_source_count": 11,
+  "decisions": {
+    "promote": 4,
+    "retain": 20
+  },
+  "decisions_by_archive": {
+    "decision-replay-v01": {
+      "promote": 3,
+      "retain": 13
+    },
+    "edit-commitment-v01": {
+      "promote": 1,
+      "retain": 7
+    }
+  },
+  "probes": [
+    {
+      "case_id": "P-format",
+      "family": "planning",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "rows": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": true
+          },
+          "original_status": "invalid_output",
+          "intervention_status": "success"
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": true
+          },
+          "original_status": "invalid_output",
+          "intervention_status": "success"
+        }
+      ],
+      "opportunity": "eligible_for_format_trial",
+      "scope": "two_public_prompt_instances_only",
+      "final_candidate_evaluated": false,
+      "diagnostic_copy_repair_deployed": false
+    },
+    {
+      "case_id": "P-empty",
+      "family": "planning",
+      "source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "rows": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": false
+          },
+          "original_status": "task_failure",
+          "intervention_status": "task_failure"
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": false
+          },
+          "original_status": "task_failure",
+          "intervention_status": "task_failure"
+        }
+      ],
+      "opportunity": "no_format_repair_support",
+      "scope": "two_public_prompt_instances_only",
+      "final_candidate_evaluated": false,
+      "diagnostic_copy_repair_deployed": false
+    },
+    {
+      "version": "goal-alignment-v0.1",
+      "family": "symbolic",
+      "decision": "retain",
+      "reason_codes": [
+        "removal_loss_exceeds_threshold"
+      ],
+      "metrics": {
+        "original_nmse": 0.09224903410100932,
+        "removed_nmse": 0.09376229967010528,
+        "sham_nmse": 0.09224903410100932,
+        "loss": 0.0015132655690959645,
+        "sham_delta_nmse": 0.0,
+        "original_n_params": 6,
+        "removed_n_params": 5
+      },
+      "details": {
+        "final_candidate_benefit_measured": false,
+        "scope": "Matched local probe only; no physical necessity or generalization claim."
+      },
+      "proposition": {
+        "quantity": "removed_nmse - original_nmse",
+        "relation": ">",
+        "threshold": 1e-05,
+        "tolerance": 1e-10,
+        "value": 0.0015132655690959645,
+        "truth": true,
+        "negated_object": "removal loss exceeds epsilon; not simplification itself"
+      },
+      "opportunity": "avoid_supported_harm",
+      "case_id": "S-v3",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "scope": "oscillator1/train_fixed_refit",
+      "target_id": "param5",
+      "archived_label": "supported",
+      "final_candidate_evaluated": false
+    },
+    {
+      "version": "goal-alignment-v0.1",
+      "family": "symbolic",
+      "decision": "retain",
+      "reason_codes": [
+        "removal_loss_below_threshold"
+      ],
+      "metrics": {
+        "original_nmse": 0.09180398722781567,
+        "removed_nmse": 0.09180470524756015,
+        "sham_nmse": 0.09180398722781569,
+        "loss": 7.180197444806025e-07,
+        "sham_delta_nmse": 1.3877787807814457e-17,
+        "original_n_params": 5,
+        "removed_n_params": 4
+      },
+      "details": {
+        "final_candidate_benefit_measured": false,
+        "scope": "Matched local probe only; no physical necessity or generalization claim."
+      },
+      "proposition": {
+        "quantity": "removed_nmse - original_nmse",
+        "relation": ">",
+        "threshold": 1e-05,
+        "tolerance": 1e-10,
+        "value": 7.180197444806025e-07,
+        "truth": false,
+        "negated_object": "removal loss exceeds epsilon; not simplification itself"
+      },
+      "opportunity": "eligible_for_trial",
+      "case_id": "S-x5",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "scope": "oscillator1/train_fixed_refit",
+      "target_id": "param4",
+      "archived_label": "contradicted",
+      "final_candidate_evaluated": false
+    }
+  ],
+  "rows": [
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-format-r1-hidden",
+      "condition": "hidden",
+      "case_id": "P-format",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-hidden/candidate.json",
+      "candidate_record_sha256": "02ca13a535f88f977090fe4be298e7f842ed7dc2232a8e00f22c9ca7572cb9df",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-format-r1-checked",
+      "condition": "checked",
+      "case_id": "P-format",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r1-checked/candidate.json",
+      "candidate_record_sha256": "b50738a11e6408463667ba7e249f0bae434f87095b9e41733e2933369a841ca9",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-v3-r1-checked",
+      "condition": "checked",
+      "case_id": "S-v3",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r1-checked/candidate.json",
+      "candidate_record_sha256": "73e7e3974b4d38a3f50e0f098beeb8095f80fc490c5c69114ad40004c3d246d6",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09224903410100932,
+          "candidate_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "parent_n_params": 6,
+          "candidate_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-v3-r1-hidden",
+      "condition": "hidden",
+      "case_id": "S-v3",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r1-hidden/candidate.json",
+      "candidate_record_sha256": "682e12a8c409497d27545bdcb4b826f42eb3b3b6e9f2fc08968e927b184a6ba0",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09224903410100932,
+          "candidate_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "parent_n_params": 6,
+          "candidate_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-empty-r1-checked",
+      "condition": "checked",
+      "case_id": "P-empty",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r1-checked/candidate.json",
+      "candidate_record_sha256": "4c9a8321da24b3f76a2f4ad44295d4b29253a8f2e9553ec5a1fafc7cb63d401e",
+      "source_sha256": "502af39877c370217c136a6e47297943c5daa1d1774693da1e8900e562cd587d",
+      "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-empty-r1-hidden",
+      "condition": "hidden",
+      "case_id": "P-empty",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r1-hidden/candidate.json",
+      "candidate_record_sha256": "1f4517aedaf8844ef27d1d0a5b58ef5ea4c74eba00dace496cbd89e865e1d85b",
+      "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+      "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-x5-r1-hidden",
+      "condition": "hidden",
+      "case_id": "S-x5",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r1-hidden/candidate.json",
+      "candidate_record_sha256": "f14960371795c6766a04bd068a6deb8d5f6a377f38938bbb162707f25b1cf1ea",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09180398722781567,
+          "candidate_nmse": 0.09180398722781567,
+          "delta_nmse": 0.0,
+          "parent_n_params": 5,
+          "candidate_n_params": 5,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-x5-r1-checked",
+      "condition": "checked",
+      "case_id": "S-x5",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r1-checked/candidate.json",
+      "candidate_record_sha256": "0bc61a8d3befc9eef4e17a4c9d29e6356081e859b9fa8494e14b392bb8fefba7",
+      "source_sha256": "f3c893f0989dc6a72029687090cd1e3c444eca24e8643740a0a62dddd21d801e",
+      "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_changed": true,
+      "parameters_changed": true,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "promote",
+        "reason_codes": [
+          "acceptable_simplification"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09180398722781567,
+          "candidate_nmse": 0.09180470524756017,
+          "delta_nmse": 7.180197444944802e-07,
+          "parent_n_params": 5,
+          "candidate_n_params": 4,
+          "parameter_delta": -1,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": true
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "promote",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-format-r2-checked",
+      "condition": "checked",
+      "case_id": "P-format",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-checked/candidate.json",
+      "candidate_record_sha256": "1e69cae41fbcad75f50494307565263294939a0080d07e78177946a92375ada7",
+      "source_sha256": "caffcc6edd2ae1e83996c1ff2de8c76e7d0e3bcd0dc97d1e7796e8c0b3f318b0",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "promote",
+        "reason_codes": [
+          "development_success_added_without_regression"
+        ],
+        "metrics": {
+          "development_delta": 8,
+          "public_delta": 2,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 8,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 2,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [
+              "spannerlearning/seed0/problem2",
+              "spannerlearning/seed0/problem3",
+              "spannerlearning/seed0/problem4",
+              "spannerlearning/seed0/problem5",
+              "spannerlearning/seed0/problem6",
+              "spannerlearning/seed0/problem7",
+              "spannerlearning/seed0/problem8",
+              "spannerlearning/seed0/problem9"
+            ],
+            "gained_ids": [
+              "spannerlearning/seed0/problem2",
+              "spannerlearning/seed0/problem3",
+              "spannerlearning/seed0/problem4",
+              "spannerlearning/seed0/problem5",
+              "spannerlearning/seed0/problem6",
+              "spannerlearning/seed0/problem7",
+              "spannerlearning/seed0/problem8",
+              "spannerlearning/seed0/problem9"
+            ],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [
+              "spannerlearning/seed0/problem0",
+              "spannerlearning/seed0/problem1"
+            ],
+            "gained_ids": [
+              "spannerlearning/seed0/problem0",
+              "spannerlearning/seed0/problem1"
+            ],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "promote",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-format-r2-hidden",
+      "condition": "hidden",
+      "case_id": "P-format",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-format-r2-hidden/candidate.json",
+      "candidate_record_sha256": "385b724b03e0cba86548af9bb66c6ca30426819c873f8d7c258481d0d27e2130",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-v3-r2-hidden",
+      "condition": "hidden",
+      "case_id": "S-v3",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r2-hidden/candidate.json",
+      "candidate_record_sha256": "87422f1b27ac55eab23b27a98da127a60836abda2f2a21941fd1a53e69649277",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09224903410100932,
+          "candidate_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "parent_n_params": 6,
+          "candidate_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-v3-r2-checked",
+      "condition": "checked",
+      "case_id": "S-v3",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-v3-r2-checked/candidate.json",
+      "candidate_record_sha256": "94a2e8d3447e388942493dac394c567b29b4810a64f1c88292ab4347837ee065",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09224903410100932,
+          "candidate_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "parent_n_params": 6,
+          "candidate_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-empty-r2-hidden",
+      "condition": "hidden",
+      "case_id": "P-empty",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-hidden/candidate.json",
+      "candidate_record_sha256": "e3fc0a3614f8f99ea286afde4ea70e5658e0e54c63e07e449e7ca24fee537535",
+      "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+      "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-empty-r2-checked",
+      "condition": "checked",
+      "case_id": "P-empty",
+      "family": "planning",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/P-empty-r2-checked/candidate.json",
+      "candidate_record_sha256": "eda4f349be6b91673891bd6ef98ec59a862daf50b1609e8a858b053f0aa799e1",
+      "source_sha256": "240307d3f26f42655e6f633fab8927f413a21c1a02ad6864e280cf9a15d22c04",
+      "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-x5-r2-checked",
+      "condition": "checked",
+      "case_id": "S-x5",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r2-checked/candidate.json",
+      "candidate_record_sha256": "9a8b8d22ed85889bd30be776987e79f3eb46923081f574ffa181727e7eb2e447",
+      "source_sha256": "e4d4c7fc03dd428eb2cbfb654c5899e22faf690b5e9c31b23a53c0487ae04e2d",
+      "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_changed": true,
+      "parameters_changed": true,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "promote",
+        "reason_codes": [
+          "acceptable_simplification"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09180398722781567,
+          "candidate_nmse": 0.09180470524756017,
+          "delta_nmse": 7.180197444944802e-07,
+          "parent_n_params": 5,
+          "candidate_n_params": 4,
+          "parameter_delta": -1,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": true
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "promote",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-x5-r2-hidden",
+      "condition": "hidden",
+      "case_id": "S-x5",
+      "family": "symbolic",
+      "candidate_path": "artifacts/decision-replay/2026-10-21/v01/sessions/S-x5-r2-hidden/candidate.json",
+      "candidate_record_sha256": "ae0552f4d0cef0c34ceed538f22980ef697bf8a98a98af052bcde623a36cb171",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": null,
+        "note": "No structured claim in this historical protocol."
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09180398722781567,
+          "candidate_nmse": 0.09180398722781567,
+          "delta_nmse": 0.0,
+          "parent_n_params": 5,
+          "candidate_n_params": 5,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "P-format-self",
+      "condition": "self",
+      "case_id": "P-format",
+      "family": "planning",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/P-format-self/candidate.json",
+      "candidate_record_sha256": "2e99a56e47a666aea1a1865847b0e2421714080565f43130cf20778abcdcfc4d",
+      "source_sha256": "367be9fecc515afe7fe4fd7d305189cb77f79ad5ae9311b7b90b90030c7e035c",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "apply_format_patch",
+        "check": {
+          "kind": "apply_format_patch",
+          "status": "supported",
+          "reason": "whole_ast_equals_exact_formatter_patch"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "apply_format_patch",
+            "status": "contradicted",
+            "reason": "candidate_ast_differs_from_exact_formatter_patch"
+          },
+          "under_original_claim": {
+            "status": "supported",
+            "reason": "whole_ast_equals_exact_formatter_patch"
+          },
+          "under_final_claim": {
+            "kind": "apply_format_patch",
+            "status": "supported",
+            "reason": "whole_ast_equals_exact_formatter_patch"
+          },
+          "source_changed": true,
+          "parameters_changed": false,
+          "edit_claim_changed": false,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": true,
+          "declaration_only_change": false,
+          "final_general_edit": false,
+          "returned_to_base": false,
+          "initial_deployment": {
+            "kind": "raw_validation",
+            "status": "supported",
+            "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+            "scope": "This runtime only; not a general proof about execution hosts."
+          },
+          "final_deployment": {
+            "kind": "raw_validation",
+            "status": "supported",
+            "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+            "scope": "This runtime only; not a general proof about execution hosts."
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "promote",
+        "reason_codes": [
+          "development_success_added_without_regression"
+        ],
+        "metrics": {
+          "development_delta": 8,
+          "public_delta": 2,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 8,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 2,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [
+              "spannerlearning/seed0/problem2",
+              "spannerlearning/seed0/problem3",
+              "spannerlearning/seed0/problem4",
+              "spannerlearning/seed0/problem5",
+              "spannerlearning/seed0/problem6",
+              "spannerlearning/seed0/problem7",
+              "spannerlearning/seed0/problem8",
+              "spannerlearning/seed0/problem9"
+            ],
+            "gained_ids": [
+              "spannerlearning/seed0/problem2",
+              "spannerlearning/seed0/problem3",
+              "spannerlearning/seed0/problem4",
+              "spannerlearning/seed0/problem5",
+              "spannerlearning/seed0/problem6",
+              "spannerlearning/seed0/problem7",
+              "spannerlearning/seed0/problem8",
+              "spannerlearning/seed0/problem9"
+            ],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [
+              "spannerlearning/seed0/problem0",
+              "spannerlearning/seed0/problem1"
+            ],
+            "gained_ids": [
+              "spannerlearning/seed0/problem0",
+              "spannerlearning/seed0/problem1"
+            ],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "promote",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "P-format-checked",
+      "condition": "checked",
+      "case_id": "P-format",
+      "family": "planning",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/P-format-checked/candidate.json",
+      "candidate_record_sha256": "21462d7be700b79f8fee45f58843ff683eb768b2bdcaeaa729d6fee6dbd38538",
+      "source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "base_source_sha256": "954089736b47434d9f2a334a34856c6f4dc5e3b887d98fb48eb8dee2754897fc",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "keep_bytes",
+        "check": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "apply_format_patch",
+            "status": "contradicted",
+            "reason": "candidate_ast_differs_from_exact_formatter_patch"
+          },
+          "under_original_claim": {
+            "status": "contradicted",
+            "reason": "candidate_ast_differs_from_exact_formatter_patch"
+          },
+          "under_final_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "source_changed": false,
+          "parameters_changed": false,
+          "edit_claim_changed": true,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": false,
+          "declaration_only_change": true,
+          "final_general_edit": false,
+          "returned_to_base": true,
+          "initial_deployment": {
+            "kind": "raw_validation",
+            "status": "supported",
+            "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+            "scope": "This runtime only; not a general proof about execution hosts."
+          },
+          "final_deployment": {
+            "kind": "raw_validation",
+            "status": "supported",
+            "reason": "final_syntax_gate_precedes_token_normalization;probe_copy_repair_not_deployed",
+            "scope": "This runtime only; not a general proof about execution hosts."
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "S-v3-checked",
+      "condition": "checked",
+      "case_id": "S-v3",
+      "family": "symbolic",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/S-v3-checked/candidate.json",
+      "candidate_record_sha256": "8149fd7f4faa3525d8a7acc5783b2dab20aed51a08173d104325ce7e80376188",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "keep_bytes",
+        "check": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_original_claim": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_final_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "source_changed": false,
+          "parameters_changed": false,
+          "edit_claim_changed": false,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": false,
+          "declaration_only_change": false,
+          "final_general_edit": false,
+          "returned_to_base": true,
+          "initial_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "final_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09224903410100932,
+          "candidate_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "parent_n_params": 6,
+          "candidate_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "S-v3-self",
+      "condition": "self",
+      "case_id": "S-v3",
+      "family": "symbolic",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/S-v3-self/candidate.json",
+      "candidate_record_sha256": "12c8a4c016c8d91f33ec356623eedea7dd92c55cd438a254b65dd9c6fa3e2096",
+      "source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "base_source_sha256": "d6019099a4c1f3680336f7d6eb0f25941b9c1e906c3a15ad884f2dafdcf57881",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "keep_bytes",
+        "check": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_original_claim": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_final_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "source_changed": false,
+          "parameters_changed": false,
+          "edit_claim_changed": false,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": false,
+          "declaration_only_change": false,
+          "final_general_edit": false,
+          "returned_to_base": true,
+          "initial_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "final_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09224903410100932,
+          "candidate_nmse": 0.09224903410100932,
+          "delta_nmse": 0.0,
+          "parent_n_params": 6,
+          "candidate_n_params": 6,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "P-empty-checked",
+      "condition": "checked",
+      "case_id": "P-empty",
+      "family": "planning",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/P-empty-checked/candidate.json",
+      "candidate_record_sha256": "b0144b0ebd3fedd4b15a26e3abf481dc142495921b865a14fee93cca33c5bcf8",
+      "source_sha256": "bec47dd9837da5058cbc05f527e61b81967320629e2c5c2c39a39f91e6dc096f",
+      "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "keep_bytes",
+        "check": {
+          "kind": "keep_bytes",
+          "status": "contradicted",
+          "reason": "source_bytes_changed"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_original_claim": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "under_final_claim": {
+            "kind": "keep_bytes",
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "source_changed": true,
+          "parameters_changed": false,
+          "edit_claim_changed": false,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": false,
+          "declaration_only_change": false,
+          "final_general_edit": false,
+          "returned_to_base": false,
+          "initial_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "final_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "P-empty-self",
+      "condition": "self",
+      "case_id": "P-empty",
+      "family": "planning",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/P-empty-self/candidate.json",
+      "candidate_record_sha256": "715cb45bf4e57b22231101301d012c8718e892a0c40f1b89613f67991d989feb",
+      "source_sha256": "c8e5daebc4bc6ade5dbb938d9a0898d7616c9addd6b3b8c63a44e5a12fba8f81",
+      "base_source_sha256": "67c3d2fd9ae6a55fb885f5e1518d8e22e5ac90294555e99f9cd1067227874d41",
+      "source_changed": true,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "general_edit",
+        "check": {
+          "kind": "general_edit",
+          "status": "unknown",
+          "reason": "unsupported_claim"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_original_claim": {
+            "status": "contradicted",
+            "reason": "source_bytes_changed"
+          },
+          "under_final_claim": {
+            "kind": "general_edit",
+            "status": "unknown",
+            "reason": "unsupported_claim"
+          },
+          "source_changed": true,
+          "parameters_changed": false,
+          "edit_claim_changed": true,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": false,
+          "declaration_only_change": false,
+          "final_general_edit": true,
+          "returned_to_base": false,
+          "initial_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "final_deployment": {
+            "kind": "unspecified",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "planning",
+        "decision": "retain",
+        "reason_codes": [
+          "no_development_benefit"
+        ],
+        "metrics": {
+          "development_delta": 0,
+          "public_delta": 0,
+          "parent_development_successes": 0,
+          "candidate_development_successes": 0,
+          "parent_public_successes": 0,
+          "candidate_public_successes": 0,
+          "development_total": 8,
+          "public_total": 2
+        },
+        "details": {
+          "development": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          },
+          "public": {
+            "parent_success_ids": [],
+            "candidate_success_ids": [],
+            "gained_ids": [],
+            "lost_ids": []
+          }
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "S-x5-self",
+      "condition": "self",
+      "case_id": "S-x5",
+      "family": "symbolic",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/S-x5-self/candidate.json",
+      "candidate_record_sha256": "4ff3e5a0483b4094cce8608def0f3dc08e77478deeacf3227cd8f60a8869ecb4",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "keep_bytes",
+        "check": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_original_claim": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_final_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "source_changed": false,
+          "parameters_changed": false,
+          "edit_claim_changed": false,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": false,
+          "declaration_only_change": false,
+          "final_general_edit": false,
+          "returned_to_base": true,
+          "initial_deployment": {
+            "kind": "raw_validation",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "final_deployment": {
+            "kind": "raw_validation",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09180398722781567,
+          "candidate_nmse": 0.09180398722781567,
+          "delta_nmse": 0.0,
+          "parent_n_params": 5,
+          "candidate_n_params": 5,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "S-x5-checked",
+      "condition": "checked",
+      "case_id": "S-x5",
+      "family": "symbolic",
+      "candidate_path": "artifacts/edit-commitment/2026-10-21/v01/reviews/S-x5-checked/candidate.json",
+      "candidate_record_sha256": "74347ece6634c4799c84066033e2fdfac9b4fb2282f40a27effb785b2dca2784",
+      "source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "base_source_sha256": "6f51ad2198bedb7b8079921f77c8feb81e1c677febff6fa3654671ea80f1235e",
+      "source_changed": false,
+      "parameters_changed": false,
+      "declaration": {
+        "edit_claim": "keep_bytes",
+        "check": {
+          "kind": "keep_bytes",
+          "status": "supported",
+          "reason": "source_bytes_and_parameter_metadata_identical"
+        },
+        "review_change": {
+          "initial_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_original_claim": {
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "under_final_claim": {
+            "kind": "keep_bytes",
+            "status": "supported",
+            "reason": "source_bytes_and_parameter_metadata_identical"
+          },
+          "source_changed": false,
+          "parameters_changed": false,
+          "edit_claim_changed": false,
+          "deployment_claim_changed": false,
+          "original_commitment_repaired": false,
+          "declaration_only_change": false,
+          "final_general_edit": false,
+          "returned_to_base": true,
+          "initial_deployment": {
+            "kind": "raw_validation",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "final_deployment": {
+            "kind": "raw_validation",
+            "status": "unknown",
+            "reason": "not_applicable_or_unspecified"
+          },
+          "draft_task_performance": "not_measured"
+        }
+      },
+      "proposed_outcome": {
+        "version": "goal-alignment-v0.1",
+        "family": "symbolic",
+        "decision": "retain",
+        "reason_codes": [
+          "no_meaningful_benefit"
+        ],
+        "metrics": {
+          "parent_nmse": 0.09180398722781567,
+          "candidate_nmse": 0.09180398722781567,
+          "delta_nmse": 0.0,
+          "parent_n_params": 5,
+          "candidate_n_params": 5,
+          "parameter_delta": 0,
+          "epsilon": 1e-05,
+          "tolerance": 1e-10,
+          "meaningful_improvement": false,
+          "acceptable_simplification": false
+        },
+        "details": {
+          "complexity_proxy": "independent_parameter_count_only",
+          "comparison": "candidate_final_minus_parent_final"
+        }
+      },
+      "retrospective_rule_action": "retain",
+      "actual_policy_or_artifact_promoted": false
+    }
+  ],
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "new_probe_executions": 0,
+  "new_task_evaluations": 0,
+  "sealed_data_reads": 0,
+  "strategy_selection_executed": false,
+  "persistent_strategy_updated": false,
+  "limitations": [
+    "Retrospective human-designed rule calibration, not counterfactual policy performance.",
+    "All four states already used in mechanism design; repeated submissions are correlated.",
+    "Historical scores are replayed without rerunning candidates or recomputing raw predictions.",
+    "No new program/formula states or independent selection/evaluation scores created.",
+    "Declaration truth and measured utility remain distinct; no automatic claim endorsement.",
+    "The strategy selector is tested with synthetic fixtures only."
+  ]
+}

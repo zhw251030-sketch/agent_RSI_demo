@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**最新已完成共享草稿与编辑承诺的真实对照。** 12次请求得到4草稿和8终稿；P-format自行复查真正修复达到10/10，检查组仅改声明仍0/10；两符号两臂均原样。四对请求输入及217原档核验通过。本轮揭示声明一致性与任务收益的差别，尚无独立机制优势。见[本轮完整说明](docs/operations/edit-commitment.md)、[逐例结果](docs/analysis/2026-10-21-edit-commitment-results.md)和[验收](docs/environment/2026-10-21-edit-commitment-verification.json)。
+**最新完成任务收益接受规则、全量历史回放和后续任务划分。** 24份历史终稿中4份符合新收益规则、20份保留；本轮无新增模型或候选执行，不是新策略成绩。76项不同测试双端全通过，回放报告逐字节一致。见[完整说明](docs/operations/goal-alignment.md)、[逐例结果](docs/analysis/2026-10-21-goal-alignment-results.md)和[验收](docs/environment/2026-10-21-goal-alignment-verification.json)。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -11,17 +11,19 @@
 | 层次 | 当前状态 |
 |---|---|
 | 研究路线 | 已选择形式规划与符号发现一起推进；基础 LLM 权重固定 |
-| 规划任务 | Spanner 的 400 问题与域文件已下载到服务器，完整性检查和固定 prompt 的 VAL 验收通过；seed0 的2提示/8开发已运行，30封存题未评分 |
-| 符号任务 | 按用户要求替换受限数据，已下载 LLM-SR 原论文四任务的 12 个 CSV（89,341 行），先用 oscillator1/2；结构检查通过，oscillator1/train已开发运行，独立评价协议待冻结 |
-| 更新对象 | 已分开产物P与持久策略S；当前S为人工八规则中四规则的有序选择，已完成历史首次更新；最新是编辑承诺组件对照，未再次更新S |
+| 规划任务 | Spanner 400题已下载；官方训练去重后学习10/选择19/后续评价63，排除8副本；300官方测试继续封存 |
+| 符号任务 | LLM-SR四方程12CSV；学习oscillator1、选择oscillator2（有手写评分暴露）、后续评价bactgrow/stressstrain；8测试CSV封存 |
+| 更新对象 | 外部策略S历史已有一次更新；最新实现任务收益与配对策略接受接口，本轮尚无新的真实S学习/选择 |
 | 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；受控策略与候选工具已运行，本轮91项相关服务器测试全通过（此前各轮测试记录分别保留） |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；本轮为离线纯函数与回放，两端各76项相关测试全通过 |
 | 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
 模型配置与验收：[MiniMax-M3 使用说明](docs/operations/minimax.md)。连接检查与开发小试分开计数。小试 8 次请求含 1 次服务错误，7 次有响应；费用仍有一笔未知用量，详见 [真实小试说明](docs/operations/agent-pilot.md)。
 
 ## 阅读入口
+
+- [最新任务收益规则与任务划分](docs/operations/goal-alignment.md)：本轮接受器、全量回放、任务角色与边界。
 
 1. [项目状态与下一步](STATUS.md)
 2. [形式规划与符号发现联合设计](docs/research/planning-symbolic-design-2026-10-17/形式规划与符号发现_联合研究设计_v0.1.md)

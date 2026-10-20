@@ -1,0 +1,174 @@
+{
+  "version": "goal-alignment-verification-v0.1",
+  "implementation_commit": "986f4b2888e190377669265ab66b5584e91c0fff",
+  "report_sha256": "d9d22d52b5bdbdd52b99cd5526dc678219725389c64cb571be366a368eaf483f",
+  "local_server_report_bytes_equal": true,
+  "local_server_partition_metadata_bytes_equal": true,
+  "partition_file_sha256": "bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7",
+  "partition_canonical_json_sha256": "97cee9039853b812a5d301f788e486983a7412d2deb597fe1dda77a8b75bdbf5",
+  "new_activity": {
+    "model_calls": 0,
+    "candidate_executions": 0,
+    "task_evaluations": 0,
+    "probe_executions": 0,
+    "strategy_updates": 0,
+    "model_weight_updates": 0,
+    "sealed_evaluations": 0
+  },
+  "historical_archives": [
+    {
+      "path": "artifacts/decision-replay/2026-10-21/v01",
+      "manifest_sha256": "0b32ada07fbc53761ba85a11dd521595a80d4befeebb138cad2d434eb35dc705",
+      "raw_file_count": 303,
+      "raw_tree_sha256": "065029305dd3434661889d3f508f56b94af3c89f7d790c1630cc489ff1166dd5",
+      "id": "decision-replay-v01",
+      "historical_runtime_commit": "ede8fc7a729b94e6573eba19954691c9c8edb219",
+      "historical_audit_status": "passed",
+      "submissions": 16
+    },
+    {
+      "path": "artifacts/edit-commitment/2026-10-21/v01",
+      "manifest_sha256": "273ce6d00bc53eb35f5aa0749969a371821996c777aa20a592e1ce4d947b3ab9",
+      "raw_file_count": 217,
+      "raw_tree_sha256": "88f518db634e050c4f51a616d66845ff3bd3849c845c3f9f02e4b4f8c0fd147d",
+      "id": "edit-commitment-v01",
+      "historical_runtime_commit": "6d6e36851479bae6d5a0e0276fb448a537cfa970",
+      "historical_audit_status": "passed",
+      "submissions": 8
+    }
+  ],
+  "historical_submissions": 24,
+  "historical_case_count": 4,
+  "distinct_final_source_count": 11,
+  "retrospective_acceptance": {
+    "promote": 4,
+    "retain": 20
+  },
+  "source_files_sha256": {
+    "configs/analysis/goal-alignment-v0.1.json": "d1ad6f3f1dc10ad4d10af8e6a4759a5a980307ddbd477559f39e7f4c3af41911",
+    "configs/tasks/strategy-partition-v0.1.json": "bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7",
+    "docs/protocols/2026-10-21-goal-alignment-v0.1.md": "0ae8a904b735740caf05fc68af995ae059a047c323ee23d73ff93e24091f6a85",
+    "rsi_eval/goal_alignment.py": "fb55be9cc7208c91806c70515371827d4b9473a87f7d450c89ec9de9f57df82e",
+    "rsi_eval/strategy_partition.py": "176428e2eac30e6b4c1222a187c846b228f78689a4fc0e84134ef8cafb563388",
+    "scripts/analyze_goal_alignment.py": "87d2e2ed1d59068ad3ade9d0adc33d8d7bdf4c36a9d2dce9493dda8638796aa4",
+    "scripts/check_strategy_partition.py": "512b06f697fdb92335d4e98f021dd74676733d571aaad9b34d2d62c26af8e5bf",
+    "tests/test_goal_alignment.py": "1317fefe69046321dd00d5044697f387d57abae672ee616ba7d9d0f0be910848",
+    "tests/test_goal_alignment_replay.py": "0f833ffafcc19d196768140c52769efe7336032bd22bcf5db5e78b440fb95a1f",
+    "tests/test_strategy_partition.py": "016ac5ca52de5205a22ec229613e654eae340b1d333b4354b07f63e07229146f"
+  },
+  "tests": {
+    "local": {
+      "python": "3.12.14",
+      "platform": "win32",
+      "tests_run": 76,
+      "passed": 76,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 8.0,
+      "output": "............................................................................\n----------------------------------------------------------------------\nRan 76 tests in 7.994s\n\nOK\n",
+      "skipped_tests": []
+    },
+    "server": {
+      "python": "3.10.12",
+      "platform": "linux",
+      "tests_run": 76,
+      "passed": 76,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 2.026,
+      "output": "............................................................................\n----------------------------------------------------------------------\nRan 76 tests in 2.026s\n\nOK\n",
+      "skipped_tests": []
+    }
+  },
+  "distinct_tests": 76,
+  "local_server_python_source_hashes_equal": true,
+  "review": {
+    "independent_review": "docs/analysis/2026-10-21-goal-alignment-review.md",
+    "independent_guarded_probe": "docs/environment/2026-10-21-goal-replay-independent-probe.json",
+    "probe_source_archive": "docs/environment/2026-10-21-goal-replay-review-probe.py",
+    "probe_reproduction": "Copy the archived probe to tmp/review_goal_replay.py before running; its root is the parent of tmp.",
+    "independent_tests_before_final_missing_fix": 53,
+    "final_missing_fix_read_only_reviewed": true,
+    "resolved_issues": [
+      "Compressed symbolic baseline versus full final metric/scope projection",
+      "Zero-parameter planning and symbolic metadata",
+      "No submitted candidate represented by missing plus jointly null source/parameter fields"
+    ],
+    "unresolved_blocking_findings": 0,
+    "guards_scope": "The independent probe was run before the final missing-submission contract change; the change only affects select_strategy, which replay does not execute."
+  },
+  "partition_integrity": {
+    "status": "passed",
+    "version": "strategy-partition-v0.1",
+    "mode": "training_file_integrity",
+    "execution_authorized": false,
+    "manifest_sha256": "97cee9039853b812a5d301f788e486983a7412d2deb597fe1dda77a8b75bdbf5",
+    "sources": [
+      {
+        "path": "configs/tasks/planning-spanner-v0.1.json",
+        "sha256": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010"
+      },
+      {
+        "path": "configs/tasks/downloads-v0.1.json",
+        "sha256": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8"
+      }
+    ],
+    "planning_counts": {
+      "learning": 10,
+      "selection": 19,
+      "duplicate_excluded": 8,
+      "evaluation": 63,
+      "sealed": 300
+    },
+    "symbolic_equation_counts": {
+      "learning": 1,
+      "selection": 1,
+      "evaluation": 2
+    },
+    "sealed_symbolic_files": 8,
+    "data_verification": {
+      "planning_train_files": 100,
+      "symbolic_train_files": 4,
+      "normalized_duplicate_groups": 7,
+      "sealed_files_opened": 0,
+      "symbolic_values_decoded": false
+    },
+    "model_requests": 0,
+    "candidate_executions": 0,
+    "strategy_updates": 0,
+    "sealed_tasks_executed": 0,
+    "limitations": {
+      "existing_evaluator_permissions_changed": false,
+      "new_program_states_generated": false,
+      "semantic_or_graph_isomorphism_deduplication": false,
+      "independent_domains": 1,
+      "symbolic_equation_tasks": 4,
+      "row_level_independence_claimed": false,
+      "new_state_generation_and_execution_protocol": "not_frozen",
+      "evaluation_train_nmse": "Within-task fitting; not held-out prediction generalization.",
+      "exposure_evidence_date": "2026-10-21",
+      "exposure_evidence_scope": "Archived research records and executor_feedback task identities; absence of discovered candidate execution is not universal proof of non-exposure."
+    }
+  },
+  "old_tracked_files_unchanged_at_implementation_commit": true,
+  "unchanged_from": "5fc7553ec45e548f82165b5383b6b374feb80a3e",
+  "cost": {
+    "new_model_requests": 0,
+    "new_known_tokens": 0,
+    "new_estimated_cost_cny": 0,
+    "project_research_requests": 115,
+    "project_known_tokens": 896643,
+    "project_known_estimated_cost_cny": 2.7726993,
+    "project_reserved_cost_cny": 11.910108,
+    "earliest_unknown_usage_retained": true,
+    "excluded": "7 connection/debug requests, Canvas and unrelated project consumption"
+  },
+  "limits": [
+    "Researcher-designed rules; no learned new strategy or causal performance claim",
+    "Four seen states and 24 correlated submissions; not 24 independent tasks",
+    "Task roles frozen; generation of new program states and complete execution protocol remain unfrozen",
+    "Pure selector validates supplied bindings but cannot independently authenticate execution or prior freeze"
+  ]
+}

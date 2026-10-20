@@ -1,0 +1,139 @@
+{
+  "status": "passed",
+  "historical_submissions": 24,
+  "historical_case_count": 4,
+  "distinct_final_source_count": 11,
+  "decisions": {
+    "promote": 4,
+    "retain": 20
+  },
+  "decisions_by_archive": {
+    "decision-replay-v01": {
+      "promote": 3,
+      "retain": 13
+    },
+    "edit-commitment-v01": {
+      "promote": 1,
+      "retain": 7
+    }
+  },
+  "new_model_calls": 0,
+  "new_candidate_executions": 0,
+  "strategy_selection_executed": false,
+  "persistent_strategy_updated": false,
+  "review_guards": {
+    "git_processes": 222,
+    "task_data_reads": 0,
+    "network_calls": 0
+  },
+  "promotions": [
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-x5-r1-checked",
+      "reason_codes": [
+        "acceptable_simplification"
+      ]
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "P-format-r2-checked",
+      "reason_codes": [
+        "development_success_added_without_regression"
+      ]
+    },
+    {
+      "archive_id": "decision-replay-v01",
+      "session_id": "S-x5-r2-checked",
+      "reason_codes": [
+        "acceptable_simplification"
+      ]
+    },
+    {
+      "archive_id": "edit-commitment-v01",
+      "session_id": "P-format-self",
+      "reason_codes": [
+        "development_success_added_without_regression"
+      ]
+    }
+  ],
+  "probe_propositions": [
+    {
+      "case_id": "P-format",
+      "opportunity": "eligible_for_format_trial",
+      "proposition": null,
+      "rows": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": true
+          },
+          "original_status": "invalid_output",
+          "intervention_status": "success"
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": true
+          },
+          "original_status": "invalid_output",
+          "intervention_status": "success"
+        }
+      ]
+    },
+    {
+      "case_id": "P-empty",
+      "opportunity": "no_format_repair_support",
+      "proposition": null,
+      "rows": [
+        {
+          "task_id": "spannerlearning/seed0/problem0",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": false
+          },
+          "original_status": "task_failure",
+          "intervention_status": "task_failure"
+        },
+        {
+          "task_id": "spannerlearning/seed0/problem1",
+          "proposition": {
+            "quantity": "same_plan_valid_after_edge_normalization",
+            "truth": false
+          },
+          "original_status": "task_failure",
+          "intervention_status": "task_failure"
+        }
+      ]
+    },
+    {
+      "case_id": "S-v3",
+      "opportunity": "avoid_supported_harm",
+      "proposition": {
+        "quantity": "removed_nmse - original_nmse",
+        "relation": ">",
+        "threshold": 1e-05,
+        "tolerance": 1e-10,
+        "value": 0.0015132655690959645,
+        "truth": true,
+        "negated_object": "removal loss exceeds epsilon; not simplification itself"
+      },
+      "rows": null
+    },
+    {
+      "case_id": "S-x5",
+      "opportunity": "eligible_for_trial",
+      "proposition": {
+        "quantity": "removed_nmse - original_nmse",
+        "relation": ">",
+        "threshold": 1e-05,
+        "tolerance": 1e-10,
+        "value": 7.180197444806025e-07,
+        "truth": false,
+        "negated_object": "removal loss exceeds epsilon; not simplification itself"
+      },
+      "rows": null
+    }
+  ]
+}
