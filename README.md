@@ -1,6 +1,8 @@
 # agent_RSI_demo
 
-**最新：已完成全量离线机制审查。** 2026-10-22完成v03全量离线机制审查：32终稿/16配对，完整请求及传输设置分组；四后续状态各有3次相同S0输入，新策略各1次。32个事后窄编辑谓词25支持/4矛盾/3未知；16符号终稿7保持公式/9改变表示，4个数值正向配对均增参数；stress原7参数仅4个有效系数。15项新离线测试两端全过，分析核验逐字节一致；235引用文件、3665档案文件与258旧运行文件核对通过。新增模型/执行/拟合/封存/S/权重更新均0，累计170请求和旧费用不变。已写8次无LLM数值诊断设计；168请求选择器方案仅草案，execution_ready=false。 见[机制审查](docs/analysis/2026-10-22-strategy-mechanism-audit.md)、[后继设计](docs/experiments/2026-10-22-mechanism-next-design.md)、[核验](docs/environment/2026-10-22-strategy-mechanism-verification.json)。
+**最新：八条件符号数值诊断已完成。** 2026-10-22完成8条件真实符号数值诊断，8/8成功，每条件一次：stress同族7→4参数NMSE仅差4.51e-12，fit候选调用106→17（优化器内部105→16）；bact四种等14项平方表示均优于三次14项，NMSE为0.728202/0.728076/0.772260/0.799326，完整15项0.728058。新增8fit+8predict/16sandbox，人工校准5fit尝试+2predict/7sandbox另计，23次启动warmup另计。36项新测试及15项旧审计测试双端通过；服务器从保存预测重算8个分数一致，52原文件逐字节归档，258旧运行文件/3665旧档案不变。模型/策略/权重更新及封存访问均0，累计仍170请求、已知1364169tokens/估算4.2168546元/预留19.5491730元，两笔usage未知。仅支持已见train上的参数化/特征诊断，不证明稳定RSI优势。 见[结果与解释](docs/analysis/2026-10-22-symbolic-numerical-diagnostic.md)、[操作说明](docs/operations/symbolic-diagnostic.md)、[验收](docs/environment/2026-10-22-symbolic-diagnostic-verification.json)。
+
+**上一轮：全量离线机制审查。** 2026-10-22完成v03全量离线机制审查：32终稿/16配对，完整请求及传输设置分组；四后续状态各有3次相同S0输入，新策略各1次。32个事后窄编辑谓词25支持/4矛盾/3未知；16符号终稿7保持公式/9改变表示，4个数值正向配对均增参数；stress原7参数仅4个有效系数。15项新离线测试两端全过，分析核验逐字节一致；235引用文件、3665档案文件与258旧运行文件核对通过。新增模型/执行/拟合/封存/S/权重更新均0，累计170请求和旧费用不变。已写8次无LLM数值诊断设计；168请求选择器方案仅草案，execution_ready=false。 见[机制审查](docs/analysis/2026-10-22-strategy-mechanism-audit.md)、[后继设计](docs/experiments/2026-10-22-mechanism-next-design.md)、[核验](docs/environment/2026-10-22-strategy-mechanism-verification.json)。
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
