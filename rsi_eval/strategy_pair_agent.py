@@ -23,16 +23,18 @@ from .strategy_learning import canonical
 from .strategy_pair_controller import SDK_SECURITY_RISKS, StrategyPairController, reference, write_once
 from .two_stage_agent import _SubmissionAction, TwoStageObservation
 
-VERSION = 'strategy-pair-agent-v0.1'
+VERSION = 'strategy-pair-agent-v0.2'
 UPDATE_SYSTEM = ('Select one fixed-weight external strategy using only the complete supplied historical '
-    'learning packet. Submit four distinct catalog rule IDs in order using submit_policy exactly once. '
+    'learning packet. Return exactly one tool call: submit_policy with four distinct catalog rule IDs in order. '
+    'This is the only available tool. Do not call finish or any additional tool; the host ends this single step. '
     'Any optional explanation is unverified archive-only text. No task execution, source submission, '
-    'additional request, files, networks or subprocesses are available. The finish tool creates no proposal.')
+    'additional request, files, networks or subprocesses are available.')
 ACTOR_SYSTEM = ('Make one complete artifact revision using the supplied current_state and repair_policy. '
-    'Submit complete Python source and its declared parameter count using submit_candidate exactly once. '
+    'Return exactly one tool call: submit_candidate with complete Python source and its declared parameter count. '
+    'This is the only available tool. Do not call finish or any additional tool; the host ends this single step. '
     'No task execution, repair of your output, additional request, files, networks or subprocesses are '
     'available in this conversation. The host will evaluate separately under its frozen allocation. '
-    'Any optional explanation is unverified archive-only text. The finish tool creates no candidate.')
+    'Any optional explanation is unverified archive-only text.')
 Rule = Literal['R01','R02','R03','R04','R05','R06','R07','R08']
 
 
@@ -128,6 +130,13 @@ class StrategyPacketLLM(BoundedPilotLLM):
         replacement = replace_messages(messages, packet)
         output = kwargs.get('max_tokens', kwargs.get('max_completion_tokens', self.max_output_tokens))
         payload = wire_payload(self.model, replacement, kwargs.get('tools'), kwargs.get('tool_choice'), output)
+        expected_tool = 'submit_policy' if self._controller.stage == 'update' else 'submit_candidate'
+        advertised = payload.get('tools')
+        if (type(advertised) is not list or len(advertised) != 1
+                or advertised[0].get('type') != 'function'
+                or advertised[0].get('function', {}).get('name') != expected_tool
+                or payload.get('tool_choice') is not None):
+            raise ValueError('Strategy request must advertise only its single business tool')
         self._payload = payload
         if self._capture_only:
             self._captured_payload = payload
@@ -150,7 +159,7 @@ class StrategyPacketLLM(BoundedPilotLLM):
             calls = choice.message.tool_calls
             if choice.finish_reason == 'tool_calls' and not calls:
                 raise PilotResponseContractError('Provider announced tool calls without a call')
-            if calls and calls[0].function.name != 'finish':
+            if calls:
                 # Strict raw JSON validation precedes SDK parsing/normalization.
                 # Extra keys, duplicate keys and coercions cannot disappear in
                 # an SDK repair and subsequently become accepted evidence.
@@ -170,11 +179,11 @@ class StrategyPacketLLM(BoundedPilotLLM):
 
 
 class StrategyUpdateLLM(StrategyPacketLLM):
-    _pilot_allowed_tools: ClassVar[frozenset[str]] = frozenset({'submit_policy','finish'})
+    _pilot_allowed_tools: ClassVar[frozenset[str]] = frozenset({'submit_policy'})
 
 
 class StrategyActorLLM(StrategyPacketLLM):
-    _pilot_allowed_tools: ClassVar[frozenset[str]] = frozenset({'submit_candidate','finish'})
+    _pilot_allowed_tools: ClassVar[frozenset[str]] = frozenset({'submit_candidate'})
 
 
 def make_llm(settings, controller, ledger):
@@ -257,7 +266,7 @@ def _validate(controller,llm,session_id,directory):
 
 
 def _conversation(controller,llm,directory,callback=None):
-    model = Agent(llm=llm,tools=[_tool(controller,llm)],include_default_tools=['FinishTool'],
+    model = Agent(llm=llm,tools=[_tool(controller,llm)],include_default_tools=[],
         system_prompt=UPDATE_SYSTEM if controller.stage=='update' else ACTOR_SYSTEM,
         agent_context=None,mcp_config={},condenser=None,critic=None,tool_concurrency_limit=1)
     conv=ControlledPilotConversation(model,workspace=Path(directory)/'workspace',persistence_dir=None,

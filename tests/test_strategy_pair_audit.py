@@ -103,7 +103,8 @@ class SessionAuditTests(unittest.TestCase):
         return result
 
     def verify(self, result=None):
-        return audit.verify_session(ROOT,self.slot,self.packet,result or self.result,self.ledger_path)
+        return audit.verify_session(ROOT,self.slot,self.packet,result or self.result,self.ledger_path,
+            expected_agent_version='strategy-pair-agent-v0.1')
 
     def replace_ref(self, field, mutate):
         old = self.result[field]

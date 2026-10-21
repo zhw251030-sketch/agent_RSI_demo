@@ -14,6 +14,8 @@ from .strategy_partition import safe_path
 
 VERSION = 'strategy-pair-audit-v0.1'
 BOUNDARY = 'Persisted trusted-client consistency only; not provider attestation or independent execution/time proof.'
+CURRENT_AGENT_VERSION = 'strategy-pair-agent-v0.2'
+HISTORICAL_AGENT_VERSION = 'strategy-pair-agent-v0.1'
 
 
 def _require(condition, message):
@@ -58,13 +60,13 @@ def _ledger(root, path):
     return ledger, allocation
 
 
-def _transport(root, directory, request_ref, request_id):
+def _transport(root, directory, request_ref, request_id, expected_agent_version):
     from .strategy_pair_preparation import model_settings
     from .strategy_pair_transport import verify_dispatch_record
     binding.file_ref(root,directory+'/sdk-dispatch.json')
     verify_dispatch_record(safe_path(root,directory),model_settings(root)['effective'])
     settings = _named(root, directory+'/transport-settings.json')
-    _require(settings == dict(version='strategy-pair-agent-v0.1',timeout=180,num_retries=0,
+    _require(settings == dict(version=expected_agent_version,timeout=180,num_retries=0,
         provider_max_retries=0,stream=False,max_output_tokens=8192), 'Transport settings changed')
     ref = binding.file_ref(root,directory+'/transport-request.json')
     sent = _read(root,ref)
@@ -87,13 +89,18 @@ def _transport(root, directory, request_ref, request_id):
         and result['elapsed_seconds'] >= 0, 'Transport did not return one bound response')
 
 
-def verify_session(root, slot, packet, result, ledger_path):
+def verify_session(root, slot, packet, result, ledger_path, *, expected_agent_version=CURRENT_AGENT_VERSION):
     """Certify accepted client records before their source may be measured.
 
     The caller owns phase/runtime guards. Rechecking an earlier accepted slot
     remains possible after a later slot fails, but every earlier reservation
     must be known and settled. This never relabels synthetic provider responses.
+    The caller chooses the expected interface version; records cannot downgrade
+    themselves to the historical two-tool interface. Historical callers must
+    explicitly request v0.1 for read-only replay.
     """
+    _require(expected_agent_version in (CURRENT_AGENT_VERSION,HISTORICAL_AGENT_VERSION),
+        'Unsupported expected strategy agent version')
     root = Path(root).resolve()
     ledger, allocation = _ledger(root,ledger_path)
     _require(slot in allocation['slots'], 'Session slot differs from frozen allocation')
@@ -104,7 +111,7 @@ def verify_session(root, slot, packet, result, ledger_path):
     _require(all(r.get('status')=='settled' and r.get('usage_state')=='known' and r.get('error_type') is None for r in prior),
              'Acceptance requires known settled preceding requests')
     row = prior[-1]
-    _require(type(result) is dict and result.get('version')=='strategy-pair-agent-v0.1'
+    _require(type(result) is dict and result.get('version')==expected_agent_version
         and result.get('status')=='accepted' and result.get('slot_id')==slot['id']
         and result.get('request_id')==request_id and result.get('error_type') is None,
         'Accepted SDK result identity mismatch')
@@ -120,8 +127,9 @@ def verify_session(root, slot, packet, result, ledger_path):
         and row.get('output_token_reservation')==8192 and request.get('max_output_tokens')==8192,
         'Actual request differs from packet or reserved bytes')
     tools = request.get('tools')
-    _require(type(tools) is list and len(tools)==2
-        and {t.get('function',{}).get('name') for t in tools}=={tool,'finish'}, 'Unexpected SDK tool set')
+    expected_tools = {tool} if expected_agent_version==CURRENT_AGENT_VERSION else {tool,'finish'}
+    _require(type(tools) is list and len(tools)==len(expected_tools)
+        and {t.get('function',{}).get('name') for t in tools}==expected_tools, 'Unexpected SDK tool set')
     response = _read(root,result['response'])
     choices = response.get('choices')
     _require(type(choices) is list and len(choices)==1 and response.get('error_type') is None,
@@ -191,7 +199,7 @@ def verify_session(root, slot, packet, result, ledger_path):
         and status.get('policy')==result.get('policy') and status.get('source')==result.get('source')
         and status.get('submission')==result['submission'], 'Controller summary differs from accepted receipt')
     _require(_named(root,directory+'/session-summary.json')==result, 'Stored session summary differs')
-    _transport(root,directory,result['request'],request_id)
+    _transport(root,directory,result['request'],request_id,expected_agent_version)
     return dict(version=VERSION,status='passed',slot_id=slot['id'],request_id=request_id,tool=tool,
         actual_input_bytes=len(payload),usage=usage,evidence_boundary=BOUNDARY)
 
@@ -414,8 +422,10 @@ def audit_protocol(root, output):
         evidence_boundary=BOUNDARY)
 
 
-def audit_run(root, output, *, ledger_path=None):
+def audit_run(root, output, *, ledger_path=None, expected_agent_version=CURRENT_AGENT_VERSION):
     """Full replay plus real SDK evidence for every accepted session."""
+    _require(expected_agent_version in (CURRENT_AGENT_VERSION,HISTORICAL_AGENT_VERSION),
+        'Unsupported expected strategy agent version')
     output=_output_name(root,output)
     report=audit_protocol(root,output)
     summary=_named(root,output+'/summary.json')
@@ -431,7 +441,8 @@ def audit_run(root, output, *, ledger_path=None):
         if result is None or result.get('status')!='accepted':
             continue
         packet,_=binding._request_packet(_read(root,result['request']))
-        verified.append(verify_session(root,row['slot'],packet,result,path))
+        verified.append(verify_session(root,row['slot'],packet,result,path,
+            expected_agent_version=expected_agent_version))
     _require(len(verified)==report['accepted_sessions'], 'SDK accepted session count differs')
     if summary['status']=='complete':
         _require(len(ledger['requests'])==36 and ledger.get('halted') is False, 'Complete run budget differs')

@@ -212,7 +212,7 @@ class SDKTests(unittest.TestCase):
             template=agent.prepare_request_template(c,llm,slot,self.output)
         self.assertEqual(ledger.summary()['request_count'],0)
         self.assertEqual(template['messages'][-1],{'role':'user','content':None})
-        self.assertEqual({t['function']['name'] for t in template['tools']},{'submit_candidate','finish'})
+        self.assertEqual({t['function']['name'] for t in template['tools']},{'submit_candidate'})
         self.assertFalse((self.output/'submission.json').exists())
 
     def test_complete_update_packet_fits_actual_98304_wire_and_policy_has_no_explanation(self):
