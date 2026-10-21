@@ -1,0 +1,1017 @@
+{
+  "version": "variation-design-review-v0.1",
+  "date": "2026-10-22",
+  "scope": "Independent read-only audit of saved records and prospective design; no execution, fitting, model access or sealed data access",
+  "source_summary_sha256": "d934d19872f5953951ceb63bfb68f76e033ef1747e9c4598c370ceb0561a192a",
+  "request_count": 36,
+  "distinct_exact_request_byte_groups": 21,
+  "actor_request_count": 32,
+  "distinct_actor_request_byte_groups": 20,
+  "distinct_accepted_source_bytes": 32,
+  "same_input_groups": [
+    {
+      "request_sha256": "5a0cdb2876a3ae00dd64711d894e3aa420cec36af5569365735b433cb3d20337",
+      "n": 3,
+      "sessions": [
+        "r1-evaluation-P-eval-1-fixed",
+        "r1-evaluation-P-eval-1-updated",
+        "r2-evaluation-P-eval-1-fixed"
+      ],
+      "source_unique_bytes": 3,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "f76f9a0634dc7f661d97a48d97ab21b5bb030ecb452a4afefdee6abbe9a49096",
+      "n": 3,
+      "sessions": [
+        "r1-evaluation-P-eval-2-fixed",
+        "r1-evaluation-P-eval-2-updated",
+        "r2-evaluation-P-eval-2-fixed"
+      ],
+      "source_unique_bytes": 3,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "8cda20e959ab20e86a4e90337367b54b0a1726d4304a984c90cd57f3bcd30139",
+      "n": 3,
+      "sessions": [
+        "r1-evaluation-S-bact-eval-1-fixed",
+        "r1-evaluation-S-bact-eval-1-updated",
+        "r2-evaluation-S-bact-eval-1-fixed"
+      ],
+      "source_unique_bytes": 3,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "3391bd4af09d9a5521eed45c654cc294e41412b33a1bd139f8c5cebdd7ce97f3",
+      "n": 3,
+      "sessions": [
+        "r1-evaluation-S-stress-eval-1-fixed",
+        "r1-evaluation-S-stress-eval-1-updated",
+        "r2-evaluation-S-stress-eval-1-fixed"
+      ],
+      "source_unique_bytes": 3,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "f703e6a73c49fb11ce05fcceca82baf121706dafd6338d0e6344567ae5090062",
+      "n": 2,
+      "sessions": [
+        "r1-selection-P-select-1-fixed",
+        "r2-selection-P-select-1-fixed"
+      ],
+      "source_unique_bytes": 2,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "ffcb1f5597b8ca72731c537959261c180b85482f4b9f9d66a16b86a114953523",
+      "n": 2,
+      "sessions": [
+        "r1-selection-P-select-2-fixed",
+        "r2-selection-P-select-2-fixed"
+      ],
+      "source_unique_bytes": 2,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "e4ad569911ef163846456aff05859d3fff8389b8e90e9b28f0df934151775946",
+      "n": 2,
+      "sessions": [
+        "r1-selection-S-select-1-fixed",
+        "r2-selection-S-select-1-fixed"
+      ],
+      "source_unique_bytes": 2,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "7e1db101a8eed14f30df5d51044a12fd297b883eebd666e94e8fbef3d84cc75d",
+      "n": 2,
+      "sessions": [
+        "r1-selection-S-select-2-fixed",
+        "r2-selection-S-select-2-fixed"
+      ],
+      "source_unique_bytes": 2,
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ]
+    },
+    {
+      "request_sha256": "cf033aa7d5b8a24f11fa285e5a5e0bccb47e24144956aa46075cac074f442a13",
+      "n": 4,
+      "sessions": [
+        "r1-update-shadow",
+        "r1-update-updated",
+        "r2-update-shadow",
+        "r2-update-updated"
+      ],
+      "source_unique_bytes": 0,
+      "rule_ids": null
+    }
+  ],
+  "sessions": [
+    {
+      "session": "r1-evaluation-P-eval-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-P-eval-1-fixed/requests/request-0021.request.json",
+      "request_sha256": "5a0cdb2876a3ae00dd64711d894e3aa420cec36af5569365735b433cb3d20337",
+      "payload_sha256": "cbba9a94e537a78174c1a75c4a076d369cdfa539f3e3f96da30d40820c150554",
+      "request_bytes": 19294,
+      "source_sha256": "3242c3314c112b0bb979813a28d4cd08891ce4654914ad8d78cb24c4e7849947",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-evaluation-P-eval-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-P-eval-1-updated/requests/request-0022.request.json",
+      "request_sha256": "5a0cdb2876a3ae00dd64711d894e3aa420cec36af5569365735b433cb3d20337",
+      "payload_sha256": "cbba9a94e537a78174c1a75c4a076d369cdfa539f3e3f96da30d40820c150554",
+      "request_bytes": 19294,
+      "source_sha256": "0ed38074463245e3f7da292cc59da1b2b34a0d0a67e12961dd2951e7cd46ccea",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-evaluation-P-eval-2-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-P-eval-2-fixed/requests/request-0025.request.json",
+      "request_sha256": "f76f9a0634dc7f661d97a48d97ab21b5bb030ecb452a4afefdee6abbe9a49096",
+      "payload_sha256": "9928312c788cf773334b993a04f8145f49336476c209f728ec60d855adb42640",
+      "request_bytes": 25904,
+      "source_sha256": "be6bf79fde8fcf2fd50196a75bc6137424fc988fd13c9aaa9b845c0a95c02286",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-evaluation-P-eval-2-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-P-eval-2-updated/requests/request-0026.request.json",
+      "request_sha256": "f76f9a0634dc7f661d97a48d97ab21b5bb030ecb452a4afefdee6abbe9a49096",
+      "payload_sha256": "9928312c788cf773334b993a04f8145f49336476c209f728ec60d855adb42640",
+      "request_bytes": 25904,
+      "source_sha256": "5ed5c9ba44123ff98e1f56b127043f021a159b78475b20dfe06b8e9de4779df9",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-evaluation-S-bact-eval-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-S-bact-eval-1-fixed/requests/request-0024.request.json",
+      "request_sha256": "8cda20e959ab20e86a4e90337367b54b0a1726d4304a984c90cd57f3bcd30139",
+      "payload_sha256": "b232c8be8d3cde7301a8d723758fca4eb38549532fd8ae2922418b44a6b5af25",
+      "request_bytes": 7804,
+      "source_sha256": "ed997a93fc95f08d6d991974138eb68eeb17e2edc59862b19db6b4ec53141492",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-evaluation-S-bact-eval-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-S-bact-eval-1-updated/requests/request-0023.request.json",
+      "request_sha256": "8cda20e959ab20e86a4e90337367b54b0a1726d4304a984c90cd57f3bcd30139",
+      "payload_sha256": "b232c8be8d3cde7301a8d723758fca4eb38549532fd8ae2922418b44a6b5af25",
+      "request_bytes": 7804,
+      "source_sha256": "96afd970ef2268ec9983cced418b21baf6ddc084a87b3a1eb0e78f8ed6828780",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-evaluation-S-stress-eval-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-S-stress-eval-1-fixed/requests/request-0028.request.json",
+      "request_sha256": "3391bd4af09d9a5521eed45c654cc294e41412b33a1bd139f8c5cebdd7ce97f3",
+      "payload_sha256": "c92925c8dc088de32dd6fdb165b6c702fb4742f7fffa506f3fcb5abccd0ca04d",
+      "request_bytes": 7493,
+      "source_sha256": "562e92193d076307da35b70a3f71d76023f5afdd0f2471866b73cbb83c03606d",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-evaluation-S-stress-eval-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-evaluation-S-stress-eval-1-updated/requests/request-0027.request.json",
+      "request_sha256": "3391bd4af09d9a5521eed45c654cc294e41412b33a1bd139f8c5cebdd7ce97f3",
+      "payload_sha256": "c92925c8dc088de32dd6fdb165b6c702fb4742f7fffa506f3fcb5abccd0ca04d",
+      "request_bytes": 7493,
+      "source_sha256": "d00a34cb574ddf84af20b402b7dd1ea36d1af9692a15eed6cdf3274ef75cb3e9",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-P-select-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-P-select-1-fixed/requests/request-0005.request.json",
+      "request_sha256": "f703e6a73c49fb11ce05fcceca82baf121706dafd6338d0e6344567ae5090062",
+      "payload_sha256": "dbd02076a499fb914fa2bac52fc0e15c3a1535e138e4e20cd67f2d3d83408e8c",
+      "request_bytes": 21874,
+      "source_sha256": "565c6cf040a05a59a97f7a3174214a51960e9987d22c89861959914a6dac294e",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-P-select-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-P-select-1-updated/requests/request-0006.request.json",
+      "request_sha256": "6cfeb2c13c5a1b5b33597f276da3241c66869a55f330417353b6562397f6218f",
+      "payload_sha256": "dfd2a1dd13a8f2a429e6f9538d5e5e48b014e6a3e3ec150ed69b2a2df4dbf823",
+      "request_bytes": 21904,
+      "source_sha256": "3d2b84e89294fccf323b254eafa2d28151210676acd3dd3b3ad5a18d94cfd3e7",
+      "rule_ids": [
+        "R02",
+        "R05",
+        "R01",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-P-select-2-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-P-select-2-fixed/requests/request-0009.request.json",
+      "request_sha256": "ffcb1f5597b8ca72731c537959261c180b85482f4b9f9d66a16b86a114953523",
+      "payload_sha256": "08e9c4f3f9375a50aaab5cfcad3bdb916e20d630931de03c9be456ca3e1ebc36",
+      "request_bytes": 23405,
+      "source_sha256": "49b09457a5cff059d1e5c0dd9978e83f67ec4bf9818d85401333a3858a9fd535",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-P-select-2-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-P-select-2-updated/requests/request-0010.request.json",
+      "request_sha256": "f23bd38b3b34e4c05d7811ca8a5793a087d2fa22fe8cbf2a968d45a1e78da43b",
+      "payload_sha256": "abbc2d6a59e34861193c9530787691201cc18f9b52a2a7ca57c2e0698b9d748e",
+      "request_bytes": 23435,
+      "source_sha256": "28aca17fdc0f7ebd3c0d294cb4166559e089ecf759e70ff95a8a879453e5b307",
+      "rule_ids": [
+        "R02",
+        "R05",
+        "R01",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-S-select-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-S-select-1-fixed/requests/request-0008.request.json",
+      "request_sha256": "e4ad569911ef163846456aff05859d3fff8389b8e90e9b28f0df934151775946",
+      "payload_sha256": "9a51df166ab2b7310ad3461141e48d1d1a5e764f9698e72b70dc5f0beafdeb9a",
+      "request_bytes": 8143,
+      "source_sha256": "9d2817370bbfdd521af91042018374613a65739b7eca74395a6c89a61b2630a7",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-S-select-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-S-select-1-updated/requests/request-0007.request.json",
+      "request_sha256": "9b39dfb90fd73923aa8bfd5bec0fcbda6f5a5cf7243ef0d3482827672bb41c7f",
+      "payload_sha256": "75e764468cf71eb3e5db25d2e15a046570270b120fbe96811f554480de5ef90d",
+      "request_bytes": 8173,
+      "source_sha256": "cf3e6bb5d584526709e550bb9142afb8e436795e2721648d6d0c5fa6186b6e80",
+      "rule_ids": [
+        "R02",
+        "R05",
+        "R01",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-S-select-2-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-S-select-2-fixed/requests/request-0012.request.json",
+      "request_sha256": "7e1db101a8eed14f30df5d51044a12fd297b883eebd666e94e8fbef3d84cc75d",
+      "payload_sha256": "b3b75a38c5a94e96e577873cb8f5211c34f8ceca3e7d2754310e3d02b6ed3b71",
+      "request_bytes": 7451,
+      "source_sha256": "c3dfb457e2a89d3d300e28be22dcef50cca84eaf2af63a04d4296862c3926bd2",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-selection-S-select-2-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-selection-S-select-2-updated/requests/request-0011.request.json",
+      "request_sha256": "d4ef52e4fd23ef55ca3c6987e72d2f3668bacfcc3fbf1613adf52bff6a519da7",
+      "payload_sha256": "c4f512f768522b91c99b868391522afd623db4819ca756b92d6b6ad97a2f2249",
+      "request_bytes": 7481,
+      "source_sha256": "6a356c6206a140f2de2f600aa0b561b622a6b9943127c02eae1a3f03b3cfead2",
+      "rule_ids": [
+        "R02",
+        "R05",
+        "R01",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-update-shadow",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-update-shadow/requests/request-0002.request.json",
+      "request_sha256": "cf033aa7d5b8a24f11fa285e5a5e0bccb47e24144956aa46075cac074f442a13",
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "request_bytes": 91658,
+      "source_sha256": null,
+      "rule_ids": null,
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r1-update-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r1-update-updated/requests/request-0001.request.json",
+      "request_sha256": "cf033aa7d5b8a24f11fa285e5a5e0bccb47e24144956aa46075cac074f442a13",
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "request_bytes": 91658,
+      "source_sha256": null,
+      "rule_ids": null,
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-P-eval-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-P-eval-1-fixed/requests/request-0030.request.json",
+      "request_sha256": "5a0cdb2876a3ae00dd64711d894e3aa420cec36af5569365735b433cb3d20337",
+      "payload_sha256": "cbba9a94e537a78174c1a75c4a076d369cdfa539f3e3f96da30d40820c150554",
+      "request_bytes": 19294,
+      "source_sha256": "e65805c29ff431e6e100d6906f62eed313aa5615f429276cefcb7d6678a00a45",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-P-eval-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-P-eval-1-updated/requests/request-0029.request.json",
+      "request_sha256": "a93fdc7a56a6c76fcbafde1bbe7a99a924be1b60dfcfa080411b997c30b72e56",
+      "payload_sha256": "e432cc5294bf3325523989838425a48d26cd520a768854636f64abbc4f1ab0b9",
+      "request_bytes": 19324,
+      "source_sha256": "36228e93c43e1dac95ce11da4f558a7314f049f84c15ea6e450e1d17ff1349fb",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-P-eval-2-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-P-eval-2-fixed/requests/request-0034.request.json",
+      "request_sha256": "f76f9a0634dc7f661d97a48d97ab21b5bb030ecb452a4afefdee6abbe9a49096",
+      "payload_sha256": "9928312c788cf773334b993a04f8145f49336476c209f728ec60d855adb42640",
+      "request_bytes": 25904,
+      "source_sha256": "6be510b70ad0f3ac7eefc99923005ebc168346c4afce5904ecacbeb76ed4635f",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-P-eval-2-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-P-eval-2-updated/requests/request-0033.request.json",
+      "request_sha256": "77df6b94be785dba38ce73422afe78de5e9d4567ff6dd16179ad5733e6bcc2b4",
+      "payload_sha256": "86c683aa87a964638ba74ce84b0970f958769002057ea16860cfc9a382bc7920",
+      "request_bytes": 25934,
+      "source_sha256": "3fcb80ffecc15d82d3115af9d9275a27256b59dc5bc7c4319f0d48874a3d6630",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-S-bact-eval-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/requests/request-0031.request.json",
+      "request_sha256": "8cda20e959ab20e86a4e90337367b54b0a1726d4304a984c90cd57f3bcd30139",
+      "payload_sha256": "b232c8be8d3cde7301a8d723758fca4eb38549532fd8ae2922418b44a6b5af25",
+      "request_bytes": 7804,
+      "source_sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-S-bact-eval-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/requests/request-0032.request.json",
+      "request_sha256": "1eee81c17232f4ef767248a64ee58a8518bb47a10d9dff233863d250252caed2",
+      "payload_sha256": "36ddc9688eeac3b241c77f609e9209fd1970fff8f274ed4673fa2666a408ff27",
+      "request_bytes": 7834,
+      "source_sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-S-stress-eval-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-stress-eval-1-fixed/requests/request-0035.request.json",
+      "request_sha256": "3391bd4af09d9a5521eed45c654cc294e41412b33a1bd139f8c5cebdd7ce97f3",
+      "payload_sha256": "c92925c8dc088de32dd6fdb165b6c702fb4742f7fffa506f3fcb5abccd0ca04d",
+      "request_bytes": 7493,
+      "source_sha256": "58e37aa5ec329ef8a47b136ed1cc4d5e33215fda0aacb81ea091aee261f07474",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-evaluation-S-stress-eval-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-stress-eval-1-updated/requests/request-0036.request.json",
+      "request_sha256": "863b6e6adadf39ce17d518a5a3a8f5a5c05d7e6bec4ca746a8986a556e871044",
+      "payload_sha256": "28c2536e7f8bffc0a0ea5f03865cfe6a27f2c946332f7d83a61b0a831ba72df8",
+      "request_bytes": 7523,
+      "source_sha256": "7648b20250d4dce1efa09743864ae39b08f883e71d6ee748ead88bc27c33465b",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-P-select-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-P-select-1-fixed/requests/request-0014.request.json",
+      "request_sha256": "f703e6a73c49fb11ce05fcceca82baf121706dafd6338d0e6344567ae5090062",
+      "payload_sha256": "dbd02076a499fb914fa2bac52fc0e15c3a1535e138e4e20cd67f2d3d83408e8c",
+      "request_bytes": 21874,
+      "source_sha256": "5f2126ca08c16eecb891896bb44f5413191a177ce30b7b98252aa3f34f83412d",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-P-select-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-P-select-1-updated/requests/request-0013.request.json",
+      "request_sha256": "8434c11a6fc06da5ef24667fe850ad933b30a9e98c11ce29ebd052cf2469e60f",
+      "payload_sha256": "1c7fa36b1180251af924a6b2bbd0be6b82351fcf76b9db177aad5f76a491e754",
+      "request_bytes": 21904,
+      "source_sha256": "bd55bb9dd6572517e2c2e0893792b671abd6a3e00a046e72750d7a0ef4d54a87",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-P-select-2-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-P-select-2-fixed/requests/request-0018.request.json",
+      "request_sha256": "ffcb1f5597b8ca72731c537959261c180b85482f4b9f9d66a16b86a114953523",
+      "payload_sha256": "08e9c4f3f9375a50aaab5cfcad3bdb916e20d630931de03c9be456ca3e1ebc36",
+      "request_bytes": 23405,
+      "source_sha256": "93722fc74980d07c35309bf6be9231bc71a8383ec98c14cd9f1a4d44ac6acfcc",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-P-select-2-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-P-select-2-updated/requests/request-0017.request.json",
+      "request_sha256": "fae77a042593e984cf8d25f6b504f22943dc787df76fd27df13c1c37e61507e8",
+      "payload_sha256": "eec3475a8f7486aa5e6b326dad3a7469d6f673b35d4798d817923191ed13e288",
+      "request_bytes": 23435,
+      "source_sha256": "3ba160adf1f8e70623679f5c3920567a4ad076e08075c95971ac6ab5f9ae76eb",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-S-select-1-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-S-select-1-fixed/requests/request-0015.request.json",
+      "request_sha256": "e4ad569911ef163846456aff05859d3fff8389b8e90e9b28f0df934151775946",
+      "payload_sha256": "9a51df166ab2b7310ad3461141e48d1d1a5e764f9698e72b70dc5f0beafdeb9a",
+      "request_bytes": 8143,
+      "source_sha256": "6f2862b1eb08dbb1690f8ba892ac7b0ee38e060e71de0048255fc9d471218657",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-S-select-1-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-S-select-1-updated/requests/request-0016.request.json",
+      "request_sha256": "0027b7cc2b3d4e25ad6a30a2ad94005619a98106a3af3fb5ffc718d01e1252fc",
+      "payload_sha256": "1e7967dda2d2918867dfb1801a3c5ef2a1485ebb5644b7d0ebee1d6f2fc9671b",
+      "request_bytes": 8173,
+      "source_sha256": "d81ea12e975c7fdda29d7f0b89df7d21885062f54d888fe43c67f42b563c3f74",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-S-select-2-fixed",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-S-select-2-fixed/requests/request-0019.request.json",
+      "request_sha256": "7e1db101a8eed14f30df5d51044a12fd297b883eebd666e94e8fbef3d84cc75d",
+      "payload_sha256": "b3b75a38c5a94e96e577873cb8f5211c34f8ceca3e7d2754310e3d02b6ed3b71",
+      "request_bytes": 7451,
+      "source_sha256": "6300e74f47693adbe52c5caea9440841451882e72c95b5449b72545ebc24ece7",
+      "rule_ids": [
+        "R03",
+        "R04",
+        "R06",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-selection-S-select-2-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-selection-S-select-2-updated/requests/request-0020.request.json",
+      "request_sha256": "5c43375ddb3ac7e34bc9ea088674ff47cc1a695c2481aeaa707f5c1382182c39",
+      "payload_sha256": "8eefd9102137b6d75a4490274ee2fad246dd88dd1f5cadcc18f65eeda74106eb",
+      "request_bytes": 7481,
+      "source_sha256": "160036e362a50b1acf650723166e107f113c3e9b4d19bc6806abdc59db6d5332",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-update-shadow",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-update-shadow/requests/request-0003.request.json",
+      "request_sha256": "cf033aa7d5b8a24f11fa285e5a5e0bccb47e24144956aa46075cac074f442a13",
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "request_bytes": 91658,
+      "source_sha256": null,
+      "rule_ids": null,
+      "provider_temperature": 1.0,
+      "seed": null
+    },
+    {
+      "session": "r2-update-updated",
+      "request_path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-update-updated/requests/request-0004.request.json",
+      "request_sha256": "cf033aa7d5b8a24f11fa285e5a5e0bccb47e24144956aa46075cac074f442a13",
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "request_bytes": 91658,
+      "source_sha256": null,
+      "rule_ids": null,
+      "provider_temperature": 1.0,
+      "seed": null
+    }
+  ],
+  "policy_proposals": [
+    {
+      "id": "r1-update-shadow",
+      "file_sha256": "74c6695794ae3e16ec017908e3a4abdba10c176d3be05689ede2f0a552a2653b",
+      "policy_sha256": "453797a8ef00b2a2fb529f9301b3bedef10679ffa4bfccd0757ae72c78879b92",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ]
+    },
+    {
+      "id": "r1-update-updated",
+      "file_sha256": "1cca38d55c283d16183b95c9212d6b5e5929efde58c1c17484ec20d388733a60",
+      "policy_sha256": "7c21ecb0598935072de8cbeee3eccca81e08c18b5a6536c0b76cd417aa944899",
+      "rule_ids": [
+        "R02",
+        "R05",
+        "R01",
+        "R08"
+      ]
+    },
+    {
+      "id": "r2-update-shadow",
+      "file_sha256": "6102c0ccbfeb9cbbfbb0695e89fd8d8c848740f6670830aa7df65e742ca6c807",
+      "policy_sha256": "8402fbc0b6f3fb6e62ca2e68e2055ae6415aa3ae69acde619d3dd86294d17194",
+      "rule_ids": [
+        "R01",
+        "R05",
+        "R02",
+        "R07"
+      ]
+    },
+    {
+      "id": "r2-update-updated",
+      "file_sha256": "74c6695794ae3e16ec017908e3a4abdba10c176d3be05689ede2f0a552a2653b",
+      "policy_sha256": "453797a8ef00b2a2fb529f9301b3bedef10679ffa4bfccd0757ae72c78879b92",
+      "rule_ids": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ]
+    }
+  ],
+  "evaluation_outputs": [
+    {
+      "session": "r1-evaluation-P-eval-1-fixed",
+      "state_id": "P-eval-1",
+      "arm": "fixed",
+      "replicate": "r1",
+      "n_params": 0,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "candidate_error": 63
+      },
+      "score": 0,
+      "total": 63
+    },
+    {
+      "session": "r1-evaluation-P-eval-1-updated",
+      "state_id": "P-eval-1",
+      "arm": "updated",
+      "replicate": "r1",
+      "n_params": 0,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "candidate_error": 63
+      },
+      "score": 0,
+      "total": 63
+    },
+    {
+      "session": "r1-evaluation-S-bact-eval-1-fixed",
+      "state_id": "S-bact-eval-1",
+      "arm": "fixed",
+      "replicate": "r1",
+      "n_params": 8,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "success": 1
+      },
+      "nmse": 0.8599611404838751
+    },
+    {
+      "session": "r1-evaluation-S-bact-eval-1-updated",
+      "state_id": "S-bact-eval-1",
+      "arm": "updated",
+      "replicate": "r1",
+      "n_params": 12,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "success": 1
+      },
+      "nmse": 0.8043228059470892
+    },
+    {
+      "session": "r1-evaluation-P-eval-2-fixed",
+      "state_id": "P-eval-2",
+      "arm": "fixed",
+      "replicate": "r1",
+      "n_params": 0,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "invalid_output": 63
+      },
+      "score": 0,
+      "total": 63
+    },
+    {
+      "session": "r1-evaluation-P-eval-2-updated",
+      "state_id": "P-eval-2",
+      "arm": "updated",
+      "replicate": "r1",
+      "n_params": 0,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "success": 63
+      },
+      "score": 63,
+      "total": 63
+    },
+    {
+      "session": "r1-evaluation-S-stress-eval-1-fixed",
+      "state_id": "S-stress-eval-1",
+      "arm": "fixed",
+      "replicate": "r1",
+      "n_params": 8,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "success": 1
+      },
+      "nmse": 0.21437303407759964
+    },
+    {
+      "session": "r1-evaluation-S-stress-eval-1-updated",
+      "state_id": "S-stress-eval-1",
+      "arm": "updated",
+      "replicate": "r1",
+      "n_params": 6,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "candidate_error": 1
+      },
+      "nmse": null
+    },
+    {
+      "session": "r2-evaluation-P-eval-1-fixed",
+      "state_id": "P-eval-1",
+      "arm": "fixed",
+      "replicate": "r2",
+      "n_params": 0,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "candidate_error": 63
+      },
+      "score": 0,
+      "total": 63
+    },
+    {
+      "session": "r2-evaluation-P-eval-1-updated",
+      "state_id": "P-eval-1",
+      "arm": "updated",
+      "replicate": "r2",
+      "n_params": 0,
+      "policy_sha256": "453797a8ef00b2a2fb529f9301b3bedef10679ffa4bfccd0757ae72c78879b92",
+      "statuses": {
+        "success": 63
+      },
+      "score": 63,
+      "total": 63
+    },
+    {
+      "session": "r2-evaluation-S-bact-eval-1-fixed",
+      "state_id": "S-bact-eval-1",
+      "arm": "fixed",
+      "replicate": "r2",
+      "n_params": 14,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "success": 1
+      },
+      "nmse": 0.844801449043118
+    },
+    {
+      "session": "r2-evaluation-S-bact-eval-1-updated",
+      "state_id": "S-bact-eval-1",
+      "arm": "updated",
+      "replicate": "r2",
+      "n_params": 15,
+      "policy_sha256": "453797a8ef00b2a2fb529f9301b3bedef10679ffa4bfccd0757ae72c78879b92",
+      "statuses": {
+        "success": 1
+      },
+      "nmse": 0.7280577515442443
+    },
+    {
+      "session": "r2-evaluation-P-eval-2-fixed",
+      "state_id": "P-eval-2",
+      "arm": "fixed",
+      "replicate": "r2",
+      "n_params": 0,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "invalid_output": 49,
+        "task_failure": 14
+      },
+      "score": 0,
+      "total": 63
+    },
+    {
+      "session": "r2-evaluation-P-eval-2-updated",
+      "state_id": "P-eval-2",
+      "arm": "updated",
+      "replicate": "r2",
+      "n_params": 0,
+      "policy_sha256": "453797a8ef00b2a2fb529f9301b3bedef10679ffa4bfccd0757ae72c78879b92",
+      "statuses": {
+        "task_failure": 63
+      },
+      "score": 0,
+      "total": 63
+    },
+    {
+      "session": "r2-evaluation-S-stress-eval-1-fixed",
+      "state_id": "S-stress-eval-1",
+      "arm": "fixed",
+      "replicate": "r2",
+      "n_params": 7,
+      "policy_sha256": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+      "statuses": {
+        "success": 1
+      },
+      "nmse": 0.34361657358684433
+    },
+    {
+      "session": "r2-evaluation-S-stress-eval-1-updated",
+      "state_id": "S-stress-eval-1",
+      "arm": "updated",
+      "replicate": "r2",
+      "n_params": 7,
+      "policy_sha256": "453797a8ef00b2a2fb529f9301b3bedef10679ffa4bfccd0757ae72c78879b92",
+      "statuses": {
+        "success": 1
+      },
+      "nmse": 0.34361657358684433
+    }
+  ],
+  "prospective_plan": {
+    "status": "design_only_execution_ready_false",
+    "primary_question": "Does requiring repeated actor evidence reduce brittle policy promotion compared with a predeclared first-draw selector, conditional on the same learning packet and proposed strategy?",
+    "new_policy_proposals": 4,
+    "selection_states": 4,
+    "selection_actor_repeats": 3,
+    "selection_policy_arms": 2,
+    "selection_actor_calls": 96,
+    "new_evaluation_source_calls": 4,
+    "evaluation_states": 4,
+    "selector_arms": 2,
+    "evaluation_actor_repeats": 2,
+    "evaluation_actor_calls": 64,
+    "max_new_calls": 168,
+    "reserve_cap_cny": 50.0,
+    "max_input_bytes": 98304,
+    "input_reservation_extra": 8192,
+    "max_output_tokens": 8192,
+    "frozen_input_rate_cny_per_million": 2.1,
+    "frozen_output_rate_cny_per_million": 8.4,
+    "worst_per_call_reserve_cny": 0.2924544,
+    "worst_total_reserve_cny": 49.1323392,
+    "existing_project_reserve_cny": 19.549173,
+    "combined_reserve_bound_cny": 69.549173,
+    "hard_project_budget_cny": 300.0,
+    "stop_rules": [
+      "180 seconds per provider call; zero retries; each position once",
+      "Unknown usage, missing or malformed submission, infrastructure failure, snapshot/hash mismatch, unexpected task access or budget denial stops the entire new run; do not replace requests",
+      "Measurable candidate failure is retained as outcome, never edited or rerolled",
+      "Selection stop leaves all later states unexecuted",
+      "Freeze both selectors for every proposal before any new evaluation source baseline/feedback/scoring",
+      "No sealed CSV or official planning test access"
+    ],
+    "one_shot_rule": "Use only predesignated actor repeat 1 and the existing per-pair acceptance rule across all four states. Do not choose which repeat after results.",
+    "repeated_rule": "If proposed policy equals S0, return no_policy_change before interpreting outcomes. Otherwise require no reject or unknown across all twelve state-by-repeat pairs; at least one state must promote in two of three repeats; else retain S0. Development safety rule, not significance.",
+    "symbolic_constraint": "Both policy arms and both selectors use the identical pre-frozen n_params <= state baseline n_params limit. Violations are recorded as constrained-output failures, not repaired. The limit controls parameter budget only, not functional capacity or rank.",
+    "new_state_boundary": "Four new source programs; still the same Spanner domain and bactgrow/stressstrain equations. Fresh source draws are not independent task-family validation.",
+    "required_freezes_before_execution": [
+      "Source generation protocol, task allocation, all 168 request IDs and permutation schedule",
+      "All four new evaluation source hashes and declared parameter counts without executing their baselines",
+      "Frozen old learning package D and exact policy-actor prompts including common parameter constraint",
+      "Rules for selector promotion, failure, missingness, source duplication and reporting",
+      "Actual SDK fake-provider complete-run and tamper/stop verification for newly implemented selector runner"
+    ],
+    "not_ready_reasons": [
+      "New evaluation sources do not yet exist/freeze",
+      "Repeated-selection coordinator and access gating are not implemented/verified in this design review",
+      "Prompt size, maximum allocations and runtime are not yet measured for this proposed successor"
+    ],
+    "shared_unmodified_source_control": "After all strategy freezes, score each untouched evaluation source on the same later evaluation tasks. Keep later planning baseline scores host-only; actor feedback remains restricted to the 10 learning tasks. No extra model requests.",
+    "omitted_control_boundary": "No always-S0 third actor arm at evaluation. This tests the two selectors directly, not universal superiority over fixed S0 when both select non-S0."
+  },
+  "limits": [
+    "Provider calls are separately made stochastic draws, not proved IID; all observed seed values null and temperatures 1.0",
+    "One candidate outcome vector is the actor unit, not each PDDL instance or CSV row",
+    "Four identical-input strategy proposals estimate proposal variation conditional on one historical learning packet; only two were eligible for selection and shadow proposals cannot be retroactively promoted",
+    "Three S0 actor draws per evaluation state and one new-policy draw cannot establish stable policy superiority",
+    "Existing evaluator and state-dependent losses couple outcomes; four states are not four independent task families",
+    "No post-hoc p-values or randomization inference from the earlier nonrandom request order",
+    "All later use of measured-v03 states is development/replication, not unseen confirmation"
+  ]
+}

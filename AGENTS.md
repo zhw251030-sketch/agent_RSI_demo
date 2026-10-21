@@ -2,6 +2,8 @@
 
 先读 README.md、STATUS.md 和最新联合设计。当前用户要求优先于历史稿。重要判断应核查原始论文、官方代码或实际日志，不能仅凭对话记忆推断。
 
+- 最新状态（2026-10-22机制审查）：2026-10-22完成v03全量离线机制审查：32终稿/16配对，完整请求及传输设置分组；四后续状态各有3次相同S0输入，新策略各1次。32个事后窄编辑谓词25支持/4矛盾/3未知；16符号终稿7保持公式/9改变表示，4个数值正向配对均增参数；stress原7参数仅4个有效系数。15项新离线测试两端全过，分析核验逐字节一致；235引用文件、3665档案文件与258旧运行文件核对通过。新增模型/执行/拟合/封存/S/权重更新均0，累计170请求和旧费用不变。已写8次无LLM数值诊断设计；168请求选择器方案仅草案，execution_ready=false。 见[机制审查](docs/analysis/2026-10-22-strategy-mechanism-audit.md)、[后继设计](docs/experiments/2026-10-22-mechanism-next-design.md)、[核验](docs/environment/2026-10-22-strategy-mechanism-verification.json)。 下一步以新设计A的8次数值诊断为准；以下各轮保留历史语境。
+
 - 固定LLM权重的形式规划与符号发现项目已完成真实measured-v03全流程：36请求、716测量，两次S*冻结后才开放评价。r1保留S0、r2晋升新策略；r2后续四状态为两项收益、两项持平，r1同策略也有大幅生成差异。尚无稳定机制优势、封存测试成绩或普适性结论。 最新入口docs/operations/strategy-measured-v03.md；measured-v01/v02均不恢复，v03不追加请求。
 - 当前服务器数据为 Spanner（400 问题+域文件）与 LLM-SR 原始四任务（12 CSV，先用 oscillator1/2）。后者按用户要求替代受限 LLM-SRBench，输出在最后一列；看 docs/operations/task-data.md 和最新 symbolic-public-data 协议。旧 phys_osc 清单保留作历史，不继续作为当前下载目标。
 - vendor/ 与 data/ 不直接挂载给候选进程；上游源码含参考解与缓存。rsi_eval 的候选执行已有 Bubblewrap/seccomp 隔离与资源限制，最新后继轮实跑前199项不同相关测试在服务器通过；当前单步候选Agent仅有submit_candidate，策略Agent仅有submit_policy，不可直接读取整个项目。最新已完成情况见本轮结果报告；尚无稳定机制优势或普适性结论。
