@@ -1,0 +1,354 @@
+{
+  "status": "passed",
+  "run_status": "attempts_completed",
+  "allocation_completed": true,
+  "runtime_commit": "67d8d873c05da8dbfc73bbc75f0d2842e30fc813",
+  "batch_freeze_sha256": "85ae278b6ae84a7d6929c1ae3a08138f2891de315fdd39149d5e9d79afa16b5b",
+  "python_version": "3.12.14",
+  "effective_timeout_seconds": 180,
+  "observed_transport_calls": 8,
+  "model_requests": 8,
+  "accepted_sources": 8,
+  "request_reservations": 8,
+  "transport_dispatch_attempts": 8,
+  "missing_or_unattempted_sources": 0,
+  "known_tokens": 23465,
+  "known_estimated_cost_cny": 0.1095612,
+  "actual_estimated_cost_cny": 0.1095612,
+  "reserved_cost_cny": 0.789474,
+  "unknown_usage_requests": 0,
+  "history_source_files": 151,
+  "frozen_session_files": 120,
+  "source_freeze_sha256": "f37695fa966f2e44027cc1b93d66a05f04d406e2b0b2f6808d73517c90d5004c",
+  "analysis_sha256": "efce522038eef4347c3329b3d192c1618faa08afacd76ed1b71b63649b932e1b",
+  "common_request_sha256": {
+    "planning": "1d34d037838f4eb091d51a0dcad2714505d20fac4106669d429e9eb75fe77125",
+    "symbolic-2": "358012708da1a9cc8cdf79aa46861d399e0bc89115540653ac854bd9146eebb3",
+    "symbolic-3": "cb753f1c6d69f3643e2ad599bcbecdc4b2e6b845c7e82818b1b30e243936bcd1",
+    "symbolic-4": "4abf33238fb5c8fee6f6d5fa1fc2a41a9857f9ca3440cf71b94eddbfc0508d6b"
+  },
+  "receipts": [
+    {
+      "slot_id": "P-select-1",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 39.22217082185671
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0001",
+      "usage": {
+        "prompt_tokens": 2149,
+        "completion_tokens": 1898,
+        "total_tokens": 4047
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "S-select-1",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 6.788708194158971
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0002",
+      "usage": {
+        "prompt_tokens": 1325,
+        "completion_tokens": 556,
+        "total_tokens": 1881
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "P-eval-1",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 15.82190253585577
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0003",
+      "usage": {
+        "prompt_tokens": 2149,
+        "completion_tokens": 1421,
+        "total_tokens": 3570
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "S-bact-eval-1",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 5.416524037253112
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0004",
+      "usage": {
+        "prompt_tokens": 1331,
+        "completion_tokens": 396,
+        "total_tokens": 1727
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "P-select-2",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 25.361256478354335
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0005",
+      "usage": {
+        "prompt_tokens": 2149,
+        "completion_tokens": 2065,
+        "total_tokens": 4214
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "S-select-2",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 13.244388525374234
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0006",
+      "usage": {
+        "prompt_tokens": 1325,
+        "completion_tokens": 325,
+        "total_tokens": 1650
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "P-eval-2",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 33.248925005085766
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0007",
+      "usage": {
+        "prompt_tokens": 2149,
+        "completion_tokens": 2592,
+        "total_tokens": 4741
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "S-stress-eval-1",
+      "network_dispatch_attempted": true,
+      "transport": {
+        "observed": true,
+        "incomplete": false,
+        "status": "returned",
+        "timeout_seconds": 180,
+        "elapsed_seconds": 9.366794515866786
+      },
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0008",
+      "usage": {
+        "prompt_tokens": 1319,
+        "completion_tokens": 316,
+        "total_tokens": 1635
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    }
+  ],
+  "static_analysis": {
+    "version": "state-generation-static-v0.1",
+    "source_freeze_sha256": "f37695fa966f2e44027cc1b93d66a05f04d406e2b0b2f6808d73517c90d5004c",
+    "rows": [
+      {
+        "id": "P-select-1",
+        "family": "planning",
+        "role": "selection",
+        "disposition": "available",
+        "source_sha256": "081ab4125587db6b90dbc218bc9fa109deee503b8382a0f2bb829e4e1da335a5",
+        "ast_sha256": "90ce9a41464f42d59bc088b37986c94e96254f8d772c5603bdfcf0aed4a45005",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 0
+      },
+      {
+        "id": "S-select-1",
+        "family": "symbolic",
+        "role": "selection",
+        "disposition": "available",
+        "source_sha256": "4e741492c3ae7fa2836bc3080dd0657c98296e11dd8db880867bf00798494ff2",
+        "ast_sha256": "59a16ad487a364e554f55a367d656e30b9c08c9d01e3b77885123b0403e78760",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 15
+      },
+      {
+        "id": "P-eval-1",
+        "family": "planning",
+        "role": "evaluation",
+        "disposition": "available",
+        "source_sha256": "0972061b30d682c2023f394e2727af2139857125ef2778daf2f173d2cb01a07e",
+        "ast_sha256": "35c68ced6424a825e27a984207233e90616c1017cfa0f642f56ab4be61bb2eec",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 0
+      },
+      {
+        "id": "S-bact-eval-1",
+        "family": "symbolic",
+        "role": "evaluation",
+        "disposition": "available",
+        "source_sha256": "93e698f8e8b01a0a2c508955b42ee162b194181878b7cdfae48d562a4448c19e",
+        "ast_sha256": "4d5b3a3e21b8973a83691b54740d441cb7d5e5500670f9cf4fd3e6bc23c129f3",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 7
+      },
+      {
+        "id": "P-select-2",
+        "family": "planning",
+        "role": "selection",
+        "disposition": "available",
+        "source_sha256": "6acf551511d5dc5e245b7d7df989620aba03756f6e86b8fc3d3130592cfcf270",
+        "ast_sha256": "08927bdb42e05a7922e1cc6bdc7b551fc7c588cc1580b53a1c17f734e5e46f08",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 0
+      },
+      {
+        "id": "S-select-2",
+        "family": "symbolic",
+        "role": "selection",
+        "disposition": "available",
+        "source_sha256": "7ef02e17a7c07f2ec7ecd1b252261144f7836abb9e89bca2d4fae344cdd0b3f0",
+        "ast_sha256": "a01987716bb89bad3ba456fbb8a783bea1e0e3514713b8d6b7f51e5e795b5b95",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 8
+      },
+      {
+        "id": "P-eval-2",
+        "family": "planning",
+        "role": "evaluation",
+        "disposition": "available",
+        "source_sha256": "64881221233ab478d7bae624ef4cb6c7a35a1e0ca7f76480745801cf3a24a660",
+        "ast_sha256": "29c3dc30e1472419b37a8ee4cdbc311f309ea81f3dcb519567934816f8de0ecd",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 0
+      },
+      {
+        "id": "S-stress-eval-1",
+        "family": "symbolic",
+        "role": "evaluation",
+        "disposition": "available",
+        "source_sha256": "58e37aa5ec329ef8a47b136ed1cc4d5e33215fda0aacb81ea091aee261f07474",
+        "ast_sha256": "694fa8fa851a5554f2f47f76700f316c8fbd894e6eda46344285de039f93a33a",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 7
+      }
+    ],
+    "source_slots": 8,
+    "available_sources": 8,
+    "distinct_source_count": 8,
+    "distinct_ast_count": 8,
+    "source_duplicate_groups": [],
+    "ast_duplicate_groups": [],
+    "cross_role_ast_duplicates": [],
+    "any_historical_source_collision": false,
+    "any_historical_ast_collision": false,
+    "candidate_executions": 0,
+    "performance_scores": null,
+    "limitations": [
+      "AST equality ignores comments/locations only; no alpha-renaming or semantic equivalence check.",
+      "A parsed matching entry signature does not prove runtime correctness or task suitability.",
+      "New API requests are not guaranteed new independent program states."
+    ]
+  },
+  "candidate_executions": 0,
+  "task_evaluations": 0,
+  "probe_executions": 0,
+  "sealed_tasks_executed": 0,
+  "strategy_updates": 0,
+  "limitations": [
+    "Trusted client records, not provider authenticity or independent timestamp attestation.",
+    "Elapsed time is local client observation, not service compute time or a strict full-session time bound.",
+    "Strict JSON plus SDK metadata removal only; no other SDK argument repair is replayed.",
+    "No source execution, task performance, strategy improvement, or independent-state guarantee.",
+    "Stopped evidence remains incomplete; missing or unknown usage is not counted as zero."
+  ]
+}

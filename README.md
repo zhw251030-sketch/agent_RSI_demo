@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**最新完成冷启动来源生成实现与一次中止轮归档，8槽批次尚未完成。** 真实3请求后第三槽超时、usage未知，保存2源码，后5未开始；无候选执行或新策略成绩。服务器73项测试通过，43原文件双端审计一致。见[完整说明](docs/operations/state-generation.md)、[结果](docs/analysis/2026-10-21-state-generation-results.md)、[验收](docs/environment/2026-10-21-state-generation-verification.json)。
+**最新完成第二批8个新起点的真实生成与冻结。** 8请求得到4规划程序、4符号公式，usage全已知；尚未执行或评分，不能称RSI收益。服务器41项新增相关测试通过，130原文件双端审计一致。见[操作说明](docs/operations/state-generation-v02.md)、[结果](docs/analysis/2026-10-21-state-generation-v02-results.md)、[验收](docs/environment/2026-10-21-state-generation-v02-verification.json)。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -23,7 +23,8 @@
 
 ## 阅读入口
 
-- [最新冷启动来源生成](docs/operations/state-generation.md)：生成协议、真实中止轮、来源审计与后续边界。
+- [最新完整新批次](docs/operations/state-generation-v02.md)：8份来源、180秒传输证据、结果与后续接口。
+- [此前冷启动来源生成](docs/operations/state-generation.md)：第一批中止记录与原始生成协议。
 - [此前任务收益规则与任务划分](docs/operations/goal-alignment.md)：接受器、全量回放、任务角色与边界。
 
 1. [项目状态与下一步](STATUS.md)

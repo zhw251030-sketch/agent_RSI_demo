@@ -1,0 +1,36 @@
+{
+  "session_id": "S-stress-eval-1",
+  "stage": "generation",
+  "adapter_version": "state-generation-agent-v0.1",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "version": "state-generation-v0.1",
+    "slot_id": "S-stress-eval-1",
+    "candidate": {
+      "version": "state-generation-v0.1",
+      "slot_id": "S-stress-eval-1",
+      "family": "symbolic",
+      "origin": "model_generated_without_task_feedback",
+      "status": "stored_unexecuted",
+      "source_file": "source.py",
+      "source_sha256": "58e37aa5ec329ef8a47b136ed1cc4d5e33215fda0aacb81ea091aee261f07474",
+      "n_params": 7,
+      "packet_sha256": "503883e7d7a0e4ba00fae022672c4fca3cc7fee1aee56a4dd4de560cf3defdb4"
+    },
+    "attempts": 1,
+    "halted": false,
+    "infrastructure_error_type": null,
+    "candidate_executions": 0,
+    "task_scores": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0,
+    "model_calls_owned": 0
+  }
+}

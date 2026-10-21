@@ -1,0 +1,94 @@
+{
+  "model": "anthropic/MiniMax-M3",
+  "messages": [
+    {
+      "content": [
+        {
+          "type": "text",
+          "text": "Generate one initial Python artifact from the supplied task specification.\nThis is cold-start generation. There is no earlier candidate, task score, probe\nfeedback, or strategy update in this session. You have exactly one model request.\nUse submit_candidate once with only source and n_params: the complete source and\nits parameter count, following the packet's interface and planning convention.\nThe trusted controller only archives your source; it does not execute or evaluate\nit in this stage. Do not claim tests have run or that the artifact has succeeded.\nDo not read files, access networks, create processes, or exploit an evaluator.\nThe finish tool ends the session without creating a candidate. A missing source\nis recorded as missing, never reconstructed from prose or a claimed result.\n"
+        }
+      ],
+      "role": "system"
+    },
+    {
+      "role": "user",
+      "content": "{\"examples\":[{\"goal\":[[\"tightened\",\"nut1\"],[\"tightened\",\"nut2\"],[\"tightened\",\"nut3\"]],\"init\":[[\"at\",\"bob\",\"shed\"],[\"at\",\"nut1\",\"gate\"],[\"at\",\"nut2\",\"gate\"],[\"at\",\"nut3\",\"gate\"],[\"at\",\"spanner1\",\"location4\"],[\"at\",\"spanner2\",\"location4\"],[\"at\",\"spanner3\",\"location1\"],[\"link\",\"location1\",\"location2\"],[\"link\",\"location2\",\"location3\"],[\"link\",\"location3\",\"location4\"],[\"link\",\"location4\",\"gate\"],[\"link\",\"shed\",\"location1\"],[\"loose\",\"nut1\"],[\"loose\",\"nut2\"],[\"loose\",\"nut3\"],[\"useable\",\"spanner1\"],[\"useable\",\"spanner2\"],[\"useable\",\"spanner3\"]],\"objects\":[[\"bob\",\"man\"],[\"gate\",\"location\"],[\"location1\",\"location\"],[\"location2\",\"location\"],[\"location3\",\"location\"],[\"location4\",\"location\"],[\"nut1\",\"nut\"],[\"nut2\",\"nut\"],[\"nut3\",\"nut\"],[\"shed\",\"location\"],[\"spanner1\",\"spanner\"],[\"spanner2\",\"spanner\"],[\"spanner3\",\"spanner\"]]},{\"goal\":[[\"tightened\",\"nut1\"],[\"tightened\",\"nut2\"],[\"tightened\",\"nut3\"]],\"init\":[[\"at\",\"bob\",\"shed\"],[\"at\",\"nut1\",\"gate\"],[\"at\",\"nut2\",\"gate\"],[\"at\",\"nut3\",\"gate\"],[\"at\",\"spanner1\",\"location3\"],[\"at\",\"spanner2\",\"location4\"],[\"at\",\"spanner3\",\"location4\"],[\"link\",\"location1\",\"location2\"],[\"link\",\"location2\",\"location3\"],[\"link\",\"location3\",\"location4\"],[\"link\",\"location4\",\"gate\"],[\"link\",\"shed\",\"location1\"],[\"loose\",\"nut1\"],[\"loose\",\"nut2\"],[\"loose\",\"nut3\"],[\"useable\",\"spanner1\"],[\"useable\",\"spanner2\"],[\"useable\",\"spanner3\"]],\"objects\":[[\"bob\",\"man\"],[\"gate\",\"location\"],[\"location1\",\"location\"],[\"location2\",\"location\"],[\"location3\",\"location\"],[\"location4\",\"location\"],[\"nut1\",\"nut\"],[\"nut2\",\"nut\"],[\"nut3\",\"nut\"],[\"shed\",\"location\"],[\"spanner1\",\"spanner\"],[\"spanner2\",\"spanner\"],[\"spanner3\",\"spanner\"]]}],\"family\":\"planning\",\"instructions\":\"Produce one complete Python planning program from the public contract and two example inputs. There is no starting program, measured feedback, reference plan or opportunity for a second submission. Aim to solve the task; do not intentionally insert defects. Your source will be stored without being run. Do not claim it has passed any task.\\n\\nDefine `get_plan(objects, init, goal)`. At execution, objects is a set of (object_name, declared_type) tuples; init and goal are sets of predicate tuples. The JSON examples use arrays in place of sets and tuples. Return a list of at most 1000 grounded action strings, each one parenthesized, using the exact argument order below. Do not hardcode example objects or a plan. Do not mutate the inputs or rely on set iteration order.\\n\\nThis is the public domain definition, not a solution. A missing fact is false. Links are directed, and action preconditions must hold after preceding effects.\\n\\n```lisp\\n(define (domain spanner)\\n(:requirements :typing :strips)\\n(:types location locatable - object man nut spanner - locatable)\\n(:predicates\\n  (at ?m - locatable ?l - location)\\n  (carrying ?m - man ?s - spanner)\\n  (useable ?s - spanner)\\n  (link ?l1 - location ?l2 - location)\\n  (tightened ?n - nut)\\n  (loose ?n - nut))\\n(:action walk\\n  :parameters (?start - location ?end - location ?m - man)\\n  :precondition (and (at ?m ?start) (link ?start ?end))\\n  :effect (and (not (at ?m ?start)) (at ?m ?end)))\\n(:action pickup_spanner\\n  :parameters (?l - location ?s - spanner ?m - man)\\n  :precondition (and (at ?m ?l) (at ?s ?l))\\n  :effect (and (not (at ?s ?l)) (carrying ?m ?s)))\\n(:action tighten_nut\\n  :parameters (?l - location ?s - spanner ?m - man ?n - nut)\\n  :precondition (and (at ?m ?l) (at ?n ?l) (carrying ?m ?s) (useable ?s) (loose ?n))\\n  :effect (and (not (loose ?n)) (not (useable ?s)) (tightened ?n)))\\n)\\n```\\n\\nUse only Python's standard library. Do not access files, network, subprocesses or other programs. Submit the complete source once with n_params=0 through submit_candidate. Only source and n_params are accepted; do not include explanations or additional fields.\\n\",\"interface\":{\"n_params\":0,\"output\":\"list of grounded action strings\",\"signature\":\"get_plan(objects, init, goal)\"},\"version\":\"state-generation-packet-v0.1\"}"
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "submit_candidate",
+        "description": "Archive exactly one complete initial source and parameter count. The controller stores source.py and candidate.json without executing, evaluating, repairing, or scoring the source.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "security_risk": {
+              "$ref": "#/$defs/SecurityRisk",
+              "default": "UNKNOWN",
+              "description": "The LLM's assessment of the safety risk of this action."
+            },
+            "summary": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: 'List all Python files in current directory'",
+              "title": "Summary"
+            },
+            "source": {
+              "description": "Complete initial Python source, at most 16384 UTF-8 bytes.",
+              "maxLength": 16384,
+              "minLength": 1,
+              "title": "Source",
+              "type": "string"
+            },
+            "n_params": {
+              "description": "Number of independent formula parameters; use zero for planning.",
+              "maximum": 16,
+              "minimum": 0,
+              "title": "N Params",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "source",
+            "n_params"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "finish",
+        "description": "Signals the completion of the current task or conversation.\n\nUse this tool when:\n- You have successfully completed the user's requested task\n- You cannot proceed further due to technical limitations or missing information\n\nThe message should include:\n- A clear summary of actions taken and their results\n- Any next steps for the user\n- Explanation if you're unable to complete the task\n- Any follow-up questions if more information is needed\n",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "string",
+              "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: 'List all Python files in current directory'"
+            },
+            "message": {
+              "type": "string",
+              "description": "Final message to send to the user."
+            }
+          },
+          "required": [
+            "message"
+          ]
+        }
+      }
+    }
+  ],
+  "tool_choice": null,
+  "max_output_tokens": 8192
+}

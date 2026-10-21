@@ -1,0 +1,175 @@
+{
+  "version": "state-generation-v02-verification-v0.1",
+  "implementation_commit": "67d8d873c05da8dbfc73bbc75f0d2842e30fc813",
+  "audit_status": "passed",
+  "independent_record_review": "docs/analysis/2026-10-21-state-generation-v02-record-review.md",
+  "allocation_completed": true,
+  "local_server_audit_bytes_equal": true,
+  "audit_sha256": "e4356d714ac86dacc5ac396df6708ec9c0f678f89873913d58f78d8bcbb96934",
+  "raw_file_count": 130,
+  "raw_tree_sha256": "aff6de561477a4ea744a9902d9ad213bf7cd9c21b4330b114307ca48bd917ff2",
+  "archive_manifest_sha256": "94632e3d97916a96672fe43412c91f31b4514650e710e56fc8e69bc258e5bda3",
+  "raw_transfer_sha256": "7549b935acd3006d1ec13dfb9187ce3b25a2fc9298415859553a2e331385ee4b",
+  "frozen_runtime_files_unchanged": 139,
+  "tests": {
+    "local": {
+      "python": "3.12.14",
+      "platform": "win32",
+      "tests_run": 41,
+      "passed": 40,
+      "skipped": 1,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 4.187,
+      "output": "....s....................................\n----------------------------------------------------------------------\nRan 41 tests in 4.181s\n\nOK (skipped=1)\n",
+      "skipped_tests": [
+        [
+          "test_real_sdk_call_boundary_uses_180_and_zero_retries (tests.test_state_generation_transport.TransportSDKTests.test_real_sdk_call_boundary_uses_180_and_zero_retries)",
+          "Requires server OpenHands SDK 1.55.1; no local SDK installed"
+        ]
+      ]
+    },
+    "server": {
+      "python": "3.12.14",
+      "platform": "linux",
+      "tests_run": 41,
+      "passed": 41,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 5.82,
+      "output": ".........................................\n----------------------------------------------------------------------\nRan 41 tests in 5.820s\n\nOK\n",
+      "skipped_tests": []
+    }
+  },
+  "distinct_tests": 41,
+  "local_server_tested_source_hashes_equal": true,
+  "actual_sdk_mock": {
+    "fake_calls": 8,
+    "real_calls": 0,
+    "source_executions": 0,
+    "audit_status": "passed",
+    "observed_transport_calls": 8
+  },
+  "prepare_only": {
+    "status": "prepared_checked",
+    "run_status": "prepared",
+    "allocation_completed": false,
+    "runtime_commit": "67d8d873c05da8dbfc73bbc75f0d2842e30fc813",
+    "batch_freeze_sha256": "85ae278b6ae84a7d6929c1ae3a08138f2891de315fdd39149d5e9d79afa16b5b",
+    "python_version": "3.12.14",
+    "effective_timeout_seconds": 180,
+    "observed_transport_calls": 0,
+    "model_requests": 0,
+    "accepted_sources": 0,
+    "known_tokens": 0,
+    "known_estimated_cost_cny": 0
+  },
+  "activity": {
+    "model_requests": 8,
+    "accepted_sources": 8,
+    "candidate_executions": 0,
+    "task_evaluations": 0,
+    "probe_executions": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0
+  },
+  "transport": [
+    {
+      "slot": "P-select-1",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 39.22217082185671
+    },
+    {
+      "slot": "S-select-1",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 6.788708194158971
+    },
+    {
+      "slot": "P-eval-1",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 15.82190253585577
+    },
+    {
+      "slot": "S-bact-eval-1",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 5.416524037253112
+    },
+    {
+      "slot": "P-select-2",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 25.361256478354335
+    },
+    {
+      "slot": "S-select-2",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 13.244388525374234
+    },
+    {
+      "slot": "P-eval-2",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 33.248925005085766
+    },
+    {
+      "slot": "S-stress-eval-1",
+      "observed": true,
+      "incomplete": false,
+      "status": "returned",
+      "timeout_seconds": 180,
+      "elapsed_seconds": 9.366794515866786
+    }
+  ],
+  "current_cost": {
+    "known_tokens": 23465,
+    "known_estimated_cost_cny": 0.1095612,
+    "actual_estimated_cost_cny": 0.1095612,
+    "reserved_cost_cny": 0.789474,
+    "unknown_usage_requests": 0
+  },
+  "cumulative_research_cost": {
+    "requests": 126,
+    "known_tokens": 926462,
+    "known_estimated_cny": 2.9139117,
+    "reserved_cny": 12.99837,
+    "unknown_usage_requests": 2,
+    "actual_total_cost_cny": null,
+    "excluded": "7 connection/debug requests, Canvas, and other projects"
+  },
+  "source_counts": {
+    "source_slots": 8,
+    "available_sources": 8,
+    "distinct_source_count": 8,
+    "distinct_ast_count": 8
+  },
+  "previous_v01_raw_files_unchanged": 43,
+  "previous_v01_runtime_files_unchanged": 131,
+  "history_verification": "docs/environment/2026-10-21-state-generation-v02-history-verification.json",
+  "timeout_diagnosis": "docs/analysis/2026-10-21-state-generation-timeout-diagnosis.md",
+  "limitations": [
+    "Generation and static inspection only, no performance scores.",
+    "Timeout180 is observed at trusted client callable boundary, not proof that changing timeout caused successful generation.",
+    "Same AST and source comparisons do not establish semantic independence.",
+    "Prior unknown usage remains unknown; estimates are not provider invoices."
+  ]
+}

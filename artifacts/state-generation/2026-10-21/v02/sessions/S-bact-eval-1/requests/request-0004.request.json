@@ -1,0 +1,94 @@
+{
+  "model": "anthropic/MiniMax-M3",
+  "messages": [
+    {
+      "content": [
+        {
+          "type": "text",
+          "text": "Generate one initial Python artifact from the supplied task specification.\nThis is cold-start generation. There is no earlier candidate, task score, probe\nfeedback, or strategy update in this session. You have exactly one model request.\nUse submit_candidate once with only source and n_params: the complete source and\nits parameter count, following the packet's interface and planning convention.\nThe trusted controller only archives your source; it does not execute or evaluate\nit in this stage. Do not claim tests have run or that the artifact has succeeded.\nDo not read files, access networks, create processes, or exploit an evaluator.\nThe finish tool ends the session without creating a candidate. A missing source\nis recorded as missing, never reconstructed from prose or a claimed result.\n"
+        }
+      ],
+      "role": "system"
+    },
+    {
+      "role": "user",
+      "content": "{\"family\":\"symbolic\",\"input_dimension\":4,\"input_names\":[\"u0\",\"u1\",\"u2\",\"u3\"],\"instructions\":\"Produce one complete Python expression program for a scalar response with the anonymous numeric inputs specified in the interface. No observed rows, target values, scores, reference expression or physical meaning are supplied. There is no starting program and no opportunity for a second submission. Propose a compact general expression with adjustable scalar constants as an initial hypothesis; do not intentionally insert defects or claim a verified relationship.\\n\\nDefine equation with the input arrays in their stated order, followed by params. Each input is a read-only one-dimensional NumPy array of equal length. Return one finite numeric value per row, as an array of exactly shape (len(u0),). NumPy is available as np. Use vectorized operations, without file, network, subprocess or extra-package access. Do not encode row numbers, sampled targets or lookup tables. The source will be stored without running or fitting it.\\n\\nDeclare n_params as an integer from 0 to 16; every parameter index used must fit that array. In a later, separately controlled fitting process, parameters start at one and may be adjusted using bounded least squares. No such process runs during this submission.\\n\\nUse submit_candidate exactly once with complete source and n_params. These are the only accepted fields; do not include an explanation or additional fields. Your expression is an untested initial hypothesis, not an established formula.\\n\",\"interface\":{\"n_params_max\":16,\"n_params_min\":0,\"output\":\"finite numeric array of shape (len(u0),)\",\"signature\":\"equation(u0, u1, u2, u3, params)\"},\"version\":\"state-generation-packet-v0.1\"}"
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "submit_candidate",
+        "description": "Archive exactly one complete initial source and parameter count. The controller stores source.py and candidate.json without executing, evaluating, repairing, or scoring the source.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "security_risk": {
+              "$ref": "#/$defs/SecurityRisk",
+              "default": "UNKNOWN",
+              "description": "The LLM's assessment of the safety risk of this action."
+            },
+            "summary": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: 'List all Python files in current directory'",
+              "title": "Summary"
+            },
+            "source": {
+              "description": "Complete initial Python source, at most 16384 UTF-8 bytes.",
+              "maxLength": 16384,
+              "minLength": 1,
+              "title": "Source",
+              "type": "string"
+            },
+            "n_params": {
+              "description": "Number of independent formula parameters; use zero for planning.",
+              "maximum": 16,
+              "minimum": 0,
+              "title": "N Params",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "source",
+            "n_params"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "finish",
+        "description": "Signals the completion of the current task or conversation.\n\nUse this tool when:\n- You have successfully completed the user's requested task\n- You cannot proceed further due to technical limitations or missing information\n\nThe message should include:\n- A clear summary of actions taken and their results\n- Any next steps for the user\n- Explanation if you're unable to complete the task\n- Any follow-up questions if more information is needed\n",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "string",
+              "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: 'List all Python files in current directory'"
+            },
+            "message": {
+              "type": "string",
+              "description": "Final message to send to the user."
+            }
+          },
+          "required": [
+            "message"
+          ]
+        }
+      }
+    }
+  ],
+  "tool_choice": null,
+  "max_output_tokens": 8192
+}

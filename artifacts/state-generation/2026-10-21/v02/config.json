@@ -1,0 +1,31 @@
+{
+  "version": "state-generation-v0.1",
+  "protocol": "docs/protocols/2026-10-21-state-generation-v0.1.md",
+  "partition_path": "configs/tasks/strategy-partition-v0.1.json",
+  "partition_sha256": "bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7",
+  "slot_order": [
+    "P-select-1",
+    "S-select-1",
+    "P-eval-1",
+    "S-bact-eval-1",
+    "P-select-2",
+    "S-select-2",
+    "P-eval-2",
+    "S-stress-eval-1"
+  ],
+  "resume": false,
+  "candidate_executions": 0,
+  "new_probe_executions": 0,
+  "sealed_tasks_executed": 0,
+  "strategy_updates": 0,
+  "budgets": {
+    "max_requests": 8,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 8192,
+    "max_input_bytes": 65536,
+    "max_reserved_tokens": 1000000,
+    "max_cost_cny": 5,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4
+  }
+}

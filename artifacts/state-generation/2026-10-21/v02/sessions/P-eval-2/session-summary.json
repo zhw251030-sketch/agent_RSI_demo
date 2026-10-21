@@ -1,0 +1,36 @@
+{
+  "session_id": "P-eval-2",
+  "stage": "generation",
+  "adapter_version": "state-generation-agent-v0.1",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "version": "state-generation-v0.1",
+    "slot_id": "P-eval-2",
+    "candidate": {
+      "version": "state-generation-v0.1",
+      "slot_id": "P-eval-2",
+      "family": "planning",
+      "origin": "model_generated_without_task_feedback",
+      "status": "stored_unexecuted",
+      "source_file": "source.py",
+      "source_sha256": "64881221233ab478d7bae624ef4cb6c7a35a1e0ca7f76480745801cf3a24a660",
+      "n_params": 0,
+      "packet_sha256": "ed0a7d876f2f6902c555d107105603f320f9c4ba3a514b320680e3f695150583"
+    },
+    "attempts": 1,
+    "halted": false,
+    "infrastructure_error_type": null,
+    "candidate_executions": 0,
+    "task_scores": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0,
+    "model_calls_owned": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "session_id": "S-select-2",
+  "stage": "generation",
+  "adapter_version": "state-generation-agent-v0.1",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "version": "state-generation-v0.1",
+    "slot_id": "S-select-2",
+    "candidate": {
+      "version": "state-generation-v0.1",
+      "slot_id": "S-select-2",
+      "family": "symbolic",
+      "origin": "model_generated_without_task_feedback",
+      "status": "stored_unexecuted",
+      "source_file": "source.py",
+      "source_sha256": "7ef02e17a7c07f2ec7ecd1b252261144f7836abb9e89bca2d4fae344cdd0b3f0",
+      "n_params": 8,
+      "packet_sha256": "10bbc54bd4c20c67eb42a1c1c44a41b752b6873c2fb2d8c3cc1e1725c1c0c46b"
+    },
+    "attempts": 1,
+    "halted": false,
+    "infrastructure_error_type": null,
+    "candidate_executions": 0,
+    "task_scores": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0,
+    "model_calls_owned": 0
+  }
+}
