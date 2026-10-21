@@ -1,0 +1,28 @@
+{
+  "response_id": "synthetic-response-0024",
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 20,
+    "total_tokens": 120
+  },
+  "usage_details": {},
+  "choices": [
+    {
+      "message": {
+        "content": "Artificial integration fixture; no research result.",
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "function": {
+              "arguments": "{\"source\": \"import numpy as np\\n\\n\\ndef equation(u0, u1, u2, u3, params):\\n    \\\"\\\"\\\"Initial hypothesis: smooth quadratic response in the four inputs.\\n\\n    Compact general form: a linear blend of the inputs plus a small\\n    quadratic cross-term, all with bounded scalar coefficients.\\n    \\\"\\\"\\\"\\n    p = np.asarray(params, dtype=float).ravel()\\n\\n    a0 = p[0]\\n    a1 = p[1]\\n    a2 = p[2]\\n    a3 = p[3]\\n    c01 = p[4]\\n    c23 = p[5]\\n    c012 = p[6]\\n\\n    u0 = np.asarray(u0, dtype=float).ravel()\\n    u1 = np.asarray(u1, dtype=float).ravel()\\n    u2 = np.asarray(u2, dtype=float).ravel()\\n    u3 = np.asarray(u3, dtype=float).ravel()\\n\\n    lin = a0 + a1 * u0 + a2 * u1 + a3 * u2\\n    quad = c01 * u0 * u1 + c23 * u2 * u3 + c012 * u0 * u1 * u2\\n\\n    out = lin + quad\\n\\n    # keep the response finite even for extreme inputs\\n    scale = 1.0 + np.abs(out)\\n    out = np.clip(out / scale, -1.0, 1.0) * scale\\n    return np.nan_to_num(out, nan=0.0, posinf=1.0e6, neginf=-1.0e6)\", \"n_params\": 7}",
+              "name": "submit_candidate"
+            },
+            "id": "synthetic-call-0024",
+            "type": "function"
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "response_id": "synthetic-response-0035",
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 20,
+    "total_tokens": 120
+  },
+  "usage_details": {},
+  "choices": [
+    {
+      "message": {
+        "content": "Artificial integration fixture; no research result.",
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "function": {
+              "arguments": "{\"source\": \"import numpy as np\\n\\n\\ndef equation(u0, u1, params):\\n    \\\"\\\"\\\"Compact bilinear-plus-quadratic hypothesis with bounded scale and offset.\\\"\\\"\\\"\\n    u0 = np.asarray(u0, dtype=float).ravel()\\n    u1 = np.asarray(u1, dtype=float).ravel()\\n\\n    p = np.asarray(params, dtype=float).ravel()\\n\\n    c01 = p[0]        # cross term\\n    q0 = p[1]         # curvature in u0\\n    q1 = p[2]         # curvature in u1\\n    l0 = p[3]         # u0 scale\\n    l1 = p[4]         # u1 scale\\n    g = p[5]          # overall gain\\n    b = p[6]          # offset\\n\\n    y = g * (c01 * (l0 * u0) * (l1 * u1) + q0 * (l0 * u0) ** 2 + q1 * (l1 * u1) ** 2) + b\\n    return np.nan_to_num(y, nan=0.0, posinf=1e6, neginf=-1e6)\", \"n_params\": 7}",
+              "name": "submit_candidate"
+            },
+            "id": "synthetic-call-0035",
+            "type": "function"
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
