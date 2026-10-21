@@ -1,0 +1,29 @@
+{
+  "response_id": "synthetic-basis-5",
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 20,
+    "total_tokens": 120
+  },
+  "usage_details": {},
+  "choices": [
+    {
+      "message": {
+        "content": "Synthetic SDK rehearsal only.",
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"explanation\": \"Researcher-fixed affine backbone plus first-input square.\", \"feature_ids\": [\"m_0_0\", \"m_0_1\", \"m_1_0\", \"m_2_0\"]}",
+              "name": "submit_basis"
+            },
+            "id": "synthetic-call-5",
+            "type": "function"
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

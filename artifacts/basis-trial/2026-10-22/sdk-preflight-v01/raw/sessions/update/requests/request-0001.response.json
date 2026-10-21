@@ -1,0 +1,29 @@
+{
+  "response_id": "synthetic-basis-1",
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 20,
+    "total_tokens": 120
+  },
+  "usage_details": {},
+  "choices": [
+    {
+      "message": {
+        "content": "Synthetic SDK rehearsal only.",
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"rule_ids\": [\"R01\", \"R04\", \"R05\", \"R08\"], \"explanation\": \"Synthetic proposal; no research claim.\"}",
+              "name": "submit_policy"
+            },
+            "id": "synthetic-call-1",
+            "type": "function"
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,1999 @@
+{
+  "version": "basis-trial-archive-v0.1",
+  "run": "sdk-preflight-v01",
+  "evidence_kind": "synthetic",
+  "files": {
+    "raw/audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/audit.json",
+      "sha256": "acfb16333b14de3eb3735f24506d0c11763e89db044588a9545a3970b239c6e4",
+      "bytes": 439
+    },
+    "raw/budget-ledger.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/budget-ledger.json",
+      "sha256": "dcbd578c6ac5a965f145dbb05850c8914217cee3ef7ebe7ce5b7953138466966",
+      "bytes": 9058
+    },
+    "raw/experiment/baseline-A/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/baseline-A/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/feedback.json",
+      "sha256": "26169175651cc7e7d3c896d9bff3fc0325f5617a419680e862a4946e40160e2b",
+      "bytes": 3163
+    },
+    "raw/experiment/baseline-A/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/baseline-A/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/baseline-A/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/baseline-A/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/receipt.json",
+      "sha256": "172724904b14f6368313e23a2704f2eb4a515480601e436e23de9ae7c7e30350",
+      "bytes": 4055
+    },
+    "raw/experiment/baseline-A/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/reservation.json",
+      "sha256": "b1abbd35b55fe8ec17055336aaa37656823ca0ea918e297f8478240f877b4e21",
+      "bytes": 589
+    },
+    "raw/experiment/baseline-A/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/result.json",
+      "sha256": "9e08366c59ddb7e67156bf85f62a54105b5bcf2a41ca8971f3199e89bee8478c",
+      "bytes": 796
+    },
+    "raw/experiment/baseline-A/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/baseline-A/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/baseline-A/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-A/transition.json",
+      "sha256": "5f764980f5f11bf51eaef5a721c9ae49fb4610cb4e6d9939663af2f6d2f39aa7",
+      "bytes": 227
+    },
+    "raw/experiment/baseline-B/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/baseline-B/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/feedback.json",
+      "sha256": "93cdc4b721583f856c3f82a9d7bff256acb80d44f9d61bea75bcd07b689908ba",
+      "bytes": 3163
+    },
+    "raw/experiment/baseline-B/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/baseline-B/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/baseline-B/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/baseline-B/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/receipt.json",
+      "sha256": "89d7983f58e2bbe9a6a5ea44add1e4cdc52f9ef093f82b0778740a2fe3031cbe",
+      "bytes": 4055
+    },
+    "raw/experiment/baseline-B/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/reservation.json",
+      "sha256": "57f7887f91733f1c3970661c7f46313f9f3bfff89a09b5f551a460210550ca57",
+      "bytes": 589
+    },
+    "raw/experiment/baseline-B/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/result.json",
+      "sha256": "513d2598094d611e6322ebe582939b4d9de495039e8f63eefadd7ce36728ccbf",
+      "bytes": 796
+    },
+    "raw/experiment/baseline-B/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/baseline-B/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/baseline-B/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/baseline-B/transition.json",
+      "sha256": "48484dca1a5dcdbb57f9d1118dee8e5c39adfc62fbc1144ceb8453eb09a88c5e",
+      "bytes": 227
+    },
+    "raw/experiment/candidate-A-r1-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/candidate-A-r1-S0/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/feedback.json",
+      "sha256": "a6c7579e1f74b9421a17cce89cb42143813b41323c8c1f69189d81ea49283576",
+      "bytes": 3210
+    },
+    "raw/experiment/candidate-A-r1-S0/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-A-r1-S0/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-A-r1-S0/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r1-S0/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/receipt.json",
+      "sha256": "d30c9863bc3bb0e8b2ae11b1dace15dd76b61f40eb9a1a381910aac0f7608a41",
+      "bytes": 4149
+    },
+    "raw/experiment/candidate-A-r1-S0/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/reservation.json",
+      "sha256": "57f7887f91733f1c3970661c7f46313f9f3bfff89a09b5f551a460210550ca57",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-A-r1-S0/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/result.json",
+      "sha256": "7629be85dc23ada8253dfdc5aa9f5128da60041396c6708f5a144857ad6aa3a9",
+      "bytes": 843
+    },
+    "raw/experiment/candidate-A-r1-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-A-r1-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/candidate-A-r1-S0/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S0/transition.json",
+      "sha256": "ec7805b2015b6a31364f87e33e426d2bf7a7c746438be9a08d916ccd861188d6",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-A-r1-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/candidate-A-r1-S1/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/feedback.json",
+      "sha256": "d8f14d286b6d672bbdc22495d3610ff1bfb7f738b401cfeb90090c23518182ea",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-A-r1-S1/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-A-r1-S1/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-A-r1-S1/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r1-S1/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/receipt.json",
+      "sha256": "c225140d62640b0aca28c231430bc22fbc2c99a03f4179877eb7d64ccafc280b",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-A-r1-S1/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/reservation.json",
+      "sha256": "b1abbd35b55fe8ec17055336aaa37656823ca0ea918e297f8478240f877b4e21",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-A-r1-S1/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/result.json",
+      "sha256": "ad5eeddc15e274436784205b0ffe759418a6c64231d912c608707952948bd145",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-A-r1-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-A-r1-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/candidate-A-r1-S1/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r1-S1/transition.json",
+      "sha256": "bed3432d4140070e334f19db65613ac63712c07a5c5c171065b779f0724b5a11",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-A-r2-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/candidate-A-r2-S0/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/feedback.json",
+      "sha256": "d8f14d286b6d672bbdc22495d3610ff1bfb7f738b401cfeb90090c23518182ea",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-A-r2-S0/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-A-r2-S0/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-A-r2-S0/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r2-S0/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/receipt.json",
+      "sha256": "c225140d62640b0aca28c231430bc22fbc2c99a03f4179877eb7d64ccafc280b",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-A-r2-S0/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/reservation.json",
+      "sha256": "b1abbd35b55fe8ec17055336aaa37656823ca0ea918e297f8478240f877b4e21",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-A-r2-S0/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/result.json",
+      "sha256": "ad5eeddc15e274436784205b0ffe759418a6c64231d912c608707952948bd145",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-A-r2-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-A-r2-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/candidate-A-r2-S0/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S0/transition.json",
+      "sha256": "bed3432d4140070e334f19db65613ac63712c07a5c5c171065b779f0724b5a11",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-A-r2-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/candidate-A-r2-S1/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/feedback.json",
+      "sha256": "d8f14d286b6d672bbdc22495d3610ff1bfb7f738b401cfeb90090c23518182ea",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-A-r2-S1/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-A-r2-S1/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-A-r2-S1/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r2-S1/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/receipt.json",
+      "sha256": "c225140d62640b0aca28c231430bc22fbc2c99a03f4179877eb7d64ccafc280b",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-A-r2-S1/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/reservation.json",
+      "sha256": "b1abbd35b55fe8ec17055336aaa37656823ca0ea918e297f8478240f877b4e21",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-A-r2-S1/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/result.json",
+      "sha256": "ad5eeddc15e274436784205b0ffe759418a6c64231d912c608707952948bd145",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-A-r2-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-A-r2-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/candidate-A-r2-S1/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r2-S1/transition.json",
+      "sha256": "bed3432d4140070e334f19db65613ac63712c07a5c5c171065b779f0724b5a11",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-A-r3-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/candidate-A-r3-S0/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/feedback.json",
+      "sha256": "d8f14d286b6d672bbdc22495d3610ff1bfb7f738b401cfeb90090c23518182ea",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-A-r3-S0/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-A-r3-S0/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-A-r3-S0/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r3-S0/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/receipt.json",
+      "sha256": "c225140d62640b0aca28c231430bc22fbc2c99a03f4179877eb7d64ccafc280b",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-A-r3-S0/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/reservation.json",
+      "sha256": "b1abbd35b55fe8ec17055336aaa37656823ca0ea918e297f8478240f877b4e21",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-A-r3-S0/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/result.json",
+      "sha256": "ad5eeddc15e274436784205b0ffe759418a6c64231d912c608707952948bd145",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-A-r3-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-A-r3-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/candidate-A-r3-S0/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S0/transition.json",
+      "sha256": "bed3432d4140070e334f19db65613ac63712c07a5c5c171065b779f0724b5a11",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-A-r3-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/candidate-A-r3-S1/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/feedback.json",
+      "sha256": "d8f14d286b6d672bbdc22495d3610ff1bfb7f738b401cfeb90090c23518182ea",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-A-r3-S1/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-A-r3-S1/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-A-r3-S1/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r3-S1/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/receipt.json",
+      "sha256": "c225140d62640b0aca28c231430bc22fbc2c99a03f4179877eb7d64ccafc280b",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-A-r3-S1/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/reservation.json",
+      "sha256": "b1abbd35b55fe8ec17055336aaa37656823ca0ea918e297f8478240f877b4e21",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-A-r3-S1/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/result.json",
+      "sha256": "ad5eeddc15e274436784205b0ffe759418a6c64231d912c608707952948bd145",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-A-r3-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-A-r3-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/candidate-A-r3-S1/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-A-r3-S1/transition.json",
+      "sha256": "bed3432d4140070e334f19db65613ac63712c07a5c5c171065b779f0724b5a11",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-B-r1-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/candidate-B-r1-S0/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/feedback.json",
+      "sha256": "b666741c658866e92de453112c7b8d21a77c90ea4fdac0c21d8c67b9de0c901a",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-B-r1-S0/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-B-r1-S0/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-B-r1-S0/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r1-S0/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/receipt.json",
+      "sha256": "0143402d9cb86aeaf4e744a6817fa5d9a7b0003504d1c3ac8633ad4e2349c664",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-B-r1-S0/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/reservation.json",
+      "sha256": "57f7887f91733f1c3970661c7f46313f9f3bfff89a09b5f551a460210550ca57",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-B-r1-S0/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/result.json",
+      "sha256": "5f8f0a33cd5f9e5c1d95bfdccb9c212cc7466db2584312e055ad23d495916caf",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-B-r1-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-B-r1-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/candidate-B-r1-S0/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S0/transition.json",
+      "sha256": "3474b68a6e862351ddfe4e973bf542e7ce61de63778a6833890692eb6337a9f9",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-B-r1-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/candidate-B-r1-S1/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/feedback.json",
+      "sha256": "dbd14a5032af75dfcf67d98c663fd03443c4b3ade0c19e1fea17d451f6973f85",
+      "bytes": 3210
+    },
+    "raw/experiment/candidate-B-r1-S1/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-B-r1-S1/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-B-r1-S1/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r1-S1/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/receipt.json",
+      "sha256": "e7444f70e4e24e7358fcd882ccac14e7df2be59ca39a2fc425bfe6627b384348",
+      "bytes": 4149
+    },
+    "raw/experiment/candidate-B-r1-S1/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/reservation.json",
+      "sha256": "b1abbd35b55fe8ec17055336aaa37656823ca0ea918e297f8478240f877b4e21",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-B-r1-S1/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/result.json",
+      "sha256": "44ba94a11662a8c9b54d6a2da61cfb244da5b923b5300fbaaa0ba7528733a454",
+      "bytes": 843
+    },
+    "raw/experiment/candidate-B-r1-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-B-r1-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/candidate-B-r1-S1/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r1-S1/transition.json",
+      "sha256": "04ad26b8f54b2a7996931d90c24d0c99f549e442600f270449f53c63d2f810a7",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-B-r2-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/candidate-B-r2-S0/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/feedback.json",
+      "sha256": "b666741c658866e92de453112c7b8d21a77c90ea4fdac0c21d8c67b9de0c901a",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-B-r2-S0/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-B-r2-S0/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-B-r2-S0/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r2-S0/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/receipt.json",
+      "sha256": "0143402d9cb86aeaf4e744a6817fa5d9a7b0003504d1c3ac8633ad4e2349c664",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-B-r2-S0/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/reservation.json",
+      "sha256": "57f7887f91733f1c3970661c7f46313f9f3bfff89a09b5f551a460210550ca57",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-B-r2-S0/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/result.json",
+      "sha256": "5f8f0a33cd5f9e5c1d95bfdccb9c212cc7466db2584312e055ad23d495916caf",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-B-r2-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-B-r2-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/candidate-B-r2-S0/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S0/transition.json",
+      "sha256": "3474b68a6e862351ddfe4e973bf542e7ce61de63778a6833890692eb6337a9f9",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-B-r2-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/candidate-B-r2-S1/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/feedback.json",
+      "sha256": "b666741c658866e92de453112c7b8d21a77c90ea4fdac0c21d8c67b9de0c901a",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-B-r2-S1/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-B-r2-S1/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-B-r2-S1/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r2-S1/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/receipt.json",
+      "sha256": "0143402d9cb86aeaf4e744a6817fa5d9a7b0003504d1c3ac8633ad4e2349c664",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-B-r2-S1/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/reservation.json",
+      "sha256": "57f7887f91733f1c3970661c7f46313f9f3bfff89a09b5f551a460210550ca57",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-B-r2-S1/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/result.json",
+      "sha256": "5f8f0a33cd5f9e5c1d95bfdccb9c212cc7466db2584312e055ad23d495916caf",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-B-r2-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-B-r2-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/candidate-B-r2-S1/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r2-S1/transition.json",
+      "sha256": "3474b68a6e862351ddfe4e973bf542e7ce61de63778a6833890692eb6337a9f9",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-B-r3-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/candidate-B-r3-S0/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/feedback.json",
+      "sha256": "b666741c658866e92de453112c7b8d21a77c90ea4fdac0c21d8c67b9de0c901a",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-B-r3-S0/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-B-r3-S0/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-B-r3-S0/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r3-S0/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/receipt.json",
+      "sha256": "0143402d9cb86aeaf4e744a6817fa5d9a7b0003504d1c3ac8633ad4e2349c664",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-B-r3-S0/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/reservation.json",
+      "sha256": "57f7887f91733f1c3970661c7f46313f9f3bfff89a09b5f551a460210550ca57",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-B-r3-S0/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/result.json",
+      "sha256": "5f8f0a33cd5f9e5c1d95bfdccb9c212cc7466db2584312e055ad23d495916caf",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-B-r3-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-B-r3-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/candidate-B-r3-S0/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S0/transition.json",
+      "sha256": "3474b68a6e862351ddfe4e973bf542e7ce61de63778a6833890692eb6337a9f9",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-B-r3-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/candidate-B-r3-S1/feedback.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/feedback.json",
+      "sha256": "b666741c658866e92de453112c7b8d21a77c90ea4fdac0c21d8c67b9de0c901a",
+      "bytes": 3192
+    },
+    "raw/experiment/candidate-B-r3-S1/fit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/fit.json",
+      "sha256": "564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360",
+      "bytes": 205
+    },
+    "raw/experiment/candidate-B-r3-S1/predict.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/predict.json",
+      "sha256": "fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1",
+      "bytes": 85
+    },
+    "raw/experiment/candidate-B-r3-S1/prediction-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/prediction-request.json",
+      "sha256": "552fea1772d621219471441b56ccf0b5a8c395618c9685f6bac8c507628c0bda",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r3-S1/receipt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/receipt.json",
+      "sha256": "0143402d9cb86aeaf4e744a6817fa5d9a7b0003504d1c3ac8633ad4e2349c664",
+      "bytes": 4113
+    },
+    "raw/experiment/candidate-B-r3-S1/reservation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/reservation.json",
+      "sha256": "57f7887f91733f1c3970661c7f46313f9f3bfff89a09b5f551a460210550ca57",
+      "bytes": 589
+    },
+    "raw/experiment/candidate-B-r3-S1/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/result.json",
+      "sha256": "5f8f0a33cd5f9e5c1d95bfdccb9c212cc7466db2584312e055ad23d495916caf",
+      "bytes": 825
+    },
+    "raw/experiment/candidate-B-r3-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-B-r3-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/candidate-B-r3-S1/transition.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/candidate-B-r3-S1/transition.json",
+      "sha256": "3474b68a6e862351ddfe4e973bf542e7ce61de63778a6833890692eb6337a9f9",
+      "bytes": 256
+    },
+    "raw/experiment/context-A.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/context-A.json",
+      "sha256": "940bc051b4938189b55909752e05a90b36363d294d3245fd3c868e35925509b2",
+      "bytes": 3938
+    },
+    "raw/experiment/context-B.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/context-B.json",
+      "sha256": "78034e442be9c8f2622513753ff0c283ae6bed907a1fbbeb7e7054c5f81db77c",
+      "bytes": 3945
+    },
+    "raw/experiment/design.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/design.json",
+      "sha256": "d58e4f438963b24f56a62a3db23f9d1303323561f5880160ea71f45712f2959a",
+      "bytes": 2182
+    },
+    "raw/experiment/events/000.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/000.json",
+      "sha256": "e4d50045ac79848dda3c848060bacc1a5c910bb0e6028371155e5b5e1d7f7cd3",
+      "bytes": 51
+    },
+    "raw/experiment/events/001.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/001.json",
+      "sha256": "f473fd6bb0e9e9d3095570701bff6ae49edfc7fa38d8c4e0bad8d263e078cad6",
+      "bytes": 136
+    },
+    "raw/experiment/events/002.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/002.json",
+      "sha256": "0f9240c84f95d0860c14e7b1113e10b0e5c057f42d5ea06373ab31169e25a3cd",
+      "bytes": 63
+    },
+    "raw/experiment/events/003.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/003.json",
+      "sha256": "2bbc4d6a431b6d3f6be10de9413134c357723dc2e31a3a1c508de8026603fdd4",
+      "bytes": 63
+    },
+    "raw/experiment/events/004.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/004.json",
+      "sha256": "2c66bfb1ebab402bb972acd0dfeed5112591af4e00c4d9c039386ee0b1883e06",
+      "bytes": 52
+    },
+    "raw/experiment/events/005.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/005.json",
+      "sha256": "75f6de70014e993342c4b958a3cac8bbe08340af26c374c02e07efd82075e8ed",
+      "bytes": 79
+    },
+    "raw/experiment/events/006.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/006.json",
+      "sha256": "71c3afffff8e64cf30a2112bc380c1e8c430ddb623bae57d45d96a1f47499465",
+      "bytes": 52
+    },
+    "raw/experiment/events/007.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/007.json",
+      "sha256": "1432af47f1daaf6cfa3230cba3ecaf50512841cf63d206f5e8164265d3e6a64e",
+      "bytes": 79
+    },
+    "raw/experiment/events/008.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/008.json",
+      "sha256": "07cbe35afaa25ba53a7b42b677c5540fea8e574680cb4afcd048051e236a1daa",
+      "bytes": 52
+    },
+    "raw/experiment/events/009.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/009.json",
+      "sha256": "9e8f074e18cf7a8d5153c17c81d478ed7b2f55a9e040cf02a997500a75443fa8",
+      "bytes": 79
+    },
+    "raw/experiment/events/010.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/010.json",
+      "sha256": "134d9b34946a47752d610cd744f988b180d0cc4d83e9036f7d2300d8bd9e3766",
+      "bytes": 53
+    },
+    "raw/experiment/events/011.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/011.json",
+      "sha256": "daceca4fe46c914b4faba3b33bcaae315ed2737d4ebf7bac9755d5e91612ead6",
+      "bytes": 80
+    },
+    "raw/experiment/events/012.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/012.json",
+      "sha256": "ff2d58324ee15a71c9615a02518d80cb55b90e8ae5ff4332ec855cec80ebb816",
+      "bytes": 53
+    },
+    "raw/experiment/events/013.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/013.json",
+      "sha256": "3df2848af4e58e914ccd9dd9084dba2d7b587789498b3dce405746c3ac20b884",
+      "bytes": 80
+    },
+    "raw/experiment/events/014.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/014.json",
+      "sha256": "d15f5a0ce6554c3a3eac8821a97f5939e5a532a2b341d8f50e2befde2a6cf8af",
+      "bytes": 53
+    },
+    "raw/experiment/events/015.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/015.json",
+      "sha256": "d15a633ac23ee7dce1c9cc25643135c2fe61f75b04e7aa5e9e8d5ce8ca0be483",
+      "bytes": 80
+    },
+    "raw/experiment/events/016.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/016.json",
+      "sha256": "c2d7d61a790bfdec8aa1fcb4665d603cb359b07f73cf5ecdd78934b0656bc6bd",
+      "bytes": 53
+    },
+    "raw/experiment/events/017.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/017.json",
+      "sha256": "d2618401fabaab90128f19e41ec174a8e60c81b4c9931b91389a3db54482ad69",
+      "bytes": 80
+    },
+    "raw/experiment/events/018.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/018.json",
+      "sha256": "1c1c9df6598d43bcb88f6d953ab696e7efd5eb1218a5b658f0f9c3abdb2dcf0d",
+      "bytes": 53
+    },
+    "raw/experiment/events/019.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/019.json",
+      "sha256": "d33aaed71219eb5c10113239b0fc93e542a296de214c75abf44f82b2717b08d2",
+      "bytes": 80
+    },
+    "raw/experiment/events/020.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/020.json",
+      "sha256": "77aefa235950d6397d77d7f9cb9124d2ac859ed8007049a09d2308ad8ac02679",
+      "bytes": 53
+    },
+    "raw/experiment/events/021.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/021.json",
+      "sha256": "74d7d50bc26d0cf0abaea287988aec4a3cae9f3c1a78b27755afa5e0bd5af623",
+      "bytes": 80
+    },
+    "raw/experiment/events/022.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/022.json",
+      "sha256": "96cd265a3b86f095337068e9cf48bf21d0b75c68b2b4511a51c8bc0cdffa3358",
+      "bytes": 53
+    },
+    "raw/experiment/events/023.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/023.json",
+      "sha256": "fe526d840171bf0e7261e4e45c38158c2140d7674946e79ee53f802264fad3a3",
+      "bytes": 80
+    },
+    "raw/experiment/events/024.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/024.json",
+      "sha256": "c8bea169254f9f1f2193e4209abbf88df7b130d03828f2c0fd168e65ef37eedc",
+      "bytes": 53
+    },
+    "raw/experiment/events/025.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/025.json",
+      "sha256": "c402d28e9f9faef238cfebc51d792d3bd127b1b885362948b1bceba5f6d1f591",
+      "bytes": 80
+    },
+    "raw/experiment/events/026.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/026.json",
+      "sha256": "28b3e4f8f42a1682ca62a3b79f55978f7625eae1a36843de00008e2ef65ed352",
+      "bytes": 53
+    },
+    "raw/experiment/events/027.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/events/027.json",
+      "sha256": "687c0b415da9529be8e6293a5b15d719643114ee2536c56aec5f58e289479dc4",
+      "bytes": 80
+    },
+    "raw/experiment/policy-freeze.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/policy-freeze.json",
+      "sha256": "a85bb680381d33a7d6be9f9d96ecf85030857e67adab8f72d2022454beb935b9",
+      "bytes": 1303
+    },
+    "raw/experiment/row-A-r1-S0.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-A-r1-S0.json",
+      "sha256": "8333f95285d2fa9c562449999b9b28200c8aba87b6fbf25d5658bb353b1bb632",
+      "bytes": 4834
+    },
+    "raw/experiment/row-A-r1-S1.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-A-r1-S1.json",
+      "sha256": "8884c8429634a0bfa75f43c6ec6a7405327fd73e9d413e0c221aff75ddcf710c",
+      "bytes": 4773
+    },
+    "raw/experiment/row-A-r2-S0.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-A-r2-S0.json",
+      "sha256": "0b71fc13aaddcbf5d3b9c6fac901e467266d1389b740de13cbe9a600bccef746",
+      "bytes": 4773
+    },
+    "raw/experiment/row-A-r2-S1.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-A-r2-S1.json",
+      "sha256": "ae3256b176cf2e95ada012ed6d792aa79a6a41c25aec02f249a0eb867ba84ef1",
+      "bytes": 4773
+    },
+    "raw/experiment/row-A-r3-S0.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-A-r3-S0.json",
+      "sha256": "7350ff5df3fe894d4aa57544d525d10daff77567f08d712258eb27f367b6023f",
+      "bytes": 4773
+    },
+    "raw/experiment/row-A-r3-S1.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-A-r3-S1.json",
+      "sha256": "e56f4d1d31e5e3ed23d2b0be38646ca9c84e92760303500410b64a18fddc0510",
+      "bytes": 4773
+    },
+    "raw/experiment/row-B-r1-S0.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-B-r1-S0.json",
+      "sha256": "0d1f77ea113f79ded489bd93e29bf622fa8b80567c4a9c2f702bcbc9afb8de40",
+      "bytes": 4780
+    },
+    "raw/experiment/row-B-r1-S1.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-B-r1-S1.json",
+      "sha256": "2ad2b4cb3d52345c3583a6f7efcd5d1b2ce307ad413a830531b2ca3b84245909",
+      "bytes": 4827
+    },
+    "raw/experiment/row-B-r2-S0.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-B-r2-S0.json",
+      "sha256": "d4f0e7566f27fc5170c3eb31d5d32703ffcc8f02c916f6b83e23e806bdc57e88",
+      "bytes": 4780
+    },
+    "raw/experiment/row-B-r2-S1.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-B-r2-S1.json",
+      "sha256": "e1f2752f830f77c5d3bb6588dbc4ccb06c439016c8f8bb5ef74e97bcc24e3170",
+      "bytes": 4780
+    },
+    "raw/experiment/row-B-r3-S0.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-B-r3-S0.json",
+      "sha256": "a64109999288671bb73e9aafdca983dfadde1c22b493c738568992635b0e5df8",
+      "bytes": 4780
+    },
+    "raw/experiment/row-B-r3-S1.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/row-B-r3-S1.json",
+      "sha256": "df79eb6f8e55b900bd59d4850f81df20abcdd6d0735d4c5ad87da964ab8345cb",
+      "bytes": 4780
+    },
+    "raw/experiment/summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/experiment/summary.json",
+      "sha256": "a37f42af2d7bf2a4b6e259256a6cb3403d76af72445d563a8b25ed14e5ae330d",
+      "bytes": 65772
+    },
+    "raw/invocation.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/invocation.json",
+      "sha256": "d112b6f3ab5d575e176be4774f4f44bc91b6892cb8cdadef39791d59fdeb6730",
+      "bytes": 199
+    },
+    "raw/readiness.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/readiness.json",
+      "sha256": "9662d9264b650fd18362edc63e1b1f99c6acdd845338706c97e90dfb1f8b1745",
+      "bytes": 121
+    },
+    "raw/result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/result.json",
+      "sha256": "f4233e5a40099b967850b996f7ad0167b6efff460e744a0b034ac2296cb5a738",
+      "bytes": 1237
+    },
+    "raw/sessions/A-r1-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/acceptance-attempt.json",
+      "sha256": "b8be28637d1872a8da997430a406359fd1243314d0f01f4d04b4254b8c8ffa10",
+      "bytes": 490
+    },
+    "raw/sessions/A-r1-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/sessions/A-r1-S0/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/events.jsonl",
+      "sha256": "bed0d019b0d0adc3b6c156abc5a49344deadb2daa1117db9165d419febfbddde",
+      "bytes": 451
+    },
+    "raw/sessions/A-r1-S0/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/input-audit.json",
+      "sha256": "e62eb5353244a82306650a6e594747a3956ca43016797197b4f1b2548eb2b00d",
+      "bytes": 162
+    },
+    "raw/sessions/A-r1-S0/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/packet.json",
+      "sha256": "5a270959a53c050c1a348005c6516134607397ba217265d1b2c411ff75a32e33",
+      "bytes": 5386
+    },
+    "raw/sessions/A-r1-S0/requests/request-0002.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/requests/request-0002.request.json",
+      "sha256": "f007eaf21a4f188f168da30732ad40bb9b5f405f10faa0183a12afe4e715042d",
+      "bytes": 7985
+    },
+    "raw/sessions/A-r1-S0/requests/request-0002.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/requests/request-0002.response.json",
+      "sha256": "5ddc41f7ac670f3fc7d6c90a9ca2c09fa50a9b6d28bd2d1472f708520a0c69ca",
+      "bytes": 741
+    },
+    "raw/sessions/A-r1-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/sdk-dispatch.json",
+      "sha256": "61c9b046b88c96f6b77e019cdb41a54cd044f4b3e251f43fa2eeb21e79db32c2",
+      "bytes": 797
+    },
+    "raw/sessions/A-r1-S0/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/sdk-submission.json",
+      "sha256": "9f73f6b56f8cbc9f6fc0dfb1c0e6afbc170260e0ca3f28a9253168368886c1ed",
+      "bytes": 697
+    },
+    "raw/sessions/A-r1-S0/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/session-summary.json",
+      "sha256": "4059a9a3fca4f376e0ba0ed7df78d99c11dae230da092bb997d1cd987aa66acd",
+      "bytes": 2472
+    },
+    "raw/sessions/A-r1-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/A-r1-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/submission.json",
+      "sha256": "5d16316173b77f523cbe2cf170a53c0f9c75899b73725f4f4befd7214ba5eec5",
+      "bytes": 259
+    },
+    "raw/sessions/A-r1-S0/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/transport-request.json",
+      "sha256": "e081795328ca61d3c62e9fd246ab14152e792c0eea89f27d824c60eb7e1ce5de",
+      "bytes": 336
+    },
+    "raw/sessions/A-r1-S0/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/transport-result.json",
+      "sha256": "6c9809e300af02f50e839ecc43e8925cf79dec6284380ec323e20743636f14f2",
+      "bytes": 214
+    },
+    "raw/sessions/A-r1-S0/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r1-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/acceptance-attempt.json",
+      "sha256": "d6bbc8c72af9e4e70441a840be78aa970c67cfb672abfbfbc972e1fbfa75be68",
+      "bytes": 490
+    },
+    "raw/sessions/A-r1-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/sessions/A-r1-S1/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/events.jsonl",
+      "sha256": "3c76df010c5ccda3ce28dec1ff01b27e2849965c62339f9e7dc58537e73d6ca9",
+      "bytes": 451
+    },
+    "raw/sessions/A-r1-S1/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/input-audit.json",
+      "sha256": "31f96ec1bee6c4c2469a6f3a2adfdccf194314680317fdbcce516452d27e4af6",
+      "bytes": 162
+    },
+    "raw/sessions/A-r1-S1/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/packet.json",
+      "sha256": "7d8408adadca619429dcfc9a0852386c9786050ba0a895dcdf5368e7e5fbc2bc",
+      "bytes": 5406
+    },
+    "raw/sessions/A-r1-S1/requests/request-0003.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/requests/request-0003.request.json",
+      "sha256": "a987493cd3305540ac5bb797f414d70e4c6ae996a524754cc5f62487b6076bb3",
+      "bytes": 8005
+    },
+    "raw/sessions/A-r1-S1/requests/request-0003.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/requests/request-0003.response.json",
+      "sha256": "7a483cfb8029d0f827b63cd08aab14a2d55fa8a9da8333eb8f23b1bf746814ea",
+      "bytes": 734
+    },
+    "raw/sessions/A-r1-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/sdk-dispatch.json",
+      "sha256": "68aed486319c1eadc04c07cca1564961fde5aa02e9bf7d153795072bc4971f5d",
+      "bytes": 797
+    },
+    "raw/sessions/A-r1-S1/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/sdk-submission.json",
+      "sha256": "86b4b6d2344eb7939cb2da1305b013eaae900fe4bdba2f886c07bd249dc03c11",
+      "bytes": 690
+    },
+    "raw/sessions/A-r1-S1/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/session-summary.json",
+      "sha256": "e17ceea4e6ea58488eb68fea1e9335c85a64aed35aab9fbd52ab4e1021bebad8",
+      "bytes": 2456
+    },
+    "raw/sessions/A-r1-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/A-r1-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/submission.json",
+      "sha256": "7e40046abeaf145ab6b3423d1335470043f11ac30540ef20bc2fe889a1a91b63",
+      "bytes": 252
+    },
+    "raw/sessions/A-r1-S1/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/transport-request.json",
+      "sha256": "f7337c1b79a503399821396e2d95a9cf9d1a38781c52910b93c57bd62547bbcc",
+      "bytes": 336
+    },
+    "raw/sessions/A-r1-S1/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/transport-result.json",
+      "sha256": "ab392c0d76f6d285d9c89d9085b3e5c87f59ea532e358f718eaa313159280a5c",
+      "bytes": 213
+    },
+    "raw/sessions/A-r1-S1/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r1-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r2-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/acceptance-attempt.json",
+      "sha256": "b5eb7d7e89f32436f98057eaf686e01b245a55ff00e6b0119a05f3d2648e86be",
+      "bytes": 490
+    },
+    "raw/sessions/A-r2-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/sessions/A-r2-S0/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/events.jsonl",
+      "sha256": "08f028e7d04e52f71b884de299460fdeb3b469dcb68a919c759fabd6fc7fd2b8",
+      "bytes": 451
+    },
+    "raw/sessions/A-r2-S0/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/input-audit.json",
+      "sha256": "e62eb5353244a82306650a6e594747a3956ca43016797197b4f1b2548eb2b00d",
+      "bytes": 162
+    },
+    "raw/sessions/A-r2-S0/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/packet.json",
+      "sha256": "5a270959a53c050c1a348005c6516134607397ba217265d1b2c411ff75a32e33",
+      "bytes": 5386
+    },
+    "raw/sessions/A-r2-S0/requests/request-0007.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/requests/request-0007.request.json",
+      "sha256": "f007eaf21a4f188f168da30732ad40bb9b5f405f10faa0183a12afe4e715042d",
+      "bytes": 7985
+    },
+    "raw/sessions/A-r2-S0/requests/request-0007.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/requests/request-0007.response.json",
+      "sha256": "16d6b045322ea5db493a696b880c29f20fa4ccc61eb3987beb297627fe95f473",
+      "bytes": 734
+    },
+    "raw/sessions/A-r2-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/sdk-dispatch.json",
+      "sha256": "da0cb003f23bb46a7e7c397c61cb9bd216788bcefa0c46d9aea562cf20ca888e",
+      "bytes": 797
+    },
+    "raw/sessions/A-r2-S0/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/sdk-submission.json",
+      "sha256": "c37e47d7517427e3c632711fc089d97e550d23f5604a86a26b37e17e510a5844",
+      "bytes": 690
+    },
+    "raw/sessions/A-r2-S0/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/session-summary.json",
+      "sha256": "d65635de72014bb67a1f7ceca1a40c6e8936bad3c952b3acd22d696c5885ddd7",
+      "bytes": 2456
+    },
+    "raw/sessions/A-r2-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/A-r2-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/submission.json",
+      "sha256": "9ac981465413cf9939540a295b48d3cfed48815281129d79c665ea9f024e4e97",
+      "bytes": 252
+    },
+    "raw/sessions/A-r2-S0/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/transport-request.json",
+      "sha256": "efc3a83b6f84748c0e8183a7f7c77c4573b2f3d2a3ad2cfefa48ced492bda27b",
+      "bytes": 336
+    },
+    "raw/sessions/A-r2-S0/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/transport-result.json",
+      "sha256": "2e959155df642555f754fb95de391a0f489b18b487b97432aea051cbbb43b660",
+      "bytes": 215
+    },
+    "raw/sessions/A-r2-S0/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r2-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/acceptance-attempt.json",
+      "sha256": "646834b42b63036b95582506d1573536ef7a42b4ef55b7413634e0dd1816a997",
+      "bytes": 490
+    },
+    "raw/sessions/A-r2-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/sessions/A-r2-S1/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/events.jsonl",
+      "sha256": "84c798148f7b4534d5f652eaa86e31575c234af7e41c42681dca2f25dc32acef",
+      "bytes": 451
+    },
+    "raw/sessions/A-r2-S1/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/input-audit.json",
+      "sha256": "31f96ec1bee6c4c2469a6f3a2adfdccf194314680317fdbcce516452d27e4af6",
+      "bytes": 162
+    },
+    "raw/sessions/A-r2-S1/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/packet.json",
+      "sha256": "7d8408adadca619429dcfc9a0852386c9786050ba0a895dcdf5368e7e5fbc2bc",
+      "bytes": 5406
+    },
+    "raw/sessions/A-r2-S1/requests/request-0006.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/requests/request-0006.request.json",
+      "sha256": "a987493cd3305540ac5bb797f414d70e4c6ae996a524754cc5f62487b6076bb3",
+      "bytes": 8005
+    },
+    "raw/sessions/A-r2-S1/requests/request-0006.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/requests/request-0006.response.json",
+      "sha256": "34ec2cf4eccd65ac8c6794a3881874feb19fb0fbb75981b2d3dfa7895b64b0a8",
+      "bytes": 734
+    },
+    "raw/sessions/A-r2-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/sdk-dispatch.json",
+      "sha256": "0e37e6c58efdf6fc73824ed1cbe79c2abcec73c902b55ea0fc4f79042bb15134",
+      "bytes": 797
+    },
+    "raw/sessions/A-r2-S1/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/sdk-submission.json",
+      "sha256": "d24082fe68cee4d2aef6e4bc01b7128555a3786a3449648b50bbefd238ce3df3",
+      "bytes": 690
+    },
+    "raw/sessions/A-r2-S1/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/session-summary.json",
+      "sha256": "e98f177eb0ce8429e53c1761145b3868f1a202f1a3fbe248fae9128eb7f46141",
+      "bytes": 2456
+    },
+    "raw/sessions/A-r2-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/A-r2-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/submission.json",
+      "sha256": "799dea0cd17ff468d4845e60c3629a50b8b887d5d097a302f5b4a8f2160317d0",
+      "bytes": 252
+    },
+    "raw/sessions/A-r2-S1/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/transport-request.json",
+      "sha256": "f2a5d43658d6fac69744a11d2a018f04711310ff06a876d89a673a2a99eca2f2",
+      "bytes": 336
+    },
+    "raw/sessions/A-r2-S1/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/transport-result.json",
+      "sha256": "face3e6ceb912c1ad7656957d6c3739ae8c74c01860a0a8b8b5c4addffa251b3",
+      "bytes": 215
+    },
+    "raw/sessions/A-r2-S1/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r2-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r3-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/acceptance-attempt.json",
+      "sha256": "b6866d1f1357d700ac6f8d8de2220bef558983c670c0abc95ac8db8c083fcf10",
+      "bytes": 490
+    },
+    "raw/sessions/A-r3-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/sessions/A-r3-S0/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/events.jsonl",
+      "sha256": "8b9a8bdcdac1af26a2ad147fe23ed5c65ec09f2ab5e8f06a2b273a2e278ff5fc",
+      "bytes": 454
+    },
+    "raw/sessions/A-r3-S0/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/input-audit.json",
+      "sha256": "e62eb5353244a82306650a6e594747a3956ca43016797197b4f1b2548eb2b00d",
+      "bytes": 162
+    },
+    "raw/sessions/A-r3-S0/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/packet.json",
+      "sha256": "5a270959a53c050c1a348005c6516134607397ba217265d1b2c411ff75a32e33",
+      "bytes": 5386
+    },
+    "raw/sessions/A-r3-S0/requests/request-0010.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/requests/request-0010.request.json",
+      "sha256": "f007eaf21a4f188f168da30732ad40bb9b5f405f10faa0183a12afe4e715042d",
+      "bytes": 7985
+    },
+    "raw/sessions/A-r3-S0/requests/request-0010.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/requests/request-0010.response.json",
+      "sha256": "b205c2d6dc0de93e2d19c12f1a8eeff4d91f51143ce992b7aaeb725b1c89bdfb",
+      "bytes": 736
+    },
+    "raw/sessions/A-r3-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/sdk-dispatch.json",
+      "sha256": "d5258efa06067636c85f94439237b41a1aea99c71991e797ff9a5bc5ea56076f",
+      "bytes": 797
+    },
+    "raw/sessions/A-r3-S0/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/sdk-submission.json",
+      "sha256": "baf8fc3ce7476c3292a5c970f9956b6f233233b693d940e2597dac0aa08d8a35",
+      "bytes": 692
+    },
+    "raw/sessions/A-r3-S0/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/session-summary.json",
+      "sha256": "4d6e33b05a78be4a1bffa0f1129204a1883826aac171f37f3aad7175684aef9e",
+      "bytes": 2456
+    },
+    "raw/sessions/A-r3-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/A-r3-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/submission.json",
+      "sha256": "6117317b114d9fd4a8c60c8c4af4e84bc1261d028302d40f414ab586609c1109",
+      "bytes": 252
+    },
+    "raw/sessions/A-r3-S0/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/transport-request.json",
+      "sha256": "f21defa8aa8f8e405ff5f2cba7b2e2d9b220ecf9bb752bc6b7fdd1b195aaed11",
+      "bytes": 336
+    },
+    "raw/sessions/A-r3-S0/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/transport-result.json",
+      "sha256": "d7cd0f83e674138f44d66202ac705475945a69fbfa2a161aa54ae3f34d9e31f5",
+      "bytes": 215
+    },
+    "raw/sessions/A-r3-S0/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r3-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/acceptance-attempt.json",
+      "sha256": "3481d7718412fffdbc6d5261d1566ac7e8a523bef0a8d1dc4a6218f6bbfa4b58",
+      "bytes": 490
+    },
+    "raw/sessions/A-r3-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/sessions/A-r3-S1/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/events.jsonl",
+      "sha256": "997f7580159cac72ecdbe282ae57bd54d1146cb8b9d30b1edad9b6219a764567",
+      "bytes": 454
+    },
+    "raw/sessions/A-r3-S1/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/input-audit.json",
+      "sha256": "31f96ec1bee6c4c2469a6f3a2adfdccf194314680317fdbcce516452d27e4af6",
+      "bytes": 162
+    },
+    "raw/sessions/A-r3-S1/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/packet.json",
+      "sha256": "7d8408adadca619429dcfc9a0852386c9786050ba0a895dcdf5368e7e5fbc2bc",
+      "bytes": 5406
+    },
+    "raw/sessions/A-r3-S1/requests/request-0011.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/requests/request-0011.request.json",
+      "sha256": "a987493cd3305540ac5bb797f414d70e4c6ae996a524754cc5f62487b6076bb3",
+      "bytes": 8005
+    },
+    "raw/sessions/A-r3-S1/requests/request-0011.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/requests/request-0011.response.json",
+      "sha256": "a4105c40e0c3818b3abe2188e87d7a01e51014e4fadd2316c0cb3b8c8a033e46",
+      "bytes": 736
+    },
+    "raw/sessions/A-r3-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/sdk-dispatch.json",
+      "sha256": "d5e065afd658095018ea60dc9b566bc6a8190f18d7dddb3bb413eab94a5dbb6f",
+      "bytes": 797
+    },
+    "raw/sessions/A-r3-S1/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/sdk-submission.json",
+      "sha256": "29c2b23c3baf0a5cd054e8449eb0db29b3898ba0b68e2413d2f3c6d81b1458b3",
+      "bytes": 692
+    },
+    "raw/sessions/A-r3-S1/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/session-summary.json",
+      "sha256": "87e8bac2b7466359dea3d900316c1418a0aacd0d5a0172be1e04103063ae7378",
+      "bytes": 2456
+    },
+    "raw/sessions/A-r3-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/A-r3-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/submission.json",
+      "sha256": "2b47917da1f4dd33e47017ec3e5c4ceedef2ead6e9de419d87990ca88e133e15",
+      "bytes": 252
+    },
+    "raw/sessions/A-r3-S1/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/transport-request.json",
+      "sha256": "edf07df0271a110dd1ed6d74a8b4047350360a46a7407a6ba8cb2a92a2cfea65",
+      "bytes": 336
+    },
+    "raw/sessions/A-r3-S1/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/transport-result.json",
+      "sha256": "aaf6ee303989f9d18f125e434a8143c38560e48748f16917511f0fe488a30ed1",
+      "bytes": 214
+    },
+    "raw/sessions/A-r3-S1/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/A-r3-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r1-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/acceptance-attempt.json",
+      "sha256": "c28dba9e13ed94ad7e655948458f34c36b0639d2390e245c7ca70b09bb26b405",
+      "bytes": 490
+    },
+    "raw/sessions/B-r1-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/sessions/B-r1-S0/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/events.jsonl",
+      "sha256": "08c9c740aa98f4b03805a41cb9be299e5984bbde7972b45e248899474254db21",
+      "bytes": 451
+    },
+    "raw/sessions/B-r1-S0/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/input-audit.json",
+      "sha256": "712f0057ca5a2a83d8ecc779e5d0c23f082c11e5d087a637eab2adcbf2092694",
+      "bytes": 162
+    },
+    "raw/sessions/B-r1-S0/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/packet.json",
+      "sha256": "811f382db10ab9d803a3a094ff8e4b18b8146fda9029f5335ecf85bdfc7a2572",
+      "bytes": 5393
+    },
+    "raw/sessions/B-r1-S0/requests/request-0005.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/requests/request-0005.request.json",
+      "sha256": "29c0ec47ae2767dd4c2638ee216f2b5a9fab1579037fd64cadcf887c9c91d330",
+      "bytes": 7992
+    },
+    "raw/sessions/B-r1-S0/requests/request-0005.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/requests/request-0005.response.json",
+      "sha256": "dc8e6a106df9909372cdc234cc962b32852132b771647dccf2e8bad7e02ada70",
+      "bytes": 741
+    },
+    "raw/sessions/B-r1-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/sdk-dispatch.json",
+      "sha256": "30fa764d767eefeb8534a352a3db04813de2686348824dddf08e68317d99dbdb",
+      "bytes": 797
+    },
+    "raw/sessions/B-r1-S0/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/sdk-submission.json",
+      "sha256": "4cd7d7fa9976eee168421dea322526217816cc1e24f8e93f41d7b6b9c0e681df",
+      "bytes": 697
+    },
+    "raw/sessions/B-r1-S0/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/session-summary.json",
+      "sha256": "853a1c3091f7e4132feb75d07065f683789543c76bf4aa8a7f828762b69fbf62",
+      "bytes": 2472
+    },
+    "raw/sessions/B-r1-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/B-r1-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/submission.json",
+      "sha256": "ca59635ff3fdcebd3b89452c0592f2abbc6cceb274f350ba34d382247ae60469",
+      "bytes": 259
+    },
+    "raw/sessions/B-r1-S0/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/transport-request.json",
+      "sha256": "93292deb42bca36d8b91688f0d6023b2223acf8c3d0155f93c7a5f9939d483f1",
+      "bytes": 336
+    },
+    "raw/sessions/B-r1-S0/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/transport-result.json",
+      "sha256": "ab342f2d0fbf2fb3905caf3a7fb76735fad306d00f062856496d8b3bfb49ca61",
+      "bytes": 214
+    },
+    "raw/sessions/B-r1-S0/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r1-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/acceptance-attempt.json",
+      "sha256": "20813447b0c1d68b31032da168faec4f0e8d81994b6e035042924ae48e7b1736",
+      "bytes": 490
+    },
+    "raw/sessions/B-r1-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/sessions/B-r1-S1/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/events.jsonl",
+      "sha256": "cb297ac9d92b02062965ed965bbe13bc9c37f6ccd59d059f797e82e2b66bee3c",
+      "bytes": 451
+    },
+    "raw/sessions/B-r1-S1/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/input-audit.json",
+      "sha256": "cdfab7228702be86579d9e62c657b872b9d13f26d358b14e2e46334e27def8ab",
+      "bytes": 162
+    },
+    "raw/sessions/B-r1-S1/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/packet.json",
+      "sha256": "57c42e2b6685bb38820f1e429b2899386b4e951d58a5d06449cf471516f26a48",
+      "bytes": 5413
+    },
+    "raw/sessions/B-r1-S1/requests/request-0004.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/requests/request-0004.request.json",
+      "sha256": "b3a56276cbfff94ffb7dfdce798a800a5da5522abdd630bb84f8cb8054d36802",
+      "bytes": 8012
+    },
+    "raw/sessions/B-r1-S1/requests/request-0004.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/requests/request-0004.response.json",
+      "sha256": "c1e060116044803531aeb648dfdabedda065fe9e446ace93c4f9f3f1190e1deb",
+      "bytes": 734
+    },
+    "raw/sessions/B-r1-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/sdk-dispatch.json",
+      "sha256": "c3aed5f5ed0e52fc44bba8024b60f6fa3eed72264650379b072daf624bbaa0bb",
+      "bytes": 797
+    },
+    "raw/sessions/B-r1-S1/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/sdk-submission.json",
+      "sha256": "fbe8afdb4742f3b1721ae2d8b22b06a786be10b2d5a06aa577d28c82efa1cbf5",
+      "bytes": 690
+    },
+    "raw/sessions/B-r1-S1/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/session-summary.json",
+      "sha256": "8d8c50c62f7d9c649d67afbff5c1468450e7d1a9f5715075dd302b7287a62b0a",
+      "bytes": 2456
+    },
+    "raw/sessions/B-r1-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/B-r1-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/submission.json",
+      "sha256": "af936d8d137f219752396efd0aa0816d3e519e968d562abbabf86cb270cd092d",
+      "bytes": 252
+    },
+    "raw/sessions/B-r1-S1/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/transport-request.json",
+      "sha256": "956c0413b0a681e4a5c0a8c198c1aba3f4c209396455b83a219376894e0d026f",
+      "bytes": 336
+    },
+    "raw/sessions/B-r1-S1/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/transport-result.json",
+      "sha256": "7046dc5217614ea63be3c645bc6e1717c085dfa6bd0c7257a32a98cf7af909e9",
+      "bytes": 215
+    },
+    "raw/sessions/B-r1-S1/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r1-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r2-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/acceptance-attempt.json",
+      "sha256": "8b2443812f1d295cad75e1726b857715e8d6f7b842734bdef93dceba27eb4b8b",
+      "bytes": 490
+    },
+    "raw/sessions/B-r2-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/sessions/B-r2-S0/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/events.jsonl",
+      "sha256": "e4ae118d16c3f49d11b28e31961bd45151f991cfd03a701ca777c927bb0c32a2",
+      "bytes": 451
+    },
+    "raw/sessions/B-r2-S0/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/input-audit.json",
+      "sha256": "712f0057ca5a2a83d8ecc779e5d0c23f082c11e5d087a637eab2adcbf2092694",
+      "bytes": 162
+    },
+    "raw/sessions/B-r2-S0/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/packet.json",
+      "sha256": "811f382db10ab9d803a3a094ff8e4b18b8146fda9029f5335ecf85bdfc7a2572",
+      "bytes": 5393
+    },
+    "raw/sessions/B-r2-S0/requests/request-0008.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/requests/request-0008.request.json",
+      "sha256": "29c0ec47ae2767dd4c2638ee216f2b5a9fab1579037fd64cadcf887c9c91d330",
+      "bytes": 7992
+    },
+    "raw/sessions/B-r2-S0/requests/request-0008.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/requests/request-0008.response.json",
+      "sha256": "b1f4fcfee45347a47cfc7a24ca3bf86a334efdaef6a723b221645df3ef490231",
+      "bytes": 741
+    },
+    "raw/sessions/B-r2-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/sdk-dispatch.json",
+      "sha256": "50dabf53becbf9cacd006667ed0a4db78e50e2fe7eb484571ca6a69615e235f3",
+      "bytes": 797
+    },
+    "raw/sessions/B-r2-S0/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/sdk-submission.json",
+      "sha256": "a569ac0614ecec815f8ba24f04d2b889606405f84bcc26b60b0fa4ed95d8103d",
+      "bytes": 697
+    },
+    "raw/sessions/B-r2-S0/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/session-summary.json",
+      "sha256": "13612ece51f78d90fa8f4f304d6d589b6366eb60e4c3581f50843b85fe7be4bd",
+      "bytes": 2472
+    },
+    "raw/sessions/B-r2-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/B-r2-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/submission.json",
+      "sha256": "47b872e74df7245b9492237d391719fc387c924816ebe4a3a7e8e0a68d90d000",
+      "bytes": 259
+    },
+    "raw/sessions/B-r2-S0/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/transport-request.json",
+      "sha256": "18e0864bc89fcd3ea3692af2f5650885b00ca5909445db3758d03bc697ced7a0",
+      "bytes": 336
+    },
+    "raw/sessions/B-r2-S0/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/transport-result.json",
+      "sha256": "5049128a94feea8b7a723037f8f50f7c2130b7de41b590a0c87c6be8f4f5681e",
+      "bytes": 214
+    },
+    "raw/sessions/B-r2-S0/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r2-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/acceptance-attempt.json",
+      "sha256": "cf872888e3f13aca09f222e6c6ee638d636ddfafdd52a22a8f43f3d32715161e",
+      "bytes": 490
+    },
+    "raw/sessions/B-r2-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/sessions/B-r2-S1/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/events.jsonl",
+      "sha256": "7ec047b747661693163a0f05812f09317ba6190fc2f7953fd35490a265a6dcd3",
+      "bytes": 451
+    },
+    "raw/sessions/B-r2-S1/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/input-audit.json",
+      "sha256": "cdfab7228702be86579d9e62c657b872b9d13f26d358b14e2e46334e27def8ab",
+      "bytes": 162
+    },
+    "raw/sessions/B-r2-S1/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/packet.json",
+      "sha256": "57c42e2b6685bb38820f1e429b2899386b4e951d58a5d06449cf471516f26a48",
+      "bytes": 5413
+    },
+    "raw/sessions/B-r2-S1/requests/request-0009.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/requests/request-0009.request.json",
+      "sha256": "b3a56276cbfff94ffb7dfdce798a800a5da5522abdd630bb84f8cb8054d36802",
+      "bytes": 8012
+    },
+    "raw/sessions/B-r2-S1/requests/request-0009.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/requests/request-0009.response.json",
+      "sha256": "f7b380ed0465c6d5a4f5984be741568fe98ab53c52cfb862f808c6ff0049f1f6",
+      "bytes": 741
+    },
+    "raw/sessions/B-r2-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/sdk-dispatch.json",
+      "sha256": "a818e278868042d6fe7f0a9fd1ee2d907637e8c0f1dc2190b4b4a8c55b3a0f98",
+      "bytes": 797
+    },
+    "raw/sessions/B-r2-S1/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/sdk-submission.json",
+      "sha256": "a4440d90655cd6c53696f2fd0eaadef7c59f937c17c6822d674e48017b5fc1f0",
+      "bytes": 697
+    },
+    "raw/sessions/B-r2-S1/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/session-summary.json",
+      "sha256": "e231736072df5fff4dfb1acf93f2f31bc4bede3c1e8941d622cb613da2715a4f",
+      "bytes": 2472
+    },
+    "raw/sessions/B-r2-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/B-r2-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/submission.json",
+      "sha256": "06d2b071960715bde15bf7d678ba25fa2b566ff8f09e7e4bdeec3d78b8b29eda",
+      "bytes": 259
+    },
+    "raw/sessions/B-r2-S1/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/transport-request.json",
+      "sha256": "d8ac4ce1ec784aadfa329ce9804bde9fbc2de340bf557549ec8a459f9a2fe9cc",
+      "bytes": 336
+    },
+    "raw/sessions/B-r2-S1/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/transport-result.json",
+      "sha256": "770cab66ef02f0224916dc9056cbfa9e3551af248189bc2efbb3c8a0f01e8da4",
+      "bytes": 214
+    },
+    "raw/sessions/B-r2-S1/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r2-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r3-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/acceptance-attempt.json",
+      "sha256": "a89cbb2b2ed340597c3d858a4f5a73f3ec97b1da6f29f92e5fd599ae28c9a544",
+      "bytes": 490
+    },
+    "raw/sessions/B-r3-S0/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/sessions/B-r3-S0/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/events.jsonl",
+      "sha256": "9b9fa7b96254c1ee4f432cb66c4213f6e1abb6156f2a49d9f86ab27ef5770189",
+      "bytes": 454
+    },
+    "raw/sessions/B-r3-S0/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/input-audit.json",
+      "sha256": "712f0057ca5a2a83d8ecc779e5d0c23f082c11e5d087a637eab2adcbf2092694",
+      "bytes": 162
+    },
+    "raw/sessions/B-r3-S0/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/packet.json",
+      "sha256": "811f382db10ab9d803a3a094ff8e4b18b8146fda9029f5335ecf85bdfc7a2572",
+      "bytes": 5393
+    },
+    "raw/sessions/B-r3-S0/requests/request-0013.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/requests/request-0013.request.json",
+      "sha256": "29c0ec47ae2767dd4c2638ee216f2b5a9fab1579037fd64cadcf887c9c91d330",
+      "bytes": 7992
+    },
+    "raw/sessions/B-r3-S0/requests/request-0013.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/requests/request-0013.response.json",
+      "sha256": "da70f04f603300046cf0a069de3c610f3de018f009e03fd8350201bffb141ce2",
+      "bytes": 743
+    },
+    "raw/sessions/B-r3-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/sdk-dispatch.json",
+      "sha256": "e2f0e334fa369d2eb6c65dc56a5feec4bbb108975c4178108f7e08a08a825acc",
+      "bytes": 797
+    },
+    "raw/sessions/B-r3-S0/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/sdk-submission.json",
+      "sha256": "c5a49092db56e85960ac6ce9bdb18b9db4fb692733dae4ba02c25c65a441743c",
+      "bytes": 699
+    },
+    "raw/sessions/B-r3-S0/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/session-summary.json",
+      "sha256": "b28851973060f718d05d73658b66456438f31ed2b9271149b4fe64e2feb41630",
+      "bytes": 2472
+    },
+    "raw/sessions/B-r3-S0/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/B-r3-S0/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/submission.json",
+      "sha256": "74d45e0bc22f58d7788e65bf3a097287c921046ee72f66c0d5c227b96260c3f2",
+      "bytes": 259
+    },
+    "raw/sessions/B-r3-S0/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/transport-request.json",
+      "sha256": "1a4de22f18cdaa7516ec7b9045d3fb4f305bb4866aa10654e2983c62f2e6a603",
+      "bytes": 336
+    },
+    "raw/sessions/B-r3-S0/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/transport-result.json",
+      "sha256": "080992c93b6fce384b74338dcfeea6fcc3889befbd5e53eb71174672d9f303a1",
+      "bytes": 213
+    },
+    "raw/sessions/B-r3-S0/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r3-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/acceptance-attempt.json",
+      "sha256": "3b75b4835e38c3234045589b4e304bd2f57a33f88fae17ebf8af80df398c246a",
+      "bytes": 490
+    },
+    "raw/sessions/B-r3-S1/compiled.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/sessions/B-r3-S1/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/events.jsonl",
+      "sha256": "2e70e19c64d316a92c272669888ce4007bd407d85b30ed206a85532c2a7dae03",
+      "bytes": 454
+    },
+    "raw/sessions/B-r3-S1/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/input-audit.json",
+      "sha256": "cdfab7228702be86579d9e62c657b872b9d13f26d358b14e2e46334e27def8ab",
+      "bytes": 162
+    },
+    "raw/sessions/B-r3-S1/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/packet.json",
+      "sha256": "57c42e2b6685bb38820f1e429b2899386b4e951d58a5d06449cf471516f26a48",
+      "bytes": 5413
+    },
+    "raw/sessions/B-r3-S1/requests/request-0012.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/requests/request-0012.request.json",
+      "sha256": "b3a56276cbfff94ffb7dfdce798a800a5da5522abdd630bb84f8cb8054d36802",
+      "bytes": 8012
+    },
+    "raw/sessions/B-r3-S1/requests/request-0012.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/requests/request-0012.response.json",
+      "sha256": "21da783d66217ccb93bd87e2be5a170aa3dbb701b03fc116cb8d5aa1ba736a6f",
+      "bytes": 743
+    },
+    "raw/sessions/B-r3-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/sdk-dispatch.json",
+      "sha256": "a8060a9fa44b988b61f8325dddb599cc969481be62de16f0882224da2beade8b",
+      "bytes": 797
+    },
+    "raw/sessions/B-r3-S1/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/sdk-submission.json",
+      "sha256": "9e556d437776705a753cf3fce9fbf157bf5e5d8db8730adec659c8b807475a70",
+      "bytes": 699
+    },
+    "raw/sessions/B-r3-S1/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/session-summary.json",
+      "sha256": "fa577db1574a8b372bfd7893c3418c1c32e6583b69d045aa5ae44bd64fc0f05b",
+      "bytes": 2472
+    },
+    "raw/sessions/B-r3-S1/source.py": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/B-r3-S1/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/submission.json",
+      "sha256": "cee74167677bed448952c3b736214ba68c5beffce38964377db09a94e449f3da",
+      "bytes": 259
+    },
+    "raw/sessions/B-r3-S1/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/transport-request.json",
+      "sha256": "8bed4a01ee36aac4eacc9734f0f40e472f4de1b2e236bde85b47a6c599f53df3",
+      "bytes": 336
+    },
+    "raw/sessions/B-r3-S1/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/transport-result.json",
+      "sha256": "9273ab453019811621db93041703b22e21cf98bd961f568aea5acc7fabc18f1b",
+      "bytes": 215
+    },
+    "raw/sessions/B-r3-S1/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/B-r3-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/update/acceptance-attempt.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/acceptance-attempt.json",
+      "sha256": "1c505ea1921683cb300054f172eb1aa519f2509c68837a46c890cd9415fcf0d7",
+      "bytes": 488
+    },
+    "raw/sessions/update/events.jsonl": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/events.jsonl",
+      "sha256": "2d37f8b29f5413354b5ccc6de43ac3e3debdfbd38e64825db4d4b4bda28cde01",
+      "bytes": 453
+    },
+    "raw/sessions/update/input-audit.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/input-audit.json",
+      "sha256": "ce5960354d237dffb59ae97a1a19d0b2f57b16ba57d27aca2d7f6e88b9d78302",
+      "bytes": 163
+    },
+    "raw/sessions/update/packet.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/packet.json",
+      "sha256": "0270ab5418713dfc6bf395ae04fc9adcbcc2580688fabda1117b3128e9e06dce",
+      "bytes": 81600
+    },
+    "raw/sessions/update/policy.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/policy.json",
+      "sha256": "10ef49b5f4cf1b50739e3e2a4e901d430ad98f1ae002701358931e9d0833b943",
+      "bytes": 72
+    },
+    "raw/sessions/update/requests/request-0001.request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/requests/request-0001.request.json",
+      "sha256": "ffca0ea6f095953dd5514ceb26d6b41450f5965ee2e535cd5250c68bf1d80995",
+      "bytes": 89597
+    },
+    "raw/sessions/update/requests/request-0001.response.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/requests/request-0001.response.json",
+      "sha256": "5ba81f42cf5cc216b24bed3963404da7bb3c4ff840a59a10cc1051d10d96c210",
+      "bytes": 712
+    },
+    "raw/sessions/update/sdk-dispatch.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/sdk-dispatch.json",
+      "sha256": "d6c0439c9e63287e363518b328cdc92647fb2cf3edb90c43f9483406d1bafebe",
+      "bytes": 797
+    },
+    "raw/sessions/update/sdk-submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/sdk-submission.json",
+      "sha256": "548b0c01ff72e3d638379d9289197ac74abb5a814ebe57652b98bb1712e7d987",
+      "bytes": 666
+    },
+    "raw/sessions/update/session-summary.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/session-summary.json",
+      "sha256": "50a0450984cb26c81b99b932440ec1be3ec2c201af392a1e31edaef7efc5d8d0",
+      "bytes": 1028
+    },
+    "raw/sessions/update/submission.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/submission.json",
+      "sha256": "31b42f5b28e5109d41a44759b60c694eb2951eaafad7e4ac42d8b19ce4cd8cdb",
+      "bytes": 230
+    },
+    "raw/sessions/update/transport-request.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/transport-request.json",
+      "sha256": "6d5338115640e839a79008b43be82d14df403395839df73ec0c75bf09b181e90",
+      "bytes": 336
+    },
+    "raw/sessions/update/transport-result.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/transport-result.json",
+      "sha256": "80aacaa300c72cfaeaf38f2da5d608843b6add93e3793a3ad93714f76ee723b0",
+      "bytes": 214
+    },
+    "raw/sessions/update/transport-settings.json": {
+      "source": "runs/basis-trial/sdk-preflight-v01/sessions/update/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    }
+  },
+  "raw_files": 398,
+  "total_bytes": 761835
+}

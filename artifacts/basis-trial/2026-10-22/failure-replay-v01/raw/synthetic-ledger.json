@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "config": {
+    "max_requests": 13,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 8192,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 1500000,
+    "max_cost_cny": 4.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4,
+    "session_ids": [
+      "update"
+    ]
+  },
+  "requests": [
+    {
+      "request_id": "request-0001",
+      "session_id": "update",
+      "input_bytes": 88898,
+      "payload_sha256": "eed8fecf433f32905e9fe258d7419909abb09f85966b7016ce22b60154e4fd06",
+      "input_token_reservation": 97090,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.2727018,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 25210,
+        "completion_tokens": 944,
+        "total_tokens": 26154
+      },
+      "usage_state": "known",
+      "usage_sha256": "1c12b32fe1db37dd836cc6b097ad140c54cc3741e2117068383d06dbf7bbfec3",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0608706
+    }
+  ],
+  "halted": false,
+  "halt_reasons": []
+}

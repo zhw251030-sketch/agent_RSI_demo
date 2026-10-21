@@ -1,0 +1,5 @@
+{"type": "SystemPromptEvent", "source": "agent"}
+{"type": "MessageEvent", "source": "user"}
+{"type": "ActionEvent", "source": "agent", "tool_name": "submit_basis", "tool_call_id": "synthetic-call-5", "llm_response_id": "synthetic-basis-5"}
+{"type": "ObservationEvent", "source": "environment", "tool_name": "submit_basis", "tool_call_id": "synthetic-call-5"}
+{"type": "ConversationErrorEvent", "source": "environment", "code": "MaxIterationsReached"}
