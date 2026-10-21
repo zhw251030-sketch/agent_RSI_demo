@@ -30,6 +30,7 @@ class SessionAuditTests(unittest.TestCase):
         temp = tempfile.TemporaryDirectory(dir=ROOT/'tmp', prefix='strategy-audit-')
         self.addCleanup(temp.cleanup)
         self.directory = Path(temp.name)
+        self.fixture_root = self.directory
         self.ledger_path = self.directory/'budget-ledger.json'
         self.ledger = StrategyPairBudgetLedger(self.ledger_path, [s['id'] for s in self.slots])
         self.slot = self.slots[0]
@@ -42,21 +43,29 @@ class SessionAuditTests(unittest.TestCase):
         return binding.file_ref(ROOT, path.relative_to(ROOT).as_posix())
 
     def fixture(self):
+        stage = 'update' if self.slot['phase'] == 'update' else 'actor'
+        tool = 'submit_policy' if stage == 'update' else 'submit_candidate'
         request = dict(model='anthropic/MiniMax-M3',messages=[dict(role='system',content='Synthetic fixture'),
             dict(role='user',content=binding.canonical(self.packet).decode())],tools=[
-                dict(type='function',function=dict(name=name)) for name in ('submit_policy','finish')],
+                dict(type='function',function=dict(name=name)) for name in (tool,'finish')],
             tool_choice=None,max_output_tokens=8192)
+        # Actor slots follow update slots in the global ledger. Fabricated prior
+        # reservations satisfy its order contract; none represents a provider call.
+        for earlier in self.slots[:self.slots.index(self.slot)]:
+            prior = self.ledger.reserve(earlier['id'], {'fixture': earlier['id']}, 8192)
+            self.ledger.settle(prior, dict(prompt_tokens=1, completion_tokens=1, total_tokens=2))
         request_id = self.ledger.reserve(self.slot['id'], request, 8192)
         usage = dict(prompt_tokens=100,completion_tokens=20,total_tokens=120)
         self.ledger.settle(request_id,usage)
         request_ref = self.write('requests/'+request_id+'.request.json',request)
-        business = dict(rule_1='R01',rule_2='R02',rule_3='R03',rule_4='R04',explanation='Unverified.')
+        business = (dict(rule_1='R01',rule_2='R02',rule_3='R03',rule_4='R04',explanation='Unverified.')
+            if stage == 'update' else dict(source='def get_plan(x): return []\n',n_params=0,explanation='Unverified.'))
         response = dict(response_id='response-1',usage=usage,usage_details={},choices=[dict(
             message=dict(role='assistant',content='fixture',tool_calls=[dict(id='call-1',type='function',
-                function=dict(name='submit_policy',arguments=json.dumps(business)))]),finish_reason='tool_calls')])
+                function=dict(name=tool,arguments=json.dumps(business)))]),finish_reason='tool_calls')])
         response_ref = self.write('requests/'+request_id+'.response.json',response)
-        sdk = dict(version='strategy-sdk-submission-v0.1',stage='update',slot_id=self.slot['id'],
-            tool='submit_policy',request_id=request_id,request=request_ref,response=response_ref,
+        sdk = dict(version='strategy-sdk-submission-v0.1',stage=stage,slot_id=self.slot['id'],
+            tool=tool,request_id=request_id,request=request_ref,response=response_ref,
             response_id='response-1',tool_call_id='call-1',business=business)
         sdk_ref = self.write('sdk-submission.json',sdk)
         controller = StrategyPairController(ROOT,self.packet,self.slot['id'],self.directory)
@@ -65,8 +74,8 @@ class SessionAuditTests(unittest.TestCase):
             request_id=request_id,slot_id=self.slot['id'],actual_input_bytes=len(binding.canonical(request)),
             max_input_bytes=98304,payload_sha256=binding.digest(request),request_reserved=True,
             transport_called=True,status='completed',error_type=None))
-        events = [dict(type='ActionEvent',tool_name='submit_policy',tool_call_id='call-1',llm_response_id='response-1'),
-                  dict(type='ObservationEvent',tool_name='submit_policy',tool_call_id='call-1')]
+        events = [dict(type='ActionEvent',tool_name=tool,tool_call_id='call-1',llm_response_id='response-1'),
+                  dict(type='ObservationEvent',tool_name=tool,tool_call_id='call-1')]
         self.write('events.jsonl',b''.join(binding.canonical(e)+b'\n' for e in events))
         self.write('transport-settings.json',dict(version='strategy-pair-agent-v0.1',timeout=180,num_retries=0,
             provider_max_retries=0,stream=False,max_output_tokens=8192))
@@ -86,9 +95,9 @@ class SessionAuditTests(unittest.TestCase):
                 max_completion_tokens=8192,tool_choice=None,temperature=1.0,seed=None,drop_params=True,
                 extra_body={'thinking':{'type':'disabled'}},reasoning_effort_present=False,
                 messages_sha256=binding.digest(request['messages']),tools_sha256=binding.digest(request['tools']))))
-        result = dict(version='strategy-pair-agent-v0.1',slot_id=self.slot['id'],stage='update',status='accepted',
+        result = dict(version='strategy-pair-agent-v0.1',slot_id=self.slot['id'],stage=stage,status='accepted',
             request_id=request_id,request=request_ref,response=response_ref,sdk_submission=sdk_ref,input_audit=input_ref,
-            submission=controller.submission,source=None,policy=controller.policy,error_type=None,
+            submission=controller.submission,source=controller.source,policy=controller.policy,error_type=None,
             sdk_error_codes=[],controller=controller.summary())
         self.write('session-summary.json',result)
         return result
@@ -104,6 +113,66 @@ class SessionAuditTests(unittest.TestCase):
         path.write_bytes(binding.canonical(value)+b'\n')
         self.result[field] = binding.file_ref(ROOT,old['path'])
         self.write('session-summary.json',self.result)
+
+    def metadata_fixture(self, stage, case):
+        from tests.test_strategy_pair_agent import actor_packet
+        self.directory = self.fixture_root / ('metadata-'+stage+'-'+str(case))
+        self.ledger_path = self.directory/'budget-ledger.json'
+        self.ledger = StrategyPairBudgetLedger(self.ledger_path, [s['id'] for s in self.slots])
+        self.slot = (self.slots[0] if stage == 'update' else
+            next(s for s in self.slots if s['id'] == 'r1-selection-P-select-1-fixed'))
+        self.packet = type(self).packet if stage == 'update' else actor_packet()
+        self.result = self.fixture()
+        sdk = json.loads((ROOT/self.result['sdk_submission']['path']).read_bytes())
+        return sdk['business']
+
+    def rebind_raw_arguments(self, raw):
+        """Rehash the entire affected chain so rejection tests semantic checks."""
+        self.replace_ref('response', lambda v: v['choices'][0]['message']['tool_calls'][0]['function'].update(arguments=raw))
+        self.replace_ref('sdk_submission', lambda v: v.update(response=self.result['response']))
+        attempt = json.loads((self.directory/'acceptance-attempt.json').read_bytes())
+        attempt['sdk_submission'] = self.result['sdk_submission']
+        self.write('acceptance-attempt.json', attempt)
+        self.assertEqual(binding.file_ref(ROOT,self.result['response']['path']), self.result['response'])
+        self.assertEqual(binding.file_ref(ROOT,self.result['sdk_submission']['path']), self.result['sdk_submission'])
+        sdk = json.loads((ROOT/self.result['sdk_submission']['path']).read_bytes())
+        self.assertEqual(sdk['response'], self.result['response'])
+        self.assertEqual(attempt['sdk_submission'], self.result['sdk_submission'])
+
+    def test_valid_sdk_metadata_passes_full_bound_audit_for_update_and_actor(self):
+        for stage in ('update', 'actor'):
+            for number, metadata in enumerate(({}, {'summary': None}, {'security_risk': 'UNKNOWN'},
+                    {'summary': 'Archive only', 'security_risk': 'HIGH'})):
+                with self.subTest(stage=stage, metadata=metadata):
+                    business = self.metadata_fixture(stage, number)
+                    self.rebind_raw_arguments(json.dumps(business | metadata))
+                    result = self.verify()
+                    self.assertEqual(result['status'], 'passed')
+                    self.assertEqual(result['tool'], 'submit_policy' if stage == 'update' else 'submit_candidate')
+                    sdk = json.loads((ROOT/self.result['sdk_submission']['path']).read_bytes())
+                    self.assertEqual(sdk['business'], business)
+
+    def test_invalid_metadata_cannot_pass_audit_after_rehashing_entire_chain(self):
+        changes = ({'summary': 1}, {'summary': []}, {'security_risk': None},
+            {'security_risk': 'invalid'}, {'security_risk': True}, {'unexpected': 'not metadata'},
+            {'kind': 'Action'})
+        for stage in ('update', 'actor'):
+            for number, metadata in enumerate(changes):
+                with self.subTest(stage=stage, metadata=metadata):
+                    business = self.metadata_fixture(stage, number)
+                    self.rebind_raw_arguments(json.dumps(business | metadata))
+                    with self.assertRaisesRegex(ValueError, 'SDK summary|SDK security_risk|Submission fields'):
+                        self.verify()
+
+    def test_duplicate_metadata_cannot_pass_audit_after_rehashing_entire_chain(self):
+        for stage in ('update', 'actor'):
+            for number, duplicate in enumerate(('"summary":"second"', '"security_risk":"HIGH"')):
+                with self.subTest(stage=stage, duplicate=duplicate):
+                    business = self.metadata_fixture(stage, number)
+                    raw = json.dumps(business | {'summary': None, 'security_risk': 'LOW'})
+                    self.rebind_raw_arguments(raw[:-1]+','+duplicate+'}')
+                    with self.assertRaisesRegex(ValueError, 'Duplicate JSON key'):
+                        self.verify()
 
     def test_complete_chain_is_accepted_without_source_or_task_execution(self):
         result = self.verify()

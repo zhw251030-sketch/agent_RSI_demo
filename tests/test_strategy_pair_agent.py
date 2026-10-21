@@ -115,7 +115,7 @@ class ControllerTests(unittest.TestCase):
     def test_raw_schema_rejects_extra_duplicate_nonfinite_and_coercion(self):
         c = self.controller()
         invalid = ['{"source":"x","source":"y","n_params":0}',
-                   '{"source":"x","n_params":0,"summary":"extra"}',
+                   '{"source":"x","n_params":0,"unexpected":"extra"}',
                    '{"source":"x","n_params":true}',
                    '{"source":"x","n_params":0.0}',
                    '{"source":"x","n_params":NaN}',

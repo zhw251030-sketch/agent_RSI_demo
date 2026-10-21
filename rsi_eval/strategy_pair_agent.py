@@ -20,7 +20,7 @@ from .pilot_agent import BoundedPilotLLM, ControlledPilotConversation, PilotResp
 from .state_packet import replace_messages, wire_payload
 from .strategy_binding import _request_packet
 from .strategy_learning import canonical
-from .strategy_pair_controller import StrategyPairController, reference, write_once
+from .strategy_pair_controller import SDK_SECURITY_RISKS, StrategyPairController, reference, write_once
 from .two_stage_agent import _SubmissionAction, TwoStageObservation
 
 VERSION = 'strategy-pair-agent-v0.1'
@@ -36,7 +36,39 @@ ACTOR_SYSTEM = ('Make one complete artifact revision using the supplied current_
 Rule = Literal['R01','R02','R03','R04','R05','R06','R07','R08']
 
 
-class StrategyUpdateAction(_SubmissionAction):
+class _StrategySubmissionAction(_SubmissionAction):
+    @classmethod
+    def to_mcp_schema(cls):
+        schema = super().to_mcp_schema()
+        definitions = cls.model_json_schema().get('$defs', {})
+
+        def resolve(value, trail=()):
+            if isinstance(value, list):
+                return [resolve(item, trail) for item in value]
+            if not isinstance(value, dict):
+                return value
+            if '$ref' in value:
+                ref = value['$ref']
+                prefix = '#/$defs/'
+                if (not isinstance(ref, str) or not ref.startswith(prefix)
+                        or ref in trail or ref[len(prefix):] not in definitions):
+                    raise ValueError('Unresolved strategy tool schema reference')
+                target = definitions[ref[len(prefix):]]
+                value = resolve(target, trail + (ref,)) | {k: v for k, v in value.items() if k != '$ref'}
+            return {key: resolve(item, trail) for key, item in value.items()}
+
+        # The historical wrapper preserves authored bounds by restoring original
+        # properties. Restore their definitions too by inlining, including the
+        # SDK-added SecurityRisk enum, instead of sending dangling local refs.
+        schema = resolve(schema)
+        risk = schema['properties'].get('security_risk')
+        if risk is not None and (risk.get('type') != 'string'
+                or tuple(risk.get('enum', ())) != SDK_SECURITY_RISKS):
+            raise ValueError('Installed SDK risk schema differs from strict raw contract')
+        return schema
+
+
+class StrategyUpdateAction(_StrategySubmissionAction):
     rule_1: Rule = Field(description='First fixed-catalog rule ID.')
     rule_2: Rule = Field(description='Second distinct fixed-catalog rule ID.')
     rule_3: Rule = Field(description='Third distinct fixed-catalog rule ID.')
@@ -45,7 +77,7 @@ class StrategyUpdateAction(_SubmissionAction):
         description='Optional unverified explanation, at most 4096 UTF-8 bytes; archived only.')
 
 
-class StrategyActorAction(_SubmissionAction):
+class StrategyActorAction(_StrategySubmissionAction):
     source: StrictStr = Field(min_length=1, max_length=16384,
         description='Complete Python source, at most 16384 UTF-8 bytes; no patch or prose.')
     n_params: StrictInt = Field(ge=0, le=16, description='Declared formula parameter count; zero for planning.')

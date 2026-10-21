@@ -104,6 +104,13 @@ class SyntheticProvider:
             tool='submit_candidate'
             state=packet['current_state']
             arguments=dict(source=state['source'],n_params=state['n_params'])
+        # Exercise the SDK's advertised optional envelope in every phase.
+        # The first reply includes the exact field combination missed by v01.
+        variant=(self.calls-1)%4
+        if variant in (0,1):
+            arguments['summary']=None if variant==1 else 'Synthetic SDK metadata; not research evidence.'
+        if variant in (0,2):
+            arguments['security_risk']='UNKNOWN'
         return ModelResponse(id=f'synthetic-response-{self.calls:04d}',model='minimax-m3',
             choices=[dict(message=dict(role='assistant',content='Artificial integration fixture; no research result.',
                 tool_calls=[dict(id=f'synthetic-call-{self.calls:04d}',type='function',

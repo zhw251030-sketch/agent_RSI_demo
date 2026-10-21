@@ -15,6 +15,11 @@ from .strategy_learning import build_learning_package, canonical, render_actor_p
 from .strategy_partition import safe_path
 
 VERSION = 'strategy-pair-controller-v0.1'
+SDK_METADATA_FIELDS = frozenset({'summary', 'security_risk'})
+# OpenHands SDK 1.55.1 advertises these exact strings. The SDK itself may ignore
+# malformed metadata when no security analyzer is configured, so validate here
+# before allowing its metadata extraction or any business normalization.
+SDK_SECURITY_RISKS = ('UNKNOWN', 'LOW', 'MEDIUM', 'HIGH')
 
 
 def _require(condition, message):
@@ -104,7 +109,17 @@ class StrategyPairController:
     def validate_arguments(self, raw):
         value = strict_json(raw) if isinstance(raw, (str, bytes)) else strict_json(canonical(raw))
         required = {'rule_1','rule_2','rule_3','rule_4'} if self.stage == 'update' else {'source','n_params'}
-        _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+        _require(type(value) is dict and required <= set(value) <= required | {'explanation'} | SDK_METADATA_FIELDS,
+            'Submission fields differ from contract')
+        if 'summary' in value:
+            _require(value['summary'] is None or type(value['summary']) is str,
+                'SDK summary must be a string or null')
+        if 'security_risk' in value:
+            _require(type(value['security_risk']) is str and value['security_risk'] in SDK_SECURITY_RISKS,
+                'SDK security_risk must be a declared enum string')
+        # Parse and validate every raw field before projecting. Metadata stays in
+        # the immutable response, but is never a policy, candidate or explanation.
+        value = {key: item for key, item in value.items() if key not in SDK_METADATA_FIELDS}
         explanation = value.get('explanation', '')
         _require(type(explanation) is str and len(explanation.encode('utf-8')) <= 4096, 'Explanation byte bound')
         if self.stage == 'update':

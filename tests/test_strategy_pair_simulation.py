@@ -38,6 +38,30 @@ class SimulationTests(unittest.TestCase):
                 factory(ROOT,role='selection').evaluate('planning','spannerlearning/seed0/problem0','x')
             self.assertEqual(factory.calls,0)
 
+    @unittest.skipUnless(importlib.util.find_spec('litellm'), 'SDK provider dependency unavailable')
+    def test_provider_covers_advertised_optional_metadata_in_both_phases(self):
+        slots=json.loads((ROOT/'configs/pilots/strategy-pair-allocation-v0.1.json').read_bytes())['slots']
+        provider=sim.SyntheticProvider(slots)
+        seen={'update':set(),'actor':set()}
+        for index,slot in enumerate(slots):
+            packet={'current_state':{'source':'def get_plan(a,b,c): return []\n','n_params':0}}
+            response=provider(messages=[dict(role='user',content=json.dumps(packet))])
+            args=json.loads(response.choices[0].message.tool_calls[0].function.arguments)
+            expected=({'summary','security_risk'},{'summary'},{'security_risk'},set())[index%4]
+            actual=set(args)&{'summary','security_risk'}
+            self.assertEqual(actual,expected)
+            if 'security_risk' in args:
+                self.assertEqual(args['security_risk'],'UNKNOWN')
+            if 'summary' in args:
+                if index%4==1:
+                    self.assertIsNone(args['summary'])
+                else:
+                    self.assertIsInstance(args['summary'],str)
+            seen['update' if slot['phase']=='update' else 'actor'].add(tuple(sorted(actual)))
+        self.assertEqual(provider.calls,36)
+        self.assertEqual(len(seen['update']),4)
+        self.assertEqual(len(seen['actor']),4)
+
 
 if __name__=='__main__':
     unittest.main()

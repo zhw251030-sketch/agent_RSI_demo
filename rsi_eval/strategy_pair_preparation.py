@@ -10,7 +10,7 @@ from .strategy_binding import FUTURE_ALLOCATION, FUTURE_ALLOCATION_SHA256
 
 PRIOR_ARCHIVE = 'artifacts/strategy-interface/2026-10-21/v01'
 PRIOR_MANIFEST_SHA256 = 'd9387df4aa3366dc9e054e39f5235ff2cd86cb7aa5626e2aef1f072256cad15b'
-PROTOCOL = 'docs/protocols/2026-10-21-strategy-pair-v0.1.md'
+PROTOCOL = 'docs/protocols/2026-10-21-strategy-pair-v0.2.md'
 VERSION = 'strategy-pair-preparation-v0.1'
 
 
