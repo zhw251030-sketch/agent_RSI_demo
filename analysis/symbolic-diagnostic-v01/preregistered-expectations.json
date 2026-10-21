@@ -1,0 +1,107 @@
+{
+  "schema": "numerical-expectations-v1",
+  "review_date": "2026-10-22",
+  "phase": "before_results",
+  "reviewer": "numerical_independent_expectations",
+  "csv_values_read": false,
+  "model_calls": 0,
+  "candidate_executions": 0,
+  "fits": 0,
+  "sealed_reads": 0,
+  "preprocessing": "identity",
+  "stress_parameter_map": [
+    "b",
+    "g*c01*l0*l1",
+    "g*q0*l0*l0",
+    "g*q1*l1*l1"
+  ],
+  "stress_all_ones_map": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "bact_common_features": [
+    "1",
+    "u0",
+    "u1",
+    "u2",
+    "u3",
+    "u0*u1",
+    "u0*u2",
+    "u0*u3",
+    "u1*u2",
+    "u1*u3",
+    "u2*u3"
+  ],
+  "bact_triples": [
+    "u0*u1*u2",
+    "u0*u1*u3",
+    "u0*u2*u3"
+  ],
+  "bact_squares": [
+    "u0*u0",
+    "u1*u1",
+    "u2*u2",
+    "u3*u3"
+  ],
+  "bact_four_square14_all_reported": true,
+  "theoretical_nested_optimum_assumes": [
+    "common data and loss",
+    "unconstrained coefficients",
+    "finite exact polynomial core",
+    "attained optimum"
+  ],
+  "actual_matrix_rank_not_examined": true,
+  "independent_repetitions": false,
+  "files_read": [
+    {
+      "path": "docs/experiments/2026-10-22-mechanism-next-design.md",
+      "sha256": "2c1eb7899a6714c84c15f798960b7760fc1b3e0e017783da3f1596f70462df61"
+    },
+    {
+      "path": "analysis/strategy-v03/symbolic-structure.md",
+      "sha256": "c7c03c17b65f3680cb5c9c75394037305746f50fb2857b57efa139c0f78b0167"
+    },
+    {
+      "path": "rsi_eval/role_executor.py",
+      "sha256": "d0803be2f68eed356d317b67cc1d51e20a7b3924e0108aab50aba301c0414afe"
+    },
+    {
+      "path": "rsi_eval/symbolic_worker.py",
+      "sha256": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca"
+    },
+    {
+      "path": "rsi_eval/symbolic.py",
+      "sha256": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58"
+    },
+    {
+      "path": "artifacts/strategy-measured/2026-10-21/v03/executions/75b9afdde6df4678a79da87c906e1c5f/source.py",
+      "sha256": "58e37aa5ec329ef8a47b136ed1cc4d5e33215fda0aacb81ea091aee261f07474"
+    },
+    {
+      "path": "artifacts/strategy-measured/2026-10-21/v03/executions/75b9afdde6df4678a79da87c906e1c5f/result.json",
+      "sha256": "842552a40febbaad6a77d71b780d9bc5b1a7722dba2d8797fcd04d7f931f3c23"
+    },
+    {
+      "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/source.py",
+      "sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e"
+    },
+    {
+      "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/source.py",
+      "sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b"
+    },
+    {
+      "path": "artifacts/strategy-measured/2026-10-21/v03/executions/73dc11fea9214056bb7281d0b2b30353/result.json",
+      "sha256": "76c35c998e467ec4415bd1d1f2d42d28f5361bcb7814c8c3386c4c4063866b7e"
+    },
+    {
+      "path": "artifacts/strategy-measured/2026-10-21/v03/executions/74f9fac472b44601b893e60e048cb0e8/result.json",
+      "sha256": "b033c1725341b9b6987c9094ecf57a950f5df53b431d33ab5c28b3187a53e108"
+    }
+  ],
+  "report": {
+    "path": "tmp/2026-10-22-numerical-expectations.md",
+    "sha256": "9dc6ef6faf183e169c6df9e1bb48c0b000c21bdb0e01f03bde8b0438949a7ccb"
+  }
+}

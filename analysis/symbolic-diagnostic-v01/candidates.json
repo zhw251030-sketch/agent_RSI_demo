@@ -1,0 +1,465 @@
+{
+  "schema": "symbolic-numerical-diagnostic-candidates-v1",
+  "status": "source_definition_only_not_execution_readiness",
+  "scope": "Eight researcher-specified numerical diagnostics on previously seen training tasks; not autonomous agent proposals.",
+  "candidates": [
+    {
+      "id": "stress-original-7",
+      "task": "stressstrain",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/stress-original-7.py",
+      "source_sha256": "58e37aa5ec329ef8a47b136ed1cc4d5e33215fda0aacb81ea091aee261f07474",
+      "n_params": 7,
+      "feature_ids": [
+        "1",
+        "u0*u1",
+        "u0**2",
+        "u1**2"
+      ],
+      "effective_coefficient_count_finite_real": 4,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "c01",
+        "q0",
+        "q1",
+        "l0",
+        "l1",
+        "g",
+        "b"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/executions/75b9afdde6df4678a79da87c906e1c5f/source.py",
+          "sha256": "58e37aa5ec329ef8a47b136ed1cc4d5e33215fda0aacb81ea091aee261f07474",
+          "role": "exact_bytes"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "archived_source_exact_copy",
+      "source_comparison": "exact_old_stress_bytes"
+    },
+    {
+      "id": "stress-direct-4",
+      "task": "stressstrain",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/stress-direct-4.py",
+      "source_sha256": "e838ad0f83b677d89038da2c5666737256972a048d374f1fa555f7740aa237d3",
+      "n_params": 4,
+      "feature_ids": [
+        "1",
+        "u0*u1",
+        "u0**2",
+        "u1**2"
+      ],
+      "effective_coefficient_count_finite_real": 4,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "1",
+        "u0*u1",
+        "u0**2",
+        "u1**2"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/executions/75b9afdde6df4678a79da87c906e1c5f/source.py",
+          "sha256": "58e37aa5ec329ef8a47b136ed1cc4d5e33215fda0aacb81ea091aee261f07474",
+          "role": "algebraic_reparameterization"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "researcher_authored_diagnostic",
+      "source_comparison": "new_source_with_common_contract_not_historical_byte_replay"
+    },
+    {
+      "id": "bact-triple-14",
+      "task": "bactgrow",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/bact-triple-14.py",
+      "source_sha256": "7d1ca7cfb4ee6d6423d837fa148f67a3db64da462966785e53b1db43b272e7cf",
+      "n_params": 14,
+      "feature_ids": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0*u1*u2",
+        "u0*u1*u3",
+        "u0*u2*u3"
+      ],
+      "effective_coefficient_count_finite_real": 14,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0*u1*u2",
+        "u0*u1*u3",
+        "u0*u2*u3"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/source.py",
+          "sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+          "role": "common_guard_input_conversion_and_triple_basis"
+        },
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/source.py",
+          "sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b",
+          "role": "square_basis_only_not_guard"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "researcher_authored_diagnostic",
+      "source_comparison": "new_source_with_common_contract_not_historical_byte_replay"
+    },
+    {
+      "id": "bact-square-14-drop0",
+      "task": "bactgrow",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/bact-square-14-drop0.py",
+      "source_sha256": "5f692fc47ce10a76730c7b562d21055180bd28188a353d06a2f02032d5c0e696",
+      "n_params": 14,
+      "feature_ids": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u1**2",
+        "u2**2",
+        "u3**2"
+      ],
+      "effective_coefficient_count_finite_real": 14,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u1**2",
+        "u2**2",
+        "u3**2"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/source.py",
+          "sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+          "role": "common_guard_input_conversion_and_triple_basis"
+        },
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/source.py",
+          "sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b",
+          "role": "square_basis_only_not_guard"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "researcher_authored_diagnostic",
+      "source_comparison": "new_source_with_common_contract_not_historical_byte_replay"
+    },
+    {
+      "id": "bact-square-14-drop1",
+      "task": "bactgrow",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/bact-square-14-drop1.py",
+      "source_sha256": "e6f9d76b966870593aec21bf26349ffd707c61852c0ad5b87562afc2108d278d",
+      "n_params": 14,
+      "feature_ids": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u2**2",
+        "u3**2"
+      ],
+      "effective_coefficient_count_finite_real": 14,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u2**2",
+        "u3**2"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/source.py",
+          "sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+          "role": "common_guard_input_conversion_and_triple_basis"
+        },
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/source.py",
+          "sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b",
+          "role": "square_basis_only_not_guard"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "researcher_authored_diagnostic",
+      "source_comparison": "new_source_with_common_contract_not_historical_byte_replay"
+    },
+    {
+      "id": "bact-square-14-drop2",
+      "task": "bactgrow",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/bact-square-14-drop2.py",
+      "source_sha256": "3ebb370ee70e719d64d2df02e68fe0399226452b17f8ed2660d9e72caa74cfb7",
+      "n_params": 14,
+      "feature_ids": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u1**2",
+        "u3**2"
+      ],
+      "effective_coefficient_count_finite_real": 14,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u1**2",
+        "u3**2"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/source.py",
+          "sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+          "role": "common_guard_input_conversion_and_triple_basis"
+        },
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/source.py",
+          "sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b",
+          "role": "square_basis_only_not_guard"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "researcher_authored_diagnostic",
+      "source_comparison": "new_source_with_common_contract_not_historical_byte_replay"
+    },
+    {
+      "id": "bact-square-14-drop3",
+      "task": "bactgrow",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/bact-square-14-drop3.py",
+      "source_sha256": "a203b8d0be3e255ecfbedca6609b190faff592df3de892dbf27acaddf7ce30a9",
+      "n_params": 14,
+      "feature_ids": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u1**2",
+        "u2**2"
+      ],
+      "effective_coefficient_count_finite_real": 14,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u1**2",
+        "u2**2"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/source.py",
+          "sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+          "role": "common_guard_input_conversion_and_triple_basis"
+        },
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/source.py",
+          "sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b",
+          "role": "square_basis_only_not_guard"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "researcher_authored_diagnostic",
+      "source_comparison": "new_source_with_common_contract_not_historical_byte_replay"
+    },
+    {
+      "id": "bact-square-15",
+      "task": "bactgrow",
+      "source_path": "analysis/symbolic-diagnostic-v01/candidates/bact-square-15.py",
+      "source_sha256": "e423e5d01b4ba3d5f3a5b44453c8e4844840fc157695fb5a77a32977be5e542e",
+      "n_params": 15,
+      "feature_ids": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u1**2",
+        "u2**2",
+        "u3**2"
+      ],
+      "effective_coefficient_count_finite_real": 15,
+      "effective_coefficient_count_caveat": "Algebraic polynomial coefficients, not measured design-matrix rank or guarded floating-point global dimension.",
+      "parameter_order": [
+        "1",
+        "u0",
+        "u1",
+        "u2",
+        "u3",
+        "u0*u1",
+        "u0*u2",
+        "u0*u3",
+        "u1*u2",
+        "u1*u3",
+        "u2*u3",
+        "u0**2",
+        "u1**2",
+        "u2**2",
+        "u3**2"
+      ],
+      "parents": [
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-fixed/source.py",
+          "sha256": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+          "role": "common_guard_input_conversion_and_triple_basis"
+        },
+        {
+          "path": "artifacts/strategy-measured/2026-10-21/v03/raw/experiment/sessions/r2-evaluation-S-bact-eval-1-updated/source.py",
+          "sha256": "9604a6385064ef2aa3ae49128d4e2293c9ec10b8a81a0798eb86e063388f371b",
+          "role": "square_basis_only_not_guard"
+        }
+      ],
+      "input_normalization": "float64_asarray_ravel_only_no_scaling",
+      "output_guard": "np.nan_to_num(output, nan=0.0, posinf=1e6, neginf=-1e6)",
+      "initialization": "np.ones(n_params)",
+      "provenance": "researcher_authored_diagnostic",
+      "source_comparison": "new_source_with_common_contract_not_historical_byte_replay"
+    }
+  ],
+  "normalization_policy": "All sources only convert each input to float64 and ravel; no centering, scaling, clipping or data-dependent transformation.",
+  "bact_guard_choice": "Use archived r2/fixed: params converted to float64, coeff(i) returns p[i] when i < min(n_params,p.size), otherwise zero; accumulate terms sequentially, then np.nan_to_num. Do not use archived r2/updated per-coefficient nonfinite reset or out/(1+abs(out))*(1+abs(out)). Host fits use finite float parameters.",
+  "stress_mapping": {
+    "original_parameter_order": [
+      "c01",
+      "q0",
+      "q1",
+      "l0",
+      "l1",
+      "g",
+      "b"
+    ],
+    "direct_parameter_order": [
+      "offset",
+      "cross",
+      "square0",
+      "square1"
+    ],
+    "forward": [
+      "b",
+      "g*c01*l0*l1",
+      "g*q0*l0**2",
+      "g*q1*l1**2"
+    ],
+    "surjectivity": "For any direct coefficients choose g=l0=l1=1, c01=cross, q0=square0, q1=square1, b=offset.",
+    "initial_ones_mapping": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "claim_domain": "Unbounded finite real arithmetic before the common output guard; floating-point association/overflow may differ."
+  },
+  "synthetic_equivalence_tolerance": {
+    "rtol": 1e-12,
+    "atol": 1e-12,
+    "scope": "Deterministic finite moderate synthetic inputs only; not a universal floating-point equivalence certificate."
+  },
+  "historical_source_note": "Copied stress docstring mentions bounded scale, but the actual fitting protocol has no coefficient bounds. New sources do not claim bounded coefficients."
+}
