@@ -1,0 +1,293 @@
++----------------------------------------------------------------------+
+|  OpenHands SDK v1.55.1                                               |
+|                                                                      |
+|  Report a bug: github.com/OpenHands/software-agent-sdk/issues        |
+|  Get help: openhands.dev/joinslack                                   |
+|  Scale up: openhands.dev/product/sdk                                 |
+|                                                                      |
+|  Set OPENHANDS_SUPPRESS_BANNER=1 to hide this message                |
++----------------------------------------------------------------------+
+
+FFFFFFEEFF/home/hanwen/Project/project/agent_RSI_demo/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:1480: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+  warnings.warn(
+./home/hanwen/Project/project/agent_RSI_demo/.venv/lib/python3.12/site-packages/openhands/sdk/llm/utils/telemetry.py:398: UserWarning: Cost calculation failed: This model isn't mapped yet. model=MiniMax-M3, custom_llm_provider=anthropic. Add it here - https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json.
+  warnings.warn(f"Cost calculation failed: {e}")
+FF..FFFFFFFFFF
+======================================================================
+ERROR: test_new_single_tool_bound_audit_accepts_legal_metadata_without_execution (tests.test_strategy_single_tool.SingleToolAuditTests.test_new_single_tool_bound_audit_accepts_legal_metadata_without_execution) (stage='update')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 196, in test_new_single_tool_bound_audit_accepts_legal_metadata_without_execution
+    self.assertEqual(self.verify_current(fixture)['status'],'passed')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 188, in verify_current
+    return audit_fixture.audit.verify_session(ROOT,fixture.slot,fixture.packet,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_audit.py", line 107, in verify_session
+    _require(type(result) is dict and result.get('version')=='strategy-pair-agent-v0.1'
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_audit.py", line 21, in _require
+    raise ValueError(message)
+ValueError: Accepted SDK result identity mismatch
+
+======================================================================
+ERROR: test_new_single_tool_bound_audit_accepts_legal_metadata_without_execution (tests.test_strategy_single_tool.SingleToolAuditTests.test_new_single_tool_bound_audit_accepts_legal_metadata_without_execution) (stage='actor')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 196, in test_new_single_tool_bound_audit_accepts_legal_metadata_without_execution
+    self.assertEqual(self.verify_current(fixture)['status'],'passed')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 188, in verify_current
+    return audit_fixture.audit.verify_session(ROOT,fixture.slot,fixture.packet,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_audit.py", line 107, in verify_session
+    _require(type(result) is dict and result.get('version')=='strategy-pair-agent-v0.1'
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_audit.py", line 21, in _require
+    raise ValueError(message)
+ValueError: Accepted SDK result identity mismatch
+
+======================================================================
+FAIL: test_audit_rejects_version_tool_table_mismatch_and_unknown_version (tests.test_strategy_single_tool.SingleToolAuditTests.test_audit_rejects_version_tool_table_mismatch_and_unknown_version) (stage='update', version='strategy-pair-agent-v0.1', single=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 206, in test_audit_rejects_version_tool_table_mismatch_and_unknown_version
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_audit_rejects_version_tool_table_mismatch_and_unknown_version (tests.test_strategy_single_tool.SingleToolAuditTests.test_audit_rejects_version_tool_table_mismatch_and_unknown_version) (stage='actor', version='strategy-pair-agent-v0.1', single=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 206, in test_audit_rejects_version_tool_table_mismatch_and_unknown_version
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes (tests.test_strategy_single_tool.SingleToolAuditTests.test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes) (stage='update', metadata={'summary': 7})
+----------------------------------------------------------------------
+ValueError: Accepted SDK result identity mismatch
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 215, in test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes
+    with self.assertRaisesRegex(ValueError,'SDK summary|SDK security_risk'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "SDK summary|SDK security_risk" does not match "Accepted SDK result identity mismatch"
+
+======================================================================
+FAIL: test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes (tests.test_strategy_single_tool.SingleToolAuditTests.test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes) (stage='update', metadata={'security_risk': None})
+----------------------------------------------------------------------
+ValueError: Accepted SDK result identity mismatch
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 215, in test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes
+    with self.assertRaisesRegex(ValueError,'SDK summary|SDK security_risk'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "SDK summary|SDK security_risk" does not match "Accepted SDK result identity mismatch"
+
+======================================================================
+FAIL: test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes (tests.test_strategy_single_tool.SingleToolAuditTests.test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes) (stage='actor', metadata={'summary': 7})
+----------------------------------------------------------------------
+ValueError: Accepted SDK result identity mismatch
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 215, in test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes
+    with self.assertRaisesRegex(ValueError,'SDK summary|SDK security_risk'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "SDK summary|SDK security_risk" does not match "Accepted SDK result identity mismatch"
+
+======================================================================
+FAIL: test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes (tests.test_strategy_single_tool.SingleToolAuditTests.test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes) (stage='actor', metadata={'security_risk': None})
+----------------------------------------------------------------------
+ValueError: Accepted SDK result identity mismatch
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 215, in test_new_single_tool_audit_rejects_invalid_metadata_with_rebound_hashes
+    with self.assertRaisesRegex(ValueError,'SDK summary|SDK security_risk'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "SDK summary|SDK security_risk" does not match "Accepted SDK result identity mismatch"
+
+======================================================================
+FAIL: test_actual_sdk_capture_advertises_only_the_stage_business_tool (tests.test_strategy_single_tool.SingleToolSDKTests.test_actual_sdk_capture_advertises_only_the_stage_business_tool) (stage='update')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 70, in test_actual_sdk_capture_advertises_only_the_stage_business_tool
+    self.assertEqual([t['function']['name'] for t in template['tools']], [name])
+AssertionError: Lists differ: ['submit_policy', 'finish'] != ['submit_policy']
+
+First list contains 1 additional elements.
+First extra element 1:
+'finish'
+
+- ['submit_policy', 'finish']
+?                 ----------
+
++ ['submit_policy']
+
+======================================================================
+FAIL: test_actual_sdk_capture_advertises_only_the_stage_business_tool (tests.test_strategy_single_tool.SingleToolSDKTests.test_actual_sdk_capture_advertises_only_the_stage_business_tool) (stage='actor')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 70, in test_actual_sdk_capture_advertises_only_the_stage_business_tool
+    self.assertEqual([t['function']['name'] for t in template['tools']], [name])
+AssertionError: Lists differ: ['submit_candidate', 'finish'] != ['submit_candidate']
+
+First list contains 1 additional elements.
+First extra element 1:
+'finish'
+
+- ['submit_candidate', 'finish']
+?                    ----------
+
++ ['submit_candidate']
+
+======================================================================
+FAIL: test_finish_only_is_refused_without_partial_acceptance (tests.test_strategy_single_tool.SingleToolSDKTests.test_finish_only_is_refused_without_partial_acceptance) (stage='update')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 96, in test_finish_only_is_refused_without_partial_acceptance
+    self.assert_rejected_without_partial_acceptance(*self.run_calls(stage,
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 54, in assert_rejected_without_partial_acceptance
+    self.assertEqual(result['status'], 'error', result)
+AssertionError: 'missing' != 'error'
+- missing
++ error
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-update-updated', 'stage': 'update', 'status': 'missing', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpvceoqnsz/1/requests/request-0001.request.json', 'sha256': 'a9d979ca3714073559b8398c9d896a15480da561592bd5ab0086571ca1c00d3c'}, 'response': {'path': 'tmp/tmpvceoqnsz/1/requests/request-0001.response.json', 'sha256': '6ff1202d5f9716a53f3f86269d090fd5be19025192c4969d51c5b073ebc98bae'}, 'submission': {'path': 'tmp/tmpvceoqnsz/1/submission.json', 'sha256': 'eb6d2e5cb342c8a57fdbef6afa4196fb4cb500f2ad58cc7378fabb4864deb486'}, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpvceoqnsz/1/requests/input-audit.json', 'sha256': '70c133f23a09458fe54f4e3b887d8e0f6cf4bf22f3c73832e76c62052098717d'}, 'error_type': None, 'conversation_status': 'ConversationExecutionStatus.FINISHED', 'sdk_error_codes': [], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'update', 'status': 'missing', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': {'path': 'tmp/tmpvceoqnsz/1/submission.json', 'sha256': 'eb6d2e5cb342c8a57fdbef6afa4196fb4cb500f2ad58cc7378fabb4864deb486'}}}
+
+======================================================================
+FAIL: test_finish_only_is_refused_without_partial_acceptance (tests.test_strategy_single_tool.SingleToolSDKTests.test_finish_only_is_refused_without_partial_acceptance) (stage='actor')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 96, in test_finish_only_is_refused_without_partial_acceptance
+    self.assert_rejected_without_partial_acceptance(*self.run_calls(stage,
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 54, in assert_rejected_without_partial_acceptance
+    self.assertEqual(result['status'], 'error', result)
+AssertionError: 'missing' != 'error'
+- missing
++ error
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-selection-P-select-1-fixed', 'stage': 'actor', 'status': 'missing', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpvceoqnsz/2/requests/request-0001.request.json', 'sha256': '71b4a46e64843e7840e927d6c0b57a2793b3bbef45c1c269c51e8e60024998e5'}, 'response': {'path': 'tmp/tmpvceoqnsz/2/requests/request-0001.response.json', 'sha256': '6ff1202d5f9716a53f3f86269d090fd5be19025192c4969d51c5b073ebc98bae'}, 'submission': {'path': 'tmp/tmpvceoqnsz/2/submission.json', 'sha256': 'abf50480ecb8a7627397ca90b3487cffc294a38883ac6cd8f731503658a53570'}, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpvceoqnsz/2/requests/input-audit.json', 'sha256': '3e492abcf2989451b8a43738dab90d9a2a175e5b6124c258f86bb9436831468d'}, 'error_type': None, 'conversation_status': 'ConversationExecutionStatus.FINISHED', 'sdk_error_codes': [], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'actor', 'status': 'missing', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': {'path': 'tmp/tmpvceoqnsz/2/submission.json', 'sha256': 'abf50480ecb8a7627397ca90b3487cffc294a38883ac6cd8f731503658a53570'}}}
+
+======================================================================
+FAIL: test_single_business_call_accepts_with_optional_metadata_and_no_finish (tests.test_strategy_single_tool.SingleToolSDKTests.test_single_business_call_accepts_with_optional_metadata_and_no_finish) (stage='update', metadata={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 82, in test_single_business_call_accepts_with_optional_metadata_and_no_finish
+    self.assertEqual(result['version'], 'strategy-pair-agent-v0.2')
+AssertionError: 'strategy-pair-agent-v0.1' != 'strategy-pair-agent-v0.2'
+- strategy-pair-agent-v0.1
+?                        ^
++ strategy-pair-agent-v0.2
+?                        ^
+
+
+======================================================================
+FAIL: test_single_business_call_accepts_with_optional_metadata_and_no_finish (tests.test_strategy_single_tool.SingleToolSDKTests.test_single_business_call_accepts_with_optional_metadata_and_no_finish) (stage='update', metadata={'summary': None})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 82, in test_single_business_call_accepts_with_optional_metadata_and_no_finish
+    self.assertEqual(result['version'], 'strategy-pair-agent-v0.2')
+AssertionError: 'strategy-pair-agent-v0.1' != 'strategy-pair-agent-v0.2'
+- strategy-pair-agent-v0.1
+?                        ^
++ strategy-pair-agent-v0.2
+?                        ^
+
+
+======================================================================
+FAIL: test_single_business_call_accepts_with_optional_metadata_and_no_finish (tests.test_strategy_single_tool.SingleToolSDKTests.test_single_business_call_accepts_with_optional_metadata_and_no_finish) (stage='update', metadata={'summary': 'Archive only', 'security_risk': 'LOW'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 82, in test_single_business_call_accepts_with_optional_metadata_and_no_finish
+    self.assertEqual(result['version'], 'strategy-pair-agent-v0.2')
+AssertionError: 'strategy-pair-agent-v0.1' != 'strategy-pair-agent-v0.2'
+- strategy-pair-agent-v0.1
+?                        ^
++ strategy-pair-agent-v0.2
+?                        ^
+
+
+======================================================================
+FAIL: test_single_business_call_accepts_with_optional_metadata_and_no_finish (tests.test_strategy_single_tool.SingleToolSDKTests.test_single_business_call_accepts_with_optional_metadata_and_no_finish) (stage='actor', metadata={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 82, in test_single_business_call_accepts_with_optional_metadata_and_no_finish
+    self.assertEqual(result['version'], 'strategy-pair-agent-v0.2')
+AssertionError: 'strategy-pair-agent-v0.1' != 'strategy-pair-agent-v0.2'
+- strategy-pair-agent-v0.1
+?                        ^
++ strategy-pair-agent-v0.2
+?                        ^
+
+
+======================================================================
+FAIL: test_single_business_call_accepts_with_optional_metadata_and_no_finish (tests.test_strategy_single_tool.SingleToolSDKTests.test_single_business_call_accepts_with_optional_metadata_and_no_finish) (stage='actor', metadata={'summary': None})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 82, in test_single_business_call_accepts_with_optional_metadata_and_no_finish
+    self.assertEqual(result['version'], 'strategy-pair-agent-v0.2')
+AssertionError: 'strategy-pair-agent-v0.1' != 'strategy-pair-agent-v0.2'
+- strategy-pair-agent-v0.1
+?                        ^
++ strategy-pair-agent-v0.2
+?                        ^
+
+
+======================================================================
+FAIL: test_single_business_call_accepts_with_optional_metadata_and_no_finish (tests.test_strategy_single_tool.SingleToolSDKTests.test_single_business_call_accepts_with_optional_metadata_and_no_finish) (stage='actor', metadata={'summary': 'Archive only', 'security_risk': 'LOW'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 82, in test_single_business_call_accepts_with_optional_metadata_and_no_finish
+    self.assertEqual(result['version'], 'strategy-pair-agent-v0.2')
+AssertionError: 'strategy-pair-agent-v0.1' != 'strategy-pair-agent-v0.2'
+- strategy-pair-agent-v0.1
+?                        ^
++ strategy-pair-agent-v0.2
+?                        ^
+
+
+======================================================================
+FAIL: test_tampered_capture_or_send_tool_table_is_refused_before_reservation (tests.test_strategy_single_tool.SingleToolSDKTests.test_tampered_capture_or_send_tool_table_is_refused_before_reservation) (stage='update', capture=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 130, in test_tampered_capture_or_send_tool_table_is_refused_before_reservation
+    with self.assertRaises(Exception):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_tampered_capture_or_send_tool_table_is_refused_before_reservation (tests.test_strategy_single_tool.SingleToolSDKTests.test_tampered_capture_or_send_tool_table_is_refused_before_reservation) (stage='update', capture=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 136, in test_tampered_capture_or_send_tool_table_is_refused_before_reservation
+    self.assertEqual(ledger.summary()['request_count'], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_tampered_capture_or_send_tool_table_is_refused_before_reservation (tests.test_strategy_single_tool.SingleToolSDKTests.test_tampered_capture_or_send_tool_table_is_refused_before_reservation) (stage='actor', capture=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 130, in test_tampered_capture_or_send_tool_table_is_refused_before_reservation
+    with self.assertRaises(Exception):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_tampered_capture_or_send_tool_table_is_refused_before_reservation (tests.test_strategy_single_tool.SingleToolSDKTests.test_tampered_capture_or_send_tool_table_is_refused_before_reservation) (stage='actor', capture=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_single_tool.py", line 136, in test_tampered_capture_or_send_tool_table_is_refused_before_reservation
+    self.assertEqual(ledger.summary()['request_count'], 0)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 10 tests in 37.351s
+
+FAILED (failures=20, errors=2)

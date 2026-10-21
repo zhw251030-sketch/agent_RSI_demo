@@ -1,0 +1,28 @@
+{
+  "response_id": "synthetic-response-0004",
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 20,
+    "total_tokens": 120
+  },
+  "usage_details": {},
+  "choices": [
+    {
+      "message": {
+        "content": "Artificial integration fixture; no research result.",
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "function": {
+              "arguments": "{\"rule_1\": \"R02\", \"rule_2\": \"R04\", \"rule_3\": \"R06\", \"rule_4\": \"R08\"}",
+              "name": "submit_policy"
+            },
+            "id": "synthetic-call-0004",
+            "type": "function"
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

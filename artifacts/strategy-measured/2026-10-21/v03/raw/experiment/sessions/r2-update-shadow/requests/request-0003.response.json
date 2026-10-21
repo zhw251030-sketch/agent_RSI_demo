@@ -1,0 +1,45 @@
+{
+  "response_id": "chatcmpl-7b5265f0-7179-4cd9-b150-fc4b6b2f7dbc",
+  "usage": {
+    "prompt_tokens": 25546,
+    "completion_tokens": 252,
+    "total_tokens": 25798
+  },
+  "usage_details": {
+    "prompt_tokens_details": {
+      "cached_tokens": 25545,
+      "text_tokens": 1,
+      "cache_write_tokens": 0,
+      "cache_creation_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 252
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 25545
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"explanation\": \"Archive-only rationale: the packet's earliest observed failures were output-format defects (operator_syntax at the first action of P-format) and plan-semantics failures with zero executed actions (P-empty), so rule-1 format/type checking (R01) precedes executed-failure ordering (R02), which precedes linking observation to the source location changed and verified (R05). Threshold-proportionate forecast comparison (R07) follows, since P-empty's checked forecast of 5 successes was contradicted by 0 observed. Rule text, environment definitions, and metrics were preserved (R03/R04), marginal term-removal evidence was not treated as necessary structure (R06), and repairs stayed minimal (R08).\", \"rule_1\": \"R01\", \"rule_2\": \"R05\", \"rule_3\": \"R02\", \"rule_4\": \"R07\", \"security_risk\": \"LOW\", \"summary\": \"Submit four ordered catalog rule IDs for policy update\"}",
+              "name": "submit_policy"
+            },
+            "id": "call_01a15f0d5beb767291bda335",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

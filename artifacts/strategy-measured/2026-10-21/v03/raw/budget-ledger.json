@@ -1,0 +1,739 @@
+{
+  "version": 1,
+  "config": {
+    "max_requests": 36,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 8192,
+    "max_input_bytes": 98304,
+    "max_reserved_tokens": 4128768,
+    "max_cost_cny": 12.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4,
+    "session_ids": [
+      "r1-update-updated",
+      "r1-update-shadow",
+      "r2-update-shadow",
+      "r2-update-updated",
+      "r1-selection-P-select-1-fixed",
+      "r1-selection-P-select-1-updated",
+      "r1-selection-S-select-1-updated",
+      "r1-selection-S-select-1-fixed",
+      "r1-selection-P-select-2-fixed",
+      "r1-selection-P-select-2-updated",
+      "r1-selection-S-select-2-updated",
+      "r1-selection-S-select-2-fixed",
+      "r2-selection-P-select-1-updated",
+      "r2-selection-P-select-1-fixed",
+      "r2-selection-S-select-1-fixed",
+      "r2-selection-S-select-1-updated",
+      "r2-selection-P-select-2-updated",
+      "r2-selection-P-select-2-fixed",
+      "r2-selection-S-select-2-fixed",
+      "r2-selection-S-select-2-updated",
+      "r1-evaluation-P-eval-1-fixed",
+      "r1-evaluation-P-eval-1-updated",
+      "r1-evaluation-S-bact-eval-1-updated",
+      "r1-evaluation-S-bact-eval-1-fixed",
+      "r1-evaluation-P-eval-2-fixed",
+      "r1-evaluation-P-eval-2-updated",
+      "r1-evaluation-S-stress-eval-1-updated",
+      "r1-evaluation-S-stress-eval-1-fixed",
+      "r2-evaluation-P-eval-1-updated",
+      "r2-evaluation-P-eval-1-fixed",
+      "r2-evaluation-S-bact-eval-1-fixed",
+      "r2-evaluation-S-bact-eval-1-updated",
+      "r2-evaluation-P-eval-2-updated",
+      "r2-evaluation-P-eval-2-fixed",
+      "r2-evaluation-S-stress-eval-1-fixed",
+      "r2-evaluation-S-stress-eval-1-updated"
+    ]
+  },
+  "requests": [
+    {
+      "request_id": "request-0001",
+      "session_id": "r1-update-updated",
+      "input_bytes": 89856,
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "input_token_reservation": 98048,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.2747136,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 25546,
+        "completion_tokens": 412,
+        "total_tokens": 25958
+      },
+      "usage_state": "known",
+      "usage_sha256": "9b29a6188c780eebfd2a86a1d2c1afb56abc7f31760e8823660c972c16956104",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0571074
+    },
+    {
+      "request_id": "request-0002",
+      "session_id": "r1-update-shadow",
+      "input_bytes": 89856,
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "input_token_reservation": 98048,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.2747136,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 25546,
+        "completion_tokens": 528,
+        "total_tokens": 26074
+      },
+      "usage_state": "known",
+      "usage_sha256": "6698b80c6b97aa5162b539a9fc05fae8171b15e8f02729c3cadfec074983185c",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0580818
+    },
+    {
+      "request_id": "request-0003",
+      "session_id": "r2-update-shadow",
+      "input_bytes": 89856,
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "input_token_reservation": 98048,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.2747136,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 25546,
+        "completion_tokens": 252,
+        "total_tokens": 25798
+      },
+      "usage_state": "known",
+      "usage_sha256": "592b888c33fbfc6c619c5eacac1830e376ae6ad11eb30c8f82e31766e01973e1",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0557634
+    },
+    {
+      "request_id": "request-0004",
+      "session_id": "r2-update-updated",
+      "input_bytes": 89856,
+      "payload_sha256": "108fc92efb8e8eeef3ae90045b2cd4caf633ae9b387e4c9000d4b75a80a81e51",
+      "input_token_reservation": 98048,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.2747136,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 25546,
+        "completion_tokens": 502,
+        "total_tokens": 26048
+      },
+      "usage_state": "known",
+      "usage_sha256": "a5dcddeaf78305d53ee85d4e72239fefff8acda4aaadca9272f690abb62e496c",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0578634
+    },
+    {
+      "request_id": "request-0005",
+      "session_id": "r1-selection-P-select-1-fixed",
+      "input_bytes": 20852,
+      "payload_sha256": "dbd02076a499fb914fa2bac52fc0e15c3a1535e138e4e20cd67f2d3d83408e8c",
+      "input_token_reservation": 29044,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1298052,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6097,
+        "completion_tokens": 2700,
+        "total_tokens": 8797
+      },
+      "usage_state": "known",
+      "usage_sha256": "5dbb4af8403fe6987f5503a37e8076b0d6694a65a619cbc6948e69354d6ee3fc",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0354837
+    },
+    {
+      "request_id": "request-0006",
+      "session_id": "r1-selection-P-select-1-updated",
+      "input_bytes": 20882,
+      "payload_sha256": "dfd2a1dd13a8f2a429e6f9538d5e5e48b014e6a3e3ec150ed69b2a2df4dbf823",
+      "input_token_reservation": 29074,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1298682,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6099,
+        "completion_tokens": 3214,
+        "total_tokens": 9313
+      },
+      "usage_state": "known",
+      "usage_sha256": "78e16b75ed942a25d9ac4199aef8809c1721e376a224c9f4988e16c73767b28d",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0398055
+    },
+    {
+      "request_id": "request-0007",
+      "session_id": "r1-selection-S-select-1-updated",
+      "input_bytes": 7151,
+      "payload_sha256": "75e764468cf71eb3e5db25d2e15a046570270b120fbe96811f554480de5ef90d",
+      "input_token_reservation": 15343,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1010331,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2153,
+        "completion_tokens": 790,
+        "total_tokens": 2943
+      },
+      "usage_state": "known",
+      "usage_sha256": "d9bb69e0255d71d8bacf7c84005b2f1a754b21038f86c25c3861680ee0ce4c21",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0111573
+    },
+    {
+      "request_id": "request-0008",
+      "session_id": "r1-selection-S-select-1-fixed",
+      "input_bytes": 7121,
+      "payload_sha256": "9a51df166ab2b7310ad3461141e48d1d1a5e764f9698e72b70dc5f0beafdeb9a",
+      "input_token_reservation": 15313,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1009701,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2151,
+        "completion_tokens": 674,
+        "total_tokens": 2825
+      },
+      "usage_state": "known",
+      "usage_sha256": "684596eeea4544936c41b4684c32131415b497ab5b714029a514ab323d4a2c30",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0101787
+    },
+    {
+      "request_id": "request-0009",
+      "session_id": "r1-selection-P-select-2-fixed",
+      "input_bytes": 22383,
+      "payload_sha256": "08e9c4f3f9375a50aaab5cfcad3bdb916e20d630931de03c9be456ca3e1ebc36",
+      "input_token_reservation": 30575,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1330203,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6366,
+        "completion_tokens": 2372,
+        "total_tokens": 8738
+      },
+      "usage_state": "known",
+      "usage_sha256": "ad041f2224e8bbd20048bf469088ee2dc30fe06e1077023d7f3bd6abc749ae2c",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0332934
+    },
+    {
+      "request_id": "request-0010",
+      "session_id": "r1-selection-P-select-2-updated",
+      "input_bytes": 22413,
+      "payload_sha256": "abbc2d6a59e34861193c9530787691201cc18f9b52a2a7ca57c2e0698b9d748e",
+      "input_token_reservation": 30605,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1330833,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6368,
+        "completion_tokens": 1918,
+        "total_tokens": 8286
+      },
+      "usage_state": "known",
+      "usage_sha256": "7f999aa48673f69c6aa26b21fba3c5cb721004916e7f19ad2d779daccfb9c06e",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.029484
+    },
+    {
+      "request_id": "request-0011",
+      "session_id": "r1-selection-S-select-2-updated",
+      "input_bytes": 6459,
+      "payload_sha256": "c4f512f768522b91c99b868391522afd623db4819ca756b92d6b6ad97a2f2249",
+      "input_token_reservation": 14651,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0995799,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1926,
+        "completion_tokens": 919,
+        "total_tokens": 2845
+      },
+      "usage_state": "known",
+      "usage_sha256": "2b43d17264f619ea9edf64d73656d76318bf799a3a80362ff65ba32642830d25",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0117642
+    },
+    {
+      "request_id": "request-0012",
+      "session_id": "r1-selection-S-select-2-fixed",
+      "input_bytes": 6429,
+      "payload_sha256": "b3b75a38c5a94e96e577873cb8f5211c34f8ceca3e7d2754310e3d02b6ed3b71",
+      "input_token_reservation": 14621,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0995169,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1924,
+        "completion_tokens": 478,
+        "total_tokens": 2402
+      },
+      "usage_state": "known",
+      "usage_sha256": "274c97066e8ff68ff3f579303558ffb9a1496e04ac6c34f311aaad8f2f2ca95a",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0080556
+    },
+    {
+      "request_id": "request-0013",
+      "session_id": "r2-selection-P-select-1-updated",
+      "input_bytes": 20882,
+      "payload_sha256": "1c7fa36b1180251af924a6b2bbd0be6b82351fcf76b9db177aad5f76a491e754",
+      "input_token_reservation": 29074,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1298682,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6086,
+        "completion_tokens": 3532,
+        "total_tokens": 9618
+      },
+      "usage_state": "known",
+      "usage_sha256": "460f4c3b4f0a80f3539b18ce6cc27e1c5b3a5a7ce29d46ee7482291922d68493",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0424494
+    },
+    {
+      "request_id": "request-0014",
+      "session_id": "r2-selection-P-select-1-fixed",
+      "input_bytes": 20852,
+      "payload_sha256": "dbd02076a499fb914fa2bac52fc0e15c3a1535e138e4e20cd67f2d3d83408e8c",
+      "input_token_reservation": 29044,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1298052,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6097,
+        "completion_tokens": 3119,
+        "total_tokens": 9216
+      },
+      "usage_state": "known",
+      "usage_sha256": "0c3ff1454a4e896302f11dd1ea7c566724c34ac57cff289d3a4a51b82ca1bd50",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0390033
+    },
+    {
+      "request_id": "request-0015",
+      "session_id": "r2-selection-S-select-1-fixed",
+      "input_bytes": 7121,
+      "payload_sha256": "9a51df166ab2b7310ad3461141e48d1d1a5e764f9698e72b70dc5f0beafdeb9a",
+      "input_token_reservation": 15313,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1009701,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2151,
+        "completion_tokens": 667,
+        "total_tokens": 2818
+      },
+      "usage_state": "known",
+      "usage_sha256": "0ed299a76b9ded6e5782c6679604486587c555549fec6c4ee5f1c568cb2e980d",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0101199
+    },
+    {
+      "request_id": "request-0016",
+      "session_id": "r2-selection-S-select-1-updated",
+      "input_bytes": 7151,
+      "payload_sha256": "1e7967dda2d2918867dfb1801a3c5ef2a1485ebb5644b7d0ebee1d6f2fc9671b",
+      "input_token_reservation": 15343,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1010331,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2153,
+        "completion_tokens": 976,
+        "total_tokens": 3129
+      },
+      "usage_state": "known",
+      "usage_sha256": "a1adfeb9410016541505a05114679df98d2c0d43f0bb8c74bf83e39e936e9b57",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0127197
+    },
+    {
+      "request_id": "request-0017",
+      "session_id": "r2-selection-P-select-2-updated",
+      "input_bytes": 22413,
+      "payload_sha256": "eec3475a8f7486aa5e6b326dad3a7469d6f673b35d4798d817923191ed13e288",
+      "input_token_reservation": 30605,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1330833,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6355,
+        "completion_tokens": 2391,
+        "total_tokens": 8746
+      },
+      "usage_state": "known",
+      "usage_sha256": "48722f949f597340ab4e9a0ff4bb6ffc0755fdfd61728c0d14e48cc76e410ba5",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0334299
+    },
+    {
+      "request_id": "request-0018",
+      "session_id": "r2-selection-P-select-2-fixed",
+      "input_bytes": 22383,
+      "payload_sha256": "08e9c4f3f9375a50aaab5cfcad3bdb916e20d630931de03c9be456ca3e1ebc36",
+      "input_token_reservation": 30575,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1330203,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6366,
+        "completion_tokens": 2491,
+        "total_tokens": 8857
+      },
+      "usage_state": "known",
+      "usage_sha256": "843bd60a5ee8c6885a857d37c3b9b70325a23da3631475b2562e6b78097804e3",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.034293
+    },
+    {
+      "request_id": "request-0019",
+      "session_id": "r2-selection-S-select-2-fixed",
+      "input_bytes": 6429,
+      "payload_sha256": "b3b75a38c5a94e96e577873cb8f5211c34f8ceca3e7d2754310e3d02b6ed3b71",
+      "input_token_reservation": 14621,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0995169,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1924,
+        "completion_tokens": 447,
+        "total_tokens": 2371
+      },
+      "usage_state": "known",
+      "usage_sha256": "5580cd309bd3ecfde79387b77cfbc9aeb4ad11a9d20b43afe2e40336861bd40d",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0077952
+    },
+    {
+      "request_id": "request-0020",
+      "session_id": "r2-selection-S-select-2-updated",
+      "input_bytes": 6459,
+      "payload_sha256": "8eefd9102137b6d75a4490274ee2fad246dd88dd1f5cadcc18f65eeda74106eb",
+      "input_token_reservation": 14651,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0995799,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1926,
+        "completion_tokens": 591,
+        "total_tokens": 2517
+      },
+      "usage_state": "known",
+      "usage_sha256": "fe581f0b40b1b7bcef7bd0377eb31b78322fef70751f81a65adc4e369d2d5afb",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.009009
+    },
+    {
+      "request_id": "request-0021",
+      "session_id": "r1-evaluation-P-eval-1-fixed",
+      "input_bytes": 18272,
+      "payload_sha256": "cbba9a94e537a78174c1a75c4a076d369cdfa539f3e3f96da30d40820c150554",
+      "input_token_reservation": 26464,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1243872,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 5440,
+        "completion_tokens": 2792,
+        "total_tokens": 8232
+      },
+      "usage_state": "known",
+      "usage_sha256": "aaaeb505ad34cf85b764f0841395c55b74fdee85797210718bf4d201d407fc55",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0348768
+    },
+    {
+      "request_id": "request-0022",
+      "session_id": "r1-evaluation-P-eval-1-updated",
+      "input_bytes": 18272,
+      "payload_sha256": "cbba9a94e537a78174c1a75c4a076d369cdfa539f3e3f96da30d40820c150554",
+      "input_token_reservation": 26464,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1243872,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 5440,
+        "completion_tokens": 2120,
+        "total_tokens": 7560
+      },
+      "usage_state": "known",
+      "usage_sha256": "93255b98c232386f164dee25c5b342c968ab506687366599d7edbccab97345bd",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.029232
+    },
+    {
+      "request_id": "request-0023",
+      "session_id": "r1-evaluation-S-bact-eval-1-updated",
+      "input_bytes": 6782,
+      "payload_sha256": "b232c8be8d3cde7301a8d723758fca4eb38549532fd8ae2922418b44a6b5af25",
+      "input_token_reservation": 14974,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1002582,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2002,
+        "completion_tokens": 886,
+        "total_tokens": 2888
+      },
+      "usage_state": "known",
+      "usage_sha256": "fb5367ca3e9e79f68058f1e933541bb8e506ba3ab7663dbafa272882c138ad6f",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0116466
+    },
+    {
+      "request_id": "request-0024",
+      "session_id": "r1-evaluation-S-bact-eval-1-fixed",
+      "input_bytes": 6782,
+      "payload_sha256": "b232c8be8d3cde7301a8d723758fca4eb38549532fd8ae2922418b44a6b5af25",
+      "input_token_reservation": 14974,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1002582,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2002,
+        "completion_tokens": 691,
+        "total_tokens": 2693
+      },
+      "usage_state": "known",
+      "usage_sha256": "cf6737b3a2f7533befe9fc8714fb4b773e828defe0eebe966478397b3952045a",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0100086
+    },
+    {
+      "request_id": "request-0025",
+      "session_id": "r1-evaluation-P-eval-2-fixed",
+      "input_bytes": 24882,
+      "payload_sha256": "9928312c788cf773334b993a04f8145f49336476c209f728ec60d855adb42640",
+      "input_token_reservation": 33074,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1382682,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6901,
+        "completion_tokens": 2724,
+        "total_tokens": 9625
+      },
+      "usage_state": "known",
+      "usage_sha256": "bb8348f74c52083363c796a3dc2f86ef606fad43e314df13a0a469de799c5cb1",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0373737
+    },
+    {
+      "request_id": "request-0026",
+      "session_id": "r1-evaluation-P-eval-2-updated",
+      "input_bytes": 24882,
+      "payload_sha256": "9928312c788cf773334b993a04f8145f49336476c209f728ec60d855adb42640",
+      "input_token_reservation": 33074,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1382682,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6901,
+        "completion_tokens": 2069,
+        "total_tokens": 8970
+      },
+      "usage_state": "known",
+      "usage_sha256": "eec3497dd4b5b15b632a57377e2146dda3755c7e03c89b2a3011ed8b286fc084",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0318717
+    },
+    {
+      "request_id": "request-0027",
+      "session_id": "r1-evaluation-S-stress-eval-1-updated",
+      "input_bytes": 6471,
+      "payload_sha256": "c92925c8dc088de32dd6fdb165b6c702fb4742f7fffa506f3fcb5abccd0ca04d",
+      "input_token_reservation": 14663,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0996051,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1900,
+        "completion_tokens": 674,
+        "total_tokens": 2574
+      },
+      "usage_state": "known",
+      "usage_sha256": "a7ed83e2b310b0b645b87bc5761a0fbb3b35e2aaa72f25b81a9021f414bfa26a",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0096516
+    },
+    {
+      "request_id": "request-0028",
+      "session_id": "r1-evaluation-S-stress-eval-1-fixed",
+      "input_bytes": 6471,
+      "payload_sha256": "c92925c8dc088de32dd6fdb165b6c702fb4742f7fffa506f3fcb5abccd0ca04d",
+      "input_token_reservation": 14663,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0996051,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1900,
+        "completion_tokens": 493,
+        "total_tokens": 2393
+      },
+      "usage_state": "known",
+      "usage_sha256": "83a91630407ec1c94ad02185c84eb436bedaee63460daeb156bdc941c53d536a",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0081312
+    },
+    {
+      "request_id": "request-0029",
+      "session_id": "r2-evaluation-P-eval-1-updated",
+      "input_bytes": 18302,
+      "payload_sha256": "e432cc5294bf3325523989838425a48d26cd520a768854636f64abbc4f1ab0b9",
+      "input_token_reservation": 26494,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1244502,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 5442,
+        "completion_tokens": 1508,
+        "total_tokens": 6950
+      },
+      "usage_state": "known",
+      "usage_sha256": "856720a1a5366b50701acfcbcb4372136e88fbdfb7a471509ab41123cc062cb3",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0240954
+    },
+    {
+      "request_id": "request-0030",
+      "session_id": "r2-evaluation-P-eval-1-fixed",
+      "input_bytes": 18272,
+      "payload_sha256": "cbba9a94e537a78174c1a75c4a076d369cdfa539f3e3f96da30d40820c150554",
+      "input_token_reservation": 26464,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1243872,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 5440,
+        "completion_tokens": 2005,
+        "total_tokens": 7445
+      },
+      "usage_state": "known",
+      "usage_sha256": "dd183452bce5e3ae4c2cf12f5821559aa86d5777195f0e3df66d58a171a99996",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.028266
+    },
+    {
+      "request_id": "request-0031",
+      "session_id": "r2-evaluation-S-bact-eval-1-fixed",
+      "input_bytes": 6782,
+      "payload_sha256": "b232c8be8d3cde7301a8d723758fca4eb38549532fd8ae2922418b44a6b5af25",
+      "input_token_reservation": 14974,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1002582,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2002,
+        "completion_tokens": 662,
+        "total_tokens": 2664
+      },
+      "usage_state": "known",
+      "usage_sha256": "1bc14413010d4417019601d9ddf46e59e94d1f91b367eed5ef86c8a8f887aa7a",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.009765
+    },
+    {
+      "request_id": "request-0032",
+      "session_id": "r2-evaluation-S-bact-eval-1-updated",
+      "input_bytes": 6812,
+      "payload_sha256": "36ddc9688eeac3b241c77f609e9209fd1970fff8f274ed4673fa2666a408ff27",
+      "input_token_reservation": 15004,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1003212,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2004,
+        "completion_tokens": 713,
+        "total_tokens": 2717
+      },
+      "usage_state": "known",
+      "usage_sha256": "ca3232ad8654c1384fb54f5cb8fb1defec41c165cc47231fef67b3019f8c72d8",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0101976
+    },
+    {
+      "request_id": "request-0033",
+      "session_id": "r2-evaluation-P-eval-2-updated",
+      "input_bytes": 24912,
+      "payload_sha256": "86c683aa87a964638ba74ce84b0970f958769002057ea16860cfc9a382bc7920",
+      "input_token_reservation": 33104,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1383312,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6903,
+        "completion_tokens": 1873,
+        "total_tokens": 8776
+      },
+      "usage_state": "known",
+      "usage_sha256": "3f1eb8ef73310a10bd49f227135357244ad13cad067fc898d641e0bc0a093a0e",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0302295
+    },
+    {
+      "request_id": "request-0034",
+      "session_id": "r2-evaluation-P-eval-2-fixed",
+      "input_bytes": 24882,
+      "payload_sha256": "9928312c788cf773334b993a04f8145f49336476c209f728ec60d855adb42640",
+      "input_token_reservation": 33074,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1382682,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 6901,
+        "completion_tokens": 2664,
+        "total_tokens": 9565
+      },
+      "usage_state": "known",
+      "usage_sha256": "23023d7e3a20df301a329067783a2bf89359fc4364453c68ccf456665a798d53",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0368697
+    },
+    {
+      "request_id": "request-0035",
+      "session_id": "r2-evaluation-S-stress-eval-1-fixed",
+      "input_bytes": 6471,
+      "payload_sha256": "c92925c8dc088de32dd6fdb165b6c702fb4742f7fffa506f3fcb5abccd0ca04d",
+      "input_token_reservation": 14663,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0996051,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1900,
+        "completion_tokens": 400,
+        "total_tokens": 2300
+      },
+      "usage_state": "known",
+      "usage_sha256": "480f99fce7bea0bb98c4952bf398dad802ea26275c9405317774086b43a67e5f",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.00735
+    },
+    {
+      "request_id": "request-0036",
+      "session_id": "r2-evaluation-S-stress-eval-1-updated",
+      "input_bytes": 6501,
+      "payload_sha256": "28c2536e7f8bffc0a0ea5f03865cfe6a27f2c946332f7d83a61b0a831ba72df8",
+      "input_token_reservation": 14693,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.0996681,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1902,
+        "completion_tokens": 574,
+        "total_tokens": 2476
+      },
+      "usage_state": "known",
+      "usage_sha256": "2127ecee7adbe8149abc14b5a5b4a92ec1f0f1754eee8e437292df52ff4fdd07",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0088158
+    }
+  ],
+  "halted": false,
+  "halt_reasons": []
+}

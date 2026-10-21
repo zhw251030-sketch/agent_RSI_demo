@@ -1,0 +1,344 @@
+{
+  "actual": {
+    "archive": {
+      "files_including_manifest": 3665,
+      "manifest_sha256": "a4ca888e054d8a84873f7fc91fe4f803a3ab814b9107d27e3ba46299a27de0e4",
+      "original_files": 3642,
+      "path": "artifacts/strategy-measured/2026-10-21/v03",
+      "secret_pattern_matches": 0,
+      "tree_sha256": "f61ef7c6768001ab65fd9822ec9bc98dc49e32b93c563bebc088e2696840aeb2"
+    },
+    "audit": {
+      "accepted_sessions": 36,
+      "actual_reserved_requests": 36,
+      "attempt_audit_scope": "Complete request/response/dispatch/acceptance chains are verified for accepted sessions. Unaccepted attempts are counted from the ordered ledger; their full failure payload chain is not certified here.",
+      "decisions_replayed": 2,
+      "evidence_boundary": "Persisted trusted-client consistency only; not provider attestation or independent execution/time proof.",
+      "evidence_kind": "observed",
+      "measurement_records_verified": 716,
+      "observed_measurements": 716,
+      "request_input_bytes": [
+        89856,
+        89856,
+        89856,
+        89856,
+        20852,
+        20882,
+        7151,
+        7121,
+        22383,
+        22413,
+        6459,
+        6429,
+        20882,
+        20852,
+        7121,
+        7151,
+        22413,
+        22383,
+        6429,
+        6459,
+        18272,
+        18272,
+        6782,
+        6782,
+        24882,
+        24882,
+        6471,
+        6471,
+        18302,
+        18272,
+        6782,
+        6812,
+        24912,
+        24882,
+        6471,
+        6501
+      ],
+      "sdk_sessions_verified": 36,
+      "slots_completed": 36,
+      "slots_failed": 0,
+      "slots_not_started": 0,
+      "status": "passed_complete",
+      "synthetic_measurements": 0,
+      "usage_unknown_count": 0,
+      "version": "strategy-pair-audit-v0.1"
+    },
+    "budget": {
+      "actual_total_cost_cny": null,
+      "known_completion_tokens": 51821,
+      "known_estimated_cost_cny": 0.925239,
+      "known_prompt_tokens": 233306,
+      "known_total_tokens": 285127,
+      "known_usage_requests": 36,
+      "ledger_reservations_equal_dispatch_attempts": true,
+      "ledger_reserved_requests": 36,
+      "ledger_unknown_usage_rows": 0,
+      "requests": 36,
+      "reserved_cost_cny": 4.8029352,
+      "sdk_dispatch_attempts": 36,
+      "unknown_usage_requests": 0
+    },
+    "dual_replay_and_analysis_byte_equal": true,
+    "evaluation_opening": {
+      "decision_event_ordinals": [
+        254,
+        255
+      ],
+      "first_evaluation_access_ordinal": 257,
+      "gate_event_ordinals": [
+        256
+      ]
+    },
+    "failure": null,
+    "proposals": {
+      "r1-update-shadow": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ],
+      "r1-update-updated": [
+        "R02",
+        "R05",
+        "R01",
+        "R08"
+      ],
+      "r2-update-shadow": [
+        "R01",
+        "R05",
+        "R02",
+        "R07"
+      ],
+      "r2-update-updated": [
+        "R02",
+        "R01",
+        "R05",
+        "R08"
+      ]
+    },
+    "selection": {
+      "r1": {
+        "counts": {
+          "beneficial_pairs": 1,
+          "regressing_pairs": 0,
+          "retained_pairs": 2,
+          "unknown_pairs": 1
+        },
+        "decision": "unknown",
+        "rule_ids": [
+          "R03",
+          "R04",
+          "R06",
+          "R08"
+        ],
+        "selected_parent_S0": true
+      },
+      "r2": {
+        "counts": {
+          "beneficial_pairs": 1,
+          "regressing_pairs": 0,
+          "retained_pairs": 3,
+          "unknown_pairs": 0
+        },
+        "decision": "promote",
+        "rule_ids": [
+          "R02",
+          "R01",
+          "R05",
+          "R08"
+        ],
+        "selected_parent_S0": false
+      }
+    },
+    "unbound_role_execution_directories": [],
+    "wire": {
+      "ledger_requests_checked": 36,
+      "maximum_input_bytes": 89856,
+      "system_and_single_tool_verified": true,
+      "verified_sdk_dispatch_attempts": 36
+    }
+  },
+  "additional_real_attempts_this_protocol_allowed": false,
+  "connection_cleanup": {
+    "boundary": "Server experiment process had already exited before closing the stale local SSH client. No process executing candidates or models was stopped. CLI return code was not recovered; the client exit 1 after cleanup is not an experiment failure. Original terminal records remain byte-identical.",
+    "experiment_cli_exit_code": null,
+    "local_exec_channel_exit_code_after_client_cleanup": 1,
+    "old_server_connection_pid": 1525509,
+    "old_server_connection_process_exists": true,
+    "original_files_unchanged": 3642,
+    "server_experiment_pid": 1525511,
+    "server_experiment_process_exists": false,
+    "status": "passed",
+    "stopped_local_ssh_client_pid": 79724,
+    "terminal_audit": "passed_complete",
+    "terminal_result": "complete"
+  },
+  "cumulative_research": {
+    "actual_total_cost_cny": null,
+    "known_estimated_cost_cny": 4.2168546,
+    "known_tokens": 1364169,
+    "requests": 170,
+    "reserved_cost_cny": 19.549173,
+    "unknown_usage_requests": 2
+  },
+  "evidence_boundary": "Trusted-client record consistency only, not provider attestation. Real request counts use verified SDK-to-LiteLLM dispatch attempts, separately from budget reservations. Synthetic usage and scores excluded. r1 evaluation uses identical S0 in both arms; r2 alone compares changed strategies. Symbolic scores are train fits, not sealed predictive generalization.",
+  "finish_tool_fix_deployed": true,
+  "historical_audits_byte_equal": true,
+  "historical_preservation": {
+    "archives": {
+      "artifacts/strategy-measured/2026-10-21/v01": 63,
+      "artifacts/strategy-measured/2026-10-21/v02": 452,
+      "artifacts/strategy-pair/2026-10-21/sdk-preflight-v02": 3660,
+      "artifacts/strategy-pair/2026-10-21/v02": 3653
+    },
+    "historical_runtime_commits": {
+      "15144dc0fad8aee0ceae77535563fb6fc1b22144": 254,
+      "729318e817cda5ea581fdb033201ce0aeab4dbdb": 256
+    },
+    "original_run_files_unchanged": {
+      "artifacts/strategy-measured/2026-10-21/v01": 33,
+      "artifacts/strategy-measured/2026-10-21/v02": 410,
+      "artifacts/strategy-pair/2026-10-21/sdk-preflight-v02": 3644,
+      "artifacts/strategy-pair/2026-10-21/v02": 3644
+    },
+    "prior_inputs": {
+      "learning_transitions": 24,
+      "old_raw_files": 693,
+      "old_runtime_files": 236,
+      "prior_manifest_sha256": "d9387df4aa3366dc9e054e39f5235ff2cd86cb7aa5626e2aef1f072256cad15b",
+      "update_packet_bytes": 81393
+    },
+    "research_activity": {
+      "model_requests": 0,
+      "task_executions": 0
+    },
+    "status": "passed"
+  },
+  "implementation_commit": "0065d8c5cc0a1af5b4a1618920a5eb4a4b281ae6",
+  "interface_agent_version": "strategy-pair-agent-v0.2",
+  "preflight": {
+    "archive": {
+      "files_including_manifest": 3664,
+      "manifest_sha256": "3460c718618f34562096adff1fce0a87fc9604516c0f239f4d6dd5e23374cd17",
+      "original_files": 3644,
+      "path": "artifacts/strategy-pair/2026-10-21/sdk-preflight-v03",
+      "secret_pattern_matches": 0,
+      "tree_sha256": "ff2abf4558417a3f739e792de2aa394d816ff171f34c3396e6fbe6f047d8bfd7"
+    },
+    "audit": {
+      "accepted_sessions": 36,
+      "actual_reserved_requests": 36,
+      "attempt_audit_scope": "Complete request/response/dispatch/acceptance chains are verified for accepted sessions. Unaccepted attempts are counted from the ordered ledger; their full failure payload chain is not certified here.",
+      "decisions_replayed": 2,
+      "evidence_boundary": "Persisted trusted-client consistency only; not provider attestation or independent execution/time proof.",
+      "evidence_kind": "synthetic",
+      "measurement_records_verified": 716,
+      "observed_measurements": 0,
+      "request_input_bytes": [
+        89856,
+        89856,
+        89856,
+        89856,
+        20083,
+        20075,
+        7082,
+        7090,
+        21383,
+        21375,
+        6390,
+        6398,
+        20094,
+        20083,
+        7090,
+        7101,
+        21394,
+        21383,
+        6398,
+        6409,
+        18082,
+        18082,
+        6750,
+        6750,
+        24312,
+        24312,
+        6439,
+        6439,
+        18082,
+        18082,
+        6750,
+        6750,
+        24312,
+        24312,
+        6439,
+        6439
+      ],
+      "sdk_sessions_verified": 36,
+      "slots_completed": 36,
+      "slots_failed": 0,
+      "slots_not_started": 0,
+      "status": "passed_complete",
+      "synthetic_measurements": 716,
+      "usage_unknown_count": 0,
+      "version": "strategy-pair-audit-v0.1"
+    },
+    "certificate": {
+      "execution_ready": true,
+      "manifest_sha256": "61ff520d84d86b05e85aee319e53902e114b960a27ce5533334fcd48d6f817a0",
+      "research_activity": {
+        "model_requests": 0,
+        "strategy_updates": 0,
+        "task_evaluations": 0
+      },
+      "runtime_sha256": "af5065787bd4fa441390132d5d6d6bcf746c6bd896c1323d39c3d0cf048db370",
+      "version": "strategy-pair-readiness-v0.1"
+    },
+    "counts_excluded_from_research": true,
+    "dual_replay_byte_equal": true,
+    "maximum_request_input_bytes": 89856
+  },
+  "research_activity": {
+    "accepted_new_candidate_programs": 32,
+    "accepted_policy_proposals": 4,
+    "candidate_S1_proposals": 2,
+    "distinct_proposals": 3,
+    "evaluation_states_executed": 4,
+    "ledger_reservations_equal_dispatch_attempts": true,
+    "ledger_reserved_requests": 36,
+    "model_requests": 36,
+    "new_probes": 0,
+    "planning_measurements": 696,
+    "sandbox_executions": 734,
+    "sdk_dispatch_attempts": 36,
+    "sealed_evaluations": 0,
+    "selected_S_star": 2,
+    "symbolic_fits": 20,
+    "symbolic_measurements": 20,
+    "task_measurements": 716,
+    "val_calls": 356,
+    "weight_updates": 0
+  },
+  "resume_stopped_runs_allowed": false,
+  "run_status": "complete",
+  "same_test_ids": true,
+  "same_tested_files": true,
+  "status": "passed",
+  "tested_runtime_files": 258,
+  "tests": {
+    "local": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 175,
+      "skipped": 24,
+      "tests_run": 199
+    },
+    "server": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 199,
+      "skipped": 0,
+      "tests_run": 199
+    }
+  },
+  "version": "strategy-measured-v03-verification-v0.1"
+}

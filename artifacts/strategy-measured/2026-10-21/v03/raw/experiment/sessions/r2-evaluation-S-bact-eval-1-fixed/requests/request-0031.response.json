@@ -1,0 +1,45 @@
+{
+  "response_id": "chatcmpl-c4cd3ff2-e631-4364-90a8-ac4dd3d49878",
+  "usage": {
+    "prompt_tokens": 2002,
+    "completion_tokens": 662,
+    "total_tokens": 2664
+  },
+  "usage_details": {
+    "prompt_tokens_details": {
+      "cached_tokens": 128,
+      "text_tokens": 1874,
+      "cache_write_tokens": 0,
+      "cache_creation_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 662
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 128
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"explanation\": \"Baseline fit NMSE 0.850 on train with 7 params; the response surface likely needs more basis terms. Replaced the ad-hoc linear+cross-term blend (which also had a redundant clip/scale identity transform) with a systematic multilinear expansion: constant, four singles, six pairwise, three triples = 14 coefficients, all linear in params so bounded least squares applies directly. Still compliant: pure function of the four inputs and params, no files/network/lookup tables, finite output guarded. This is a hypothesis about richer basis coverage; the actual improvement is unverified until the host evaluates.\", \"n_params\": 14, \"security_risk\": \"LOW\", \"source\": \"import numpy as np\\n\\n\\ndef equation(u0, u1, u2, u3, params):\\n    \\\"\\\"\\\"Polynomial response in the four inputs.\\n\\n    A trimmed multilinear/quadratic expansion with bounded coefficients:\\n    constant, all single terms, all pairwise products, and one triple\\n    term.  Coefficients are supplied through ``params`` and fitted by the\\n    host; no data-dependent logic or lookup tables are used.\\n    \\\"\\\"\\\"\\n    p = np.asarray(params, dtype=float).ravel()\\n\\n    u0 = np.asarray(u0, dtype=float).ravel()\\n    u1 = np.asarray(u1, dtype=float).ravel()\\n    u2 = np.asarray(u2, dtype=float).ravel()\\n    u3 = np.asarray(u3, dtype=float).ravel()\\n\\n    k = min(14, p.size)\\n\\n    out = np.zeros_like(u0 + u1 + u2 + u3)\\n\\n    def coeff(i):\\n        if i < k:\\n            return p[i]\\n        return 0.0\\n\\n    out = out + coeff(0)\\n\\n    out = out + coeff(1) * u0\\n    out = out + coeff(2) * u1\\n    out = out + coeff(3) * u2\\n    out = out + coeff(4) * u3\\n\\n    out = out + coeff(5) * u0 * u1\\n    out = out + coeff(6) * u0 * u2\\n    out = out + coeff(7) * u0 * u3\\n    out = out + coeff(8) * u1 * u2\\n    out = out + coeff(9) * u1 * u3\\n    out = out + coeff(10) * u2 * u3\\n\\n    out = out + coeff(11) * u0 * u1 * u2\\n    out = out + coeff(12) * u0 * u1 * u3\\n    out = out + coeff(13) * u0 * u2 * u3\\n\\n    out = np.nan_to_num(out, nan=0.0, posinf=1.0e6, neginf=-1.0e6)\\n    return out\", \"summary\": \"Submit generalized 4-input polynomial regression equation with 14 params\"}",
+              "name": "submit_candidate"
+            },
+            "id": "call_01a15f42512376c3b2f7c390",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

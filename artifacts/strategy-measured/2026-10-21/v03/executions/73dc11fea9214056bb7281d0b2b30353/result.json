@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1",
+  "version": "role-executor-v0.1",
+  "record_kind": "executor_observation",
+  "run_id": "73dc11fea9214056bb7281d0b2b30353",
+  "family": "symbolic",
+  "task_id": "bactgrow",
+  "task_role": "evaluation",
+  "candidate_id": "r2-evaluation-S-bact-eval-1-fixed",
+  "candidate_hash": "9c045f8b32a4dd4941a362b187cf49780a14a7b7c6b38c70bf1f5d59ed7c5c0e",
+  "n_params": 14,
+  "parent_id": "S-bact-eval-1",
+  "strategy_version": "9937882539c30e7e519bf5251c14b35b29b84b23bb6f506077bdad39d3438445",
+  "partition_sha256": "bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7",
+  "data_sha256": "e3c0cc688b4543652360bda708302f1134091fe18c119a2033f204a5826a49da",
+  "domain_sha256": null,
+  "evaluator_sha256": "acafeeb60257f0265b850a819071f8bb31d6e79b3f1fa201700ba63692b7f0dd",
+  "runtime_files": [
+    {
+      "path": "rsi_eval/role_executor.py",
+      "sha256": "d0803be2f68eed356d317b67cc1d51e20a7b3924e0108aab50aba301c0414afe"
+    },
+    {
+      "path": "rsi_eval/strategy_partition.py",
+      "sha256": "176428e2eac30e6b4c1222a187c846b228f78689a4fc0e84134ef8cafb563388"
+    },
+    {
+      "path": "rsi_eval/planning.py",
+      "sha256": "15a382c3081f964e51e4818bdec3aebdc26a0b72e1cd02831fefd06319050ef6"
+    },
+    {
+      "path": "rsi_eval/symbolic.py",
+      "sha256": "39d781a2361fc8be4bda1d64fdcf705f1f939f44277399c9413bffaaaadfad58"
+    },
+    {
+      "path": "rsi_eval/sandbox.py",
+      "sha256": "8fd1a4fb149c7632b4e9ce2af187c074633c800a4e8d427eb3b3467e4e77203e"
+    },
+    {
+      "path": "rsi_eval/worker.py",
+      "sha256": "f451771c60d0f1cdebc597387ed7896d119ab274c05f3e7faae5cb9d22692e4a"
+    },
+    {
+      "path": "rsi_eval/planning_worker.py",
+      "sha256": "457d059c0e1cb258d9bfa1e7051d0ed00cc5849931ea072e7ea43ec3261f4be9"
+    },
+    {
+      "path": "rsi_eval/symbolic_worker.py",
+      "sha256": "0ec2a60f3441c884d871e053ec3c6a610d646304bf0c9ded21c2a810a9c382ca"
+    },
+    {
+      "path": "scripts/check_planning_data.py",
+      "sha256": "a79597cf5a6be256fb1ea2ffad69e9e21bf04aac5ca1774960eac9aaf347e547"
+    }
+  ],
+  "metric_scope": "train",
+  "limits": {
+    "timeout_seconds": 20,
+    "memory_mb": 2048,
+    "cpu_seconds": 10,
+    "max_output_bytes": 2000000
+  },
+  "model_calls": 0,
+  "sealed_tasks_executed": 0,
+  "executions": [
+    {
+      "phase": "fit",
+      "status": "completed",
+      "elapsed_seconds": 0.285073,
+      "stdout_bytes": 392,
+      "stderr_bytes": 0
+    },
+    {
+      "phase": "predict",
+      "status": "completed",
+      "elapsed_seconds": 0.263308,
+      "stdout_bytes": 154840,
+      "stderr_bytes": 0
+    }
+  ],
+  "request_sha256": "fa85dc3660228814e8423cd9a0ecc2ca14b0bd3fcd70d7d85011e59e8b071797",
+  "journal_path": "runs/role_executor_feedback/73dc11fea9214056bb7281d0b2b30353/result.json",
+  "evaluation_gate_sha256": "17b7856a343e029e9a445634ccf450272e467dd8856cfb20937ba5ef09e54f1c",
+  "fitting": {
+    "params": [
+      0.021473976583911543,
+      -0.021813806957137485,
+      -0.015132639398349858,
+      -0.000827749293388316,
+      0.001974149331884317,
+      0.004145406038895779,
+      0.0013350516647444367,
+      -0.0004186243735227744,
+      0.0008914369960526182,
+      0.00017688892680893861,
+      -0.00018886419263712973,
+      -0.00015654763592815106,
+      -0.00013158252665055722,
+      6.185021999884125e-05
+    ],
+    "n_params": 14,
+    "nfev": 4,
+    "converged": true,
+    "candidate_calls": 61,
+    "split": "train",
+    "max_nfev": 100
+  },
+  "status": "success",
+  "metrics": {
+    "mse": 0.01638541847283465,
+    "nmse": 0.844801449043118
+  },
+  "metric_split": "train",
+  "metric_description": "Within-task training fit; not held-out prediction.",
+  "elapsed_seconds": 4.230976
+}

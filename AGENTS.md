@@ -2,9 +2,9 @@
 
 先读 README.md、STATUS.md 和最新联合设计。当前用户要求优先于历史稿。重要判断应核查原始论文、官方代码或实际日志，不能仅凭对话记忆推断。
 
-- 当前研究为固定基础LLM权重下的形式规划与符号发现；最新入口docs/operations/strategy-measured-v02.md。元数据接口修复后真实7请求停止：四次策略提案（三种内容）、两规划终稿均0/19；第七响应含submit_candidate/finish触发总调用数拒绝。无S*、后续评价或机制优势。单步工具表修复尚未部署；两旧真实轮禁止恢复。
+- 固定LLM权重的形式规划与符号发现项目已完成真实measured-v03全流程：36请求、716测量，两次S*冻结后才开放评价。r1保留S0、r2晋升新策略；r2后续四状态为两项收益、两项持平，r1同策略也有大幅生成差异。尚无稳定机制优势、封存测试成绩或普适性结论。 最新入口docs/operations/strategy-measured-v03.md；measured-v01/v02均不恢复，v03不追加请求。
 - 当前服务器数据为 Spanner（400 问题+域文件）与 LLM-SR 原始四任务（12 CSV，先用 oscillator1/2）。后者按用户要求替代受限 LLM-SRBench，输出在最后一列；看 docs/operations/task-data.md 和最新 symbolic-public-data 协议。旧 phys_osc 清单保留作历史，不继续作为当前下载目标。
-- vendor/ 与 data/ 不直接挂载给候选进程；上游源码含参考解与缓存。rsi_eval 的候选执行已有 Bubblewrap/seccomp 隔离与资源限制，最新后继轮实跑前189项不同相关测试在服务器通过；候选Agent仅有submit_candidate/finish，策略Agent仅有submit_policy/finish，不可直接读取整个项目。已有三条件异状态开发对照，仍无独立任务机制验证。
+- vendor/ 与 data/ 不直接挂载给候选进程；上游源码含参考解与缓存。rsi_eval 的候选执行已有 Bubblewrap/seccomp 隔离与资源限制，最新后继轮实跑前199项不同相关测试在服务器通过；当前单步候选Agent仅有submit_candidate，策略Agent仅有submit_policy，不可直接读取整个项目。最新已完成情况见本轮结果报告；尚无稳定机制优势或普适性结论。
 - 官方 Canvas 1.28.1 已部署；`scripts/canvas.py` 管理网页服务，状态与依赖分别在被忽略的 `.canvas-state/`、`.canvas-runtime/`。网页后端的 SDK 1.56.0 与实验 `.venv` 1.55.1 分开；不要因网页版本改变实验依赖。入口通过 SSH 隧道访问回环 18080；MiniMax-M3 已配置；详见 docs/operations/minimax.md。
 - 服务器 `.venv` 为 OpenHands SDK/tools 1.55.1，`.task-runtime/python` 独立提供系统 Python 3.10 的 NumPy 1.26.4/SciPy 1.13.1。两套开发执行器及 SDK 专用工具已通过离线往返；看 docs/operations/task-executors.md。普通 TerminalExecutor 和现有 Canvas 通用会话仍不具备本执行器的受控数据边界。
 - 区分研究建议、静态核查、部署、运行和结果。没有实验就不能填写性能或简历成果。

@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**已修复SDK元数据接口并完成后继真实尝试；第7请求暴露默认finish工具冲突，当前停止。** 2026-10-21完成SDK可选元数据接收/schema修复，实现729318e；同一256运行文件的189项不同测试服务器全通过、本机172通过17跳过。实际SDK假provider模拟36位置/716人工测量通过。独立真实measured-v02运行7请求、6接受、1失败、29未开始；四次策略提案形成三种不同策略，两份新规划终稿唯一配对均0/19。四选择起点基线与两终稿合计60测量、62sandbox、19VAL、2符号拟合；第七响应同时含submit_candidate/finish，被总调用数守卫拒绝，符号终稿未接受/执行。无S*选择、后续评价、封存/probe/权重更新；四评价起点仍未执行。真实410原文件、模拟3644原文件逐字节归档，双端审计/分析一致，旧档未改。当前需单步工具表后继修复，旧readiness只认证当时模拟；实际SDK离线双调用回放仅作诊断、不追认旧轮。126553tokens、估算0.3210249元、预留1.4715582元；累计134研究请求、已知1079042tokens、估算3.2916156元、预留14.7462378元，两笔旧usage未知保留。尚无稳定机制优势或独立泛化。 见[本轮说明](docs/operations/strategy-measured-v02.md)、[结果与解释](docs/analysis/2026-10-21-strategy-measured-v02-results.md)、[核验](docs/environment/2026-10-21-strategy-measured-v02-verification.json)。
+**已完整执行真实策略学习—选择—后续评价；观察到有限正向配对，尚无稳定优势结论。** 2026-10-21启动、22完成measured-v03，实现0065d8c：单步Agent仅公布业务提交工具，199项不同相关测试服务器全过，本机175过24跳过；同一258文件实际SDK假provider预检36/716通过。真实36请求全部接受、无重试，四提案三种内容、32份终稿、716测量（696规划/20符号）、734 sandbox调用、356 VAL、20拟合尝试。r1选择unknown保留S0，r2凭oscillator2训练收益晋升R02/R01/R05/R08；两S*在后续起点的基线、反馈与评分开始前冻结。r2后续P-eval1固定0/63、新策略63/63；P-eval2均0/63；bactgrow NMSE0.8448014490→0.7280577515、14→15参数；stressstrain均0.3436165736/7参数。r1两臂同S0，P-eval2仍0/63与63/63，不算更新收益。16对完整共同请求一致；真实3642原文件、模拟3644原文件逐字节归档，双端审计/分析一致passed_complete/passed，旧档与运行文件不变。285127tokens、估算0.9252390元、预留4.8029352元；累计170研究请求、已知1364169tokens、估算4.2168546元、预留19.5491730元，两笔旧usage未知保留。0封存/probe/权重更新。首次完整后续评价仅支持本次2项正向配对，不证明稳定机制优势或普适性。终态后滞留SSH客户端已单独清理，服务器实验进程此前已退出；CLI退出码未知，原档不变。 见[本轮说明](docs/operations/strategy-measured-v03.md)、[结果与解释](docs/analysis/2026-10-21-strategy-measured-v03-results.md)、[核验](docs/environment/2026-10-21-strategy-measured-v03-verification.json)。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -13,16 +13,17 @@
 | 研究路线 | 已选择形式规划与符号发现一起推进；基础 LLM 权重固定 |
 | 规划任务 | Spanner 400题已下载；官方训练去重后学习10/选择19/后续评价63，排除8副本；300官方测试继续封存 |
 | 符号任务 | LLM-SR四方程12CSV；学习oscillator1、选择oscillator2（有手写评分暴露）、后续评价bactgrow/stressstrain；8测试CSV封存 |
-| 更新对象 | 外部策略S；最新接受四次提案、三种内容，尚未完成S*选择，无策略效果结论 |
+| 更新对象 | 外部四规则有序策略S；四提案三种内容，r1保留S0、r2晋升；后续仅观察到有限正向配对 |
 | 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；元数据修复与36位置模拟通过，真实7请求后因默认finish/单调用契约不一致停止 |
-| 任务执行层 | 四选择起点与两规划终稿共60测量；唯一规划配对均0/19；两个S*冻结前评价门关闭，四评价起点仍未执行 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；单步仅业务工具；measured-v03全部36真实请求接受 |
+| 任务执行层 | 八起点与32终稿共716测量；两S*先冻结再开放四评价状态；r2两项收益两项持平，封存集未评分 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
 模型配置与验收：[MiniMax-M3 使用说明](docs/operations/minimax.md)。连接检查与开发小试分开计数。小试 8 次请求含 1 次服务错误，7 次有响应；费用仍有一笔未知用量，详见 [真实小试说明](docs/operations/agent-pilot.md)。
 
 ## 阅读入口
 
+- [最新策略学习—选择—后续评价结果](docs/analysis/2026-10-21-strategy-measured-v03-results.md)：真实配对结果、同策略重复差异、源码核查、费用与限制。
 - [最新真实轮结果与接口诊断](docs/analysis/2026-10-21-strategy-measured-v02-results.md)：元数据修复、四策略提案、实际配对成绩、第七请求停止与费用。
 - [此前首请求停止](docs/analysis/2026-10-21-strategy-measured-v01-results.md)：原始SDK元数据拒绝问题，历史记录不变。
 - [策略调度与完整模拟验收](docs/operations/strategy-pair.md)：实际SDK、阶段顺序、预算、原始记录与真实运行命令。

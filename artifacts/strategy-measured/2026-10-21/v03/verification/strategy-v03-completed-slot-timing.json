@@ -1,0 +1,62 @@
+{
+  "scope": "Persisted timing analysis of completed r1-evaluation-P-eval-1-fixed only; no candidate/model execution.",
+  "slot_id": "r1-evaluation-P-eval-1-fixed",
+  "measurements": 63,
+  "statuses": {
+    "candidate_error": 63
+  },
+  "exception_types": {
+    "NameError": 63
+  },
+  "measured_result_elapsed_seconds": {
+    "count": 63,
+    "minimum": 3.142683,
+    "median": 3.679436,
+    "mean": 3.599584523809524,
+    "maximum": 3.873108,
+    "sum": 226.773825
+  },
+  "sandbox_elapsed_seconds": {
+    "count": 63,
+    "minimum": 0.039302,
+    "median": 0.045132,
+    "mean": 0.045325619047619045,
+    "maximum": 0.075803,
+    "sum": 2.855514
+  },
+  "host_inside_result_elapsed_minus_sandbox_seconds": {
+    "count": 63,
+    "minimum": 3.097267,
+    "median": 3.6335569999999997,
+    "mean": 3.554258904761905,
+    "maximum": 3.8282760000000002,
+    "sum": 223.918311
+  },
+  "consecutive_measurement_event_intervals_seconds": {
+    "count": 62,
+    "minimum": 6.384490674,
+    "median": 7.443813367000001,
+    "mean": 7.284981736241935,
+    "maximum": 7.638701912,
+    "sum": 451.668867647
+  },
+  "event_interval_minus_later_result_elapsed_seconds": {
+    "count": 62,
+    "minimum": 3.2244796639999995,
+    "median": 3.7625141655000003,
+    "mean": 3.686487155596774,
+    "maximum": 3.8107075459999997,
+    "sum": 228.562203647
+  },
+  "first_to_last_measurement_seconds": 451.668867647,
+  "session_started_to_slot_completed_seconds": 487.742791832,
+  "sandbox_statuses": {
+    "completed": 63
+  },
+  "val_records": 0,
+  "static_gate_verifications_per_task": 4,
+  "static_selection_replays_per_task": 8,
+  "static_basis": "Scheduler.execute.authorize; RoleExecutor.evaluate._authorize before timer; second _authorize after timer; prepare_task._authorize. Each gate verifies r1 and r2 via bind_selection.",
+  "limitation": "No profiler or new gate execution. Timing subtraction distinguishes sandbox and host work; it cannot attribute exact CPU time to individual hash or parsing functions.",
+  "completed_measurement_files_unchanged": true
+}
