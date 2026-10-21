@@ -1,0 +1,36 @@
+{
+  "session_id": "P-select-1",
+  "stage": "generation",
+  "adapter_version": "state-generation-agent-v0.1",
+  "status": "stopped",
+  "model_error_type": null,
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "conversation_status": "ConversationExecutionStatus.ERROR",
+  "controller": {
+    "version": "state-generation-v0.1",
+    "slot_id": "P-select-1",
+    "candidate": {
+      "version": "state-generation-v0.1",
+      "slot_id": "P-select-1",
+      "family": "planning",
+      "origin": "model_generated_without_task_feedback",
+      "status": "stored_unexecuted",
+      "source_file": "source.py",
+      "source_sha256": "eed58cd222bf6f22a3617aed6517acf5e2ce7dddb2920b26452817af12fb8d6b",
+      "n_params": 0,
+      "packet_sha256": "ed0a7d876f2f6902c555d107105603f320f9c4ba3a514b320680e3f695150583"
+    },
+    "attempts": 1,
+    "halted": false,
+    "infrastructure_error_type": null,
+    "candidate_executions": 0,
+    "task_scores": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0,
+    "model_calls_owned": 0
+  }
+}

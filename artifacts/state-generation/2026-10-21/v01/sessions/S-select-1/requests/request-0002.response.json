@@ -1,0 +1,45 @@
+{
+  "response_id": "chatcmpl-3758650b-13a2-402b-a24a-cb2f6ded451a",
+  "usage": {
+    "prompt_tokens": 1312,
+    "completion_tokens": 245,
+    "total_tokens": 1557
+  },
+  "usage_details": {
+    "prompt_tokens_details": {
+      "cached_tokens": 131,
+      "text_tokens": 1181,
+      "cache_write_tokens": 0,
+      "cache_creation_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 245
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 131
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"n_params\": 6, \"security_risk\": \"LOW\", \"source\": \"import numpy as np\\n\\ndef equation(u0, u1, u2, params):\\n    # Initial hypothesis: a compact, general nonlinear combination of the\\n    # three inputs with a few adjustable scalar constants. Not a claimed\\n    # relationship; parameters are placeholders for later fitting.\\n    a = params[0]\\n    b = params[1]\\n    c = params[2]\\n    d = params[3]\\n    e = params[4]\\n    f = params[5]\\n\\n    x = u0\\n    y = u1\\n    z = u2\\n\\n    expr = (\\n        a * x\\n        + b * y\\n        + c * z\\n        + d * np.sin(x)\\n        + e * np.cos(y)\\n        + f * (x * y + y * z + z * x)\\n    )\\n    return np.asarray(expr, dtype=float)\\n\", \"summary\": \"Submit symbolic expression initial hypothesis\"}",
+              "name": "submit_candidate"
+            },
+            "id": "call_function_sz2omjz2kk6j_1",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "config": {
+    "max_requests": 8,
+    "max_requests_per_session": 1,
+    "max_output_tokens": 8192,
+    "max_input_bytes": 65536,
+    "max_reserved_tokens": 1000000,
+    "max_cost_cny": 5.0,
+    "input_cny_per_million": 2.1,
+    "output_cny_per_million": 8.4,
+    "session_ids": [
+      "P-select-1",
+      "S-select-1",
+      "P-eval-1",
+      "S-bact-eval-1",
+      "P-select-2",
+      "S-select-2",
+      "P-eval-2",
+      "S-stress-eval-1"
+    ]
+  },
+  "requests": [
+    {
+      "request_id": "request-0001",
+      "session_id": "P-select-1",
+      "input_bytes": 7335,
+      "payload_sha256": "1d34d037838f4eb091d51a0dcad2714505d20fac4106669d429e9eb75fe77125",
+      "input_token_reservation": 15527,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1014195,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 2136,
+        "completion_tokens": 2661,
+        "total_tokens": 4797
+      },
+      "usage_state": "known",
+      "usage_sha256": "aa1ecb6c5fb69a6cf726e87495354f892a94c28a1d20fb49dbcf51cf4fcb833a",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.026838
+    },
+    {
+      "request_id": "request-0002",
+      "session_id": "S-select-1",
+      "input_bytes": 4730,
+      "payload_sha256": "cb753f1c6d69f3643e2ad599bcbecdc4b2e6b845c7e82818b1b30e243936bcd1",
+      "input_token_reservation": 12922,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.095949,
+      "status": "settled",
+      "usage": {
+        "prompt_tokens": 1312,
+        "completion_tokens": 245,
+        "total_tokens": 1557
+      },
+      "usage_state": "known",
+      "usage_sha256": "578383b2a8558e685cf9ec7b9bc051f6a8862deb2590b6af6940ba51565a2594",
+      "error_type": null,
+      "actual_estimated_cost_cny": 0.0048132
+    },
+    {
+      "request_id": "request-0003",
+      "session_id": "P-eval-1",
+      "input_bytes": 7335,
+      "payload_sha256": "1d34d037838f4eb091d51a0dcad2714505d20fac4106669d429e9eb75fe77125",
+      "input_token_reservation": 15527,
+      "output_token_reservation": 8192,
+      "reserved_cost_cny": 0.1014195,
+      "status": "failed",
+      "usage": null,
+      "usage_state": "unknown",
+      "usage_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error_type": "Timeout"
+    }
+  ],
+  "halted": true,
+  "halt_reasons": [
+    "usage_unknown"
+  ]
+}

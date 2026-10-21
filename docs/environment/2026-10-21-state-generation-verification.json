@@ -1,0 +1,170 @@
+{
+  "version": "state-generation-verification-v0.1",
+  "implementation_commit": "cb40fee10a6f1f589328f8e3f8cbcc926b644c0d",
+  "audit_status": "record_consistent_incomplete",
+  "independent_record_review": "docs/analysis/2026-10-21-state-generation-record-review.md",
+  "allocation_completed": false,
+  "local_server_audit_bytes_equal": true,
+  "audit_sha256": "b69bbd4d5acf773097d13f36338ae34501d249251cf2c2d86b62eec3d77b4d11",
+  "raw_file_count": 43,
+  "raw_tree_sha256": "769fa632ad992506f2276d6d79ceb9c4891de1ad1f4b4549c153f698cd4577e5",
+  "archive_manifest_sha256": "c8b249c5c8bbbcff497e86536309e5f6cfbf7ca8b4eac59871101d778466086c",
+  "raw_transfer_sha256": "229a18128f597cd295ff56c0bc7578a866d371ebb04240a30ad739b644959e20",
+  "source_freeze_sha256": "99c218339fdf02b016d9c0d99212123bcf7b1a01ae9bc2d96a882217de3839f8",
+  "static_analysis_sha256": "bb55ffb465702e6e69accb233091559fa1c1d0d2c8fd95a4e9bac0c1f3149e19",
+  "tests": {
+    "local": {
+      "python": "3.12.14",
+      "platform": "win32",
+      "tests_run": 73,
+      "passed": 57,
+      "skipped": 16,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 2.641,
+      "output": "...................ssssssssssssssss......................................\n----------------------------------------------------------------------\nRan 73 tests in 2.629s\n\nOK (skipped=16)\n",
+      "skipped_tests": [
+        [
+          "test_controller_exception_is_halted_and_private_text_is_not_reported (tests.test_state_generation_agent.GenerationSDKTests.test_controller_exception_is_halted_and_private_text_is_not_reported)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_existing_receipt_is_never_overwritten_or_redispatched (tests.test_state_generation_agent.GenerationSDKTests.test_existing_receipt_is_never_overwritten_or_redispatched)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_finish_plain_text_and_empty_tool_calls_are_missing_results (tests.test_state_generation_agent.GenerationSDKTests.test_finish_plain_text_and_empty_tool_calls_are_missing_results)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_forbidden_or_duplicate_tool_calls_never_dispatch (tests.test_state_generation_agent.GenerationSDKTests.test_forbidden_or_duplicate_tool_calls_never_dispatch)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_invalid_caps_or_controller_binding_refuse_before_provider (tests.test_state_generation_agent.GenerationSDKTests.test_invalid_caps_or_controller_binding_refuse_before_provider)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_malformed_business_never_creates_a_candidate_or_receipt (tests.test_state_generation_agent.GenerationSDKTests.test_malformed_business_never_creates_a_candidate_or_receipt)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_packet_and_full_wire_have_separate_64k_limits (tests.test_state_generation_agent.GenerationSDKTests.test_packet_and_full_wire_have_separate_64k_limits)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_packet_change_after_transport_preserves_response_but_rejects_dispatch (tests.test_state_generation_agent.GenerationSDKTests.test_packet_change_after_transport_preserves_response_but_rejects_dispatch)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_packet_change_before_run_is_rejected_before_provider (tests.test_state_generation_agent.GenerationSDKTests.test_packet_change_before_run_is_rejected_before_provider)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_raw_metadata_is_preserved_separately_from_sdk_business (tests.test_state_generation_agent.GenerationSDKTests.test_raw_metadata_is_preserved_separately_from_sdk_business)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_receipt_is_durable_before_core_submit (tests.test_state_generation_agent.GenerationSDKTests.test_receipt_is_durable_before_core_submit)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_roundtrip_archives_without_execution_and_binds_actual_request (tests.test_state_generation_agent.GenerationSDKTests.test_roundtrip_archives_without_execution_and_binds_actual_request)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_schema_has_only_two_required_fields_and_bounds (tests.test_state_generation_agent.GenerationSDKTests.test_schema_has_only_two_required_fields_and_bounds)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_second_session_run_refuses_before_another_model_request (tests.test_state_generation_agent.GenerationSDKTests.test_second_session_run_refuses_before_another_model_request)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_strict_source_parameter_and_extra_field_validation (tests.test_state_generation_agent.GenerationSDKTests.test_strict_source_parameter_and_extra_field_validation)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ],
+        [
+          "test_unknown_usage_halts_without_accepting_source (tests.test_state_generation_agent.GenerationSDKTests.test_unknown_usage_halts_without_accepting_source)",
+          "OpenHands SDK is absent; run these tests in the server SDK 1.55.1 environment"
+        ]
+      ]
+    },
+    "server": {
+      "python": "3.12.14",
+      "platform": "linux",
+      "tests_run": 73,
+      "passed": 73,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 2.274,
+      "output": ".........................................................................\n----------------------------------------------------------------------\nRan 73 tests in 2.274s\n\nOK\n",
+      "skipped_tests": []
+    }
+  },
+  "distinct_tests": 73,
+  "local_server_tested_source_hashes_equal": true,
+  "sdk_integration": {
+    "mode": "offline_sdk_mock_not_research",
+    "mock_provider_calls": 8,
+    "actual_research_requests": 0,
+    "candidate_executions": 0,
+    "audit_status": "passed",
+    "network_and_execution_entrypoints_replaced_with_raising_guards": true
+  },
+  "new_activity": {
+    "model_requests": 3,
+    "accepted_unexecuted_sources": 2,
+    "candidate_executions": 0,
+    "task_evaluations": 0,
+    "probe_executions": 0,
+    "sealed_evaluations": 0,
+    "symbolic_csv_reads": 0,
+    "strategy_updates": 0,
+    "model_weight_updates": 0
+  },
+  "stopped": {
+    "slot": "P-eval-1",
+    "http_status": 408,
+    "provider_error_type": "Timeout",
+    "sdk_cause": "LLMTimeoutError",
+    "usage_unknown": true,
+    "not_started_slots": 5,
+    "retried": false,
+    "resumed": false
+  },
+  "current_cost": {
+    "known_tokens": 6354,
+    "known_estimated_cny": 0.0316512,
+    "reserved_cny": 0.298788,
+    "unknown_usage_requests": 1,
+    "actual_estimated_cny": null
+  },
+  "cumulative_research_cost": {
+    "requests": 118,
+    "known_tokens": 902997,
+    "known_estimated_cny": 2.8043505,
+    "reserved_cny": 12.208896,
+    "unknown_usage_requests": 2,
+    "actual_estimated_cny": null,
+    "excluded": "7 connection/debug requests, Canvas usage, and other projects"
+  },
+  "scan": {
+    "scope": "43 archived raw files",
+    "secret_pattern_hits": []
+  },
+  "reproduction": {
+    "python": "3.12.14",
+    "sdk": "1.55.1",
+    "ast_hash_version_sensitive": true,
+    "python310_attempt": "rejected historical AST hash; rerun in unchanged Python3.12.14 environment passed incomplete-record audit"
+  },
+  "historical_verification": "docs/environment/2026-10-21-state-generation-history-verification.json",
+  "limitations": [
+    "Not a completed eight-state cohort.",
+    "No candidate/task performance measured.",
+    "Hashes attest record consistency, not service authenticity or independent timestamps.",
+    "Eight-state generation incomplete; future 36-request allocation is not executable."
+  ]
+}

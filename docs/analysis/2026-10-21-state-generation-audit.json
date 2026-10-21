@@ -1,0 +1,206 @@
+{
+  "status": "record_consistent_incomplete",
+  "run_status": "stopped",
+  "allocation_completed": false,
+  "runtime_commit": "cb40fee10a6f1f589328f8e3f8cbcc926b644c0d",
+  "model_requests": 3,
+  "accepted_sources": 2,
+  "request_reservations": 3,
+  "transport_dispatch_attempts": 3,
+  "missing_or_unattempted_sources": 6,
+  "known_tokens": 6354,
+  "known_estimated_cost_cny": 0.0316512,
+  "actual_estimated_cost_cny": null,
+  "reserved_cost_cny": 0.298788,
+  "unknown_usage_requests": 1,
+  "history_source_files": 149,
+  "frozen_session_files": 34,
+  "source_freeze_sha256": "99c218339fdf02b016d9c0d99212123bcf7b1a01ae9bc2d96a882217de3839f8",
+  "analysis_sha256": "bb55ffb465702e6e69accb233091559fa1c1d0d2c8fd95a4e9bac0c1f3149e19",
+  "common_request_sha256": {
+    "planning": "1d34d037838f4eb091d51a0dcad2714505d20fac4106669d429e9eb75fe77125",
+    "symbolic-3": "cb753f1c6d69f3643e2ad599bcbecdc4b2e6b845c7e82818b1b30e243936bcd1"
+  },
+  "receipts": [
+    {
+      "slot_id": "P-select-1",
+      "network_dispatch_attempted": true,
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0001",
+      "usage": {
+        "prompt_tokens": 2136,
+        "completion_tokens": 2661,
+        "total_tokens": 4797
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "S-select-1",
+      "network_dispatch_attempted": true,
+      "submitted": true,
+      "accepted": true,
+      "incomplete": false,
+      "request_id": "request-0002",
+      "usage": {
+        "prompt_tokens": 1312,
+        "completion_tokens": 245,
+        "total_tokens": 1557
+      },
+      "tool_name": "submit_candidate",
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    },
+    {
+      "slot_id": "P-eval-1",
+      "network_dispatch_attempted": true,
+      "submitted": false,
+      "accepted": false,
+      "incomplete": true,
+      "request_id": "request-0003",
+      "usage": null,
+      "tool_name": null,
+      "normalization_scope": "strict_json_sdk_metadata_removal_only"
+    }
+  ],
+  "static_analysis": {
+    "version": "state-generation-static-v0.1",
+    "source_freeze_sha256": "99c218339fdf02b016d9c0d99212123bcf7b1a01ae9bc2d96a882217de3839f8",
+    "rows": [
+      {
+        "id": "P-select-1",
+        "family": "planning",
+        "role": "selection",
+        "disposition": "available",
+        "source_sha256": "eed58cd222bf6f22a3617aed6517acf5e2ce7dddb2920b26452817af12fb8d6b",
+        "ast_sha256": "f7a9da78e175efeba4f0260d717edc1603a89fe05ebb3741ddb312123c7c7939",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 0
+      },
+      {
+        "id": "S-select-1",
+        "family": "symbolic",
+        "role": "selection",
+        "disposition": "available",
+        "source_sha256": "f7339d1fef034c470228a65acb527d22e735e738e8298310260aa730b91c3f83",
+        "ast_sha256": "3136a90527fd116c762ccc283ee715d762c89f0a53cfd23529e7f60b68de00ac",
+        "parse_status": "parsed",
+        "entry_signature_matches": true,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": [],
+        "n_params": 6
+      },
+      {
+        "id": "P-eval-1",
+        "family": "planning",
+        "role": "evaluation",
+        "disposition": "blocked",
+        "source_sha256": null,
+        "ast_sha256": null,
+        "parse_status": "no_source",
+        "entry_signature_matches": false,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": []
+      },
+      {
+        "id": "S-bact-eval-1",
+        "family": "symbolic",
+        "role": "evaluation",
+        "disposition": "not_started",
+        "source_sha256": null,
+        "ast_sha256": null,
+        "parse_status": "no_source",
+        "entry_signature_matches": false,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": []
+      },
+      {
+        "id": "P-select-2",
+        "family": "planning",
+        "role": "selection",
+        "disposition": "not_started",
+        "source_sha256": null,
+        "ast_sha256": null,
+        "parse_status": "no_source",
+        "entry_signature_matches": false,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": []
+      },
+      {
+        "id": "S-select-2",
+        "family": "symbolic",
+        "role": "selection",
+        "disposition": "not_started",
+        "source_sha256": null,
+        "ast_sha256": null,
+        "parse_status": "no_source",
+        "entry_signature_matches": false,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": []
+      },
+      {
+        "id": "P-eval-2",
+        "family": "planning",
+        "role": "evaluation",
+        "disposition": "not_started",
+        "source_sha256": null,
+        "ast_sha256": null,
+        "parse_status": "no_source",
+        "entry_signature_matches": false,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": []
+      },
+      {
+        "id": "S-stress-eval-1",
+        "family": "symbolic",
+        "role": "evaluation",
+        "disposition": "not_started",
+        "source_sha256": null,
+        "ast_sha256": null,
+        "parse_status": "no_source",
+        "entry_signature_matches": false,
+        "executed": false,
+        "historical_source_matches": [],
+        "historical_ast_matches": []
+      }
+    ],
+    "source_slots": 8,
+    "available_sources": 2,
+    "distinct_source_count": 2,
+    "distinct_ast_count": 2,
+    "source_duplicate_groups": [],
+    "ast_duplicate_groups": [],
+    "cross_role_ast_duplicates": [],
+    "any_historical_source_collision": false,
+    "any_historical_ast_collision": false,
+    "candidate_executions": 0,
+    "performance_scores": null,
+    "limitations": [
+      "AST equality ignores comments/locations only; no alpha-renaming or semantic equivalence check.",
+      "A parsed matching entry signature does not prove runtime correctness or task suitability.",
+      "New API requests are not guaranteed new independent program states."
+    ]
+  },
+  "candidate_executions": 0,
+  "task_evaluations": 0,
+  "probe_executions": 0,
+  "sealed_tasks_executed": 0,
+  "strategy_updates": 0,
+  "limitations": [
+    "Saved trusted records verified; no provider authenticity or independent timestamp attestation.",
+    "Strict JSON plus SDK metadata removal only; no claim to replay other SDK argument repairs.",
+    "No candidate execution, task performance measurement, strategy update, or independent-state guarantee.",
+    "Stopped evidence remains incomplete; missing or unknown usage is not counted as zero."
+  ]
+}

@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**最新完成任务收益接受规则、全量历史回放和后续任务划分。** 24份历史终稿中4份符合新收益规则、20份保留；本轮无新增模型或候选执行，不是新策略成绩。76项不同测试双端全通过，回放报告逐字节一致。见[完整说明](docs/operations/goal-alignment.md)、[逐例结果](docs/analysis/2026-10-21-goal-alignment-results.md)和[验收](docs/environment/2026-10-21-goal-alignment-verification.json)。
+**最新完成冷启动来源生成实现与一次中止轮归档，8槽批次尚未完成。** 真实3请求后第三槽超时、usage未知，保存2源码，后5未开始；无候选执行或新策略成绩。服务器73项测试通过，43原文件双端审计一致。见[完整说明](docs/operations/state-generation.md)、[结果](docs/analysis/2026-10-21-state-generation-results.md)、[验收](docs/environment/2026-10-21-state-generation-verification.json)。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -23,7 +23,8 @@
 
 ## 阅读入口
 
-- [最新任务收益规则与任务划分](docs/operations/goal-alignment.md)：本轮接受器、全量回放、任务角色与边界。
+- [最新冷启动来源生成](docs/operations/state-generation.md)：生成协议、真实中止轮、来源审计与后续边界。
+- [此前任务收益规则与任务划分](docs/operations/goal-alignment.md)：接受器、全量回放、任务角色与边界。
 
 1. [项目状态与下一步](STATUS.md)
 2. [形式规划与符号发现联合设计](docs/research/planning-symbolic-design-2026-10-17/形式规划与符号发现_联合研究设计_v0.1.md)
@@ -59,7 +60,7 @@
 27. [两阶段登记—检查—修订及混淆分析](docs/operations/two-stage.md)
 28. [此前：冻结证据回放决策](docs/operations/decision-replay.md) · [结果](docs/analysis/2026-10-21-decision-replay-results.md) · [核验](docs/environment/2026-10-21-decision-replay-verification.json)
 
-29. [最新：编辑声明一致性检查](docs/operations/edit-consistency.md) · [原文标注](configs/analysis/edit-consistency-v0.1.json) · [机器报告](docs/analysis/2026-10-21-edit-consistency-report.json)
+29. [此前：编辑声明一致性检查](docs/operations/edit-consistency.md) · [原文标注](configs/analysis/edit-consistency-v0.1.json) · [机器报告](docs/analysis/2026-10-21-edit-consistency-report.json)
 
 ## 仓库边界
 

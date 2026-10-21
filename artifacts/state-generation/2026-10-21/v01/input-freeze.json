@@ -1,0 +1,1661 @@
+{
+  "version": "state-generation-v0.1",
+  "config": {
+    "version": "state-generation-v0.1",
+    "protocol": "docs/protocols/2026-10-21-state-generation-v0.1.md",
+    "partition_path": "configs/tasks/strategy-partition-v0.1.json",
+    "partition_sha256": "bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7",
+    "slot_order": [
+      "P-select-1",
+      "S-select-1",
+      "P-eval-1",
+      "S-bact-eval-1",
+      "P-select-2",
+      "S-select-2",
+      "P-eval-2",
+      "S-stress-eval-1"
+    ],
+    "resume": false,
+    "candidate_executions": 0,
+    "new_probe_executions": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0,
+    "budgets": {
+      "max_requests": 8,
+      "max_requests_per_session": 1,
+      "max_output_tokens": 8192,
+      "max_input_bytes": 65536,
+      "max_reserved_tokens": 1000000,
+      "max_cost_cny": 5,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4
+    }
+  },
+  "config_sha256": "5a86f945e8a2c1886ab2ad9d3469f231aa734c598622a54fd970b476380faf0a",
+  "source_bindings": {
+    "configs/pilots/state-generation-v0.1.json": "5a86f945e8a2c1886ab2ad9d3469f231aa734c598622a54fd970b476380faf0a",
+    "configs/tasks/strategy-partition-v0.1.json": "bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7",
+    "configs/tasks/planning-spanner-v0.1.json": "4ff1d95f4c0350564115e42d3dbf342bf7e7c65842bcdd088d2d415942200010",
+    "configs/tasks/downloads-v0.1.json": "6f538df7320ecb74732bf7ed9b88cabde77e7223f45cb24faec1e80ee1249ba8",
+    "prompts/state-generation/planning.md": "af76e178c51424b6fae45eaf8864424936369cc6d83e02a7f3eb855adb236204",
+    "prompts/state-generation/symbolic.md": "bcabad3f1dd5dec126930742cecb415fad5c432835cced40dec1150d8ab2cd07"
+  },
+  "public_example_bindings": [
+    {
+      "task_id": "spannerlearning/seed0/problem0",
+      "pddl_sha256": "9dd3f63454e646145a4a555cdd974d0c4fce27603274b06e82f137ffe489c944",
+      "prepared_sha256": "cfa3a0584dd1e4724b528d9ee158c44e8e961fa1505e088e7f38b8f052aac9ca"
+    },
+    {
+      "task_id": "spannerlearning/seed0/problem1",
+      "pddl_sha256": "6bfc9e1215a82f90ee7c47b125e6095ef8d4b69f2af3bed9a911102c914b1e6f",
+      "prepared_sha256": "834f86423965d0f76e609742f374dc9067ac8a49f493a2077e6d7c882a7a723c"
+    }
+  ],
+  "slots": [
+    {
+      "id": "P-select-1",
+      "family": "planning",
+      "role": "selection",
+      "task_ids": [
+        "spannerlearning/seed1/problem0",
+        "spannerlearning/seed1/problem1",
+        "spannerlearning/seed1/problem2",
+        "spannerlearning/seed1/problem3",
+        "spannerlearning/seed1/problem5",
+        "spannerlearning/seed1/problem6",
+        "spannerlearning/seed1/problem7",
+        "spannerlearning/seed1/problem8",
+        "spannerlearning/seed1/problem9",
+        "spannerlearning/seed2/problem0",
+        "spannerlearning/seed2/problem1",
+        "spannerlearning/seed2/problem2",
+        "spannerlearning/seed2/problem3",
+        "spannerlearning/seed2/problem4",
+        "spannerlearning/seed2/problem5",
+        "spannerlearning/seed2/problem6",
+        "spannerlearning/seed2/problem7",
+        "spannerlearning/seed2/problem8",
+        "spannerlearning/seed2/problem9"
+      ],
+      "input_dimension": null,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "planning",
+        "instructions": "Produce one complete Python planning program from the public contract and two example inputs. There is no starting program, measured feedback, reference plan or opportunity for a second submission. Aim to solve the task; do not intentionally insert defects. Your source will be stored without being run. Do not claim it has passed any task.\n\nDefine `get_plan(objects, init, goal)`. At execution, objects is a set of (object_name, declared_type) tuples; init and goal are sets of predicate tuples. The JSON examples use arrays in place of sets and tuples. Return a list of at most 1000 grounded action strings, each one parenthesized, using the exact argument order below. Do not hardcode example objects or a plan. Do not mutate the inputs or rely on set iteration order.\n\nThis is the public domain definition, not a solution. A missing fact is false. Links are directed, and action preconditions must hold after preceding effects.\n\n```lisp\n(define (domain spanner)\n(:requirements :typing :strips)\n(:types location locatable - object man nut spanner - locatable)\n(:predicates\n  (at ?m - locatable ?l - location)\n  (carrying ?m - man ?s - spanner)\n  (useable ?s - spanner)\n  (link ?l1 - location ?l2 - location)\n  (tightened ?n - nut)\n  (loose ?n - nut))\n(:action walk\n  :parameters (?start - location ?end - location ?m - man)\n  :precondition (and (at ?m ?start) (link ?start ?end))\n  :effect (and (not (at ?m ?start)) (at ?m ?end)))\n(:action pickup_spanner\n  :parameters (?l - location ?s - spanner ?m - man)\n  :precondition (and (at ?m ?l) (at ?s ?l))\n  :effect (and (not (at ?s ?l)) (carrying ?m ?s)))\n(:action tighten_nut\n  :parameters (?l - location ?s - spanner ?m - man ?n - nut)\n  :precondition (and (at ?m ?l) (at ?n ?l) (carrying ?m ?s) (useable ?s) (loose ?n))\n  :effect (and (not (loose ?n)) (not (useable ?s)) (tightened ?n)))\n)\n```\n\nUse only Python's standard library. Do not access files, network, subprocesses or other programs. Submit the complete source once with n_params=0 through submit_candidate. Only source and n_params are accepted; do not include explanations or additional fields.\n",
+        "interface": {
+          "signature": "get_plan(objects, init, goal)",
+          "n_params": 0,
+          "output": "list of grounded action strings"
+        },
+        "examples": [
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location1"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          },
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location3"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location4"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          }
+        ]
+      },
+      "packet_sha256": "ed0a7d876f2f6902c555d107105603f320f9c4ba3a514b320680e3f695150583"
+    },
+    {
+      "id": "S-select-1",
+      "family": "symbolic",
+      "role": "selection",
+      "task_ids": [
+        "oscillator2"
+      ],
+      "input_dimension": 3,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "symbolic",
+        "instructions": "Produce one complete Python expression program for a scalar response with the anonymous numeric inputs specified in the interface. No observed rows, target values, scores, reference expression or physical meaning are supplied. There is no starting program and no opportunity for a second submission. Propose a compact general expression with adjustable scalar constants as an initial hypothesis; do not intentionally insert defects or claim a verified relationship.\n\nDefine equation with the input arrays in their stated order, followed by params. Each input is a read-only one-dimensional NumPy array of equal length. Return one finite numeric value per row, as an array of exactly shape (len(u0),). NumPy is available as np. Use vectorized operations, without file, network, subprocess or extra-package access. Do not encode row numbers, sampled targets or lookup tables. The source will be stored without running or fitting it.\n\nDeclare n_params as an integer from 0 to 16; every parameter index used must fit that array. In a later, separately controlled fitting process, parameters start at one and may be adjusted using bounded least squares. No such process runs during this submission.\n\nUse submit_candidate exactly once with complete source and n_params. These are the only accepted fields; do not include an explanation or additional fields. Your expression is an untested initial hypothesis, not an established formula.\n",
+        "input_dimension": 3,
+        "input_names": [
+          "u0",
+          "u1",
+          "u2"
+        ],
+        "interface": {
+          "signature": "equation(u0, u1, u2, params)",
+          "n_params_min": 0,
+          "n_params_max": 16,
+          "output": "finite numeric array of shape (len(u0),)"
+        }
+      },
+      "packet_sha256": "10bbc54bd4c20c67eb42a1c1c44a41b752b6873c2fb2d8c3cc1e1725c1c0c46b"
+    },
+    {
+      "id": "P-eval-1",
+      "family": "planning",
+      "role": "evaluation",
+      "task_ids": [
+        "spannerlearning/seed3/problem0",
+        "spannerlearning/seed3/problem2",
+        "spannerlearning/seed3/problem3",
+        "spannerlearning/seed3/problem4",
+        "spannerlearning/seed3/problem5",
+        "spannerlearning/seed3/problem6",
+        "spannerlearning/seed3/problem7",
+        "spannerlearning/seed3/problem8",
+        "spannerlearning/seed3/problem9",
+        "spannerlearning/seed4/problem0",
+        "spannerlearning/seed4/problem1",
+        "spannerlearning/seed4/problem2",
+        "spannerlearning/seed4/problem3",
+        "spannerlearning/seed4/problem4",
+        "spannerlearning/seed4/problem5",
+        "spannerlearning/seed4/problem6",
+        "spannerlearning/seed4/problem7",
+        "spannerlearning/seed4/problem8",
+        "spannerlearning/seed4/problem9",
+        "spannerlearning/seed5/problem0",
+        "spannerlearning/seed5/problem1",
+        "spannerlearning/seed5/problem2",
+        "spannerlearning/seed5/problem3",
+        "spannerlearning/seed5/problem5",
+        "spannerlearning/seed5/problem6",
+        "spannerlearning/seed5/problem7",
+        "spannerlearning/seed5/problem8",
+        "spannerlearning/seed5/problem9",
+        "spannerlearning/seed6/problem0",
+        "spannerlearning/seed6/problem1",
+        "spannerlearning/seed6/problem2",
+        "spannerlearning/seed6/problem3",
+        "spannerlearning/seed6/problem4",
+        "spannerlearning/seed6/problem6",
+        "spannerlearning/seed6/problem7",
+        "spannerlearning/seed6/problem8",
+        "spannerlearning/seed6/problem9",
+        "spannerlearning/seed7/problem1",
+        "spannerlearning/seed7/problem2",
+        "spannerlearning/seed7/problem3",
+        "spannerlearning/seed7/problem4",
+        "spannerlearning/seed7/problem5",
+        "spannerlearning/seed7/problem6",
+        "spannerlearning/seed7/problem7",
+        "spannerlearning/seed7/problem8",
+        "spannerlearning/seed8/problem1",
+        "spannerlearning/seed8/problem3",
+        "spannerlearning/seed8/problem4",
+        "spannerlearning/seed8/problem5",
+        "spannerlearning/seed8/problem6",
+        "spannerlearning/seed8/problem7",
+        "spannerlearning/seed8/problem8",
+        "spannerlearning/seed8/problem9",
+        "spannerlearning/seed9/problem0",
+        "spannerlearning/seed9/problem1",
+        "spannerlearning/seed9/problem2",
+        "spannerlearning/seed9/problem3",
+        "spannerlearning/seed9/problem4",
+        "spannerlearning/seed9/problem5",
+        "spannerlearning/seed9/problem6",
+        "spannerlearning/seed9/problem7",
+        "spannerlearning/seed9/problem8",
+        "spannerlearning/seed9/problem9"
+      ],
+      "input_dimension": null,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "planning",
+        "instructions": "Produce one complete Python planning program from the public contract and two example inputs. There is no starting program, measured feedback, reference plan or opportunity for a second submission. Aim to solve the task; do not intentionally insert defects. Your source will be stored without being run. Do not claim it has passed any task.\n\nDefine `get_plan(objects, init, goal)`. At execution, objects is a set of (object_name, declared_type) tuples; init and goal are sets of predicate tuples. The JSON examples use arrays in place of sets and tuples. Return a list of at most 1000 grounded action strings, each one parenthesized, using the exact argument order below. Do not hardcode example objects or a plan. Do not mutate the inputs or rely on set iteration order.\n\nThis is the public domain definition, not a solution. A missing fact is false. Links are directed, and action preconditions must hold after preceding effects.\n\n```lisp\n(define (domain spanner)\n(:requirements :typing :strips)\n(:types location locatable - object man nut spanner - locatable)\n(:predicates\n  (at ?m - locatable ?l - location)\n  (carrying ?m - man ?s - spanner)\n  (useable ?s - spanner)\n  (link ?l1 - location ?l2 - location)\n  (tightened ?n - nut)\n  (loose ?n - nut))\n(:action walk\n  :parameters (?start - location ?end - location ?m - man)\n  :precondition (and (at ?m ?start) (link ?start ?end))\n  :effect (and (not (at ?m ?start)) (at ?m ?end)))\n(:action pickup_spanner\n  :parameters (?l - location ?s - spanner ?m - man)\n  :precondition (and (at ?m ?l) (at ?s ?l))\n  :effect (and (not (at ?s ?l)) (carrying ?m ?s)))\n(:action tighten_nut\n  :parameters (?l - location ?s - spanner ?m - man ?n - nut)\n  :precondition (and (at ?m ?l) (at ?n ?l) (carrying ?m ?s) (useable ?s) (loose ?n))\n  :effect (and (not (loose ?n)) (not (useable ?s)) (tightened ?n)))\n)\n```\n\nUse only Python's standard library. Do not access files, network, subprocesses or other programs. Submit the complete source once with n_params=0 through submit_candidate. Only source and n_params are accepted; do not include explanations or additional fields.\n",
+        "interface": {
+          "signature": "get_plan(objects, init, goal)",
+          "n_params": 0,
+          "output": "list of grounded action strings"
+        },
+        "examples": [
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location1"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          },
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location3"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location4"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          }
+        ]
+      },
+      "packet_sha256": "ed0a7d876f2f6902c555d107105603f320f9c4ba3a514b320680e3f695150583"
+    },
+    {
+      "id": "S-bact-eval-1",
+      "family": "symbolic",
+      "role": "evaluation",
+      "task_ids": [
+        "bactgrow"
+      ],
+      "input_dimension": 4,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "symbolic",
+        "instructions": "Produce one complete Python expression program for a scalar response with the anonymous numeric inputs specified in the interface. No observed rows, target values, scores, reference expression or physical meaning are supplied. There is no starting program and no opportunity for a second submission. Propose a compact general expression with adjustable scalar constants as an initial hypothesis; do not intentionally insert defects or claim a verified relationship.\n\nDefine equation with the input arrays in their stated order, followed by params. Each input is a read-only one-dimensional NumPy array of equal length. Return one finite numeric value per row, as an array of exactly shape (len(u0),). NumPy is available as np. Use vectorized operations, without file, network, subprocess or extra-package access. Do not encode row numbers, sampled targets or lookup tables. The source will be stored without running or fitting it.\n\nDeclare n_params as an integer from 0 to 16; every parameter index used must fit that array. In a later, separately controlled fitting process, parameters start at one and may be adjusted using bounded least squares. No such process runs during this submission.\n\nUse submit_candidate exactly once with complete source and n_params. These are the only accepted fields; do not include an explanation or additional fields. Your expression is an untested initial hypothesis, not an established formula.\n",
+        "input_dimension": 4,
+        "input_names": [
+          "u0",
+          "u1",
+          "u2",
+          "u3"
+        ],
+        "interface": {
+          "signature": "equation(u0, u1, u2, u3, params)",
+          "n_params_min": 0,
+          "n_params_max": 16,
+          "output": "finite numeric array of shape (len(u0),)"
+        }
+      },
+      "packet_sha256": "870ec8ea685563286ce91f3da9a4ed6c4a66891cde687f0c07537875a6166f19"
+    },
+    {
+      "id": "P-select-2",
+      "family": "planning",
+      "role": "selection",
+      "task_ids": [
+        "spannerlearning/seed1/problem0",
+        "spannerlearning/seed1/problem1",
+        "spannerlearning/seed1/problem2",
+        "spannerlearning/seed1/problem3",
+        "spannerlearning/seed1/problem5",
+        "spannerlearning/seed1/problem6",
+        "spannerlearning/seed1/problem7",
+        "spannerlearning/seed1/problem8",
+        "spannerlearning/seed1/problem9",
+        "spannerlearning/seed2/problem0",
+        "spannerlearning/seed2/problem1",
+        "spannerlearning/seed2/problem2",
+        "spannerlearning/seed2/problem3",
+        "spannerlearning/seed2/problem4",
+        "spannerlearning/seed2/problem5",
+        "spannerlearning/seed2/problem6",
+        "spannerlearning/seed2/problem7",
+        "spannerlearning/seed2/problem8",
+        "spannerlearning/seed2/problem9"
+      ],
+      "input_dimension": null,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "planning",
+        "instructions": "Produce one complete Python planning program from the public contract and two example inputs. There is no starting program, measured feedback, reference plan or opportunity for a second submission. Aim to solve the task; do not intentionally insert defects. Your source will be stored without being run. Do not claim it has passed any task.\n\nDefine `get_plan(objects, init, goal)`. At execution, objects is a set of (object_name, declared_type) tuples; init and goal are sets of predicate tuples. The JSON examples use arrays in place of sets and tuples. Return a list of at most 1000 grounded action strings, each one parenthesized, using the exact argument order below. Do not hardcode example objects or a plan. Do not mutate the inputs or rely on set iteration order.\n\nThis is the public domain definition, not a solution. A missing fact is false. Links are directed, and action preconditions must hold after preceding effects.\n\n```lisp\n(define (domain spanner)\n(:requirements :typing :strips)\n(:types location locatable - object man nut spanner - locatable)\n(:predicates\n  (at ?m - locatable ?l - location)\n  (carrying ?m - man ?s - spanner)\n  (useable ?s - spanner)\n  (link ?l1 - location ?l2 - location)\n  (tightened ?n - nut)\n  (loose ?n - nut))\n(:action walk\n  :parameters (?start - location ?end - location ?m - man)\n  :precondition (and (at ?m ?start) (link ?start ?end))\n  :effect (and (not (at ?m ?start)) (at ?m ?end)))\n(:action pickup_spanner\n  :parameters (?l - location ?s - spanner ?m - man)\n  :precondition (and (at ?m ?l) (at ?s ?l))\n  :effect (and (not (at ?s ?l)) (carrying ?m ?s)))\n(:action tighten_nut\n  :parameters (?l - location ?s - spanner ?m - man ?n - nut)\n  :precondition (and (at ?m ?l) (at ?n ?l) (carrying ?m ?s) (useable ?s) (loose ?n))\n  :effect (and (not (loose ?n)) (not (useable ?s)) (tightened ?n)))\n)\n```\n\nUse only Python's standard library. Do not access files, network, subprocesses or other programs. Submit the complete source once with n_params=0 through submit_candidate. Only source and n_params are accepted; do not include explanations or additional fields.\n",
+        "interface": {
+          "signature": "get_plan(objects, init, goal)",
+          "n_params": 0,
+          "output": "list of grounded action strings"
+        },
+        "examples": [
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location1"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          },
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location3"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location4"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          }
+        ]
+      },
+      "packet_sha256": "ed0a7d876f2f6902c555d107105603f320f9c4ba3a514b320680e3f695150583"
+    },
+    {
+      "id": "S-select-2",
+      "family": "symbolic",
+      "role": "selection",
+      "task_ids": [
+        "oscillator2"
+      ],
+      "input_dimension": 3,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "symbolic",
+        "instructions": "Produce one complete Python expression program for a scalar response with the anonymous numeric inputs specified in the interface. No observed rows, target values, scores, reference expression or physical meaning are supplied. There is no starting program and no opportunity for a second submission. Propose a compact general expression with adjustable scalar constants as an initial hypothesis; do not intentionally insert defects or claim a verified relationship.\n\nDefine equation with the input arrays in their stated order, followed by params. Each input is a read-only one-dimensional NumPy array of equal length. Return one finite numeric value per row, as an array of exactly shape (len(u0),). NumPy is available as np. Use vectorized operations, without file, network, subprocess or extra-package access. Do not encode row numbers, sampled targets or lookup tables. The source will be stored without running or fitting it.\n\nDeclare n_params as an integer from 0 to 16; every parameter index used must fit that array. In a later, separately controlled fitting process, parameters start at one and may be adjusted using bounded least squares. No such process runs during this submission.\n\nUse submit_candidate exactly once with complete source and n_params. These are the only accepted fields; do not include an explanation or additional fields. Your expression is an untested initial hypothesis, not an established formula.\n",
+        "input_dimension": 3,
+        "input_names": [
+          "u0",
+          "u1",
+          "u2"
+        ],
+        "interface": {
+          "signature": "equation(u0, u1, u2, params)",
+          "n_params_min": 0,
+          "n_params_max": 16,
+          "output": "finite numeric array of shape (len(u0),)"
+        }
+      },
+      "packet_sha256": "10bbc54bd4c20c67eb42a1c1c44a41b752b6873c2fb2d8c3cc1e1725c1c0c46b"
+    },
+    {
+      "id": "P-eval-2",
+      "family": "planning",
+      "role": "evaluation",
+      "task_ids": [
+        "spannerlearning/seed3/problem0",
+        "spannerlearning/seed3/problem2",
+        "spannerlearning/seed3/problem3",
+        "spannerlearning/seed3/problem4",
+        "spannerlearning/seed3/problem5",
+        "spannerlearning/seed3/problem6",
+        "spannerlearning/seed3/problem7",
+        "spannerlearning/seed3/problem8",
+        "spannerlearning/seed3/problem9",
+        "spannerlearning/seed4/problem0",
+        "spannerlearning/seed4/problem1",
+        "spannerlearning/seed4/problem2",
+        "spannerlearning/seed4/problem3",
+        "spannerlearning/seed4/problem4",
+        "spannerlearning/seed4/problem5",
+        "spannerlearning/seed4/problem6",
+        "spannerlearning/seed4/problem7",
+        "spannerlearning/seed4/problem8",
+        "spannerlearning/seed4/problem9",
+        "spannerlearning/seed5/problem0",
+        "spannerlearning/seed5/problem1",
+        "spannerlearning/seed5/problem2",
+        "spannerlearning/seed5/problem3",
+        "spannerlearning/seed5/problem5",
+        "spannerlearning/seed5/problem6",
+        "spannerlearning/seed5/problem7",
+        "spannerlearning/seed5/problem8",
+        "spannerlearning/seed5/problem9",
+        "spannerlearning/seed6/problem0",
+        "spannerlearning/seed6/problem1",
+        "spannerlearning/seed6/problem2",
+        "spannerlearning/seed6/problem3",
+        "spannerlearning/seed6/problem4",
+        "spannerlearning/seed6/problem6",
+        "spannerlearning/seed6/problem7",
+        "spannerlearning/seed6/problem8",
+        "spannerlearning/seed6/problem9",
+        "spannerlearning/seed7/problem1",
+        "spannerlearning/seed7/problem2",
+        "spannerlearning/seed7/problem3",
+        "spannerlearning/seed7/problem4",
+        "spannerlearning/seed7/problem5",
+        "spannerlearning/seed7/problem6",
+        "spannerlearning/seed7/problem7",
+        "spannerlearning/seed7/problem8",
+        "spannerlearning/seed8/problem1",
+        "spannerlearning/seed8/problem3",
+        "spannerlearning/seed8/problem4",
+        "spannerlearning/seed8/problem5",
+        "spannerlearning/seed8/problem6",
+        "spannerlearning/seed8/problem7",
+        "spannerlearning/seed8/problem8",
+        "spannerlearning/seed8/problem9",
+        "spannerlearning/seed9/problem0",
+        "spannerlearning/seed9/problem1",
+        "spannerlearning/seed9/problem2",
+        "spannerlearning/seed9/problem3",
+        "spannerlearning/seed9/problem4",
+        "spannerlearning/seed9/problem5",
+        "spannerlearning/seed9/problem6",
+        "spannerlearning/seed9/problem7",
+        "spannerlearning/seed9/problem8",
+        "spannerlearning/seed9/problem9"
+      ],
+      "input_dimension": null,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "planning",
+        "instructions": "Produce one complete Python planning program from the public contract and two example inputs. There is no starting program, measured feedback, reference plan or opportunity for a second submission. Aim to solve the task; do not intentionally insert defects. Your source will be stored without being run. Do not claim it has passed any task.\n\nDefine `get_plan(objects, init, goal)`. At execution, objects is a set of (object_name, declared_type) tuples; init and goal are sets of predicate tuples. The JSON examples use arrays in place of sets and tuples. Return a list of at most 1000 grounded action strings, each one parenthesized, using the exact argument order below. Do not hardcode example objects or a plan. Do not mutate the inputs or rely on set iteration order.\n\nThis is the public domain definition, not a solution. A missing fact is false. Links are directed, and action preconditions must hold after preceding effects.\n\n```lisp\n(define (domain spanner)\n(:requirements :typing :strips)\n(:types location locatable - object man nut spanner - locatable)\n(:predicates\n  (at ?m - locatable ?l - location)\n  (carrying ?m - man ?s - spanner)\n  (useable ?s - spanner)\n  (link ?l1 - location ?l2 - location)\n  (tightened ?n - nut)\n  (loose ?n - nut))\n(:action walk\n  :parameters (?start - location ?end - location ?m - man)\n  :precondition (and (at ?m ?start) (link ?start ?end))\n  :effect (and (not (at ?m ?start)) (at ?m ?end)))\n(:action pickup_spanner\n  :parameters (?l - location ?s - spanner ?m - man)\n  :precondition (and (at ?m ?l) (at ?s ?l))\n  :effect (and (not (at ?s ?l)) (carrying ?m ?s)))\n(:action tighten_nut\n  :parameters (?l - location ?s - spanner ?m - man ?n - nut)\n  :precondition (and (at ?m ?l) (at ?n ?l) (carrying ?m ?s) (useable ?s) (loose ?n))\n  :effect (and (not (loose ?n)) (not (useable ?s)) (tightened ?n)))\n)\n```\n\nUse only Python's standard library. Do not access files, network, subprocesses or other programs. Submit the complete source once with n_params=0 through submit_candidate. Only source and n_params are accepted; do not include explanations or additional fields.\n",
+        "interface": {
+          "signature": "get_plan(objects, init, goal)",
+          "n_params": 0,
+          "output": "list of grounded action strings"
+        },
+        "examples": [
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location1"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          },
+          {
+            "objects": [
+              [
+                "bob",
+                "man"
+              ],
+              [
+                "gate",
+                "location"
+              ],
+              [
+                "location1",
+                "location"
+              ],
+              [
+                "location2",
+                "location"
+              ],
+              [
+                "location3",
+                "location"
+              ],
+              [
+                "location4",
+                "location"
+              ],
+              [
+                "nut1",
+                "nut"
+              ],
+              [
+                "nut2",
+                "nut"
+              ],
+              [
+                "nut3",
+                "nut"
+              ],
+              [
+                "shed",
+                "location"
+              ],
+              [
+                "spanner1",
+                "spanner"
+              ],
+              [
+                "spanner2",
+                "spanner"
+              ],
+              [
+                "spanner3",
+                "spanner"
+              ]
+            ],
+            "init": [
+              [
+                "at",
+                "bob",
+                "shed"
+              ],
+              [
+                "at",
+                "nut1",
+                "gate"
+              ],
+              [
+                "at",
+                "nut2",
+                "gate"
+              ],
+              [
+                "at",
+                "nut3",
+                "gate"
+              ],
+              [
+                "at",
+                "spanner1",
+                "location3"
+              ],
+              [
+                "at",
+                "spanner2",
+                "location4"
+              ],
+              [
+                "at",
+                "spanner3",
+                "location4"
+              ],
+              [
+                "link",
+                "location1",
+                "location2"
+              ],
+              [
+                "link",
+                "location2",
+                "location3"
+              ],
+              [
+                "link",
+                "location3",
+                "location4"
+              ],
+              [
+                "link",
+                "location4",
+                "gate"
+              ],
+              [
+                "link",
+                "shed",
+                "location1"
+              ],
+              [
+                "loose",
+                "nut1"
+              ],
+              [
+                "loose",
+                "nut2"
+              ],
+              [
+                "loose",
+                "nut3"
+              ],
+              [
+                "useable",
+                "spanner1"
+              ],
+              [
+                "useable",
+                "spanner2"
+              ],
+              [
+                "useable",
+                "spanner3"
+              ]
+            ],
+            "goal": [
+              [
+                "tightened",
+                "nut1"
+              ],
+              [
+                "tightened",
+                "nut2"
+              ],
+              [
+                "tightened",
+                "nut3"
+              ]
+            ]
+          }
+        ]
+      },
+      "packet_sha256": "ed0a7d876f2f6902c555d107105603f320f9c4ba3a514b320680e3f695150583"
+    },
+    {
+      "id": "S-stress-eval-1",
+      "family": "symbolic",
+      "role": "evaluation",
+      "task_ids": [
+        "stressstrain"
+      ],
+      "input_dimension": 2,
+      "packet": {
+        "version": "state-generation-packet-v0.1",
+        "family": "symbolic",
+        "instructions": "Produce one complete Python expression program for a scalar response with the anonymous numeric inputs specified in the interface. No observed rows, target values, scores, reference expression or physical meaning are supplied. There is no starting program and no opportunity for a second submission. Propose a compact general expression with adjustable scalar constants as an initial hypothesis; do not intentionally insert defects or claim a verified relationship.\n\nDefine equation with the input arrays in their stated order, followed by params. Each input is a read-only one-dimensional NumPy array of equal length. Return one finite numeric value per row, as an array of exactly shape (len(u0),). NumPy is available as np. Use vectorized operations, without file, network, subprocess or extra-package access. Do not encode row numbers, sampled targets or lookup tables. The source will be stored without running or fitting it.\n\nDeclare n_params as an integer from 0 to 16; every parameter index used must fit that array. In a later, separately controlled fitting process, parameters start at one and may be adjusted using bounded least squares. No such process runs during this submission.\n\nUse submit_candidate exactly once with complete source and n_params. These are the only accepted fields; do not include an explanation or additional fields. Your expression is an untested initial hypothesis, not an established formula.\n",
+        "input_dimension": 2,
+        "input_names": [
+          "u0",
+          "u1"
+        ],
+        "interface": {
+          "signature": "equation(u0, u1, params)",
+          "n_params_min": 0,
+          "n_params_max": 16,
+          "output": "finite numeric array of shape (len(u0),)"
+        }
+      },
+      "packet_sha256": "503883e7d7a0e4ba00fae022672c4fca3cc7fee1aee56a4dd4de560cf3defdb4"
+    }
+  ]
+}

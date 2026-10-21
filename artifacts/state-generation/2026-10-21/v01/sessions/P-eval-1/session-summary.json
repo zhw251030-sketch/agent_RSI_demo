@@ -1,0 +1,27 @@
+{
+  "session_id": "P-eval-1",
+  "stage": "generation",
+  "adapter_version": "state-generation-agent-v0.1",
+  "status": "error",
+  "model_error_type": "ConversationRunError",
+  "sdk_version": "1.55.1",
+  "tools": [
+    "finish",
+    "submit_candidate"
+  ],
+  "http_status": 408,
+  "cause_type": "LLMTimeoutError",
+  "controller": {
+    "version": "state-generation-v0.1",
+    "slot_id": "P-eval-1",
+    "candidate": null,
+    "attempts": 0,
+    "halted": false,
+    "infrastructure_error_type": null,
+    "candidate_executions": 0,
+    "task_scores": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0,
+    "model_calls_owned": 0
+  }
+}

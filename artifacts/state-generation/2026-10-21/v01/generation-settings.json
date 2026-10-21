@@ -1,0 +1,52 @@
+{
+  "model_config_sha256": "d4fa1bae7741af63e7a0375660d39012a4bba3a40f43ceff41907818e464385d",
+  "public": {
+    "model": "anthropic/MiniMax-M3",
+    "model_canonical_name": "minimax/MiniMax-M3",
+    "base_url": "https://api.minimax.cn/anthropic",
+    "api_mode": "chat",
+    "native_tool_calling": true,
+    "force_string_serializer": false,
+    "reasoning_effort": "none",
+    "capability_overrides": {
+      "supports_reasoning_effort": false,
+      "supports_sampling_params": true
+    },
+    "litellm_extra_body": {
+      "thinking": {
+        "type": "disabled"
+      }
+    },
+    "temperature": 1.0,
+    "max_output_tokens": 4096,
+    "num_retries": 0,
+    "timeout": 60,
+    "caching_prompt": false
+  },
+  "effective": {
+    "model": "anthropic/MiniMax-M3",
+    "model_canonical_name": "minimax/MiniMax-M3",
+    "base_url": "https://api.minimax.cn/anthropic",
+    "api_mode": "chat",
+    "native_tool_calling": true,
+    "force_string_serializer": false,
+    "reasoning_effort": "none",
+    "capability_overrides": {
+      "supports_reasoning_effort": false,
+      "supports_sampling_params": true
+    },
+    "litellm_extra_body": {
+      "thinking": {
+        "type": "disabled"
+      }
+    },
+    "temperature": 1.0,
+    "max_output_tokens": 8192,
+    "num_retries": 0,
+    "timeout": 60,
+    "caching_prompt": false,
+    "stream": false,
+    "fallback_strategy": null,
+    "log_completions": false
+  }
+}
