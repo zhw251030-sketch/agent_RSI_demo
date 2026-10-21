@@ -1,0 +1,32 @@
+{
+  "response_id": "chatcmpl-56a0e331-de74-4473-9e66-29d4b63c6e79",
+  "usage": {
+    "prompt_tokens": 25706,
+    "completion_tokens": 321,
+    "total_tokens": 26027
+  },
+  "usage_details": {},
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"explanation\":\"Archive-only reasoning (unverified). Ordering rationale: begin by checking output types/format/parameter order (R01), since the one clear executable failure in the packet was a malformed-operator formatting defect (P-format: invalid_output at first action, plan_length 11). Then anchor diagnosis to the earliest observed failure rather than plan length (R02), which distinguishes the genuinely empty plan_semantics runs (0 executed actions, unsatisfied tightened goals) from the syntax-gate failures. Next require linking each diagnostic to a concrete source location and verifying the change is actually in the submitted bytes (R05), since the packet shows a formatting probe succeeding on a copy that was not deployed, and later \\\"keep_bytes\\\" claims contradicted by changed bytes. Last, require a complete valid repair that preserves correct behavior without unrelated complexity (R8), matching the minimal _fmt fix and the reverted unhelpful 6-term expansion. R03/R04/R06/R07 remain valuable but were not the discriminating bottleneck in these records; they are retained in the catalog rather than prioritized.\",\"rule_1\":\"R01\",\"rule_2\":\"R02\",\"rule_3\":\"R05\",\"rule_4\":\"R08\"}",
+              "name": "submit_policy"
+            },
+            "id": "call_01a15eafc490722d87ea1dad",
+            "type": "function"
+          }
+        ],
+        "provider_specific_fields": {
+          "citations": null,
+          "thinking_blocks": null
+        }
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

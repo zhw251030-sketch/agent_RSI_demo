@@ -1,0 +1,589 @@
+{
+  "version": "measured-failure-sdk-replay-v0.1",
+  "scope": "Offline diagnostic only; hypothetical projection is not a production fix or accepted policy.",
+  "sdk_version": "1.55.1",
+  "python_version": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]",
+  "source_files": {
+    "rsi_eval/strategy_pair_agent.py": "f8e1de6d2a9b98ee7a9ea8422a8b57e1c71ec06535e87548bde69cf960677c0e",
+    "rsi_eval/strategy_pair_controller.py": "7f9373ec834921d5eb979ec0d97c7cab1c073ccb96bc97864106f7e473b18303",
+    "rsi_eval/two_stage_agent.py": "e6f5040aa776707f5331568f6fd698155bd9a53d4d426ba5fc5a565acb5ea0f2"
+  },
+  "request": {
+    "path": "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/requests/request-0001.request.json",
+    "raw_file_sha256": "181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0",
+    "raw_file_bytes": 92564,
+    "canonical_payload_sha256": "0e9156a14309563f41d7eedd1b85b8af602837990e4652d8e6f0198b0101b28c",
+    "canonical_payload_bytes": 90616
+  },
+  "response": {
+    "path": "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/requests/request-0001.response.json",
+    "raw_file_sha256": "072e9e5ae14550c881b9a387660889fb29b983f98b9f67d9b5d59d17ea11b06a",
+    "raw_file_bytes": 2362,
+    "tool_argument_sha256": "f8059ec44a97f5b8af49bf07324b3027bb12bef31b052a820b50e9c49f77d073",
+    "argument_keys": [
+      "explanation",
+      "rule_1",
+      "rule_2",
+      "rule_3",
+      "rule_4",
+      "security_risk",
+      "summary"
+    ]
+  },
+  "sent_submit_policy_schema": {
+    "type": "object",
+    "properties": {
+      "security_risk": {
+        "$ref": "#/$defs/SecurityRisk",
+        "default": "UNKNOWN",
+        "description": "The LLM's assessment of the safety risk of this action."
+      },
+      "summary": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: 'List all Python files in current directory'",
+        "title": "Summary"
+      },
+      "rule_1": {
+        "description": "First fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 1",
+        "type": "string"
+      },
+      "rule_2": {
+        "description": "Second distinct fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 2",
+        "type": "string"
+      },
+      "rule_3": {
+        "description": "Third distinct fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 3",
+        "type": "string"
+      },
+      "rule_4": {
+        "description": "Fourth distinct fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 4",
+        "type": "string"
+      },
+      "explanation": {
+        "default": "",
+        "description": "Optional unverified explanation, at most 4096 UTF-8 bytes; archived only.",
+        "maxLength": 4096,
+        "title": "Explanation",
+        "type": "string"
+      }
+    },
+    "required": [
+      "rule_1",
+      "rule_2",
+      "rule_3",
+      "rule_4"
+    ],
+    "additionalProperties": false
+  },
+  "action_model_fields": [
+    "explanation",
+    "rule_1",
+    "rule_2",
+    "rule_3",
+    "rule_4"
+  ],
+  "action_model_config": {
+    "extra": "forbid",
+    "frozen": true
+  },
+  "raw_controller_rejection": {
+    "type": "ValueError",
+    "message": "Submission fields differ from contract",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/hanwen/Project/project/agent_RSI_demo/tmp/measured-failure-sdk-replay.py\", line 64, in <module>\n    controller.validate_arguments(raw)\n  File \"/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py\", line 107, in validate_arguments\n    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')\n  File \"/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py\", line 22, in _require\n    raise ValueError(message)\nValueError: Submission fields differ from contract\n"
+  },
+  "base_action_model_validate_raw_rejection": {
+    "type": "ValidationError",
+    "message": "2 validation errors for StrategyUpdateAction\nsecurity_risk\n  Extra inputs are not permitted [type=extra_forbidden, input_value='UNKNOWN', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsummary\n  Extra inputs are not permitted [type=extra_forbidden, input_value='Submit four ordered rule... from the fixed catalog', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/hanwen/Project/project/agent_RSI_demo/tmp/measured-failure-sdk-replay.py\", line 72, in <module>\n    StrategyUpdateAction.model_validate(parsed)\n  File \"/home/hanwen/Project/project/agent_RSI_demo/.venv/lib/python3.12/site-packages/pydantic/main.py\", line 732, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npydantic_core._pydantic_core.ValidationError: 2 validation errors for StrategyUpdateAction\nsecurity_risk\n  Extra inputs are not permitted [type=extra_forbidden, input_value='UNKNOWN', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsummary\n  Extra inputs are not permitted [type=extra_forbidden, input_value='Submit four ordered rule... from the fixed catalog', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\n"
+  },
+  "schema_only_enhanced_model_validate_raw_rejection": {
+    "type": "ValidationError",
+    "message": "1 validation error for StrategyUpdateActionWithRiskWithSummary\n  Value error, Submission must be finite UTF-8 JSON [type=value_error, input_value={'explanation': 'Archive-...from the fixed catalog'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/hanwen/Project/project/agent_RSI_demo/tmp/measured-failure-sdk-replay.py\", line 81, in <module>\n    enhanced.model_validate(parsed)\n  File \"/home/hanwen/Project/project/agent_RSI_demo/.venv/lib/python3.12/site-packages/pydantic/main.py\", line 732, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npydantic_core._pydantic_core.ValidationError: 1 validation error for StrategyUpdateActionWithRiskWithSummary\n  Value error, Submission must be finite UTF-8 JSON [type=value_error, input_value={'explanation': 'Archive-...from the fixed catalog'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\n"
+  },
+  "sdk_enhanced_model_json_schema": {
+    "$defs": {
+      "SecurityRisk": {
+        "description": "Security risk levels for actions.\n\nBased on OpenHands security risk levels but adapted for agent-sdk.\nInteger values allow for easy comparison and ordering.",
+        "enum": [
+          "UNKNOWN",
+          "LOW",
+          "MEDIUM",
+          "HIGH"
+        ],
+        "title": "SecurityRisk",
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "rule_1": {
+        "description": "First fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 1",
+        "type": "string"
+      },
+      "rule_2": {
+        "description": "Second distinct fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 2",
+        "type": "string"
+      },
+      "rule_3": {
+        "description": "Third distinct fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 3",
+        "type": "string"
+      },
+      "rule_4": {
+        "description": "Fourth distinct fixed-catalog rule ID.",
+        "enum": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08"
+        ],
+        "title": "Rule 4",
+        "type": "string"
+      },
+      "explanation": {
+        "default": "",
+        "description": "Optional unverified explanation, at most 4096 UTF-8 bytes; archived only.",
+        "maxLength": 4096,
+        "title": "Explanation",
+        "type": "string"
+      },
+      "security_risk": {
+        "$ref": "#/$defs/SecurityRisk",
+        "default": "UNKNOWN",
+        "description": "The LLM's assessment of the safety risk of this action."
+      },
+      "summary": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: 'List all Python files in current directory'",
+        "title": "Summary"
+      },
+      "kind": {
+        "const": "StrategyUpdateActionWithRiskWithSummary",
+        "title": "Kind",
+        "type": "string"
+      }
+    },
+    "required": [
+      "rule_1",
+      "rule_2",
+      "rule_3",
+      "rule_4"
+    ],
+    "title": "StrategyUpdateActionWithRiskWithSummary",
+    "type": "object"
+  },
+  "sent_security_risk_reference_has_no_definition": true,
+  "sdk_extracted_metadata": {
+    "security_risk": "UNKNOWN",
+    "summary": "Submit four ordered rule IDs from the fixed catalog"
+  },
+  "base_action_model_validate_after_sdk_extraction_succeeded": true,
+  "actual_sdk_model_dump": {
+    "rule_1": "R01",
+    "rule_2": "R02",
+    "rule_3": "R05",
+    "rule_4": "R08",
+    "explanation": "Archive-only reasoning (unverified). Ordering rationale: begin by checking output types/format/parameter order (R01), since the one clear executable failure in the packet was a malformed-operator formatting defect (P-format: invalid_output at first action, plan_length 11). Then anchor diagnosis to the earliest observed failure rather than plan length (R02), which distinguishes the genuinely empty plan_semantics runs (0 executed actions, unsatisfied tightened goals) from the syntax-gate failures. Next require linking each diagnostic to a concrete source location and verifying the change is actually in the submitted bytes (R05), since the packet shows a formatting probe succeeding on a copy that was not deployed, and later \"keep_bytes\" claims contradicted by changed bytes. Last, require a complete valid repair that preserves correct behavior without unrelated complexity (R8), matching the minimal _fmt fix and the reverted unhelpful 6-term expansion. R03/R04/R06/R07 remain valuable but were not the discriminating bottleneck in these records; they are retained in the catalog rather than prioritized.",
+    "kind": "StrategyUpdateAction"
+  },
+  "actual_sdk_business_dump": {
+    "rule_1": "R01",
+    "rule_2": "R02",
+    "rule_3": "R05",
+    "rule_4": "R08",
+    "explanation": "Archive-only reasoning (unverified). Ordering rationale: begin by checking output types/format/parameter order (R01), since the one clear executable failure in the packet was a malformed-operator formatting defect (P-format: invalid_output at first action, plan_length 11). Then anchor diagnosis to the earliest observed failure rather than plan length (R02), which distinguishes the genuinely empty plan_semantics runs (0 executed actions, unsatisfied tightened goals) from the syntax-gate failures. Next require linking each diagnostic to a concrete source location and verifying the change is actually in the submitted bytes (R05), since the packet shows a formatting probe succeeding on a copy that was not deployed, and later \"keep_bytes\" claims contradicted by changed bytes. Last, require a complete valid repair that preserves correct behavior without unrelated complexity (R8), matching the minimal _fmt fix and the reverted unhelpful 6-term expansion. R03/R04/R06/R07 remain valuable but were not the discriminating bottleneck in these records; they are retained in the catalog rather than prioritized."
+  },
+  "sdk_normalized_business_validates": true,
+  "sdk_replays": [
+    {
+      "kind": "original_response",
+      "status": "error",
+      "fake_provider_calls": 1,
+      "same_original_request_file_bytes": true,
+      "request_sha256": "181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0",
+      "result": {
+        "version": "strategy-pair-agent-v0.1",
+        "slot_id": "r1-update-updated",
+        "stage": "update",
+        "status": "error",
+        "request_id": "request-0001",
+        "request": {
+          "path": "tmp/measured-failure-sdk-artifacts/original_response/session/requests/request-0001.request.json",
+          "sha256": "181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0"
+        },
+        "response": {
+          "path": "tmp/measured-failure-sdk-artifacts/original_response/session/requests/request-0001.response.json",
+          "sha256": "4dd13eb860427e8bd99edb64c73f28ecea85d0b0625c04447b7728801d3792b5"
+        },
+        "submission": null,
+        "source": null,
+        "policy": null,
+        "sdk_submission": null,
+        "input_audit": {
+          "path": "tmp/measured-failure-sdk-artifacts/original_response/session/requests/input-audit.json",
+          "sha256": "8cf6ad49d306373345aee6570445f9a4afb0398d6164a3debd86bd3111e12b84"
+        },
+        "error_type": "ConversationRunError",
+        "sdk_error_codes": [
+          "ValueError"
+        ],
+        "controller": {
+          "version": "strategy-pair-controller-v0.1",
+          "stage": "update",
+          "status": "pending",
+          "halted": false,
+          "candidate_executions": 0,
+          "task_evaluations": 0,
+          "model_weight_updates": 0,
+          "policy": null,
+          "source": null,
+          "submission": null
+        }
+      },
+      "synthetic_usage_copied_from_original_for_transport_replay_only": true,
+      "scope": "Synthetic SDK replay, excluded from research budget and all policy/measurement results."
+    },
+    {
+      "kind": "counterfactual_metadata_omitted",
+      "status": "accepted",
+      "fake_provider_calls": 1,
+      "same_original_request_file_bytes": true,
+      "request_sha256": "181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0",
+      "result": {
+        "version": "strategy-pair-agent-v0.1",
+        "slot_id": "r1-update-updated",
+        "stage": "update",
+        "status": "accepted",
+        "request_id": "request-0001",
+        "request": {
+          "path": "tmp/measured-failure-sdk-artifacts/counterfactual_metadata_omitted/session/requests/request-0001.request.json",
+          "sha256": "181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0"
+        },
+        "response": {
+          "path": "tmp/measured-failure-sdk-artifacts/counterfactual_metadata_omitted/session/requests/request-0001.response.json",
+          "sha256": "e5df710d2354e200eb8e0eb77af8910cff38b52efd13b0c9e3f3148bf55751b4"
+        },
+        "submission": {
+          "path": "tmp/measured-failure-sdk-artifacts/counterfactual_metadata_omitted/session/submission.json",
+          "sha256": "8cfa9e536384d6f44baf662b6e49aebe52b4e3d77df64c68b277bf10c7541f91"
+        },
+        "source": null,
+        "policy": {
+          "version": "revision-policy-v0.1",
+          "rule_ids": [
+            "R01",
+            "R02",
+            "R05",
+            "R08"
+          ]
+        },
+        "sdk_submission": {
+          "path": "tmp/measured-failure-sdk-artifacts/counterfactual_metadata_omitted/session/sdk-submission.json",
+          "sha256": "d2eae4ffb43ad98b7c8c68db6940910ec8f797d1a050de1528c8efde02c4f2c8"
+        },
+        "input_audit": {
+          "path": "tmp/measured-failure-sdk-artifacts/counterfactual_metadata_omitted/session/requests/input-audit.json",
+          "sha256": "31d896039418db7b2b8213b20e65dc5adb96a475693508b89c0a8b5614463fc9"
+        },
+        "error_type": null,
+        "conversation_status": "ConversationExecutionStatus.ERROR",
+        "sdk_error_codes": [
+          "MaxIterationsReached"
+        ],
+        "controller": {
+          "version": "strategy-pair-controller-v0.1",
+          "stage": "update",
+          "status": "accepted",
+          "halted": false,
+          "candidate_executions": 0,
+          "task_evaluations": 0,
+          "model_weight_updates": 0,
+          "policy": {
+            "version": "revision-policy-v0.1",
+            "rule_ids": [
+              "R01",
+              "R02",
+              "R05",
+              "R08"
+            ]
+          },
+          "source": null,
+          "submission": {
+            "path": "tmp/measured-failure-sdk-artifacts/counterfactual_metadata_omitted/session/submission.json",
+            "sha256": "8cfa9e536384d6f44baf662b6e49aebe52b4e3d77df64c68b277bf10c7541f91"
+          }
+        }
+      },
+      "synthetic_usage_copied_from_original_for_transport_replay_only": true,
+      "scope": "Synthetic SDK replay, excluded from research budget and all policy/measurement results."
+    }
+  ],
+  "hypothetical_projection_cases": [
+    {
+      "case": "actual_valid_sdk_metadata",
+      "expected_accept": true,
+      "actual_accept": true,
+      "error_type": null,
+      "passed": true
+    },
+    {
+      "case": "business_without_optional_sdk_metadata",
+      "expected_accept": true,
+      "actual_accept": true,
+      "error_type": null,
+      "passed": true
+    },
+    {
+      "case": "nullable_sdk_summary",
+      "expected_accept": true,
+      "actual_accept": true,
+      "error_type": null,
+      "passed": true
+    },
+    {
+      "case": "unknown_extra",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "internal_discriminator",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "malformed_risk_enum",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "malformed_risk_type",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "malformed_summary_type",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "invalid_rule_enum",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "invalid_rule_type",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "repeated_rule",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "oversize_explanation_utf8",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "missing_rule",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "duplicate_business_key",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "duplicate_metadata_key",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "nonfinite_business",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error_type": "ValueError",
+      "passed": true
+    }
+  ],
+  "hypothetical_projection_test_count": 16,
+  "all_hypothetical_projection_cases_passed": true,
+  "original_run_file_count": 33,
+  "original_run_hashes_unchanged": true,
+  "original_run_inventory": {
+    "runs/strategy-pair/measured-v01/actor-template.json": "f72c1ffd574ac486650f19d4e9cf9fb6b9769412f76d7c2096765abf6f160c3c",
+    "runs/strategy-pair/measured-v01/audit.json": "7184482ec0859be459d3a85df3153e44dd8f720810906a65f74a4c2b158f622b",
+    "runs/strategy-pair/measured-v01/budget-ledger.json": "2c80857f55d23a9fd01990627586356be8b2f1bd33dc41417804e6982c6e6470",
+    "runs/strategy-pair/measured-v01/experiment/actor-request-template.json": "f72c1ffd574ac486650f19d4e9cf9fb6b9769412f76d7c2096765abf6f160c3c",
+    "runs/strategy-pair/measured-v01/experiment/allocation.json": "c0515d5954db6b6ac9b01f4b449ff2b0acf40a7c7da4934b822751806b3029fe",
+    "runs/strategy-pair/measured-v01/experiment/budget.json": "99c8d7a911825db0dc65ec2083471a861041d3bdf21bcee297431753a64b13ff",
+    "runs/strategy-pair/measured-v01/experiment/events/00001.json": "d9c9705884611809986b741b90c5db5ff4ceed4fd191dec03c9d0666a174418e",
+    "runs/strategy-pair/measured-v01/experiment/events/00002.json": "1610b9c7152946f963648b95719df31273a4cebea79644873a0ee01220a024fd",
+    "runs/strategy-pair/measured-v01/experiment/events/00003.json": "a8823cfeb328200bde0a0df69fe84376cbc2d2242e533c4afc4478a3c705b404",
+    "runs/strategy-pair/measured-v01/experiment/learning-package.json": "f0e699a126b9d96ff550c17769f22fed9f045300979bc28aa34dee705eee1544",
+    "runs/strategy-pair/measured-v01/experiment/parent-policy.json": "b08e5f2c0ff8225481e96cb684fb3ad2b4f2009ac155de63d0139bbd3cc7caac",
+    "runs/strategy-pair/measured-v01/experiment/session-results/r1-update-updated.json": "e1b78ee00b0a544f931f00e99eabe648746d1672b0935f7e87a35938b6d2284e",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/events.jsonl": "59b244259c8cf3216915449d928e87f4c0e552e6b07b037de33b083ffee9dbfb",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/requests/input-audit.json": "8cf6ad49d306373345aee6570445f9a4afb0398d6164a3debd86bd3111e12b84",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/requests/packet.json": "763aa707355604ce4c8b4dafd39a2f842742a4f21226b332c7996e13381ded7b",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/requests/request-0001.request.json": "181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/requests/request-0001.response.json": "072e9e5ae14550c881b9a387660889fb29b983f98b9f67d9b5d59d17ea11b06a",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/sdk-dispatch.json": "6e94e7412f67d4c60a795bf6ff653292fdcb7e49b964265ebb98c1cd1d241fa3",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/session-summary.json": "e1b78ee00b0a544f931f00e99eabe648746d1672b0935f7e87a35938b6d2284e",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/transport-request.json": "bceb13804d7e7c40b76992c1d3583e45d1e04a0ba37347b86515ac2e4c5a2f21",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/transport-result.json": "e5fe94b07a3be4f6753a8069faa80786e6c9fb2f0baaa40200282a58701d3e35",
+    "runs/strategy-pair/measured-v01/experiment/sessions/r1-update-updated/transport-settings.json": "b555bf33c36bac16ec7f306411d7b61834f3fbef805e9658eb47d861def7608a",
+    "runs/strategy-pair/measured-v01/experiment/summary.json": "a25f656e54a2d173c9a5e611426c33c58a981a695ad150d4583778b23ef4b68c",
+    "runs/strategy-pair/measured-v01/experiment/update-packet.json": "763aa707355604ce4c8b4dafd39a2f842742a4f21226b332c7996e13381ded7b",
+    "runs/strategy-pair/measured-v01/preparation/future-allocation.json": "654d33010b85e78e61e5687d110c15657a1ab12b0ad2971493a42e5b3b3d2879",
+    "runs/strategy-pair/measured-v01/preparation/learning-package.json": "f0e699a126b9d96ff550c17769f22fed9f045300979bc28aa34dee705eee1544",
+    "runs/strategy-pair/measured-v01/preparation/manifest.json": "470d7b16caf03201c4a8739cfa89bb49455478c6194e928aa597a92aecee10f8",
+    "runs/strategy-pair/measured-v01/preparation/preparation.json": "8afe7296dc4a49cc2077b23e5cc94030435bd0d132ae7b09a9714a24ee6e9f24",
+    "runs/strategy-pair/measured-v01/preparation/runtime-freeze.json": "f730887b1a2661f6959e7f7be15514b78c5b5f4d39b136468798d13ba5cb85ca",
+    "runs/strategy-pair/measured-v01/preparation/settings.json": "9bf0fd59fd274725294c7285b105f31bd40e81ba8a0f3d4dc7127ec98943049c",
+    "runs/strategy-pair/measured-v01/preparation/update-packet.json": "763aa707355604ce4c8b4dafd39a2f842742a4f21226b332c7996e13381ded7b",
+    "runs/strategy-pair/measured-v01/result.json": "aa2227c2cb78bf677252d17f50c5aaa4b657af36312357f90655662c77c59cc4",
+    "runs/strategy-pair/measured-v01/update-template.json": "673fdc63a2a264416696ac46adbc2cbda001659927a29b5b966b55d482dded94"
+  },
+  "controller": {
+    "version": "strategy-pair-controller-v0.1",
+    "stage": "update",
+    "status": "pending",
+    "halted": false,
+    "candidate_executions": 0,
+    "task_evaluations": 0,
+    "model_weight_updates": 0,
+    "policy": null,
+    "source": null,
+    "submission": null
+  },
+  "actual_requests": 0,
+  "candidate_executions": 0,
+  "task_measurements": 0,
+  "research_policy_acceptances": 0,
+  "counterfactual_synthetic_policy_acceptances": 1,
+  "interpretation": "The advertised SDK tool schema contains summary/security_risk. The strict raw business gate rejects those metadata fields before SDK normalization. Actual Agent extraction removes metadata and the base action validates/dumps business. The enhanced action class is only used to construct a schema: directly validating it also fails because its inherited finite-JSON validator rejects SecurityRisk enum values. Exact original response replay fails under unchanged code; a response with only metadata omitted is synthetically accepted. This identifies an interface mismatch, not a strategy benefit. Proposed future projection must validate metadata/unknown fields before parsing; SDK itself ignores malformed risk when no security analyzer is configured."
+}
