@@ -1,0 +1,28 @@
+{
+  "response_id": "synthetic-basis-11",
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 20,
+    "total_tokens": 120
+  },
+  "usage_details": {},
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "function": {
+              "arguments": "{\"feature_ids\": [\"m_0_0\", \"m_0_1\", \"m_1_0\", \"m_1_1\"]}",
+              "name": "submit_basis"
+            },
+            "id": "synthetic-call-11",
+            "type": "function"
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

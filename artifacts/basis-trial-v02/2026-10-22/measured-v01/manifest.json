@@ -1,0 +1,2114 @@
+{
+  "version": "basis-trial-archive-v0.2",
+  "run": "measured-v01",
+  "evidence_kind": "observed",
+  "files": {
+    "raw/audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/audit.json",
+      "sha256": "7d6799931f8e2b61ffdd607faeb7e90ff8d4fb0c6bc542d07a25ebd09d638fad",
+      "bytes": 435
+    },
+    "raw/budget-ledger.json": {
+      "source": "runs/basis-trial-v02/measured-v01/budget-ledger.json",
+      "sha256": "48e5fd28995a091aecc2158114c3e1f2092a56044093d414a50682c893d510a1",
+      "bytes": 9097
+    },
+    "raw/experiment/baseline-A/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/compiled.json",
+      "sha256": "43051a3964c3a94300ccb218df0003b67cef8b0736d8e20408216bb72f01de5a",
+      "bytes": 1474
+    },
+    "raw/experiment/baseline-A/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/feedback.json",
+      "sha256": "7c94f38ebb6d19d33e79ef3c3acfc84bc2cbfde0325350c7a377c8fb540b22e2",
+      "bytes": 3925
+    },
+    "raw/experiment/baseline-A/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/fit.json",
+      "sha256": "636293587adf410ee5b4ba5074a7f607048c7f095300435a299e9913f3d10ce2",
+      "bytes": 840
+    },
+    "raw/experiment/baseline-A/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/predict.json",
+      "sha256": "42bcba6d915cbeb644c03365b02f56624a0bddd7859c9b96174dfa6f7ce82d62",
+      "bytes": 205978
+    },
+    "raw/experiment/baseline-A/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/prediction-request.json",
+      "sha256": "c9cc280310bb9aac9e44c4028d7c20095153f58b9760c83be545c9d579a270a3",
+      "bytes": 109
+    },
+    "raw/experiment/baseline-A/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/receipt.json",
+      "sha256": "13b2d01908dcbf62449933a47b2f4de5c4dcd39c2b5e46656f22fada9cedde09",
+      "bytes": 5475
+    },
+    "raw/experiment/baseline-A/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/reservation.json",
+      "sha256": "dcbf0f42636328976e5d93502b16021726968ece0021a4f9185c5052df063440",
+      "bytes": 555
+    },
+    "raw/experiment/baseline-A/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/result.json",
+      "sha256": "6f9d4952c5e2048d334dcc0257f5b9a6ecc605788a970dcdf39ac314b2743a63",
+      "bytes": 1454
+    },
+    "raw/experiment/baseline-A/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/baseline-A/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/submission.json",
+      "sha256": "df13bada613dfaea24b4f2a2b6e59afe577615ac1b49962816b230626e867f14",
+      "bytes": 117
+    },
+    "raw/experiment/baseline-A/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-A/transition.json",
+      "sha256": "5f764980f5f11bf51eaef5a721c9ae49fb4610cb4e6d9939663af2f6d2f39aa7",
+      "bytes": 227
+    },
+    "raw/experiment/baseline-B/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/compiled.json",
+      "sha256": "d5873ae56305794d784e7872568aadd39a35570c8def549fce98372623ffbc9d",
+      "bytes": 1483
+    },
+    "raw/experiment/baseline-B/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/feedback.json",
+      "sha256": "339bdf6e8b37caba69dc05cc0f2868a7320a799c6eda251d1bf1df502176f845",
+      "bytes": 3921
+    },
+    "raw/experiment/baseline-B/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/fit.json",
+      "sha256": "0e18d59c446c80e69931a643f0401382cbe2653226ee8714ebdd3373da57d904",
+      "bytes": 840
+    },
+    "raw/experiment/baseline-B/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/predict.json",
+      "sha256": "915ad3e46b57ab01845ab2c0ebbdb41ad1613f063895a0b09815db732f4f27b1",
+      "bytes": 205465
+    },
+    "raw/experiment/baseline-B/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/prediction-request.json",
+      "sha256": "17280dde0ba5dcc2ca38d6ee1e555c5bfa75c428bb946e2a23338b33db2f3875",
+      "bytes": 109
+    },
+    "raw/experiment/baseline-B/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/receipt.json",
+      "sha256": "5ea938fde2e742de32c6621884142c052255410bb6b30ba6eade48c5e61cd5e4",
+      "bytes": 5465
+    },
+    "raw/experiment/baseline-B/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/reservation.json",
+      "sha256": "88b599af3bc7d0a35f153aa6449ff03b73854e0f98b461219f8fe2d85782b6f4",
+      "bytes": 555
+    },
+    "raw/experiment/baseline-B/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/result.json",
+      "sha256": "4f51c439ef24d19eb8bfc3bf4e78fa658344aa0add737df4295570818e7abf77",
+      "bytes": 1448
+    },
+    "raw/experiment/baseline-B/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/baseline-B/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/submission.json",
+      "sha256": "c3b9262606b9b0e4658b92276fde8d8df8d6b6f0f6944be6debcc8d707d7a326",
+      "bytes": 124
+    },
+    "raw/experiment/baseline-B/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/baseline-B/transition.json",
+      "sha256": "48484dca1a5dcdbb57f9d1118dee8e5c39adfc62fbc1144ceb8453eb09a88c5e",
+      "bytes": 227
+    },
+    "raw/experiment/candidate-A-r1-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/experiment/candidate-A-r1-S0/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/feedback.json",
+      "sha256": "df052bd6bfbac5ed5f6ba9b0286598852e247beef1a8e606dce677725245241a",
+      "bytes": 3968
+    },
+    "raw/experiment/candidate-A-r1-S0/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/fit.json",
+      "sha256": "d4747604aec1cc7b7036c4e950361c3d78115ca7b0b012aac1ac6d4d7c0ebb11",
+      "bytes": 839
+    },
+    "raw/experiment/candidate-A-r1-S0/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/predict.json",
+      "sha256": "2a24bd584b75e5f3a1dfecfc5212888669f60de7d6e414788f4ff1fbc6684411",
+      "bytes": 205465
+    },
+    "raw/experiment/candidate-A-r1-S0/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/prediction-request.json",
+      "sha256": "17280dde0ba5dcc2ca38d6ee1e555c5bfa75c428bb946e2a23338b33db2f3875",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r1-S0/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/receipt.json",
+      "sha256": "e436bbe0e080cd8f2e3a6c63e46bb8ba426d979ce0fb5a28fe9039b68d3c3d9e",
+      "bytes": 5559
+    },
+    "raw/experiment/candidate-A-r1-S0/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/reservation.json",
+      "sha256": "88b599af3bc7d0a35f153aa6449ff03b73854e0f98b461219f8fe2d85782b6f4",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-A-r1-S0/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/result.json",
+      "sha256": "dcf1b793a5fe885206f66f10e5683f75c01008bcec55af0d2fc99be301ce67c5",
+      "bytes": 1495
+    },
+    "raw/experiment/candidate-A-r1-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-A-r1-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/submission.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-A-r1-S0/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S0/transition.json",
+      "sha256": "ec7805b2015b6a31364f87e33e426d2bf7a7c746438be9a08d916ccd861188d6",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-A-r1-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/compiled.json",
+      "sha256": "9d4300dc6be02993ab144865e10a0e0d99a3c59e2f55d35b437ce8fcf0ca2838",
+      "bytes": 1487
+    },
+    "raw/experiment/candidate-A-r1-S1/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/feedback.json",
+      "sha256": "11646c05a508ead9bd00f17dfb3d811a10b631bb304534f8f2c2df2d1310a614",
+      "bytes": 3954
+    },
+    "raw/experiment/candidate-A-r1-S1/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/fit.json",
+      "sha256": "9664cec1a9857945e93c0d575ace208c66f865ca34167c8e6647b5c9d8fed608",
+      "bytes": 840
+    },
+    "raw/experiment/candidate-A-r1-S1/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/predict.json",
+      "sha256": "d6d2bf11bc3183b9e9b2e04bcaada8d8dd376ebb570b2c1594ea193fd7f795d2",
+      "bytes": 205978
+    },
+    "raw/experiment/candidate-A-r1-S1/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/prediction-request.json",
+      "sha256": "c9cc280310bb9aac9e44c4028d7c20095153f58b9760c83be545c9d579a270a3",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r1-S1/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/receipt.json",
+      "sha256": "71f10586f9b5cdef11391bc4bde187002a1fedc77352e975e7d40b765ef3470b",
+      "bytes": 5533
+    },
+    "raw/experiment/candidate-A-r1-S1/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/reservation.json",
+      "sha256": "dcbf0f42636328976e5d93502b16021726968ece0021a4f9185c5052df063440",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-A-r1-S1/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/result.json",
+      "sha256": "a815f424bc663f7ccc7d2e38090d8e959eb6b4defcbfa3ffd9f21a12d0bcc36c",
+      "bytes": 1483
+    },
+    "raw/experiment/candidate-A-r1-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-A-r1-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/submission.json",
+      "sha256": "b749ccf712b7806b5ff91b422610626e5167b547765f5fb9960798c5741bdeb6",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-A-r1-S1/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r1-S1/transition.json",
+      "sha256": "bed3432d4140070e334f19db65613ac63712c07a5c5c171065b779f0724b5a11",
+      "bytes": 256
+    },
+    "raw/experiment/candidate-A-r2-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/experiment/candidate-A-r2-S0/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/feedback.json",
+      "sha256": "6574d90744de8c95c72696c1bfd514a37415b69bb66bbef33b495c34d9836533",
+      "bytes": 3968
+    },
+    "raw/experiment/candidate-A-r2-S0/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/fit.json",
+      "sha256": "5b4c75c05feccd211be089467d608cac54a990c74b6df56d007ff24d7710afbb",
+      "bytes": 840
+    },
+    "raw/experiment/candidate-A-r2-S0/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/predict.json",
+      "sha256": "2f76f60f7442596b621ea62a6ac78902230308059c82d42c9064b39a0847614d",
+      "bytes": 205465
+    },
+    "raw/experiment/candidate-A-r2-S0/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/prediction-request.json",
+      "sha256": "17280dde0ba5dcc2ca38d6ee1e555c5bfa75c428bb946e2a23338b33db2f3875",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r2-S0/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/receipt.json",
+      "sha256": "ffc275dd9f8ab3519c345a0404ef07337e0067f0995cf4d0053d95a75c20eebe",
+      "bytes": 5559
+    },
+    "raw/experiment/candidate-A-r2-S0/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/reservation.json",
+      "sha256": "88b599af3bc7d0a35f153aa6449ff03b73854e0f98b461219f8fe2d85782b6f4",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-A-r2-S0/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/result.json",
+      "sha256": "dcf1b793a5fe885206f66f10e5683f75c01008bcec55af0d2fc99be301ce67c5",
+      "bytes": 1495
+    },
+    "raw/experiment/candidate-A-r2-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-A-r2-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/submission.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-A-r2-S0/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S0/transition.json",
+      "sha256": "ec7805b2015b6a31364f87e33e426d2bf7a7c746438be9a08d916ccd861188d6",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-A-r2-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/experiment/candidate-A-r2-S1/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/feedback.json",
+      "sha256": "1c749884d8ee0f58fb02417c8b386e67bd066337e4a170acbe60aa1a1fe5dd67",
+      "bytes": 3968
+    },
+    "raw/experiment/candidate-A-r2-S1/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/fit.json",
+      "sha256": "489d22b7e9d657784ddb857adb03a71ca0ed346f21af0df3d5ade361c7c1cddb",
+      "bytes": 840
+    },
+    "raw/experiment/candidate-A-r2-S1/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/predict.json",
+      "sha256": "a292b126ca1d9a2064d26e5ad6fb55cf655be1cd8ce12a024e50054cb344c167",
+      "bytes": 205465
+    },
+    "raw/experiment/candidate-A-r2-S1/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/prediction-request.json",
+      "sha256": "17280dde0ba5dcc2ca38d6ee1e555c5bfa75c428bb946e2a23338b33db2f3875",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r2-S1/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/receipt.json",
+      "sha256": "e85814b2a5b3fbd21bbfbf730efbb0e1ce949dea06ddb371129b79cc022fc0c1",
+      "bytes": 5559
+    },
+    "raw/experiment/candidate-A-r2-S1/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/reservation.json",
+      "sha256": "88b599af3bc7d0a35f153aa6449ff03b73854e0f98b461219f8fe2d85782b6f4",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-A-r2-S1/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/result.json",
+      "sha256": "dcf1b793a5fe885206f66f10e5683f75c01008bcec55af0d2fc99be301ce67c5",
+      "bytes": 1495
+    },
+    "raw/experiment/candidate-A-r2-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-A-r2-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/submission.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-A-r2-S1/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r2-S1/transition.json",
+      "sha256": "ec7805b2015b6a31364f87e33e426d2bf7a7c746438be9a08d916ccd861188d6",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-A-r3-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/compiled.json",
+      "sha256": "fd291f93e1f4bbaa9ac821cef5ccbbf30113ff98a43ad52326c43f9a9b989d43",
+      "bytes": 1494
+    },
+    "raw/experiment/candidate-A-r3-S0/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/feedback.json",
+      "sha256": "fa34a6740310aa1c1d05daf439406d1a3c6b7a6adab3f316b76cf2f1e4038858",
+      "bytes": 3960
+    },
+    "raw/experiment/candidate-A-r3-S0/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/fit.json",
+      "sha256": "79161bf71461496d906c789b08f3072b442280a9d4543cf13514ace6721f229d",
+      "bytes": 839
+    },
+    "raw/experiment/candidate-A-r3-S0/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/predict.json",
+      "sha256": "e263198362e14658ce1215540b10d23e3fc220bb755577178c31104c39608172",
+      "bytes": 204663
+    },
+    "raw/experiment/candidate-A-r3-S0/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/prediction-request.json",
+      "sha256": "d739d9718cfd579afef5cae52b1fa0942cbc0291b7f009b4e04f6fcb5701b42b",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r3-S0/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/receipt.json",
+      "sha256": "98ea92c589f7b288de8b4c927ebbcf73ffa851bbb5afe2ab18cad271b0e86ec4",
+      "bytes": 5553
+    },
+    "raw/experiment/candidate-A-r3-S0/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/reservation.json",
+      "sha256": "55fcddfa03e866e353433177dd62dce8ac27c1575420245cbdc89bf1571851a6",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-A-r3-S0/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/result.json",
+      "sha256": "5a1b0a2bf7cc8993cbf9847de6fae5a0e2b8a2eb6de12323306142568a22dd02",
+      "bytes": 1497
+    },
+    "raw/experiment/candidate-A-r3-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/source.py",
+      "sha256": "41e5b1026b8865dae91a0c7a972ed62e8ff732d707f32612949c985494dbf6c8",
+      "bytes": 905
+    },
+    "raw/experiment/candidate-A-r3-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/submission.json",
+      "sha256": "30910c390b89e14b85af227957d98cab5e3c2c6466e3f4d751606acd2853ebc7",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-A-r3-S0/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S0/transition.json",
+      "sha256": "ef9928b112e93ff622b3148c4fd45cf6e996cc928fc543da930d125b516efb81",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-A-r3-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/experiment/candidate-A-r3-S1/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/feedback.json",
+      "sha256": "91dd631823d6365ed38fc7049a78a261ebc9a8822530e7916a59324c862dae8b",
+      "bytes": 3968
+    },
+    "raw/experiment/candidate-A-r3-S1/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/fit.json",
+      "sha256": "74854604609fe62271f01d465023d9b7872ac419cb1f05f4623a7c65bf86b605",
+      "bytes": 840
+    },
+    "raw/experiment/candidate-A-r3-S1/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/predict.json",
+      "sha256": "4a75fd26f5f865ea49e32965de7c89b728e7727bbf3fc5422f8eda619ea049ae",
+      "bytes": 205465
+    },
+    "raw/experiment/candidate-A-r3-S1/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/prediction-request.json",
+      "sha256": "17280dde0ba5dcc2ca38d6ee1e555c5bfa75c428bb946e2a23338b33db2f3875",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-A-r3-S1/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/receipt.json",
+      "sha256": "3109f5b8b883ef2a35e55279c0752da81c9901fa9c58d95860fc4ef503feb013",
+      "bytes": 5559
+    },
+    "raw/experiment/candidate-A-r3-S1/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/reservation.json",
+      "sha256": "88b599af3bc7d0a35f153aa6449ff03b73854e0f98b461219f8fe2d85782b6f4",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-A-r3-S1/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/result.json",
+      "sha256": "dcf1b793a5fe885206f66f10e5683f75c01008bcec55af0d2fc99be301ce67c5",
+      "bytes": 1495
+    },
+    "raw/experiment/candidate-A-r3-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-A-r3-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/submission.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-A-r3-S1/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-A-r3-S1/transition.json",
+      "sha256": "ec7805b2015b6a31364f87e33e426d2bf7a7c746438be9a08d916ccd861188d6",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-B-r1-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/compiled.json",
+      "sha256": "2eba3419d77ac6372a4d11bf55882f5facf07d0f55652d8f3d6cd6afbcf7bee1",
+      "bytes": 1489
+    },
+    "raw/experiment/candidate-B-r1-S0/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/feedback.json",
+      "sha256": "1eba26eb77812d177867584f845622c575253477cd944e8839bea0ef5b468d29",
+      "bytes": 3966
+    },
+    "raw/experiment/candidate-B-r1-S0/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/fit.json",
+      "sha256": "7d4fe3dde07dc470a3912306320a6855d04ce4b1afcf0fdcdbfe4507fc59438d",
+      "bytes": 839
+    },
+    "raw/experiment/candidate-B-r1-S0/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/predict.json",
+      "sha256": "c013de0af7c5b261678c03c597c9589201a64893c74a42fb136bf53675746be2",
+      "bytes": 205510
+    },
+    "raw/experiment/candidate-B-r1-S0/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/prediction-request.json",
+      "sha256": "d40bfa065fad870bcddb846d27417573689be3cb34c31f2230d91e32bf501fc2",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r1-S0/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/receipt.json",
+      "sha256": "100d29cda93fcff0aad19f709117626bf3eacbe846bde21656430a637d5a3862",
+      "bytes": 5557
+    },
+    "raw/experiment/candidate-B-r1-S0/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/reservation.json",
+      "sha256": "d1d5b565ff5ef6838c15f9a44db0290f8070642d599a872d19c25f7e0245f56d",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-B-r1-S0/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/result.json",
+      "sha256": "7b05ff9e684f9967cc3294ee9025ff4e22854c19942872458f7ca2561ddef85a",
+      "bytes": 1495
+    },
+    "raw/experiment/candidate-B-r1-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/source.py",
+      "sha256": "0c350b03ced1fe0ea82e96f04bd2786c3d85b362cb21512d2b08796d9cc41961",
+      "bytes": 900
+    },
+    "raw/experiment/candidate-B-r1-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/submission.json",
+      "sha256": "a8bd4a6f5fd26e790d4e3f367951dc242a603f60e692e6231c9562990a0957b7",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-B-r1-S0/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S0/transition.json",
+      "sha256": "e793fca354584c94e995d1a89c0ba2d80c6774364bfcde9f97c56bcd33998692",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-B-r1-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/compiled.json",
+      "sha256": "b895bda4b3ad5dd1164acbba5de1028fd626b24451471b4a5b74bd18c8034cec",
+      "bytes": 1494
+    },
+    "raw/experiment/candidate-B-r1-S1/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/feedback.json",
+      "sha256": "f2c4ec05f3415b8239be703084275ce4ed94c71c8064e1f291a5137a864a5206",
+      "bytes": 3968
+    },
+    "raw/experiment/candidate-B-r1-S1/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/fit.json",
+      "sha256": "859f9496c85838b2dbd57023219f0858af314435f8b5a5a94b86154745f30897",
+      "bytes": 838
+    },
+    "raw/experiment/candidate-B-r1-S1/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/predict.json",
+      "sha256": "adc779e87c00403f47aa12290c423063a79ad0549127ed86b62f1722f2d35108",
+      "bytes": 205457
+    },
+    "raw/experiment/candidate-B-r1-S1/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/prediction-request.json",
+      "sha256": "78b2f0d40e7d95f384a5c40735eab50ed030eaf183ae7bb1f14db3b0713b4a5c",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r1-S1/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/receipt.json",
+      "sha256": "f6d942e73e8de9d380707b5f43811cd8edf744797829e1f9bd7afcc8b948ee08",
+      "bytes": 5557
+    },
+    "raw/experiment/candidate-B-r1-S1/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/reservation.json",
+      "sha256": "71ce821dd6d512868799301a0466af3e7c35c219ff9dfe05a8b388916ece4baf",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-B-r1-S1/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/result.json",
+      "sha256": "4d67bda2c5ddc973583e48e49309eea988deb512084ba1cbf7a7eaf334ef21b2",
+      "bytes": 1493
+    },
+    "raw/experiment/candidate-B-r1-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/source.py",
+      "sha256": "b807077d7064fe3bac15fd80779ab67d734642c87dbbaf3b2405365181b13bcf",
+      "bytes": 905
+    },
+    "raw/experiment/candidate-B-r1-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/submission.json",
+      "sha256": "5b36e3177b30dc3927cac31f3d56d45028a68a662d0cb87433a82b4bd627f18a",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-B-r1-S1/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r1-S1/transition.json",
+      "sha256": "7831220c9a02d6d6aca901bd64abcf7d6f8e1aa3a35304e6c67db9ca326b85fa",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-B-r2-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/compiled.json",
+      "sha256": "b895bda4b3ad5dd1164acbba5de1028fd626b24451471b4a5b74bd18c8034cec",
+      "bytes": 1494
+    },
+    "raw/experiment/candidate-B-r2-S0/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/feedback.json",
+      "sha256": "ee25bfbe8b51b6abd3ba85a7f6c0da412a35dc68ffd83fcff3769e86a7b58dfe",
+      "bytes": 3968
+    },
+    "raw/experiment/candidate-B-r2-S0/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/fit.json",
+      "sha256": "74f06479086d9c7c8cbf22dc5ca972b88d66bfdb26555162acb4dd51e2dfeb63",
+      "bytes": 838
+    },
+    "raw/experiment/candidate-B-r2-S0/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/predict.json",
+      "sha256": "9481c04f0ebce67490fd668960ee4b69c49c842a99c4e4099c0745a4b4524fe2",
+      "bytes": 205457
+    },
+    "raw/experiment/candidate-B-r2-S0/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/prediction-request.json",
+      "sha256": "78b2f0d40e7d95f384a5c40735eab50ed030eaf183ae7bb1f14db3b0713b4a5c",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r2-S0/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/receipt.json",
+      "sha256": "4085f92f7482d4b5d48edfb33e7042d16620db2e05e5d3c4685c04eca5194339",
+      "bytes": 5557
+    },
+    "raw/experiment/candidate-B-r2-S0/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/reservation.json",
+      "sha256": "71ce821dd6d512868799301a0466af3e7c35c219ff9dfe05a8b388916ece4baf",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-B-r2-S0/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/result.json",
+      "sha256": "4d67bda2c5ddc973583e48e49309eea988deb512084ba1cbf7a7eaf334ef21b2",
+      "bytes": 1493
+    },
+    "raw/experiment/candidate-B-r2-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/source.py",
+      "sha256": "b807077d7064fe3bac15fd80779ab67d734642c87dbbaf3b2405365181b13bcf",
+      "bytes": 905
+    },
+    "raw/experiment/candidate-B-r2-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/submission.json",
+      "sha256": "5b36e3177b30dc3927cac31f3d56d45028a68a662d0cb87433a82b4bd627f18a",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-B-r2-S0/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S0/transition.json",
+      "sha256": "7831220c9a02d6d6aca901bd64abcf7d6f8e1aa3a35304e6c67db9ca326b85fa",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-B-r2-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/compiled.json",
+      "sha256": "b895bda4b3ad5dd1164acbba5de1028fd626b24451471b4a5b74bd18c8034cec",
+      "bytes": 1494
+    },
+    "raw/experiment/candidate-B-r2-S1/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/feedback.json",
+      "sha256": "c434aa407c6786df84c70c220788bfa644662b4f992080be0c7a2912aa4a4fa4",
+      "bytes": 3968
+    },
+    "raw/experiment/candidate-B-r2-S1/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/fit.json",
+      "sha256": "1cfb30690d050981a75439c51239fc75040055ce3987f0d7ecd91e6bd6b042ea",
+      "bytes": 838
+    },
+    "raw/experiment/candidate-B-r2-S1/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/predict.json",
+      "sha256": "d6badc0ddb4aca6b592aef28a92bff125bd8391f17d9ccbcc9cf16f2d4eb70ff",
+      "bytes": 205457
+    },
+    "raw/experiment/candidate-B-r2-S1/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/prediction-request.json",
+      "sha256": "78b2f0d40e7d95f384a5c40735eab50ed030eaf183ae7bb1f14db3b0713b4a5c",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r2-S1/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/receipt.json",
+      "sha256": "6dad49e232a04b7881be42a34c60b544b1591fe2f8370afb90189a8fedb9a2b1",
+      "bytes": 5557
+    },
+    "raw/experiment/candidate-B-r2-S1/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/reservation.json",
+      "sha256": "71ce821dd6d512868799301a0466af3e7c35c219ff9dfe05a8b388916ece4baf",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-B-r2-S1/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/result.json",
+      "sha256": "4d67bda2c5ddc973583e48e49309eea988deb512084ba1cbf7a7eaf334ef21b2",
+      "bytes": 1493
+    },
+    "raw/experiment/candidate-B-r2-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/source.py",
+      "sha256": "b807077d7064fe3bac15fd80779ab67d734642c87dbbaf3b2405365181b13bcf",
+      "bytes": 905
+    },
+    "raw/experiment/candidate-B-r2-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/submission.json",
+      "sha256": "5b36e3177b30dc3927cac31f3d56d45028a68a662d0cb87433a82b4bd627f18a",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-B-r2-S1/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r2-S1/transition.json",
+      "sha256": "7831220c9a02d6d6aca901bd64abcf7d6f8e1aa3a35304e6c67db9ca326b85fa",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-B-r3-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/compiled.json",
+      "sha256": "9d4300dc6be02993ab144865e10a0e0d99a3c59e2f55d35b437ce8fcf0ca2838",
+      "bytes": 1487
+    },
+    "raw/experiment/candidate-B-r3-S0/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/feedback.json",
+      "sha256": "f2c28809ac230ecbba1138d1459bbe59f4dd9c676a0c2d83a8fefb5f37336ca9",
+      "bytes": 3972
+    },
+    "raw/experiment/candidate-B-r3-S0/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/fit.json",
+      "sha256": "880f21a26a79867f1c34106d0d886a3595b629bb9ba879da581ed59daf73b9c4",
+      "bytes": 840
+    },
+    "raw/experiment/candidate-B-r3-S0/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/predict.json",
+      "sha256": "60c378d43ac32264a5c15e2a8699c9133aced03989ed666ec334237ccf4e6e48",
+      "bytes": 205978
+    },
+    "raw/experiment/candidate-B-r3-S0/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/prediction-request.json",
+      "sha256": "c9cc280310bb9aac9e44c4028d7c20095153f58b9760c83be545c9d579a270a3",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r3-S0/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/receipt.json",
+      "sha256": "2027c7ef5cc7f3bf11941b2310bfe379680f0c2ef352e2b36dce268554f58430",
+      "bytes": 5569
+    },
+    "raw/experiment/candidate-B-r3-S0/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/reservation.json",
+      "sha256": "dcbf0f42636328976e5d93502b16021726968ece0021a4f9185c5052df063440",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-B-r3-S0/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/result.json",
+      "sha256": "062e0e237024e30722e3012e45f561aa6ca158cd6d9de1c4df7ec46da72cbfd7",
+      "bytes": 1501
+    },
+    "raw/experiment/candidate-B-r3-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-B-r3-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/submission.json",
+      "sha256": "b749ccf712b7806b5ff91b422610626e5167b547765f5fb9960798c5741bdeb6",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-B-r3-S0/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S0/transition.json",
+      "sha256": "04ad26b8f54b2a7996931d90c24d0c99f549e442600f270449f53c63d2f810a7",
+      "bytes": 274
+    },
+    "raw/experiment/candidate-B-r3-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/compiled.json",
+      "sha256": "9d4300dc6be02993ab144865e10a0e0d99a3c59e2f55d35b437ce8fcf0ca2838",
+      "bytes": 1487
+    },
+    "raw/experiment/candidate-B-r3-S1/feedback.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/feedback.json",
+      "sha256": "1939370b2699ae5919ec17b8f855a5bd3cb8afa37540cadf736780ee241315f1",
+      "bytes": 3972
+    },
+    "raw/experiment/candidate-B-r3-S1/fit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/fit.json",
+      "sha256": "6e27862bd7cd78990c12aa107f69d7751ed4e5f7e04b93708e5a37ca128fd575",
+      "bytes": 840
+    },
+    "raw/experiment/candidate-B-r3-S1/predict.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/predict.json",
+      "sha256": "aaa060976f26869b2ac469c57733eaa8f7fec1d04094bcab1089811d3c8e422c",
+      "bytes": 205978
+    },
+    "raw/experiment/candidate-B-r3-S1/prediction-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/prediction-request.json",
+      "sha256": "c9cc280310bb9aac9e44c4028d7c20095153f58b9760c83be545c9d579a270a3",
+      "bytes": 109
+    },
+    "raw/experiment/candidate-B-r3-S1/receipt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/receipt.json",
+      "sha256": "f3c4b54892e96b083d88cfbe3f6a7c84c30445a165c357bdb0a501b97b8fae79",
+      "bytes": 5569
+    },
+    "raw/experiment/candidate-B-r3-S1/reservation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/reservation.json",
+      "sha256": "dcbf0f42636328976e5d93502b16021726968ece0021a4f9185c5052df063440",
+      "bytes": 555
+    },
+    "raw/experiment/candidate-B-r3-S1/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/result.json",
+      "sha256": "062e0e237024e30722e3012e45f561aa6ca158cd6d9de1c4df7ec46da72cbfd7",
+      "bytes": 1501
+    },
+    "raw/experiment/candidate-B-r3-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/experiment/candidate-B-r3-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/submission.json",
+      "sha256": "b749ccf712b7806b5ff91b422610626e5167b547765f5fb9960798c5741bdeb6",
+      "bytes": 130
+    },
+    "raw/experiment/candidate-B-r3-S1/transition.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/candidate-B-r3-S1/transition.json",
+      "sha256": "04ad26b8f54b2a7996931d90c24d0c99f549e442600f270449f53c63d2f810a7",
+      "bytes": 274
+    },
+    "raw/experiment/context-A.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/context-A.json",
+      "sha256": "fcf67117a2baaa8db26272014376ddcbd41bd3a061fdfdd67bbc635dcd8511dd",
+      "bytes": 4700
+    },
+    "raw/experiment/context-B.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/context-B.json",
+      "sha256": "3afaa912b1fdfdd8c2334f158087a23a9f2da4d413aabace003194345325c21c",
+      "bytes": 4703
+    },
+    "raw/experiment/design.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/design.json",
+      "sha256": "e2a83360c4ed769e28afe4dc4c45d3ed0577b2d03e1ef454cf87082303675597",
+      "bytes": 2182
+    },
+    "raw/experiment/events/000.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/000.json",
+      "sha256": "e4d50045ac79848dda3c848060bacc1a5c910bb0e6028371155e5b5e1d7f7cd3",
+      "bytes": 51
+    },
+    "raw/experiment/events/001.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/001.json",
+      "sha256": "ac058872d2dfab4251ee12790e041da60a31e08f8fb74dadf814110bc86a2db8",
+      "bytes": 136
+    },
+    "raw/experiment/events/002.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/002.json",
+      "sha256": "3f2830f29a3711b80f312ccf027c7f32c3ad5202f6d381a853b4f0c67a2deee8",
+      "bytes": 80
+    },
+    "raw/experiment/events/003.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/003.json",
+      "sha256": "494950e67f366b525ed0bdf3500c96d54e5ba4d424369de063ce88dc111632bd",
+      "bytes": 78
+    },
+    "raw/experiment/events/004.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/004.json",
+      "sha256": "2c66bfb1ebab402bb972acd0dfeed5112591af4e00c4d9c039386ee0b1883e06",
+      "bytes": 52
+    },
+    "raw/experiment/events/005.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/005.json",
+      "sha256": "1b04643dc3bfca7f459c7eaa98c1f3da243bf919ab79e19900079cac9165f846",
+      "bytes": 78
+    },
+    "raw/experiment/events/006.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/006.json",
+      "sha256": "71c3afffff8e64cf30a2112bc380c1e8c430ddb623bae57d45d96a1f47499465",
+      "bytes": 52
+    },
+    "raw/experiment/events/007.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/007.json",
+      "sha256": "1432af47f1daaf6cfa3230cba3ecaf50512841cf63d206f5e8164265d3e6a64e",
+      "bytes": 79
+    },
+    "raw/experiment/events/008.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/008.json",
+      "sha256": "07cbe35afaa25ba53a7b42b677c5540fea8e574680cb4afcd048051e236a1daa",
+      "bytes": 52
+    },
+    "raw/experiment/events/009.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/009.json",
+      "sha256": "422c6b1e5e4eb6285dd2af42de03534c3d146a1526c8d5dd18c3409c1cb99164",
+      "bytes": 78
+    },
+    "raw/experiment/events/010.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/010.json",
+      "sha256": "134d9b34946a47752d610cd744f988b180d0cc4d83e9036f7d2300d8bd9e3766",
+      "bytes": 53
+    },
+    "raw/experiment/events/011.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/011.json",
+      "sha256": "05f04e257695df500e55a2a48e89c4f63416ce508cfa2d768d1c111e048cf332",
+      "bytes": 79
+    },
+    "raw/experiment/events/012.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/012.json",
+      "sha256": "ff2d58324ee15a71c9615a02518d80cb55b90e8ae5ff4332ec855cec80ebb816",
+      "bytes": 53
+    },
+    "raw/experiment/events/013.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/013.json",
+      "sha256": "9692c3bfbd41a4e5e239ca226dc8de36b99a2fc477128ddb0eb73efb97374447",
+      "bytes": 79
+    },
+    "raw/experiment/events/014.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/014.json",
+      "sha256": "d15f5a0ce6554c3a3eac8821a97f5939e5a532a2b341d8f50e2befde2a6cf8af",
+      "bytes": 53
+    },
+    "raw/experiment/events/015.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/015.json",
+      "sha256": "8cc10a0a223c246cb671b367673b9edc34abd2dcf157a4d16f989dba0e5d5a85",
+      "bytes": 79
+    },
+    "raw/experiment/events/016.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/016.json",
+      "sha256": "c2d7d61a790bfdec8aa1fcb4665d603cb359b07f73cf5ecdd78934b0656bc6bd",
+      "bytes": 53
+    },
+    "raw/experiment/events/017.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/017.json",
+      "sha256": "952438558e3a700ac9cf35e8bf8c794f8fc36e8f39d83c6e9ec1c4d4539d668b",
+      "bytes": 79
+    },
+    "raw/experiment/events/018.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/018.json",
+      "sha256": "1c1c9df6598d43bcb88f6d953ab696e7efd5eb1218a5b658f0f9c3abdb2dcf0d",
+      "bytes": 53
+    },
+    "raw/experiment/events/019.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/019.json",
+      "sha256": "f8eb9d732b3903814073e06c2d7a302f5dd6e4e4a018abbd113d38b48bedf697",
+      "bytes": 79
+    },
+    "raw/experiment/events/020.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/020.json",
+      "sha256": "77aefa235950d6397d77d7f9cb9124d2ac859ed8007049a09d2308ad8ac02679",
+      "bytes": 53
+    },
+    "raw/experiment/events/021.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/021.json",
+      "sha256": "238aec143c49e4f600ac9652b25af1121bff2a87047845ca20e9ccdac12b25ad",
+      "bytes": 79
+    },
+    "raw/experiment/events/022.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/022.json",
+      "sha256": "96cd265a3b86f095337068e9cf48bf21d0b75c68b2b4511a51c8bc0cdffa3358",
+      "bytes": 53
+    },
+    "raw/experiment/events/023.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/023.json",
+      "sha256": "d87f0276abc82a2b0338dcfb4d65bf89273b29ab77d25e2acc786df471930ab6",
+      "bytes": 79
+    },
+    "raw/experiment/events/024.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/024.json",
+      "sha256": "c8bea169254f9f1f2193e4209abbf88df7b130d03828f2c0fd168e65ef37eedc",
+      "bytes": 53
+    },
+    "raw/experiment/events/025.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/025.json",
+      "sha256": "e691add9dc2ebfe42bc6f12b0f6eb4e96175e295b146dafa7b3aaaed65a4e05e",
+      "bytes": 79
+    },
+    "raw/experiment/events/026.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/026.json",
+      "sha256": "28b3e4f8f42a1682ca62a3b79f55978f7625eae1a36843de00008e2ef65ed352",
+      "bytes": 53
+    },
+    "raw/experiment/events/027.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/events/027.json",
+      "sha256": "71d45796b23882b364fa4901ddce940e4a44c2c9922c067c0a8cc277cd3d7152",
+      "bytes": 79
+    },
+    "raw/experiment/policy-freeze.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/policy-freeze.json",
+      "sha256": "cdf90bb594ed79664623791612fbf1e371e3b6ccfbb8a99307f5c7fdc93f6d04",
+      "bytes": 1296
+    },
+    "raw/experiment/row-A-r1-S0.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-A-r1-S0.json",
+      "sha256": "80c4675114ea913b99d097fc4ebaa4d5a319b02b09a5f1c33c82f5037f74fd33",
+      "bytes": 6298
+    },
+    "raw/experiment/row-A-r1-S1.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-A-r1-S1.json",
+      "sha256": "d3bf455ab96a213bb8c73ec448736e55580cbcfaad5e70a92ff34048a6a6d0b1",
+      "bytes": 6240
+    },
+    "raw/experiment/row-A-r2-S0.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-A-r2-S0.json",
+      "sha256": "9b410247247d632715ff570b0cf78d920ec850ee9d889a8b8ea059aebed701fd",
+      "bytes": 6298
+    },
+    "raw/experiment/row-A-r2-S1.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-A-r2-S1.json",
+      "sha256": "f5b0f954c129b2f0e29c49ca0a9c32a449541540760b419e72adc8c1b361d794",
+      "bytes": 6298
+    },
+    "raw/experiment/row-A-r3-S0.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-A-r3-S0.json",
+      "sha256": "0479423fb586f1bf205f1b385913791e4f62f4840bb5aa8493e491fe1951145e",
+      "bytes": 6293
+    },
+    "raw/experiment/row-A-r3-S1.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-A-r3-S1.json",
+      "sha256": "f0586f133cf4815835138dc88fef4c55122f51c3c50b83aab8e5225b7b8d1a52",
+      "bytes": 6298
+    },
+    "raw/experiment/row-B-r1-S0.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-B-r1-S0.json",
+      "sha256": "66fbc8fafc455a3a7d690e05157bdeb6fd33e8866747c9b4736afc02ae0ca6b9",
+      "bytes": 6297
+    },
+    "raw/experiment/row-B-r1-S1.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-B-r1-S1.json",
+      "sha256": "628ed1bbd17124a9001b7ba2ba6aa43ccc4e5beb59ca05e052ce728f4a07d9e0",
+      "bytes": 6295
+    },
+    "raw/experiment/row-B-r2-S0.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-B-r2-S0.json",
+      "sha256": "130a90bb59a7c48eb1d439331ce0b5ec26d50c89f07b17ed4ecbc08a671f078f",
+      "bytes": 6295
+    },
+    "raw/experiment/row-B-r2-S1.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-B-r2-S1.json",
+      "sha256": "ca9f78aad4f0a1903b9d0dc428e9e96f3a72b11a0f4ef7561f3d7dac0dbe6862",
+      "bytes": 6295
+    },
+    "raw/experiment/row-B-r3-S0.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-B-r3-S0.json",
+      "sha256": "78f9d6e1eb33ade9d21fdad04d16d80eaf162f99983985432bb62520b65ea90c",
+      "bytes": 6307
+    },
+    "raw/experiment/row-B-r3-S1.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/row-B-r3-S1.json",
+      "sha256": "b518c170a5ce9d2dcc4735fc97ce36bf70327fe61944ce9ce5f09a4c90b38325",
+      "bytes": 6307
+    },
+    "raw/experiment/summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/experiment/summary.json",
+      "sha256": "09dd41158b1c4459819e7c9748499a4ca100d677e8864f47cb2791736ed78f77",
+      "bytes": 86697
+    },
+    "raw/invocation.json": {
+      "source": "runs/basis-trial-v02/measured-v01/invocation.json",
+      "sha256": "5250d2e457142e7c0de30c92a82b7a3f8422198b0f1cd9452e9a1a402ee77d95",
+      "bytes": 194
+    },
+    "raw/result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/result.json",
+      "sha256": "df370373060ec0428c36338863bc86dce78e3e0fbfa82b4c18fe739e8c8e1452",
+      "bytes": 1238
+    },
+    "raw/sessions/A-r1-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/acceptance-attempt.json",
+      "sha256": "3759fe6d7d491d1eab151d65f5151fbd498ff1c6d9e97859c4be389fc2729a62",
+      "bytes": 488
+    },
+    "raw/sessions/A-r1-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/sessions/A-r1-S0/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/events.jsonl",
+      "sha256": "ae93cf41409a981cb8dfd2eb17fec05446064faa528bd4cb1dcda511babbb1c4",
+      "bytes": 505
+    },
+    "raw/sessions/A-r1-S0/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/execution-payload.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/sessions/A-r1-S0/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/host-conversion.json",
+      "sha256": "6ffefc4b5332ec065decadaf61c7022cd7fe5388e90bcdebdb984add0568c041",
+      "bytes": 595
+    },
+    "raw/sessions/A-r1-S0/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/input-audit.json",
+      "sha256": "4a439c493b9d64d8b4ce9131a4acb59b927b7a7bc161ccfca8b2948b28225367",
+      "bytes": 162
+    },
+    "raw/sessions/A-r1-S0/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/packet.json",
+      "sha256": "a33e261fd62f2d0836eb182410947a265e13ce7bce0a6e0c5dde9a10b25ce85c",
+      "bytes": 6160
+    },
+    "raw/sessions/A-r1-S0/requests/request-0002.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/requests/request-0002.request.json",
+      "sha256": "9353b6e121b2c70c2f21e9faa01677475146f21ad1609434e1b11ea6390868e5",
+      "bytes": 8451
+    },
+    "raw/sessions/A-r1-S0/requests/request-0002.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/requests/request-0002.response.json",
+      "sha256": "444f44e600ad78895c4a359c8733496cba5bb4f999678a80b8a16107c08eccde",
+      "bytes": 1092
+    },
+    "raw/sessions/A-r1-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/sdk-dispatch.json",
+      "sha256": "13aebda4811cc5124faa9c2c49bbcd0878b659d2196fa5cb881da35d80326d34",
+      "bytes": 797
+    },
+    "raw/sessions/A-r1-S0/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/sdk-submission.json",
+      "sha256": "257bbb2257edab1cac2bbf81c7c97ea8e2518bea80115526ad1f52297b0c4d0c",
+      "bytes": 662
+    },
+    "raw/sessions/A-r1-S0/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/session-summary.json",
+      "sha256": "d43654ebf259482a4e4825be046f40be47365e6e0f378d48b8361c38984571f6",
+      "bytes": 3167
+    },
+    "raw/sessions/A-r1-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/A-r1-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/submission.json",
+      "sha256": "02cbee2803963a022e1cb2d573474e586f5c7825573f8134c95c8f443843beaf",
+      "bytes": 185
+    },
+    "raw/sessions/A-r1-S0/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/transport-request.json",
+      "sha256": "b25f6a50dc9ed38d95ad1fef81eb4fb1c869f543388ef7f9fadeae77a9e70889",
+      "bytes": 336
+    },
+    "raw/sessions/A-r1-S0/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/transport-result.json",
+      "sha256": "a325c69cdb9a12813514fbfae639a5483a27bdcb6da88d0164c2dc4d571219d5",
+      "bytes": 213
+    },
+    "raw/sessions/A-r1-S0/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r1-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/acceptance-attempt.json",
+      "sha256": "4d928e7496ad5a2ab769e40864e61ddfe7a2308d478995a51f007e9068b979e9",
+      "bytes": 488
+    },
+    "raw/sessions/A-r1-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/compiled.json",
+      "sha256": "9d4300dc6be02993ab144865e10a0e0d99a3c59e2f55d35b437ce8fcf0ca2838",
+      "bytes": 1487
+    },
+    "raw/sessions/A-r1-S1/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/events.jsonl",
+      "sha256": "85e1dfd2e11ff1235ccf0353ec8b378e1bbb81b95b026e6c33a044d6ecb3f17b",
+      "bytes": 505
+    },
+    "raw/sessions/A-r1-S1/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/execution-payload.json",
+      "sha256": "b749ccf712b7806b5ff91b422610626e5167b547765f5fb9960798c5741bdeb6",
+      "bytes": 130
+    },
+    "raw/sessions/A-r1-S1/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/host-conversion.json",
+      "sha256": "c36e7f860ce4fb176add8c2288c6a6efae89fa5d0576ed80938f1e8b4ce0e7f7",
+      "bytes": 595
+    },
+    "raw/sessions/A-r1-S1/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/input-audit.json",
+      "sha256": "df02f4f070a21955fd9dfec8f49714c691d74fe3ac101cf1c23d196042442906",
+      "bytes": 162
+    },
+    "raw/sessions/A-r1-S1/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/packet.json",
+      "sha256": "013df82b5c6e93cbfc1cc835de79f8ccf967f29e56e2eeb833081b04c028a59c",
+      "bytes": 6190
+    },
+    "raw/sessions/A-r1-S1/requests/request-0003.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/requests/request-0003.request.json",
+      "sha256": "17acf7fe092786b2a57fa4727cac069bb70b60abd2d597d58f6eaaa480328821",
+      "bytes": 8481
+    },
+    "raw/sessions/A-r1-S1/requests/request-0003.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/requests/request-0003.response.json",
+      "sha256": "706d79717f02a67ed314cd9c83e08ac3402bcea1ce7bcb83f467a77c2b2c9d4e",
+      "bytes": 1092
+    },
+    "raw/sessions/A-r1-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/sdk-dispatch.json",
+      "sha256": "52e3c0a8aa2ec6d466f9e52cf98ffd9441d0e4123d27b6779626c7e8ab7d51d3",
+      "bytes": 797
+    },
+    "raw/sessions/A-r1-S1/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/sdk-submission.json",
+      "sha256": "05b3bd085bff8e69f816094e313f4d41db8e658e84221357186d19219981ab04",
+      "bytes": 662
+    },
+    "raw/sessions/A-r1-S1/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/session-summary.json",
+      "sha256": "3ae53254e9f3f80d7ec82105a85e98f6ab31b2e0e8a94eabfc39f1d4d8efdb7e",
+      "bytes": 3165
+    },
+    "raw/sessions/A-r1-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/A-r1-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/submission.json",
+      "sha256": "0dc8a386dec32a104511fdd0dc16ec0737a730409055b6655aec557b9cd0e589",
+      "bytes": 185
+    },
+    "raw/sessions/A-r1-S1/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/transport-request.json",
+      "sha256": "7c9b1b847ba0aeb536a6e10ba1c8bf3ee807fbf6b13e167507dc7e927c5ecfc5",
+      "bytes": 336
+    },
+    "raw/sessions/A-r1-S1/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/transport-result.json",
+      "sha256": "c7d6706819021a7b6a3671e3b5b9511d3486389255ef0ac96ff49cb051445c51",
+      "bytes": 212
+    },
+    "raw/sessions/A-r1-S1/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r1-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r2-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/acceptance-attempt.json",
+      "sha256": "df6819f5e8c97e172b3687ed6d7e331b1a0946667af875c96e5f4a19b185ccd8",
+      "bytes": 488
+    },
+    "raw/sessions/A-r2-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/sessions/A-r2-S0/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/events.jsonl",
+      "sha256": "031189a822002a328e2f0955848c060294e83ea9648fc072db653eb11c79e615",
+      "bytes": 505
+    },
+    "raw/sessions/A-r2-S0/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/execution-payload.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/sessions/A-r2-S0/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/host-conversion.json",
+      "sha256": "6ffefc4b5332ec065decadaf61c7022cd7fe5388e90bcdebdb984add0568c041",
+      "bytes": 595
+    },
+    "raw/sessions/A-r2-S0/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/input-audit.json",
+      "sha256": "4a439c493b9d64d8b4ce9131a4acb59b927b7a7bc161ccfca8b2948b28225367",
+      "bytes": 162
+    },
+    "raw/sessions/A-r2-S0/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/packet.json",
+      "sha256": "a33e261fd62f2d0836eb182410947a265e13ce7bce0a6e0c5dde9a10b25ce85c",
+      "bytes": 6160
+    },
+    "raw/sessions/A-r2-S0/requests/request-0007.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/requests/request-0007.request.json",
+      "sha256": "9353b6e121b2c70c2f21e9faa01677475146f21ad1609434e1b11ea6390868e5",
+      "bytes": 8451
+    },
+    "raw/sessions/A-r2-S0/requests/request-0007.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/requests/request-0007.response.json",
+      "sha256": "ed6e96e2e1c067d7e84c9e4b7f8268824e84e8c931b174a328651c46d7dd2755",
+      "bytes": 1091
+    },
+    "raw/sessions/A-r2-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/sdk-dispatch.json",
+      "sha256": "d5e4d49918f4c3309f618bfb4c18086f22b869241674a210f3583a6d541bceef",
+      "bytes": 797
+    },
+    "raw/sessions/A-r2-S0/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/sdk-submission.json",
+      "sha256": "39553d7d632916aafd4c19bcd6e20af4c784a60867ff21e7fdb24a01e64064d7",
+      "bytes": 662
+    },
+    "raw/sessions/A-r2-S0/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/session-summary.json",
+      "sha256": "06e381d867fd32b1025f158c9365f0603a3b5f9c41a9124f909d94a09d32364f",
+      "bytes": 3167
+    },
+    "raw/sessions/A-r2-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/A-r2-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/submission.json",
+      "sha256": "a3a1d5943f1b8c63c942665118237b6932b2a42a7a56c0997dd1f57cf2a9c111",
+      "bytes": 185
+    },
+    "raw/sessions/A-r2-S0/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/transport-request.json",
+      "sha256": "6c2839c633a1a4a4a5757c41643bed98d36c9cb0966997c6283b8951d37b6a8d",
+      "bytes": 336
+    },
+    "raw/sessions/A-r2-S0/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/transport-result.json",
+      "sha256": "2b18bd678ee5d50527dd1bece407e33f1c204e05e5fa82c55ca5b8be7bb26234",
+      "bytes": 213
+    },
+    "raw/sessions/A-r2-S0/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r2-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/acceptance-attempt.json",
+      "sha256": "4a8d6a73468099e5458c7e8bc5426f539fe6b064dbdc1bc49663a8075d79879d",
+      "bytes": 488
+    },
+    "raw/sessions/A-r2-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/sessions/A-r2-S1/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/events.jsonl",
+      "sha256": "99c0e13cf796416654a268c82ec15e1e0e326416be45c9440ba0fe5743f646c0",
+      "bytes": 505
+    },
+    "raw/sessions/A-r2-S1/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/execution-payload.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/sessions/A-r2-S1/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/host-conversion.json",
+      "sha256": "6ffefc4b5332ec065decadaf61c7022cd7fe5388e90bcdebdb984add0568c041",
+      "bytes": 595
+    },
+    "raw/sessions/A-r2-S1/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/input-audit.json",
+      "sha256": "df02f4f070a21955fd9dfec8f49714c691d74fe3ac101cf1c23d196042442906",
+      "bytes": 162
+    },
+    "raw/sessions/A-r2-S1/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/packet.json",
+      "sha256": "013df82b5c6e93cbfc1cc835de79f8ccf967f29e56e2eeb833081b04c028a59c",
+      "bytes": 6190
+    },
+    "raw/sessions/A-r2-S1/requests/request-0006.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/requests/request-0006.request.json",
+      "sha256": "17acf7fe092786b2a57fa4727cac069bb70b60abd2d597d58f6eaaa480328821",
+      "bytes": 8481
+    },
+    "raw/sessions/A-r2-S1/requests/request-0006.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/requests/request-0006.response.json",
+      "sha256": "0bd387bc0c3eee2c2bf246bb7a658c0b472f362393a2b09d30d5d60454927f67",
+      "bytes": 1091
+    },
+    "raw/sessions/A-r2-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/sdk-dispatch.json",
+      "sha256": "ef45f6006901c77f7f06eef905c4751bf93d462aa37873909549c70d1c356f9c",
+      "bytes": 797
+    },
+    "raw/sessions/A-r2-S1/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/sdk-submission.json",
+      "sha256": "e348b32af3cd8db7283cf282fc97f0f9ccbe4a6df06df7c6662063498558df0d",
+      "bytes": 662
+    },
+    "raw/sessions/A-r2-S1/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/session-summary.json",
+      "sha256": "a4a2fb27bf84a65fe38a0ba6e6b526cbb13eac041dc8382e043c87a6361c7f69",
+      "bytes": 3167
+    },
+    "raw/sessions/A-r2-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/A-r2-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/submission.json",
+      "sha256": "269b55aa4c18a9ff77d7f4f2ed013a460149511d96a533189b6fc6ceaca940cd",
+      "bytes": 185
+    },
+    "raw/sessions/A-r2-S1/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/transport-request.json",
+      "sha256": "4ad8ff4bbffb663fb3dc59d284a43f157b594c779c6014e67acb5a31cceb3c5c",
+      "bytes": 336
+    },
+    "raw/sessions/A-r2-S1/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/transport-result.json",
+      "sha256": "cfd8c8a06fc09fcda699ddc9fc2ccce9431c74e6b48d48e88166d6fc3c431a25",
+      "bytes": 213
+    },
+    "raw/sessions/A-r2-S1/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r2-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r3-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/acceptance-attempt.json",
+      "sha256": "b94e8c8774cc7b3cd929e718d4ae844658b4140029be59654e573e3b2e5da1f0",
+      "bytes": 488
+    },
+    "raw/sessions/A-r3-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/compiled.json",
+      "sha256": "fd291f93e1f4bbaa9ac821cef5ccbbf30113ff98a43ad52326c43f9a9b989d43",
+      "bytes": 1494
+    },
+    "raw/sessions/A-r3-S0/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/events.jsonl",
+      "sha256": "30f8f4cc27073ae9f3cd903ba821ecbfd61a651fb944cda2e3ac1ef808d40947",
+      "bytes": 505
+    },
+    "raw/sessions/A-r3-S0/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/execution-payload.json",
+      "sha256": "30910c390b89e14b85af227957d98cab5e3c2c6466e3f4d751606acd2853ebc7",
+      "bytes": 130
+    },
+    "raw/sessions/A-r3-S0/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/host-conversion.json",
+      "sha256": "7cda6d25206c75268cb315f0355205a8eadaff5e1c3487fdaaa45ae7c97a04fe",
+      "bytes": 595
+    },
+    "raw/sessions/A-r3-S0/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/input-audit.json",
+      "sha256": "4a439c493b9d64d8b4ce9131a4acb59b927b7a7bc161ccfca8b2948b28225367",
+      "bytes": 162
+    },
+    "raw/sessions/A-r3-S0/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/packet.json",
+      "sha256": "a33e261fd62f2d0836eb182410947a265e13ce7bce0a6e0c5dde9a10b25ce85c",
+      "bytes": 6160
+    },
+    "raw/sessions/A-r3-S0/requests/request-0010.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/requests/request-0010.request.json",
+      "sha256": "9353b6e121b2c70c2f21e9faa01677475146f21ad1609434e1b11ea6390868e5",
+      "bytes": 8451
+    },
+    "raw/sessions/A-r3-S0/requests/request-0010.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/requests/request-0010.response.json",
+      "sha256": "3fb49aa75c8dc2c275d4042dd8cac90c2774ecdb9c9dad0ef8d245c072dffadb",
+      "bytes": 1091
+    },
+    "raw/sessions/A-r3-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/sdk-dispatch.json",
+      "sha256": "e475cb4d0d59bfbcae2e6c54aedcce1219fd94e92d5a896040a9abc0dd7d9ba1",
+      "bytes": 797
+    },
+    "raw/sessions/A-r3-S0/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/sdk-submission.json",
+      "sha256": "4afdc8bcc614c8cedb7dbf16e1b5b624b3ab4023db222e64f4a09c872ca68c91",
+      "bytes": 662
+    },
+    "raw/sessions/A-r3-S0/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/session-summary.json",
+      "sha256": "af82d885ace86d0129dde3673ee91f4a148ad177f865c8477d8da07d8263564f",
+      "bytes": 3172
+    },
+    "raw/sessions/A-r3-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/source.py",
+      "sha256": "41e5b1026b8865dae91a0c7a972ed62e8ff732d707f32612949c985494dbf6c8",
+      "bytes": 905
+    },
+    "raw/sessions/A-r3-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/submission.json",
+      "sha256": "be6c609ed34dce6d9b387bfea2cb4cfb3d2c5a837ed3ef162d24dd49ea9a7e27",
+      "bytes": 185
+    },
+    "raw/sessions/A-r3-S0/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/transport-request.json",
+      "sha256": "35b4184b4ca9c8195f11a3fbdfaefb12b8b8d1ca212c3587cb15d5f310a6fa2b",
+      "bytes": 336
+    },
+    "raw/sessions/A-r3-S0/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/transport-result.json",
+      "sha256": "3ad3ef2df270b06a0a318ead80df3b62f1129f7f9c2b9aee787c593fdaa07ab0",
+      "bytes": 213
+    },
+    "raw/sessions/A-r3-S0/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/A-r3-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/acceptance-attempt.json",
+      "sha256": "851e706cad852270fe8d30495f277f3143abbd4dbd71e35707203a6d9925f5ff",
+      "bytes": 488
+    },
+    "raw/sessions/A-r3-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/compiled.json",
+      "sha256": "adbe1f973000294844ae7131ab81aebe5d1f0cc877ecc8fd2b31a2787960159c",
+      "bytes": 1489
+    },
+    "raw/sessions/A-r3-S1/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/events.jsonl",
+      "sha256": "cc670c85a90ba09cc3ebd8302bb7b6a63b703a6053bd7ed46b7e31dc2315259f",
+      "bytes": 505
+    },
+    "raw/sessions/A-r3-S1/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/execution-payload.json",
+      "sha256": "02c29a3501523fe23346d8eddad6b56672248cb4c34fe311d1195ccbec75cca9",
+      "bytes": 130
+    },
+    "raw/sessions/A-r3-S1/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/host-conversion.json",
+      "sha256": "6ffefc4b5332ec065decadaf61c7022cd7fe5388e90bcdebdb984add0568c041",
+      "bytes": 595
+    },
+    "raw/sessions/A-r3-S1/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/input-audit.json",
+      "sha256": "df02f4f070a21955fd9dfec8f49714c691d74fe3ac101cf1c23d196042442906",
+      "bytes": 162
+    },
+    "raw/sessions/A-r3-S1/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/packet.json",
+      "sha256": "013df82b5c6e93cbfc1cc835de79f8ccf967f29e56e2eeb833081b04c028a59c",
+      "bytes": 6190
+    },
+    "raw/sessions/A-r3-S1/requests/request-0011.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/requests/request-0011.request.json",
+      "sha256": "17acf7fe092786b2a57fa4727cac069bb70b60abd2d597d58f6eaaa480328821",
+      "bytes": 8481
+    },
+    "raw/sessions/A-r3-S1/requests/request-0011.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/requests/request-0011.response.json",
+      "sha256": "d90e141ec9b8a30db600be3c2b8d755fc80a0f4a78a29a17850810457f3ce454",
+      "bytes": 1091
+    },
+    "raw/sessions/A-r3-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/sdk-dispatch.json",
+      "sha256": "e35605e6e8b39c618ad4e1b55e6f8445bf92433b54f6fa05e8fbedbfcd5b5a40",
+      "bytes": 797
+    },
+    "raw/sessions/A-r3-S1/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/sdk-submission.json",
+      "sha256": "8a87873494dd0737ae32e4559469e3a990138d3ca1cebdb30a6f8db0db2e6b70",
+      "bytes": 662
+    },
+    "raw/sessions/A-r3-S1/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/session-summary.json",
+      "sha256": "ceb4901f8f3493219eb9cb2e6d9599c992175ccbf92f886554cada2d1dc3848f",
+      "bytes": 3167
+    },
+    "raw/sessions/A-r3-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/source.py",
+      "sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "bytes": 900
+    },
+    "raw/sessions/A-r3-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/submission.json",
+      "sha256": "e10d54d46d01f439190b11d274343869d5aded165fec501299503de6732503d8",
+      "bytes": 185
+    },
+    "raw/sessions/A-r3-S1/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/transport-request.json",
+      "sha256": "facbf77d1bd735f6ab42697feeaea4a20c0d4ddca59d7690842f4d19ac998f9d",
+      "bytes": 336
+    },
+    "raw/sessions/A-r3-S1/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/transport-result.json",
+      "sha256": "d53262a9adf0ed3a62dac95b151a0d1ca15e99ff649fa2cba4adc8e665867762",
+      "bytes": 213
+    },
+    "raw/sessions/A-r3-S1/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/A-r3-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r1-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/acceptance-attempt.json",
+      "sha256": "333a08ba594c85c181927526cc67276ccb601d739a47d1602039d643df4f1b12",
+      "bytes": 488
+    },
+    "raw/sessions/B-r1-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/compiled.json",
+      "sha256": "2eba3419d77ac6372a4d11bf55882f5facf07d0f55652d8f3d6cd6afbcf7bee1",
+      "bytes": 1489
+    },
+    "raw/sessions/B-r1-S0/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/events.jsonl",
+      "sha256": "26f4fd4549bbdd9bcab448f5b2775a1f9cf6d2d2d71ae0b108ea172bde9a1953",
+      "bytes": 505
+    },
+    "raw/sessions/B-r1-S0/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/execution-payload.json",
+      "sha256": "a8bd4a6f5fd26e790d4e3f367951dc242a603f60e692e6231c9562990a0957b7",
+      "bytes": 130
+    },
+    "raw/sessions/B-r1-S0/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/host-conversion.json",
+      "sha256": "b03bf64ec0ab10f77f12afe94136fa181ea3face4a00c46b9ae93049a67481c8",
+      "bytes": 595
+    },
+    "raw/sessions/B-r1-S0/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/input-audit.json",
+      "sha256": "2785ebaa75d9249fae542fac2b1a7513c9533c6da2297fc3b7e6cfc5d2ff8be8",
+      "bytes": 162
+    },
+    "raw/sessions/B-r1-S0/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/packet.json",
+      "sha256": "bf0b2663e506d467b247cec2908265e452b62e3368c9f005f776113962afbb08",
+      "bytes": 6163
+    },
+    "raw/sessions/B-r1-S0/requests/request-0005.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/requests/request-0005.request.json",
+      "sha256": "6a200e25f9592762039ae2a0af211c7f22bcd79ff8d01888fddbb6fd27909b32",
+      "bytes": 8454
+    },
+    "raw/sessions/B-r1-S0/requests/request-0005.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/requests/request-0005.response.json",
+      "sha256": "39e950052146372cae9bffb1a9483afe24be419232e193f57afd6883920a758f",
+      "bytes": 1092
+    },
+    "raw/sessions/B-r1-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/sdk-dispatch.json",
+      "sha256": "98a2ec227bc591b863a959856b88c341874fc76a540721ebab50b57e52a3e108",
+      "bytes": 797
+    },
+    "raw/sessions/B-r1-S0/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/sdk-submission.json",
+      "sha256": "b72fbb17b942a45c181af5dba87300eb7c9bfc83a60858f1d1339240f774031f",
+      "bytes": 662
+    },
+    "raw/sessions/B-r1-S0/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/session-summary.json",
+      "sha256": "25bdb250b748b51c07904b277762d7f3e91b4df9f67fa9b4e795b9c1352ec750",
+      "bytes": 3167
+    },
+    "raw/sessions/B-r1-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/source.py",
+      "sha256": "0c350b03ced1fe0ea82e96f04bd2786c3d85b362cb21512d2b08796d9cc41961",
+      "bytes": 900
+    },
+    "raw/sessions/B-r1-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/submission.json",
+      "sha256": "d48aef0a16d13c6dfa4d6dd79004d04b499a1c035d26abd5648e5b181a8b3f98",
+      "bytes": 185
+    },
+    "raw/sessions/B-r1-S0/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/transport-request.json",
+      "sha256": "b6c6d520fc2921d92fe7bc2d13c07b51eac44c101d653c65449da85fc0900942",
+      "bytes": 336
+    },
+    "raw/sessions/B-r1-S0/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/transport-result.json",
+      "sha256": "33ee2f296fc220c9c38681d60439e1003fa46a71a6346ac229a69663991152a4",
+      "bytes": 213
+    },
+    "raw/sessions/B-r1-S0/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r1-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/acceptance-attempt.json",
+      "sha256": "9cef5ed762b43e4ba138438fb1893f659d2937f81002ec8dfd51e82b670a1862",
+      "bytes": 488
+    },
+    "raw/sessions/B-r1-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/compiled.json",
+      "sha256": "b895bda4b3ad5dd1164acbba5de1028fd626b24451471b4a5b74bd18c8034cec",
+      "bytes": 1494
+    },
+    "raw/sessions/B-r1-S1/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/events.jsonl",
+      "sha256": "ed02f6eba5aac001669257599f3ef5269eea921eb8db17fbf729d6058273fc00",
+      "bytes": 505
+    },
+    "raw/sessions/B-r1-S1/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/execution-payload.json",
+      "sha256": "5b36e3177b30dc3927cac31f3d56d45028a68a662d0cb87433a82b4bd627f18a",
+      "bytes": 130
+    },
+    "raw/sessions/B-r1-S1/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/host-conversion.json",
+      "sha256": "ee6b72b9edae6a657b44574acaa183bb02e48c4c7f781d33fd1428f6aad2d20e",
+      "bytes": 595
+    },
+    "raw/sessions/B-r1-S1/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/input-audit.json",
+      "sha256": "5784e5ac16c518e9bc12ed48bf247944f35a387f5d1d7da4286abe92d58a108a",
+      "bytes": 162
+    },
+    "raw/sessions/B-r1-S1/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/packet.json",
+      "sha256": "6fabe25b25de1a57206010fbf186619529ca56041af07402f849b6e99060a91e",
+      "bytes": 6193
+    },
+    "raw/sessions/B-r1-S1/requests/request-0004.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/requests/request-0004.request.json",
+      "sha256": "0e823d9f96d3b3cc036532247ac576a3bd2b967b8dc0105c09e1253f1ba16213",
+      "bytes": 8484
+    },
+    "raw/sessions/B-r1-S1/requests/request-0004.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/requests/request-0004.response.json",
+      "sha256": "b09f223134ec1a0ee0b4b058c492a2d2baf6f0a8e5012ccdf6eb7354c78c3677",
+      "bytes": 1092
+    },
+    "raw/sessions/B-r1-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/sdk-dispatch.json",
+      "sha256": "f3e8c4e8b477fe7889ffe5f623bbc57439d3d06ebcbd3fc98cf83085b03f5a96",
+      "bytes": 797
+    },
+    "raw/sessions/B-r1-S1/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/sdk-submission.json",
+      "sha256": "fd6ebc005dec30100e58dc4662b1de4ea1b35c6f62daedeff7420226774d221f",
+      "bytes": 662
+    },
+    "raw/sessions/B-r1-S1/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/session-summary.json",
+      "sha256": "b851eec36c5b8ab07074cfb70ddbc0a0731f50c931ef3a9a68cd9a492147a222",
+      "bytes": 3172
+    },
+    "raw/sessions/B-r1-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/source.py",
+      "sha256": "b807077d7064fe3bac15fd80779ab67d734642c87dbbaf3b2405365181b13bcf",
+      "bytes": 905
+    },
+    "raw/sessions/B-r1-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/submission.json",
+      "sha256": "bb54e43c575549e131d101421661580fb0f60bebfa6256c38cb60beb0881fcaf",
+      "bytes": 185
+    },
+    "raw/sessions/B-r1-S1/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/transport-request.json",
+      "sha256": "389ee364ee173b87b4ad5ead1c9adf4921e413cb9babfac967c779ede5d7db76",
+      "bytes": 336
+    },
+    "raw/sessions/B-r1-S1/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/transport-result.json",
+      "sha256": "5252439b1c5d0775932cf1a7b5992a1dfd6d23ca364ee35f79ddb6ea99f5c021",
+      "bytes": 213
+    },
+    "raw/sessions/B-r1-S1/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r1-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r2-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/acceptance-attempt.json",
+      "sha256": "31f62f668eaee982cec38fb2718d17f934bef5636adcb0925bed5ed3ee7e9e1a",
+      "bytes": 488
+    },
+    "raw/sessions/B-r2-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/compiled.json",
+      "sha256": "b895bda4b3ad5dd1164acbba5de1028fd626b24451471b4a5b74bd18c8034cec",
+      "bytes": 1494
+    },
+    "raw/sessions/B-r2-S0/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/events.jsonl",
+      "sha256": "55b05b0d07a385ed750f3bb5000f94c330639509951e4e80fa1e10cb189f3338",
+      "bytes": 505
+    },
+    "raw/sessions/B-r2-S0/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/execution-payload.json",
+      "sha256": "5b36e3177b30dc3927cac31f3d56d45028a68a662d0cb87433a82b4bd627f18a",
+      "bytes": 130
+    },
+    "raw/sessions/B-r2-S0/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/host-conversion.json",
+      "sha256": "ee6b72b9edae6a657b44574acaa183bb02e48c4c7f781d33fd1428f6aad2d20e",
+      "bytes": 595
+    },
+    "raw/sessions/B-r2-S0/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/input-audit.json",
+      "sha256": "2785ebaa75d9249fae542fac2b1a7513c9533c6da2297fc3b7e6cfc5d2ff8be8",
+      "bytes": 162
+    },
+    "raw/sessions/B-r2-S0/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/packet.json",
+      "sha256": "bf0b2663e506d467b247cec2908265e452b62e3368c9f005f776113962afbb08",
+      "bytes": 6163
+    },
+    "raw/sessions/B-r2-S0/requests/request-0008.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/requests/request-0008.request.json",
+      "sha256": "6a200e25f9592762039ae2a0af211c7f22bcd79ff8d01888fddbb6fd27909b32",
+      "bytes": 8454
+    },
+    "raw/sessions/B-r2-S0/requests/request-0008.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/requests/request-0008.response.json",
+      "sha256": "7e8473534cee0e26658db498f9c5c6c68177bce78fee2b4e6f97064ecb52026a",
+      "bytes": 1091
+    },
+    "raw/sessions/B-r2-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/sdk-dispatch.json",
+      "sha256": "15d4b673a11bcd3ff51826e771682035817be5c0c9ac243ec7e7c202c0b3311a",
+      "bytes": 797
+    },
+    "raw/sessions/B-r2-S0/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/sdk-submission.json",
+      "sha256": "5e3c0d78b5c66ef0f5575da4c4cbe923613bf53638ca0c5d60a6b057e90db5ed",
+      "bytes": 662
+    },
+    "raw/sessions/B-r2-S0/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/session-summary.json",
+      "sha256": "5d1e75bec0254b3280d4f7c66b0e838ced5d8055694c956852f8e1a00572112d",
+      "bytes": 3172
+    },
+    "raw/sessions/B-r2-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/source.py",
+      "sha256": "b807077d7064fe3bac15fd80779ab67d734642c87dbbaf3b2405365181b13bcf",
+      "bytes": 905
+    },
+    "raw/sessions/B-r2-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/submission.json",
+      "sha256": "77faf9fa0f4ce627944a386df15bae552c370a2a2ddfede7cc3944d78e99d472",
+      "bytes": 185
+    },
+    "raw/sessions/B-r2-S0/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/transport-request.json",
+      "sha256": "0dde5f4c0adefe3a4ca3e53aaf11b69a00efc73888c8f4cb90c01399ad95383e",
+      "bytes": 336
+    },
+    "raw/sessions/B-r2-S0/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/transport-result.json",
+      "sha256": "00e8e5de1aa0c2e1e425b780f7dd1cc85f913efe00c96086bbe87c15e904e548",
+      "bytes": 213
+    },
+    "raw/sessions/B-r2-S0/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r2-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/acceptance-attempt.json",
+      "sha256": "aba785f10c1a180567c0a2689a82657df9d7dbd00cbf8a7b6d2fb3f9ef21c6ba",
+      "bytes": 488
+    },
+    "raw/sessions/B-r2-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/compiled.json",
+      "sha256": "b895bda4b3ad5dd1164acbba5de1028fd626b24451471b4a5b74bd18c8034cec",
+      "bytes": 1494
+    },
+    "raw/sessions/B-r2-S1/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/events.jsonl",
+      "sha256": "636d9453f409457c2b9a0a47aef49eec17f73ea16dcc99772acc8846514f7acf",
+      "bytes": 505
+    },
+    "raw/sessions/B-r2-S1/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/execution-payload.json",
+      "sha256": "5b36e3177b30dc3927cac31f3d56d45028a68a662d0cb87433a82b4bd627f18a",
+      "bytes": 130
+    },
+    "raw/sessions/B-r2-S1/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/host-conversion.json",
+      "sha256": "ee6b72b9edae6a657b44574acaa183bb02e48c4c7f781d33fd1428f6aad2d20e",
+      "bytes": 595
+    },
+    "raw/sessions/B-r2-S1/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/input-audit.json",
+      "sha256": "5784e5ac16c518e9bc12ed48bf247944f35a387f5d1d7da4286abe92d58a108a",
+      "bytes": 162
+    },
+    "raw/sessions/B-r2-S1/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/packet.json",
+      "sha256": "6fabe25b25de1a57206010fbf186619529ca56041af07402f849b6e99060a91e",
+      "bytes": 6193
+    },
+    "raw/sessions/B-r2-S1/requests/request-0009.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/requests/request-0009.request.json",
+      "sha256": "0e823d9f96d3b3cc036532247ac576a3bd2b967b8dc0105c09e1253f1ba16213",
+      "bytes": 8484
+    },
+    "raw/sessions/B-r2-S1/requests/request-0009.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/requests/request-0009.response.json",
+      "sha256": "3278bedfd7b34180d0d6357d06d2c531a6821d3dca6f6486a4090508c59e970e",
+      "bytes": 1091
+    },
+    "raw/sessions/B-r2-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/sdk-dispatch.json",
+      "sha256": "2431c9ba6e830a9531b19cd6256286d5ab0fc4417f299814556fa5556ed257fd",
+      "bytes": 797
+    },
+    "raw/sessions/B-r2-S1/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/sdk-submission.json",
+      "sha256": "ea0e800ae888d25616c6f7703acccf927faaf219f39c9e733d969264c6c4cf8c",
+      "bytes": 662
+    },
+    "raw/sessions/B-r2-S1/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/session-summary.json",
+      "sha256": "14ee3120cfc252d5c17fdd4b4514803d54c07166a511bacfed6f4de19d5a94de",
+      "bytes": 3172
+    },
+    "raw/sessions/B-r2-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/source.py",
+      "sha256": "b807077d7064fe3bac15fd80779ab67d734642c87dbbaf3b2405365181b13bcf",
+      "bytes": 905
+    },
+    "raw/sessions/B-r2-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/submission.json",
+      "sha256": "6242ee1f25ad67f77837cd1091081a53283a408e9f08224d8ca1d8418287df6a",
+      "bytes": 185
+    },
+    "raw/sessions/B-r2-S1/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/transport-request.json",
+      "sha256": "72902e7e80bb974a5a2bd89cff32a040cebe3e56e2929907bcacad42362ecba8",
+      "bytes": 336
+    },
+    "raw/sessions/B-r2-S1/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/transport-result.json",
+      "sha256": "09159989910bac05277b1a767f98b3bb19468fcdc976c6f8d67a2854cf8590f6",
+      "bytes": 212
+    },
+    "raw/sessions/B-r2-S1/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r2-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r3-S0/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/acceptance-attempt.json",
+      "sha256": "4ccd33c0efd5f16dce31fa98f001d37d119aae11185af77f5db139180d19972e",
+      "bytes": 488
+    },
+    "raw/sessions/B-r3-S0/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/compiled.json",
+      "sha256": "9d4300dc6be02993ab144865e10a0e0d99a3c59e2f55d35b437ce8fcf0ca2838",
+      "bytes": 1487
+    },
+    "raw/sessions/B-r3-S0/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/events.jsonl",
+      "sha256": "3e773c9f8b4cafbe66a6cf4892ca8e7ab67b47c0fb795fa53b542a14ae4caa45",
+      "bytes": 505
+    },
+    "raw/sessions/B-r3-S0/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/execution-payload.json",
+      "sha256": "b749ccf712b7806b5ff91b422610626e5167b547765f5fb9960798c5741bdeb6",
+      "bytes": 130
+    },
+    "raw/sessions/B-r3-S0/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/host-conversion.json",
+      "sha256": "c36e7f860ce4fb176add8c2288c6a6efae89fa5d0576ed80938f1e8b4ce0e7f7",
+      "bytes": 595
+    },
+    "raw/sessions/B-r3-S0/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/input-audit.json",
+      "sha256": "2785ebaa75d9249fae542fac2b1a7513c9533c6da2297fc3b7e6cfc5d2ff8be8",
+      "bytes": 162
+    },
+    "raw/sessions/B-r3-S0/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/packet.json",
+      "sha256": "bf0b2663e506d467b247cec2908265e452b62e3368c9f005f776113962afbb08",
+      "bytes": 6163
+    },
+    "raw/sessions/B-r3-S0/requests/request-0013.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/requests/request-0013.request.json",
+      "sha256": "6a200e25f9592762039ae2a0af211c7f22bcd79ff8d01888fddbb6fd27909b32",
+      "bytes": 8454
+    },
+    "raw/sessions/B-r3-S0/requests/request-0013.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/requests/request-0013.response.json",
+      "sha256": "2c7fa15b18a809786af8ab4e6582cffb74d0d23e8bb5126b5476c0804a9c7204",
+      "bytes": 1091
+    },
+    "raw/sessions/B-r3-S0/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/sdk-dispatch.json",
+      "sha256": "ed0279dae3b87258230cc33ca67715faf7605e31a652c8ce1c2bdbe54a544c8d",
+      "bytes": 797
+    },
+    "raw/sessions/B-r3-S0/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/sdk-submission.json",
+      "sha256": "a2feead71a9fe279d2f79f4574796deff5ec83e5598478e32cf93630692a2ff7",
+      "bytes": 662
+    },
+    "raw/sessions/B-r3-S0/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/session-summary.json",
+      "sha256": "63f3d4497531ccada12aefa726b1b5452dacae8680fbca04904f9a8b03375774",
+      "bytes": 3165
+    },
+    "raw/sessions/B-r3-S0/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/B-r3-S0/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/submission.json",
+      "sha256": "b70a50802a0dcf5bb8cc087b68519e10775d3eba05861afae31369c904af4036",
+      "bytes": 185
+    },
+    "raw/sessions/B-r3-S0/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/transport-request.json",
+      "sha256": "c3199442bc6a870c5beeda7f02d01bc0107eedd43b8a7526060732ea77c82778",
+      "bytes": 336
+    },
+    "raw/sessions/B-r3-S0/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/transport-result.json",
+      "sha256": "032f7a805cca6311544f52f6c68bac959f081971379eaaaba16b9f8d2a45b306",
+      "bytes": 213
+    },
+    "raw/sessions/B-r3-S0/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S0/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/B-r3-S1/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/acceptance-attempt.json",
+      "sha256": "c40ddfcd9887abfc670b497a6fa6e2813ebdb7fe400651d83f366367154909c5",
+      "bytes": 488
+    },
+    "raw/sessions/B-r3-S1/compiled.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/compiled.json",
+      "sha256": "9d4300dc6be02993ab144865e10a0e0d99a3c59e2f55d35b437ce8fcf0ca2838",
+      "bytes": 1487
+    },
+    "raw/sessions/B-r3-S1/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/events.jsonl",
+      "sha256": "84fac1d02c574f0ad366873ef8f065f89772e6ab27c07d6406c91260f2c68d5f",
+      "bytes": 505
+    },
+    "raw/sessions/B-r3-S1/execution-payload.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/execution-payload.json",
+      "sha256": "b749ccf712b7806b5ff91b422610626e5167b547765f5fb9960798c5741bdeb6",
+      "bytes": 130
+    },
+    "raw/sessions/B-r3-S1/host-conversion.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/host-conversion.json",
+      "sha256": "c36e7f860ce4fb176add8c2288c6a6efae89fa5d0576ed80938f1e8b4ce0e7f7",
+      "bytes": 595
+    },
+    "raw/sessions/B-r3-S1/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/input-audit.json",
+      "sha256": "5784e5ac16c518e9bc12ed48bf247944f35a387f5d1d7da4286abe92d58a108a",
+      "bytes": 162
+    },
+    "raw/sessions/B-r3-S1/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/packet.json",
+      "sha256": "6fabe25b25de1a57206010fbf186619529ca56041af07402f849b6e99060a91e",
+      "bytes": 6193
+    },
+    "raw/sessions/B-r3-S1/requests/request-0012.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/requests/request-0012.request.json",
+      "sha256": "0e823d9f96d3b3cc036532247ac576a3bd2b967b8dc0105c09e1253f1ba16213",
+      "bytes": 8484
+    },
+    "raw/sessions/B-r3-S1/requests/request-0012.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/requests/request-0012.response.json",
+      "sha256": "95a45504963595e7f3043f4b6dee9085ac6ed64872ef35f446aedc4f44538902",
+      "bytes": 1091
+    },
+    "raw/sessions/B-r3-S1/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/sdk-dispatch.json",
+      "sha256": "5f396aee1f7120ab8498bf141a8239d80043ce902bed9ed243308a41e7e8e348",
+      "bytes": 797
+    },
+    "raw/sessions/B-r3-S1/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/sdk-submission.json",
+      "sha256": "bc2050222a05b628c79749eeb113d9d178c3786ede11929511b0989d3f985aaf",
+      "bytes": 662
+    },
+    "raw/sessions/B-r3-S1/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/session-summary.json",
+      "sha256": "e1d5aea9a8ad76a3bfbda6192b701c8d51a017813d61637563fd3eb12071b28d",
+      "bytes": 3165
+    },
+    "raw/sessions/B-r3-S1/source.py": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/source.py",
+      "sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "bytes": 898
+    },
+    "raw/sessions/B-r3-S1/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/submission.json",
+      "sha256": "2e4c330672faf38cbe547670e745b9f4c9616b1a0ce4d1676ba11fd541f8d948",
+      "bytes": 185
+    },
+    "raw/sessions/B-r3-S1/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/transport-request.json",
+      "sha256": "0909c79c1301c0a56a0cc2c48cc783f108665595b41f5f3ec2f45edfec574aba",
+      "bytes": 336
+    },
+    "raw/sessions/B-r3-S1/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/transport-result.json",
+      "sha256": "525aa4ea02e36638e9df926c5314959a1ec97c6a59d7af300f03c2d20003c2b5",
+      "bytes": 213
+    },
+    "raw/sessions/B-r3-S1/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/B-r3-S1/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    },
+    "raw/sessions/update/acceptance-attempt.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/acceptance-attempt.json",
+      "sha256": "497ba97367dfded5c832ff5b27b3c93d64a559768d4bf8ffdf53477b0048d2c6",
+      "bytes": 486
+    },
+    "raw/sessions/update/events.jsonl": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/events.jsonl",
+      "sha256": "c3d01980ca8a0cea37e9ad224f3f699d65bb2977ff58b5e4af635e776ccde9e8",
+      "bytes": 507
+    },
+    "raw/sessions/update/input-audit.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/input-audit.json",
+      "sha256": "5a939606305fc8773c2e0d3669a2da6ad3518bb2126a0f2120ca6d4620b70907",
+      "bytes": 163
+    },
+    "raw/sessions/update/packet.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/packet.json",
+      "sha256": "959ce266f61a1a6aa65a69f7dec61bb1bc7f24853ad38b2f8270b06f754d9308",
+      "bytes": 81243
+    },
+    "raw/sessions/update/policy.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/policy.json",
+      "sha256": "9111f3f37254537506759025a22753910f90877a2a0a2401e22678c5cd1a20c4",
+      "bytes": 72
+    },
+    "raw/sessions/update/requests/request-0001.request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/requests/request-0001.request.json",
+      "sha256": "931c00d38ea84cd19cddc4b1e8eb18d4c94330e448ca6d8ba18501f5909e8801",
+      "bytes": 89183
+    },
+    "raw/sessions/update/requests/request-0001.response.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/requests/request-0001.response.json",
+      "sha256": "341070e11073af38084e80a249d05d86b71ce926c88ad101c51c20e04c1f1a0e",
+      "bytes": 1085
+    },
+    "raw/sessions/update/sdk-dispatch.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/sdk-dispatch.json",
+      "sha256": "a23779d410e4573edafea17dea935f59ddac43a2a2509dc05c811648475551b1",
+      "bytes": 797
+    },
+    "raw/sessions/update/sdk-submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/sdk-submission.json",
+      "sha256": "1355347427a21c574c5b04f5f47e462dc9931e91347e04b363c79720a754972c",
+      "bytes": 650
+    },
+    "raw/sessions/update/session-summary.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/session-summary.json",
+      "sha256": "ba80f3931ecb49206e0c173bb558e6284d799b345d035255c698852c4e1a0aa6",
+      "bytes": 1021
+    },
+    "raw/sessions/update/submission.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/submission.json",
+      "sha256": "0e9221839913b6233ca99a8709137e2af98e06a8160e50d815077065feaa9002",
+      "bytes": 175
+    },
+    "raw/sessions/update/transport-request.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/transport-request.json",
+      "sha256": "34b0e5d39180fdb2e2683d72e46caaedb2823caff2f693f99f803f2baa517bac",
+      "bytes": 336
+    },
+    "raw/sessions/update/transport-result.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/transport-result.json",
+      "sha256": "36fd144d6039913ac9cf0832a037db9ff6aeb2ba7c4bb6234e980043c8eefc39",
+      "bytes": 213
+    },
+    "raw/sessions/update/transport-settings.json": {
+      "source": "runs/basis-trial-v02/measured-v01/sessions/update/transport-settings.json",
+      "sha256": "5e3d924d0df7088b4a6fb279bbf5cf98d45f67ee41a44915e807de76f4d011c2",
+      "bytes": 255
+    }
+  },
+  "raw_files": 421,
+  "total_bytes": 3763361
+}

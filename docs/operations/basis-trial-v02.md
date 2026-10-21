@@ -1,6 +1,6 @@
 # 基函数策略开发轮 v0.2 操作说明
 
-日期：2026-10-22。本文说明实施入口、前置条件和预期输出；编写时不宣称新真实轮已经完成。科学问题、完整设计及边界见[协议](../experiments/2026-10-22-basis-trial-v02-design.md)。实际执行结果以本轮原始记录、离线审计和另行结果报告为准。
+日期：2026-10-22。本轮已完成13次真实请求和14次测量，详见[结果报告](../analysis/2026-10-22-basis-trial-v02-results.md)。以下保留实施入口和前置条件；已有输出目录不得重跑。科学问题、完整设计及边界见[协议](../experiments/2026-10-22-basis-trial-v02-design.md)。实际执行结果以本轮原始记录、离线审计和另行结果报告为准。
 
 v0.1 首请求因必填辅助解释 4,223 字符超过 2,000 上限停止。v0.2 的策略工具只收 `rule_ids`，公式工具只收 `feature_ids`；可选 assistant content 只归档。旧编译器所需说明由宿主附固定标记，显式记录转换，不能伪称为模型提交。旧响应不追认，旧 `runs/basis-trial/measured-v01` 不恢复。
 
@@ -18,7 +18,7 @@ v0.1 首请求因必填辅助解释 4,223 字符超过 2,000 上限停止。v0.2
 先完成本轮新增测试和审查，确认旧代码、旧档案及工作树状态。测试本身不请求真实模型；其中 SDK 测试使用假 provider。
 
 ```bash
-.venv/bin/python -m unittest extensions.basis_trial_v02.test_run extensions.basis_trial_v02.test_sdk_controller -q
+.venv/bin/python -m unittest extensions.basis_trial_v02.test_run extensions.basis_trial_v02.test_sdk_controller extensions.basis_trial_v02.test_verify -q
 .venv/bin/python -m extensions.basis_trial_v02.run prepare --output docs/experiments/basis-trial-v02-preparation
 ```
 

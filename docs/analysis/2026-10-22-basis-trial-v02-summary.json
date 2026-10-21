@@ -1,0 +1,1026 @@
+{
+  "status": "complete",
+  "audit": {
+    "status": "passed",
+    "mode": "run",
+    "requests": 13,
+    "accepted": 13,
+    "measurements": 14,
+    "shared_context_groups": 2,
+    "max_input_bytes": 88572,
+    "freeze_sha256": "58a632cdb1d4717bd62336ea373c70b73ea0887c4eeb55a82fbec18d0c0627eb",
+    "score_replays": 0,
+    "recorded_fit_attempts": 14,
+    "recorded_predict_calls": 14,
+    "recorded_sandbox_calls": 28,
+    "failed_measurement_directories": [],
+    "counters_are_simulated": false,
+    "new_fits": 0,
+    "new_model_requests": 0,
+    "sealed_access": 0
+  },
+  "policy": {
+    "rule_ids": [
+      "R01",
+      "R02",
+      "R05",
+      "R08"
+    ],
+    "version": "revision-policy-v0.1"
+  },
+  "policy_no_change": false,
+  "baselines": {
+    "A": {
+      "nmse": 0.004529830112440761,
+      "params": [
+        -0.0011926362917775077,
+        -0.023197620641672814,
+        -0.16513737620560037,
+        -0.495034040754472
+      ],
+      "n_params": 4
+    },
+    "B": {
+      "nmse": 0.0958837205768955,
+      "params": [
+        -0.0027816375291410695,
+        0.0005706588778626037,
+        -0.1629725723246105,
+        0.003886441594681239
+      ],
+      "n_params": 4
+    }
+  },
+  "rows": [
+    {
+      "id": "A-r1-S0",
+      "parent": "A",
+      "arm": "S0",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "nmse": 0.0958837205768955,
+      "parent_nmse": 0.004529830112440761,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "transition": {
+        "added": [
+          "m_2_0"
+        ],
+        "child_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "removed": [
+          "m_1_1"
+        ]
+      },
+      "structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 16,
+        "exception_type": null,
+        "final_params": [
+          -0.0027816375291410695,
+          0.0005706588778626037,
+          -0.1629725723246105,
+          0.003886441594681239
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 3,
+        "njev": 3,
+        "optimality": 3.678065962908761e-09,
+        "optimizer_candidate_calls": 15,
+        "optimizer_cost": 2.0918226022883104,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`gtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 1,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "A-r1-S1",
+      "parent": "A",
+      "arm": "S1",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "nmse": 0.004529830112440761,
+      "parent_nmse": 0.004529830112440761,
+      "delta_nmse": 0.0,
+      "outcome": "unchanged",
+      "transition": {
+        "added": [],
+        "child_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "mode": "swap_one",
+        "observed_change": "keep",
+        "parent_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "removed": []
+      },
+      "structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 17,
+        "exception_type": null,
+        "final_params": [
+          -0.0011926362917775077,
+          -0.023197620641672814,
+          -0.16513737620560037,
+          -0.495034040754472
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 4,
+        "njev": 3,
+        "optimality": 1.0269485484215579e-08,
+        "optimizer_candidate_calls": 16,
+        "optimizer_cost": 0.09882387705356793,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`xtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 3,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "B-r1-S1",
+      "parent": "B",
+      "arm": "S1",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_1"
+      ],
+      "nmse": 0.08825804851909436,
+      "parent_nmse": 0.0958837205768955,
+      "delta_nmse": 0.007625672057801139,
+      "outcome": "improved",
+      "transition": {
+        "added": [
+          "m_2_1"
+        ],
+        "child_structural_sha256": "9d9b7249cc63c197a1291961d9b600e5d6f81f2787e86597ffd3226ae82290c3",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "removed": [
+          "m_2_0"
+        ]
+      },
+      "structural_sha256": "9d9b7249cc63c197a1291961d9b600e5d6f81f2787e86597ffd3226ae82290c3",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 13,
+        "exception_type": null,
+        "final_params": [
+          -0.0020630601479580957,
+          -0.041018835820749056,
+          -0.16347527654179883,
+          0.5215551346662997
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 4,
+        "njev": 2,
+        "optimality": 6.129464057424983e-07,
+        "optimizer_candidate_calls": 12,
+        "optimizer_cost": 1.9254590833074812,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`xtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 3,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "B-r1-S0",
+      "parent": "B",
+      "arm": "S0",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_0_2"
+      ],
+      "nmse": 0.09576767237821251,
+      "parent_nmse": 0.0958837205768955,
+      "delta_nmse": 0.00011604819868298033,
+      "outcome": "improved",
+      "transition": {
+        "added": [
+          "m_0_2"
+        ],
+        "child_structural_sha256": "4889e055b0134e48351e7fe7223710ee82caba495e69b03a59f2bc2863d4cf75",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "removed": [
+          "m_2_0"
+        ]
+      },
+      "structural_sha256": "4889e055b0134e48351e7fe7223710ee82caba495e69b03a59f2bc2863d4cf75",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 16,
+        "exception_type": null,
+        "final_params": [
+          -0.0011620246285543295,
+          0.004113147989895451,
+          -0.16289493990316634,
+          -0.04587890791543575
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 3,
+        "njev": 3,
+        "optimality": 5.889901566469291e-09,
+        "optimizer_candidate_calls": 15,
+        "optimizer_cost": 2.089290866520243,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`gtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 1,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "A-r2-S1",
+      "parent": "A",
+      "arm": "S1",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "nmse": 0.0958837205768955,
+      "parent_nmse": 0.004529830112440761,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "transition": {
+        "added": [
+          "m_2_0"
+        ],
+        "child_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "removed": [
+          "m_1_1"
+        ]
+      },
+      "structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 16,
+        "exception_type": null,
+        "final_params": [
+          -0.0027816375291410695,
+          0.0005706588778626037,
+          -0.1629725723246105,
+          0.003886441594681239
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 3,
+        "njev": 3,
+        "optimality": 3.678065962908761e-09,
+        "optimizer_candidate_calls": 15,
+        "optimizer_cost": 2.0918226022883104,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`gtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 1,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "A-r2-S0",
+      "parent": "A",
+      "arm": "S0",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "nmse": 0.0958837205768955,
+      "parent_nmse": 0.004529830112440761,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "transition": {
+        "added": [
+          "m_2_0"
+        ],
+        "child_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "removed": [
+          "m_1_1"
+        ]
+      },
+      "structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 16,
+        "exception_type": null,
+        "final_params": [
+          -0.0027816375291410695,
+          0.0005706588778626037,
+          -0.1629725723246105,
+          0.003886441594681239
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 3,
+        "njev": 3,
+        "optimality": 3.678065962908761e-09,
+        "optimizer_candidate_calls": 15,
+        "optimizer_cost": 2.0918226022883104,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`gtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 1,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "B-r2-S0",
+      "parent": "B",
+      "arm": "S0",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_1"
+      ],
+      "nmse": 0.08825804851909436,
+      "parent_nmse": 0.0958837205768955,
+      "delta_nmse": 0.007625672057801139,
+      "outcome": "improved",
+      "transition": {
+        "added": [
+          "m_2_1"
+        ],
+        "child_structural_sha256": "9d9b7249cc63c197a1291961d9b600e5d6f81f2787e86597ffd3226ae82290c3",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "removed": [
+          "m_2_0"
+        ]
+      },
+      "structural_sha256": "9d9b7249cc63c197a1291961d9b600e5d6f81f2787e86597ffd3226ae82290c3",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 13,
+        "exception_type": null,
+        "final_params": [
+          -0.0020630601479580957,
+          -0.041018835820749056,
+          -0.16347527654179883,
+          0.5215551346662997
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 4,
+        "njev": 2,
+        "optimality": 6.129464057424983e-07,
+        "optimizer_candidate_calls": 12,
+        "optimizer_cost": 1.9254590833074812,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`xtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 3,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "B-r2-S1",
+      "parent": "B",
+      "arm": "S1",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_1"
+      ],
+      "nmse": 0.08825804851909436,
+      "parent_nmse": 0.0958837205768955,
+      "delta_nmse": 0.007625672057801139,
+      "outcome": "improved",
+      "transition": {
+        "added": [
+          "m_2_1"
+        ],
+        "child_structural_sha256": "9d9b7249cc63c197a1291961d9b600e5d6f81f2787e86597ffd3226ae82290c3",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "removed": [
+          "m_2_0"
+        ]
+      },
+      "structural_sha256": "9d9b7249cc63c197a1291961d9b600e5d6f81f2787e86597ffd3226ae82290c3",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 13,
+        "exception_type": null,
+        "final_params": [
+          -0.0020630601479580957,
+          -0.041018835820749056,
+          -0.16347527654179883,
+          0.5215551346662997
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 4,
+        "njev": 2,
+        "optimality": 6.129464057424983e-07,
+        "optimizer_candidate_calls": 12,
+        "optimizer_cost": 1.9254590833074812,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`xtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 3,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "A-r3-S0",
+      "parent": "A",
+      "arm": "S0",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_2"
+      ],
+      "nmse": 0.07155303028218213,
+      "parent_nmse": 0.004529830112440761,
+      "delta_nmse": -0.06702320016974136,
+      "outcome": "degraded",
+      "transition": {
+        "added": [
+          "m_1_2"
+        ],
+        "child_structural_sha256": "913b9b2133f85dce849550bfbc6fb2baf2f74bee254bc7ff77486a7853ac428e",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "removed": [
+          "m_1_1"
+        ]
+      },
+      "structural_sha256": "913b9b2133f85dce849550bfbc6fb2baf2f74bee254bc7ff77486a7853ac428e",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 17,
+        "exception_type": null,
+        "final_params": [
+          -0.002132870250460532,
+          -0.0025111722940230636,
+          -0.1415754362250557,
+          -2.0208610464168952
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 4,
+        "njev": 3,
+        "optimality": 1.2724547637787964e-08,
+        "optimizer_candidate_calls": 16,
+        "optimizer_cost": 1.5610183366471806,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`xtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 3,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "A-r3-S1",
+      "parent": "A",
+      "arm": "S1",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "nmse": 0.0958837205768955,
+      "parent_nmse": 0.004529830112440761,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "transition": {
+        "added": [
+          "m_2_0"
+        ],
+        "child_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "removed": [
+          "m_1_1"
+        ]
+      },
+      "structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 16,
+        "exception_type": null,
+        "final_params": [
+          -0.0027816375291410695,
+          0.0005706588778626037,
+          -0.1629725723246105,
+          0.003886441594681239
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 3,
+        "njev": 3,
+        "optimality": 3.678065962908761e-09,
+        "optimizer_candidate_calls": 15,
+        "optimizer_cost": 2.0918226022883104,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`gtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 1,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "B-r3-S1",
+      "parent": "B",
+      "arm": "S1",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "nmse": 0.004529830112440761,
+      "parent_nmse": 0.0958837205768955,
+      "delta_nmse": 0.09135389046445473,
+      "outcome": "improved",
+      "transition": {
+        "added": [
+          "m_1_1"
+        ],
+        "child_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "removed": [
+          "m_2_0"
+        ]
+      },
+      "structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 17,
+        "exception_type": null,
+        "final_params": [
+          -0.0011926362917775077,
+          -0.023197620641672814,
+          -0.16513737620560037,
+          -0.495034040754472
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 4,
+        "njev": 3,
+        "optimality": 1.0269485484215579e-08,
+        "optimizer_candidate_calls": 16,
+        "optimizer_cost": 0.09882387705356793,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`xtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 3,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    },
+    {
+      "id": "B-r3-S0",
+      "parent": "B",
+      "arm": "S0",
+      "feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "nmse": 0.004529830112440761,
+      "parent_nmse": 0.0958837205768955,
+      "delta_nmse": 0.09135389046445473,
+      "outcome": "improved",
+      "transition": {
+        "added": [
+          "m_1_1"
+        ],
+        "child_structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+        "mode": "swap_one",
+        "observed_change": "swap_one",
+        "parent_structural_sha256": "36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82",
+        "removed": [
+          "m_2_0"
+        ]
+      },
+      "structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+      "n_params": 4,
+      "optimizer_diagnostics": {
+        "candidate_calls": 17,
+        "exception_type": null,
+        "final_params": [
+          -0.0011926362917775077,
+          -0.023197620641672814,
+          -0.16513737620560037,
+          -0.495034040754472
+        ],
+        "final_params_finite": true,
+        "initial_params": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nfev": 4,
+        "njev": 3,
+        "optimality": 1.0269485484215579e-08,
+        "optimizer_candidate_calls": 16,
+        "optimizer_cost": 0.09882387705356793,
+        "optimizer_invocations": 1,
+        "optimizer_message": "`xtol` termination condition is satisfied.",
+        "optimizer_returned": true,
+        "optimizer_status": 3,
+        "optimizer_success": true,
+        "postfit_confirmation_calls": 1,
+        "version": "symbolic-fit-diagnostics-v0.1"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "parent": "A",
+      "arm": "S0",
+      "count": 3,
+      "unique_structures": 2,
+      "outcomes": {
+        "degraded": 3
+      },
+      "nmse_values": [
+        0.0958837205768955,
+        0.0958837205768955,
+        0.07155303028218213
+      ],
+      "mean_nmse": 0.08777349047865772,
+      "feature_id_lists": [
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_2_0"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_2_0"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_1_2"
+        ]
+      ]
+    },
+    {
+      "parent": "A",
+      "arm": "S1",
+      "count": 3,
+      "unique_structures": 2,
+      "outcomes": {
+        "unchanged": 1,
+        "degraded": 2
+      },
+      "nmse_values": [
+        0.004529830112440761,
+        0.0958837205768955,
+        0.0958837205768955
+      ],
+      "mean_nmse": 0.06543242375541058,
+      "feature_id_lists": [
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_1_1"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_2_0"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_2_0"
+        ]
+      ]
+    },
+    {
+      "parent": "B",
+      "arm": "S0",
+      "count": 3,
+      "unique_structures": 3,
+      "outcomes": {
+        "improved": 3
+      },
+      "nmse_values": [
+        0.09576767237821251,
+        0.08825804851909436,
+        0.004529830112440761
+      ],
+      "mean_nmse": 0.06285185033658254,
+      "feature_id_lists": [
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_0_2"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_2_1"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_1_1"
+        ]
+      ]
+    },
+    {
+      "parent": "B",
+      "arm": "S1",
+      "count": 3,
+      "unique_structures": 2,
+      "outcomes": {
+        "improved": 3
+      },
+      "nmse_values": [
+        0.08825804851909436,
+        0.08825804851909436,
+        0.004529830112440761
+      ],
+      "mean_nmse": 0.060348642383543157,
+      "feature_id_lists": [
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_2_1"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_2_1"
+        ],
+        [
+          "m_0_0",
+          "m_0_1",
+          "m_1_0",
+          "m_1_1"
+        ]
+      ]
+    }
+  ],
+  "budget": {
+    "actual_estimated_cost_cny": 0.1288014,
+    "actual_tokens": 58406,
+    "config": {
+      "input_cny_per_million": 2.1,
+      "max_cost_cny": 4.0,
+      "max_input_bytes": 98304,
+      "max_output_tokens": 8192,
+      "max_requests": 13,
+      "max_requests_per_session": 1,
+      "max_reserved_tokens": 1500000,
+      "output_cny_per_million": 8.4,
+      "session_ids": [
+        "update",
+        "A-r1-S0",
+        "A-r1-S1",
+        "B-r1-S1",
+        "B-r1-S0",
+        "A-r2-S1",
+        "A-r2-S0",
+        "B-r2-S0",
+        "B-r2-S1",
+        "A-r3-S0",
+        "A-r3-S1",
+        "B-r3-S1",
+        "B-r3-S0"
+      ]
+    },
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice",
+    "failed_count": 0,
+    "halt_reasons": [],
+    "halted": false,
+    "known_completion_tokens": 976,
+    "known_estimated_cost_cny": 0.1288014,
+    "known_prompt_tokens": 57430,
+    "known_total_tokens": 58406,
+    "recovery": null,
+    "request_count": 13,
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "reserved_cost_cny": 1.5012354,
+    "reserved_count": 0,
+    "reserved_input_tokens": 288890,
+    "reserved_output_tokens": 106496,
+    "reserved_tokens": 395386,
+    "session_counts": {
+      "A-r1-S0": 1,
+      "A-r1-S1": 1,
+      "A-r2-S0": 1,
+      "A-r2-S1": 1,
+      "A-r3-S0": 1,
+      "A-r3-S1": 1,
+      "B-r1-S0": 1,
+      "B-r1-S1": 1,
+      "B-r2-S0": 1,
+      "B-r2-S1": 1,
+      "B-r3-S0": 1,
+      "B-r3-S1": 1,
+      "update": 1
+    },
+    "usage_unknown_count": 0
+  },
+  "known_tokens": 58406,
+  "cumulative": {
+    "research_requests": 184,
+    "known_tokens": 1448729,
+    "known_estimated_cost_cny": "4.4065266",
+    "conservative_reserved_cny": "21.3231102",
+    "prior_unknown_usage_count": 2,
+    "actual_total_invoice_cny": null
+  },
+  "activity": {
+    "new_model_requests": 13,
+    "new_policy_proposals": 1,
+    "promoted_policies": 0,
+    "new_weight_updates": 0,
+    "sealed_access": 0,
+    "analysis_model_requests": 0,
+    "analysis_fits": 0,
+    "fit_formula_calls": 220,
+    "optimizer_formula_calls": 206
+  },
+  "response_text": [
+    {
+      "slot": "update",
+      "characters": 0
+    },
+    {
+      "slot": "A-r1-S0",
+      "characters": 0
+    },
+    {
+      "slot": "A-r1-S1",
+      "characters": 0
+    },
+    {
+      "slot": "B-r1-S1",
+      "characters": 0
+    },
+    {
+      "slot": "B-r1-S0",
+      "characters": 0
+    },
+    {
+      "slot": "A-r2-S1",
+      "characters": 0
+    },
+    {
+      "slot": "A-r2-S0",
+      "characters": 0
+    },
+    {
+      "slot": "B-r2-S0",
+      "characters": 0
+    },
+    {
+      "slot": "B-r2-S1",
+      "characters": 0
+    },
+    {
+      "slot": "A-r3-S0",
+      "characters": 0
+    },
+    {
+      "slot": "A-r3-S1",
+      "characters": 0
+    },
+    {
+      "slot": "B-r3-S1",
+      "characters": 0
+    },
+    {
+      "slot": "B-r3-S0",
+      "characters": 0
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "model": "anthropic/MiniMax-M3",
+  "messages": [
+    {
+      "content": [
+        {
+          "type": "text",
+          "text": "Revise the supplied symbolic basis once using its feedback, host contract and repair_policy. Return exactly one submit_basis tool call containing only feature_ids. Follow the permitted structural edit exactly. Do not put explanation, summary, or any other fields in tool arguments. Optional assistant text is archived but is never a decision input and is not required. Only this business tool is available; do not call finish or another tool. The host fits coefficients and evaluates separately. No filesystem, network, task execution or additional model request is available."
+        }
+      ],
+      "role": "system"
+    },
+    {
+      "role": "user",
+      "content": "{\"current_state\":{\"catalog_spec\":{\"catalog_sha256\":\"8c7918b3a2865ea43b2179f02be2b65cd953bb82c6b1dde68419dac0619f6338\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_0_2\",\"m_1_1\",\"m_2_0\",\"m_0_3\",\"m_1_2\",\"m_2_1\",\"m_3_0\"],\"k\":4,\"n_inputs\":2,\"schema_version\":\"symbolic-basis-v0.1\"},\"feedback\":{\"bindings\":{\"fit_sha256\":\"636293587adf410ee5b4ba5074a7f607048c7f095300435a299e9913f3d10ce2\",\"prediction_sha256\":\"42bcba6d915cbeb644c03365b02f56624a0bddd7859c9b96174dfa6f7ce82d62\",\"prepared_request_sha256\":\"c2ce7df3ff9e48ec36aa86e6769334afbd8797894e204f578dd3b243e20a3877\",\"provenance_sha256\":\"067d89483e74a26f0af34d69f75d50bf2185e16835d9252f9863ec2910420352\",\"result_sha256\":\"6f9d4952c5e2048d334dcc0257f5b9a6ecc605788a970dcdf39ac314b2743a63\",\"source_sha256\":\"e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653\",\"structural_sha256\":\"e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7\"},\"coefficients\":[{\"feature_id\":\"m_0_0\",\"value\":-0.0011926362917775077},{\"feature_id\":\"m_0_1\",\"value\":-0.023197620641672814},{\"feature_id\":\"m_1_0\",\"value\":-0.16513737620560037},{\"feature_id\":\"m_1_1\",\"value\":-0.495034040754472}],\"family\":\"symbolic\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_1_1\"],\"fit\":{\"candidate_calls\":17,\"converged\":true,\"nfev\":4},\"interpretation\":\"Residual = prediction minus target. Standardized bias divides by the population target standard deviation, not a standard error. Four quantile bins per original input depend only on X. Marginal associations neither identify necessary terms nor establish causation. No target-dependent basis ranking is supplied. These are already-seen training measurements, not held-out predictive performance.\",\"metric_scope\":\"train\",\"n_params\":4,\"nmse\":0.004529830112440761,\"provenance\":{\"data_sha256\":\"a846b36b931dee4e2335faf9fb4195a7a8d1b4e4430e915266ef45fcd2e07ee7\",\"domain_sha256\":null,\"metric_scope\":\"train\",\"partition_sha256\":\"bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7\"},\"residuals\":{\"bias\":-5.668666450245774e-13,\"binning_method\":\"linear_quantile\",\"inputs\":[{\"bins\":[{\"count\":2500,\"lower\":-0.5728219032885896,\"mean_residual\":0.0028049867256532404,\"rmse\":0.004576335396180691,\"upper\":-0.46038220456877554,\"upper_inclusive\":false},{\"count\":2500,\"lower\":-0.46038220456877554,\"mean_residual\":-0.004116936320977954,\"rmse\":0.004509271480426888,\"upper\":-0.22761842703089324,\"upper_inclusive\":false},{\"count\":2500,\"lower\":-0.22761842703089324,\"mean_residual\":0.00178561151438295,\"rmse\":0.0044594148238486665,\"upper\":0.28635886598470794,\"upper_inclusive\":false},{\"count\":2500,\"lower\":0.28635886598470794,\"mean_residual\":-0.00047366192132570285,\"rmse\":0.0042304073242615215,\"upper\":0.5275126203368584,\"upper_inclusive\":true}],\"boundaries\":[-0.5728219032885896,-0.46038220456877554,-0.22761842703089324,0.28635886598470794,0.5275126203368584],\"name\":\"x\"},{\"bins\":[{\"count\":2500,\"lower\":-0.17542969970098574,\"mean_residual\":-0.0003099259147814231,\"rmse\":0.00463832778644125,\"upper\":-0.13719210123484957,\"upper_inclusive\":false},{\"count\":2500,\"lower\":-0.13719210123484957,\"mean_residual\":0.000560965631729649,\"rmse\":0.0034806046665021902,\"upper\":-0.04814716714891003,\"upper_inclusive\":false},{\"count\":2500,\"lower\":-0.04814716714891003,\"mean_residual\":-1.0559844236398788e-05,\"rmse\":0.005007848245417479,\"upper\":0.09524424826668271,\"upper_inclusive\":false},{\"count\":2500,\"lower\":0.09524424826668271,\"mean_residual\":-0.00024047987497929376,\"rmse\":0.004511304034841101,\"upper\":0.282136353640072,\"upper_inclusive\":true}],\"boundaries\":[-0.17542969970098574,-0.13719210123484957,-0.04814716714891003,0.09524424826668271,0.282136353640072],\"name\":\"v\"}],\"n\":10000,\"residual_definition\":\"prediction - target\",\"rmse\":0.00444575926144383,\"scope\":\"train\",\"standardized_bias\":-8.581751187414213e-12,\"standardized_bias_definition\":\"bias / population_std(target)\",\"standardized_bias_reason\":null,\"status\":\"ok\"},\"status\":\"success\",\"task_id\":\"oscillator1\",\"task_role\":\"learning\",\"transition\":{\"added\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_1_1\"],\"child_structural_sha256\":\"e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7\",\"mode\":\"initial\",\"observed_change\":\"initial\",\"parent_structural_sha256\":null,\"removed\":[]},\"version\":\"basis-trial-feedback-v0.1\"},\"operation\":\"swap_one\",\"parent\":{\"payload\":{\"explanation\":\"Researcher-fixed affine backbone plus interaction.\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_1_1\"]},\"spec\":{\"catalog_sha256\":\"8c7918b3a2865ea43b2179f02be2b65cd953bb82c6b1dde68419dac0619f6338\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_0_2\",\"m_1_1\",\"m_2_0\",\"m_0_3\",\"m_1_2\",\"m_2_1\",\"m_3_0\"],\"k\":4,\"n_inputs\":2,\"schema_version\":\"symbolic-basis-v0.1\"}},\"task\":{\"id\":\"oscillator1\",\"input_names\":[\"x\",\"v\"],\"role\":\"learning\",\"split\":\"train\",\"target\":\"a\"}},\"repair_policy\":{\"instructions\":[\"Check the input and output types, required format, and parameter order before diagnosing a search failure.\",\"Prioritize the earliest failure actually observed during execution; do not equate proposed plan length with executed actions.\",\"Connect a diagnostic observation to the source location to change and the failure expected to disappear; verify that the submitted source includes that change.\",\"Preserve correct behavior while making a complete valid repair, and avoid unrelated complexity.\"],\"rule_ids\":[\"R01\",\"R02\",\"R05\",\"R08\"],\"version\":\"revision-policy-v0.1\"},\"task_text\":\"Make one revision to the supplied polynomial structure for oscillator1: inputs x (position), v (velocity), output a (acceleration). Select exactly four distinct catalog IDs including constant. Retain the entire parent set OR replace exactly one nonconstant item. ID m_i_j means x**i * v**j; m_0_0 means 1. The complete catalog includes all monomials of total degree at most three. No additions, no two-item replacement. The host fits direct coefficients with fixed ones initialization and scores train NMSE. All variables map to the frozen input order. Lower NMSE is better; improvement threshold is absolute 1e-5. Use the parent feedback only as observations, not causal proof. You cannot run tools to try features. Return one submit_basis call with feature_ids only. Optional assistant prose is unverified archive-only text.\",\"version\":\"basis-trial-v0.2\"}"
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "submit_basis",
+        "description": "Submit only IDs once; the trusted host owns execution and scoring.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "feature_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "m_0_0",
+                  "m_0_1",
+                  "m_1_0",
+                  "m_0_2",
+                  "m_1_1",
+                  "m_2_0",
+                  "m_0_3",
+                  "m_1_2",
+                  "m_2_1",
+                  "m_3_0"
+                ]
+              },
+              "minItems": 4,
+              "maxItems": 4,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "feature_ids"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ],
+  "tool_choice": null,
+  "max_output_tokens": 8192
+}

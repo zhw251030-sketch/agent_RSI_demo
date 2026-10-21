@@ -1,0 +1,59 @@
+{
+  "model": "anthropic/MiniMax-M3",
+  "messages": [
+    {
+      "content": [
+        {
+          "type": "text",
+          "text": "Revise the supplied symbolic basis once using its feedback, host contract and repair_policy. Return exactly one submit_basis tool call containing only feature_ids. Follow the permitted structural edit exactly. Do not put explanation, summary, or any other fields in tool arguments. Optional assistant text is archived but is never a decision input and is not required. Only this business tool is available; do not call finish or another tool. The host fits coefficients and evaluates separately. No filesystem, network, task execution or additional model request is available."
+        }
+      ],
+      "role": "system"
+    },
+    {
+      "role": "user",
+      "content": "{\"current_state\":{\"catalog_spec\":{\"catalog_sha256\":\"8c7918b3a2865ea43b2179f02be2b65cd953bb82c6b1dde68419dac0619f6338\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_0_2\",\"m_1_1\",\"m_2_0\",\"m_0_3\",\"m_1_2\",\"m_2_1\",\"m_3_0\"],\"k\":4,\"n_inputs\":2,\"schema_version\":\"symbolic-basis-v0.1\"},\"feedback\":{\"bindings\":{\"fit_sha256\":\"564ce8a1bd6bb9240dcf7bdd173c79d5c061471c6c0e629aa9a01db5c1b37360\",\"prediction_sha256\":\"fdcb1a281cfa8a5eac47ab788085a37fd75dd3a27f5e8a431c4a496d31cbacd1\",\"prepared_request_sha256\":\"0a7fb18e7c4d983f80916fb40fce506d2df9292b0e72dfb00aaf6fa3c5d045fd\",\"provenance_sha256\":\"ca55f4dee64e911576f6e263573e53907566e48af5199fee49ea7f3e0406cbe7\",\"result_sha256\":\"513d2598094d611e6322ebe582939b4d9de495039e8f63eefadd7ce36728ccbf\",\"source_sha256\":\"6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8\",\"structural_sha256\":\"36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82\"},\"coefficients\":[{\"feature_id\":\"m_0_0\",\"value\":1.0},{\"feature_id\":\"m_0_1\",\"value\":1.0},{\"feature_id\":\"m_1_0\",\"value\":1.0},{\"feature_id\":\"m_2_0\",\"value\":1.0}],\"family\":\"symbolic\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_2_0\"],\"fit\":{\"candidate_calls\":1,\"converged\":true,\"nfev\":1},\"interpretation\":\"Residual = prediction minus target. Standardized bias divides by the population target standard deviation, not a standard error. Four quantile bins per original input depend only on X. Marginal associations neither identify necessary terms nor establish causation. No target-dependent basis ranking is supplied. These are already-seen training measurements, not held-out predictive performance.\",\"metric_scope\":\"train\",\"n_params\":4,\"nmse\":6.0,\"provenance\":{\"data_kind\":\"synthetic_sdk_preflight\",\"data_sha256\":\"0a7fb18e7c4d983f80916fb40fce506d2df9292b0e72dfb00aaf6fa3c5d045fd\",\"domain_sha256\":null,\"metric_scope\":\"train\",\"partition_sha256\":\"5729c07859f4cee32e608dc24b4ca1eb95c405e5c70a99ce5609da576881efed\"},\"residuals\":{\"bias\":-2.5,\"binning_method\":\"linear_quantile\",\"inputs\":[{\"bins\":[{\"count\":1,\"lower\":-2.0,\"mean_residual\":-1.0,\"rmse\":1.0,\"upper\":-1.25,\"upper_inclusive\":false},{\"count\":1,\"lower\":-1.25,\"mean_residual\":-2.0,\"rmse\":2.0,\"upper\":0.0,\"upper_inclusive\":false},{\"count\":1,\"lower\":0.0,\"mean_residual\":-3.0,\"rmse\":3.0,\"upper\":1.25,\"upper_inclusive\":false},{\"count\":1,\"lower\":1.25,\"mean_residual\":-4.0,\"rmse\":4.0,\"upper\":2.0,\"upper_inclusive\":true}],\"boundaries\":[-2.0,-1.25,0.0,1.25,2.0],\"name\":\"x\"},{\"bins\":[{\"count\":0,\"lower\":0.0,\"mean_residual\":null,\"rmse\":null,\"upper\":0.0,\"upper_inclusive\":false},{\"count\":2,\"lower\":0.0,\"mean_residual\":-2.0,\"rmse\":2.23606797749979,\"upper\":0.5,\"upper_inclusive\":false},{\"count\":0,\"lower\":0.5,\"mean_residual\":null,\"rmse\":null,\"upper\":1.0,\"upper_inclusive\":false},{\"count\":2,\"lower\":1.0,\"mean_residual\":-3.0,\"rmse\":3.1622776601683795,\"upper\":1.0,\"upper_inclusive\":true}],\"boundaries\":[0.0,0.0,0.5,1.0,1.0],\"name\":\"v\"}],\"n\":4,\"residual_definition\":\"prediction - target\",\"rmse\":2.7386127875258306,\"scope\":\"train\",\"standardized_bias\":-2.23606797749979,\"standardized_bias_definition\":\"bias / population_std(target)\",\"standardized_bias_reason\":null,\"status\":\"ok\"},\"status\":\"success\",\"task_id\":\"oscillator1\",\"task_role\":\"learning\",\"transition\":{\"added\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_2_0\"],\"child_structural_sha256\":\"36d94a1e5919de9ac079723324522950c5a2cb178e34e1eba532445e5a8aca82\",\"mode\":\"initial\",\"observed_change\":\"initial\",\"parent_structural_sha256\":null,\"removed\":[]},\"version\":\"basis-trial-feedback-v0.1\"},\"operation\":\"swap_one\",\"parent\":{\"payload\":{\"explanation\":\"Researcher-fixed affine backbone plus first-input square.\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_2_0\"]},\"spec\":{\"catalog_sha256\":\"8c7918b3a2865ea43b2179f02be2b65cd953bb82c6b1dde68419dac0619f6338\",\"feature_ids\":[\"m_0_0\",\"m_0_1\",\"m_1_0\",\"m_0_2\",\"m_1_1\",\"m_2_0\",\"m_0_3\",\"m_1_2\",\"m_2_1\",\"m_3_0\"],\"k\":4,\"n_inputs\":2,\"schema_version\":\"symbolic-basis-v0.1\"}},\"task\":{\"id\":\"oscillator1\",\"input_names\":[\"x\",\"v\"],\"role\":\"learning\",\"split\":\"train\",\"target\":\"a\"}},\"repair_policy\":{\"instructions\":[\"Preserve the explicit task rules and constraints; do not rewrite the environment definition to repair an artifact.\",\"Use the exact metric, units, sign, candidate identity, and data scope; do not substitute one statistic for another.\",\"Treat marginal associations as hypotheses, consider alternative explanations, and do not declare an associated structure necessary.\",\"Preserve correct behavior while making a complete valid repair, and avoid unrelated complexity.\"],\"rule_ids\":[\"R03\",\"R04\",\"R06\",\"R08\"],\"version\":\"revision-policy-v0.1\"},\"task_text\":\"Make one revision to the supplied polynomial structure for oscillator1: inputs x (position), v (velocity), output a (acceleration). Select exactly four distinct catalog IDs including constant. Retain the entire parent set OR replace exactly one nonconstant item. ID m_i_j means x**i * v**j; m_0_0 means 1. The complete catalog includes all monomials of total degree at most three. No additions, no two-item replacement. The host fits direct coefficients with fixed ones initialization and scores train NMSE. All variables map to the frozen input order. Lower NMSE is better; improvement threshold is absolute 1e-5. Use the parent feedback only as observations, not causal proof. You cannot run tools to try features. Return one submit_basis call with feature_ids only. Optional assistant prose is unverified archive-only text.\",\"version\":\"basis-trial-v0.2\"}"
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "submit_basis",
+        "description": "Submit only IDs once; the trusted host owns execution and scoring.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "feature_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "m_0_0",
+                  "m_0_1",
+                  "m_1_0",
+                  "m_0_2",
+                  "m_1_1",
+                  "m_2_0",
+                  "m_0_3",
+                  "m_1_2",
+                  "m_2_1",
+                  "m_3_0"
+                ]
+              },
+              "minItems": 4,
+              "maxItems": 4,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "feature_ids"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ],
+  "tool_choice": null,
+  "max_output_tokens": 8192
+}
