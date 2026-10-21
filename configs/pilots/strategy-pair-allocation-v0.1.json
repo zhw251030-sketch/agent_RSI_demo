@@ -1,0 +1,350 @@
+{
+  "version": "strategy-pair-allocation-v0.1",
+  "execution_ready": false,
+  "protocol": "docs/protocols/2026-10-21-state-generation-v0.1.md",
+  "generation_config": "configs/pilots/state-generation-v0.1.json",
+  "task_partition_sha256": "bf49dd855d591863bc938a37d889cc5afc9a2ea2e1bfab87d71a951c39692ed7",
+  "policy_representation": "revision-policy-v0.1",
+  "policy_renderer": "rsi_eval/revision_policy.py",
+  "policy_renderer_sha256": "e7f03948527d8fa305a952bb792a3e053785e136b891b5f6ae62681e0ad6fb63",
+  "S0": {
+    "version": "revision-policy-v0.1",
+    "rule_ids": [
+      "R03",
+      "R04",
+      "R06",
+      "R08"
+    ]
+  },
+  "independent_proposal_repetitions": 2,
+  "independent_learning_datasets": 1,
+  "generation_request_cap": 8,
+  "future_request_cap": 36,
+  "combined_request_cap": 44,
+  "future_reserved_cost_cap_cny": 12,
+  "selection_state_ids": [
+    "P-select-1",
+    "S-select-1",
+    "P-select-2",
+    "S-select-2"
+  ],
+  "evaluation_state_ids": [
+    "P-eval-1",
+    "S-bact-eval-1",
+    "P-eval-2",
+    "S-stress-eval-1"
+  ],
+  "evaluation_updated_arm": "accepted_S_star_or_original_S0_after_rejection",
+  "freeze_order": [
+    "generation_slots",
+    "all_initial_sources",
+    "learning_packet_and_update_runtime",
+    "both_proposals",
+    "all_selection_finals",
+    "both_S_star_decisions",
+    "evaluation_baselines_and_final_generation"
+  ],
+  "rules": [
+    "Do not select the better proposal replicate; report both.",
+    "Shadow proposal output is archived but never applied, read as memory, or sent to an actor.",
+    "Missing sources keep their allocated slots; no new draw or fabricated source.",
+    "An incomplete or uncertain selection cannot promote a strategy.",
+    "Same-policy evaluation is no_policy_change, not an update effect.",
+    "Report request caps and actual tokens/costs separately; equal caps are not identical computation."
+  ],
+  "implementation_remaining": [
+    "Freeze the exact learning packet and actor/update prompt renderer.",
+    "Implement audited role-specific executor permissions and raw measurement projection.",
+    "Bind all states, contexts, data, evaluator and budget to real requests before running."
+  ],
+  "slots": [
+    {
+      "id": "r1-update-updated",
+      "phase": "update",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": null,
+      "max_requests": 1
+    },
+    {
+      "id": "r1-update-shadow",
+      "phase": "update",
+      "replicate": "r1",
+      "arm": "shadow",
+      "state_id": null,
+      "max_requests": 1
+    },
+    {
+      "id": "r2-update-shadow",
+      "phase": "update",
+      "replicate": "r2",
+      "arm": "shadow",
+      "state_id": null,
+      "max_requests": 1
+    },
+    {
+      "id": "r2-update-updated",
+      "phase": "update",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": null,
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-P-select-1-fixed",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "P-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-P-select-1-updated",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "P-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-S-select-1-updated",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "S-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-S-select-1-fixed",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "S-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-P-select-2-fixed",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "P-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-P-select-2-updated",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "P-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-S-select-2-updated",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "S-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-selection-S-select-2-fixed",
+      "phase": "selection",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "S-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-P-select-1-updated",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "P-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-P-select-1-fixed",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "P-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-S-select-1-fixed",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "S-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-S-select-1-updated",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "S-select-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-P-select-2-updated",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "P-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-P-select-2-fixed",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "P-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-S-select-2-fixed",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "S-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-selection-S-select-2-updated",
+      "phase": "selection",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "S-select-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-P-eval-1-fixed",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "P-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-P-eval-1-updated",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "P-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-S-bact-eval-1-updated",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "S-bact-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-S-bact-eval-1-fixed",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "S-bact-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-P-eval-2-fixed",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "P-eval-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-P-eval-2-updated",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "P-eval-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-S-stress-eval-1-updated",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "updated",
+      "state_id": "S-stress-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r1-evaluation-S-stress-eval-1-fixed",
+      "phase": "evaluation",
+      "replicate": "r1",
+      "arm": "fixed",
+      "state_id": "S-stress-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-P-eval-1-updated",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "P-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-P-eval-1-fixed",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "P-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-S-bact-eval-1-fixed",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "S-bact-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-S-bact-eval-1-updated",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "S-bact-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-P-eval-2-updated",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "P-eval-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-P-eval-2-fixed",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "P-eval-2",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-S-stress-eval-1-fixed",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "fixed",
+      "state_id": "S-stress-eval-1",
+      "max_requests": 1
+    },
+    {
+      "id": "r2-evaluation-S-stress-eval-1-updated",
+      "phase": "evaluation",
+      "replicate": "r2",
+      "arm": "updated",
+      "state_id": "S-stress-eval-1",
+      "max_requests": 1
+    }
+  ]
+}

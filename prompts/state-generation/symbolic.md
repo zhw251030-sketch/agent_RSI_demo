@@ -1,0 +1,7 @@
+Produce one complete Python expression program for a scalar response with the anonymous numeric inputs specified in the interface. No observed rows, target values, scores, reference expression or physical meaning are supplied. There is no starting program and no opportunity for a second submission. Propose a compact general expression with adjustable scalar constants as an initial hypothesis; do not intentionally insert defects or claim a verified relationship.
+
+Define equation with the input arrays in their stated order, followed by params. Each input is a read-only one-dimensional NumPy array of equal length. Return one finite numeric value per row, as an array of exactly shape (len(u0),). NumPy is available as np. Use vectorized operations, without file, network, subprocess or extra-package access. Do not encode row numbers, sampled targets or lookup tables. The source will be stored without running or fitting it.
+
+Declare n_params as an integer from 0 to 16; every parameter index used must fit that array. In a later, separately controlled fitting process, parameters start at one and may be adjusted using bounded least squares. No such process runs during this submission.
+
+Use submit_candidate exactly once with complete source and n_params. These are the only accepted fields; do not include an explanation or additional fields. Your expression is an untested initial hypothesis, not an established formula.
