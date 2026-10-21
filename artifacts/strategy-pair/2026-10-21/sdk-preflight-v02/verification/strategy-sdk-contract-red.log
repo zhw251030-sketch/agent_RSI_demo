@@ -1,0 +1,268 @@
++----------------------------------------------------------------------+
+|  OpenHands SDK v1.55.1                                               |
+|                                                                      |
+|  Report a bug: github.com/OpenHands/software-agent-sdk/issues        |
+|  Get help: openhands.dev/joinslack                                   |
+|  Scale up: openhands.dev/product/sdk                                 |
+|                                                                      |
+|  Set OPENHANDS_SUPPRESS_BANNER=1 to hide this message                |
++----------------------------------------------------------------------+
+
+...EEEEEEEEEEEE./home/hanwen/Project/project/agent_RSI_demo/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:1480: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+  warnings.warn(
+F/home/hanwen/Project/project/agent_RSI_demo/.venv/lib/python3.12/site-packages/openhands/sdk/llm/utils/telemetry.py:398: UserWarning: Cost calculation failed: This model isn't mapped yet. model=MiniMax-M3, custom_llm_provider=anthropic. Add it here - https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json.
+  warnings.warn(f"Cost calculation failed: {e}")
+FFFFFFFF.
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='update', metadata={'summary': 'Archive one proposal'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='update', metadata={'summary': None})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='update', metadata={'security_risk': 'UNKNOWN'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='update', metadata={'summary': '', 'security_risk': 'LOW'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='update', metadata={'summary': None, 'security_risk': 'MEDIUM'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='update', metadata={'security_risk': 'HIGH'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='actor', metadata={'summary': 'Archive one proposal'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='actor', metadata={'summary': None})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='actor', metadata={'security_risk': 'UNKNOWN'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='actor', metadata={'summary': '', 'security_risk': 'LOW'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='actor', metadata={'summary': None, 'security_risk': 'MEDIUM'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+ERROR: test_metadata_is_validated_then_projected_out_of_business_for_both_stages (tests.test_strategy_sdk_contract.RawContractTests.test_metadata_is_validated_then_projected_out_of_business_for_both_stages) (stage='actor', metadata={'security_risk': 'HIGH'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 68, in test_metadata_is_validated_then_projected_out_of_business_for_both_stages
+    self.assertEqual(c.validate_arguments(json.dumps(value)), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 107, in validate_arguments
+    _require(type(value) is dict and required <= set(value) <= required | {'explanation'}, 'Submission fields differ from contract')
+  File "/home/hanwen/Project/project/agent_RSI_demo/rsi_eval/strategy_pair_controller.py", line 22, in _require
+    raise ValueError(message)
+ValueError: Submission fields differ from contract
+
+======================================================================
+FAIL: test_actual_measured_response_replays_as_synthetic_acceptance_without_editing_it (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_measured_response_replays_as_synthetic_acceptance_without_editing_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 196, in test_actual_measured_response_replays_as_synthetic_acceptance_without_editing_it
+    self.assertEqual(result['status'], 'accepted', result)
+AssertionError: 'error' != 'accepted'
+- error
++ accepted
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-update-updated', 'stage': 'update', 'status': 'error', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpa48qrfqi/1/requests/request-0001.request.json', 'sha256': '181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0'}, 'response': {'path': 'tmp/tmpa48qrfqi/1/requests/request-0001.response.json', 'sha256': '4dd13eb860427e8bd99edb64c73f28ecea85d0b0625c04447b7728801d3792b5'}, 'submission': None, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpa48qrfqi/1/requests/input-audit.json', 'sha256': '8cf6ad49d306373345aee6570445f9a4afb0398d6164a3debd86bd3111e12b84'}, 'error_type': 'ConversationRunError', 'sdk_error_codes': ['ValueError'], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'update', 'status': 'pending', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': None}}
+
+======================================================================
+FAIL: test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages) (stage='update', metadata={'summary': None})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 155, in test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages
+    self.assertEqual(result['status'], 'accepted', result)
+AssertionError: 'error' != 'accepted'
+- error
++ accepted
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-update-updated', 'stage': 'update', 'status': 'error', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpcx1587o4/2/requests/request-0001.request.json', 'sha256': '181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0'}, 'response': {'path': 'tmp/tmpcx1587o4/2/requests/request-0001.response.json', 'sha256': '361c163ad3b4518ca877195c12fa0bebf829bb65e032d6d0464883df4a3cfb8b'}, 'submission': None, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpcx1587o4/2/requests/input-audit.json', 'sha256': '8cf6ad49d306373345aee6570445f9a4afb0398d6164a3debd86bd3111e12b84'}, 'error_type': 'ConversationRunError', 'sdk_error_codes': ['ValueError'], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'update', 'status': 'pending', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': None}}
+
+======================================================================
+FAIL: test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages) (stage='update', metadata={'security_risk': 'UNKNOWN'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 155, in test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages
+    self.assertEqual(result['status'], 'accepted', result)
+AssertionError: 'error' != 'accepted'
+- error
++ accepted
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-update-updated', 'stage': 'update', 'status': 'error', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpcx1587o4/3/requests/request-0001.request.json', 'sha256': '181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0'}, 'response': {'path': 'tmp/tmpcx1587o4/3/requests/request-0001.response.json', 'sha256': '0ed3388995abe1911fdc486014bac106e5f534f273582698d7b2911de368c87c'}, 'submission': None, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpcx1587o4/3/requests/input-audit.json', 'sha256': '8cf6ad49d306373345aee6570445f9a4afb0398d6164a3debd86bd3111e12b84'}, 'error_type': 'ConversationRunError', 'sdk_error_codes': ['ValueError'], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'update', 'status': 'pending', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': None}}
+
+======================================================================
+FAIL: test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages) (stage='update', metadata={'summary': 'Archive proposal', 'security_risk': 'HIGH'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 155, in test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages
+    self.assertEqual(result['status'], 'accepted', result)
+AssertionError: 'error' != 'accepted'
+- error
++ accepted
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-update-updated', 'stage': 'update', 'status': 'error', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpcx1587o4/4/requests/request-0001.request.json', 'sha256': '181ef12ee27d5e65d1805340993de53740f28c5469d7cd1bb27a27f4f7b573d0'}, 'response': {'path': 'tmp/tmpcx1587o4/4/requests/request-0001.response.json', 'sha256': 'c3fd68d35e5b18aadc829a25485ff0eef03ed1155ee5548d35b9a7b936007f0e'}, 'submission': None, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpcx1587o4/4/requests/input-audit.json', 'sha256': '8cf6ad49d306373345aee6570445f9a4afb0398d6164a3debd86bd3111e12b84'}, 'error_type': 'ConversationRunError', 'sdk_error_codes': ['ValueError'], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'update', 'status': 'pending', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': None}}
+
+======================================================================
+FAIL: test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages) (stage='actor', metadata={'summary': None})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 155, in test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages
+    self.assertEqual(result['status'], 'accepted', result)
+AssertionError: 'error' != 'accepted'
+- error
++ accepted
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-selection-P-select-1-fixed', 'stage': 'actor', 'status': 'error', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpcx1587o4/6/requests/request-0001.request.json', 'sha256': 'e10939222452bebf6651fbf84f18d8c3e63c020bf59faae43627dd13a05b1efc'}, 'response': {'path': 'tmp/tmpcx1587o4/6/requests/request-0001.response.json', 'sha256': '56b3f06019d38cfd71ec87ec56430dfc0495642da0eaa216c3298a460de7f009'}, 'submission': None, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpcx1587o4/6/requests/input-audit.json', 'sha256': '683ecdf30e379fbe294c21e155e06b6aec4c90a2b7e85e3aeb0c625fb0a871af'}, 'error_type': 'ConversationRunError', 'sdk_error_codes': ['ValueError'], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'actor', 'status': 'pending', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': None}}
+
+======================================================================
+FAIL: test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages) (stage='actor', metadata={'security_risk': 'UNKNOWN'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 155, in test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages
+    self.assertEqual(result['status'], 'accepted', result)
+AssertionError: 'error' != 'accepted'
+- error
++ accepted
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-selection-P-select-1-fixed', 'stage': 'actor', 'status': 'error', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpcx1587o4/7/requests/request-0001.request.json', 'sha256': 'e10939222452bebf6651fbf84f18d8c3e63c020bf59faae43627dd13a05b1efc'}, 'response': {'path': 'tmp/tmpcx1587o4/7/requests/request-0001.response.json', 'sha256': 'a9a3a7ca363139fd703253a609ed83ba12612d69992a47e8dfbe3adaf4d64135'}, 'submission': None, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpcx1587o4/7/requests/input-audit.json', 'sha256': '683ecdf30e379fbe294c21e155e06b6aec4c90a2b7e85e3aeb0c625fb0a871af'}, 'error_type': 'ConversationRunError', 'sdk_error_codes': ['ValueError'], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'actor', 'status': 'pending', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': None}}
+
+======================================================================
+FAIL: test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages) (stage='actor', metadata={'summary': 'Archive proposal', 'security_risk': 'HIGH'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 155, in test_actual_sdk_accepts_declared_metadata_and_preserves_business_both_stages
+    self.assertEqual(result['status'], 'accepted', result)
+AssertionError: 'error' != 'accepted'
+- error
++ accepted
+ : {'version': 'strategy-pair-agent-v0.1', 'slot_id': 'r1-selection-P-select-1-fixed', 'stage': 'actor', 'status': 'error', 'request_id': 'request-0001', 'request': {'path': 'tmp/tmpcx1587o4/8/requests/request-0001.request.json', 'sha256': 'e10939222452bebf6651fbf84f18d8c3e63c020bf59faae43627dd13a05b1efc'}, 'response': {'path': 'tmp/tmpcx1587o4/8/requests/request-0001.response.json', 'sha256': '7fa56f59afdd448dd38d8aa0fd25cc1c4b7f7e3e54470015f0a92fbd09c22b95'}, 'submission': None, 'source': None, 'policy': None, 'sdk_submission': None, 'input_audit': {'path': 'tmp/tmpcx1587o4/8/requests/input-audit.json', 'sha256': '683ecdf30e379fbe294c21e155e06b6aec4c90a2b7e85e3aeb0c625fb0a871af'}, 'error_type': 'ConversationRunError', 'sdk_error_codes': ['ValueError'], 'controller': {'version': 'strategy-pair-controller-v0.1', 'stage': 'actor', 'status': 'pending', 'halted': False, 'candidate_executions': 0, 'task_evaluations': 0, 'model_weight_updates': 0, 'policy': None, 'source': None, 'submission': None}}
+
+======================================================================
+FAIL: test_actual_sent_schema_resolves_metadata_references_and_preserves_constraints (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sent_schema_resolves_metadata_references_and_preserves_constraints) (stage='update')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 176, in test_actual_sent_schema_resolves_metadata_references_and_preserves_constraints
+    self.assertNotIn('$ref', json.dumps(schema))
+AssertionError: '$ref' unexpectedly found in '{"type": "object", "properties": {"security_risk": {"$ref": "#/$defs/SecurityRisk", "default": "UNKNOWN", "description": "The LLM\'s assessment of the safety risk of this action."}, "summary": {"anyOf": [{"type": "string"}, {"type": "null"}], "default": null, "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: \'List all Python files in current directory\'", "title": "Summary"}, "rule_1": {"description": "First fixed-catalog rule ID.", "enum": ["R01", "R02", "R03", "R04", "R05", "R06", "R07", "R08"], "title": "Rule 1", "type": "string"}, "rule_2": {"description": "Second distinct fixed-catalog rule ID.", "enum": ["R01", "R02", "R03", "R04", "R05", "R06", "R07", "R08"], "title": "Rule 2", "type": "string"}, "rule_3": {"description": "Third distinct fixed-catalog rule ID.", "enum": ["R01", "R02", "R03", "R04", "R05", "R06", "R07", "R08"], "title": "Rule 3", "type": "string"}, "rule_4": {"description": "Fourth distinct fixed-catalog rule ID.", "enum": ["R01", "R02", "R03", "R04", "R05", "R06", "R07", "R08"], "title": "Rule 4", "type": "string"}, "explanation": {"default": "", "description": "Optional unverified explanation, at most 4096 UTF-8 bytes; archived only.", "maxLength": 4096, "title": "Explanation", "type": "string"}}, "required": ["rule_1", "rule_2", "rule_3", "rule_4"], "additionalProperties": false}'
+
+======================================================================
+FAIL: test_actual_sent_schema_resolves_metadata_references_and_preserves_constraints (tests.test_strategy_sdk_contract.SDKContractTests.test_actual_sent_schema_resolves_metadata_references_and_preserves_constraints) (stage='actor')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hanwen/Project/project/agent_RSI_demo/tests/test_strategy_sdk_contract.py", line 176, in test_actual_sent_schema_resolves_metadata_references_and_preserves_constraints
+    self.assertNotIn('$ref', json.dumps(schema))
+AssertionError: '$ref' unexpectedly found in '{"type": "object", "properties": {"security_risk": {"$ref": "#/$defs/SecurityRisk", "default": "UNKNOWN", "description": "The LLM\'s assessment of the safety risk of this action."}, "summary": {"anyOf": [{"type": "string"}, {"type": "null"}], "default": null, "description": "A concise summary (approximately 10 words) describing what this specific action does. Focus on the key operation and target. Example: \'List all Python files in current directory\'", "title": "Summary"}, "source": {"description": "Complete Python source, at most 16384 UTF-8 bytes; no patch or prose.", "maxLength": 16384, "minLength": 1, "title": "Source", "type": "string"}, "n_params": {"description": "Declared formula parameter count; zero for planning.", "maximum": 16, "minimum": 0, "title": "N Params", "type": "integer"}, "explanation": {"default": "", "description": "Optional unverified explanation, at most 4096 UTF-8 bytes; archived only.", "maxLength": 4096, "title": "Explanation", "type": "string"}}, "required": ["source", "n_params"], "additionalProperties": false}'
+
+----------------------------------------------------------------------
+Ran 9 tests in 29.272s
+
+FAILED (failures=9, errors=12)
