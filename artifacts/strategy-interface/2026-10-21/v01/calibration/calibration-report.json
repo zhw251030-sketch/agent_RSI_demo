@@ -1,0 +1,43 @@
+{
+  "version": "role-executor-calibration-v0.1",
+  "status": "passed",
+  "evidence_kind": "synthetic",
+  "model_calls": 0,
+  "benchmark_candidate_executions": 0,
+  "sealed_tasks_executed": 0,
+  "manual_candidate_evaluations": 4,
+  "sandbox_executions": 6,
+  "val_calls": 2,
+  "records": {
+    "planning_valid": {
+      "path": "runs/role_executor_feedback/27669f14ee4943fd898124a81023a0dd/result.json",
+      "sha256": "1720c17a969c393a5ece761ebb3128a869960485f0d0f848068952690199835f",
+      "status": "success",
+      "metrics": null
+    },
+    "planning_invalid": {
+      "path": "runs/role_executor_feedback/7534129c742d477b9ccbdacf6611220c/result.json",
+      "sha256": "dd44e8b9782db3ae87db5fc81cd9dc832c1bc2c432c13de75e9b742caab161a4",
+      "status": "task_failure",
+      "metrics": null
+    },
+    "symbolic_linear": {
+      "path": "runs/role_executor_feedback/53b793a0242246c8863713c5d0cf4fcd/result.json",
+      "sha256": "501634c8d91ba216b4d944dbbbdaa3a4366c8019dd4f41dc56fc7495b62a77c2",
+      "status": "success",
+      "metrics": {
+        "mse": 0.0,
+        "nmse": 0.0
+      }
+    },
+    "symbolic_constant": {
+      "path": "runs/role_executor_feedback/f4f7e76b40144493a5228f66eb73088a/result.json",
+      "sha256": "326979688b538dcdc31a2bc350c899e00af6cbfc736967284402fb241972938b",
+      "status": "success",
+      "metrics": {
+        "mse": 5.0,
+        "nmse": 1.0
+      }
+    }
+  }
+}

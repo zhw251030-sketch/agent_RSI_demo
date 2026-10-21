@@ -1,0 +1,156 @@
+{
+  "version": "strategy-interface-verification-v0.1",
+  "implementation_commit": "3b613c14704fe9002593a8258ff623638adfe4a9",
+  "execution_ready": false,
+  "tests": {
+    "distinct_tests": 118,
+    "new_tests": 59,
+    "local": {
+      "python": "3.12.14",
+      "platform": "win32",
+      "tests_run": 118,
+      "passed": 117,
+      "skipped": 1,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 118.844,
+      "output": ".................s....................................................................................................\n----------------------------------------------------------------------\nRan 118 tests in 118.846s\n\nOK (skipped=1)\n",
+      "skipped_tests": [
+        [
+          "test_manual_synthetic_planning_and_symbolic_measurements (tests.test_role_executor_integration.RoleExecutorIntegrationTests.test_manual_synthetic_planning_and_symbolic_measurements)",
+          "Real calibration needs the existing Linux sandbox and isolated task runtime"
+        ]
+      ]
+    },
+    "server": {
+      "python": "3.12.14",
+      "platform": "linux",
+      "tests_run": 118,
+      "passed": 118,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 24.566,
+      "output": "......................................................................................................................\n----------------------------------------------------------------------\nRan 118 tests in 24.566s\n\nOK\n",
+      "skipped_tests": []
+    }
+  },
+  "local_server_tested_source_hashes_equal": true,
+  "preparation": {
+    "status": "passed",
+    "version": "strategy-interface-preparation-v0.1",
+    "execution_ready": false,
+    "manifest_sha256": "9b6f37b9a0d42206ac4a93329fd0f70cedb556d20da6f686167d004573d5c0d5",
+    "files_verified": 6,
+    "update_packet_bytes": 81393,
+    "runtime_files": 236,
+    "activity": {
+      "candidate_executions": 0,
+      "model_requests": 0,
+      "sealed_tasks_executed": 0,
+      "strategy_updates": 0,
+      "task_evaluations": 0
+    }
+  },
+  "local_server_preparation_files_bytes_equal": true,
+  "learning": {
+    "cohort_counts": {
+      "decision-replay-v01": 16,
+      "edit-commitment-v01": 8
+    },
+    "transitions": 24,
+    "distinct_sources": 12,
+    "outcome_tables": 8,
+    "pinned_input_files": 552,
+    "model_visible_bytes": 77614,
+    "model_visible_sha256": "57dbe9be3ab7ab4ea6e951a11c3e4e4c2efd4005cf4accef96aeca8c04916ade"
+  },
+  "synthetic_calibration": {
+    "version": "role-executor-calibration-v0.1",
+    "status": "passed",
+    "evidence_kind": "synthetic",
+    "model_calls": 0,
+    "benchmark_candidate_executions": 0,
+    "sealed_tasks_executed": 0,
+    "manual_candidate_evaluations": 4,
+    "sandbox_executions": 6,
+    "val_calls": 2,
+    "records": {
+      "planning_valid": {
+        "path": "runs/role_executor_feedback/27669f14ee4943fd898124a81023a0dd/result.json",
+        "sha256": "1720c17a969c393a5ece761ebb3128a869960485f0d0f848068952690199835f",
+        "status": "success",
+        "metrics": null
+      },
+      "planning_invalid": {
+        "path": "runs/role_executor_feedback/7534129c742d477b9ccbdacf6611220c/result.json",
+        "sha256": "dd44e8b9782db3ae87db5fc81cd9dc832c1bc2c432c13de75e9b742caab161a4",
+        "status": "task_failure",
+        "metrics": null
+      },
+      "symbolic_linear": {
+        "path": "runs/role_executor_feedback/53b793a0242246c8863713c5d0cf4fcd/result.json",
+        "sha256": "501634c8d91ba216b4d944dbbbdaa3a4366c8019dd4f41dc56fc7495b62a77c2",
+        "status": "success",
+        "metrics": {
+          "mse": 0.0,
+          "nmse": 0.0
+        }
+      },
+      "symbolic_constant": {
+        "path": "runs/role_executor_feedback/f4f7e76b40144493a5228f66eb73088a/result.json",
+        "sha256": "326979688b538dcdc31a2bc350c899e00af6cbfc736967284402fb241972938b",
+        "status": "success",
+        "metrics": {
+          "mse": 5.0,
+          "nmse": 1.0
+        }
+      }
+    }
+  },
+  "old_raw_archives_unchanged": {
+    "artifacts/decision-replay/2026-10-21/v01": 303,
+    "artifacts/edit-commitment/2026-10-21/v01": 217,
+    "artifacts/state-generation/2026-10-21/v01": 43,
+    "artifacts/state-generation/2026-10-21/v02": 130
+  },
+  "old_raw_file_count": 693,
+  "old_runtime_files_unchanged": 139,
+  "transfer_sha256": "5325aba9b85923d5d759b7431ce8c86ef36e81ddf48d5488ee4633ccee42d64f",
+  "activity": {
+    "model_requests": 0,
+    "benchmark_candidate_executions": 0,
+    "benchmark_task_evaluations": 0,
+    "benchmark_symbolic_fits": 0,
+    "probe_executions": 0,
+    "sealed_tasks_executed": 0,
+    "strategy_updates": 0,
+    "manual_synthetic_candidate_evaluations": 4,
+    "manual_synthetic_sandbox_executions": 6,
+    "manual_synthetic_val_calls": 2
+  },
+  "new_model_cost_cny": 0,
+  "cumulative_research_cost": {
+    "requests": 126,
+    "known_tokens": 926462,
+    "known_estimated_cny": 2.9139117,
+    "reserved_cny": 12.99837,
+    "unknown_usage_requests": 2,
+    "actual_total_cost_cny": null,
+    "excluded": "7 connection/debug requests, Canvas, and other projects"
+  },
+  "limitations": [
+    "No research task scores or new policy learned; calibration is artificial.",
+    "Request packet size is checked before SDK assembly; live wire size remains to verify.",
+    "Hashes bind trusted-client source files and records, not provider authenticity or full binary environment.",
+    "Future SDK dispatcher and phase scheduler are not yet implemented; readiness remains false."
+  ],
+  "archive": {
+    "path": "artifacts/strategy-interface/2026-10-21/v01",
+    "files_excluding_manifest": 30,
+    "files_including_manifest": 31,
+    "manifest_sha256": "d9387df4aa3366dc9e054e39f5235ff2cd86cb7aa5626e2aef1f072256cad15b",
+    "tree_sha256": "b852739d165b89893809b0cbbbaf74b0ca5b49e3e82ccf6e517cdb71057ef95d",
+    "all_files_verified": true
+  }
+}

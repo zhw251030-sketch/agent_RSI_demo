@@ -1,0 +1,32 @@
+{
+  "planning": {
+    "domain_sha256": "6f0cc19a61653a4f235a8d0db3b76cd90aa681fcf3db042245277d56cde8ca8d",
+    "tasks": [
+      {
+        "task_id": "spannerlearning/seed1/problem0",
+        "role": "selection",
+        "data_path": "data/planning/spanner/spannerlearning/seed1/problem0.pddl",
+        "sha256": "b26cab57852cf8087605f999b3e4342c300b4327ff5adae62c3323049f5ff9f3"
+      }
+    ]
+  },
+  "symbolic": {
+    "files": [
+      {
+        "task_id": "oscillator2",
+        "role": "selection",
+        "split": "train",
+        "columns": [
+          "t",
+          "x",
+          "v",
+          "a"
+        ],
+        "bytes": 40,
+        "rows": 4,
+        "data_path": "data/symbolic/llm-sr/oscillator2/train.csv",
+        "sha256": "27ee7c05360a5f1b618df55fe136f18bebc23fd4da93b403bafb4f4998d53986"
+      }
+    ]
+  }
+}

@@ -2,7 +2,7 @@
 
 固定基础 LLM 权重，研究 Agent 如何利用执行反馈更新修订策略，并在**形式规划与符号发现**两个环境中检验同一更新机制。
 
-**最新完成第二批8个新起点的真实生成与冻结。** 8请求得到4规划程序、4符号公式，usage全已知；尚未执行或评分，不能称RSI收益。服务器41项新增相关测试通过，130原文件双端审计一致。见[操作说明](docs/operations/state-generation-v02.md)、[结果](docs/analysis/2026-10-21-state-generation-v02-results.md)、[验收](docs/environment/2026-10-21-state-generation-v02-verification.json)。
+**最新完成策略实验离线接口与双端验收。** 新角色执行器、24条历史学习材料、固定提示及原始测量到策略接受器的绑定已完成。服务器118项测试通过；4份手写程序在人工数据上的真实工具链校准通过。新增模型/真实任务调用为0，8份v02起点仍未执行；专用SDK调度器待接通。见[操作说明](docs/operations/strategy-interface.md)、[结果](docs/analysis/2026-10-21-strategy-interface-results.md)、[验收](docs/environment/2026-10-21-strategy-interface-verification.json)。
 
 网页入口：完成本机 SSH 转发后打开 **http://127.0.0.1:18080/**。MiniMax-M3 已配置并通过两套 SDK 的工具往返检查。启动、访问和停止方式见 [网页使用说明](docs/operations/canvas.md)，实际结果见 [部署验收](docs/environment/2026-10-20-canvas-deployment.md)。
 
@@ -15,14 +15,15 @@
 | 符号任务 | LLM-SR四方程12CSV；学习oscillator1、选择oscillator2（有手写评分暴露）、后续评价bactgrow/stressstrain；8测试CSV封存 |
 | 更新对象 | 外部策略S历史已有一次更新；最新实现任务收益与配对策略接受接口，本轮尚无新的真实S学习/选择 |
 | 方法参照 | 借鉴ExpeL的经验/规则分离与GEPA的反馈驱动外部提示更新；当前有限规则选择不是两篇论文的完整复现 |
-| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；本轮为离线纯函数与回放，两端各76项相关测试全通过 |
-| 任务执行层 | 规划解析/VAL 与符号拟合/评分已接通；Bubblewrap/seccomp 限制候选文件、网络、进程和资源；当前只开放开发反馈 |
+| Agent 框架 | OpenHands SDK/tools 1.55.1、MiniMax-M3；本轮服务器118项接口相关测试通过，新版SDK调度器待实现 |
+| 任务执行层 | 新角色执行器复用隔离/VAL/拟合；学习与选择按角色限制，评价需两个S*冻结凭证；人工校准通过，尚未执行新真实任务 |
 | 交互网页 | Agent Canvas 1.28.1 已部署，工作区已选中；独立后端 SDK 1.56.0，MiniMax-M3 配置已启用 |
 
 模型配置与验收：[MiniMax-M3 使用说明](docs/operations/minimax.md)。连接检查与开发小试分开计数。小试 8 次请求含 1 次服务错误，7 次有响应；费用仍有一笔未知用量，详见 [真实小试说明](docs/operations/agent-pilot.md)。
 
 ## 阅读入口
 
+- [最新策略实验接口](docs/operations/strategy-interface.md)：历史学习包、任务角色、实测绑定、验收与SDK调度器边界。
 - [最新完整新批次](docs/operations/state-generation-v02.md)：8份来源、180秒传输证据、结果与后续接口。
 - [此前冷启动来源生成](docs/operations/state-generation.md)：第一批中止记录与原始生成协议。
 - [此前任务收益规则与任务划分](docs/operations/goal-alignment.md)：接受器、全量回放、任务角色与边界。

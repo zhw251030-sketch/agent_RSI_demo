@@ -1,0 +1,8 @@
+(define (domain spanner)
+ (:requirements :typing :strips)
+ (:types location locatable - object man nut spanner - locatable)
+ (:predicates (at ?m - locatable ?l - location)
+  (link ?a - location ?b - location) (tightened ?n - nut))
+ (:action walk :parameters (?start - location ?end - location ?m - man)
+  :precondition (and (at ?m ?start) (link ?start ?end))
+  :effect (and (not (at ?m ?start)) (at ?m ?end))))

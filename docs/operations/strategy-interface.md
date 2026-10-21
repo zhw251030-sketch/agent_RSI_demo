@@ -47,3 +47,5 @@
 ```
 
 下一步是独立的有界SDK调度器：消费新版学习包，核对真实发送请求与SDK提交，运行学习/选择并冻结两个S*，再开放评价。正式调用前必须完成完整36槽假provider集成和实际请求字节上限检查。当前 `execution_ready:false` 明确保留；源码已齐全、接口可验证，与完整模型实验已能启动是不同状态。
+
+本轮实测记录：[结果说明](../analysis/2026-10-21-strategy-interface-results.md)、[机器可读验收](../environment/2026-10-21-strategy-interface-verification.json)、[完整归档](../../artifacts/strategy-interface/2026-10-21/v01/README.md)。
