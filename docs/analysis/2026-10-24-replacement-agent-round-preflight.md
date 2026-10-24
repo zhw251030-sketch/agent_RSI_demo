@@ -1,8 +1,8 @@
 # 替换充分性 12 槽 Agent runner 预演报告
 
 日期：2026-10-24  
-运行目录：服务器 `runs/replacement-agent-round/2026-10-24-v03/`  
-代码提交：`6949f868aa4099f53bd0eaaf53c2cfd0b1f31f55`  
+运行目录：服务器 `runs/replacement-agent-round/2026-10-24-v04/`  
+代码提交：`a5dc4aeb2b163d121ed1df9851c827d599690fa5`  
 状态：fake-provider + Linux sandbox 预演通过；新的真实 MiniMax 轮尚未启动。
 
 ## 这一步做什么
@@ -59,5 +59,5 @@ v01 在第一个 slot 停止：SDK action 已接受，账本也已结算，但 a
 
 当前完成的是可重复的实验基础设施验收：数据边界、SDK 单步约束、三结构证据、门冻结和 outcome shadow 的顺序都能在服务器真实运行。它没有产生真实 MiniMax 候选，也没有证明 replacement evidence 在两个任务上减少有害编辑。
 
-v03 证书与当前服务器工作树/运行时的一致性检查已通过。下一步是在用户已授权的预算内启动 12 个真实 MiniMax-M3 请求。真实轮仍须按首个未知 usage、传输失败、协议错误或 runtime hash 变化立即停止；无效候选不补抽，结果只解释为两个公开方程上的机制开发小轮。
+v04 证书与当前服务器工作树/运行时的一致性检查已通过。下一步是在用户已授权的预算内启动 12 个真实 MiniMax-M3 请求。真实轮仍须按首个未知 usage、传输失败、协议错误或 runtime hash 变化立即停止；无效候选不补抽，结果只解释为两个公开方程上的机制开发小轮。
 
