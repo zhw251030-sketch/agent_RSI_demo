@@ -387,8 +387,13 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
                     evidence = triplet["evidence"]
                     check_id = f"replacement-check-{slot_id}"
                 bound = bind_accepted_submission(
-                    {"status": "accepted", "business": accepted["business"],
-                     "execution_payload": accepted["execution_payload"]},
+                    # The SDK receipt preserves the actor's order, while the
+                    # trusted compiler returns canonical catalog order.  Edit
+                    # identity must use the latter so a keep is not mistaken
+                    # for a structural change.
+                    {"status": "accepted",
+                     "business": {"feature_ids": list(candidate["feature_ids"])},
+                     "execution_payload": {"feature_ids": list(candidate["feature_ids"]) }},
                     task_id=definition.task_id,
                     parent_source_sha256=parent["source_sha256"],
                     candidate_source_sha256=candidate["source_sha256"],
