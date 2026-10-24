@@ -37,3 +37,5 @@ runner 先拟合三个父结构，再发送六次 actor 请求；所有三条件
 ## measured-v02 实际结果
 
 2026-10-24 已按上述协议完成第一次真实机制小轮。6/6 个 MiniMax-M3 请求被接受，18 条门记录和冻结哈希通过复核；`no_check` 与 `sham_check` 均执行 6/6，`real_check` 执行 4/6、保留父结构 2/6。唯一有害候选来自小系数删除，当前阈值没有将其拦截，因此 `prevented_harm=0`。完整候选表、三条件统计、认证路径停止记录和边界解释见[真实结果报告](../analysis/2026-10-24-edit-check-comparison-results.md)，机器核验见[measured-v02 验收](../environment/2026-10-24-edit-runner-measured-v02-verification.json)。
+
+随后完成了不调用模型的阈值敏感性复盘。P02-r1 与 P02-r2 具有相同的删除项和相同系数，但一个改善、一个退化；因此单一系数阈值没有足够信息区分两者。见[机器扫描](../analysis/2026-10-24-threshold-sensitivity.json)和[编辑阈值复盘](../analysis/2026-10-24-edit-threshold-review.md)。

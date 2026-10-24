@@ -1,0 +1,94 @@
+{
+  "version": "basis-edit-threshold-sensitivity-v0.1",
+  "harm_tolerance": 1e-05,
+  "policy": "execute iff removed_coefficient_abs < threshold",
+  "row_count": 6,
+  "ambiguous_groups": [
+    {
+      "parent_id": "P02",
+      "removed_feature_id": "m_2_0_0",
+      "removed_coefficient_abs": 3.107490294269855e-05,
+      "proposal_ids": [
+        "P02-r1",
+        "P02-r2"
+      ],
+      "harmful_proposal_ids": [
+        "P02-r2"
+      ]
+    }
+  ],
+  "thresholds": [
+    {
+      "threshold": 0.0,
+      "candidate_executions": 0,
+      "parent_retention": 6,
+      "harmful_candidates": 1,
+      "harmful_deployments": 0,
+      "prevented_harm": 1,
+      "beneficial_deployments": 0
+    },
+    {
+      "threshold": 3.107490294269855e-05,
+      "candidate_executions": 0,
+      "parent_retention": 6,
+      "harmful_candidates": 1,
+      "harmful_deployments": 0,
+      "prevented_harm": 1,
+      "beneficial_deployments": 0
+    },
+    {
+      "threshold": 3.1074903942698554e-05,
+      "candidate_executions": 2,
+      "parent_retention": 4,
+      "harmful_candidates": 1,
+      "harmful_deployments": 1,
+      "prevented_harm": 0,
+      "beneficial_deployments": 1
+    },
+    {
+      "threshold": 0.039852781703204686,
+      "candidate_executions": 2,
+      "parent_retention": 4,
+      "harmful_candidates": 1,
+      "harmful_deployments": 1,
+      "prevented_harm": 0,
+      "beneficial_deployments": 1
+    },
+    {
+      "threshold": 0.039852781704204684,
+      "candidate_executions": 4,
+      "parent_retention": 2,
+      "harmful_candidates": 1,
+      "harmful_deployments": 1,
+      "prevented_harm": 0,
+      "beneficial_deployments": 3
+    },
+    {
+      "threshold": 0.05,
+      "candidate_executions": 4,
+      "parent_retention": 2,
+      "harmful_candidates": 1,
+      "harmful_deployments": 1,
+      "prevented_harm": 0,
+      "beneficial_deployments": 3
+    },
+    {
+      "threshold": 0.1831213921481386,
+      "candidate_executions": 4,
+      "parent_retention": 2,
+      "harmful_candidates": 1,
+      "harmful_deployments": 1,
+      "prevented_harm": 0,
+      "beneficial_deployments": 3
+    },
+    {
+      "threshold": 0.1831213921491386,
+      "candidate_executions": 6,
+      "parent_retention": 0,
+      "harmful_candidates": 1,
+      "harmful_deployments": 1,
+      "prevented_harm": 0,
+      "beneficial_deployments": 5
+    }
+  ]
+}

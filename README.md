@@ -82,6 +82,8 @@
 
 30. [2026-10-24 三条件编辑检查真实结果](docs/analysis/2026-10-24-edit-check-comparison-results.md) · [机器验收](docs/environment/2026-10-24-edit-runner-measured-v02-verification.json)
 
+31. [2026-10-24 系数阈值敏感性与编辑机制复盘](docs/analysis/2026-10-24-threshold-sensitivity.md) · [编辑阈值深入分析](docs/analysis/2026-10-24-edit-threshold-review.md) · [机器扫描](docs/analysis/2026-10-24-threshold-sensitivity.json)
+
 ## 仓库边界
 
 研究资料保留日期、来源链接与证据限制；较早稿件中的任务排序以当前联合设计和后续明确决定为准。新研究稿、实现、配置模板及经过检查的实验摘要在本仓库继续维护。论文全文、第三方源码镜像、受限数据、模型、虚拟环境、凭据和原始运行目录不直接纳入 Git。
