@@ -74,26 +74,33 @@ def attach_shadow_outcomes(
         proposal_id = row["proposal_id"]
         outcome = outcomes[proposal_id]
         if (type(outcome) is not dict
-                or set(outcome) != {"parent_nmse", "candidate_nmse", "edit_mode"}):
+                or set(outcome) != {"parent_nmse", "candidate_nmse", "edit_mode", "candidate_status"}):
             raise ValueError("invalid shadow outcome")
         parent = outcome["parent_nmse"]
         candidate = outcome["candidate_nmse"]
-        if (type(parent) not in (int, float) or type(candidate) not in (int, float)
-                or not math.isfinite(parent) or not math.isfinite(candidate)
-                or parent < 0 or candidate < 0):
+        candidate_status = outcome["candidate_status"]
+        if candidate_status not in {"success", "reused_keep", "candidate_failure"}:
+            raise ValueError("invalid shadow candidate status")
+        if (type(parent) not in (int, float) or not math.isfinite(parent) or parent < 0
+                or candidate_status in {"success", "reused_keep"}
+                and (type(candidate) not in (int, float) or not math.isfinite(candidate)
+                     or candidate < 0)
+                or candidate_status == "candidate_failure" and candidate is not None):
             raise ValueError("invalid shadow metrics")
         edit_mode = outcome["edit_mode"]
         if edit_mode not in {"keep", "swap_one"}:
             raise ValueError("invalid shadow edit mode")
-        delta = float(candidate - parent)
-        harmful = edit_mode == "swap_one" and delta > tolerance
+        delta = float(candidate - parent) if candidate is not None else None
+        harmful = bool(edit_mode == "swap_one" and delta is not None and delta > tolerance)
         deployed = row["final_action"] == "execute_candidate"
         metrics.append({
             "proposal_id": proposal_id,
             "condition": row["condition"],
             "final_action": row["final_action"],
             "check_applicability": row.get("check_applicability", "applicable"),
-            "parent_nmse": float(parent), "candidate_nmse": float(candidate),
+            "candidate_status": candidate_status,
+            "parent_nmse": float(parent),
+            "candidate_nmse": None if candidate is None else float(candidate),
             "delta_nmse": delta, "harmful": harmful,
             "deployed_harmful": bool(deployed and harmful),
             "prevented_harm": bool(row["condition"] == "real_check" and not deployed and harmful),
@@ -106,6 +113,7 @@ def attach_shadow_outcomes(
             "proposals": len(condition_rows),
             "candidate_executions": sum(row["final_action"] == "execute_candidate" for row in condition_rows),
             "parent_retained": sum(row["final_action"] == "retain_parent" for row in condition_rows),
+            "candidate_failures": sum(row["candidate_status"] == "candidate_failure" for row in condition_rows),
             "harmful_shadow_outcomes": sum(row["harmful"] for row in applicable),
             "deployed_harmful": sum(row["deployed_harmful"] for row in applicable),
             "prevented_harm": sum(row["prevented_harm"] for row in applicable),

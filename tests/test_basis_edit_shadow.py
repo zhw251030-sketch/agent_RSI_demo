@@ -18,8 +18,8 @@ class BasisEditShadowTests(unittest.TestCase):
     def test_outcomes_are_attached_after_gate_freeze(self):
         frozen = freeze_gate_decisions(gates())
         result = attach_shadow_outcomes(frozen, {
-            "P01-r1": {"parent_nmse": 0.1, "candidate_nmse": 0.1, "edit_mode": "keep"},
-            "P01-r2": {"parent_nmse": 0.1, "candidate_nmse": 0.2, "edit_mode": "swap_one"},
+            "P01-r1": {"parent_nmse": 0.1, "candidate_nmse": 0.1, "edit_mode": "keep", "candidate_status": "reused_keep"},
+            "P01-r2": {"parent_nmse": 0.1, "candidate_nmse": 0.2, "edit_mode": "swap_one", "candidate_status": "success"},
         })
         self.assertEqual(result["summary"]["no_check"]["deployed_harmful"], 1)
         self.assertEqual(result["summary"]["real_check"]["deployed_harmful"], 1)
@@ -32,8 +32,8 @@ class BasisEditShadowTests(unittest.TestCase):
                 row["final_action"] = "retain_parent"
         frozen = freeze_gate_decisions(rows)
         result = attach_shadow_outcomes(frozen, {
-            "P01-r1": {"parent_nmse": 0.1, "candidate_nmse": 0.1, "edit_mode": "keep"},
-            "P01-r2": {"parent_nmse": 0.1, "candidate_nmse": 0.2, "edit_mode": "swap_one"},
+            "P01-r1": {"parent_nmse": 0.1, "candidate_nmse": 0.1, "edit_mode": "keep", "candidate_status": "reused_keep"},
+            "P01-r2": {"parent_nmse": 0.1, "candidate_nmse": 0.2, "edit_mode": "swap_one", "candidate_status": "success"},
         })
         self.assertEqual(result["summary"]["real_check"]["deployed_harmful"], 0)
         self.assertEqual(result["summary"]["real_check"]["prevented_harm"], 1)
@@ -47,9 +47,21 @@ class BasisEditShadowTests(unittest.TestCase):
         frozen["frozen"]["rows"][0]["final_action"] = "retain_parent"
         with self.assertRaises(ValueError):
             attach_shadow_outcomes(frozen, {
-                "P01-r1": {"parent_nmse": 0.1, "candidate_nmse": 0.1, "edit_mode": "keep"},
-                "P01-r2": {"parent_nmse": 0.1, "candidate_nmse": 0.2, "edit_mode": "swap_one"},
+                "P01-r1": {"parent_nmse": 0.1, "candidate_nmse": 0.1, "edit_mode": "keep", "candidate_status": "reused_keep"},
+                "P01-r2": {"parent_nmse": 0.1, "candidate_nmse": 0.2, "edit_mode": "swap_one", "candidate_status": "success"},
             })
+
+    def test_candidate_failure_is_retained_without_fake_score(self):
+        frozen = freeze_gate_decisions(gates())
+        result = attach_shadow_outcomes(frozen, {
+            "P01-r1": {"parent_nmse": 0.1, "candidate_nmse": 0.1,
+                        "edit_mode": "keep", "candidate_status": "reused_keep"},
+            "P01-r2": {"parent_nmse": 0.1, "candidate_nmse": None,
+                        "edit_mode": "swap_one", "candidate_status": "candidate_failure"},
+        })
+        self.assertEqual(result["summary"]["no_check"]["candidate_failures"], 1)
+        self.assertIsNone(result["metrics"][-1]["candidate_nmse"])
+        self.assertFalse(result["metrics"][-1]["harmful"])
 
 
 if __name__ == "__main__":
