@@ -19,14 +19,17 @@
 - `stressstrain/train.csv`。
 
 每个任务只读取公开 `train`，不读取 `test_id`、`test_ood` 或封存数据。运行前固定同一份
-数据切分为 `fit_dev`、`check_dev`、`outcome_dev` 三个互不重叠的开发子集，切分规则、行索引
-和随机种子写入协议并计算哈希。时间序列任务使用连续区块切分；若任务不是时间序列，则使用
-固定索引分层切分并保留目标分布审计。切分本身不能根据候选结果调整。
+数据切分为 `fit_dev`、`check_dev`、`outcome_dev` 三个互不重叠的开发子集，切分规则、原始
+行索引和哈希写入协议。两个任务都没有时间列，按非时间序列表格处理：`bactgrow` 按目标
+`db` 十分位分层，`stressstrain` 按 `temp` 水平和目标 `stress` 十分位分层；在每个分层内
+按 `sha256(task_id|split_version|row_index)` 排序后分配，最后按固定规则校正全局计数。目标计数
+为 `bactgrow=4500/1500/1500`、`stressstrain=1296/432/433`。切分本身不能根据候选结果调整。
 
 ## 事前证据
 
 父结构为固定 K 项基函数。对一次 `removed → added` 编辑，令 `common` 为父结构去掉
-`removed` 后剩余的公共项，在 `check_dev` 上分别拟合：
+`removed` 后剩余的公共项。父结构、公共结构和加入替换项的结构都只在同一份 `fit_dev`
+上拟合一次，然后固定各自参数，在未参与拟合的 `check_dev` 上做目标自由预测并计算 NMSE：
 
 \[
 I^- = \operatorname{NMSE}(common)-\operatorname{NMSE}(parent),
@@ -38,7 +41,7 @@ I^+ = \operatorname{NMSE}(common)-\operatorname{NMSE}(common+added),
 R = I^+/I^-.
 \]
 
-当 `I^-` 不足以超过预先固定的数值容差，或任一拟合失败时，状态为 `unknown`，保留父结构。
+当 `I^-` 不足以超过预先固定的数值容差、检查集目标方差不可用，或任一拟合失败时，状态为 `unknown`，保留父结构。
 否则，只有当替换项在 `check_dev` 上恢复删除项损失达到预先固定的比值阈值时，才标为
 `supported`；`I^+≤0` 或 `R` 低于阈值标为 `contradicted`。标准化贡献
 `abs(coef)·std(feature)` 作为辅助证据和诊断字段，不单独决定放行。
