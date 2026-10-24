@@ -102,4 +102,4 @@
 
 ## 下一步
 
-下一步先完成 v03 证书的只读一致性检查，然后用受证书保护的 real mode 发送最多 12 个 MiniMax-M3 请求。真实候选的 `fit_dev/check_dev` 证据、三条件门冻结和 `outcome_dev` shadow 必须分目录保存，不能回写本次预演、切分或阈值；首个未知 usage、传输失败、协议错误或 runtime hash 变化立即停止；旧13位置不恢复、不补抽，不启动168请求草案或封存评价。
+下一步需要在服务器恢复或指定正确的 MiniMax token 文件路径；当前提供的 `/home/hanwen/Project/project/siNRA-pi/docs/auth.json` 不存在，真实轮 `real-v01` 在第一个请求前停止，账本为 0 请求/0 费用。路径恢复后用新的 run-id 启动受证书保护的 real mode，最多 12 个请求。真实候选的 `fit_dev/check_dev` 证据、三条件门冻结和 `outcome_dev` shadow 必须分目录保存，不能回写本次预演、切分或阈值；首个未知 usage、传输失败、协议错误或 runtime hash 变化立即停止；旧13位置不恢复、不补抽，不启动168请求草案或封存评价。
