@@ -179,13 +179,13 @@ def run(root: Path, output: Path) -> dict:
                     accepted, task_id=task_id, parent_source_sha256=parent["source_sha256"],
                     candidate_source_sha256=candidate["source_sha256"], parent_feature_ids=config["parent"],
                     check_id=f"replacement-check-{slot_id}", check_status=evidence["status"],
-                    check_scope="synthetic_preflight",
+                    check_scope="development",
                 )
                 for condition in CONDITIONS:
                     gate = apply_gate(bound["edit"], condition=condition,
                                       check_id=f"gate-{condition}-{slot_id}",
                                       real_status=evidence["status"] if condition == "real_check" else None,
-                                      scope="synthetic_preflight")
+                                      scope="development")
                     gate_rows.append({"proposal_id": slot_id, "condition": condition,
                                       "edit_id": bound["edit"]["edit_id"],
                                       "final_action": gate["final_action"],
@@ -230,7 +230,7 @@ def run(root: Path, output: Path) -> dict:
 
 
 def main() -> None:
-    output = ROOT / "runs/replacement-agent-preflight/2026-10-24-v01"
+    output = ROOT / "runs/replacement-agent-preflight/2026-10-24-v02"
     print(json.dumps(run(ROOT, output), ensure_ascii=False, allow_nan=False))
 
 
