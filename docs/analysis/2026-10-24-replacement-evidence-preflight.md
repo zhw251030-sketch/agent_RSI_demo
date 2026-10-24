@@ -58,12 +58,20 @@ fixed-parameter predict 全部成功，阶段顺序和目标隔离通过，预�
 没有模型生成或候选选择，因此这些数值只说明 fit/predict/host-score 链路工作，不是 Agent
 机制结果，也不说明某个方程的真实替换规律。
 
+随后又完成了 OpenHands SDK 1.55.1 的 FakeProvider 门控预演。4 个 synthetic actor 请求全部
+接受，生成 4 个候选并冻结 12 条门记录；其中两个 keep 候选和两个单项替换候选被复制到三臂。
+`no_check` 和 `sham_check` 各执行 2 个候选，`replacement_check` 执行 1 个并保留 3 个；
+在 synthetic shadow 中预设的 1 个有害替换被 real check 保留，`prevented_harm=1`。这一数字
+验证的是冻结顺序和门控代码，不能当作真实 Agent 防护率。SDK 账本记录 4 次假 provider 请求、
+480 个 synthetic token、0 次真实模型调用和 0 次真实候选执行；`outcome_dev_read=false`。
+证书见[SDK 假 provider 预演](../environment/2026-10-24-replacement-agent-preflight.json)。
+
 这一步只证明数据边界、数值判定和请求形状可复核。它没有证明 replacement check 能降低
 有害编辑率，也没有产生任何模型调用或任务成绩。
 
 ## 下一步
 
-下一步把固定参数预测接入新增的三结构 runner：父结构、公共结构和替换结构共用 `fit_dev`
-与初始化/优化器设置，随后只在 `check_dev` 产生事前证据。先用假 provider 完整预演三条件
-门控、冻结哈希和 `outcome_dev` shadow 顺序，再由独立审查确认协议后启动两个任务的真实
-MiniMax-M3 小轮。任何真实结果都单独建档，不能回写本次切分或阈值。
+下一步把真实 Agent 候选生成接入实际任务数据：先完成两个任务各自的完整候选批次和预算冻结，
+再由独立审查确认阈值、切分、停止条件和真实请求上限。通过后才启动 MiniMax-M3 真实小轮；
+真实候选的 `fit_dev/check_dev` 证据、三条件门冻结和 `outcome_dev` shadow 必须分目录保存，
+不能回写本次预演、切分或阈值。

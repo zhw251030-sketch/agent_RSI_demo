@@ -1,0 +1,119 @@
+{
+  "schema": "replacement-agent-preflight-v0.1",
+  "status": "passed",
+  "sdk_version": "1.55.1",
+  "model_requests": 4,
+  "accepted_slots": 4,
+  "gate_records": 12,
+  "real_model_calls": 0,
+  "real_candidate_evaluations": 0,
+  "synthetic_outcome_dev": true,
+  "outcome_dev_read": false,
+  "records": [
+    {
+      "slot_id": "bactgrow-r1",
+      "task_id": "bactgrow",
+      "sdk_status": "accepted",
+      "edit_mode": "keep",
+      "evidence_status": "unknown",
+      "evidence_reason": "no_edit"
+    },
+    {
+      "slot_id": "bactgrow-r2",
+      "task_id": "bactgrow",
+      "sdk_status": "accepted",
+      "edit_mode": "swap_one",
+      "evidence_status": "supported",
+      "evidence_reason": "replacement_restores_required_fraction"
+    },
+    {
+      "slot_id": "stressstrain-r1",
+      "task_id": "stressstrain",
+      "sdk_status": "accepted",
+      "edit_mode": "keep",
+      "evidence_status": "unknown",
+      "evidence_reason": "no_edit"
+    },
+    {
+      "slot_id": "stressstrain-r2",
+      "task_id": "stressstrain",
+      "sdk_status": "accepted",
+      "edit_mode": "swap_one",
+      "evidence_status": "contradicted",
+      "evidence_reason": "non_improving_replacement"
+    }
+  ],
+  "shadow_summary": {
+    "no_check": {
+      "proposals": 4,
+      "candidate_executions": 2,
+      "parent_retained": 2,
+      "candidate_failures": 0,
+      "harmful_shadow_outcomes": 1,
+      "deployed_harmful": 1,
+      "prevented_harm": 0
+    },
+    "sham_check": {
+      "proposals": 4,
+      "candidate_executions": 2,
+      "parent_retained": 2,
+      "candidate_failures": 0,
+      "harmful_shadow_outcomes": 1,
+      "deployed_harmful": 1,
+      "prevented_harm": 0
+    },
+    "real_check": {
+      "proposals": 4,
+      "candidate_executions": 1,
+      "parent_retained": 3,
+      "candidate_failures": 0,
+      "harmful_shadow_outcomes": 1,
+      "deployed_harmful": 0,
+      "prevented_harm": 1
+    }
+  },
+  "provider_calls": 4,
+  "budget": {
+    "config": {
+      "max_requests": 4,
+      "max_requests_per_session": 1,
+      "max_output_tokens": 8192,
+      "max_input_bytes": 98304,
+      "max_reserved_tokens": 200000,
+      "max_cost_cny": 4.0,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4,
+      "session_ids": [
+        "bactgrow-r1",
+        "bactgrow-r2",
+        "stressstrain-r1",
+        "stressstrain-r2"
+      ]
+    },
+    "request_count": 4,
+    "session_counts": {
+      "bactgrow-r1": 1,
+      "bactgrow-r2": 1,
+      "stressstrain-r1": 1,
+      "stressstrain-r2": 1
+    },
+    "reserved_count": 0,
+    "failed_count": 0,
+    "reserved_input_tokens": 40116,
+    "reserved_output_tokens": 32768,
+    "reserved_tokens": 72884,
+    "reserved_cost_cny": 0.3594948,
+    "usage_unknown_count": 0,
+    "known_prompt_tokens": 400,
+    "known_completion_tokens": 80,
+    "known_total_tokens": 480,
+    "known_estimated_cost_cny": 0.001512,
+    "actual_tokens": 480,
+    "actual_estimated_cost_cny": 0.001512,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null,
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  }
+}
