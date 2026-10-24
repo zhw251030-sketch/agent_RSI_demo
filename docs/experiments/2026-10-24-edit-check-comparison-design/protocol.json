@@ -1,0 +1,205 @@
+{
+  "schema": "basis-edit-comparison-v0.1",
+  "task": {
+    "source": "LLM-SR",
+    "task_id": "oscillator2",
+    "split": "train",
+    "role": "development_only",
+    "input_names": [
+      "t",
+      "x",
+      "v"
+    ],
+    "target": "a"
+  },
+  "contract": {
+    "schema_version": "symbolic-basis-v0.1",
+    "n_inputs": 3,
+    "k": 4,
+    "catalog_sha256": "8c7918b3a2865ea43b2179f02be2b65cd953bb82c6b1dde68419dac0619f6338",
+    "feature_ids": [
+      "m_0_0_0",
+      "m_0_0_1",
+      "m_0_1_0",
+      "m_1_0_0",
+      "m_0_0_2",
+      "m_0_1_1",
+      "m_0_2_0",
+      "m_1_0_1",
+      "m_1_1_0",
+      "m_2_0_0",
+      "m_0_0_3",
+      "m_0_1_2",
+      "m_0_2_1",
+      "m_0_3_0",
+      "m_1_0_2",
+      "m_1_1_1",
+      "m_1_2_0",
+      "m_2_0_1",
+      "m_2_1_0",
+      "m_3_0_0"
+    ]
+  },
+  "parents": {
+    "P01": {
+      "parent_id": "P01",
+      "feature_ids": [
+        "m_0_0_0",
+        "m_0_0_1",
+        "m_0_1_0",
+        "m_1_1_0"
+      ],
+      "source_sha256": "d77f6435a03a28b65022f4237ba29099954603d64f27e5c44c925985d631788c",
+      "structural_sha256": "be7d6da4e0f1038e68dd50a4d5ea9a65aa07b46b38c42d7c3a8ac5d3e3709a8c",
+      "n_params": 4
+    },
+    "P02": {
+      "parent_id": "P02",
+      "feature_ids": [
+        "m_0_0_0",
+        "m_0_0_1",
+        "m_0_1_0",
+        "m_2_0_0"
+      ],
+      "source_sha256": "fef1420aeecda747279dbcb824472a45071a9996f65f6fbbd3732920787404b1",
+      "structural_sha256": "47d50373fa3f30826bd86141137b66c3bfeb4e067aed957b692686c5af480484",
+      "n_params": 4
+    },
+    "P03": {
+      "parent_id": "P03",
+      "feature_ids": [
+        "m_0_0_0",
+        "m_0_0_1",
+        "m_0_1_0",
+        "m_0_1_1"
+      ],
+      "source_sha256": "16759a0ed029edcbbb71033498319041218590c7bbd7943c4887de18a62a1fdf",
+      "structural_sha256": "29fe96df5316545fabff535a62aa3b0a13f412598a574ebbdfdc4ea9b04aec6f",
+      "n_params": 4
+    }
+  },
+  "slots": [
+    {
+      "slot_id": "P01-r1",
+      "parent_id": "P01",
+      "repeat": 1,
+      "conditions": [
+        "no_check",
+        "sham_check",
+        "real_check"
+      ]
+    },
+    {
+      "slot_id": "P01-r2",
+      "parent_id": "P01",
+      "repeat": 2,
+      "conditions": [
+        "no_check",
+        "sham_check",
+        "real_check"
+      ]
+    },
+    {
+      "slot_id": "P02-r1",
+      "parent_id": "P02",
+      "repeat": 1,
+      "conditions": [
+        "no_check",
+        "sham_check",
+        "real_check"
+      ]
+    },
+    {
+      "slot_id": "P02-r2",
+      "parent_id": "P02",
+      "repeat": 2,
+      "conditions": [
+        "no_check",
+        "sham_check",
+        "real_check"
+      ]
+    },
+    {
+      "slot_id": "P03-r1",
+      "parent_id": "P03",
+      "repeat": 1,
+      "conditions": [
+        "no_check",
+        "sham_check",
+        "real_check"
+      ]
+    },
+    {
+      "slot_id": "P03-r2",
+      "parent_id": "P03",
+      "repeat": 2,
+      "conditions": [
+        "no_check",
+        "sham_check",
+        "real_check"
+      ]
+    }
+  ],
+  "candidate_generation": {
+    "model_requests": 6,
+    "one_candidate_per_slot": true,
+    "condition_replay": true,
+    "model_condition_blind": true,
+    "allowed_edit": "keep_or_one_feature_swap",
+    "analysis_unit": "parent_id x repeat; three condition rows are paired"
+  },
+  "conditions": {
+    "order": [
+      "no_check",
+      "sham_check",
+      "real_check"
+    ],
+    "common_gate": "execute_only_when_supported",
+    "no_check": {
+      "status": "supported",
+      "reads_evidence": false
+    },
+    "sham_check": {
+      "status": "supported",
+      "reads_evidence": false
+    },
+    "real_check": {
+      "status_source": "typed_parent_claim",
+      "reads_evidence": true,
+      "claim": "abs(parent coefficient of removed feature) < 0.05",
+      "threshold": 0.05,
+      "missing_status": "unknown"
+    }
+  },
+  "metrics": {
+    "primary": [
+      "harmful_edit_rate",
+      "parent_retention_rate",
+      "candidate_execution_rate"
+    ],
+    "secondary": [
+      "train_nmse_delta",
+      "check_status_coverage"
+    ],
+    "harmful_definition": "candidate NMSE - parent NMSE > 1e-5",
+    "score_scope": "train_only",
+    "shadow_outcome": "evaluate every candidate after all gate decisions; never feed it back",
+    "non_independence_warning": "18 gate rows are not 18 independent samples"
+  },
+  "budget": {
+    "max_model_requests": 6,
+    "max_conditions": 3,
+    "max_gate_records": 18,
+    "max_cny_reservation": 4.0
+  },
+  "leakage_controls": {
+    "sealed_data_read": false,
+    "test_id_read": false,
+    "test_ood_read": false,
+    "old_v02_run_reused": false,
+    "posthoc_score_changes_pre_edit_decision": false,
+    "shadow_scores_visible_before_gate": false
+  },
+  "status": "design_only",
+  "protocol_sha256": "c66c8964dc1a25799d7f506b7743529ee72661bd35741f4b50ee62c8fc4916ba"
+}
