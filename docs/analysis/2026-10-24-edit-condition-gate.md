@@ -22,6 +22,8 @@
 
 `rsi_eval/edit_condition_gate.py` 只产生审计记录和 `execute_candidate` / `retain_parent` 决策，绝不执行候选。它接收已经由 `edit_evidence` 验证的具体编辑。旧 v02 运行器保持冻结；下一步的新运行器在候选接受后、拟合执行前调用该门。
 
+`analysis/basis_edit_comparison/shadow_outcome.py` 会先冻结每个候选的三条件门结果，再接收统一的候选/父结构分数。它检查冻结哈希，禁止缺失条件或篡改后验记录；`prevented_harm` 只在真实检查保留父结构且 shadow outcome 显示候选退化时计数。后验结果不能改变已冻结的 `final_action`。
+
 ## 实验边界
 
 这一接口还不是机制效果结果。正式小试前仍需固定：父结构来源、候选生成位置、三条件的同候选绑定、typed check 的阈值或规则、失败处理、训练/验证分数和预算。封存数据不能进入编辑前检查。报告至少包括有害编辑率、父结构保留率、候选执行率、检查状态覆盖率以及训练和验证指标变化。
