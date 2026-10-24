@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。真实轮6/6请求接受、18条门冻结哈希有效；real_check执行4/6、保留2/6，但唯一有害候选仍被允许，`prevented_harm=0`。当前结果支持“协议能测量检查造成的执行差异”，不支持“当前阈值机制已能防止有害修订”，也没有稳定优势或独立泛化。最新阶段已进入替换充分性协议预演：两个公开 LLM-SR 训练集完成只读审计和 `fit_dev/check_dev/outcome_dev` 切分冻结，固定参数 `check_dev` 预测接口的本机 16 项测试通过；尚未调用模型。
+已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。真实轮6/6请求接受、18条门冻结哈希有效；real_check执行4/6、保留2/6，但唯一有害候选仍被允许，`prevented_harm=0`。当前结果支持“协议能测量检查造成的执行差异”，不支持“当前阈值机制已能防止有害修订”，也没有稳定优势或独立泛化。最新阶段已完成替换充分性协议的训练集冻结、证据判定、固定参数预测以及服务器 sandbox 三结构预演；尚未调用模型或运行 Agent 机制对照。
 
 ## 已完成
 
@@ -21,7 +21,7 @@
 - 2026-10-24完成真实 runner `analysis/basis_edit_comparison/runner.py`。runner 先拟合3个固定 `oscillator2/train` 父结构，再为3个父结构各发送2次一次性 actor 请求；6个候选的 `no_check`、`sham_check`、`real_check` 门结果和 `final_action` 全部冻结后，才执行候选 shadow 评分。keep 复用父分数，swap 候选各只评分一次；模型失败、usage unknown 或候选失败均保留为显式失败，不补抽、不自动重试。新增本地注入 session 与实际 OpenHands 假 provider 测试，服务器 runner 预演通过；preflight 证书记录6请求、6接受、18门记录、0真实模型调用和0真实候选评分。见[runner操作说明](docs/operations/edit-check-comparison.md)与[预演证书](docs/environment/2026-10-24-edit-runner-preflight.json)。
 - 2026-10-24完成真实 runner `analysis/basis_edit_comparison/runner.py` 并执行 measured-v02。runner 先拟合3个固定 `oscillator2/train` 父结构，再为3个父结构各发送2次一次性 actor 请求；6个候选的 `no_check`、`sham_check`、`real_check` 门结果和 `final_action` 全部冻结后，才执行候选 shadow 评分。真实轮6/6接受、6544 tokens、估算0.0169176元、0重试、0候选执行失败；no/sham各6/6执行、1个有害，real_check 4/6执行、2/6保留、1个有害，`prevented_harm=0`。见[runner操作说明](docs/operations/edit-check-comparison.md)、[真实结果](docs/analysis/2026-10-24-edit-check-comparison-results.md)和[机器验收](docs/environment/2026-10-24-edit-runner-measured-v02-verification.json)。
 
-- 2026-10-24完成替换充分性协议的训练数据切分与固定参数预测预演。服务器只读核验 `bactgrow/train.csv` 7,500 行、`stressstrain/train.csv` 2,161 行及源文件哈希；两个任务均无时间列，按目标分层和温度分层冻结 60%/20%/20% 的 `fit_dev/check_dev/outcome_dev`，报告哈希为 `e579a786bafdf032f4d80bd0f9557c6fa8e5165f2f57d79fad03f109b50aeb4a`。新增 `I^-`、`I^+`、`R` 判定和固定参数 `check_dev` 预测接口，本机 16 项针对性测试通过；服务器重新生成的报告哈希、任务源哈希和 manifest 哈希一致。没有模型调用、真实任务评分或机制效果结论。见[预演报告](docs/analysis/2026-10-24-replacement-evidence-preflight.md)、[切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)、[判定模块](analysis/basis_edit_comparison/replacement_evidence.py)和[预测接口](analysis/replacement_evidence/fixed_prediction.py)。
+- 2026-10-24完成替换充分性协议的训练数据切分、固定参数预测和服务器 sandbox 三结构预演。服务器只读核验 `bactgrow/train.csv` 7,500 行、`stressstrain/train.csv` 2,161 行及源文件哈希；两个任务均无时间列，按目标分层和温度分层冻结 60%/20%/20% 的 `fit_dev/check_dev/outcome_dev`，报告哈希为 `a5f7d994361581fef559c237ee6de993aa3a0c3d33f13f267b070b5cb0797ee8`。两个任务各完成 parent/common/added 的 3 次 fit 和 3 次 fixed-parameter predict，全部成功；本机 19 项针对性测试通过。预演中 bactgrow 的 `R≈1.62×10^-5`、stressstrain 的 `R≈0.981` 均被判为 `contradicted`，但这些是研究者固定夹具，不是 Agent 机制结果。没有模型调用、真实候选生成或 `outcome_dev` 评分。见[预演报告](docs/analysis/2026-10-24-replacement-evidence-preflight.md)、[sandbox 证书](docs/environment/2026-10-24-replacement-triplet-preflight.json)、[切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)、[判定模块](analysis/basis_edit_comparison/replacement_evidence.py)和[三结构 runner](analysis/replacement_evidence/triplet_runner.py)。
 
 - 2026-10-22完成基函数策略v02：实现ed96ac9a、冻结6eba8793，171运行文件；两个工具只接ID，可选说明仅归档，旧编译器宿主转换显式绑定。完整SDK模拟13/14通过，44项新测试服务器全过、本机32过12SDK跳过。独立真实13/13接受（1新S1提案R01/R02/R05/R08+12终稿）、无重试；14fit+14predict/28sandbox，220拟合公式调用、28人工启动warmup另计。A父NMSE0.00452983：S0三退化，S1一保持两退化；B父0.09588372：两臂均三改善，最佳均0.00452983；12终稿仅5种结构，不能据均值称稳定优势。两父各6份SDK共同输入一致，服务器14保存预测分数重算通过，本机绑定核验通过、双端汇总逐字节相同。模拟422/真实421原文件归档，旧运行与档案未改。新增58406tokens、估算0.1288014元、预留1.5012354元；累计184请求、已知1448729tokens、估算4.4065266元、预留21.3231102元，旧两笔usage未知保留。无策略晋升、权重更新或封存访问。 见[结果与解释](docs/analysis/2026-10-22-basis-trial-v02-results.md)、[操作说明](docs/operations/basis-trial-v02.md)、[验收](docs/environment/2026-10-22-basis-trial-v02-verification.json)。
 
@@ -92,11 +92,11 @@
 
 ## 尚未完成
 
-- 尚未把新的固定参数预测接口接入三结构实际 runner，也尚未用假 provider 完整回放两个任务的 `fit_dev→check_dev→outcome_dev` 顺序。
+- 尚未把三结构 sandbox 预演接入真实 Agent 候选生成和三条件门控，也尚未用假 provider 完整回放 `fit_dev→check_dev→gate freeze→outcome_dev` 全流程。
 - 尚未在 `bactgrow` 和 `stressstrain` 上产生新的真实候选、门控记录或 `outcome_dev` shadow 成绩；因此替换充分性协议仍是预演基础设施，不是机制效果。
 - 尚未有独立任务泛化或稳定优势结论；Spanner 和封存集继续不启动。
 - 累计184研究请求，历史两笔usage未知；实际总账单仍无法精确给出。
 
 ## 下一步
 
-下一步先在冻结切分上完成三结构 `fit_dev` 拟合与 `check_dev` 固定参数预测的假 provider 预演，核对参数、优化器、数据哈希和请求顺序绑定；再把 `replacement_check`、`no_check`、`sham_check` 的门控顺序接上 `outcome_dev` shadow，并做独立审查。通过后才在两个 LLM-SR 方程上启动受限真实小轮，保持模型权重、请求预算和一次性候选规则不变。任何真实结果另建日期版本，不能回写本次切分或阈值；旧13位置不恢复、不补抽，不启动168请求草案或封存评价。
+下一步把真实 Agent 候选生成接入同一三结构 runner，先用假 provider 完整回放候选、`no_check/sham_check/replacement_check`、门控冻结和 `outcome_dev` shadow 的顺序，再做独立审查。通过后才在两个 LLM-SR 方程上启动受限真实小轮，保持模型权重、请求预算和一次性候选规则不变。任何真实结果另建日期版本，不能回写本次切分或阈值；旧13位置不恢复、不补抽，不启动168请求草案或封存评价。

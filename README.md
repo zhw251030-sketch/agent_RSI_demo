@@ -1,6 +1,6 @@
 # agent_RSI_demo
 
-**2026-10-24 最新进展：替换充分性协议已完成数据边界和固定参数预测预演。** 已从服务器只读核验 `bactgrow/train.csv`（7,500 行）和 `stressstrain/train.csv`（2,161 行），冻结 60%/20%/20% 的 `fit_dev/check_dev/outcome_dev` 分层切分；两个任务均不读取 test/OOD/封存数据。新增 `I^-`/`I^+`/`R` 证据判定、尺度诊断和固定参数 `check_dev` 预测接口，本机 16 项针对性测试通过，服务器重新生成的报告哈希一致。当前仍没有新模型调用或机制效果结论。详见[预演结果](docs/analysis/2026-10-24-replacement-evidence-preflight.md)、[切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)和[协议设计](docs/experiments/2026-10-24-replacement-evidence-design.md)。
+**2026-10-24 最新进展：替换充分性协议已完成数据边界、固定参数预测和真实 sandbox 预演。** 已从服务器只读核验 `bactgrow/train.csv`（7,500 行）和 `stressstrain/train.csv`（2,161 行），冻结 60%/20%/20% 的 `fit_dev/check_dev/outcome_dev` 分层切分；两个任务均不读取 test/OOD/封存数据。新增 `I^-`/`I^+`/`R` 证据判定、尺度诊断和固定参数 `check_dev` 预测接口，本机 19 项针对性测试通过；服务器两个任务各完成 3 次 fit 和 3 次 fixed-parameter predict，全部成功。当前仍没有新模型调用或 Agent 机制效果结论。详见[预演结果](docs/analysis/2026-10-24-replacement-evidence-preflight.md)、[sandbox 证书](docs/environment/2026-10-24-replacement-triplet-preflight.json)、[切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)和[协议设计](docs/experiments/2026-10-24-replacement-evidence-design.md)。
 
 **2026-10-24 进展：已完成基函数策略 v02 的编辑级离线诊断、编辑证据契约、basis actor 宿主接线、targeted check 校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。** 读取同一 A 父结构的 6 个真实槽位，核对父/子结构、源码、反馈和 NMSE 绑定；5 次实际结构修改全部退化，6 个槽位的编辑前反馈均没有支持具体替换的证据。新协议改用 `oscillator2/train` 的三输入基函数开发状态，固定3个父结构、6个候选、18条配对门控记录；真实轮6/6请求接受、usage全知，real_check执行4/6并保留2/6，但唯一有害候选未被拦截，`prevented_harm=0`。这证明了协议能测量门控差异，尚未证明当前检查机制具有有害修订防护收益。详见[真实结果](docs/analysis/2026-10-24-edit-check-comparison-results.md)。
 
@@ -87,7 +87,7 @@
 31. [2026-10-24 系数阈值敏感性与编辑机制复盘](docs/analysis/2026-10-24-threshold-sensitivity.md) · [编辑阈值深入分析](docs/analysis/2026-10-24-edit-threshold-review.md) · [机器扫描](docs/analysis/2026-10-24-threshold-sensitivity.json)
 
 32. [下一轮替换充分性证据协议设计（未执行）](docs/experiments/2026-10-24-replacement-evidence-design.md)
-33. [替换充分性协议预演、切分与固定参数预测](docs/analysis/2026-10-24-replacement-evidence-preflight.md) · [训练切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)
+33. [替换充分性协议预演、切分与固定参数预测](docs/analysis/2026-10-24-replacement-evidence-preflight.md) · [sandbox 预演证书](docs/environment/2026-10-24-replacement-triplet-preflight.json) · [训练切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)
 
 ## 仓库边界
 

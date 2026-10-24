@@ -22,7 +22,8 @@
 | `stressstrain` | 1,296 | 432 | 433 | 2,161 |
 
 报告中的两个任务都满足全覆盖、零交集；报告 SHA-256 为
-`e579a786bafdf032f4d80bd0f9557c6fa8e5165f2f57d79fad03f109b50aeb4a`。完整行索引和分布审计见
+`a5f7d994361581fef559c237ee6de993aa3a0c3d33f13f267b070b5cb0797ee8`。每个 split 的 `data_sha256`
+同时绑定源文件哈希和行索引。完整行索引和分布审计见
 [2026-10-24-replacement-dev-splits.json](../environment/2026-10-24-replacement-dev-splits.json)。
 
 替换证据模块固定使用
@@ -45,9 +46,17 @@ R=I^+/I^-.
 
 ## 验证与边界
 
-本机针对切分、证据判定和固定参数预测的 16 项测试全部通过；服务器用同一版本脚本重新生成
-报告，任务源文件哈希、切分计数和 manifest 哈希逐项相同。服务器实验 `.venv` 未安装
+本机针对切分、证据判定、固定参数预测和三结构 runner 的 19 项测试全部通过；服务器用同一版本脚本重新生成
+报告，任务源文件哈希、切分计数、split data 哈希和 manifest 哈希逐项相同。随后服务器使用
+锁定的 Linux sandbox 完成了两个任务的研究者固定三结构预演：每个任务 3 次 fit 和 3 次
+fixed-parameter predict 全部成功，阶段顺序和目标隔离通过，预演状态为 `passed`。详细证书见
+[三结构 sandbox 预演](../environment/2026-10-24-replacement-triplet-preflight.json)。服务器实验 `.venv` 未安装
 `pytest`，因此服务器本轮只执行了标准库切分生成和哈希核验；本机测试结果不冒充服务器测试。
+
+预演中 `bactgrow` 的 `R=1.6170707×10⁻⁵`，`stressstrain` 的 `R=0.9814562`，两者均按
+`R≥1` 规则返回 `contradicted`。这些结构、删除项和加入项都是研究者预先固定的执行夹具，
+没有模型生成或候选选择，因此这些数值只说明 fit/predict/host-score 链路工作，不是 Agent
+机制结果，也不说明某个方程的真实替换规律。
 
 这一步只证明数据边界、数值判定和请求形状可复核。它没有证明 replacement check 能降低
 有害编辑率，也没有产生任何模型调用或任务成绩。

@@ -1,0 +1,73 @@
+{
+  "schema": "replacement-triplet-preflight-v0.1",
+  "status": "passed",
+  "model_requests": 0,
+  "candidate_generation": 0,
+  "outcome_dev_read": false,
+  "tasks": [
+    {
+      "task_id": "bactgrow",
+      "status": "preflight_only",
+      "official_test_read": false,
+      "official_test_ood_read": false,
+      "fit_split_sha256": "15ec53b83fd452338e66eae0c085fc35f8ca394a33f61390c2e47f0ab649557a",
+      "check_split_sha256": "eda59166d0c4af3d599e50193bea0064ec502b333635decf9614a0185d09e851",
+      "fit_statuses": {
+        "parent": "success",
+        "common": "success",
+        "added": "success"
+      },
+      "predict_statuses": {
+        "parent": "success",
+        "common": "success",
+        "added": "success"
+      },
+      "phase_order": [
+        "fit_dev",
+        "check_dev"
+      ],
+      "evidence": {
+        "status": "contradicted",
+        "decision_reason": "insufficient_replacement",
+        "ratio": 1.617070694738509e-05
+      },
+      "source_hashes": {
+        "parent": "e38be73dc0f9e3946328e78b242f1f5431e8c9c3103bc9e68c261290280a6dc3",
+        "common": "e534cc52c1f49080805a2cb18ef3458e303ef474d3dd9f67c998d97d134f6a2c",
+        "added": "b7495921101ab02807e9ff2ee6d0137dda6961e8930356e0d56d9be4cd751b96"
+      }
+    },
+    {
+      "task_id": "stressstrain",
+      "status": "preflight_only",
+      "official_test_read": false,
+      "official_test_ood_read": false,
+      "fit_split_sha256": "906912725c032590e20b47a80b2fca05deb4f42cd74f651073fe1c456ab3f15a",
+      "check_split_sha256": "9cd4ba3a8b8571dee43f7020eff3b313597a4de11d9ed3d000386ac0e48cfaa2",
+      "fit_statuses": {
+        "parent": "success",
+        "common": "success",
+        "added": "success"
+      },
+      "predict_statuses": {
+        "parent": "success",
+        "common": "success",
+        "added": "success"
+      },
+      "phase_order": [
+        "fit_dev",
+        "check_dev"
+      ],
+      "evidence": {
+        "status": "contradicted",
+        "decision_reason": "insufficient_replacement",
+        "ratio": 0.9814561709591952
+      },
+      "source_hashes": {
+        "parent": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+        "common": "08ac27fcb08cdd452cc1415d70399c019804cf2ddb53cb19601f79d3757f6a0d",
+        "added": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8"
+      }
+    }
+  ]
+}
