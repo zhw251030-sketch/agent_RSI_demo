@@ -263,3 +263,66 @@ def synthetic_evaluate(family: str, task_id: str, source: str, *, root: Path,
             "fitting": {"params": params, "n_params": n_params, "nfev": 1,
                          "candidate_calls": 1, "converged": True},
             "metrics": {"mse": nmse, "nmse": nmse}}
+
+
+def _read_preflight_certificate(path: Path, implementation_commit: str,
+                                root: Path) -> dict[str, Any]:
+    value = json.loads(path.read_bytes())
+    if (type(value) is not dict or value.get("status") != "passed"
+            or value.get("sdk_version") != "1.55.1"
+            or value.get("model_requests") != 6
+            or value.get("accepted_slots") != 6
+            or value.get("gate_records") != 18
+            or value.get("real_model_calls") != 0
+            or value.get("real_candidate_evaluations") != 0):
+        raise ValueError("preflight certificate does not match this runner")
+    certified = value.get("implementation_commit")
+    if type(certified) is not str or len(certified) != 40:
+        raise ValueError("preflight certificate commit is invalid")
+    try:
+        subprocess.check_output(["git", "merge-base", "--is-ancestor", certified,
+                                 implementation_commit], cwd=root)
+        changed = subprocess.check_output(
+            ["git", "diff", "--name-only", certified, implementation_commit, "--",
+             "analysis/basis_edit_comparison", "rsi_eval", "extensions/basis_trial_v02"],
+            cwd=root, text=True).strip()
+    except subprocess.CalledProcessError as error:
+        raise ValueError("preflight certificate commit is not an ancestor or code changed") from error
+    if changed:
+        raise ValueError("code changed after the certified preflight")
+    return value
+
+
+if __name__ == "__main__":
+    import argparse
+    import subprocess
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("mode", choices=("simulate", "run"))
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--auth-file")
+    parser.add_argument("--preflight")
+    args = parser.parse_args()
+    root = ROOT
+    output = root / args.output
+    if args.mode == "simulate":
+        protocol = build_protocol()
+        responses = []
+        for slot in protocol["slots"]:
+            parent = protocol["parents"][slot["parent_id"]]["feature_ids"]
+            features = parent if slot["repeat"] == 1 else parent[:-1] + ["m_0_2_0"]
+            responses.append({"tool": "submit_basis", "arguments": {"feature_ids": features}})
+        provider = sdk_controller.FakeProvider(responses)
+        settings = sdk_controller.public_settings() | {"api_key": "synthetic-no-network-key"}
+        result = run_pilot(root, output, settings=settings,
+                           evaluate=synthetic_evaluate, provider=provider)
+    else:
+        if not args.preflight:
+            raise SystemExit("real mode requires --preflight")
+        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+        _read_preflight_certificate(root / args.preflight, commit, root)
+        from scripts.configure_minimax import auth_path, read_key
+        from rsi_eval.executor import evaluate_candidate
+        settings = sdk_controller.public_settings() | {"api_key": read_key(auth_path(args.auth_file))}
+        result = run_pilot(root, output, settings=settings, evaluate=evaluate_candidate)
+    print(json.dumps(result, ensure_ascii=False, allow_nan=False))
