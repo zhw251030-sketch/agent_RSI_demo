@@ -1,0 +1,56 @@
+{
+  "schema": "basis-targeted-check-calibration-v0.1",
+  "model_calls": 0,
+  "candidate_executions": 0,
+  "archive_writes": 0,
+  "cases": [
+    {
+      "name": "small_coefficient",
+      "coefficient": 0.01,
+      "claim": {
+        "op": "lt",
+        "value": 0.1
+      },
+      "raw_status": "supported",
+      "raw_reason": "comparison_supported",
+      "edit_check_status": "supported",
+      "decision": "allow_candidate"
+    },
+    {
+      "name": "large_coefficient",
+      "coefficient": 0.495,
+      "claim": {
+        "op": "lt",
+        "value": 0.1
+      },
+      "raw_status": "contradicted",
+      "raw_reason": "comparison_contradicted",
+      "edit_check_status": "contradicted",
+      "decision": "retain_parent"
+    },
+    {
+      "name": "missing_coefficient",
+      "coefficient": null,
+      "claim": {
+        "op": "lt",
+        "value": 0.1
+      },
+      "raw_status": "unavailable",
+      "raw_reason": "reference_not_found",
+      "edit_check_status": "unknown",
+      "decision": "defer"
+    }
+  ],
+  "expected_decisions": [
+    "allow_candidate",
+    "retain_parent",
+    "defer"
+  ],
+  "observed_decisions": [
+    "allow_candidate",
+    "retain_parent",
+    "defer"
+  ],
+  "calibration_passed": true,
+  "interpretation": "The calibration verifies typed status propagation and explicit deferral. It does not show that coefficient magnitude identifies causal term necessity or improves a task score."
+}
