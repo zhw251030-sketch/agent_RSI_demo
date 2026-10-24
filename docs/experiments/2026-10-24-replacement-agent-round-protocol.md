@@ -1,6 +1,6 @@
 # 替换充分性 Agent 真实小轮协议
 
-状态：待独立审查；尚未发送真实 MiniMax-M3 请求。
+状态：已完成内容独立审查和 runner 接线；尚未发送真实 MiniMax-M3 请求，等待服务器 12 槽 FakeProvider + Linux sandbox 验收。
 
 ## 研究问题
 
@@ -58,7 +58,7 @@ R=I^+/I^-.
 
 - 最多 12 个模型请求，每个 SDK session 最多 1 个请求；`num_retries=0`；
 - 每个任务 6 个槽位，每个父结构 2 个重复；不因超时、拒绝或无效候选补抽；
-- 真实账本上限为 12 请求、8 元保守预留、最大输出 8192 tokens；
+- 真实账本上限为 12 请求、最大输出 8192 tokens；当前 `sdk_controller` 强制 `max_cost_cny≤4`，因此 runner 使用 4 元账本上限（远低于用户授权的 300 元），并在服务器预演中核对 12 槽的保守预留是否足够；
 - 第一个 usage unknown、传输失败、协议字段错误或 runtime integrity failure 立即停止，
   保留已完成记录，不恢复同一轮；
 - 不更新模型权重、不更新长期策略、不读取 Spanner 和官方封存集。

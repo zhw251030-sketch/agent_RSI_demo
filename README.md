@@ -1,5 +1,7 @@
 # agent_RSI_demo
 
+**2026-10-24 当前阶段：替换充分性 12 槽 runner 已接线，尚未发送新的真实 MiniMax 请求。** 新 runner 会重新验证 train-only split/source/manifest 哈希，按 `fit_dev→check_dev` 固定参数计算 parent/common/added 证据，冻结 `no_check / sham_check / replacement_check` 三条件后才读取 `outcome_dev`。本机 22 项针对性测试通过；下一步是服务器 Linux sandbox + OpenHands FakeProvider 的 12 槽验收。旧 6 槽 oscillator2 runner 和 4 槽 synthetic 预演均不作为新轮授权证书。
+
 **2026-10-24 最新进展：替换充分性协议已完成数据边界、固定参数预测、真实 sandbox 和 OpenHands FakeProvider 预演。** 已从服务器只读核验 `bactgrow/train.csv`（7,500 行）和 `stressstrain/train.csv`（2,161 行），冻结 60%/20%/20% 的 `fit_dev/check_dev/outcome_dev` 分层切分；两个任务均不读取 test/OOD/封存数据。新增 `I^-`/`I^+`/`R` 证据判定、尺度诊断和固定参数 `check_dev` 预测接口，本机 19 项针对性测试通过；服务器两个任务各完成 3 次 fit 和 3 次 fixed-parameter predict，全部成功；OpenHands 1.55.1 FakeProvider 的 4 个 synthetic actor 请求和 12 条门记录全部通过。当前仍没有真实模型调用或 Agent 机制效果结论。详见[预演结果](docs/analysis/2026-10-24-replacement-evidence-preflight.md)、[sandbox 证书](docs/environment/2026-10-24-replacement-triplet-preflight.json)、[SDK 假 provider 证书](docs/environment/2026-10-24-replacement-agent-preflight.json)、[切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)和[协议设计](docs/experiments/2026-10-24-replacement-evidence-design.md)。
 
 **2026-10-24 进展：已完成基函数策略 v02 的编辑级离线诊断、编辑证据契约、basis actor 宿主接线、targeted check 校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。** 读取同一 A 父结构的 6 个真实槽位，核对父/子结构、源码、反馈和 NMSE 绑定；5 次实际结构修改全部退化，6 个槽位的编辑前反馈均没有支持具体替换的证据。新协议改用 `oscillator2/train` 的三输入基函数开发状态，固定3个父结构、6个候选、18条配对门控记录；真实轮6/6请求接受、usage全知，real_check执行4/6并保留2/6，但唯一有害候选未被拦截，`prevented_harm=0`。这证明了协议能测量门控差异，尚未证明当前检查机制具有有害修订防护收益。详见[真实结果](docs/analysis/2026-10-24-edit-check-comparison-results.md)。
@@ -88,7 +90,8 @@
 
 32. [下一轮替换充分性证据协议设计（未执行）](docs/experiments/2026-10-24-replacement-evidence-design.md)
 33. [替换充分性协议预演、切分与固定参数预测](docs/analysis/2026-10-24-replacement-evidence-preflight.md) · [sandbox 预演证书](docs/environment/2026-10-24-replacement-triplet-preflight.json) · [SDK 假 provider 证书](docs/environment/2026-10-24-replacement-agent-preflight.json) · [训练切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)
-34. [替换充分性 Agent 真实小轮协议（待独立审查）](docs/experiments/2026-10-24-replacement-agent-round-protocol.md)
+34. [替换充分性 Agent 真实小轮协议（已审查，待服务器 12 槽预演）](docs/experiments/2026-10-24-replacement-agent-round-protocol.md) · [协议审查](docs/analysis/2026-10-24-replacement-agent-round-review.md) · [runner 执行计划](docs/superpowers/plans/2026-10-24-replacement-agent-runner.md)
+35. [替换充分性阈值独立复核](docs/analysis/2026-10-24-replacement-threshold-review.md) · [12 槽 runner](scripts/run_replacement_agent_round.py)
 
 ## 仓库边界
 
