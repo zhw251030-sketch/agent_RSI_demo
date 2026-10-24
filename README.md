@@ -1,5 +1,7 @@
 # agent_RSI_demo
 
+**2026-10-24 最新进展：替换充分性协议已完成数据边界和固定参数预测预演。** 已从服务器只读核验 `bactgrow/train.csv`（7,500 行）和 `stressstrain/train.csv`（2,161 行），冻结 60%/20%/20% 的 `fit_dev/check_dev/outcome_dev` 分层切分；两个任务均不读取 test/OOD/封存数据。新增 `I^-`/`I^+`/`R` 证据判定、尺度诊断和固定参数 `check_dev` 预测接口，本机 16 项针对性测试通过，服务器重新生成的报告哈希一致。当前仍没有新模型调用或机制效果结论。详见[预演结果](docs/analysis/2026-10-24-replacement-evidence-preflight.md)、[切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)和[协议设计](docs/experiments/2026-10-24-replacement-evidence-design.md)。
+
 **2026-10-24 进展：已完成基函数策略 v02 的编辑级离线诊断、编辑证据契约、basis actor 宿主接线、targeted check 校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。** 读取同一 A 父结构的 6 个真实槽位，核对父/子结构、源码、反馈和 NMSE 绑定；5 次实际结构修改全部退化，6 个槽位的编辑前反馈均没有支持具体替换的证据。新协议改用 `oscillator2/train` 的三输入基函数开发状态，固定3个父结构、6个候选、18条配对门控记录；真实轮6/6请求接受、usage全知，real_check执行4/6并保留2/6，但唯一有害候选未被拦截，`prevented_harm=0`。这证明了协议能测量门控差异，尚未证明当前检查机制具有有害修订防护收益。详见[真实结果](docs/analysis/2026-10-24-edit-check-comparison-results.md)。
 
 **最新：v02完整真实对照已完成，发现较好起点仍被反复改坏。** 2026-10-22完成基函数策略v02：实现ed96ac9a、冻结6eba8793，171运行文件；两个工具只接ID，可选说明仅归档，旧编译器宿主转换显式绑定。完整SDK模拟13/14通过，44项新测试服务器全过、本机32过12SDK跳过。独立真实13/13接受（1新S1提案R01/R02/R05/R08+12终稿）、无重试；14fit+14predict/28sandbox，220拟合公式调用、28人工启动warmup另计。A父NMSE0.00452983：S0三退化，S1一保持两退化；B父0.09588372：两臂均三改善，最佳均0.00452983；12终稿仅5种结构，不能据均值称稳定优势。两父各6份SDK共同输入一致，服务器14保存预测分数重算通过，本机绑定核验通过、双端汇总逐字节相同。模拟422/真实421原文件归档，旧运行与档案未改。新增58406tokens、估算0.1288014元、预留1.5012354元；累计184请求、已知1448729tokens、估算4.4065266元、预留21.3231102元，旧两笔usage未知保留。无策略晋升、权重更新或封存访问。 见[结果与解释](docs/analysis/2026-10-22-basis-trial-v02-results.md)、[操作说明](docs/operations/basis-trial-v02.md)、[验收](docs/environment/2026-10-22-basis-trial-v02-verification.json)。
@@ -85,6 +87,7 @@
 31. [2026-10-24 系数阈值敏感性与编辑机制复盘](docs/analysis/2026-10-24-threshold-sensitivity.md) · [编辑阈值深入分析](docs/analysis/2026-10-24-edit-threshold-review.md) · [机器扫描](docs/analysis/2026-10-24-threshold-sensitivity.json)
 
 32. [下一轮替换充分性证据协议设计（未执行）](docs/experiments/2026-10-24-replacement-evidence-design.md)
+33. [替换充分性协议预演、切分与固定参数预测](docs/analysis/2026-10-24-replacement-evidence-preflight.md) · [训练切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)
 
 ## 仓库边界
 
