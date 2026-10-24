@@ -1,0 +1,370 @@
+{
+  "schema": "basis-edit-diagnostic-v0.1",
+  "archive": "artifacts\\basis-trial-v02\\2026-10-22\\measured-v01\\raw",
+  "model_calls": 0,
+  "executions": 0,
+  "writes_to_archive": 0,
+  "parent": {
+    "feature_ids": [
+      "m_0_0",
+      "m_0_1",
+      "m_1_0",
+      "m_1_1"
+    ],
+    "features": [
+      "1",
+      "v",
+      "x",
+      "xv"
+    ],
+    "nmse": 0.004529830112440761,
+    "structural_sha256": "e0db880e778fcf0aba22d9f32e819b45f46e0fca2bb6c12c70d8c979067a87f7",
+    "source_sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653"
+  },
+  "feedback_assessment": {
+    "scope": "train",
+    "general_warning": "Marginal associations neither identify necessary terms",
+    "no_target_dependent_basis_ranking": true,
+    "interpretation": "The frozen feedback describes the parent and residual summaries, but does not test whether a proposed replacement is necessary or beneficial."
+  },
+  "records": [
+    {
+      "slot_id": "A-r1-S0",
+      "policy": "S0",
+      "repeat": 1,
+      "parent_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "parent_features": [
+        "1",
+        "v",
+        "x",
+        "xv"
+      ],
+      "candidate_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "candidate_features": [
+        "1",
+        "v",
+        "x",
+        "x²"
+      ],
+      "removed_feature_ids": [
+        "m_1_1"
+      ],
+      "removed_features": [
+        "xv"
+      ],
+      "added_feature_ids": [
+        "m_2_0"
+      ],
+      "added_features": [
+        "x²"
+      ],
+      "edit_type": "swap_one",
+      "parent_nmse": 0.004529830112440761,
+      "candidate_nmse": 0.0958837205768955,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "pre_edit_evidence_status": "unknown",
+      "pre_edit_evidence_reason": "feedback reports marginal residual summaries and explicitly says they do not identify necessary terms; no target-dependent basis ranking or edit-specific replacement test is supplied",
+      "posthoc_result_status": "contradicted",
+      "feedback_scope": "train",
+      "feedback_warning_present": true,
+      "target_dependent_basis_ranking": false,
+      "source_sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "source_hash_verified": true,
+      "transition_verified": true,
+      "feedback_sha256": "df052bd6bfbac5ed5f6ba9b0286598852e247beef1a8e606dce677725245241a"
+    },
+    {
+      "slot_id": "A-r1-S1",
+      "policy": "S1",
+      "repeat": 1,
+      "parent_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "parent_features": [
+        "1",
+        "v",
+        "x",
+        "xv"
+      ],
+      "candidate_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "candidate_features": [
+        "1",
+        "v",
+        "x",
+        "xv"
+      ],
+      "removed_feature_ids": [],
+      "removed_features": [],
+      "added_feature_ids": [],
+      "added_features": [],
+      "edit_type": "keep",
+      "parent_nmse": 0.004529830112440761,
+      "candidate_nmse": 0.004529830112440761,
+      "delta_nmse": 0.0,
+      "outcome": "unchanged",
+      "pre_edit_evidence_status": "unknown",
+      "pre_edit_evidence_reason": "feedback reports marginal residual summaries and explicitly says they do not identify necessary terms; no target-dependent basis ranking or edit-specific replacement test is supplied",
+      "posthoc_result_status": "unknown",
+      "feedback_scope": "train",
+      "feedback_warning_present": true,
+      "target_dependent_basis_ranking": false,
+      "source_sha256": "e21b0b04fa5daa08a7e6e4331fda0589d342904c9bfe32a83f767bfa0f172653",
+      "source_hash_verified": true,
+      "transition_verified": true,
+      "feedback_sha256": "11646c05a508ead9bd00f17dfb3d811a10b631bb304534f8f2c2df2d1310a614"
+    },
+    {
+      "slot_id": "A-r2-S0",
+      "policy": "S0",
+      "repeat": 2,
+      "parent_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "parent_features": [
+        "1",
+        "v",
+        "x",
+        "xv"
+      ],
+      "candidate_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "candidate_features": [
+        "1",
+        "v",
+        "x",
+        "x²"
+      ],
+      "removed_feature_ids": [
+        "m_1_1"
+      ],
+      "removed_features": [
+        "xv"
+      ],
+      "added_feature_ids": [
+        "m_2_0"
+      ],
+      "added_features": [
+        "x²"
+      ],
+      "edit_type": "swap_one",
+      "parent_nmse": 0.004529830112440761,
+      "candidate_nmse": 0.0958837205768955,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "pre_edit_evidence_status": "unknown",
+      "pre_edit_evidence_reason": "feedback reports marginal residual summaries and explicitly says they do not identify necessary terms; no target-dependent basis ranking or edit-specific replacement test is supplied",
+      "posthoc_result_status": "contradicted",
+      "feedback_scope": "train",
+      "feedback_warning_present": true,
+      "target_dependent_basis_ranking": false,
+      "source_sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "source_hash_verified": true,
+      "transition_verified": true,
+      "feedback_sha256": "6574d90744de8c95c72696c1bfd514a37415b69bb66bbef33b495c34d9836533"
+    },
+    {
+      "slot_id": "A-r2-S1",
+      "policy": "S1",
+      "repeat": 2,
+      "parent_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "parent_features": [
+        "1",
+        "v",
+        "x",
+        "xv"
+      ],
+      "candidate_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "candidate_features": [
+        "1",
+        "v",
+        "x",
+        "x²"
+      ],
+      "removed_feature_ids": [
+        "m_1_1"
+      ],
+      "removed_features": [
+        "xv"
+      ],
+      "added_feature_ids": [
+        "m_2_0"
+      ],
+      "added_features": [
+        "x²"
+      ],
+      "edit_type": "swap_one",
+      "parent_nmse": 0.004529830112440761,
+      "candidate_nmse": 0.0958837205768955,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "pre_edit_evidence_status": "unknown",
+      "pre_edit_evidence_reason": "feedback reports marginal residual summaries and explicitly says they do not identify necessary terms; no target-dependent basis ranking or edit-specific replacement test is supplied",
+      "posthoc_result_status": "contradicted",
+      "feedback_scope": "train",
+      "feedback_warning_present": true,
+      "target_dependent_basis_ranking": false,
+      "source_sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "source_hash_verified": true,
+      "transition_verified": true,
+      "feedback_sha256": "1c749884d8ee0f58fb02417c8b386e67bd066337e4a170acbe60aa1a1fe5dd67"
+    },
+    {
+      "slot_id": "A-r3-S0",
+      "policy": "S0",
+      "repeat": 3,
+      "parent_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "parent_features": [
+        "1",
+        "v",
+        "x",
+        "xv"
+      ],
+      "candidate_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_2"
+      ],
+      "candidate_features": [
+        "1",
+        "v",
+        "x",
+        "v²"
+      ],
+      "removed_feature_ids": [
+        "m_1_1"
+      ],
+      "removed_features": [
+        "xv"
+      ],
+      "added_feature_ids": [
+        "m_1_2"
+      ],
+      "added_features": [
+        "v²"
+      ],
+      "edit_type": "swap_one",
+      "parent_nmse": 0.004529830112440761,
+      "candidate_nmse": 0.07155303028218213,
+      "delta_nmse": -0.06702320016974136,
+      "outcome": "degraded",
+      "pre_edit_evidence_status": "unknown",
+      "pre_edit_evidence_reason": "feedback reports marginal residual summaries and explicitly says they do not identify necessary terms; no target-dependent basis ranking or edit-specific replacement test is supplied",
+      "posthoc_result_status": "contradicted",
+      "feedback_scope": "train",
+      "feedback_warning_present": true,
+      "target_dependent_basis_ranking": false,
+      "source_sha256": "41e5b1026b8865dae91a0c7a972ed62e8ff732d707f32612949c985494dbf6c8",
+      "source_hash_verified": true,
+      "transition_verified": true,
+      "feedback_sha256": "fa34a6740310aa1c1d05daf439406d1a3c6b7a6adab3f316b76cf2f1e4038858"
+    },
+    {
+      "slot_id": "A-r3-S1",
+      "policy": "S1",
+      "repeat": 3,
+      "parent_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_1_1"
+      ],
+      "parent_features": [
+        "1",
+        "v",
+        "x",
+        "xv"
+      ],
+      "candidate_feature_ids": [
+        "m_0_0",
+        "m_0_1",
+        "m_1_0",
+        "m_2_0"
+      ],
+      "candidate_features": [
+        "1",
+        "v",
+        "x",
+        "x²"
+      ],
+      "removed_feature_ids": [
+        "m_1_1"
+      ],
+      "removed_features": [
+        "xv"
+      ],
+      "added_feature_ids": [
+        "m_2_0"
+      ],
+      "added_features": [
+        "x²"
+      ],
+      "edit_type": "swap_one",
+      "parent_nmse": 0.004529830112440761,
+      "candidate_nmse": 0.0958837205768955,
+      "delta_nmse": -0.09135389046445473,
+      "outcome": "degraded",
+      "pre_edit_evidence_status": "unknown",
+      "pre_edit_evidence_reason": "feedback reports marginal residual summaries and explicitly says they do not identify necessary terms; no target-dependent basis ranking or edit-specific replacement test is supplied",
+      "posthoc_result_status": "contradicted",
+      "feedback_scope": "train",
+      "feedback_warning_present": true,
+      "target_dependent_basis_ranking": false,
+      "source_sha256": "6c778a02f86e0cba7ac4ccfdcc6985ba07c3f95f557d581f508792bd3bcf6bc8",
+      "source_hash_verified": true,
+      "transition_verified": true,
+      "feedback_sha256": "91dd631823d6365ed38fc7049a78a261ebc9a8822530e7916a59324c862dae8b"
+    }
+  ],
+  "summary": {
+    "records": 6,
+    "modifications": 5,
+    "kept": 1,
+    "degraded_modifications": 5,
+    "pre_edit_supported": 0,
+    "pre_edit_contradicted": 0,
+    "pre_edit_unknown": 6
+  },
+  "conclusion": "All five A structure changes degraded the observed train score, while the available pre-edit feedback was edit-agnostic. This is evidence for an edit-level evidence gap, not evidence of a model rationale or a causal feature effect."
+}
