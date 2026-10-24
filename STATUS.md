@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议和 shadow outcome 接线。服务器 SDK 假 provider 预演已通过，尚未接入新的真实模型或候选评分。当前聚焦如何用与编辑绑定的证据避免有害修订，尚无稳定机制优势或独立泛化。
+已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议、shadow outcome 与真实 runner。服务器 SDK 假 provider 预演6/6接受，真实运行的 preflight 证书已固定；尚未接入新的真实模型或候选评分。当前聚焦如何用与编辑绑定的证据避免有害修订，尚无稳定机制优势或独立泛化。
 
 ## 已完成
 
@@ -17,6 +17,8 @@
 - 2026-10-24完成三条件编辑门和 `oscillator2/train` 机制开发协议。`rsi_eval/edit_condition_gate.py` 固定 `no_check`、`sham_check`、`real_check` 共用 `execute_only_when_supported`；keep 单独记为 `not_applicable`，不进入检查校准分母。协议固定3个三输入K=4父结构、6个 `parent×repeat` 候选和18条配对门记录，真实检查阈值为被删除项父系数绝对值 `<0.05`，不读取 test_id/test_ood/封存数据；所有候选在决策冻结后才做 shadow outcome。服务器 OpenHands SDK 1.55.1 假 provider 预演6/6接受、每槽一次请求、usage unknown=0；服务器相关测试79项通过。本轮仍无真实模型调用或候选评分。见[协议](docs/experiments/2026-10-24-edit-check-comparison-design/protocol.md)、[门控说明](docs/analysis/2026-10-24-edit-condition-gate.md)和[预演代码](analysis/basis_edit_comparison/preflight.py)。
 
 - 2026-10-24完成 shadow outcome 接线 `analysis/basis_edit_comparison/shadow_outcome.py`。它要求每个 proposal 具有三条件门记录，先按哈希冻结 `final_action`，再接受候选/父结构分数；只在真实检查保留父结构且候选 shadow outcome 退化时计数 `prevented_harm`，不允许后验分数改写门控。新增3项测试，服务器相关测试达到82项通过；本轮仍无真实模型调用、CSV评分或旧归档写入。下一步是将此层接入真实6请求 runner。见[shadow层](analysis/basis_edit_comparison/shadow_outcome.py)。
+
+- 2026-10-24完成真实 runner `analysis/basis_edit_comparison/runner.py`。runner 先拟合3个固定 `oscillator2/train` 父结构，再为3个父结构各发送2次一次性 actor 请求；6个候选的 `no_check`、`sham_check`、`real_check` 门结果和 `final_action` 全部冻结后，才执行候选 shadow 评分。keep 复用父分数，swap 候选各只评分一次；模型失败、usage unknown 或候选失败均保留为显式失败，不补抽、不自动重试。新增本地注入 session 与实际 OpenHands 假 provider 测试，服务器 runner 预演通过；preflight 证书记录6请求、6接受、18门记录、0真实模型调用和0真实候选评分。见[runner操作说明](docs/operations/edit-check-comparison.md)与[预演证书](docs/environment/2026-10-24-edit-runner-preflight.json)。
 
 - 2026-10-22完成基函数策略v02：实现ed96ac9a、冻结6eba8793，171运行文件；两个工具只接ID，可选说明仅归档，旧编译器宿主转换显式绑定。完整SDK模拟13/14通过，44项新测试服务器全过、本机32过12SDK跳过。独立真实13/13接受（1新S1提案R01/R02/R05/R08+12终稿）、无重试；14fit+14predict/28sandbox，220拟合公式调用、28人工启动warmup另计。A父NMSE0.00452983：S0三退化，S1一保持两退化；B父0.09588372：两臂均三改善，最佳均0.00452983；12终稿仅5种结构，不能据均值称稳定优势。两父各6份SDK共同输入一致，服务器14保存预测分数重算通过，本机绑定核验通过、双端汇总逐字节相同。模拟422/真实421原文件归档，旧运行与档案未改。新增58406tokens、估算0.1288014元、预留1.5012354元；累计184请求、已知1448729tokens、估算4.4065266元、预留21.3231102元，旧两笔usage未知保留。无策略晋升、权重更新或封存访问。 见[结果与解释](docs/analysis/2026-10-22-basis-trial-v02-results.md)、[操作说明](docs/operations/basis-trial-v02.md)、[验收](docs/environment/2026-10-22-basis-trial-v02-verification.json)。
 
@@ -93,4 +95,4 @@
 
 ## 下一步
 
-接下来把 shadow 层接入真实6请求 runner：模型候选生成后先冻结所有三条件门结果，再统一执行不可见的候选评分，避免后验分数反过来影响决策。随后在服务器上运行6请求的小规模真实轮，报告每个 `parent×repeat` 的配对结果、有害部署率、父保留率、候选执行率、unknown覆盖率和 prevented harm；18条门记录不作独立样本。只有该轮接口和审计都通过，才考虑在 Spanner 或其他 LLM-SR 方程上复制；最终才开放封存测试。旧13位置已完成，不追加/恢复/补抽；不启动168请求草案或封存评价。
+接下来在服务器上执行真实6请求小轮：按 preflight 证书运行，报告每个 `parent×repeat` 的配对结果、有害部署率、父保留率、候选执行率、unknown覆盖率和 `prevented_harm`；18条门记录不作独立样本。随后检查原始请求、SDK响应、门冻结哈希、评分输入和预算账本是否逐项一致。只有该轮接口和审计都通过，才考虑在 Spanner 或其他 LLM-SR 方程上复制；最终才开放封存测试。旧13位置已完成，不追加/恢复/补抽；不启动168请求草案或封存评价。
