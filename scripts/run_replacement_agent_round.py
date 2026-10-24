@@ -84,8 +84,31 @@ def _validate_certificate() -> dict:
         ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True,
         capture_output=True, text=True,
     ).stdout.strip()
-    if certificate.get("code_commit") != current_commit:
-        raise RuntimeError("fake-provider certificate does not match current code commit")
+    certificate_commit = certificate.get("code_commit")
+    if not isinstance(certificate_commit, str) or not certificate_commit:
+        raise RuntimeError("fake-provider certificate has no code commit")
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", certificate_commit, current_commit],
+        cwd=ROOT, capture_output=True,
+    )
+    if ancestor.returncode != 0:
+        raise RuntimeError("fake-provider certificate commit is not an ancestor")
+    protected_paths = [
+        "analysis/replacement_evidence/round_runner.py",
+        "analysis/replacement_evidence/outcome_prediction.py",
+        "rsi_eval/replacement_condition_gate.py",
+        "rsi_eval/replacement_shadow_outcome.py",
+        "scripts/run_replacement_agent_round.py",
+        "extensions/symbolic_basis_v01/contract.py",
+        "extensions/symbolic_basis_v01/executor.py",
+        "extensions/symbolic_basis_v01/runtime-lock.json",
+    ]
+    changed = subprocess.run(
+        ["git", "diff", "--quiet", certificate_commit, current_commit, "--", *protected_paths],
+        cwd=ROOT, capture_output=True,
+    )
+    if changed.returncode != 0:
+        raise RuntimeError("protected runner code changed after fake preflight")
     split_report = ROOT / "docs/environment/2026-10-24-replacement-dev-splits.json"
     runtime_lock = ROOT / "extensions/symbolic_basis_v01/runtime-lock.json"
     if certificate.get("split_report_sha256") != _sha_file(split_report):
