@@ -24,6 +24,7 @@ _SHA256_HEX = set("0123456789abcdefABCDEF")
 _BINDING_FIELDS = {
     "task_id",
     "split_id",
+    "fit_data_sha256",
     "check_data_sha256",
     "parent_source_sha256",
     "common_source_sha256",

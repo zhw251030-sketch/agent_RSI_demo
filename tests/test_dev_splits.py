@@ -28,6 +28,7 @@ def test_bactgrow_split_is_exact_deterministic_and_disjoint():
     split_rows = [set(manifest["splits"][name]["row_indices"]) for name in manifest["split_order"]]
     assert sum(map(len, split_rows)) == len(data)
     assert not (split_rows[0] & split_rows[1] or split_rows[0] & split_rows[2] or split_rows[1] & split_rows[2])
+    assert manifest["splits"]["fit_dev"]["data_sha256"] != manifest["splits"]["check_dev"]["data_sha256"]
     repeat = build_split_manifest(
         task_id="bactgrow", headers=list(data[0]), rows=data,
         data_sha256=hashlib.sha256(b"fixture-bactgrow").hexdigest(),

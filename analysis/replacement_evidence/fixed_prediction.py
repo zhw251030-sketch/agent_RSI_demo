@@ -92,6 +92,8 @@ def run_fixed_prediction(
         "task_id": task_id,
         "input_names": list(input_names),
         "phase": "predict",
+        "split_name": split_name,
+        "split_sha256": split_digest,
         "params": clean_params,
     }
     request_sha256 = _sha256(_canonical(request))

@@ -12,6 +12,7 @@ def binding(**overrides):
     value = {
         "task_id": "bactgrow",
         "split_id": "bactgrow-train-fit-check-v01",
+        "fit_data_sha256": "f" * 64,
         "check_data_sha256": "a" * 64,
         "parent_source_sha256": "b" * 64,
         "common_source_sha256": "c" * 64,

@@ -122,6 +122,10 @@ def main() -> None:
             "source_sha256": item["source_sha256"],
             "split_counts": item["manifest"]["split_counts"],
             "manifest_sha256": item["manifest"]["manifest_sha256"],
+            "split_data_sha256": {
+                split: payload["data_sha256"]
+                for split, payload in item["manifest"]["splits"].items()
+            },
         } for task, item in report["tasks"].items()
     }}, ensure_ascii=False, sort_keys=True))
 

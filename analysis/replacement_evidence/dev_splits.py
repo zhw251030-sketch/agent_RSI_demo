@@ -81,6 +81,12 @@ def _row_index_hash(indices: list[int]) -> str:
     return _sha256(_canonical(indices))
 
 
+def _split_data_hash(source_data_sha256: str, indices: list[int]) -> str:
+    """Bind membership to the exact source file, not to row indices alone."""
+    return _sha256(_canonical({"source_data_sha256": source_data_sha256.lower(),
+                               "row_indices": indices}))
+
+
 def build_split_manifest(
     *,
     task_id: str,
@@ -179,6 +185,7 @@ def build_split_manifest(
         split_payload[split] = {
             "row_indices": indices,
             "row_index_sha256": _row_index_hash(indices),
+            "data_sha256": _split_data_hash(data_sha256, indices),
             "n": len(indices),
         }
     body = {
