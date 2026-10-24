@@ -150,14 +150,20 @@ def _read_rows(path: Path, definition: TaskDefinition) -> tuple[list[dict[str, s
 
 
 def _split_data(rows: list[dict[str, str]], definition: TaskDefinition,
-                split_name: str, payload: Mapping[str, Any]) -> SplitData:
+                split_name: str, payload: Mapping[str, Any], source_sha256: str) -> SplitData:
     indices = payload.get("row_indices")
     if (not isinstance(indices, list) or any(type(i) is not int or i < 0 or i >= len(rows) for i in indices)
             or len(set(indices)) != len(indices) or len(indices) != payload.get("n")):
         raise ValueError(f"{definition.task_id}/{split_name} row-index manifest invalid")
     data_hash = payload.get("data_sha256")
-    if not isinstance(data_hash, str) or len(data_hash) != 64:
+    row_hash = payload.get("row_index_sha256")
+    if (not isinstance(data_hash, str) or len(data_hash) != 64
+            or not isinstance(row_hash, str) or len(row_hash) != 64):
         raise ValueError(f"{definition.task_id}/{split_name} data hash invalid")
+    if _sha(indices) != row_hash.lower():
+        raise ValueError(f"{definition.task_id}/{split_name} row-index hash mismatch")
+    if _sha({"source_data_sha256": source_sha256.lower(), "row_indices": indices}) != data_hash.lower():
+        raise ValueError(f"{definition.task_id}/{split_name} data hash mismatch")
     X: list[tuple[float, ...]] = []
     y: list[float] = []
     for index in indices:
@@ -189,10 +195,17 @@ def load_frozen_tasks(root: Path, report_path: Path | None = None) -> dict[str, 
         if not isinstance(manifest, dict) or manifest.get("task_id") != task_id:
             raise ValueError(f"{task_id} manifest missing")
         manifest_sha = _verify_self_hash(manifest, "manifest_sha256", f"{task_id} manifest")
+        source_manifest = manifest.get("source", {})
+        if (source_manifest.get("data_sha256") != source_sha
+                or source_manifest.get("row_count") != len(rows)
+                or tuple(source_manifest.get("headers", ())) != definition.headers
+                or source_manifest.get("official_test_read")
+                or source_manifest.get("official_test_ood_read")):
+            raise ValueError(f"{task_id} manifest source binding mismatch")
         if set(manifest.get("split_order", ())) != {"fit_dev", "check_dev", "outcome_dev"}:
             raise ValueError(f"{task_id} split order mismatch")
         splits = {
-            split: _split_data(rows, definition, split, manifest["splits"][split])
+            split: _split_data(rows, definition, split, manifest["splits"][split], source_sha)
             for split in ("fit_dev", "check_dev", "outcome_dev")
         }
         all_indices = [index for data in splits.values() for index in data.row_indices]
@@ -480,7 +493,11 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
         "schema": VERSION, "status": "passed", "model_requests": 12,
         "accepted_slots": len(records), "gate_records": len(gate_rows),
         "official_test_read": False, "official_test_ood_read": False,
-        "outcome_dev_read": True, "synthetic_outcome": bool(synthetic_outcome),
+        "outcome_dev_read": True, "synthetic_actor": bool(synthetic_outcome),
+        "task_sources": {task_id: {"source_path": task.source_path,
+                                    "source_sha256": task.source_sha256,
+                                    "manifest_sha256": task.manifest_sha256}
+                         for task_id, task in tasks.items()},
         "records": records, "frozen_gates": frozen, "shadow": shadow,
         "cache": {"fit_calls": len(cache.fit_cache), "predict_calls": len(cache.predict_cache)},
     }

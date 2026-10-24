@@ -15,6 +15,7 @@ import importlib.metadata
 import json
 import os
 from pathlib import Path
+import subprocess
 import sys
 from unittest.mock import patch
 
@@ -79,6 +80,24 @@ def _validate_certificate() -> dict:
     }
     if any(certificate.get(key) != value for key, value in required.items()):
         raise RuntimeError("fake-provider certificate is incomplete or not passed")
+    current_commit = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True,
+        capture_output=True, text=True,
+    ).stdout.strip()
+    if certificate.get("code_commit") != current_commit:
+        raise RuntimeError("fake-provider certificate does not match current code commit")
+    split_report = ROOT / "docs/environment/2026-10-24-replacement-dev-splits.json"
+    runtime_lock = ROOT / "extensions/symbolic_basis_v01/runtime-lock.json"
+    if certificate.get("split_report_sha256") != _sha_file(split_report):
+        raise RuntimeError("fake-provider certificate does not match split report")
+    if certificate.get("runtime_lock_sha256") != _sha_file(runtime_lock):
+        raise RuntimeError("fake-provider certificate does not match symbolic runtime lock")
+    run_id = certificate.get("run_id")
+    if not isinstance(run_id, str):
+        raise RuntimeError("fake-provider certificate has no run id")
+    summary = ROOT / "runs/replacement-agent-round" / run_id / "round/round-summary.json"
+    if not summary.is_file() or certificate.get("round_summary_sha256") != _sha_file(summary):
+        raise RuntimeError("fake-provider round summary is missing or changed")
     return certificate
 
 
@@ -148,11 +167,18 @@ def run(mode: str, run_id: str, auth_file: str | None = None,
             "provider_calls": None if provider is None else provider.calls,
             "real_model_calls": 0 if mode == "fake" else summary["model_requests"],
             "split_report": str((report_path or ROOT / "docs/environment/2026-10-24-replacement-dev-splits.json").relative_to(ROOT)),
+            "split_report_sha256": _sha_file(report_path or ROOT / "docs/environment/2026-10-24-replacement-dev-splits.json"),
+            "runtime_lock_sha256": _sha_file(ROOT / "extensions/symbolic_basis_v01/runtime-lock.json"),
+            "code_commit": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
+                                           check=True, capture_output=True, text=True).stdout.strip(),
         })
         if mode == "fake":
             certificate = {
                 "schema": "replacement-agent-round-preflight-v0.1", "status": "passed",
                 "mode": "fake", "sdk_version": report["sdk_version"],
+                "run_id": run_id, "code_commit": report["code_commit"],
+                "split_report_sha256": report["split_report_sha256"],
+                "runtime_lock_sha256": report["runtime_lock_sha256"],
                 "model_requests": report["model_requests"],
                 "accepted_slots": report["accepted_slots"],
                 "gate_records": report["gate_records"],
