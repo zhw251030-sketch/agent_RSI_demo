@@ -25,37 +25,6 @@ def _reject_constant(token):
     raise ValueError("nonfinite JSON constant")
 
 
-def _exceeds_json_nesting(payload: bytes, *, maximum: int = 256) -> bool:
-    """Reject deeply nested worker output before handing it to json.loads.
-
-    Python's JSON decoder does not provide a portable depth limit, and recent
-    Python versions can accept thousands of nested containers. Worker output
-    only needs shallow result objects, so an explicit bound keeps malformed
-    candidate output from becoming an unbounded host-side parse.
-    """
-    depth = 0
-    in_string = False
-    escaped = False
-    for byte in payload:
-        if in_string:
-            if escaped:
-                escaped = False
-            elif byte == 0x5C:  # backslash
-                escaped = True
-            elif byte == 0x22:  # double quote
-                in_string = False
-            continue
-        if byte == 0x22:  # double quote
-            in_string = True
-        elif byte in (0x7B, 0x5B):  # { or [
-            depth += 1
-            if depth > maximum:
-                return True
-        elif byte in (0x7D, 0x5D) and depth:
-            depth -= 1
-    return False
-
-
 def run_candidate(source: str, request: dict, *, timeout_seconds=20, memory_mb=2048,
                   cpu_seconds=10, max_output_bytes=2000000, deps_dir: Path | None = None) -> dict:
     """Return execution status separately from the task worker's result.
@@ -168,8 +137,6 @@ def run_candidate(source: str, request: dict, *, timeout_seconds=20, memory_mb=2
                 return outcome(status, returncode=process.returncode,
                                error=buffers["stderr_bytes"].decode("utf-8", "replace")[-1000:])
             try:
-                if _exceeds_json_nesting(buffers["stdout_bytes"]):
-                    raise ValueError("JSON nesting exceeds limit")
                 result = json.loads(buffers["stdout_bytes"], parse_float=_finite_float,
                                     parse_constant=_reject_constant)
                 if not isinstance(result, dict) or not isinstance(result.get("status"), str):
