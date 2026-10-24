@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。真实轮6/6请求接受、18条门冻结哈希有效；real_check执行4/6、保留2/6，但唯一有害候选仍被允许，`prevented_harm=0`。当前结果支持“协议能测量检查造成的执行差异”，不支持“当前阈值机制已能防止有害修订”，也没有稳定优势或独立泛化。最新替换充分性阶段已完成训练集冻结、证据判定、固定参数预测、服务器 sandbox 三结构预演、4槽 FakeProvider 预演、协议独立审查和新的 12 槽 runner 接线；本机 22 项针对性测试通过，但 12 槽服务器 fake-provider 验收尚未完成，仍未调用新的真实 MiniMax 轮。
+已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。真实轮6/6请求接受、18条门冻结哈希有效；real_check执行4/6、保留2/6，但唯一有害候选仍被允许，`prevented_harm=0`。当前结果支持“协议能测量检查造成的执行差异”，不支持“当前阈值机制已能防止有害修订”，也没有稳定优势或独立泛化。最新替换充分性阶段已完成训练集冻结、证据判定、固定参数预测、服务器 sandbox 三结构预演、协议独立审查、新的 12 槽 runner 接线和 12 槽 FakeProvider + Linux sandbox 预演；本机 22 项针对性测试通过，服务器 v03 预演 12/12 请求、36/36 门记录通过，仍未调用新的真实 MiniMax 轮。
 
 ## 已完成
 
@@ -23,7 +23,7 @@
 
 - 2026-10-24完成替换充分性协议的训练数据切分、固定参数预测和服务器 sandbox 三结构预演。服务器只读核验 `bactgrow/train.csv` 7,500 行、`stressstrain/train.csv` 2,161 行及源文件哈希；两个任务均无时间列，按目标分层和温度分层冻结 60%/20%/20% 的 `fit_dev/check_dev/outcome_dev`，报告哈希为 `a5f7d994361581fef559c237ee6de993aa3a0c3d33f13f267b070b5cb0797ee8`。两个任务各完成 parent/common/added 的 3 次 fit 和 3 次 fixed-parameter predict，全部成功；本机 19 项针对性测试通过。预演中 bactgrow 的 `R≈1.62×10^-5`、stressstrain 的 `R≈0.981` 均被判为 `contradicted`，但这些是研究者固定夹具，不是 Agent 机制结果。没有模型调用、真实候选生成或 `outcome_dev` 评分。见[预演报告](docs/analysis/2026-10-24-replacement-evidence-preflight.md)、[sandbox 证书](docs/environment/2026-10-24-replacement-triplet-preflight.json)、[切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)、[判定模块](analysis/basis_edit_comparison/replacement_evidence.py)和[三结构 runner](analysis/replacement_evidence/triplet_runner.py)。
 - 2026-10-24完成 OpenHands FakeProvider 三条件门控预演。4 个 synthetic actor 请求全部接受，冻结 12 条门记录；no/sham 各执行2个候选，replacement_check执行1个、保留3个，synthetic shadow 中预设的1个有害替换被保留。账本为480个 synthetic token、0真实模型调用、0真实候选执行，`outcome_dev_read=false`；v01曾因使用未注册 scope 被契约拒绝，v02改用 `development` scope 后通过，失败目录保留且未覆盖。见[SDK 假 provider 证书](docs/environment/2026-10-24-replacement-agent-preflight.json)和[预演脚本](scripts/run_replacement_agent_preflight.py)。
-- 2026-10-24完成替换充分性 12 槽 runner 的协议审查和接线。新 runner 只读取冻结 train split，验证报告/manifest/CSV 哈希，执行 parent/common/added 的 `fit_dev→check_dev` 固定参数证据，使用协议命名 `replacement_check`，并在 36 条 gate row 冻结后才访问 `outcome_dev`。新增 `scripts/run_replacement_agent_round.py`，支持真实 OpenHands SDK + FakeProvider 预演和受证书保护的真实模式；本机 22 项针对性测试通过，尚未在服务器执行 12 槽预演或发送真实 MiniMax 请求。见[协议审查](docs/analysis/2026-10-24-replacement-agent-round-review.md)、[执行计划](docs/superpowers/plans/2026-10-24-replacement-agent-runner.md)和[新 runner](scripts/run_replacement_agent_round.py)。
+- 2026-10-24完成替换充分性 12 槽 runner 的协议审查、接线和服务器预演。新 runner 只读取冻结 train split，验证报告/manifest/CSV/行索引哈希，执行 parent/common/added 的 `fit_dev→check_dev` 固定参数证据，使用协议命名 `replacement_check`，并在 36 条 gate row 冻结后才访问 `outcome_dev`。服务器 v03 使用 OpenHands SDK 1.55.1 和真实 Linux sandbox 完成 12/12 synthetic actor、36/36 gate rows、usage unknown=0；real-mode guard 已绑定代码提交、split report 和 runtime lock。synthetic shadow 的 `prevented_harm=3` 只作工程预演，不是机制效果。见[协议审查](docs/analysis/2026-10-24-replacement-agent-round-review.md)、[预演报告](docs/analysis/2026-10-24-replacement-agent-round-preflight.md)、[机器验收](docs/environment/2026-10-24-replacement-agent-round-verification.json)、[执行计划](docs/superpowers/plans/2026-10-24-replacement-agent-runner.md)和[新 runner](scripts/run_replacement_agent_round.py)。
 
 - 2026-10-22完成基函数策略v02：实现ed96ac9a、冻结6eba8793，171运行文件；两个工具只接ID，可选说明仅归档，旧编译器宿主转换显式绑定。完整SDK模拟13/14通过，44项新测试服务器全过、本机32过12SDK跳过。独立真实13/13接受（1新S1提案R01/R02/R05/R08+12终稿）、无重试；14fit+14predict/28sandbox，220拟合公式调用、28人工启动warmup另计。A父NMSE0.00452983：S0三退化，S1一保持两退化；B父0.09588372：两臂均三改善，最佳均0.00452983；12终稿仅5种结构，不能据均值称稳定优势。两父各6份SDK共同输入一致，服务器14保存预测分数重算通过，本机绑定核验通过、双端汇总逐字节相同。模拟422/真实421原文件归档，旧运行与档案未改。新增58406tokens、估算0.1288014元、预留1.5012354元；累计184请求、已知1448729tokens、估算4.4065266元、预留21.3231102元，旧两笔usage未知保留。无策略晋升、权重更新或封存访问。 见[结果与解释](docs/analysis/2026-10-22-basis-trial-v02-results.md)、[操作说明](docs/operations/basis-trial-v02.md)、[验收](docs/environment/2026-10-22-basis-trial-v02-verification.json)。
 
@@ -95,11 +95,11 @@
 ## 尚未完成
 
 - 尚未把 synthetic Agent 预演替换为真实任务数据和真实 MiniMax 候选，也尚未生成正式机制轮的完整候选批次。
-- 真实小轮协议已通过内容审查并完成 runner 接线：12 个请求、两个任务各 3 个父结构×2 重复、三条件门控、最大 4 元 SDK 账本上限（低于用户授权的 300 元）；服务器 12 槽 fake-provider 证书和真实运行前完整验收仍待完成，尚未发送新的真实请求。
+- 真实小轮协议已通过内容审查、runner 接线和服务器 12 槽 fake-provider + Linux sandbox 验收：12 个请求、两个任务各 3 个父结构×2 重复、三条件门控、最大 4 元 SDK 账本上限（低于用户授权的 300 元）；真实 MiniMax 请求仍未发送。
 - 尚未在 `bactgrow` 和 `stressstrain` 上产生新的真实候选、门控记录或 `outcome_dev` shadow 成绩；因此替换充分性协议仍是预演基础设施，不是机制效果。
 - 尚未有独立任务泛化或稳定优势结论；Spanner 和封存集继续不启动。
 - 累计184研究请求，历史两笔usage未知；实际总账单仍无法精确给出。
 
 ## 下一步
 
-下一步先把新代码同步到服务器，运行 12 槽 FakeProvider + 真实 Linux sandbox 预演，并核对 36 条 gate、`outcome_dev` 顺序、账本和 runtime lock；通过后再由独立验收确认真实模式 guard，最后才用 MiniMax-M3 在两个 LLM-SR 方程上启动受限真实小轮。真实候选的 `fit_dev/check_dev` 证据、三条件门冻结和 `outcome_dev` shadow 必须分目录保存，不能回写本次预演、切分或阈值；旧13位置不恢复、不补抽，不启动168请求草案或封存评价。
+下一步先完成 v03 证书的只读一致性检查，然后用受证书保护的 real mode 发送最多 12 个 MiniMax-M3 请求。真实候选的 `fit_dev/check_dev` 证据、三条件门冻结和 `outcome_dev` shadow 必须分目录保存，不能回写本次预演、切分或阈值；首个未知 usage、传输失败、协议错误或 runtime hash 变化立即停止；旧13位置不恢复、不补抽，不启动168请求草案或封存评价。
