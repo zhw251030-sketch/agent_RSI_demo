@@ -88,6 +88,7 @@
 
 32. [下一轮替换充分性证据协议设计（未执行）](docs/experiments/2026-10-24-replacement-evidence-design.md)
 33. [替换充分性协议预演、切分与固定参数预测](docs/analysis/2026-10-24-replacement-evidence-preflight.md) · [sandbox 预演证书](docs/environment/2026-10-24-replacement-triplet-preflight.json) · [SDK 假 provider 证书](docs/environment/2026-10-24-replacement-agent-preflight.json) · [训练切分清单](docs/environment/2026-10-24-replacement-dev-splits.json)
+34. [替换充分性 Agent 真实小轮协议（待独立审查）](docs/experiments/2026-10-24-replacement-agent-round-protocol.md)
 
 ## 仓库边界
 
