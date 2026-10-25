@@ -5,6 +5,7 @@ import json
 import pytest
 
 from analysis.replacement_evidence.outcome_prediction import run_outcome_prediction
+from analysis.replacement_evidence.cross_task_config import CROSS_TASK_DEFINITIONS
 from analysis.replacement_evidence.round_runner import (
     SplitData,
     FrozenTask,
@@ -39,9 +40,9 @@ def test_outcome_prediction_omits_targets_and_binds_outcome_split():
     assert len(observed) == 1
 
 
-def _fixture_tasks():
+def _fixture_tasks(definitions=TASK_DEFINITIONS):
     tasks = {}
-    for definition in TASK_DEFINITIONS:
+    for definition in definitions:
         splits = {}
         for split in ("fit_dev", "check_dev", "outcome_dev"):
             splits[split] = SplitData(
@@ -134,4 +135,36 @@ def test_invalid_structural_edit_writes_a_stop_record(tmp_path):
     assert stop["gate_records"] == 3
     assert len(stop["details"]["removed"]) == 2
     assert len(stop["details"]["added"]) == 2
+
+
+def test_cross_task_catalog_runs_through_the_parameterized_runner(tmp_path):
+    tasks = _fixture_tasks(CROSS_TASK_DEFINITIONS)
+
+    def actor_runner(*, slot_id, packet, spec, output_dir):
+        output_dir.mkdir(parents=True)
+        parent = list(packet["parent"]["feature_ids"])
+        candidate = list(parent)
+        if slot_id.endswith("-r2"):
+            candidate[-1] = next(feature for feature in spec["feature_ids"] if feature not in parent)
+        compiled = __import__("analysis.replacement_evidence.round_runner", fromlist=["compile_basis"]).compile_basis(
+            tasks[packet["task"]["task_id"]].definition, candidate,
+        )
+        return {"status": "accepted", "business": {"feature_ids": candidate},
+                "execution_payload": {"feature_ids": candidate}, "compiled": compiled}
+
+    def fit_runner(source, request):
+        return {"status": "completed", "result": {"status": "success",
+                "params": [1.0] * request["n_params"], "converged": True,
+                "nfev": 1, "candidate_calls": 1}}
+
+    def predict_runner(source, request):
+        return {"status": "completed", "result": {"status": "success",
+                "predictions": [1.0, 2.0]}}
+
+    result = run_round(tasks=tasks, actor_runner=actor_runner,
+                       fit_executor=fit_runner, predict_executor=predict_runner,
+                       output_dir=Path(tmp_path) / "cross-task-round", synthetic_outcome=True,
+                       task_definitions=CROSS_TASK_DEFINITIONS)
+    assert result["accepted_slots"] == 12
+    assert result["gate_records"] == 36
 

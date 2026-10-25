@@ -30,6 +30,16 @@ TASKS = {
         "target": "stress",
         "strata": ("temp", "target_decile"),
     },
+    "oscillator1": {
+        "headers": ("x", "v", "a"),
+        "target": "a",
+        "strata": ("target_decile",),
+    },
+    "oscillator2": {
+        "headers": ("t", "x", "v", "a"),
+        "target": "a",
+        "strata": ("target_decile",),
+    },
 }
 
 
@@ -115,7 +125,7 @@ def build_split_manifest(
     for index, row in enumerate(rows):
         if set(row) != set(headers):
             raise ValueError(f"row {index} keys do not match headers")
-        if task_id == "bactgrow":
+        if task_id in {"bactgrow", "oscillator1", "oscillator2"}:
             key = (f"decile:{deciles[index]}",)
         else:
             _number(row["temp"], "temp")

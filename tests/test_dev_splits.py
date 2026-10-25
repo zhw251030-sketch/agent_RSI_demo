@@ -53,6 +53,21 @@ def test_stressstrain_preserves_temperature_strata():
         assert temperatures == {"0.1", "0.5", "1.0"}
 
 
+def test_oscillator_split_uses_target_strata_without_temperature_column():
+    data = [
+        {"x": str(i / 10), "v": str((i % 7) / 7), "a": str((i * 3) % 13)}
+        for i in range(30)
+    ]
+    manifest = build_split_manifest(
+        task_id="oscillator1", headers=["x", "v", "a"], rows=data,
+        data_sha256=hashlib.sha256(b"fixture-oscillator1").hexdigest(),
+        version="replacement-cross-task-v0.1",
+    )
+    assert manifest["split_counts"] == {"fit_dev": 18, "check_dev": 6, "outcome_dev": 6}
+    indices = [index for split in manifest["split_order"] for index in manifest["splits"][split]["row_indices"]]
+    assert sorted(indices) == list(range(len(data)))
+
+
 def test_manifest_rejects_wrong_task_schema_or_digest():
     data = rows()
     try:

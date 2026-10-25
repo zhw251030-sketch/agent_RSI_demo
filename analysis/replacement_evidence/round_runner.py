@@ -173,15 +173,19 @@ def _split_data(rows: list[dict[str, str]], definition: TaskDefinition,
     return SplitData(split_name, data_hash.lower(), tuple(indices), tuple(X), tuple(y))
 
 
-def load_frozen_tasks(root: Path, report_path: Path | None = None) -> dict[str, FrozenTask]:
-    """Load only the two frozen train manifests and recheck source hashes."""
+def load_frozen_tasks(
+    root: Path,
+    report_path: Path | None = None,
+    task_definitions: tuple[TaskDefinition, ...] = TASK_DEFINITIONS,
+) -> dict[str, FrozenTask]:
+    """Load the configured frozen train manifests and recheck source hashes."""
 
     report_file = (root / SPLIT_REPORT) if report_path is None else Path(report_path)
     report = json.loads(report_file.read_text(encoding="utf-8"))
     if report.get("official_test_read") or report.get("official_test_ood_read"):
         raise ValueError("split report claims official test data was read")
     _verify_self_hash(report, "report_sha256", "split report")
-    definitions = {item.task_id: item for item in TASK_DEFINITIONS}
+    definitions = {item.task_id: item for item in task_definitions}
     if set(report.get("tasks", {})) != set(definitions):
         raise ValueError("split report task set differs from protocol")
     result: dict[str, FrozenTask] = {}
@@ -356,11 +360,12 @@ def evaluate_swap(task: FrozenTask, parent: Mapping[str, Any], candidate: Mappin
 def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Mapping[str, Any]],
               fit_executor: Callable[[str, dict[str, Any]], Mapping[str, Any]],
               predict_executor: Callable[[str, dict[str, Any]], Mapping[str, Any]],
-              output_dir: Path, synthetic_outcome: bool = False) -> dict[str, Any]:
-    """Run all twelve slots, freeze gates, then attach outcome shadow scores."""
+              output_dir: Path, synthetic_outcome: bool = False,
+              task_definitions: tuple[TaskDefinition, ...] = TASK_DEFINITIONS) -> dict[str, Any]:
+    """Run the configured slots, freeze gates, then attach outcome shadow scores."""
 
-    if set(tasks) != {item.task_id for item in TASK_DEFINITIONS}:
-        raise ValueError("run requires exactly the two protocol tasks")
+    if set(tasks) != {item.task_id for item in task_definitions}:
+        raise ValueError("run task set does not match the configured protocol tasks")
     output_dir.mkdir(parents=True, exist_ok=False)
     cache = SandboxCache(fit_executor, predict_executor)
     records: list[dict[str, Any]] = []
@@ -380,7 +385,7 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
             json.dumps(payload, ensure_ascii=False, allow_nan=False, indent=2) + "\n", encoding="utf-8")
         raise RuntimeError(reason)
 
-    for definition in TASK_DEFINITIONS:
+    for definition in task_definitions:
         task = tasks[definition.task_id]
         for parent_def in definition.parents:
             parent = compile_basis(definition, parent_def.feature_ids)
