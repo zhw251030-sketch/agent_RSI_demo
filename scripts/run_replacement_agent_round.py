@@ -99,6 +99,7 @@ def _validate_certificate() -> dict:
         "rsi_eval/replacement_condition_gate.py",
         "rsi_eval/replacement_shadow_outcome.py",
         "scripts/run_replacement_agent_round.py",
+        "extensions/basis_trial_v02/sdk_controller.py",
         "extensions/symbolic_basis_v01/contract.py",
         "extensions/symbolic_basis_v01/executor.py",
         "extensions/symbolic_basis_v01/runtime-lock.json",

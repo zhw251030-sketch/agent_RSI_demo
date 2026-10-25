@@ -377,6 +377,11 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
                     "task": {"task_id": definition.task_id, "input_names": list(definition.input_names)},
                     "parent": {"feature_ids": list(parent["feature_ids"]),
                                "source_sha256": parent["source_sha256"], "n_params": parent["n_params"]},
+                    "candidate_constraints": {
+                        "allowed_modes": ["keep", "swap_one"],
+                        "constant_feature_id": parent["feature_ids"][0],
+                        "constant_must_be_retained": True,
+                    },
                     "feedback": feedback, "condition_blind": True,
                     "output_contract": "submit_basis with feature_ids only",
                 }
