@@ -365,13 +365,32 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
     cache = SandboxCache(fit_executor, predict_executor)
     records: list[dict[str, Any]] = []
     gate_rows: list[dict[str, Any]] = []
+    accepted_slot_ids: list[str] = []
+
+    def stop_round(reason: str, *, slot_id: str, details: Mapping[str, Any] | None = None):
+        payload = {
+            "schema": VERSION, "status": "stopped", "reason": reason,
+            "slot_id": slot_id, "accepted_slot_ids": list(accepted_slot_ids),
+            "accepted_slots": len(accepted_slot_ids),
+            "gate_records": len(gate_rows),
+        }
+        if details:
+            payload["details"] = dict(details)
+        (output_dir / "round-stop.json").write_text(
+            json.dumps(payload, ensure_ascii=False, allow_nan=False, indent=2) + "\n", encoding="utf-8")
+        raise RuntimeError(reason)
+
     for definition in TASK_DEFINITIONS:
         task = tasks[definition.task_id]
         for parent_def in definition.parents:
             parent = compile_basis(definition, parent_def.feature_ids)
-            feedback = _fit_feedback(task, parent, cache)
             for repeat in (1, 2):
                 slot_id = f"{parent_def.parent_id}-r{repeat}"
+                try:
+                    feedback = _fit_feedback(task, parent, cache)
+                except Exception as exc:
+                    stop_round("baseline_feedback_failure", slot_id=slot_id,
+                               details={"error_type": type(exc).__name__})
                 packet = {
                     "schema": VERSION, "slot_id": slot_id,
                     "task": {"task_id": definition.task_id, "input_names": list(definition.input_names)},
@@ -388,13 +407,19 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
                 session_dir = output_dir / "sessions" / slot_id
                 accepted = actor_runner(slot_id=slot_id, packet=packet, spec=make_spec(len(definition.input_names), len(parent["feature_ids"])), output_dir=session_dir)
                 if accepted.get("status") != "accepted":
-                    raise RuntimeError(f"actor slot not accepted: {slot_id}")
+                    stop_round("actor_not_accepted", slot_id=slot_id,
+                               details={"sdk_status": accepted.get("status"),
+                                        "error_type": accepted.get("error_type")})
                 candidate = accepted.get("compiled")
                 if not isinstance(candidate, Mapping):
-                    raise RuntimeError(f"actor slot missing compiled candidate: {slot_id}")
+                    stop_round("actor_missing_compiled_candidate", slot_id=slot_id)
+                accepted_slot_ids.append(slot_id)
                 change = classify_structure_change(parent["feature_ids"], candidate["feature_ids"])
                 if change["status"] != "valid":
-                    raise RuntimeError(f"invalid structural edit in {slot_id}")
+                    stop_round("invalid_structural_edit", slot_id=slot_id,
+                               details={"parent_feature_ids": list(parent["feature_ids"]),
+                                        "candidate_feature_ids": list(candidate["feature_ids"]),
+                                        "removed": change["removed"], "added": change["added"]})
                 if change["mode"] == "keep":
                     evidence = {"status": "unknown", "decision_reason": "no_edit"}
                     triplet = None

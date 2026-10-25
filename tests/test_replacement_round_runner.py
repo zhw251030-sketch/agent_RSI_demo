@@ -1,5 +1,9 @@
 from pathlib import Path
 
+import json
+
+import pytest
+
 from analysis.replacement_evidence.outcome_prediction import run_outcome_prediction
 from analysis.replacement_evidence.round_runner import (
     SplitData,
@@ -87,4 +91,47 @@ def test_fake_actor_round_has_twelve_slots_and_replacement_condition_names(tmp_p
     assert result["outcome_dev_read"] is True
     assert result["frozen_gates"]["frozen"]["conditions"] == list(CONDITIONS)
     assert set(result["shadow"]["summary"]) == set(CONDITIONS)
+
+
+def test_invalid_structural_edit_writes_a_stop_record(tmp_path):
+    tasks = _fixture_tasks()
+
+    def actor_runner(*, slot_id, packet, spec, output_dir):
+        output_dir.mkdir(parents=True)
+        parent = list(packet["parent"]["feature_ids"])
+        candidate = list(parent)
+        if slot_id.endswith("-r2"):
+            replacements = [
+                feature for feature in spec["feature_ids"] if feature not in parent
+            ][:2]
+            candidate[-2:] = replacements
+        compiled = __import__("analysis.replacement_evidence.round_runner", fromlist=["compile_basis"]).compile_basis(
+            tasks[packet["task"]["task_id"]].definition, candidate,
+        )
+        return {"status": "accepted", "business": {"feature_ids": candidate},
+                "execution_payload": {"feature_ids": candidate}, "compiled": compiled}
+
+    def fit_runner(source, request):
+        return {"status": "completed", "result": {"status": "success",
+                "params": [1.0] * request["n_params"], "converged": True,
+                "nfev": 1, "candidate_calls": 1}}
+
+    def predict_runner(source, request):
+        return {"status": "completed", "result": {"status": "success",
+                "predictions": [1.0, 2.0]}}
+
+    output_dir = Path(tmp_path) / "round"
+    with pytest.raises(RuntimeError, match="invalid_structural_edit"):
+        run_round(tasks=tasks, actor_runner=actor_runner,
+                  fit_executor=fit_runner, predict_executor=predict_runner,
+                  output_dir=output_dir, synthetic_outcome=True)
+
+    stop = json.loads((output_dir / "round-stop.json").read_text(encoding="utf-8"))
+    assert stop["reason"] == "invalid_structural_edit"
+    assert stop["slot_id"] == "bactgrow-p01-r2"
+    assert stop["accepted_slot_ids"] == ["bactgrow-p01-r1", "bactgrow-p01-r2"]
+    assert stop["accepted_slots"] == 2
+    assert stop["gate_records"] == 3
+    assert len(stop["details"]["removed"]) == 2
+    assert len(stop["details"]["added"]) == 2
 

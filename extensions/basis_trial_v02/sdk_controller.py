@@ -32,6 +32,7 @@ UPDATE_SYSTEM = ('Select one external revision policy from the supplied historic
 ACTOR_SYSTEM = ('Revise the supplied symbolic basis once using its feedback, host contract and repair_policy. '
     'Return exactly one submit_basis tool call containing only feature_ids. Follow the permitted structural edit exactly. '
     'The constant feature already present in the parent basis is mandatory and must remain in feature_ids. '
+    'Make at most one feature replacement; never remove or add two features. If uncertain, return the parent basis unchanged. '
     'Do not put explanation, summary, or any other fields in tool arguments. '
     'Optional assistant text is archived but is never a decision input and is not required. '
     'Only this business tool is available; do not call finish or another tool. The host fits coefficients and evaluates separately. '

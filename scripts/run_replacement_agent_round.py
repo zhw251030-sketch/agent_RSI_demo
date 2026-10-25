@@ -217,6 +217,21 @@ def run(mode: str, run_id: str, auth_file: str | None = None,
             report["preflight_certificate"] = str(PREFLIGHT_CERTIFICATE.relative_to(ROOT))
     except Exception as exc:
         report.update({"error_type": type(exc).__name__, "error_stage": "round_or_preflight"})
+        stop_path = output / "round" / "round-stop.json"
+        if stop_path.is_file():
+            try:
+                stop = json.loads(stop_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                stop = None
+            if isinstance(stop, dict):
+                report.update({
+                    "stop_reason": stop.get("reason"),
+                    "stop_slot_id": stop.get("slot_id"),
+                    "accepted_slots": stop.get("accepted_slots", 0),
+                    "accepted_slot_ids": stop.get("accepted_slot_ids", []),
+                    "gate_records": stop.get("gate_records", 0),
+                    "round_stop_sha256": _sha_file(stop_path),
+                })
     if ledger is not None:
         report["budget"] = ledger.summary()
         report["model_requests"] = report.get("model_requests", 0) or report["budget"]["request_count"]
