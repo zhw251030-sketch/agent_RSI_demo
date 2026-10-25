@@ -17,6 +17,8 @@
 
 - 2026-10-25完成跨任务真实开发重复 `cross-real-v01`。固定 MiniMax-M3 和同一替换门阈值，在 `oscillator1/oscillator2` 各3个父结构×2次重复上完成12/12请求、36/36 gate，9个 swap、3个 keep，4 supported、3 contradicted、5 unknown；真实用量13,316 tokens，估算0.0343644元。`no_check`/`sham_check`各部署2个有害候选，`replacement_check`拦截2个。与上一轮合并，四个任务的24个固定槽位中绑定证据条件拦截7个有害候选；结果支持方向性开发复现，不升级为最终泛化。见[真实结果与边界](docs/analysis/2026-10-25-replacement-cross-real-v01-results.md)和[机器核验](docs/environment/2026-10-25-replacement-cross-real-v01-verification.json)。
 
+- 2026-10-25完成 holdout 解封协议、只读 evaluator 和 dry-run。评估器默认不打开 `test_id/test_ood`，只校验两轮共24个冻结 proposal；服务器 dry-run 输出 `ready_without_holdout_read`。正式解封后将只用 fit_dev 参数、冻结 gate action 和官方 test/OOD 目标做一次描述性回放，不发送模型请求、不修改机制。见[解封协议](docs/experiments/2026-10-25-holdout-release-protocol.md)和[评估器](scripts/run_replacement_holdout.py)。
+
 - 2026-10-24完成基函数策略 v02 的编辑级离线诊断。新增只读分析模块 `analysis/basis_trial_v02/diagnose.py`、4项诊断测试、机器报告和人工分析报告；读取6个A起点真实槽位，核对父/子结构、源码哈希、transition、反馈哈希和NMSE绑定。5次实际结构修改全部退化：4次 `xv→x²`、1次 `xv→v²`；唯一保持原结构的槽位结果持平。6个槽位的编辑前证据均标为 `unknown`：反馈虽包含“边际关联不能证明必要项”的一般警告，但没有与具体替换绑定的必要性或收益检查。0模型调用、0候选执行、0旧档案写入；新增测试4/4通过，v02扩展测试44项通过（本机12项SDK依赖测试跳过）。见[诊断结果](docs/analysis/2026-10-24-basis-edit-diagnostic.md)和[机器报告](docs/analysis/2026-10-24-basis-edit-diagnostic.json)。
 
 - 2026-10-24完成编辑级证据契约适配层 `rsi_eval/edit_evidence.py`。在已有 `evidence_checks`/`EvidenceRegistry` 之上绑定父/子源码、feature swap、编辑前检查和编辑后结果；只支持 keep 或单项替换，封存范围不能作为编辑前证据，后验分数不改写事前决策。新增6项测试，与已有证据/compact控制器测试合计62项通过；尚未接入真实 Agent、未产生新模型调用。见[契约说明](docs/analysis/2026-10-24-edit-evidence-contract.md)。
