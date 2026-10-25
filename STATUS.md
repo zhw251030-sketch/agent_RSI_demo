@@ -5,12 +5,15 @@
 ## 当前阶段
 
 已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。真实轮6/6请求接受、18条门冻结哈希有效；real_check执行4/6、保留2/6，但唯一有害候选仍被允许，`prevented_harm=0`。当前结果支持“协议能测量检查造成的执行差异”，不支持“当前阈值机制已能防止有害修订”，也没有稳定优势或独立泛化。2026-10-25完成替换充分性 12 槽真实开发轮：两个任务各3个父结构×2次重复，12/12请求接受、36/36门冻结，9个单替换、3个keep；`replacement_check`执行4次、保留8次，影子结果拦截5个有害候选，而`no_check`/`sham_check`各部署5个有害候选。这是当前机制的首个正向开发轮信号，仍不构成独立泛化或最终测试结论。下一步是固定阈值后做独立重复，再进行预注册的holdout评估。
+已完成ID业务与可选说明解耦，独立真实13请求全部接受，完成14次拟合/预测。A起点S0三退化、S1一保持两退化；B两臂三改善且最佳相同。2026-10-24已完成A起点编辑级离线诊断：5次结构修改全部退化，编辑前反馈对具体替换均为证据不足；同时完成编辑级证据契约、basis actor 宿主接线、targeted check 三态校准、三条件门控协议、shadow outcome、真实 runner 和第一次真实机制小轮。真实轮6/6请求接受、18条门冻结哈希有效；real_check执行4/6、保留2/6，但唯一有害候选仍被允许，`prevented_harm=0`。当前结果支持“协议能测量检查造成的执行差异”，不支持“当前阈值机制已能防止有害修订”，也没有稳定优势或独立泛化。2026-10-25完成替换充分性 12 槽真实开发轮：两个任务各3个父结构×2次重复，12/12请求接受、36/36门冻结，9个单替换、3个keep；`replacement_check`执行4次、保留8次，影子结果拦截5个有害候选，而`no_check`/`sham_check`各部署5个有害候选。这是当前机制的首个正向开发轮信号，仍不构成独立泛化或最终测试结论。随后已完成跨任务重复的配置化 runner、oscillator1/oscillator2 train-only split 和 12 槽 FakeProvider/Linux sandbox 预演；下一步是审计该预演后再启动跨任务真实轮，阈值保持冻结。
 
 ## 已完成
 
 - 2026-10-25完成替换充分性真实 Agent 开发轮 `real-v04`。在固定 MiniMax-M3、OpenHands SDK 1.55.1、两个任务和开发切分上，12/12 请求及工具提交接受，9 个单项替换、3 个 keep，36/36 gate 记录冻结，0 次重试、usage unknown=0；真实用量14,572 tokens，按账本估算0.0369516元。编辑前证据4 supported、5 contradicted、3 unknown/no_edit。冻结后读取 outcome_dev 的影子结果为：`no_check`/`sham_check`均部署5个有害候选，`replacement_check`执行4次、保留8次并拦截5次。该结果只支持本轮两个任务上的机制级信号，不支持稳定优势、显著性或独立泛化；未读取官方封存测试，未更新权重/S/持久策略。见[真实结果与边界](docs/analysis/2026-10-25-replacement-real-v04-results.md)。
 
 - 2026-10-25修复上一轮双替换停止审计：Agent 提示明确最多一次替换，runner 对非法结构写入 `round-stop.json`，命令行摘要回填停止原因、已接受工具槽位、gate 数和停止文件哈希；新增回归测试后本机23项通过。FakeProvider v06预演12/12请求、36/36 gate通过，证书绑定提交 `85addadd`。见[预演证书](docs/environment/2026-10-24-replacement-agent-round-preflight.json)和[验证记录](docs/environment/2026-10-24-replacement-agent-round-verification.json)。
+
+- 2026-10-25完成跨任务重复协议与 runner 配置化：新增固定 `oscillator1/oscillator2` 父结构、train-only split manifest、独立 fake/real guard 和 25 项本机相关测试；服务器 OpenHands SDK 1.55.1 + Linux sandbox 假 provider 12/12 请求、36/36 gate通过，usage unknown=0，真实模型调用0。该轮只属于跨任务开发重复，尚未发送真实请求。见[协议](docs/experiments/2026-10-25-cross-task-replication-protocol.md)、[切分清单](docs/environment/2026-10-25-replacement-cross-task-splits.json)和[预演核验](docs/environment/2026-10-25-replacement-cross-task-verification.json)。
 
 - 2026-10-24完成基函数策略 v02 的编辑级离线诊断。新增只读分析模块 `analysis/basis_trial_v02/diagnose.py`、4项诊断测试、机器报告和人工分析报告；读取6个A起点真实槽位，核对父/子结构、源码哈希、transition、反馈哈希和NMSE绑定。5次实际结构修改全部退化：4次 `xv→x²`、1次 `xv→v²`；唯一保持原结构的槽位结果持平。6个槽位的编辑前证据均标为 `unknown`：反馈虽包含“边际关联不能证明必要项”的一般警告，但没有与具体替换绑定的必要性或收益检查。0模型调用、0候选执行、0旧档案写入；新增测试4/4通过，v02扩展测试44项通过（本机12项SDK依赖测试跳过）。见[诊断结果](docs/analysis/2026-10-24-basis-edit-diagnostic.md)和[机器报告](docs/analysis/2026-10-24-basis-edit-diagnostic.json)。
 
