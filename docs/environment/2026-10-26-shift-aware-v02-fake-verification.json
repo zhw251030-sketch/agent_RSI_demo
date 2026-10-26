@@ -1,0 +1,145 @@
+{
+  "schema": "replacement-shift-aware-v02-fake-verification-v0.1",
+  "status": "passed_shift_aware_v02_fake_round",
+  "run_id": "2026-10-26-v02-fake-v06",
+  "model": "synthetic_fake_provider",
+  "sdk_version": "1.55.1",
+  "task_count": 4,
+  "proposal_count": 8,
+  "model_requests": 8,
+  "provider_calls": 8,
+  "accepted_slots": 8,
+  "gate_records": 24,
+  "outcome_dev_read": true,
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "real_model_calls": 0,
+  "budget": {
+    "config": {
+      "max_requests": 8,
+      "max_requests_per_session": 1,
+      "max_output_tokens": 8192,
+      "max_input_bytes": 98304,
+      "max_reserved_tokens": 600000,
+      "max_cost_cny": 4.0,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4,
+      "session_ids": [
+        "bactgrow-p01-r1",
+        "bactgrow-p01-r2",
+        "stressstrain-p01-r1",
+        "stressstrain-p01-r2",
+        "oscillator1-p01-r1",
+        "oscillator1-p01-r2",
+        "oscillator2-p01-r1",
+        "oscillator2-p01-r2"
+      ]
+    },
+    "request_count": 8,
+    "session_counts": {
+      "bactgrow-p01-r1": 1,
+      "bactgrow-p01-r2": 1,
+      "stressstrain-p01-r1": 1,
+      "stressstrain-p01-r2": 1,
+      "oscillator1-p01-r1": 1,
+      "oscillator1-p01-r2": 1,
+      "oscillator2-p01-r1": 1,
+      "oscillator2-p01-r2": 1
+    },
+    "reserved_count": 0,
+    "failed_count": 0,
+    "reserved_input_tokens": 85210,
+    "reserved_output_tokens": 65536,
+    "reserved_tokens": 150746,
+    "reserved_cost_cny": 0.7294434,
+    "usage_unknown_count": 0,
+    "known_prompt_tokens": 800,
+    "known_completion_tokens": 160,
+    "known_total_tokens": 960,
+    "known_estimated_cost_cny": 0.003024,
+    "actual_tokens": 960,
+    "actual_estimated_cost_cny": 0.003024,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null,
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  },
+  "task_summary": {
+    "bactgrow": {
+      "slots": 2,
+      "edit_mode": {
+        "keep": 1,
+        "swap_one": 1
+      },
+      "evidence_status": {
+        "unknown": 1,
+        "contradicted": 1
+      }
+    },
+    "oscillator1": {
+      "slots": 2,
+      "edit_mode": {
+        "keep": 1,
+        "swap_one": 1
+      },
+      "evidence_status": {
+        "unknown": 1,
+        "contradicted": 1
+      }
+    },
+    "oscillator2": {
+      "slots": 2,
+      "edit_mode": {
+        "keep": 1,
+        "swap_one": 1
+      },
+      "evidence_status": {
+        "unknown": 2
+      }
+    },
+    "stressstrain": {
+      "slots": 2,
+      "edit_mode": {
+        "keep": 1,
+        "swap_one": 1
+      },
+      "evidence_status": {
+        "unknown": 1,
+        "contradicted": 1
+      }
+    }
+  },
+  "shadow_summary": {
+    "no_check": {
+      "proposals": 8,
+      "candidate_executions": 4,
+      "parent_retained": 4,
+      "candidate_failures": 0,
+      "harmful_shadow_outcomes": 3,
+      "deployed_harmful": 3,
+      "prevented_harm": 0
+    },
+    "sham_check": {
+      "proposals": 8,
+      "candidate_executions": 4,
+      "parent_retained": 4,
+      "candidate_failures": 0,
+      "harmful_shadow_outcomes": 3,
+      "deployed_harmful": 3,
+      "prevented_harm": 0
+    },
+    "replacement_check": {
+      "proposals": 8,
+      "candidate_executions": 0,
+      "parent_retained": 8,
+      "candidate_failures": 0,
+      "harmful_shadow_outcomes": 3,
+      "deployed_harmful": 0,
+      "prevented_harm": 3
+    }
+  },
+  "split_report_sha256": "eaf1150dff785fc7ac87f18ce00868b6941f1291ce673777b6a74818b39713af",
+  "round_summary_sha256": "2766e8ef038e410f73330b97e1aaaff5da1934d79fb82195f2a875467f4352a0",
+  "interpretation": "SDK/sandbox integration preflight only; no real model or benchmark claim."
+}
