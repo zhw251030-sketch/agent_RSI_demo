@@ -32,10 +32,11 @@ from rsi_eval.pilot_budget import BudgetLedger
 
 
 # The project ledger intentionally caps one session at 16 unique identifiers.
-# v02 therefore uses two pre-registered parents per task (2 repeats), giving
-# 16 total Agent slots while retaining all four task families.
+# v02 preflight therefore uses one pre-registered parent per task (2 repeats),
+# giving 8 total Agent slots while retaining all four task families.  A later
+# measured round can add parents in separate bounded batches.
 ALL_TASK_DEFINITIONS = tuple(
-    TaskDefinition(item.task_id, item.input_names, item.headers, item.target, item.parents[:2])
+    TaskDefinition(item.task_id, item.input_names, item.headers, item.target, item.parents[:1])
     for item in (TASK_DEFINITIONS + CROSS_TASK_DEFINITIONS)
 )
 SHIFT_REPORT = ROOT / "docs/environment/2026-10-26-shift-aware-dev-v02.json"
@@ -68,7 +69,7 @@ def _fake_responses() -> list[dict]:
 
 def _make_ledger(output: Path) -> BudgetLedger:
     return BudgetLedger(
-        output / "budget-ledger.json", max_requests=24,
+        output / "budget-ledger.json", max_requests=8,
         max_requests_per_session=1, max_output_tokens=8192,
         max_input_bytes=98304, max_reserved_tokens=600000,
         max_cost_cny=4, session_ids=_slot_ids(),
@@ -115,7 +116,7 @@ def run(run_id: str) -> dict:
         "provider_calls": provider.calls,
         "task_count": len(ALL_TASK_DEFINITIONS),
         "proposal_count": len(summary["records"]),
-        "parents_per_task": 2,
+        "parents_per_task": 1,
         "split_report": str(SHIFT_REPORT.relative_to(ROOT)).replace("\\", "/"),
         "split_report_sha256": hashlib.sha256(SHIFT_REPORT.read_bytes()).hexdigest(),
         "round_summary_sha256": hashlib.sha256((output / "round/round-summary.json").read_bytes()).hexdigest(),
