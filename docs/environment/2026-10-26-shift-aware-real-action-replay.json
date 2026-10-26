@@ -1,0 +1,100 @@
+{
+  "schema": "replacement-shift-aware-action-replay-v0.1",
+  "status": "passed_shift_action_replay",
+  "round_summary": "runs/replacement-shift-aware-v02/2026-10-26-v02-real-v01/round/round-summary.json",
+  "round_summary_sha256": "10875e155303cfde96aef80868f4c61b18d86b74811a767eb3e8b3a5d92a41aa",
+  "shift_report": "docs/environment/2026-10-26-shift-aware-dev-v02.json",
+  "shift_report_sha256": "eaf1150dff785fc7ac87f18ce00868b6941f1291ce673777b6a74818b39713af",
+  "model_requests": 0,
+  "candidate_executions": 0,
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "proposal_count": 8,
+  "covered_execute": 3,
+  "covered_retain": 5,
+  "shifted_execute": 0,
+  "shifted_retain": 8,
+  "changed_on_shift": 3,
+  "rows": [
+    {
+      "proposal_id": "bactgrow-p01-r1",
+      "task_id": "bactgrow",
+      "edit_mode": "keep",
+      "evidence_status": "unknown",
+      "old_replacement_action": "retain_parent",
+      "covered_action": "retain_parent",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": false
+    },
+    {
+      "proposal_id": "bactgrow-p01-r2",
+      "task_id": "bactgrow",
+      "edit_mode": "swap_one",
+      "evidence_status": "supported",
+      "old_replacement_action": "execute_candidate",
+      "covered_action": "execute_candidate",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": true
+    },
+    {
+      "proposal_id": "oscillator1-p01-r1",
+      "task_id": "oscillator1",
+      "edit_mode": "swap_one",
+      "evidence_status": "contradicted",
+      "old_replacement_action": "retain_parent",
+      "covered_action": "retain_parent",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": false
+    },
+    {
+      "proposal_id": "oscillator1-p01-r2",
+      "task_id": "oscillator1",
+      "edit_mode": "swap_one",
+      "evidence_status": "contradicted",
+      "old_replacement_action": "retain_parent",
+      "covered_action": "retain_parent",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": false
+    },
+    {
+      "proposal_id": "oscillator2-p01-r1",
+      "task_id": "oscillator2",
+      "edit_mode": "keep",
+      "evidence_status": "unknown",
+      "old_replacement_action": "retain_parent",
+      "covered_action": "retain_parent",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": false
+    },
+    {
+      "proposal_id": "oscillator2-p01-r2",
+      "task_id": "oscillator2",
+      "edit_mode": "keep",
+      "evidence_status": "unknown",
+      "old_replacement_action": "retain_parent",
+      "covered_action": "retain_parent",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": false
+    },
+    {
+      "proposal_id": "stressstrain-p01-r1",
+      "task_id": "stressstrain",
+      "edit_mode": "swap_one",
+      "evidence_status": "supported",
+      "old_replacement_action": "execute_candidate",
+      "covered_action": "execute_candidate",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": true
+    },
+    {
+      "proposal_id": "stressstrain-p01-r2",
+      "task_id": "stressstrain",
+      "edit_mode": "swap_one",
+      "evidence_status": "supported",
+      "old_replacement_action": "execute_candidate",
+      "covered_action": "execute_candidate",
+      "shifted_action": "retain_parent",
+      "action_changed_on_shift": true
+    }
+  ]
+}

@@ -24,6 +24,10 @@
 
 - 2026-10-26完成 v02 covered/shifted action replay。8/8 proposal 覆盖，`check_dev_v2` 为 covered、synthetic fixture 为 shifted；FakeProvider 的 swap 均为 contradicted/unknown，因此两种状态均保留父结构、动作变化0。该结果仅验证 replay 绑定，真实 `supported+shifted` 已由 synthetic preflight 覆盖；下一步加入真实 MiniMax v02 round。见[replay 结果](docs/analysis/2026-10-26-shift-aware-action-replay-results.md)和[机器核验](docs/environment/2026-10-26-shift-aware-action-replay.json)。
 
+- 2026-10-26完成 v02 真实开发轮与 covered/shifted replay。MiniMax-M3 8/8请求接受、8 proposal、24 gate、9,300 tokens、估算0.0236565元；四任务中3个真实 supported proposal在 covered下执行，在 shifted下全部转为 retain_parent，动作变化3/3。官方 test/OOD 未读取；本轮证明真实 proposal 的宿主动作接线，不证明 shift outcome 或 OOD 收益。下一步是对 synthetic_shift_dev 做固定参数 parent/candidate 预测。见[真实结果](docs/analysis/2026-10-26-shift-aware-v02-real-results.md)、[机器核验](docs/environment/2026-10-26-shift-aware-v02-real-verification.json)和[replay核验](docs/environment/2026-10-26-shift-aware-real-action-replay.json)。
+
+- 2026-10-26完成 synthetic shift proxy outcome。对8个真实 proposal 在输入变换的 `synthetic_shift_dev` 上进行固定参数预测，3个 proxy 退化且最终均未部署；旧 action 会部署1个，shift-aware gate 相对旧 action 新增阻断1个，另2个原本已由 evidence gate 保留。目标值复用 fit_dev，仅作工程诊断，不是OOD benchmark；0模型调用、未读取官方测试。见[proxy结果](docs/analysis/2026-10-26-shift-aware-proxy-outcome-results.md)和[机器核验](docs/environment/2026-10-26-shift-aware-proxy-outcome.json)。
+
 - 2026-10-25完成替换充分性真实 Agent 开发轮 `real-v04`。在固定 MiniMax-M3、OpenHands SDK 1.55.1、两个任务和开发切分上，12/12 请求及工具提交接受，9 个单项替换、3 个 keep，36/36 gate 记录冻结，0 次重试、usage unknown=0；真实用量14,572 tokens，按账本估算0.0369516元。编辑前证据4 supported、5 contradicted、3 unknown/no_edit。冻结后读取 outcome_dev 的影子结果为：`no_check`/`sham_check`均部署5个有害候选，`replacement_check`执行4次、保留8次并拦截5次。该结果只支持本轮两个任务上的机制级信号，不支持稳定优势、显著性或独立泛化；未读取官方封存测试，未更新权重/S/持久策略。见[真实结果与边界](docs/analysis/2026-10-25-replacement-real-v04-results.md)。
 
 - 2026-10-25修复上一轮双替换停止审计：Agent 提示明确最多一次替换，runner 对非法结构写入 `round-stop.json`，命令行摘要回填停止原因、已接受工具槽位、gate 数和停止文件哈希；新增回归测试后本机23项通过。FakeProvider v06预演12/12请求、36/36 gate通过，证书绑定提交 `85addadd`。见[预演证书](docs/environment/2026-10-24-replacement-agent-round-preflight.json)和[验证记录](docs/environment/2026-10-24-replacement-agent-round-verification.json)。

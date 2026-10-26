@@ -127,12 +127,23 @@ def run(output: Path) -> dict:
         "proxy_harmful": sum(row["proxy_harmful"] for row in rows),
         "old_deployed_proxy_harmful": sum(row["proxy_harmful"] and row["old_action"] == "execute_candidate" for row in rows),
         "shift_deployed_proxy_harmful": sum(row["proxy_harmful"] and row["shift_action"] == "execute_candidate" for row in rows),
-        "shift_prevented_proxy_harm": sum(row["proxy_harmful"] and row["shift_action"] == "retain_parent" for row in rows),
+        "shift_prevented_proxy_harm": sum(
+            row["proxy_harmful"]
+            and row["old_action"] == "execute_candidate"
+            and row["shift_action"] == "retain_parent"
+            for row in rows
+        ),
+        "already_retained_proxy_harm": sum(
+            row["proxy_harmful"]
+            and row["old_action"] == "retain_parent"
+            and row["shift_action"] == "retain_parent"
+            for row in rows
+        ),
         "rows": rows,
     }
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({key: result[key] for key in ("status", "proposal_count", "proxy_harmful", "old_deployed_proxy_harmful", "shift_deployed_proxy_harmful", "shift_prevented_proxy_harm")}, ensure_ascii=False, sort_keys=True))
+    print(json.dumps({key: result[key] for key in ("status", "proposal_count", "proxy_harmful", "old_deployed_proxy_harmful", "shift_deployed_proxy_harmful", "shift_prevented_proxy_harm", "already_retained_proxy_harm")}, ensure_ascii=False, sort_keys=True))
     return result
 
 
