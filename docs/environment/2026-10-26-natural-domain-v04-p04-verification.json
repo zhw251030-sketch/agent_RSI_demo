@@ -1,0 +1,63 @@
+{
+  "schema": "replacement-natural-domain-v04-p04-verification",
+  "status": "passed",
+  "run_id": "2026-10-26-natural-domain-v04-p04-real-v01",
+  "code_commit": "c621d5b72857ed1a49408ef7a34cfeba8a71055d",
+  "sdk_version": "1.55.1",
+  "model": "MiniMax-M3",
+  "model_requests": 8,
+  "real_model_calls": 8,
+  "accepted_slots": 8,
+  "gate_records": 24,
+  "keep_count": 3,
+  "swap_count": 5,
+  "evidence_counts": {
+    "supported": 2,
+    "contradicted": 1,
+    "unknown": 5
+  },
+  "known_total_tokens": 9396,
+  "known_estimated_cost_cny": 0.0247212,
+  "usage_unknown_count": 0,
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "natural_report_read_during_actor_round": false,
+  "historical_round_count": 14,
+  "round_summary_sha256": "bebe24ea734202746d5cc7c841cb5433f2954eae7f9069945a0938574d77c049",
+  "v03_replay": {
+    "path": "docs/environment/2026-10-26-natural-domain-v04-p04-v03-replay.json",
+    "sha256": "5b4f97da67c81f50bf6bd942b832e8846ac64e8c8ec37d63729d58d7fb8d3fb4",
+    "model_requests": 0,
+    "sandbox_calls": 26,
+    "decision_counts": {
+      "allow_after_validation": 1,
+      "defer": 5,
+      "retain": 2
+    },
+    "old_deployed_proxy_harmful": 1,
+    "v03_deployed_proxy_harmful": 0,
+    "official_test_read": false,
+    "official_test_ood_read": false
+  },
+  "v04_replay": {
+    "path": "docs/environment/2026-10-26-natural-domain-v04-p04-v04-replay.json",
+    "sha256": "9a2e69f8a7fe3ed3aff8968dee1f1f0d2db2098b5a483e935ca8219d9a70c926",
+    "report_sha256": "13321532451c5c966d9ecf69e087a0f0da0aef9ca06a618d57c747414868bd96",
+    "model_requests": 0,
+    "sandbox_calls": 139,
+    "decision_counts": {
+      "defer": 2,
+      "retain": 6
+    },
+    "v04_deployed_natural_harmful": 0,
+    "official_test_read": false,
+    "official_test_ood_read": false
+  },
+  "checks": {
+    "p04_parent_source_novelty": "passed",
+    "single_request_per_slot": "passed",
+    "usage_unknown": "passed",
+    "no_official_holdout_read": "passed",
+    "v03_v04_replay_without_model": "passed"
+  }
+}
