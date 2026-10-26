@@ -1,0 +1,30 @@
+{
+  "schema": "replacement-holdout-failure-audit-v0.1",
+  "status": "passed_read_only_audit",
+  "holdout_summary_sha256": "3df7b6dc424f022af0b611f79c306f654f46ca2733d1df142bc15dea8ee4a160",
+  "development_round_summaries": {
+    "real-v04": "764e5caa462372e7ddb14835d77ba6c9e0d890fc74817ef4c74ee84172e96fd9",
+    "cross-real-v01": "634e2fbe728661106c9fd4a23d49a3d13929a55a7de1b8828d3cbe172e4cc546"
+  },
+  "model_calls": 0,
+  "gate_changes": false,
+  "ood_harmful_total": 9,
+  "ood_harmful_by_development_status": {
+    "supported": {"total": 4, "deployed_harmful": 4, "prevented_harm": 0},
+    "contradicted": {"total": 4, "deployed_harmful": 0, "prevented_harm": 4},
+    "unknown": {"total": 1, "deployed_harmful": 0, "prevented_harm": 1}
+  },
+  "residual_deployed_harmful": [
+    {"proposal_id": "bactgrow-p02-r2", "task_id": "bactgrow", "development_status": "supported", "development_ratio": 13.683591671856284, "ood_delta_nmse": 0.12022453891131146},
+    {"proposal_id": "stressstrain-p03-r1", "task_id": "stressstrain", "development_status": "supported", "development_ratio": 2.0794675057472505, "ood_delta_nmse": 0.16805711293819003},
+    {"proposal_id": "stressstrain-p03-r2", "task_id": "stressstrain", "development_status": "supported", "development_ratio": 2.0794675057472505, "ood_delta_nmse": 0.16805711293819003},
+    {"proposal_id": "oscillator2-p01-r2", "task_id": "oscillator2", "development_status": "supported", "development_ratio": 2.380590284149462, "ood_delta_nmse": 0.013169600419399172}
+  ],
+  "distribution_shift_observations": {
+    "bactgrow": {"check_temp_range": [1.02311, 39.942295], "ood_temp_range": [1.007067, 59.999581], "check_b_range": [1.00095, 4.993855], "ood_b_range": [1.000265, 9.999089]},
+    "stressstrain": {"check_temp_levels": 5, "ood_temp_levels": 1, "ood_temp_value": 0.666667},
+    "oscillator1": {"check_x_range": [-0.572821, 0.527512], "ood_x_range": [-0.732311, 1.102051], "check_v_range": [-0.17543, 0.282135], "ood_v_range": [-0.22538, 0.5]},
+    "oscillator2": {"check_t_range": [30.0016, 49.997999], "ood_t_range": [0.0, 19.9984], "check_a_range": [-0.710829, 0.660384], "ood_a_range": [-3.546892, 1.908322]}
+  },
+  "interpretation": "The main failure mode is supported evidence extrapolated beyond the check distribution; no evidence supports changing the frozen holdout gate retrospectively."
+}

@@ -10,6 +10,10 @@
 
 - 2026-10-26完成最终替换充分性 holdout 解封与只读回放。评估器第一次读取四个任务的官方 `test_id/test_ood`，24/24 冻结 proposal、144 条条件记录全部完成；没有模型调用、阈值修改、gate 改写或权重更新。`no_check`/`sham_check` 在 ID/OOD 分别部署 7/9 个有害候选，`replacement_check` 分别拦截 7/5 个、部署 0/4 个；同时保守拒绝 3/5 个潜在有利候选并保留父结构。结果支持风险拦截方向，但不支持完全 OOD 可靠性或独立分布泛化；`stressstrain/test_ood` 与 `oscillator2/test_ood` 是优先失败案例。见[holdout 结果与边界](docs/analysis/2026-10-25-replacement-holdout-results.md)、[机器核验](docs/environment/2026-10-25-replacement-holdout-verification.json)。
 
+- 2026-10-26完成最终 holdout 失败案例只读审查。OOD 的 9 个有害候选中，4 个 `supported` 全部被错误部署，4 个 `contradicted` 和 1 个 `unknown` 均被拦截；残余失败集中在开发证据跨分布外推，而不是 gate 执行动作错误。`bactgrow`/`oscillator2` 出现明显范围扩展，`stressstrain` 出现温度层退化，`oscillator2` 时间域从 30–50 切换到 0–20。下一版应在新的开发切分上增加 host-only shift/coverage gate，保留当前 replacement gate 作为消融；本轮 holdout 不用于调参。见[失败审查](docs/analysis/2026-10-26-holdout-failure-audit.md)和[机器审查](docs/environment/2026-10-26-holdout-failure-audit.json)。
+
+- 2026-10-26完成 shift-aware v02 的设计草案和宿主侧诊断模块。新增 `analysis/replacement_evidence/shift_gate.py`，从冻结开发输入建立 1%–99% 参考区间，并计算范围外比例、均值 z 分数和方差比；新增 6 项单元测试，与原替换证据测试合计 18/18 通过。模块尚未接入真实 gate、未读取新的封存数据、未产生模型调用；下一步是用训练数据构造 `fit_dev_v2/check_dev_v2/synthetic_shift_dev/outcome_dev_v2` 并完成 fake 预演。见[v02设计](docs/experiments/2026-10-26-shift-aware-replacement-v02-design.md)。
+
 - 2026-10-25完成替换充分性真实 Agent 开发轮 `real-v04`。在固定 MiniMax-M3、OpenHands SDK 1.55.1、两个任务和开发切分上，12/12 请求及工具提交接受，9 个单项替换、3 个 keep，36/36 gate 记录冻结，0 次重试、usage unknown=0；真实用量14,572 tokens，按账本估算0.0369516元。编辑前证据4 supported、5 contradicted、3 unknown/no_edit。冻结后读取 outcome_dev 的影子结果为：`no_check`/`sham_check`均部署5个有害候选，`replacement_check`执行4次、保留8次并拦截5次。该结果只支持本轮两个任务上的机制级信号，不支持稳定优势、显著性或独立泛化；未读取官方封存测试，未更新权重/S/持久策略。见[真实结果与边界](docs/analysis/2026-10-25-replacement-real-v04-results.md)。
 
 - 2026-10-25修复上一轮双替换停止审计：Agent 提示明确最多一次替换，runner 对非法结构写入 `round-stop.json`，命令行摘要回填停止原因、已接受工具槽位、gate 数和停止文件哈希；新增回归测试后本机23项通过。FakeProvider v06预演12/12请求、36/36 gate通过，证书绑定提交 `85addadd`。见[预演证书](docs/environment/2026-10-24-replacement-agent-round-preflight.json)和[验证记录](docs/environment/2026-10-24-replacement-agent-round-verification.json)。
