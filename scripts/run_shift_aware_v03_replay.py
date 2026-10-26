@@ -215,6 +215,8 @@ def run(
         "shift_report": str(shift_report_path.relative_to(ROOT)).replace("\\", "/"),
         "shift_report_sha256": _sha256(shift_report_path.read_bytes()),
         "proxy_report": "in_memory:build_shift_aware_outcome_proxy_v03",
+        "proxy_report_sha256": proxy_report["report_sha256"],
+        "proxy_source_split": proxy_report["source_split"],
         "model_requests": 0,
         "sandbox_calls": sandbox_calls,
         "official_test_read": False,
