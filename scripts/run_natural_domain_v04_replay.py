@@ -142,7 +142,11 @@ def _score_source(
 
 
 def summarize_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    decisions = Counter(row["decision"] for row in rows if row.get("decision"))
+    decisions = Counter(
+        row["decision"].get("decision")
+        for row in rows
+        if isinstance(row.get("decision"), dict) and row["decision"].get("decision")
+    )
     swap_rows = [row for row in rows if row.get("edit_mode") == "swap_one"]
     harmful = [row for row in swap_rows if row.get("natural_ordinary_harmful")]
     return {
