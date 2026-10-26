@@ -35,6 +35,17 @@ REAL_ROUND = ROOT / "runs/replacement-shift-aware-v02/2026-10-26-v02-real-v01/ro
 TOLERANCE = 1e-5
 
 
+def _resolve_repo_path(path: Path) -> Path:
+    candidate = path if path.is_absolute() else ROOT / path
+    resolved = candidate.resolve()
+    resolved.relative_to(ROOT)
+    return resolved
+
+
+def _repo_relative(path: Path) -> str:
+    return _resolve_repo_path(path).relative_to(ROOT).as_posix()
+
+
 def _canonical(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
@@ -130,6 +141,9 @@ def run(
     shift_report_path: Path = SHIFT_REPORT,
 ) -> dict[str, Any]:
     check_runtime()
+    round_summary_path = _resolve_repo_path(round_summary_path)
+    shift_report_path = _resolve_repo_path(shift_report_path)
+    output = _resolve_repo_path(output)
     shift_report = json.loads(shift_report_path.read_text(encoding="utf-8"))
     round_summary = json.loads(round_summary_path.read_text(encoding="utf-8"))
     if shift_report.get("official_test_read") or shift_report.get("official_test_ood_read"):
@@ -210,9 +224,9 @@ def run(
     result = {
         "schema": "replacement-shift-aware-outcome-gate-v03-replay",
         "status": "passed_shift_outcome_gate_v03_replay",
-        "real_round": str(round_summary_path.relative_to(ROOT)).replace("\\", "/"),
+        "real_round": _repo_relative(round_summary_path),
         "real_round_sha256": _sha256(round_summary_path.read_bytes()),
-        "shift_report": str(shift_report_path.relative_to(ROOT)).replace("\\", "/"),
+        "shift_report": _repo_relative(shift_report_path),
         "shift_report_sha256": _sha256(shift_report_path.read_bytes()),
         "proxy_report": "in_memory:build_shift_aware_outcome_proxy_v03",
         "proxy_report_sha256": proxy_report["report_sha256"],

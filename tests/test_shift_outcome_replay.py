@@ -1,4 +1,10 @@
-from scripts.run_shift_aware_v03_replay import summarize_proxy_rows
+from pathlib import Path
+
+from scripts.run_shift_aware_v03_replay import _repo_relative, summarize_proxy_rows
+
+
+def test_repo_relative_resolves_relative_paths_against_project_root():
+    assert _repo_relative(Path("runs/example/round-summary.json")) == "runs/example/round-summary.json"
 
 
 def test_summary_distinguishes_new_shift_block_and_existing_evidence_block():
