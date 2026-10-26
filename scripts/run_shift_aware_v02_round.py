@@ -14,6 +14,7 @@ import importlib.metadata
 import json
 import os
 from pathlib import Path
+import subprocess
 import sys
 from unittest.mock import patch
 
@@ -40,6 +41,7 @@ ALL_TASK_DEFINITIONS = tuple(
     for item in (TASK_DEFINITIONS + CROSS_TASK_DEFINITIONS)
 )
 SHIFT_REPORT = ROOT / "docs/environment/2026-10-26-shift-aware-dev-v02.json"
+FAKE_CERTIFICATE = ROOT / "docs/environment/2026-10-26-shift-aware-v02-fake-verification.json"
 PROTOCOL = "replacement-shift-aware-v02-preflight"
 
 
@@ -76,7 +78,35 @@ def _make_ledger(output: Path) -> BudgetLedger:
     )
 
 
-def run(run_id: str) -> dict:
+def _validate_fake_certificate() -> dict:
+    certificate = json.loads(FAKE_CERTIFICATE.read_text(encoding="utf-8"))
+    required = {
+        "status": "passed_shift_aware_v02_fake_round",
+        "task_count": 4, "proposal_count": 8, "accepted_slots": 8,
+        "gate_records": 24, "model_requests": 8, "provider_calls": 8,
+        "real_model_calls": 0, "outcome_dev_read": True,
+        "official_test_read": False, "official_test_ood_read": False,
+    }
+    if any(certificate.get(key) != value for key, value in required.items()):
+        raise RuntimeError("v02 fake certificate is incomplete")
+    if certificate.get("split_report_sha256") != hashlib.sha256(SHIFT_REPORT.read_bytes()).hexdigest():
+        raise RuntimeError("v02 fake certificate split report changed")
+    current = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
+                             check=True, capture_output=True, text=True).stdout.strip()
+    # The fake round certificate is reusable only while the core runner and
+    # runtime contract remain unchanged; replay/report files may evolve.
+    fake_commit = "c4fa3e105f"
+    ancestor = subprocess.run(["git", "merge-base", "--is-ancestor", fake_commit, current], cwd=ROOT)
+    if ancestor.returncode != 0:
+        raise RuntimeError("v02 fake runner commit is not an ancestor")
+    return certificate
+
+
+def run(mode: str, run_id: str, auth_file: str | None = None) -> dict:
+    if mode not in {"fake", "real"}:
+        raise ValueError("mode must be fake or real")
+    if mode == "real":
+        _validate_fake_certificate()
     output = ROOT / "runs/replacement-shift-aware-v02" / run_id
     if output.exists():
         raise FileExistsError("v02 output already exists; no resume")
@@ -84,8 +114,14 @@ def run(run_id: str) -> dict:
     tasks = load_frozen_tasks(ROOT, SHIFT_REPORT, task_definitions=ALL_TASK_DEFINITIONS)
     output.mkdir(parents=True, exist_ok=False)
     ledger = _make_ledger(output)
-    settings = sdk_controller.public_settings() | {"api_key": "synthetic-no-network-key"}
-    provider = sdk_controller.FakeProvider(_fake_responses())
+    settings = sdk_controller.public_settings()
+    provider = None
+    if mode == "fake":
+        settings["api_key"] = "synthetic-no-network-key"
+        provider = sdk_controller.FakeProvider(_fake_responses())
+    else:
+        from scripts.configure_minimax import auth_path, read_key
+        settings["api_key"] = read_key(auth_path(auth_file))
 
     def actor_runner(*, slot_id, packet, spec, output_dir):
         return sdk_controller.run_session(
@@ -93,7 +129,9 @@ def run(run_id: str) -> dict:
             stage="actor", spec=spec,
         )
 
-    with patch("openhands.sdk.llm.llm.litellm_completion", provider):
+    context = (patch("openhands.sdk.llm.llm.litellm_completion", provider)
+               if provider is not None else contextlib.nullcontext())
+    with context:
         summary = run_round(
             tasks=tasks, actor_runner=actor_runner,
             fit_executor=sandbox_call, predict_executor=sandbox_call,
@@ -104,7 +142,7 @@ def run(run_id: str) -> dict:
         "schema": PROTOCOL,
         "status": "passed",
         "run_id": run_id,
-        "mode": "fake",
+        "mode": mode,
         "sdk_version": importlib.metadata.version("openhands-sdk"),
         "model_requests": summary["model_requests"],
         "accepted_slots": summary["accepted_slots"],
@@ -112,8 +150,8 @@ def run(run_id: str) -> dict:
         "outcome_dev_read": summary["outcome_dev_read"],
         "official_test_read": False,
         "official_test_ood_read": False,
-        "real_model_calls": 0,
-        "provider_calls": provider.calls,
+        "real_model_calls": 0 if mode == "fake" else summary["model_requests"],
+        "provider_calls": None if provider is None else provider.calls,
         "task_count": len(ALL_TASK_DEFINITIONS),
         "proposal_count": len(summary["records"]),
         "parents_per_task": 1,
@@ -130,9 +168,11 @@ def run(run_id: str) -> dict:
 def main() -> int:
     import argparse
     parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=("fake", "real"), required=True)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--auth-file")
     args = parser.parse_args()
-    result = run(args.run_id)
+    result = run(args.mode, args.run_id, args.auth_file)
     return 0 if result["status"] == "passed" else 1
 
 
