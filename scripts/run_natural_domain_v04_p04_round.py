@@ -56,6 +56,16 @@ def _current_commit() -> str:
     ).stdout.strip()
 
 
+def include_historical_summary(summary_path: Path, active_root: Path = RUN_ROOT) -> bool:
+    """Return whether a round summary belongs to a prior protocol run."""
+
+    try:
+        summary_path.resolve().relative_to(active_root.resolve())
+    except ValueError:
+        return True
+    return False
+
+
 def build_fake_responses(task_definitions=P04_TASK_DEFINITIONS) -> list[dict[str, Any]]:
     responses: list[dict[str, Any]] = []
     for definition in task_definitions:
@@ -77,6 +87,8 @@ def _historical_by_task() -> tuple[dict[str, set[str]], int]:
     merged: dict[str, set[str]] = {}
     count = 0
     for summary_path in sorted((ROOT / "runs").glob("**/round/round-summary.json")):
+        if not include_historical_summary(summary_path):
+            continue
         try:
             summary = json.loads(summary_path.read_text(encoding="utf-8"))
             extracted = historical_source_hashes(summary)

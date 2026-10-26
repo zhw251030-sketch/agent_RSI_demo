@@ -1,4 +1,8 @@
-from scripts.run_natural_domain_v04_p04_round import build_fake_responses
+from pathlib import Path
+
+from scripts.run_natural_domain_v04_p04_round import (
+    build_fake_responses, include_historical_summary,
+)
 from analysis.replacement_evidence.independent_round_config import P04_TASK_DEFINITIONS
 
 
@@ -13,3 +17,13 @@ def test_fake_plan_has_two_one_shot_submissions_per_p04_parent():
         assert first == parent_ids
         assert len(second) == len(parent_ids)
         assert second != parent_ids
+
+
+def test_active_p04_protocol_summaries_are_not_historical():
+    active = Path("/repo/runs/replacement-natural-domain-v04-p04")
+    assert include_historical_summary(
+        active / "fake-v01/round/round-summary.json", active
+    ) is False
+    assert include_historical_summary(
+        Path("/repo/runs/replacement-shift-aware-v02/old/round/round-summary.json"), active
+    ) is True
