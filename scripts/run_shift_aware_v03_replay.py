@@ -88,27 +88,37 @@ def summarize_proxy_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "proposal_count": len(rows),
         "proxy_harmful": sum(bool(row.get("proxy_harmful")) for row in rows),
-        "v02_deployed_proxy_harmful": sum(
-            bool(row.get("proxy_harmful")) and row.get("v02_action") == "execute_candidate"
+        "old_deployed_proxy_harmful": sum(
+            bool(row.get("proxy_harmful")) and row.get("old_action") == "execute_candidate"
+            for row in rows
+        ),
+        "v02_shift_deployed_proxy_harmful": sum(
+            bool(row.get("proxy_harmful")) and row.get("v02_shift_action") == "execute_candidate"
             for row in rows
         ),
         "v03_deployed_proxy_harmful": sum(
             bool(row.get("proxy_harmful")) and row.get("v03_action") == "execute_candidate"
             for row in rows
         ),
-        "v03_new_shift_prevented_proxy_harm": sum(
+        "v02_prevented_vs_old": sum(
             bool(row.get("proxy_harmful"))
-            and row.get("v02_action") == "execute_candidate"
+            and row.get("old_action") == "execute_candidate"
+            and row.get("v02_shift_action") == "retain_parent"
+            for row in rows
+        ),
+        "v03_new_prevented_vs_old": sum(
+            bool(row.get("proxy_harmful"))
+            and row.get("old_action") == "execute_candidate"
             and row.get("v03_action") == "retain_parent"
             for row in rows
         ),
-        "already_retained_proxy_harm": sum(
+        "v03_new_prevented_vs_v02": sum(
             bool(row.get("proxy_harmful"))
-            and row.get("v02_action") == "retain_parent"
+            and row.get("v02_shift_action") == "execute_candidate"
             and row.get("v03_action") == "retain_parent"
             for row in rows
         ),
-        "v03_action_changes": sum(bool(row.get("action_changed")) for row in rows),
+        "v03_action_changes_from_v02": sum(bool(row.get("changed_from_v02")) for row in rows),
         "decision_counts": dict(sorted(decisions.items())),
     }
 
@@ -167,7 +177,12 @@ def run(
                 candidate_nmse=candidate_nmse,
                 n_rows=len(fixture["y"]),
             )
-            v02_action = frozen[proposal_id]
+            old_action = frozen[proposal_id]
+            v02_shift_action = (
+                old_action
+                if shift_status == "covered" or evidence_status != "supported"
+                else "retain_parent"
+            )
             delta = candidate_nmse - parent_nmse
             rows.append({
                 "proposal_id": proposal_id,
@@ -179,9 +194,11 @@ def run(
                 "candidate_nmse": candidate_nmse,
                 "delta_nmse": delta,
                 "proxy_harmful": bool(record["edit_mode"] == "swap_one" and delta > TOLERANCE),
-                "v02_action": v02_action,
+                "old_action": old_action,
+                "v02_shift_action": v02_shift_action,
                 "v03_action": decision["final_action"],
-                "action_changed": v02_action != decision["final_action"],
+                "changed_from_old": old_action != decision["final_action"],
+                "changed_from_v02": v02_shift_action != decision["final_action"],
                 "decision": decision["decision"],
                 "validation_status": decision["validation_status"],
                 "decision_reason": decision["reason"],

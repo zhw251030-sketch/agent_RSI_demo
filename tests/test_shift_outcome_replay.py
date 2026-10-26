@@ -3,17 +3,20 @@ from scripts.run_shift_aware_v03_replay import summarize_proxy_rows
 
 def test_summary_distinguishes_new_shift_block_and_existing_evidence_block():
     rows = [
-        {"v02_action": "execute_candidate", "v03_action": "retain_parent", "proxy_harmful": True, "action_changed": True},
-        {"v02_action": "retain_parent", "v03_action": "retain_parent", "proxy_harmful": True, "action_changed": False},
-        {"v02_action": "execute_candidate", "v03_action": "execute_candidate", "proxy_harmful": False, "action_changed": False},
+        {"old_action": "execute_candidate", "v02_shift_action": "retain_parent", "v03_action": "retain_parent", "proxy_harmful": True, "changed_from_v02": False},
+        {"old_action": "retain_parent", "v02_shift_action": "retain_parent", "v03_action": "retain_parent", "proxy_harmful": True, "changed_from_v02": False},
+        {"old_action": "execute_candidate", "v02_shift_action": "retain_parent", "v03_action": "execute_candidate", "proxy_harmful": False, "changed_from_v02": True},
     ]
     result = summarize_proxy_rows(rows)
     assert result["proposal_count"] == 3
     assert result["proxy_harmful"] == 2
-    assert result["v02_deployed_proxy_harmful"] == 1
+    assert result["old_deployed_proxy_harmful"] == 1
+    assert result["v02_shift_deployed_proxy_harmful"] == 0
     assert result["v03_deployed_proxy_harmful"] == 0
-    assert result["v03_new_shift_prevented_proxy_harm"] == 1
-    assert result["already_retained_proxy_harm"] == 1
+    assert result["v03_new_prevented_vs_old"] == 1
+    assert result["v02_prevented_vs_old"] == 1
+    assert result["v03_new_prevented_vs_v02"] == 0
+    assert result["v03_action_changes_from_v02"] == 1
 
 
 def test_summary_counts_validation_outcomes():
