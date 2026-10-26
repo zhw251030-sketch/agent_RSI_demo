@@ -34,6 +34,15 @@ def summarize_fake_round(fake_summary: dict[str, Any], v03_summary: dict[str, An
         raise ValueError("fake round reported real model calls")
     if v03_summary.get("model_requests") != 0:
         raise ValueError("v03 wrapper unexpectedly made model requests")
+    v03_aggregate = v03_summary.get("summary", {})
+    if not isinstance(v03_aggregate, dict):
+        raise ValueError("v03 summary aggregate is invalid")
+    proposal_count = v03_aggregate.get("proposal_count", v03_summary.get("proposal_count"))
+    supported_proposals = sum(
+        row.get("evidence_status") == "supported"
+        for row in v03_summary.get("rows", [])
+        if isinstance(row, dict)
+    )
     return {
         "status": "passed_shift_aware_v03_fake_round",
         "provider_calls": fake_summary.get("provider_calls"),
@@ -42,10 +51,11 @@ def summarize_fake_round(fake_summary: dict[str, Any], v03_summary: dict[str, An
         "accepted_slots": fake_summary.get("accepted_slots"),
         "gate_records": fake_summary.get("gate_records"),
         "fake_actual_tokens": fake_summary.get("budget", {}).get("actual_tokens"),
-        "proposal_count": v03_summary.get("proposal_count"),
+        "proposal_count": proposal_count,
+        "supported_proposals": supported_proposals,
         "v03_model_requests": v03_summary.get("model_requests"),
         "v03_sandbox_calls": v03_summary.get("sandbox_calls"),
-        "v03_summary": v03_summary.get("summary"),
+        "v03_summary": v03_aggregate,
         "official_test_read": False,
         "official_test_ood_read": False,
     }

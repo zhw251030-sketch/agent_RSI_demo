@@ -13,11 +13,11 @@ def test_fake_round_summary_binds_sdk_round_to_v03_replay():
         "budget": {"actual_tokens": 960},
     }
     v03_summary = {
-        "proposal_count": 8,
         "model_requests": 0,
         "official_test_read": False,
         "official_test_ood_read": False,
-        "v03_deployed_proxy_harmful": 0,
+        "summary": {"proposal_count": 8, "v03_deployed_proxy_harmful": 0},
+        "rows": [{"evidence_status": "supported"}] * 2,
     }
     result = summarize_fake_round(fake_summary, v03_summary)
     assert result["status"] == "passed_shift_aware_v03_fake_round"
@@ -25,6 +25,7 @@ def test_fake_round_summary_binds_sdk_round_to_v03_replay():
     assert result["real_model_calls"] == 0
     assert result["v03_model_requests"] == 0
     assert result["proposal_count"] == 8
+    assert result["supported_proposals"] == 2
 
 
 def test_fake_round_rejects_holdout_flags():
