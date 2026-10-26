@@ -25,13 +25,19 @@ os.environ.setdefault("LITELLM_LOCAL_MODEL_COST_MAP", "True")
 os.environ.setdefault("DO_NOT_TRACK", "1")
 
 from analysis.replacement_evidence.cross_task_config import CROSS_TASK_DEFINITIONS
-from analysis.replacement_evidence.round_runner import TASK_DEFINITIONS, compile_basis, load_frozen_tasks, run_round
+from analysis.replacement_evidence.round_runner import TASK_DEFINITIONS, TaskDefinition, load_frozen_tasks, run_round
 from extensions.basis_trial_v02 import sdk_controller
 from extensions.symbolic_basis_v01.executor import check_runtime, sandbox_call
 from rsi_eval.pilot_budget import BudgetLedger
 
 
-ALL_TASK_DEFINITIONS = TASK_DEFINITIONS + CROSS_TASK_DEFINITIONS
+# The project ledger intentionally caps one session at 16 unique identifiers.
+# v02 therefore uses two pre-registered parents per task (2 repeats), giving
+# 16 total Agent slots while retaining all four task families.
+ALL_TASK_DEFINITIONS = tuple(
+    TaskDefinition(item.task_id, item.input_names, item.headers, item.target, item.parents[:2])
+    for item in (TASK_DEFINITIONS + CROSS_TASK_DEFINITIONS)
+)
 SHIFT_REPORT = ROOT / "docs/environment/2026-10-26-shift-aware-dev-v02.json"
 PROTOCOL = "replacement-shift-aware-v02-preflight"
 
@@ -109,6 +115,7 @@ def run(run_id: str) -> dict:
         "provider_calls": provider.calls,
         "task_count": len(ALL_TASK_DEFINITIONS),
         "proposal_count": len(summary["records"]),
+        "parents_per_task": 2,
         "split_report": str(SHIFT_REPORT.relative_to(ROOT)).replace("\\", "/"),
         "split_report_sha256": hashlib.sha256(SHIFT_REPORT.read_bytes()).hexdigest(),
         "round_summary_sha256": hashlib.sha256((output / "round/round-summary.json").read_bytes()).hexdigest(),
