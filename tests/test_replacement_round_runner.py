@@ -9,6 +9,7 @@ from analysis.replacement_evidence.cross_task_config import CROSS_TASK_DEFINITIO
 from analysis.replacement_evidence.round_runner import (
     SplitData,
     FrozenTask,
+    TaskDefinition,
     TASK_DEFINITIONS,
     classify_structure_change,
     run_round,
@@ -167,4 +168,40 @@ def test_cross_task_catalog_runs_through_the_parameterized_runner(tmp_path):
                        task_definitions=CROSS_TASK_DEFINITIONS)
     assert result["accepted_slots"] == 12
     assert result["gate_records"] == 36
+
+
+def test_runner_accepts_a_smaller_parameterized_catalog(tmp_path):
+    definitions = tuple(
+        TaskDefinition(item.task_id, item.input_names, item.headers, item.target, item.parents[:1])
+        for item in CROSS_TASK_DEFINITIONS[:1]
+    )
+    tasks = _fixture_tasks(definitions)
+
+    def actor_runner(*, slot_id, packet, spec, output_dir):
+        output_dir.mkdir(parents=True)
+        parent = list(packet["parent"]["feature_ids"])
+        candidate = list(parent)
+        if slot_id.endswith("-r2"):
+            candidate[-1] = next(feature for feature in spec["feature_ids"] if feature not in parent)
+        compiled = __import__("analysis.replacement_evidence.round_runner", fromlist=["compile_basis"]).compile_basis(
+            tasks[packet["task"]["task_id"]].definition, candidate,
+        )
+        return {"status": "accepted", "business": {"feature_ids": candidate},
+                "execution_payload": {"feature_ids": candidate}, "compiled": compiled}
+
+    def fit_runner(source, request):
+        return {"status": "completed", "result": {"status": "success",
+                "params": [1.0] * request["n_params"], "converged": True,
+                "nfev": 1, "candidate_calls": 1}}
+
+    def predict_runner(source, request):
+        return {"status": "completed", "result": {"status": "success",
+                "predictions": [1.0, 2.0]}}
+
+    result = run_round(tasks=tasks, actor_runner=actor_runner,
+                       fit_executor=fit_runner, predict_executor=predict_runner,
+                       output_dir=Path(tmp_path) / "small-round", synthetic_outcome=True,
+                       task_definitions=definitions)
+    assert result["accepted_slots"] == 2
+    assert result["gate_records"] == 6
 

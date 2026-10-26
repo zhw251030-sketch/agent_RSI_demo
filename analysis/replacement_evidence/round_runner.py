@@ -472,8 +472,13 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
                     "candidate_source_sha256": candidate["source_sha256"],
                     "evidence": evidence, "triplet": triplet,
                 })
-    if len(records) != 12 or len(gate_rows) != 36:
-        raise RuntimeError("round did not produce exactly 12 proposals and 36 gate rows")
+    expected_proposals = sum(len(definition.parents) * 2 for definition in task_definitions)
+    expected_gate_rows = expected_proposals * len(CONDITIONS)
+    if len(records) != expected_proposals or len(gate_rows) != expected_gate_rows:
+        raise RuntimeError(
+            f"round did not produce expected proposals/gates: "
+            f"{len(records)}/{expected_proposals}, {len(gate_rows)}/{expected_gate_rows}"
+        )
     frozen = freeze_gate_decisions(gate_rows)
 
     outcomes: dict[str, dict[str, Any]] = {}
