@@ -38,6 +38,8 @@
 
 - 2026-10-26完成 v03 真实 MiniMax 开发轮与 outcome replay。8/8请求接受、8 proposal、24 gate、9,296 tokens、估算0.0236544元、usage unknown=0；v03使用同一真实proposal和`outcome_dev_v2` proxy完成30次sandbox，3个allow_after_validation、4个retain、1个defer。old部署1个proxy harmful，v02/v03均为0；v03相对v02恢复3个supported候选，新增安全阻断为0。官方test/OOD未读取，不能作OOD性能结论。见[真实结果](docs/analysis/2026-10-26-shift-aware-v03-real-results.md)和[机器核验](docs/environment/2026-10-26-shift-aware-v03-real-verification.json)。
 
+- 2026-10-26完成 v02 holdout 与 v03 真实 replay 交叉审计。v03直接捕获同一 `oscillator2-p01-r2` 的 proxy退化并保留，但stressstrain synthetic目标复用没有重现真实OOD响应关系；v03相对v02安全拦截新增为0，机会成本下降3例。下一版设计改用训练文件自然行的 domain-blocked outcome，避免手工输入变换与目标错配。见[交叉审计](docs/analysis/2026-10-26-v02-v03-cross-failure-audit.md)和[domain-blocked设计](docs/experiments/2026-10-26-domain-blocked-outcome-v04-design.md)。
+
 - 2026-10-25完成替换充分性真实 Agent 开发轮 `real-v04`。在固定 MiniMax-M3、OpenHands SDK 1.55.1、两个任务和开发切分上，12/12 请求及工具提交接受，9 个单项替换、3 个 keep，36/36 gate 记录冻结，0 次重试、usage unknown=0；真实用量14,572 tokens，按账本估算0.0369516元。编辑前证据4 supported、5 contradicted、3 unknown/no_edit。冻结后读取 outcome_dev 的影子结果为：`no_check`/`sham_check`均部署5个有害候选，`replacement_check`执行4次、保留8次并拦截5次。该结果只支持本轮两个任务上的机制级信号，不支持稳定优势、显著性或独立泛化；未读取官方封存测试，未更新权重/S/持久策略。见[真实结果与边界](docs/analysis/2026-10-25-replacement-real-v04-results.md)。
 
 - 2026-10-25修复上一轮双替换停止审计：Agent 提示明确最多一次替换，runner 对非法结构写入 `round-stop.json`，命令行摘要回填停止原因、已接受工具槽位、gate 数和停止文件哈希；新增回归测试后本机23项通过。FakeProvider v06预演12/12请求、36/36 gate通过，证书绑定提交 `85addadd`。见[预演证书](docs/environment/2026-10-24-replacement-agent-round-preflight.json)和[验证记录](docs/environment/2026-10-24-replacement-agent-round-verification.json)。
