@@ -50,6 +50,8 @@
 
 - 2026-10-26完成 p04 v04 失败机制审查。`oscillator1-p04-r2` 的3个退化块位于 `x::bin:0/x::bin:2/v::bin:0`，改善比例7/10；`oscillator2-p04-r1` 的5个退化块包括最大退化 `x::bin:4`（+0.233194），改善比例10/15。所有块样本均≥388行，失败来自区域一致性不足而非数据不可用；不调阈值、不读取官方holdout。见[失败审查](docs/analysis/2026-10-26-natural-domain-v04-p04-failure-audit.md)。
 
+- 2026-10-26完成 p04 三层账本审计与冻结决策。真实 round、v03 replay、v04 replay 的8个proposal逐条对齐，5/5机器检查通过；p04两个supported swap均因自然域改善覆盖不足保留父结构。由于现有四任务官方holdout已解封，下一阶段不能重复读取同一test/OOD来调新机制，必须引入新公开任务或预先冻结新的train内嵌盲区。见[冻结决策](docs/analysis/2026-10-26-p04-freeze-decision.md)和[机器审计](docs/environment/2026-10-26-natural-domain-v04-p04-audit.json)。
+
 - 2026-10-25完成替换充分性真实 Agent 开发轮 `real-v04`。在固定 MiniMax-M3、OpenHands SDK 1.55.1、两个任务和开发切分上，12/12 请求及工具提交接受，9 个单项替换、3 个 keep，36/36 gate 记录冻结，0 次重试、usage unknown=0；真实用量14,572 tokens，按账本估算0.0369516元。编辑前证据4 supported、5 contradicted、3 unknown/no_edit。冻结后读取 outcome_dev 的影子结果为：`no_check`/`sham_check`均部署5个有害候选，`replacement_check`执行4次、保留8次并拦截5次。该结果只支持本轮两个任务上的机制级信号，不支持稳定优势、显著性或独立泛化；未读取官方封存测试，未更新权重/S/持久策略。见[真实结果与边界](docs/analysis/2026-10-25-replacement-real-v04-results.md)。
 
 - 2026-10-25修复上一轮双替换停止审计：Agent 提示明确最多一次替换，runner 对非法结构写入 `round-stop.json`，命令行摘要回填停止原因、已接受工具槽位、gate 数和停止文件哈希；新增回归测试后本机23项通过。FakeProvider v06预演12/12请求、36/36 gate通过，证书绑定提交 `85addadd`。见[预演证书](docs/environment/2026-10-24-replacement-agent-round-preflight.json)和[验证记录](docs/environment/2026-10-24-replacement-agent-round-verification.json)。
