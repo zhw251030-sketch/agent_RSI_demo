@@ -14,6 +14,8 @@
 
 - 2026-10-26完成 shift-aware v02 的设计草案和宿主侧诊断模块。新增 `analysis/replacement_evidence/shift_gate.py`，从冻结开发输入建立 1%–99% 参考区间，并计算范围外比例、均值 z 分数和方差比；新增 6 项单元测试，与原替换证据测试合计 18/18 通过。模块尚未接入真实 gate、未读取新的封存数据、未产生模型调用；下一步是用训练数据构造 `fit_dev_v2/check_dev_v2/synthetic_shift_dev/outcome_dev_v2` 并完成 fake 预演。见[v02设计](docs/experiments/2026-10-26-shift-aware-replacement-v02-design.md)。
 
+- 2026-10-26完成 v02 train-only split 与 shift 诊断预演。服务器从四个训练文件生成确定性 60/20/20 manifest，并为四个任务生成输入-only synthetic shift；基础 `check_dev_v2` 均为 `covered`，四个 shift fixture 均为 `shifted`。报告明确 `official_test_read=false`、`official_test_ood_read=false`、`target_values_read_for_shift=false`；0 模型调用、0 候选评分。下一步是 fake-agent 门控回放。见[预演结果](docs/analysis/2026-10-26-shift-aware-dev-v02-results.md)和[train-only manifest](docs/environment/2026-10-26-shift-aware-dev-v02.json)。
+
 - 2026-10-25完成替换充分性真实 Agent 开发轮 `real-v04`。在固定 MiniMax-M3、OpenHands SDK 1.55.1、两个任务和开发切分上，12/12 请求及工具提交接受，9 个单项替换、3 个 keep，36/36 gate 记录冻结，0 次重试、usage unknown=0；真实用量14,572 tokens，按账本估算0.0369516元。编辑前证据4 supported、5 contradicted、3 unknown/no_edit。冻结后读取 outcome_dev 的影子结果为：`no_check`/`sham_check`均部署5个有害候选，`replacement_check`执行4次、保留8次并拦截5次。该结果只支持本轮两个任务上的机制级信号，不支持稳定优势、显著性或独立泛化；未读取官方封存测试，未更新权重/S/持久策略。见[真实结果与边界](docs/analysis/2026-10-25-replacement-real-v04-results.md)。
 
 - 2026-10-25修复上一轮双替换停止审计：Agent 提示明确最多一次替换，runner 对非法结构写入 `round-stop.json`，命令行摘要回填停止原因、已接受工具槽位、gate 数和停止文件哈希；新增回归测试后本机23项通过。FakeProvider v06预演12/12请求、36/36 gate通过，证书绑定提交 `85addadd`。见[预演证书](docs/environment/2026-10-24-replacement-agent-round-preflight.json)和[验证记录](docs/environment/2026-10-24-replacement-agent-round-verification.json)。
