@@ -1,0 +1,38 @@
+{
+  "schema": "replacement-shift-aware-v03-real-verification-v0.1",
+  "status": "passed_shift_aware_v03_real_round_and_replay",
+  "run_id": "2026-10-26-v03-real-v01",
+  "model": "MiniMax-M3",
+  "sdk_version": "1.55.1",
+  "real_model_requests": 8,
+  "real_model_calls": 8,
+  "accepted_slots": 8,
+  "gate_records": 24,
+  "known_total_tokens": 9296,
+  "known_estimated_cost_cny": 0.0236544,
+  "reserved_cost_cny": 0.7294434,
+  "usage_unknown_count": 0,
+  "v03_model_requests": 0,
+  "v03_sandbox_calls": 30,
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "not_benchmark": true,
+  "round_summary_sha256": "6f3c528f63d05109d51271b6e84cef5ea9173730efa2d7cb921584cbb70dc76a",
+  "v03_proxy_sha256": "d34f60125ae04596d706d7eede2b308409a9d54f14b80b178ef9dae02ff2bfe3",
+  "v03_summary": {
+    "proposal_count": 8,
+    "proxy_harmful": 1,
+    "old_deployed_proxy_harmful": 1,
+    "v02_shift_deployed_proxy_harmful": 0,
+    "v03_deployed_proxy_harmful": 0,
+    "v02_prevented_vs_old": 1,
+    "v03_new_prevented_vs_old": 1,
+    "v03_new_prevented_vs_v02": 0,
+    "v03_action_changes_from_v02": 3,
+    "decision_counts": {
+      "allow_after_validation": 3,
+      "defer": 1,
+      "retain": 4
+    }
+  }
+}
