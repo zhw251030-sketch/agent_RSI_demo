@@ -22,6 +22,8 @@ def _new_action(evidence_status: str, shift_status: str, edit_mode: str) -> str:
 
 
 def run(round_summary_path: Path, shift_report_path: Path) -> dict:
+    round_summary_path = round_summary_path.resolve()
+    shift_report_path = shift_report_path.resolve()
     summary = json.loads(round_summary_path.read_text(encoding="utf-8"))
     shift = json.loads(shift_report_path.read_text(encoding="utf-8"))
     if summary.get("status") != "passed" or summary.get("official_test_read") or summary.get("official_test_ood_read"):
