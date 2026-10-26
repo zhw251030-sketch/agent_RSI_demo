@@ -4,11 +4,11 @@
 
 ## 当前阶段
 
-当前阶段：两轮替换充分性机制开发与跨任务重复已经完成，最终 holdout 已于 2026-10-26 按预注册只读协议解封并完成。四个任务共 24 个冻结 proposal；在 test_id 上 `replacement_check` 将部署有害从 7 降为 0、拦截 7 个，在 test_ood 上从 9 降为 4、拦截 5 个，同时保留 5 个有利候选。结果支持“绑定具体替换证据可减少有害部署”的窄机制结论，但仍存在 4 个 OOD 有害部署，不能称为完全可靠、统计显著或独立分布泛化。当前工作进入失败案例分析、下一轮机制设计和论文/简历表述阶段；不再把本轮 holdout 用于调参。
+当前阶段：两轮替换充分性机制开发与跨任务重复已经完成，最终 holdout 已于 2026-10-26 按预注册只读协议解封并完成。四个任务共 24 个冻结 proposal；在 test_id 上 `replacement_check` 将部署有害从 7 降为 0、拦截 7 个，在 test_ood 上从 9 降为 4、拦截 5 个，同时保守拒绝 3/5 个潜在有利候选并保留父结构。结果支持“绑定具体替换证据可减少有害部署”的窄机制结论，但仍存在 4 个 OOD 有害部署，不能称为完全可靠、统计显著或独立分布泛化。当前工作进入失败案例分析、下一轮机制设计和论文/简历表述阶段；不再把本轮 holdout 用于调参。
 
 ## 已完成
 
-- 2026-10-26完成最终替换充分性 holdout 解封与只读回放。评估器第一次读取四个任务的官方 `test_id/test_ood`，24/24 冻结 proposal、144 条条件记录全部完成；没有模型调用、阈值修改、gate 改写或权重更新。`no_check`/`sham_check` 在 ID/OOD 分别部署 7/9 个有害候选，`replacement_check` 分别拦截 7/5 个、部署 0/4 个，并保留 3/5 个有利结果。结果支持风险拦截方向，但不支持完全 OOD 可靠性或独立分布泛化；`stressstrain/test_ood` 与 `oscillator2/test_ood` 是优先失败案例。见[holdout 结果与边界](docs/analysis/2026-10-25-replacement-holdout-results.md)、[机器核验](docs/environment/2026-10-25-replacement-holdout-verification.json)。
+- 2026-10-26完成最终替换充分性 holdout 解封与只读回放。评估器第一次读取四个任务的官方 `test_id/test_ood`，24/24 冻结 proposal、144 条条件记录全部完成；没有模型调用、阈值修改、gate 改写或权重更新。`no_check`/`sham_check` 在 ID/OOD 分别部署 7/9 个有害候选，`replacement_check` 分别拦截 7/5 个、部署 0/4 个；同时保守拒绝 3/5 个潜在有利候选并保留父结构。结果支持风险拦截方向，但不支持完全 OOD 可靠性或独立分布泛化；`stressstrain/test_ood` 与 `oscillator2/test_ood` 是优先失败案例。见[holdout 结果与边界](docs/analysis/2026-10-25-replacement-holdout-results.md)、[机器核验](docs/environment/2026-10-25-replacement-holdout-verification.json)。
 
 - 2026-10-25完成替换充分性真实 Agent 开发轮 `real-v04`。在固定 MiniMax-M3、OpenHands SDK 1.55.1、两个任务和开发切分上，12/12 请求及工具提交接受，9 个单项替换、3 个 keep，36/36 gate 记录冻结，0 次重试、usage unknown=0；真实用量14,572 tokens，按账本估算0.0369516元。编辑前证据4 supported、5 contradicted、3 unknown/no_edit。冻结后读取 outcome_dev 的影子结果为：`no_check`/`sham_check`均部署5个有害候选，`replacement_check`执行4次、保留8次并拦截5次。该结果只支持本轮两个任务上的机制级信号，不支持稳定优势、显著性或独立泛化；未读取官方封存测试，未更新权重/S/持久策略。见[真实结果与边界](docs/analysis/2026-10-25-replacement-real-v04-results.md)。
 
