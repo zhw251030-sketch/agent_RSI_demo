@@ -530,7 +530,7 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
             }
     shadow = attach_shadow_outcomes(frozen, outcomes)
     summary = {
-        "schema": VERSION, "status": "passed", "model_requests": 12,
+        "schema": VERSION, "status": "passed", "model_requests": len(records),
         "accepted_slots": len(records), "gate_records": len(gate_rows),
         "official_test_read": False, "official_test_ood_read": False,
         "outcome_dev_read": True, "synthetic_actor": bool(synthetic_outcome),

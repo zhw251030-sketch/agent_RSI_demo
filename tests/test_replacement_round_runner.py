@@ -90,6 +90,7 @@ def test_fake_actor_round_has_twelve_slots_and_replacement_condition_names(tmp_p
     assert len(calls) == 12
     assert result["accepted_slots"] == 12
     assert result["gate_records"] == 36
+    assert result["model_requests"] == 12
     assert result["outcome_dev_read"] is True
     assert result["frozen_gates"]["frozen"]["conditions"] == list(CONDITIONS)
     assert set(result["shadow"]["summary"]) == set(CONDITIONS)
@@ -204,4 +205,5 @@ def test_runner_accepts_a_smaller_parameterized_catalog(tmp_path):
                        task_definitions=definitions)
     assert result["accepted_slots"] == 2
     assert result["gate_records"] == 6
+    assert result["model_requests"] == 2
 
