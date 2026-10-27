@@ -106,12 +106,44 @@ def build_split_manifest(
     version: str = VERSION,
 ) -> dict[str, Any]:
     """Build a frozen, disjoint fit/check/outcome manifest from train rows."""
-
     if task_id not in TASKS:
         raise ValueError(f"unknown task: {task_id}")
     config = TASKS[task_id]
-    if tuple(headers) != config["headers"]:
-        raise ValueError(f"{task_id} headers do not match frozen schema")
+    return build_generic_split_manifest(
+        task_id=task_id,
+        headers=headers,
+        rows=rows,
+        data_sha256=data_sha256,
+        target=config["target"],
+        strata_names=config["strata"],
+        version=version,
+    )
+
+
+def build_generic_split_manifest(
+    *,
+    task_id: str,
+    headers: Sequence[str],
+    rows: Sequence[Mapping[str, Any]],
+    data_sha256: str,
+    target: str,
+    strata_names: Sequence[str] = ("target_decile",),
+    version: str = VERSION,
+) -> dict[str, Any]:
+    """Build a manifest for an external task without extending the old registry.
+
+    ``build_split_manifest`` remains the compatibility wrapper for the four
+    historical tasks.  External datasets supply only their target column and a
+    small set of deterministic strata; no test or OOD rows enter this function.
+    """
+
+    if not isinstance(task_id, str) or not task_id:
+        raise ValueError("task_id must be nonempty")
+    headers = tuple(headers)
+    if len(headers) < 2 or len(set(headers)) != len(headers):
+        raise ValueError("headers must contain at least two unique names")
+    if target not in headers:
+        raise ValueError("target must be one of headers")
     if not isinstance(rows, Sequence) or not rows:
         raise ValueError("rows must be a nonempty sequence")
     if not isinstance(data_sha256, str) or len(data_sha256) != 64:
@@ -119,17 +151,19 @@ def build_split_manifest(
     if any(character not in "0123456789abcdefABCDEF" for character in data_sha256):
         raise ValueError("data_sha256 must be a SHA-256 hex digest")
 
-    target_values = [_number(row[config["target"]], config["target"]) for row in rows]
-    deciles = _deciles(target_values)
-    strata: dict[tuple[str, ...], list[int]] = defaultdict(list)
+    if not isinstance(strata_names, Sequence) or any(not isinstance(item, str) for item in strata_names):
+        raise ValueError("strata must be a sequence of names")
     for index, row in enumerate(rows):
         if set(row) != set(headers):
             raise ValueError(f"row {index} keys do not match headers")
-        if task_id in {"bactgrow", "oscillator1", "oscillator2"}:
-            key = (f"decile:{deciles[index]}",)
+    target_values = [_number(row[target], target) for row in rows]
+    deciles = _deciles(target_values)
+    strata: dict[tuple[str, ...], list[int]] = defaultdict(list)
+    for index, row in enumerate(rows):
+        if "temp" in strata_names and "temp" in headers:
+            key = (f"temp:{row['temp']}", f"target_decile:{deciles[index]}")
         else:
-            _number(row["temp"], "temp")
-            key = (f"temp:{row['temp']}", f"stress_decile:{deciles[index]}")
+            key = (f"target_decile:{deciles[index]}",)
         strata[key].append(index)
 
     # Start with within-stratum largest-remainder allocation.  The subsequent
@@ -213,7 +247,7 @@ def build_split_manifest(
             "version": version,
             "ratios": RATIOS,
             "target_counts": target_counts,
-            "stratification": list(config["strata"]),
+            "stratification": list(strata_names),
             "row_order": "sha256(task_id|version|row:<0-based-index>) within strata",
             "remainder_rule": "floor per stratum; deterministic global correction to fit/check/outcome counts",
         },
