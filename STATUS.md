@@ -16,6 +16,8 @@
 
 - 2026-10-27完成 SRSD-Feynman Easy 一次性 test 描述性回放。读取前已冻结真实 proposal 与 val action，0模型调用、未修改机制；6个proposal中若全部部署有1个test退化，按冻结action部署0个有害候选。唯一允许的 `ii8.31-r2` test NMSE约0.003422→1.17e-39；4个unknown swap虽有的在test改善，仍按证据不足保留父结构。该结果只支持本轮3题/6槽位的风险控制信号，不支持统计显著或普适泛化；后续不得用该test回调阈值。见[test分析](docs/analysis/2026-10-27-srsd-feynman-easy-real-v01-test-results.md)和[一次性机器记录](docs/environment/2026-10-27-srsd-feynman-easy-real-v01-test-holdout.json)。
 
+- 2026-10-27完成 SRSD-Feynman Easy-Dummy 下一轮任务预审。确认 `i12.1-dummy`（3输入，真值`x0*x1`）和 `ii8.31-dummy`（3输入，真值常数×`x1²`）可在现有单项式契约内表示，干扰变量可直接测试必要项/无关项混淆；`i14.4-dummy`为5输入，暂不加入，避免未经校准扩展执行语言。已加入独立任务定义、10项相关测试和下一轮 fake→真实→val→test顺序设计，尚未下载 Dummy train/val、未调用模型。见[Dummy设计](docs/analysis/2026-10-27-srsd-dummy-next-design.md)。
+
 - 2026-10-26完成最终替换充分性 holdout 解封与只读回放。评估器第一次读取四个任务的官方 `test_id/test_ood`，24/24 冻结 proposal、144 条条件记录全部完成；没有模型调用、阈值修改、gate 改写或权重更新。`no_check`/`sham_check` 在 ID/OOD 分别部署 7/9 个有害候选，`replacement_check` 分别拦截 7/5 个、部署 0/4 个；同时保守拒绝 3/5 个潜在有利候选并保留父结构。结果支持风险拦截方向，但不支持完全 OOD 可靠性或独立分布泛化；`stressstrain/test_ood` 与 `oscillator2/test_ood` 是优先失败案例。见[holdout 结果与边界](docs/analysis/2026-10-25-replacement-holdout-results.md)、[机器核验](docs/environment/2026-10-25-replacement-holdout-verification.json)。
 
 - 2026-10-26完成最终 holdout 失败案例只读审查。OOD 的 9 个有害候选中，4 个 `supported` 全部被错误部署，4 个 `contradicted` 和 1 个 `unknown` 均被拦截；残余失败集中在开发证据跨分布外推，而不是 gate 执行动作错误。`bactgrow`/`oscillator2` 出现明显范围扩展，`stressstrain` 出现温度层退化，`oscillator2` 时间域从 30–50 切换到 0–20。下一版应在新的开发切分上增加 host-only shift/coverage gate，保留当前 replacement gate 作为消融；本轮 holdout 不用于调参。见[失败审查](docs/analysis/2026-10-26-holdout-failure-audit.md)和[机器审查](docs/environment/2026-10-26-holdout-failure-audit.json)。
