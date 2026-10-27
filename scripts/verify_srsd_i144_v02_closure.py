@@ -145,7 +145,9 @@ def verify_closure(
     _require(source.get("official_test_ood_read") is False, "source report must not read official test_ood")
     _require(dev.get("official_test_read") is False, "dev report must not read official test")
     _require(dev.get("official_test_ood_read") is False, "dev report must not read official test_ood")
-    _require(dev.get("source_report_sha256") == sha256_file(source_path), "dev/source hash mismatch")
+    # The dev report binds the source report's internal manifest hash; the
+    # preflight certificate separately binds the source JSON file hash.
+    _require(dev.get("source_report_sha256") == source.get("manifest_sha256"), "dev/source manifest hash mismatch")
     _check_hash(certificate, "split_report_sha256", dev_path, "certificate/dev")
     _check_hash(certificate, "source_report_sha256", source_path, "certificate/source")
     _check_hash(certificate, "runtime_lock_sha256", runtime_path, "certificate/runtime")
