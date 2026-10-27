@@ -1,0 +1,109 @@
+{
+  "schema": "replacement-srsd-feynman-easy-test-holdout-v05",
+  "status": "passed_descriptive_holdout",
+  "official_test_read": true,
+  "official_test_ood_read": false,
+  "one_time_read": true,
+  "rules_frozen_before_read": true,
+  "round_summary_sha256": "203cdbac124190fa0cfd523add2ea0f5d8e91cdb6b68bb635fbae46d43632b96",
+  "development_report_sha256": "808a2823f97a59ddcf64e0ef5001e84896a93c7fb618b68cb436c6c21dd41c0a",
+  "source_report_sha256": "8411aa9fdac791ef982c755bddf08f538a4501b2887489f9b35194b86a0614aa",
+  "val_replay_sha256": "354f0dfe03a30e50e7471a2af8e115c31c5732d6725ea17bfe8ed566019e1c1c",
+  "test_files": {
+    "srsd-feynman-i12-1": {
+      "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/test/feynman-i.12.1.txt",
+      "raw_sha256": "601044f8f738936d21a252d2262464ca20088d73f1baa76da54c08ba8b834ff4",
+      "raw_bytes": 75000,
+      "csv_sha256": "fea6747d787fc5d277a345d31a6991f2832c6e66c32eed481aefb6f355e5a141",
+      "csv_path": "data/external/srsd-feynman-easy/srsd-feynman-i12-1/test.csv",
+      "row_count": 1000
+    },
+    "srsd-feynman-i14-4": {
+      "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/test/feynman-i.14.4.txt",
+      "raw_sha256": "94ab16bf494a224fc8991b855956c392ad5816d4e05174e3442d41b3c7e8205e",
+      "raw_bytes": 75559,
+      "csv_sha256": "6ab769145c4670045835be6d89d50cc991048484eb6bae3f416e393304bad947",
+      "csv_path": "data/external/srsd-feynman-easy/srsd-feynman-i14-4/test.csv",
+      "row_count": 1000
+    },
+    "srsd-feynman-ii8-31": {
+      "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/test/feynman-ii.8.31.txt",
+      "raw_sha256": "8acb6e15d09c97a96842aacb6fb592a40ad496da58bf1e17d93421c5a656aef6",
+      "raw_bytes": 50000,
+      "csv_sha256": "a099937d8d7fbcccbecb00daaadf9e7deeed0f523df83d0ef6b475a1f0307aba",
+      "csv_path": "data/external/srsd-feynman-easy/srsd-feynman-ii8-31/test.csv",
+      "row_count": 1000
+    }
+  },
+  "rows": [
+    {
+      "slot_id": "srsd-feynman-i12-1-p01-r1",
+      "task_id": "srsd-feynman-i12-1",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.4589688099625565,
+      "candidate_nmse": 8.21947024386049e-37,
+      "candidate_delta": -0.4589688099625565,
+      "deployed_nmse": 0.4589688099625565,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-i12-1-p01-r2",
+      "task_id": "srsd-feynman-i12-1",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.4589688099625565,
+      "candidate_nmse": 0.07948623785341409,
+      "candidate_delta": -0.37948257210914244,
+      "deployed_nmse": 0.4589688099625565,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-i14-4-p01-r1",
+      "task_id": "srsd-feynman-i14-4",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.8241218793117026,
+      "candidate_nmse": 2.595403306681065e-35,
+      "candidate_delta": -0.8241218793117026,
+      "deployed_nmse": 0.8241218793117026,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-i14-4-p01-r2",
+      "task_id": "srsd-feynman-i14-4",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.8241218793117026,
+      "candidate_nmse": 0.82827868390269,
+      "candidate_delta": 0.00415680459098744,
+      "deployed_nmse": 0.8241218793117026,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-ii8-31-p01-r1",
+      "task_id": "srsd-feynman-ii8-31",
+      "edit_mode": "keep",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.0034220832669966447,
+      "candidate_nmse": 0.0034220832669966447,
+      "candidate_delta": 0.0,
+      "deployed_nmse": 0.0034220832669966447,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-ii8-31-p01-r2",
+      "task_id": "srsd-feynman-ii8-31",
+      "edit_mode": "swap_one",
+      "val_action": "allow_after_val_dual_validation",
+      "parent_nmse": 0.0034220832669966447,
+      "candidate_nmse": 1.1699350864642926e-39,
+      "candidate_delta": -0.0034220832669966447,
+      "deployed_nmse": 1.1699350864642926e-39,
+      "deployed_harmful": false
+    }
+  ],
+  "deployed_harmful_count": 0,
+  "candidate_harmful_count": 1,
+  "report_sha256": "9ff88a340bc5f38d9a400de09a00ba237d1a1ef1df08b37fbb58ea2b204c0c1c"
+}
