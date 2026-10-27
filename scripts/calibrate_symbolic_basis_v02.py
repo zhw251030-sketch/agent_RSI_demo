@@ -20,9 +20,16 @@ def run() -> dict:
     features = ["m_0_0_0_0_0", "m_1_0_0_0_0", "m_0_1_0_0_0", "m_0_0_1_0_0",
                 "m_0_0_0_1_0", "m_0_0_0_0_1"]
     compiled = compile_submission({"feature_ids": features, "explanation": "v02 calibration"}, make_spec(5, 6))
-    X = [[float(i), float((i * 3) % 7 - 3), float((i * 5) % 11 - 5),
-          float((i * 7) % 13 - 6), float((i * 11) % 17 - 8)]
-         for i in range(1, 13)]
+    X = [
+        [0.0, 0.0, 0.0, 0.0, 0.0],
+        [1.0, 0.0, 0.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0, 0.0, 0.0],
+        [0.0, 0.0, 1.0, 0.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0, 0.0],
+        [0.0, 0.0, 0.0, 0.0, 1.0],
+        [1.0, -1.0, 2.0, -2.0, 3.0],
+        [-2.0, 3.0, -1.0, 1.0, -3.0],
+    ]
     coefficients = [1.5, -0.75, 0.25, 2.0, -1.0, 0.5]
     y = [sum([coefficients[0], coefficients[1] * row[0], coefficients[2] * row[1],
               coefficients[3] * row[2], coefficients[4] * row[3], coefficients[5] * row[4]]) for row in X]
