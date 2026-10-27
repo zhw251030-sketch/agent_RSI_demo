@@ -63,7 +63,7 @@ def _fit_compiled(compiled, task, fit):
 
 
 def run(output: Path, round_path: Path = ROUND, dev_path: Path = DEV_REPORT,
-        val_path: Path = VAL_REPORT) -> dict:
+        val_path: Path = VAL_REPORT, *, basis_compiler=compile_basis) -> dict:
     check_runtime()
     round_obj = json.loads(round_path.read_text(encoding="utf-8"))
     val_report = json.loads(val_path.read_text(encoding="utf-8"))
@@ -79,8 +79,8 @@ def run(output: Path, round_path: Path = ROUND, dev_path: Path = DEV_REPORT,
     rows = []
     for record in sorted(round_obj["records"], key=lambda item: item["slot_id"]):
         task = tasks[record["task_id"]]
-        parent = compile_basis(task.definition, record["parent_feature_ids"])
-        candidate = compile_basis(task.definition, record["candidate_feature_ids"])
+        parent = basis_compiler(task.definition, record["parent_feature_ids"])
+        candidate = basis_compiler(task.definition, record["candidate_feature_ids"])
         for compiled in (parent, candidate):
             fit_cache.setdefault(compiled["source_sha256"], _fit_compiled(compiled, task, task.splits["fit_dev"]))
         parent_params = fit_cache[parent["source_sha256"]]

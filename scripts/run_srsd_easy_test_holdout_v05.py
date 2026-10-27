@@ -47,7 +47,7 @@ def _convert(raw: bytes, path: Path) -> tuple[int, str]:
 
 
 def run(*, output: Path, round_path: Path, dev_path: Path, source_path: Path,
-        val_replay_path: Path) -> dict:
+        val_replay_path: Path, basis_compiler=compile_basis) -> dict:
     check_runtime()
     source = json.loads(source_path.read_text(encoding="utf-8"))
     round_obj = json.loads(round_path.read_text(encoding="utf-8"))
@@ -88,8 +88,8 @@ def run(*, output: Path, round_path: Path, dev_path: Path, source_path: Path,
     rows = []
     for record in sorted(round_obj["records"], key=lambda item: item["slot_id"]):
         task = tasks[record["task_id"]]
-        parent = compile_basis(task.definition, record["parent_feature_ids"])
-        candidate = compile_basis(task.definition, record["candidate_feature_ids"])
+        parent = basis_compiler(task.definition, record["parent_feature_ids"])
+        candidate = basis_compiler(task.definition, record["candidate_feature_ids"])
         for compiled in (parent, candidate):
             fit_cache.setdefault(compiled["source_sha256"], _fit_compiled(compiled, task, task.splits["fit_dev"]))
         test = test_files[record["task_id"]]
