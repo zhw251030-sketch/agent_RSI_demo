@@ -73,9 +73,11 @@ def _fake_responses() -> list[dict]:
 
 def _validate_fake_certificate() -> dict:
     certificate = json.loads(CERTIFICATE.read_text(encoding="utf-8"))
+    expected_slots = len(_slot_ids())
     required = {
         "schema": PROTOCOL + "-verification", "status": "passed", "mode": "fake",
-        "model_requests": 6, "accepted_slots": 6, "gate_records": 18,
+        "model_requests": expected_slots, "accepted_slots": expected_slots,
+        "gate_records": expected_slots * 3,
         "real_model_calls": 0, "official_test_read": False,
         "official_test_ood_read": False,
     }

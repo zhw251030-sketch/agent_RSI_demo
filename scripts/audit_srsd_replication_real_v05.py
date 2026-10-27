@@ -21,24 +21,24 @@ def audit(run_root: Path, val_replay: Path, output: Path) -> dict:
     round_summary = json.loads(round_path.read_text(encoding="utf-8"))
     replay = json.loads(val_replay.read_text(encoding="utf-8"))
     required = {
-        "status": "passed", "mode": "real", "model_requests": 6,
-        "accepted_slots": 6, "gate_records": 18, "real_model_calls": 6,
+        "status": "passed", "mode": "real", "model_requests": 4,
+        "accepted_slots": 4, "gate_records": 12, "real_model_calls": 4,
         "official_test_read": False, "official_test_ood_read": False,
         "outcome_dev_read": True,
     }
     if any(summary.get(key) != value for key, value in required.items()):
         raise ValueError("real-round summary contract mismatch")
     budget = summary.get("budget", {})
-    if budget.get("request_count") != 6 or budget.get("usage_unknown_count") != 0:
+    if budget.get("request_count") != 4 or budget.get("usage_unknown_count") != 0:
         raise ValueError("real-round budget is incomplete")
     if budget.get("failed_count") != 0:
         raise ValueError("real-round contains failed requests")
-    if len(round_summary.get("records", [])) != 6 or len(round_summary.get("frozen_gates", {}).get("frozen", {}).get("rows", [])) != 18:
+    if len(round_summary.get("records", [])) != 4 or len(round_summary.get("frozen_gates", {}).get("frozen", {}).get("rows", [])) != 12:
         raise ValueError("round ledger row count mismatch")
     if replay.get("official_test_read") or replay.get("official_test_ood_read"):
         raise ValueError("val replay claims official holdout access")
     rows = replay.get("rows", [])
-    if len(rows) != 6:
+    if len(rows) != 4:
         raise ValueError("val replay row count mismatch")
     result = {
         "schema": "replacement-srsd-feynman-replication-real-v05-audit",
