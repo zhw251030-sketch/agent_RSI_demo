@@ -17,7 +17,8 @@ from pathlib import Path
 from typing import Any, Callable, Mapping
 
 from analysis.replacement_evidence.triplet_runner import evaluate_triplet
-from extensions.symbolic_basis_v01.contract import compile_submission, make_spec
+from extensions.symbolic_basis_v01.contract import compile_submission as v01_compile_submission
+from extensions.symbolic_basis_v01.contract import make_spec as v01_make_spec
 from rsi_eval.basis_actor_evidence import bind_accepted_submission
 from rsi_eval.replacement_condition_gate import CONDITIONS, apply_gate
 from rsi_eval.symbolic import score_predictions
@@ -220,9 +221,15 @@ def load_frozen_tasks(
     return result
 
 
-def compile_basis(definition: TaskDefinition, feature_ids: list[str] | tuple[str, ...]) -> dict[str, Any]:
-    spec = make_spec(len(definition.input_names), len(feature_ids))
-    return compile_submission({"feature_ids": list(feature_ids), "explanation": HOST_EXPLANATION}, spec)
+def compile_basis(definition: TaskDefinition, feature_ids: list[str] | tuple[str, ...], *,
+                  compiler=v01_compile_submission, spec_builder=v01_make_spec) -> dict[str, Any]:
+    """Compile a task basis with an explicitly bound symbolic contract.
+
+    The default remains v01 so all historical rounds keep their exact hashes.
+    New contracts must be passed explicitly by a new protocol runner.
+    """
+    spec = spec_builder(len(definition.input_names), len(feature_ids))
+    return compiler({"feature_ids": list(feature_ids), "explanation": HOST_EXPLANATION}, spec)
 
 
 def classify_structure_change(parent_ids: list[str], candidate_ids: list[str]) -> dict[str, Any]:
@@ -337,9 +344,10 @@ def _triplet_binding(task: FrozenTask, parent: Mapping[str, Any], common: Mappin
 
 
 def evaluate_swap(task: FrozenTask, parent: Mapping[str, Any], candidate: Mapping[str, Any],
-                  change: Mapping[str, Any], cache: SandboxCache) -> dict[str, Any]:
+                  change: Mapping[str, Any], cache: SandboxCache, *,
+                  basis_compiler=compile_basis) -> dict[str, Any]:
     common_ids = [feature for feature in parent["feature_ids"] if feature != change["removed"][0]]
-    common = compile_basis(task.definition, common_ids)
+    common = basis_compiler(task.definition, common_ids)
     structures = {
         "parent": {key: parent[key] for key in ("source", "source_sha256", "n_params")},
         "common": {key: common[key] for key in ("source", "source_sha256", "n_params")},
@@ -361,7 +369,8 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
               fit_executor: Callable[[str, dict[str, Any]], Mapping[str, Any]],
               predict_executor: Callable[[str, dict[str, Any]], Mapping[str, Any]],
               output_dir: Path, synthetic_outcome: bool = False,
-              task_definitions: tuple[TaskDefinition, ...] = TASK_DEFINITIONS) -> dict[str, Any]:
+              task_definitions: tuple[TaskDefinition, ...] = TASK_DEFINITIONS,
+              basis_compiler=compile_basis, spec_builder=v01_make_spec) -> dict[str, Any]:
     """Run the configured slots, freeze gates, then attach outcome shadow scores."""
 
     if set(tasks) != {item.task_id for item in task_definitions}:
@@ -388,7 +397,7 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
     for definition in task_definitions:
         task = tasks[definition.task_id]
         for parent_def in definition.parents:
-            parent = compile_basis(definition, parent_def.feature_ids)
+            parent = basis_compiler(definition, parent_def.feature_ids)
             for repeat in (1, 2):
                 slot_id = f"{parent_def.parent_id}-r{repeat}"
                 try:
@@ -410,7 +419,9 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
                     "output_contract": "submit_basis with feature_ids only",
                 }
                 session_dir = output_dir / "sessions" / slot_id
-                accepted = actor_runner(slot_id=slot_id, packet=packet, spec=make_spec(len(definition.input_names), len(parent["feature_ids"])), output_dir=session_dir)
+                accepted = actor_runner(slot_id=slot_id, packet=packet,
+                                        spec=spec_builder(len(definition.input_names), len(parent["feature_ids"])),
+                                        output_dir=session_dir)
                 if accepted.get("status") != "accepted":
                     stop_round("actor_not_accepted", slot_id=slot_id,
                                details={"sdk_status": accepted.get("status"),
@@ -430,7 +441,8 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
                     triplet = None
                     check_id = f"replacement-check-{slot_id}"
                 else:
-                    evaluated = evaluate_swap(task, parent, candidate, change, cache)
+                    evaluated = evaluate_swap(task, parent, candidate, change, cache,
+                                              basis_compiler=basis_compiler)
                     triplet = evaluated["triplet"]
                     evidence = triplet["evidence"]
                     check_id = f"replacement-check-{slot_id}"
@@ -486,7 +498,7 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
         task = tasks[record["task_id"]]
         outcome_split = task.splits["outcome_dev"]
         parent_source = next(
-            compile_basis(task.definition, parent.feature_ids)
+            basis_compiler(task.definition, parent.feature_ids)
             for parent in task.definition.parents if parent.parent_id == record["parent_id"]
         )
         parent_params: list[float] | None = None
@@ -512,7 +524,7 @@ def run_round(*, tasks: Mapping[str, FrozenTask], actor_runner: Callable[..., Ma
                                      task.definition, cache.predict))
         candidate_score = parent_score
         if record["edit_mode"] == "swap_one" and candidate_params is not None:
-            candidate = compile_basis(task.definition, record["candidate_feature_ids"])
+            candidate = basis_compiler(task.definition, record["candidate_feature_ids"])
             candidate_score = _score_fixed(candidate["source"], candidate_params, outcome_split,
                                            task.definition, cache.predict)
         if parent_score.get("status") != "success" or candidate_score.get("status") != "success":
