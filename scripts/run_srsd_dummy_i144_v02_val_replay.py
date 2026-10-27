@@ -72,6 +72,15 @@ def _fit_compiled(compiled, task, fit):
     return [float(value) for value in params]
 
 
+def _fit_attempt(compiled, task, fit):
+    """Preserve numerical candidate failures as auditable replay outcomes."""
+    try:
+        return {"status": "success", "params": _fit_compiled(compiled, task, fit)}
+    except Exception as error:  # candidate numerical failures are experimental outcomes
+        return {"status": "failed", "error_type": type(error).__name__,
+                "error": str(error)[:500]}
+
+
 def run(output: Path, round_path: Path = ROUND, dev_path: Path = DEV_REPORT,
         val_path: Path = VAL_REPORT, *, basis_compiler=_basis_compiler) -> dict:
     check_runtime()
@@ -92,33 +101,45 @@ def run(output: Path, round_path: Path = ROUND, dev_path: Path = DEV_REPORT,
         parent = basis_compiler(task.definition, record["parent_feature_ids"])
         candidate = basis_compiler(task.definition, record["candidate_feature_ids"])
         for compiled in (parent, candidate):
-            fit_cache.setdefault(compiled["source_sha256"], _fit_compiled(compiled, task, task.splits["fit_dev"]))
-        parent_params = fit_cache[parent["source_sha256"]]
-        candidate_params = fit_cache[candidate["source_sha256"]]
+            fit_cache.setdefault(compiled["source_sha256"], _fit_attempt(compiled, task, task.splits["fit_dev"]))
+        parent_fit = fit_cache[parent["source_sha256"]]
+        candidate_fit = fit_cache[candidate["source_sha256"]]
+        parent_params = parent_fit.get("params")
+        candidate_params = candidate_fit.get("params")
         val_task = val_report["tasks"][record["task_id"]]
         ordinary = val_task["ordinary"]
-        parent_nmse = _score(parent["source"], task, "val_external_ordinary", ordinary["ordinary_sha256"], ordinary["X"], ordinary["y"], parent_params)
-        candidate_nmse = _score(candidate["source"], task, "val_external_ordinary", ordinary["ordinary_sha256"], ordinary["X"], ordinary["y"], candidate_params)
+        parent_nmse = (_score(parent["source"], task, "val_external_ordinary", ordinary["ordinary_sha256"], ordinary["X"], ordinary["y"], parent_params)
+                       if parent_params is not None else None)
+        candidate_nmse = (_score(candidate["source"], task, "val_external_ordinary", ordinary["ordinary_sha256"], ordinary["X"], ordinary["y"], candidate_params)
+                          if candidate_params is not None else None)
         blocks = []
         for index, block in enumerate(val_task["blocks"]):
+            if parent_params is None or candidate_params is None:
+                break
             if not block["valid"]:
                 continue
             p = _score(parent["source"], task, f"val_external_block_{index}", block["block_sha256"], block["X"], block["y"], parent_params)
             c = _score(candidate["source"], task, f"val_external_block_{index}", block["block_sha256"], block["X"], block["y"], candidate_params)
             blocks.append({"feature": block["feature"], "region": block["region"], "n_rows": block["n_rows"], "parent_nmse": p, "candidate_nmse": c, "delta": c - p, "improved": c < p - TOLERANCE})
         improved = sum(item["improved"] for item in blocks)
-        ordinary_delta = candidate_nmse - parent_nmse
+        ordinary_delta = (candidate_nmse - parent_nmse
+                          if candidate_nmse is not None and parent_nmse is not None else None)
+        evidence_status = record["evidence"]["status"]
+        if parent_fit["status"] != "success" or candidate_fit["status"] != "success":
+            evidence_status = "unknown"
         rows.append({
             "slot_id": record["slot_id"], "task_id": record["task_id"],
-            "edit_mode": record["edit_mode"], "evidence_status": record["evidence"]["status"],
+            "edit_mode": record["edit_mode"], "evidence_status": evidence_status,
             "parent_source_sha256": parent["source_sha256"], "candidate_source_sha256": candidate["source_sha256"],
             "parent_nmse": parent_nmse, "candidate_nmse": candidate_nmse,
             "ordinary_delta": ordinary_delta, "blocks": blocks,
             "valid_block_count": len(blocks), "improved_block_count": improved,
             "all_valid_blocks_improved": bool(blocks) and improved == len(blocks),
+            "parent_fit": parent_fit, "candidate_fit": candidate_fit,
             "dual_gate_action": "allow_after_val_dual_validation"
-                if record["edit_mode"] == "swap_one" and record["evidence"]["status"] == "supported"
-                and ordinary_delta <= -TOLERANCE and blocks and improved == len(blocks)
+                if record["edit_mode"] == "swap_one" and evidence_status == "supported"
+                and ordinary_delta is not None and ordinary_delta <= -TOLERANCE
+                and blocks and improved == len(blocks)
                 else "retain_parent",
         })
     result = {

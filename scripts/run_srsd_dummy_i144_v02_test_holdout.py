@@ -18,7 +18,7 @@ if str(ROOT) not in sys.path:
 from analysis.replacement_evidence.external_dummy_i144_v02_task_config import DUMMY_I144_V02_TASK_DEFINITIONS
 from analysis.replacement_evidence.round_runner import load_frozen_tasks
 from extensions.symbolic_basis_v01.executor import check_runtime, sandbox_call
-from scripts.run_srsd_dummy_i144_v02_val_replay import _basis_compiler, _fit_compiled, _score
+from scripts.run_srsd_dummy_i144_v02_val_replay import _basis_compiler, _fit_attempt, _score
 
 
 def _sha(value: bytes | str) -> str:
@@ -92,23 +92,34 @@ def run(*, output: Path, round_path: Path, dev_path: Path, source_path: Path,
         parent = basis_compiler(task.definition, record["parent_feature_ids"])
         candidate = basis_compiler(task.definition, record["candidate_feature_ids"])
         for compiled in (parent, candidate):
-            fit_cache.setdefault(compiled["source_sha256"], _fit_compiled(compiled, task, task.splits["fit_dev"]))
+            fit_cache.setdefault(compiled["source_sha256"], _fit_attempt(compiled, task, task.splits["fit_dev"]))
+        parent_fit = fit_cache[parent["source_sha256"]]
+        candidate_fit = fit_cache[candidate["source_sha256"]]
+        parent_params = parent_fit.get("params")
+        candidate_params = candidate_fit.get("params")
         test = test_files[record["task_id"]]
         names = list(task.definition.input_names)
         X = [[float(row[name]) for name in names] for row in test["rows"]]
         y = [float(row[task.definition.target]) for row in test["rows"]]
         split_sha = test["csv_sha256"]
-        parent_nmse = _score(parent["source"], task, "srsd_test_holdout", split_sha, X, y, fit_cache[parent["source_sha256"]])
-        candidate_nmse = _score(candidate["source"], task, "srsd_test_holdout", split_sha, X, y, fit_cache[candidate["source_sha256"]])
+        parent_nmse = (_score(parent["source"], task, "srsd_test_holdout", split_sha, X, y, parent_params)
+                       if parent_params is not None else None)
+        candidate_nmse = (_score(candidate["source"], task, "srsd_test_holdout", split_sha, X, y, candidate_params)
+                          if candidate_params is not None else None)
         action = action_by_slot[record["slot_id"]]
-        deployed_nmse = candidate_nmse if action.startswith("allow") and record["edit_mode"] == "swap_one" else parent_nmse
+        deployed_nmse = (candidate_nmse if action.startswith("allow") and record["edit_mode"] == "swap_one"
+                         and candidate_nmse is not None else parent_nmse)
+        candidate_delta = (candidate_nmse - parent_nmse
+                           if candidate_nmse is not None and parent_nmse is not None else None)
         rows.append({
             "slot_id": record["slot_id"], "task_id": record["task_id"],
             "edit_mode": record["edit_mode"], "val_action": action,
             "parent_nmse": parent_nmse, "candidate_nmse": candidate_nmse,
-            "candidate_delta": candidate_nmse - parent_nmse,
+            "candidate_delta": candidate_delta,
             "deployed_nmse": deployed_nmse,
-            "deployed_harmful": deployed_nmse > parent_nmse + 1e-5,
+            "deployed_harmful": (deployed_nmse > parent_nmse + 1e-5
+                                  if deployed_nmse is not None and parent_nmse is not None else None),
+            "parent_fit": parent_fit, "candidate_fit": candidate_fit,
         })
     result = {
         "schema": "replacement-srsd-feynman-easy-dummy-i144-v02-test-holdout-v05",
@@ -121,8 +132,9 @@ def run(*, output: Path, round_path: Path, dev_path: Path, source_path: Path,
         "val_replay_sha256": _sha(val_replay_path.read_bytes()),
         "test_files": {task: {k: v for k, v in value.items() if k != "rows"} for task, value in test_files.items()},
         "rows": rows,
-        "deployed_harmful_count": sum(row["deployed_harmful"] for row in rows),
-        "candidate_harmful_count": sum(row["candidate_delta"] > 1e-5 for row in rows if row["edit_mode"] == "swap_one"),
+        "deployed_harmful_count": sum(row["deployed_harmful"] is True for row in rows),
+        "candidate_harmful_count": sum(row["candidate_delta"] is not None and row["candidate_delta"] > 1e-5
+                                        for row in rows if row["edit_mode"] == "swap_one"),
     }
     result["report_sha256"] = _sha(json.dumps(result, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
     output.parent.mkdir(parents=True, exist_ok=True)
