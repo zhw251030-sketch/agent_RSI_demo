@@ -1,0 +1,78 @@
+{
+  "schema": "replacement-srsd-feynman-dummy-i144-v02-val-replay-v05",
+  "status": "passed",
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "not_benchmark": true,
+  "round_summary_sha256": "377f2339fa1722f8d749d6aba874e10c5900c3d34a0c55530cf47617aa09000c",
+  "development_report_sha256": "f3466a866d4833893966aa37a69e0545f9491c037db36e2b3b660400c54cf894",
+  "val_report_sha256": "433e0e1da1808e2b5f1b97e07f5db0739950362c4f9a71f2c50502c746ec0032",
+  "tolerance": 1e-05,
+  "rows": [
+    {
+      "slot_id": "srsd-feynman-i14-4-dummy-v02-p01-r1",
+      "task_id": "srsd-feynman-i14-4-dummy-v02",
+      "edit_mode": "swap_one",
+      "evidence_status": "unknown",
+      "parent_source_sha256": "2c34aa6556b25f7205a7dce785537d29b71533da5517022c608d5222b29ba759",
+      "candidate_source_sha256": "58b6c7e72cd55715c62706b834758460e8423f89e346440fcdef44316c7725a4",
+      "parent_nmse": 0.8898143296750514,
+      "candidate_nmse": null,
+      "ordinary_delta": null,
+      "blocks": [],
+      "valid_block_count": 0,
+      "improved_block_count": 0,
+      "all_valid_blocks_improved": false,
+      "parent_fit": {
+        "status": "success",
+        "params": [
+          -2.4104973962358733,
+          1.296427637843489e-33,
+          38.217234211748,
+          51.4105941692568,
+          0.054649656001637,
+          7.0940908158684e-15
+        ]
+      },
+      "candidate_fit": {
+        "status": "failed",
+        "error_type": "RuntimeError",
+        "error": "fit failed for srsd-feynman-i14-4-dummy-v02: {\"response_status\": \"completed\", \"result\": {\"candidate_line\": 6, \"diagnostics\": {\"candidate_calls\": 8, \"exception_type\": \"ValueError\", \"final_params\": null, \"final_params_finite\": null, \"initial_params\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"nfev\": null, \"njev\": null, \"optimality\": null, \"optimizer_candidate_calls\": 8, \"optimizer_cost\": null, \"optimizer_invocations\": 1, \"optimizer_message\": null, \"optimizer_returned\": false, \"optimizer_status\": null, \"opti"
+      },
+      "dual_gate_action": "retain_parent"
+    },
+    {
+      "slot_id": "srsd-feynman-i14-4-dummy-v02-p01-r2",
+      "task_id": "srsd-feynman-i14-4-dummy-v02",
+      "edit_mode": "swap_one",
+      "evidence_status": "unknown",
+      "parent_source_sha256": "2c34aa6556b25f7205a7dce785537d29b71533da5517022c608d5222b29ba759",
+      "candidate_source_sha256": "39e6eb25cbebae42b73526a7ea6b013a729e2d5e6cdd26ca29e2a6cd9884a894",
+      "parent_nmse": 0.8898143296750514,
+      "candidate_nmse": null,
+      "ordinary_delta": null,
+      "blocks": [],
+      "valid_block_count": 0,
+      "improved_block_count": 0,
+      "all_valid_blocks_improved": false,
+      "parent_fit": {
+        "status": "success",
+        "params": [
+          -2.4104973962358733,
+          1.296427637843489e-33,
+          38.217234211748,
+          51.4105941692568,
+          0.054649656001637,
+          7.0940908158684e-15
+        ]
+      },
+      "candidate_fit": {
+        "status": "failed",
+        "error_type": "RuntimeError",
+        "error": "fit failed for srsd-feynman-i14-4-dummy-v02: {\"response_status\": \"completed\", \"result\": {\"diagnostics\": {\"candidate_calls\": 472, \"exception_type\": null, \"final_params\": [0.9999833382619877, -3.9970911742637675e-30, 0.9991740320406297, 0.9999999965708577, 0.9941697423965336, -1.8486987623105203e-19], \"final_params_finite\": true, \"initial_params\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"nfev\": 100, \"njev\": 62, \"optimality\": 2.2025918613367942e+35, \"optimizer_candidate_calls\": 472, \"optimizer_cost\": 18851"
+      },
+      "dual_gate_action": "retain_parent"
+    }
+  ],
+  "report_sha256": "7c0057a2a67db8240cd166c610e83c5a3da58bb00916fb67f2e3dd05d2b28ec7"
+}

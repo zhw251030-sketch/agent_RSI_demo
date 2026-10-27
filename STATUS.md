@@ -4,11 +4,13 @@
 
 ## 当前阶段
 
-当前阶段：p04 内部机制轮、SRSD-Feynman Easy 外部轮、Easy-Dummy 干扰变量轮和 Easy replication 重复轮均已完成一次真实受控运行。Easy-Dummy 使用两个 3 输入公开任务、4 个真实槽；replication 使用两个独立双线性任务、4 个真实槽。当前支持“固定权重下，绑定证据与验证域双门槛可在变量混淆和跨语境重复中保持保守”的窄结论；仍没有稳定优势、显著性或独立分布泛化结论。旧 p04 holdout 不再用于调参。
+当前阶段：p04 内部机制轮、SRSD-Feynman Easy 外部轮、Easy-Dummy 干扰变量轮、Easy replication 重复轮，以及五输入 Dummy i.14.4 v02 真实轮均已完成一次受控运行。五输入 v02 使用独立 symbolic-basis-v02 契约，2 个真实槽位均因候选数值拟合失败而保留父结构；一次性 test 复核中部署有害数为 0/2。当前支持“固定权重下，结构合法但不可数值拟合的候选会被验证阶段拒绝”的窄结论；仍没有稳定优势、显著性或独立分布泛化结论。旧 p04 holdout 不再用于调参。
 
 ## 已完成
 
 - 2026-10-27完成 SRSD-Feynman Easy replication 外部重复轮：新增 `i.12.5` 与 `i.14.3` 两个双线性任务，各 8000 train/1000 val，4 次真实 MiniMax-M3 请求全部接受，12/12 gate，4218 tokens、估算 0.010773 元。两个 swap 的 val ΔNMSE 为 +0.001263 与 −0.011869，但证据均 unknown，4 个动作全部 retain；一次性 test 复核中候选有害 1/2、部署有害 0/4。`iii.12.43` 与 `ii.27.18` 的极小量级数值校准不稳定，暂缓进入真实轮。见[结果](docs/analysis/2026-10-27-srsd-replication-v05-results.md)、[操作](docs/operations/2026-10-27-srsd-replication-v05.md)、[审计](docs/environment/2026-10-27-srsd-feynman-replication-real-v01-verification.json)。
+
+- 2026-10-27完成 SRSD-Feynman Easy-Dummy i.14.4 五输入 v02 真实轮：建立独立五输入三阶单项式契约，FakeProvider 2/2 请求、6/6 gate 预演通过后发送 2 次 MiniMax-M3 请求，2/2 接受、4698 tokens 之外的本轮实际用量以服务器账本为准。两个候选均结构合法但数值拟合失败（一个 `ValueError`，一个优化器达到上限），验证回放将证据置为 `unknown` 并将 2/2 动作固定为 `retain_parent`；规则冻结后一次性读取 test，父模型 test NMSE 为 0.8387557647，部署有害 0/2。该轮证明五输入协议和候选失败保护闭环，不证明机制性能优势。见[结果](docs/analysis/2026-10-27-srsd-feynman-dummy-i144-v02-real-results.md)、[Fake证书](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-v05-preflight.json)、[验证回放](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-val-replay-real-v03.json)和[test复核](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-test-holdout-real-v01.json)。
 
 - 2026-10-27完成 SRSD-Feynman Easy-Dummy 独立真实轮：从公开 CC-BY-4.0 数据集下载两个 3 输入任务的 8000 train/1000 val，test 在规则冻结后一次性读取；生成 train-only manifest 与每题 15 个自然域块。FakeProvider 预演 4/4 请求、12/12 gate、0 真实调用；MiniMax-M3 真实轮 4/4 接受、12/12 gate、4 次真实调用、usage unknown=0，4698 tokens、估算 0.0118062 元。3 个 swap 候选均 `contradicted`，val 双门槛 4/4 retain；test 候选有害 3/3、部署有害 0/4。`feynman-i.14.4` Dummy 的 5 输入版本因超出现有执行契约而延期。见[结果](docs/analysis/2026-10-27-srsd-feynman-dummy-v05-results.md)、[操作](docs/operations/2026-10-27-srsd-feynman-dummy-v05.md)、[真实审计](docs/environment/2026-10-27-srsd-feynman-dummy-real-v01-verification.json)和[test复核](docs/environment/2026-10-27-srsd-feynman-dummy-real-v01-test-holdout.json)。
 
@@ -162,11 +164,11 @@
 
 ## 尚未完成
 
-- 尚未把 replication 的双线性结果扩展到新的公式族、更多随机重复或 5 输入执行契约；当前新增轮仍只有两题、4 个真实槽。
+- 尚未把 replication 的双线性结果扩展到新的公式族或更多随机重复；五输入 v02 已完成一次真实轮，但当前只有一个五输入任务、2 个真实槽，且两个候选均数值失败。
 - 尚未把 Dummy 的候选收益作为策略更新或权重更新；本轮 0 个 allow，所有父结构保持不变。
 - 尚未有稳定优势、显著性或独立分布泛化结论；旧 p04 holdout、Spanner 和其它封存集继续不用于调参。
 - 真实外部轮累计费用仍需与历史两笔 usage-unknown 一起核对；本轮 Dummy 新增 4698 tokens、估算 0.0118062 元。
 
 ## 下一步
 
-下一步先完成新的公式族：先为极小量级任务设计明确的 target/input scaling 并做人工 fit/predict 校准，再接入 FakeProvider；随后建立 `symbolic_basis_v02` 的 5 输入独立契约，不能修改 v01。每轮都必须保存 source/dev/val/replay/holdout 哈希，test 只在规则冻结后一次性读取；如果出现 usage unknown、协议异常或 runtime hash 变化立即停止。
+下一步先做无模型数值诊断：分析 i.14.4 两个候选的条件数、尺度和优化器失败原因，设计 target/input scaling 并重新完成人工 fit/predict 校准；之后再选择一个经过数值校准的新五输入任务或候选进入 FakeProvider。每轮都必须保存 source/dev/val/replay/holdout 哈希，test 只在规则冻结后一次性读取；如果出现 usage unknown、协议异常或 runtime hash 变化立即停止。

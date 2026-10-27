@@ -1,0 +1,81 @@
+{
+  "schema": "replacement-srsd-feynman-dummy-i144-v02-test-holdout-v05",
+  "status": "passed_descriptive_holdout",
+  "official_test_read": true,
+  "official_test_ood_read": false,
+  "one_time_read": true,
+  "rules_frozen_before_read": true,
+  "round_summary_sha256": "377f2339fa1722f8d749d6aba874e10c5900c3d34a0c55530cf47617aa09000c",
+  "development_report_sha256": "f3466a866d4833893966aa37a69e0545f9491c037db36e2b3b660400c54cf894",
+  "source_report_sha256": "9e12a803220ac18da92056606e26b03fe640c0e939f005afa8c3ccb603a4994d",
+  "val_replay_sha256": "4e27eb1d0ffe7d13b27139b316a99bdc52c044e7f30343c8ea80e2a266c3c782",
+  "test_files": {
+    "srsd-feynman-i14-4-dummy-v02": {
+      "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/test/feynman-i.14.4.txt?download=true",
+      "raw_sha256": "88b063186d04ce846c6cdee62b41eeb36293749e9109d6c7c176141548f652e1",
+      "raw_bytes": 150559,
+      "csv_sha256": "f19ee51cc9483e7e360205a52ba11adf8a678146f6187bed77f3da7534bb04f2",
+      "csv_path": "data/external/srsd-feynman-easy-dummy-i144-v02/srsd-feynman-i14-4-dummy-v02/test.csv",
+      "row_count": 1000
+    }
+  },
+  "rows": [
+    {
+      "slot_id": "srsd-feynman-i14-4-dummy-v02-p01-r1",
+      "task_id": "srsd-feynman-i14-4-dummy-v02",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.8387557646855673,
+      "candidate_nmse": null,
+      "candidate_delta": null,
+      "deployed_nmse": 0.8387557646855673,
+      "deployed_harmful": false,
+      "parent_fit": {
+        "status": "success",
+        "params": [
+          -2.4104973962358733,
+          1.296427637843489e-33,
+          38.217234211748,
+          51.4105941692568,
+          0.054649656001637,
+          7.0940908158684e-15
+        ]
+      },
+      "candidate_fit": {
+        "status": "failed",
+        "error_type": "RuntimeError",
+        "error": "fit failed for srsd-feynman-i14-4-dummy-v02: {\"response_status\": \"completed\", \"result\": {\"candidate_line\": 6, \"diagnostics\": {\"candidate_calls\": 8, \"exception_type\": \"ValueError\", \"final_params\": null, \"final_params_finite\": null, \"initial_params\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"nfev\": null, \"njev\": null, \"optimality\": null, \"optimizer_candidate_calls\": 8, \"optimizer_cost\": null, \"optimizer_invocations\": 1, \"optimizer_message\": null, \"optimizer_returned\": false, \"optimizer_status\": null, \"opti"
+      }
+    },
+    {
+      "slot_id": "srsd-feynman-i14-4-dummy-v02-p01-r2",
+      "task_id": "srsd-feynman-i14-4-dummy-v02",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.8387557646855673,
+      "candidate_nmse": null,
+      "candidate_delta": null,
+      "deployed_nmse": 0.8387557646855673,
+      "deployed_harmful": false,
+      "parent_fit": {
+        "status": "success",
+        "params": [
+          -2.4104973962358733,
+          1.296427637843489e-33,
+          38.217234211748,
+          51.4105941692568,
+          0.054649656001637,
+          7.0940908158684e-15
+        ]
+      },
+      "candidate_fit": {
+        "status": "failed",
+        "error_type": "RuntimeError",
+        "error": "fit failed for srsd-feynman-i14-4-dummy-v02: {\"response_status\": \"completed\", \"result\": {\"diagnostics\": {\"candidate_calls\": 472, \"exception_type\": null, \"final_params\": [0.9999833382619877, -3.9970911742637675e-30, 0.9991740320406297, 0.9999999965708577, 0.9941697423965336, -1.8486987623105203e-19], \"final_params_finite\": true, \"initial_params\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], \"nfev\": 100, \"njev\": 62, \"optimality\": 2.2025918613367942e+35, \"optimizer_candidate_calls\": 472, \"optimizer_cost\": 18851"
+      }
+    }
+  ],
+  "deployed_harmful_count": 0,
+  "candidate_harmful_count": 0,
+  "report_sha256": "8dcf66ef358a9eeb38e9e09bb01f539e922c34e8656148fe8d85dda61c71a87d"
+}
