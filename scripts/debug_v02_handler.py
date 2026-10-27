@@ -1,4 +1,7 @@
 import json
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from extensions.symbolic_basis_v02.sdk_adapter import BasisSubmissionHandler, parse_tool_response
 from extensions.symbolic_basis_v02.contract import make_spec
 
