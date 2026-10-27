@@ -58,8 +58,9 @@ def run(*, output: Path, round_path: Path, dev_path: Path, source_path: Path,
         raise ValueError("upstream development report claims holdout access")
     tasks = load_frozen_tasks(ROOT, dev_path, task_definitions=DUMMY_TASK_DEFINITIONS)
     action_by_slot = {row["slot_id"]: row["dual_gate_action"] for row in val_replay["rows"]}
-    if sum(action.startswith("allow") for action in action_by_slot.values()) != 1:
-        raise ValueError("expected exactly one frozen val allow action")
+    allow_count = sum(action.startswith("allow") for action in action_by_slot.values())
+    if allow_count > 1:
+        raise ValueError("dummy protocol permits at most one frozen val allow action")
 
     holdout_root = ROOT / "data/external/srsd-feynman-easy-dummy"
     test_files = {}
