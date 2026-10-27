@@ -12,6 +12,8 @@
 
 - 2026-10-27完成 SRSD-Feynman Easy-Dummy i.14.4 五输入 v02 真实轮：建立独立五输入三阶单项式契约，FakeProvider 2/2 请求、6/6 gate 预演通过后发送 2 次 MiniMax-M3 请求，2/2 接受，3590 tokens，估算成本 0.0092526 元。两个候选均结构合法但数值拟合失败（一个 `ValueError`，一个优化器达到上限），验证回放将证据置为 `unknown` 并将 2/2 动作固定为 `retain_parent`；规则冻结后一次性读取 test，父模型 test NMSE 为 0.8387557647，部署有害 0/2。该轮证明五输入协议和候选失败保护闭环，不证明机制性能优势。见[结果](docs/analysis/2026-10-27-srsd-feynman-dummy-i144-v02-real-results.md)、[Fake证书](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-v05-preflight.json)、[验证回放](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-val-replay-real-v03.json)和[test复核](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-test-holdout-real-v01.json)。
 
+- 2026-10-27完成 i.14.4 v02 无模型数值诊断：只读 8000 行 train，发现原始候选列最高约 `1e66`，按训练列尺度缩放后父/候选条件数约 4.74/10.18/5.48，三者缩放后均为 6 维秩。该结果把下一步聚焦到 fit_dev 内的 target/input scaling 校准，未调用模型、未修改真实轮结论。见[诊断](docs/analysis/2026-10-27-srsd-feynman-dummy-i144-v02-numerical-diagnostic.md)和[机器报告](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-numerical-diagnostic-v01.json)。
+
 - 2026-10-27完成 SRSD-Feynman Easy-Dummy 独立真实轮：从公开 CC-BY-4.0 数据集下载两个 3 输入任务的 8000 train/1000 val，test 在规则冻结后一次性读取；生成 train-only manifest 与每题 15 个自然域块。FakeProvider 预演 4/4 请求、12/12 gate、0 真实调用；MiniMax-M3 真实轮 4/4 接受、12/12 gate、4 次真实调用、usage unknown=0，4698 tokens、估算 0.0118062 元。3 个 swap 候选均 `contradicted`，val 双门槛 4/4 retain；test 候选有害 3/3、部署有害 0/4。`feynman-i.14.4` Dummy 的 5 输入版本因超出现有执行契约而延期。见[结果](docs/analysis/2026-10-27-srsd-feynman-dummy-v05-results.md)、[操作](docs/operations/2026-10-27-srsd-feynman-dummy-v05.md)、[真实审计](docs/environment/2026-10-27-srsd-feynman-dummy-real-v01-verification.json)和[test复核](docs/environment/2026-10-27-srsd-feynman-dummy-real-v01-test-holdout.json)。
 
 - 2026-10-27完成 SRSD-Feynman Easy 外部开发包接入与服务器 fake 预演。依据公开 CC-BY-4.0 数据卡登记三个可由现有三阶单项式契约表示的方程任务：`feynman-i.12.1`、`feynman-i.14.4`、`feynman-ii.8.31`；每题下载 8000 行 train 和 1000 行 val，test 仅登记 URL、未读取。新增通用 train-only manifest（每题 4800/1600/1600 fit/check/outcome）、源文件/CSV/公式/清单哈希绑定和外部任务配置；本机 8 项新测试通过。服务器按同一脚本重下载，三题 CSV 哈希与本地一致；OpenHands SDK 1.55.1 + Linux sandbox FakeProvider 6/6 接受、18/18 gate、0 真实模型调用，预演证书已绑定代码、数据和 runtime 哈希。该轮只证明外部数据和执行协议可运行，不是 MiniMax 机制效果；下一步才是预冻结 val/natural-domain 规则后发送一次性真实请求。见[来源清单](docs/environment/2026-10-27-srsd-feynman-easy-source.json)、[开发清单](docs/environment/2026-10-27-srsd-feynman-easy-dev-v05.json)和[Fake 证书](docs/environment/2026-10-27-srsd-feynman-easy-v05-preflight.json)。
@@ -171,4 +173,4 @@
 
 ## 下一步
 
-下一步先做无模型数值诊断：分析 i.14.4 两个候选的条件数、尺度和优化器失败原因，设计 target/input scaling 并重新完成人工 fit/predict 校准；之后再选择一个经过数值校准的新五输入任务或候选进入 FakeProvider。每轮都必须保存 source/dev/val/replay/holdout 哈希，test 只在规则冻结后一次性读取；如果出现 usage unknown、协议异常或 runtime hash 变化立即停止。
+下一步做独立的无模型缩放校准：在 fit_dev 估计列/目标尺度，在缩放空间完成人工 fit/predict，再检查还原后的误差和候选失败是否消失；通过后才设计带缩放元数据的 v02.1 契约并重新 FakeProvider 预演。每轮都必须保存 source/dev/val/replay/holdout 哈希，test 只在规则冻结后一次性读取；如果出现 usage unknown、协议异常或 runtime hash 变化立即停止。
