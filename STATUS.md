@@ -8,6 +8,8 @@
 
 ## 已完成
 
+- 2026-10-27完成 v02 工程闭环总验收：新增只读总入口 `scripts/verify_srsd_i144_v02_closure.py` 和 4 项验收测试，统一核对 source/dev、FakeProvider 证书、fake/real round、val replay、一次性 holdout、runtime lock、提交祖先和 6 个 v02 关键文件编译状态。服务器证书 `status=passed`，代码提交 `264e2fe1`，模型调用/下载/输入证据修改均为 0，val allow 为 0，部署有害数为 0。验收器还发现并修正了 source 文件 SHA256 与 source 内部 `manifest_sha256` 的语义混淆。见[工程闭环说明](docs/operations/2026-10-27-engineering-closure.md)和[闭环证书](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-engineering-closure-v01.json)。
+
 - 2026-10-27完成 SRSD-Feynman Easy replication 外部重复轮：新增 `i.12.5` 与 `i.14.3` 两个双线性任务，各 8000 train/1000 val，4 次真实 MiniMax-M3 请求全部接受，12/12 gate，4218 tokens、估算 0.010773 元。两个 swap 的 val ΔNMSE 为 +0.001263 与 −0.011869，但证据均 unknown，4 个动作全部 retain；一次性 test 复核中候选有害 1/2、部署有害 0/4。`iii.12.43` 与 `ii.27.18` 的极小量级数值校准不稳定，暂缓进入真实轮。见[结果](docs/analysis/2026-10-27-srsd-replication-v05-results.md)、[操作](docs/operations/2026-10-27-srsd-replication-v05.md)、[审计](docs/environment/2026-10-27-srsd-feynman-replication-real-v01-verification.json)。
 
 - 2026-10-27完成 SRSD-Feynman Easy-Dummy i.14.4 五输入 v02 真实轮：建立独立五输入三阶单项式契约，FakeProvider 2/2 请求、6/6 gate 预演通过后发送 2 次 MiniMax-M3 请求，2/2 接受，3590 tokens，估算成本 0.0092526 元。两个候选均结构合法但数值拟合失败（一个 `ValueError`，一个优化器达到上限），验证回放将证据置为 `unknown` 并将 2/2 动作固定为 `retain_parent`；规则冻结后一次性读取 test，父模型 test NMSE 为 0.8387557647，部署有害 0/2。该轮证明五输入协议和候选失败保护闭环，不证明机制性能优势。见[结果](docs/analysis/2026-10-27-srsd-feynman-dummy-i144-v02-real-results.md)、[Fake证书](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-v05-preflight.json)、[验证回放](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-val-replay-real-v03.json)和[test复核](docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-test-holdout-real-v01.json)。

@@ -1,0 +1,25 @@
+{
+  "schema": "replacement-srsd-feynman-dummy-i144-v02-engineering-closure-v01",
+  "status": "passed",
+  "code_commit": "264e2fe15f3f41b7932c816a0783fb8ad8ea86c2",
+  "certificate_code_commit": "30fef33ef8fe6e7d3b58d61072db19469052ea9a",
+  "real_round_summary_sha256": "377f2339fa1722f8d749d6aba874e10c5900c3d34a0c55530cf47617aa09000c",
+  "val_replay_sha256": "4e27eb1d0ffe7d13b27139b316a99bdc52c044e7f30343c8ea80e2a266c3c782",
+  "holdout_sha256": "51d38942e3e4a3566a28dc094833fbb879c7acaad3090d44ff458186eadfae28",
+  "fake_round_summary_sha256": "f4d682cfa7538cefa35a49181bdedbb55caced75d383d5a7c77d3afc3f4de8bf",
+  "official_test_read": true,
+  "official_test_ood_read": false,
+  "model_calls": 0,
+  "downloads": 0,
+  "writes_to_inputs": 0,
+  "compiled_v02_files": [
+    "extensions/symbolic_basis_v02/contract.py",
+    "extensions/symbolic_basis_v02/sdk_adapter.py",
+    "extensions/basis_trial_v02/sdk_controller_v02.py",
+    "scripts/run_srsd_dummy_i144_v02_preflight.py",
+    "scripts/run_srsd_dummy_i144_v02_val_replay.py",
+    "scripts/run_srsd_dummy_i144_v02_test_holdout.py"
+  ],
+  "val_allow_count": 0,
+  "deployed_harmful_count": 0
+}
