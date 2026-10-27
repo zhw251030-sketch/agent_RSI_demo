@@ -1,0 +1,30 @@
+{
+  "schema": "replacement-srsd-feynman-dummy-real-v05-audit",
+  "status": "passed",
+  "run_summary_sha256": "85fd875c37f11e208d35c9601d0f417371f5e2e4e76aa7c814fe307ec78f6292",
+  "round_summary_sha256": "fca78f8e2c639744fc52d95726879e137e309fc4ede93c6ec4e78c3ecf14edb5",
+  "val_replay_sha256": "ebbc5d69a75ba7ce1f9fac11ce0897ae20ddc3fdab6a5a05dd400faa87e40113",
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "model_requests": 4,
+  "accepted_slots": 4,
+  "gate_records": 12,
+  "real_model_calls": 4,
+  "known_prompt_tokens": 4390,
+  "known_completion_tokens": 308,
+  "known_total_tokens": 4698,
+  "estimated_cost_cny": 0.0118062,
+  "usage_unknown_count": 0,
+  "evidence_counts": {
+    "contradicted": 3,
+    "unknown": 1
+  },
+  "edit_mode_counts": {
+    "swap_one": 3,
+    "keep": 1
+  },
+  "val_dual_gate_counts": {
+    "retain_parent": 4
+  },
+  "val_swap_count": 3
+}

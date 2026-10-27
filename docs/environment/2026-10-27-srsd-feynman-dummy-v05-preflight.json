@@ -1,0 +1,63 @@
+{
+  "schema": "replacement-srsd-feynman-dummy-v05-verification",
+  "status": "passed",
+  "mode": "fake",
+  "run_id": "2026-10-27-srsd-dummy-fake-v01",
+  "code_commit": "f0159a88cb8d69c6548d7c0d3a80ed13cfda1171",
+  "sdk_version": "1.55.1",
+  "split_report_sha256": "c11c66d47bfa3677b39a4376b4e6a66f9cd4089b77e094c7eb1610f544dfb475",
+  "source_report_sha256": "977c7d2353da22adfce9b44249368051063c30fafac937d97df0d30dcd81eb4c",
+  "runtime_lock_sha256": "8548e1fd3c397331121dfae2c69760a705ec182fb0d49b44bc2dccdd71635031",
+  "model_requests": 4,
+  "accepted_slots": 4,
+  "gate_records": 12,
+  "real_model_calls": 0,
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "outcome_dev_read": true,
+  "provider_calls": 4,
+  "round_summary_sha256": "df1a41adea1987abeb281d39b0bb1bc3c180032654e87cc4c0a94a632b531893",
+  "budget": {
+    "config": {
+      "max_requests": 4,
+      "max_requests_per_session": 1,
+      "max_output_tokens": 8192,
+      "max_input_bytes": 98304,
+      "max_reserved_tokens": 200000,
+      "max_cost_cny": 4.0,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4,
+      "session_ids": [
+        "srsd-feynman-i12-1-dummy-p01-r1",
+        "srsd-feynman-i12-1-dummy-p01-r2",
+        "srsd-feynman-ii8-31-dummy-p01-r1",
+        "srsd-feynman-ii8-31-dummy-p01-r2"
+      ]
+    },
+    "request_count": 4,
+    "session_counts": {
+      "srsd-feynman-i12-1-dummy-p01-r1": 1,
+      "srsd-feynman-i12-1-dummy-p01-r2": 1,
+      "srsd-feynman-ii8-31-dummy-p01-r1": 1,
+      "srsd-feynman-ii8-31-dummy-p01-r2": 1
+    },
+    "reserved_count": 0,
+    "failed_count": 0,
+    "reserved_input_tokens": 42728,
+    "reserved_output_tokens": 32768,
+    "reserved_tokens": 75496,
+    "reserved_cost_cny": 0.36498,
+    "usage_unknown_count": 0,
+    "known_prompt_tokens": 400,
+    "known_completion_tokens": 80,
+    "known_total_tokens": 480,
+    "known_estimated_cost_cny": 0.001512,
+    "actual_tokens": 480,
+    "actual_estimated_cost_cny": 0.001512,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null,
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  }
+}

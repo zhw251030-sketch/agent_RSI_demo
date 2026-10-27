@@ -1,0 +1,89 @@
+{
+  "schema": "srsd-feynman-easy-dummy-source-v0.1",
+  "dataset": "yoshitomo-matsubara/srsd-feynman_easy_dummy",
+  "dataset_card_url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy",
+  "source_license": "CC-BY-4.0",
+  "source_split_policy": "train and val are public development files; test is reserved",
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "supp_info_sha256": "66162eba67dc8ec5e98ba46118188f8bc54416550b8262725289587b49d6432e",
+  "tasks": {
+    "srsd-feynman-i12-1-dummy": {
+      "source_id": "feynman-i.12.1",
+      "equation": "x0*x1",
+      "symbols": [
+        "$F$",
+        "$\\mu$",
+        "$N_\\text{n}$"
+      ],
+      "symbols_descs": [
+        "Force of friction",
+        "Coefficient of friction",
+        "Normal force"
+      ],
+      "files": {
+        "train": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/train/feynman-i.12.1.txt?download=true",
+          "read": true,
+          "raw_sha256": "60d315c3b835dc7886a8c1c4b98fc877e3c60d587edac08803712cd00b312007",
+          "raw_bytes": 800000,
+          "row_count": 8000,
+          "csv_path": "data/external/srsd-feynman-easy-dummy/srsd-feynman-i12-1-dummy/train.csv",
+          "csv_sha256": "ad72054b584d46c15c8637b7dfec2fe42b8e2706794dfd6a3714a7d1d790f92f"
+        },
+        "val": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/val/feynman-i.12.1.txt?download=true",
+          "read": true,
+          "raw_sha256": "d5f84b71d0c5bf870cef33cf2917719c1d9fa0ba47bcb2dfb293005da139ca55",
+          "raw_bytes": 100000,
+          "row_count": 1000,
+          "csv_path": "data/external/srsd-feynman-easy-dummy/srsd-feynman-i12-1-dummy/val.csv",
+          "csv_sha256": "29be0be1e6ca601c34737894ab9499ed5c86091f6f17e71a2b4f35e0a40ad994"
+        },
+        "test": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/test/feynman-i.12.1.txt?download=true",
+          "read": false
+        }
+      }
+    },
+    "srsd-feynman-ii8-31-dummy": {
+      "source_id": "feynman-ii.8.31",
+      "equation": "4.427e-12*x1**2",
+      "symbols": [
+        "$u$",
+        "$\\epsilon$",
+        "$E$"
+      ],
+      "symbols_descs": [
+        "Energy",
+        "Vacuum permittivity",
+        "Magnitude of electric field"
+      ],
+      "files": {
+        "train": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/train/feynman-ii.8.31.txt?download=true",
+          "read": true,
+          "raw_sha256": "99dd7a1ae07a12f02f920c36e50862f628f791c10309f57f392b50683403180f",
+          "raw_bytes": 800000,
+          "row_count": 8000,
+          "csv_path": "data/external/srsd-feynman-easy-dummy/srsd-feynman-ii8-31-dummy/train.csv",
+          "csv_sha256": "835133527af89960157fd7c9b2c618c39085ab1ae2ac4ab88c6475ff901fa7cd"
+        },
+        "val": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/val/feynman-ii.8.31.txt?download=true",
+          "read": true,
+          "raw_sha256": "7ae6d88f37a4aeb9873fda3c2c7a86c7e7152ff0cee93624c825c4227d0fb8ca",
+          "raw_bytes": 100000,
+          "row_count": 1000,
+          "csv_path": "data/external/srsd-feynman-easy-dummy/srsd-feynman-ii8-31-dummy/val.csv",
+          "csv_sha256": "7646a9b7866fcfce34fb427259d1c56f6b39ae6f644cd3a1ae592554b0adcd89"
+        },
+        "test": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/test/feynman-ii.8.31.txt?download=true",
+          "read": false
+        }
+      }
+    }
+  },
+  "manifest_sha256": "3c1c944a0202303c6b238a90891e6b9d3cb3c460379c6272932d7c6dabf888bc"
+}

@@ -4,9 +4,11 @@
 
 ## 当前阶段
 
-当前阶段：两轮替换充分性机制开发与跨任务重复已经完成，最终 holdout 已于 2026-10-26 按预注册只读协议解封并完成。四个任务共 24 个冻结 proposal；在 test_id 上 `replacement_check` 将部署有害从 7 降为 0、拦截 7 个，在 test_ood 上从 9 降为 4、拦截 5 个，同时保守拒绝 3/5 个潜在有利候选并保留父结构。结果支持“绑定具体替换证据可减少有害部署”的窄机制结论，但仍存在 4 个 OOD 有害部署，不能称为完全可靠、统计显著或独立分布泛化。当前已冻结 p04 开发轮并切换到新的外部公开任务接入；不再把本轮 holdout 用于调参。
+当前阶段：p04 内部机制轮、SRSD-Feynman Easy 外部轮和 Easy-Dummy 干扰变量轮均已完成一次真实受控运行。Easy-Dummy 使用两个 3 输入公开任务、4 个真实槽；3 个 swap 候选在 val 上全部被保留父结构，test 描述性复核中 3/3 候选有害而实际部署有害为 0。当前支持“固定权重下，绑定证据与验证域双门槛可在变量混淆轮中保持保守”的窄结论；仍没有稳定优势、显著性或独立分布泛化结论。旧 p04 holdout 不再用于调参。
 
 ## 已完成
+
+- 2026-10-27完成 SRSD-Feynman Easy-Dummy 独立真实轮：从公开 CC-BY-4.0 数据集下载两个 3 输入任务的 8000 train/1000 val，test 在规则冻结后一次性读取；生成 train-only manifest 与每题 15 个自然域块。FakeProvider 预演 4/4 请求、12/12 gate、0 真实调用；MiniMax-M3 真实轮 4/4 接受、12/12 gate、4 次真实调用、usage unknown=0，4698 tokens、估算 0.0118062 元。3 个 swap 候选均 `contradicted`，val 双门槛 4/4 retain；test 候选有害 3/3、部署有害 0/4。`feynman-i.14.4` Dummy 的 5 输入版本因超出现有执行契约而延期。见[结果](docs/analysis/2026-10-27-srsd-feynman-dummy-v05-results.md)、[操作](docs/operations/2026-10-27-srsd-feynman-dummy-v05.md)、[真实审计](docs/environment/2026-10-27-srsd-feynman-dummy-real-v01-verification.json)和[test复核](docs/environment/2026-10-27-srsd-feynman-dummy-real-v01-test-holdout.json)。
 
 - 2026-10-27完成 SRSD-Feynman Easy 外部开发包接入与服务器 fake 预演。依据公开 CC-BY-4.0 数据卡登记三个可由现有三阶单项式契约表示的方程任务：`feynman-i.12.1`、`feynman-i.14.4`、`feynman-ii.8.31`；每题下载 8000 行 train 和 1000 行 val，test 仅登记 URL、未读取。新增通用 train-only manifest（每题 4800/1600/1600 fit/check/outcome）、源文件/CSV/公式/清单哈希绑定和外部任务配置；本机 8 项新测试通过。服务器按同一脚本重下载，三题 CSV 哈希与本地一致；OpenHands SDK 1.55.1 + Linux sandbox FakeProvider 6/6 接受、18/18 gate、0 真实模型调用，预演证书已绑定代码、数据和 runtime 哈希。该轮只证明外部数据和执行协议可运行，不是 MiniMax 机制效果；下一步才是预冻结 val/natural-domain 规则后发送一次性真实请求。见[来源清单](docs/environment/2026-10-27-srsd-feynman-easy-source.json)、[开发清单](docs/environment/2026-10-27-srsd-feynman-easy-dev-v05.json)和[Fake 证书](docs/environment/2026-10-27-srsd-feynman-easy-v05-preflight.json)。
 
@@ -158,12 +160,11 @@
 
 ## 尚未完成
 
-- 尚未把 synthetic Agent 预演替换为真实任务数据和真实 MiniMax 候选，也尚未生成正式机制轮的完整候选批次。
-- 真实小轮协议已通过内容审查、runner 接线和服务器 12 槽 fake-provider + Linux sandbox 验收：12 个请求、两个任务各 3 个父结构×2 重复、三条件门控、最大 4 元 SDK 账本上限（低于用户授权的 300 元）；真实 MiniMax 请求仍未发送。
-- 尚未在 `bactgrow` 和 `stressstrain` 上产生新的真实候选、门控记录或 `outcome_dev` shadow 成绩；因此替换充分性协议仍是预演基础设施，不是机制效果。
-- 尚未有独立任务泛化或稳定优势结论；Spanner 和封存集继续不启动。
-- 累计184研究请求，历史两笔usage未知；实际总账单仍无法精确给出。
+- 尚未把 Easy-Dummy 的结果扩展到更多任务族、更多随机重复或 5 输入执行契约；当前只有两题、4 个真实槽。
+- 尚未把 Dummy 的候选收益作为策略更新或权重更新；本轮 0 个 allow，所有父结构保持不变。
+- 尚未有稳定优势、显著性或独立分布泛化结论；旧 p04 holdout、Spanner 和其它封存集继续不用于调参。
+- 真实外部轮累计费用仍需与历史两笔 usage-unknown 一起核对；本轮 Dummy 新增 4698 tokens、估算 0.0118062 元。
 
 ## 下一步
 
-下一步需要在服务器恢复或指定正确的 MiniMax token 文件路径；当前提供的 `/home/hanwen/Project/project/siNRA-pi/docs/auth.json` 不存在，真实轮 `real-v01` 在第一个请求前停止，账本为 0 请求/0 费用。路径恢复后用新的 run-id 启动受证书保护的 real mode，最多 12 个请求。真实候选的 `fit_dev/check_dev` 证据、三条件门冻结和 `outcome_dev` shadow 必须分目录保存，不能回写本次预演、切分或阈值；首个未知 usage、传输失败、协议错误或 runtime hash 变化立即停止；旧13位置不恢复、不补抽，不启动168请求草案或封存评价。
+下一步先做低成本的独立重复：在现有 Easy 与 Easy-Dummy 之外增加任务/重复槽，保持模型权重、提示、特征字典、证据阈值和 val/test 顺序不变。随后单独设计 5 输入 Dummy 执行契约扩展，先 FakeProvider 和人工数值校准，再决定是否真实调用。每轮都必须保存 source/dev/val/replay/holdout 哈希，test 只在规则冻结后一次性读取；如果出现 usage unknown、协议异常或 runtime hash 变化立即停止。
