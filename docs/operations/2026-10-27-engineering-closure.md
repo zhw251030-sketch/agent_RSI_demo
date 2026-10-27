@@ -29,7 +29,7 @@ cd /home/hanwen/Project/project/agent_RSI_demo
   --output docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-engineering-closure-v01.json
 ```
 
-该命令只读已存在文件。服务器当前证书结果为 `status=passed`，代码提交为 `264e2fe1`，模型调用为 0，下载为 0，val allow 为 0，部署有害数为 0。
+该命令只读已存在文件。服务器当前证书结果为 `status=passed`，证书绑定提交为 `28deec80`，当前仓库提交为 `59939eb9`，模型调用为 0，下载为 0，val allow 为 0，部署有害数为 0。证书绑定提交是当前最终代码的祖先，最后一个提交只更新了证书元数据。
 
 ## 环境边界
 
