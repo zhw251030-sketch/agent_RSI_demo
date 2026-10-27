@@ -122,7 +122,7 @@ def run(*, output: Path, round_path: Path, dev_path: Path, source_path: Path,
             "parent_fit": parent_fit, "candidate_fit": candidate_fit,
         })
     result = {
-        "schema": "replacement-srsd-feynman-easy-dummy-i144-v02-test-holdout-v05",
+        "schema": "replacement-srsd-feynman-dummy-i144-v02-test-holdout-v05",
         "status": "passed_descriptive_holdout",
         "official_test_read": True, "official_test_ood_read": False,
         "one_time_read": True, "rules_frozen_before_read": True,
