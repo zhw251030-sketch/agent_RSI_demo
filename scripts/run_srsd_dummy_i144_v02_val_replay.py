@@ -68,7 +68,9 @@ def _fit_compiled(compiled, task, fit):
     result = response.get("result", {})
     params = result.get("params") if response.get("status") == "completed" else None
     if result.get("status") != "success" or not isinstance(params, list):
-        raise RuntimeError(f"fit failed for {task.definition.task_id}")
+        detail = json.dumps({"response_status": response.get("status"), "result": result},
+                            ensure_ascii=False, sort_keys=True)[:2000]
+        raise RuntimeError(f"fit failed for {task.definition.task_id}: {detail}")
     return [float(value) for value in params]
 
 
