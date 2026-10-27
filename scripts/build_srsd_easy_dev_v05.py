@@ -26,11 +26,13 @@ def _canonical(value) -> bytes:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
 
 
-def build_report(repo_root: Path, source_report_path: Path) -> dict:
+def build_report(repo_root: Path, source_report_path: Path, *, definitions=EXTERNAL_TASK_DEFINITIONS,
+                 schema: str = "replacement-srsd-feynman-easy-dev-v05",
+                 split_version: str = "srsd-feynman-easy-v05") -> dict:
     source_report = json.loads(source_report_path.read_text(encoding="utf-8"))
     if source_report.get("official_test_read") or source_report.get("official_test_ood_read"):
         raise ValueError("source report claims official holdout access")
-    definitions = {item.task_id: item for item in EXTERNAL_TASK_DEFINITIONS}
+    definitions = {item.task_id: item for item in definitions}
     if set(source_report.get("tasks", {})) != set(definitions):
         raise ValueError("source report task set differs from frozen external protocol")
     tasks = {}
@@ -57,7 +59,7 @@ def build_report(repo_root: Path, source_report_path: Path) -> dict:
             data_sha256=source_sha,
             target=definition.target,
             strata_names=("target_decile",),
-            version="srsd-feynman-easy-v05",
+            version=split_version,
         )
         tasks[task_id] = {
             "source_path": train_record["csv_path"],
@@ -72,7 +74,7 @@ def build_report(repo_root: Path, source_report_path: Path) -> dict:
             "manifest": manifest,
         }
     result = {
-        "schema": "replacement-srsd-feynman-easy-dev-v05",
+        "schema": schema,
         "status": "frozen_train_only_external_development",
         "source_dataset": source_report["dataset"],
         "source_report_sha256": source_report["manifest_sha256"],

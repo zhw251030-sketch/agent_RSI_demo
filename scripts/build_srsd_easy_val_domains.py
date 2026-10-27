@@ -99,11 +99,13 @@ def build_task_report(*, task_id: str, definition, train_path: Path, val_path: P
     }
 
 
-def build_report(repo_root: Path, dev_report_path: Path, *, min_rows: int = 32) -> dict:
+def build_report(repo_root: Path, dev_report_path: Path, *, min_rows: int = 32,
+                 definitions=EXTERNAL_TASK_DEFINITIONS,
+                 schema: str = "replacement-srsd-feynman-easy-val-domain-v05") -> dict:
     dev = json.loads(dev_report_path.read_text(encoding="utf-8"))
     if dev.get("official_test_read") or dev.get("official_test_ood_read"):
         raise ValueError("development report claims official holdout access")
-    definitions = {task.task_id: task for task in EXTERNAL_TASK_DEFINITIONS}
+    definitions = {task.task_id: task for task in definitions}
     tasks = {}
     for task_id, definition in definitions.items():
         entry = dev["tasks"][task_id]
@@ -124,7 +126,7 @@ def build_report(repo_root: Path, dev_report_path: Path, *, min_rows: int = 32) 
         task_report["val_path"] = entry["val_path"]
         tasks[task_id] = task_report
     result = {
-        "schema": "replacement-srsd-feynman-easy-val-domain-v05",
+        "schema": schema,
         "status": "frozen_train_referenced_val_domains",
         "development_report_sha256": _sha(dev_report_path.read_bytes()),
         "source_split": "val_external",
