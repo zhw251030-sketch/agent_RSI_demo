@@ -1,0 +1,91 @@
+{
+  "schema": "srsd-feynman-easy-replication-source-v0.1",
+  "dataset": "yoshitomo-matsubara/srsd-feynman_easy",
+  "dataset_card_url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy",
+  "source_license": "CC-BY-4.0",
+  "source_split_policy": "train and val are public development files; test is reserved",
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "supp_info_sha256": "ef28244fecc862ff193d815decc0598e129351dd23b85f4c15dd3b7bf8f6c502",
+  "tasks": {
+    "srsd-feynman-i12-5": {
+      "source_id": "feynman-i.12.5",
+      "equation": "x0*x1",
+      "symbols": [
+        "$F$",
+        "$q_2$",
+        "$E$"
+      ],
+      "symbols_descs": [
+        "Force",
+        "Electric charge",
+        "Electric field"
+      ],
+      "files": {
+        "train": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/train/feynman-i.12.5.txt?download=true",
+          "read": true,
+          "raw_sha256": "9cf14a832ec923b0ceb2d83425ef2ceac3bbd778bacdeaea209d27ee056751e4",
+          "raw_bytes": 612018,
+          "row_count": 8000,
+          "csv_path": "data/external/srsd-feynman-easy-replication/srsd-feynman-i12-5/train.csv",
+          "csv_sha256": "37e563e748461550ec29ebed5a06b04c643fd1187fb2787bd1de6a85c4b219f3"
+        },
+        "val": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/val/feynman-i.12.5.txt?download=true",
+          "read": true,
+          "raw_sha256": "6000e74061f9815fba9c792925d4d7d2093b981ffe70391f5f58f563dea8e875",
+          "raw_bytes": 76552,
+          "row_count": 1000,
+          "csv_path": "data/external/srsd-feynman-easy-replication/srsd-feynman-i12-5/val.csv",
+          "csv_sha256": "7056961dec427de508faf119aa0138cb18518b937d488a63acdc6632f72c30fd"
+        },
+        "test": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/test/feynman-i.12.5.txt?download=true",
+          "read": false
+        }
+      }
+    },
+    "srsd-feynman-i14-3": {
+      "source_id": "feynman-i.14.3",
+      "equation": "9.80665*x0*x1",
+      "symbols": [
+        "$U$",
+        "$m$",
+        "$g$",
+        "$z$"
+      ],
+      "symbols_descs": [
+        "Potential energy",
+        "Mass",
+        "Gravitational acceleration",
+        "Height"
+      ],
+      "files": {
+        "train": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/train/feynman-i.14.3.txt?download=true",
+          "read": true,
+          "raw_sha256": "076eb519a95e6dce5eb4c1e7d34759897e1e214e1cfc229c13e6248e65a034ac",
+          "raw_bytes": 607972,
+          "row_count": 8000,
+          "csv_path": "data/external/srsd-feynman-easy-replication/srsd-feynman-i14-3/train.csv",
+          "csv_sha256": "575408949691e27520ad5a47fbee5643e61c6768d3888e66a178cbd0c3c16cec"
+        },
+        "val": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/val/feynman-i.14.3.txt?download=true",
+          "read": true,
+          "raw_sha256": "4bf8176fafcceeadddaf05fbf9bd7179c5ac77b9571a86966904760c996be870",
+          "raw_bytes": 75984,
+          "row_count": 1000,
+          "csv_path": "data/external/srsd-feynman-easy-replication/srsd-feynman-i14-3/val.csv",
+          "csv_sha256": "c8c6e0b18b16d70afb8b9b1254d97c6528cf15760faa1e87f0b135d4e5eb685f"
+        },
+        "test": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/test/feynman-i.14.3.txt?download=true",
+          "read": false
+        }
+      }
+    }
+  },
+  "manifest_sha256": "2ec60404993038c060a15a25dbb79945f56b69f10981cc96dbf6dddb4ab59bbf"
+}

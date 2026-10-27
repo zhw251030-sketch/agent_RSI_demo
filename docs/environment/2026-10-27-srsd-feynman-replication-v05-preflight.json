@@ -1,0 +1,63 @@
+{
+  "schema": "replacement-srsd-feynman-replication-v05-verification",
+  "status": "passed",
+  "mode": "fake",
+  "run_id": "2026-10-27-srsd-replication-fake-v02",
+  "code_commit": "947251c3c19fe1d707ad6e4dcdcd5d88bac0156f",
+  "sdk_version": "1.55.1",
+  "split_report_sha256": "80f0f2d49d146bea3fb7f1a157814517160761b017dabcdb32500aa17bd20562",
+  "source_report_sha256": "b75e34ae9a632d83dc5766ef80691e1309017b436a88098c8c4ed983f32cfd84",
+  "runtime_lock_sha256": "8548e1fd3c397331121dfae2c69760a705ec182fb0d49b44bc2dccdd71635031",
+  "model_requests": 4,
+  "accepted_slots": 4,
+  "gate_records": 12,
+  "real_model_calls": 0,
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "outcome_dev_read": true,
+  "provider_calls": 4,
+  "round_summary_sha256": "c478834179bd3ccb3ab6bfc505285c2f6a020c7b638beefce5fb0bcca4a74439",
+  "budget": {
+    "config": {
+      "max_requests": 4,
+      "max_requests_per_session": 1,
+      "max_output_tokens": 8192,
+      "max_input_bytes": 98304,
+      "max_reserved_tokens": 200000,
+      "max_cost_cny": 4.0,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4,
+      "session_ids": [
+        "srsd-feynman-i12-5-p01-r1",
+        "srsd-feynman-i12-5-p01-r2",
+        "srsd-feynman-i14-3-p01-r1",
+        "srsd-feynman-i14-3-p01-r2"
+      ]
+    },
+    "request_count": 4,
+    "session_counts": {
+      "srsd-feynman-i12-5-p01-r1": 1,
+      "srsd-feynman-i12-5-p01-r2": 1,
+      "srsd-feynman-i14-3-p01-r1": 1,
+      "srsd-feynman-i14-3-p01-r2": 1
+    },
+    "reserved_count": 0,
+    "failed_count": 0,
+    "reserved_input_tokens": 42140,
+    "reserved_output_tokens": 32768,
+    "reserved_tokens": 74908,
+    "reserved_cost_cny": 0.3637452,
+    "usage_unknown_count": 0,
+    "known_prompt_tokens": 400,
+    "known_completion_tokens": 80,
+    "known_total_tokens": 480,
+    "known_estimated_cost_cny": 0.001512,
+    "actual_tokens": 480,
+    "actual_estimated_cost_cny": 0.001512,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null,
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  }
+}

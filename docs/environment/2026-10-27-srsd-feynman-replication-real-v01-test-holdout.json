@@ -1,0 +1,79 @@
+{
+  "schema": "replacement-srsd-feynman-easy-replication-test-holdout-v05",
+  "status": "passed_descriptive_holdout",
+  "official_test_read": true,
+  "official_test_ood_read": false,
+  "one_time_read": true,
+  "rules_frozen_before_read": true,
+  "round_summary_sha256": "993c20de723d760cd2c231eeb4d7fce7ba04f97c7a7fdcb2705f46d27495af63",
+  "development_report_sha256": "80f0f2d49d146bea3fb7f1a157814517160761b017dabcdb32500aa17bd20562",
+  "source_report_sha256": "b75e34ae9a632d83dc5766ef80691e1309017b436a88098c8c4ed983f32cfd84",
+  "val_replay_sha256": "0f6cfc82d83a8ca8de7072c4d6998f8781156d3ac90031134cd99322e6dfd4cd",
+  "test_files": {
+    "srsd-feynman-i12-5": {
+      "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/test/feynman-i.12.5.txt?download=true",
+      "raw_sha256": "2d38f2ce30107938d31146c5bc4ef6cbabc87a04d374e568a2b6fe5f5e9342bb",
+      "raw_bytes": 76528,
+      "csv_sha256": "673a174232cbd92e1f27bbc3a90e4bc0073ebb7dbfb08371220fdbbd2cbf9aad",
+      "csv_path": "data/external/srsd-feynman-easy-replication/srsd-feynman-i12-5/test.csv",
+      "row_count": 1000
+    },
+    "srsd-feynman-i14-3": {
+      "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy/resolve/main/test/feynman-i.14.3.txt?download=true",
+      "raw_sha256": "73f0394081b34ff654b9e06823be13c31207b8ec5ce1fd4cefce5c5aaa82ccae",
+      "raw_bytes": 76038,
+      "csv_sha256": "67ba8f839f353673a9058dafbd3080213d0a390b817f0b9dab54882c405d8868",
+      "csv_path": "data/external/srsd-feynman-easy-replication/srsd-feynman-i14-3/test.csv",
+      "row_count": 1000
+    }
+  },
+  "rows": [
+    {
+      "slot_id": "srsd-feynman-i12-5-p01-r1",
+      "task_id": "srsd-feynman-i12-5",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.9886118761373791,
+      "candidate_nmse": 0.9903425883211745,
+      "candidate_delta": 0.001730712183795391,
+      "deployed_nmse": 0.9886118761373791,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-i12-5-p01-r2",
+      "task_id": "srsd-feynman-i12-5",
+      "edit_mode": "keep",
+      "val_action": "retain_parent",
+      "parent_nmse": 0.9886118761373791,
+      "candidate_nmse": 0.9886118761373791,
+      "candidate_delta": 0.0,
+      "deployed_nmse": 0.9886118761373791,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-i14-3-p01-r1",
+      "task_id": "srsd-feynman-i14-3",
+      "edit_mode": "swap_one",
+      "val_action": "retain_parent",
+      "parent_nmse": 1.0712388161967341,
+      "candidate_nmse": 1.0584119550723958,
+      "candidate_delta": -0.012826861124338285,
+      "deployed_nmse": 1.0712388161967341,
+      "deployed_harmful": false
+    },
+    {
+      "slot_id": "srsd-feynman-i14-3-p01-r2",
+      "task_id": "srsd-feynman-i14-3",
+      "edit_mode": "keep",
+      "val_action": "retain_parent",
+      "parent_nmse": 1.0712388161967341,
+      "candidate_nmse": 1.0712388161967341,
+      "candidate_delta": 0.0,
+      "deployed_nmse": 1.0712388161967341,
+      "deployed_harmful": false
+    }
+  ],
+  "deployed_harmful_count": 0,
+  "candidate_harmful_count": 1,
+  "report_sha256": "cc9cde9b33c8e62b210af2e9a3a0f9f8887b5797fd6e5fea70c4a7fa04bda8d6"
+}
