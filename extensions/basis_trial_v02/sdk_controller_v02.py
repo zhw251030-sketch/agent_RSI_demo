@@ -356,8 +356,6 @@ def _execute(root, output_dir, session_id, packet, ledger, settings, *, stage,
                 conv.run()
         result['conversation_status']=str(conv.state.execution_status)
     except Exception as error:
-        import traceback
-        traceback.print_exc()
         cause=error
         while cause is not None and not isinstance(cause,CaptureReached): cause=cause.__cause__
         if not (capture and cause is not None):
