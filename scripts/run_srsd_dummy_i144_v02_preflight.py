@@ -61,14 +61,15 @@ def _fake_responses() -> list[dict]:
     for definition in DUMMY_I144_V02_TASK_DEFINITIONS:
         parent = list(definition.parents[0].feature_ids)
         spec = v02_make_spec(len(definition.input_names), len(parent))
-        alternatives = [feature for feature in spec["feature_ids"] if feature not in parent]
+        alternatives = [feature for feature in spec["feature_ids"]
+                        if feature not in parent and feature in {"m_0_0_0_2_0", "m_0_0_2_0_0", "m_0_2_0_0_0"}]
+        if not alternatives:
+            alternatives = [feature for feature in spec["feature_ids"] if feature not in parent]
         candidate = list(parent)
         candidate[-1] = alternatives[0]
         responses.extend([
-            {"tool": "submit_basis", "arguments": {
-                "feature_ids": parent, "explanation": "Synthetic parent retention rehearsal."}},
-            {"tool": "submit_basis", "arguments": {
-                "feature_ids": candidate, "explanation": "Synthetic one-term replacement rehearsal."}},
+            {"tool": "submit_basis", "arguments": {"feature_ids": parent}},
+            {"tool": "submit_basis", "arguments": {"feature_ids": candidate}},
         ])
     return responses
 
