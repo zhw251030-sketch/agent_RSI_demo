@@ -1,0 +1,51 @@
+{
+  "schema": "srsd-feynman-easy-dummy-i144-v02-source-v0.1",
+  "dataset": "yoshitomo-matsubara/srsd-feynman_easy_dummy",
+  "dataset_card_url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy",
+  "source_license": "CC-BY-4.0",
+  "source_split_policy": "train and val are public development files; test is reserved",
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "supp_info_sha256": "66162eba67dc8ec5e98ba46118188f8bc54416550b8262725289587b49d6432e",
+  "tasks": {
+    "srsd-feynman-i14-4-dummy-v02": {
+      "source_id": "feynman-i.14.4",
+      "equation": "0.5*x1*x2**2",
+      "symbols": [
+        "$U$",
+        "$k_\\text{spring}$",
+        "$x$"
+      ],
+      "symbols_descs": [
+        "Elastic energy",
+        "Spring constant",
+        "Position"
+      ],
+      "files": {
+        "train": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/train/feynman-i.14.4.txt?download=true",
+          "read": true,
+          "raw_sha256": "a21e93c0cdc57cae96e0319b23b702c1c3d910b1bfb9f3b56bbc5f1b4148bb0d",
+          "raw_bytes": 1203944,
+          "row_count": 8000,
+          "csv_path": "data/external/srsd-feynman-easy-dummy-i144-v02/srsd-feynman-i14-4-dummy-v02/train.csv",
+          "csv_sha256": "fb0abc8284eee545ddb3c89d1ef352445c7edf05ed9ed2d12eeacc2a360d9c98"
+        },
+        "val": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/val/feynman-i.14.4.txt?download=true",
+          "read": true,
+          "raw_sha256": "3c8747871624f4085cb3184a8a92693c84c8abb669e1328da8aeb911a44134c4",
+          "raw_bytes": 150502,
+          "row_count": 1000,
+          "csv_path": "data/external/srsd-feynman-easy-dummy-i144-v02/srsd-feynman-i14-4-dummy-v02/val.csv",
+          "csv_sha256": "16ecb696307f36168eb27cfb9d6d52123929e28ed228cdab1266e8407f1e0a0f"
+        },
+        "test": {
+          "url": "https://huggingface.co/datasets/yoshitomo-matsubara/srsd-feynman_easy_dummy/resolve/main/test/feynman-i.14.4.txt?download=true",
+          "read": false
+        }
+      }
+    }
+  },
+  "manifest_sha256": "1044417b0f9d6e822d6954133e047af63ddeb63f19e3f3ba1c18e7e13907e7c0"
+}

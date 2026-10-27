@@ -1,0 +1,59 @@
+{
+  "schema": "replacement-srsd-feynman-dummy-i144-v02-v05-verification",
+  "status": "passed",
+  "mode": "fake",
+  "run_id": "2026-10-27-srsd-dummy-i144-v02-fake-v06",
+  "code_commit": "30fef33ef8fe6e7d3b58d61072db19469052ea9a",
+  "sdk_version": "1.55.1",
+  "split_report_sha256": "f3466a866d4833893966aa37a69e0545f9491c037db36e2b3b660400c54cf894",
+  "source_report_sha256": "9e12a803220ac18da92056606e26b03fe640c0e939f005afa8c3ccb603a4994d",
+  "runtime_lock_sha256": "8548e1fd3c397331121dfae2c69760a705ec182fb0d49b44bc2dccdd71635031",
+  "model_requests": 2,
+  "accepted_slots": 2,
+  "gate_records": 6,
+  "real_model_calls": 0,
+  "official_test_read": false,
+  "official_test_ood_read": false,
+  "outcome_dev_read": true,
+  "provider_calls": 2,
+  "round_summary_sha256": "f4d682cfa7538cefa35a49181bdedbb55caced75d383d5a7c77d3afc3f4de8bf",
+  "budget": {
+    "config": {
+      "max_requests": 2,
+      "max_requests_per_session": 1,
+      "max_output_tokens": 8192,
+      "max_input_bytes": 98304,
+      "max_reserved_tokens": 200000,
+      "max_cost_cny": 4.0,
+      "input_cny_per_million": 2.1,
+      "output_cny_per_million": 8.4,
+      "session_ids": [
+        "srsd-feynman-i14-4-dummy-v02-p01-r1",
+        "srsd-feynman-i14-4-dummy-v02-p01-r2"
+      ]
+    },
+    "request_count": 2,
+    "session_counts": {
+      "srsd-feynman-i14-4-dummy-v02-p01-r1": 1,
+      "srsd-feynman-i14-4-dummy-v02-p01-r2": 1
+    },
+    "reserved_count": 0,
+    "failed_count": 0,
+    "reserved_input_tokens": 22278,
+    "reserved_output_tokens": 16384,
+    "reserved_tokens": 38662,
+    "reserved_cost_cny": 0.1844094,
+    "usage_unknown_count": 0,
+    "known_prompt_tokens": 200,
+    "known_completion_tokens": 40,
+    "known_total_tokens": 240,
+    "known_estimated_cost_cny": 0.000756,
+    "actual_tokens": 240,
+    "actual_estimated_cost_cny": 0.000756,
+    "halted": false,
+    "halt_reasons": [],
+    "recovery": null,
+    "reservation_method": "compact_utf8_json_bytes_plus_8192",
+    "cost_basis": "configured_uncached_prices_estimate_not_provider_invoice"
+  }
+}
