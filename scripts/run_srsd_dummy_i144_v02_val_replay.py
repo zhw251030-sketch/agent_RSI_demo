@@ -20,7 +20,10 @@ from extensions.symbolic_basis_v02.contract import compile_submission as v02_com
 from rsi_eval.symbolic import score_predictions
 
 
-ROUND = ROOT / "runs/replacement-srsd-feynman-dummy-i144-v02-v05/2026-10-27-srsd-dummy-i144-v02-fake-v02/round/round-summary.json"
+# The stable model-free rehearsal is fake-v06.  Earlier fake-v01/v03--v05
+# directories are intentionally retained as stopped diagnostics and must not
+# become the implicit input to the validation replay.
+ROUND = ROOT / "runs/replacement-srsd-feynman-dummy-i144-v02-v05/2026-10-27-srsd-dummy-i144-v02-fake-v06/round/round-summary.json"
 DEV_REPORT = ROOT / "docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-dev-v05.json"
 VAL_REPORT = ROOT / "docs/environment/2026-10-27-srsd-feynman-dummy-i144-v02-val-domain-v05.json"
 TOLERANCE = 1e-5
