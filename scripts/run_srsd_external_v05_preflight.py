@@ -71,7 +71,36 @@ def _fake_responses() -> list[dict]:
     return responses
 
 
-def run(run_id: str) -> dict:
+def _validate_fake_certificate() -> dict:
+    certificate = json.loads(CERTIFICATE.read_text(encoding="utf-8"))
+    required = {
+        "schema": PROTOCOL + "-verification", "status": "passed", "mode": "fake",
+        "model_requests": 6, "accepted_slots": 6, "gate_records": 18,
+        "real_model_calls": 0, "official_test_read": False,
+        "official_test_ood_read": False,
+    }
+    if any(certificate.get(key) != value for key, value in required.items()):
+        raise RuntimeError("SRSD fake certificate is incomplete")
+    for key, path in (("split_report_sha256", SPLIT_REPORT),
+                      ("source_report_sha256", SOURCE_REPORT),
+                      ("runtime_lock_sha256", RUNTIME_LOCK)):
+        if certificate.get(key) != _sha_file(path):
+            raise RuntimeError(f"SRSD fake certificate hash mismatch: {key}")
+    certificate_commit = certificate.get("code_commit")
+    current = _commit()
+    if not isinstance(certificate_commit, str) or subprocess.run(
+        ["git", "merge-base", "--is-ancestor", certificate_commit, current],
+        cwd=ROOT, capture_output=True,
+    ).returncode != 0:
+        raise RuntimeError("SRSD fake certificate code commit is not an ancestor")
+    return certificate
+
+
+def run(run_id: str, *, mode: str = "fake", auth_file: str | None = None) -> dict:
+    if mode not in {"fake", "real"}:
+        raise ValueError("mode must be fake or real")
+    if mode == "real":
+        _validate_fake_certificate()
     output = ROOT / "runs" / PROTOCOL / run_id
     if output.exists():
         raise FileExistsError("preflight output already exists; no resume")
@@ -84,25 +113,33 @@ def run(run_id: str) -> dict:
         max_requests_per_session=1, max_output_tokens=8192, max_input_bytes=98304,
         max_reserved_tokens=200000, max_cost_cny=4, session_ids=_slot_ids(),
     )
-    settings = sdk_controller.public_settings() | {"api_key": "synthetic-no-network-key"}
-    provider = sdk_controller.FakeProvider(_fake_responses())
+    settings = sdk_controller.public_settings()
+    provider = None
+    if mode == "fake":
+        settings["api_key"] = "synthetic-no-network-key"
+        provider = sdk_controller.FakeProvider(_fake_responses())
+    else:
+        from scripts.configure_minimax import auth_path, read_key
+        settings["api_key"] = read_key(auth_path(auth_file))
 
     def actor_runner(*, slot_id, packet, spec, output_dir):
         return sdk_controller.run_session(
             ROOT, output_dir, slot_id, packet, ledger, settings, stage="actor", spec=spec,
         )
 
-    with patch("openhands.sdk.llm.llm.litellm_completion", provider):
+    context = (patch("openhands.sdk.llm.llm.litellm_completion", provider)
+               if provider is not None else contextlib.nullcontext())
+    with context:
         summary = run_round(
             tasks=tasks, actor_runner=actor_runner,
             fit_executor=sandbox_call, predict_executor=sandbox_call,
-            output_dir=output / "round", synthetic_outcome=True,
+            output_dir=output / "round", synthetic_outcome=(mode == "fake"),
             task_definitions=EXTERNAL_TASK_DEFINITIONS,
         )
     report = {
         "schema": PROTOCOL + "-verification",
         "status": "passed",
-        "mode": "fake",
+        "mode": mode,
         "run_id": run_id,
         "code_commit": _commit(),
         "sdk_version": importlib.metadata.version("openhands-sdk"),
@@ -112,18 +149,19 @@ def run(run_id: str) -> dict:
         "model_requests": summary["model_requests"],
         "accepted_slots": summary["accepted_slots"],
         "gate_records": summary["gate_records"],
-        "real_model_calls": 0,
+        "real_model_calls": 0 if mode == "fake" else summary["model_requests"],
         "official_test_read": False,
         "official_test_ood_read": False,
         "outcome_dev_read": True,
-        "provider_calls": provider.calls,
+        "provider_calls": None if provider is None else provider.calls,
         "round_summary_sha256": _sha_file(output / "round/round-summary.json"),
         "budget": ledger.summary(),
     }
     if report["model_requests"] != len(_slot_ids()) or report["accepted_slots"] != len(_slot_ids()):
         raise RuntimeError("external fake preflight did not complete every slot")
-    CERTIFICATE.parent.mkdir(parents=True, exist_ok=True)
-    CERTIFICATE.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if mode == "fake":
+        CERTIFICATE.parent.mkdir(parents=True, exist_ok=True)
+        CERTIFICATE.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output / "summary.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "status": report["status"], "run_id": run_id,
@@ -135,9 +173,11 @@ def run(run_id: str) -> dict:
 
 def main() -> int:
     parser = __import__("argparse").ArgumentParser()
+    parser.add_argument("--mode", choices=("fake", "real"), default="fake")
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--auth-file")
     args = parser.parse_args()
-    run(args.run_id)
+    run(args.run_id, mode=args.mode, auth_file=args.auth_file)
     return 0
 
 
