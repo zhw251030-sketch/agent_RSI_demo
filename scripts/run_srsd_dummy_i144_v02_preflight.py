@@ -65,8 +65,10 @@ def _fake_responses() -> list[dict]:
         candidate = list(parent)
         candidate[-1] = alternatives[0]
         responses.extend([
-            {"tool": "submit_basis", "arguments": {"feature_ids": parent}},
-            {"tool": "submit_basis", "arguments": {"feature_ids": candidate}},
+            {"tool": "submit_basis", "arguments": {
+                "feature_ids": parent, "explanation": "Synthetic parent retention rehearsal."}},
+            {"tool": "submit_basis", "arguments": {
+                "feature_ids": candidate, "explanation": "Synthetic one-term replacement rehearsal."}},
         ])
     return responses
 
