@@ -38,17 +38,17 @@ def _decode_json(value):
         raise ValueError('Invalid bounded UTF-8 JSON') from error
 
 
+HOST_EXPLANATION = 'Host-generated execution payload; model explanation is archive-only.'
+
+
 def _business_payload(value):
-    if type(value) is not dict or set(value) != {'feature_ids', 'explanation'}:
-        raise ValueError('Business payload must contain exactly feature_ids and explanation')
+    if type(value) is not dict or set(value) != {'feature_ids'}:
+        raise ValueError('Business payload must contain exactly feature_ids')
     ids = value['feature_ids']
     if (type(ids) is not list or not 1 <= len(ids) <= 16
             or any(type(item) is not str or not item or len(item) > 128 for item in ids)
             or len(set(ids)) != len(ids)):
         raise ValueError('Feature IDs must be distinct bounded strings in a JSON list')
-    explanation = value['explanation']
-    if type(explanation) is not str or not explanation.strip() or len(explanation) > 2000:
-        raise ValueError('Explanation must be nonblank text of at most 2000 characters')
     try:
         encoded = json.dumps(value, ensure_ascii=False, allow_nan=False).encode('utf-8')
     except (ValueError, UnicodeError, TypeError) as error:
@@ -134,7 +134,7 @@ class BasisSubmissionHandler:
                 raise ValueError('One raw response per handler; no retry')
             self._state = 'failed'
             business = parse_tool_response(response)
-            compiled = compile_submission(business, self.spec)
+            compiled = compile_submission({**business, 'explanation': HOST_EXPLANATION}, self.spec)
             self._business = copy.deepcopy(business)
             self._compiled = copy.deepcopy(compiled)
             self._state = 'prepared'
@@ -169,7 +169,7 @@ class BasisSubmissionHandler:
 def build_tool_definition(handler):
     """Construct the actual SDK tool; imports SDK only when explicitly called.
 
-    The action schema exposes exactly the two business fields. SDK-generated
+    The action schema exposes exactly the feature selection field. SDK-generated
     metadata fields are not advertised or accepted by this successor contract.
     Integration with a future Agent must also disable its default tools and
     invoke prepare_response at the raw-provider boundary before SDK parsing.
@@ -189,17 +189,14 @@ def build_tool_definition(handler):
             'feature_ids': {'type': 'array', 'items': {'type': 'string', 'enum': spec['feature_ids']},
                             'minItems': spec['k'], 'maxItems': spec['k'], 'uniqueItems': True,
                             'description': 'Choose exactly the host-specified number of distinct catalog IDs, including the constant.'},
-            'explanation': {'type': 'string', 'minLength': 1, 'maxLength': 2000,
-                            'description': 'Unverified explanation only; never executable source or coefficients.'},
         },
-        'required': ['feature_ids', 'explanation'],
+        'required': ['feature_ids'],
         'additionalProperties': False,
     }
 
     class BasisSubmissionAction(Action):
         model_config = ConfigDict(extra='forbid', strict=True)
         feature_ids: list[StrictStr] = Field(min_length=spec['k'], max_length=spec['k'])
-        explanation: StrictStr = Field(min_length=1, max_length=2000)
 
         @classmethod
         def to_mcp_schema(cls):
@@ -209,7 +206,7 @@ def build_tool_definition(handler):
         def strict_contract(self):
             business = self.model_dump(exclude={'kind'})
             _business_payload(business)
-            validate_submission(business, spec)
+            validate_submission({**business, 'explanation': HOST_EXPLANATION}, spec)
             return self
 
     class BasisSubmissionObservation(Observation):

@@ -232,7 +232,7 @@ def _execute(root, output_dir, session_id, packet, ledger, settings, *, stage,
                     or advertised[0].get('function',{}).get('name')!=tool_name or payload.get('tool_choice') is not None):
                 raise ValueError('Only the single business tool may be advertised')
             fields=set(advertised[0]['function']['parameters']['properties'])
-            if fields != ({'feature_ids','explanation'} if stage=='actor' else {'rule_ids','explanation'}):
+            if fields != ({'feature_ids'} if stage=='actor' else {'rule_ids','explanation'}):
                 raise ValueError('SDK advertised unapproved action fields')
             if capture:
                 state['captured']=copy.deepcopy(payload)
